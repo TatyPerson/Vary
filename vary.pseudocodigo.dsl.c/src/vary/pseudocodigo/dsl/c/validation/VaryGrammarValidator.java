@@ -1,0 +1,4262 @@
+package vary.pseudocodigo.dsl.c.validation;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.resource.IContainer;
+import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.resource.IResourceDescription;
+import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.validation.CheckType;
+
+import com.google.inject.Inject;
+
+import vary.pseudocodigo.dsl.c.generator.util.IdiomaProyecto;
+import vary.pseudocodigo.dsl.c.resources.VaryGrammarIndex;
+import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescription;
+import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescriptionStrategy;
+import diagramapseudocodigo.Algoritmo;
+import diagramapseudocodigo.And;
+import diagramapseudocodigo.Archivo;
+import diagramapseudocodigo.Asignacion;
+import diagramapseudocodigo.AsignacionCompleja;
+import diagramapseudocodigo.AsignacionNormal;
+import diagramapseudocodigo.Bloque;
+import diagramapseudocodigo.CampoRegistro;
+import diagramapseudocodigo.Caracter;
+import diagramapseudocodigo.Caso;
+import diagramapseudocodigo.Codigo;
+import diagramapseudocodigo.Comparacion;
+import diagramapseudocodigo.ConstCadena;
+import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Declaracion;
+import diagramapseudocodigo.DeclaracionPropia;
+import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Division;
+import diagramapseudocodigo.Enumerado;
+import diagramapseudocodigo.Escribir;
+import diagramapseudocodigo.Funcion;
+import diagramapseudocodigo.FuncionFicheroAbrir;
+import diagramapseudocodigo.FuncionFicheroCerrar;
+import diagramapseudocodigo.Igualdad;
+import diagramapseudocodigo.Implementacion;
+import diagramapseudocodigo.Inicio;
+import diagramapseudocodigo.Leer;
+import diagramapseudocodigo.LlamadaFuncion;
+import diagramapseudocodigo.Matriz;
+import diagramapseudocodigo.Modulo;
+import diagramapseudocodigo.Multiplicacion;
+import diagramapseudocodigo.Negacion;
+import diagramapseudocodigo.Negativa;
+import diagramapseudocodigo.NumeroDecimal;
+import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.Operador;
+import diagramapseudocodigo.Or;
+import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Procedimiento;
+import diagramapseudocodigo.Registro;
+import diagramapseudocodigo.Resta;
+import diagramapseudocodigo.Sentencias;
+import diagramapseudocodigo.Si;
+import diagramapseudocodigo.Subproceso;
+import diagramapseudocodigo.Subrango;
+import diagramapseudocodigo.SubrangoEnumerado;
+import diagramapseudocodigo.SubrangoNumerico;
+import diagramapseudocodigo.Suma;
+import diagramapseudocodigo.TipoComplejo;
+import diagramapseudocodigo.TipoDefinido;
+import diagramapseudocodigo.TipoVariable;
+import diagramapseudocodigo.ValorBooleano;
+import diagramapseudocodigo.ValorMatriz;
+import diagramapseudocodigo.ValorRegistro;
+import diagramapseudocodigo.ValorVector;
+import diagramapseudocodigo.Variable;
+import diagramapseudocodigo.VariableID;
+import diagramapseudocodigo.Vector;
+import diagramapseudocodigo.desde;
+import diagramapseudocodigo.mientras;
+import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.repetir;
+import diagramapseudocodigo.segun;
+import diagramapseudocodigo.unaria;
+import diagramapseudocodigo.valor;
+import diagramapseudocodigo.impl.ModuloImpl;
+
+public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
+	public static final String INVALID_VAR_NAME = "xtext.workshop.advanced.quickfix.InvalidTypeName";
+	public static final String CONSTANTE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.ConstanteNoDefinida";
+	public static String DUPLICATE_MODULE = "vary.pseudocodigo.dsl.c.VaryGrammar.DuplicateModule";
+	private ResourceSet resourceSet;
+	@Inject
+	ResourceDescriptionsProvider resourceDescriptionsProvider;
+	@Inject VaryGrammarIndex index;
+	@Inject IQualifiedNameProvider nameProvider;
+
+	@Inject
+	IContainer.Manager containerManager;
+	
+	private static VaryGrammarValidatorAux funciones = new VaryGrammarValidatorAux();
+	private static RecursosCompartidos recursosCompartidos = new RecursosCompartidos();
+	
+	@Inject
+	IResourceDescriptions resourceDescriptions;
+	
+
+	@Check(CheckType.NORMAL)
+	public void checkNameModuleDuplicate(Modulo modulo) {
+		Set<QualifiedName> names = new HashSet<QualifiedName>();
+		IResourceDescriptions resourceDescriptions = resourceDescriptionsProvider.getResourceDescriptions(modulo.eResource());
+		IResourceDescription resourceDescription = resourceDescriptions.getResourceDescription(modulo.eResource().getURI());
+		for (IContainer c : containerManager.getVisibleContainers(resourceDescription, resourceDescriptions)) {
+			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO)) {
+				System.out.println("Estoy entrando en el bucle interior pero no en el if");
+				if (!names.add(od.getQualifiedName())) {
+					error("El modulo "+ modulo.getNombre() + " ya ha sido definido", DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE);
+				}
+			}
+		}
+	}
+	
+	@Check(CheckType.NORMAL)
+	public void checkEsUnico(Algoritmo algoritmo) {
+		Set<QualifiedName> names = new HashSet<QualifiedName>();
+		IResourceDescriptions resourceDescriptions = resourceDescriptionsProvider.getResourceDescriptions(algoritmo.eResource());
+		IResourceDescription resourceDescription = resourceDescriptions.getResourceDescription(algoritmo.eResource().getURI());
+		for (IContainer c : containerManager.getVisibleContainers(resourceDescription, resourceDescriptions)) {
+			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.ALGORITMO)) {
+				System.out.println("Estoy entrando en el bucle interior pero no en el if");
+				if (!names.add(od.getQualifiedName()) || names.size() > 1) {
+					error("Solo es posible declarar un único algoritmo principal", DiagramapseudocodigoPackage.Literals.ALGORITMO__NOMBRE);
+				}
+			}
+		}
+	}
+	
+
+	/*@Check
+	public void checkNombreModuloUnico(Modulo modulo) {
+		/*if(resourceDescriptions == null) {
+			System.out.println("El inject es nulo...");
+		}
+		else {
+			System.out.println("El inject no es nulo!");
+		}*/
+		/*List<Modulo> modulos = getAllModules();
+		if(modulos == null) {
+			System.out.println("Devuelve una lista nula..");
+		}
+		if(modulos.isEmpty()) {
+			System.out.println("Devuelve una lista vacia..");
+		}
+		System.out.println("Hay "+modulos.size()+" modulos");
+		int count = 0;
+		for (Modulo m : modulos) {
+			System.out.println("Hay un modulo que se llama: "+m.getNombre());
+			if (modulo.getNombre().equals(m.getNombre())) {
+				count++;
+			}
+		}
+		if ( count >1 ) {
+			error("Nombre unico", DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE, modulo.getNombre());
+		}
+	}
+	
+	private List<Modulo> getAllModules() {
+		List<Modulo> result = new ArrayList<Modulo>();
+		/*for (IResourceDescription resourceDescription : resourceDescriptions.getAllResourceDescriptions()) {
+			result.addAll(resourceDescription.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO));
+			System.out.println("Primer bucle");
+			for (IEObjectDescription eobjectDescription : resourceDescription.getExportedObjects()) {
+				System.out.println("Segundo bucle");
+				result.add((Modulo) eobjectDescription.getEObjectOrProxy());
+			}
+		}*/
+		/*IResourceDescriptions index = resourceDescriptionsProvider.getResourceDescriptions(resourceSet);
+		for (IResourceDescription resourceDescription : index.getAllResourceDescriptions()) {
+			for (IContainer visibleContainer : containerManager.getVisibleContainers(resourceDescription, index)) {
+				for (IEObjectDescription od : visibleContainer.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO)) {
+					// Proxy only :(
+					Modulo modulo = (Modulo) od.getEObjectOrProxy();
+					result.add(modulo);
+					// Do validation
+				}
+			}
+		}
+		return result;
+	}*/
+	
+	
+	@Check
+	//Función que se encarga de comprobar si el limite inferior de un subrango es siempre inferior al superior.
+	protected void checkSubrango(Subrango s) {
+		if(s instanceof SubrangoNumerico) {
+			SubrangoNumerico sn = (SubrangoNumerico) s;
+			if(sn.getLimite_inf() > sn.getLimite_sup()) {
+				error("El limite inferior del subrango no puede ser mayor que el superior.",DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de validar si la variable utilizada en un bucle desde ha sido previamente declarada
+	protected void checkDesde(Modulo modulo) {
+		boolean ok = false;
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof desde) {
+					desde desdeAux = (desde) s;
+					for(Declaracion d: sub.getDeclaracion()) {
+						if(d instanceof DeclaracionVariable) {
+							DeclaracionVariable dec = (DeclaracionVariable) d;
+							for(Variable v: dec.getVariable()) {
+								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
+								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals("entero")) {
+									ok = true;
+								}
+								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals("entero")) {
+									ok = true;
+									error("La variable utilizada en el bucle desde debe ser de tipo entero", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+								}
+							}
+						}
+					}
+					if(!ok) {
+						error("La variable utilizada en el bucle debe haber sido previamente declarada", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+					}
+					ok = false;
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de validar si la variable utilizada en un bucle desde ha sido previamente declarada
+	protected void checkDesde(Algoritmo algoritmo) {
+		boolean ok = false;
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof desde) {
+				desde desdeAux = (desde) s;
+				for(Declaracion d: algoritmo.getTiene().getDeclaracion()) {
+					if(d instanceof DeclaracionVariable) {
+						DeclaracionVariable dec = (DeclaracionVariable) d;
+						for(Variable v: dec.getVariable()) {
+							System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
+							if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals("entero")) {
+								ok = true;
+							}
+							else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals("entero")) {
+								ok = true;
+								error("La variable utilizada en el bucle desde debe ser de tipo entero", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+							}
+						}
+					}
+				}
+				if(!ok) {
+					error("La variable utilizada en el bucle debe haber sido previamente declarada", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+				}
+				ok = false;
+			}
+		}
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof desde) {
+					desde desdeAux = (desde) s;
+					for(Declaracion d: sub.getDeclaracion()) {
+						if(d instanceof DeclaracionVariable) {
+							DeclaracionVariable dec = (DeclaracionVariable) d;
+							for(Variable v: dec.getVariable()) {
+								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
+								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals("entero")) {
+									ok = true;
+								}
+								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals("entero")) {
+									ok = true;
+									error("La variable utilizada en el bucle desde debe ser de tipo entero", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+								}
+							}
+						}
+					}
+					if(!ok) {
+						error("La variable utilizada en el bucle debe haber sido previamente declarada", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+					}
+					ok = false;
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkDesdeTope(Modulo modulo) {
+		boolean ok = false;
+		Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes());
+		
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			Map<String,String> globalesTipadas = funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobal(), sub.getDeclaracion());
+			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			Map<String,String> parametrosTipados = funciones.registrarParametrosTipados(sub.getParametrofuncion());
+			variablesTipadas.putAll(parametrosTipados);
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof desde) {
+					desde desdeAux = (desde) s;
+					if(desdeAux.getValor() instanceof VariableID){
+						VariableID variable = (VariableID) desdeAux.getValor();
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+						}
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+						if(!ok) {
+							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+					else if(desdeAux.getValor() instanceof operacion) {
+						operacion op = (operacion) desdeAux.getValor();
+						VariableID variable = null;
+						if(op instanceof Suma) {
+							Suma suma = (Suma) op;
+							if(suma.getRight() instanceof VariableID) {
+								variable = (VariableID) suma.getRight();
+							}
+							else if(suma.getLeft() instanceof VariableID) {
+								variable = (VariableID) suma.getLeft();
+							}
+						}
+						else if(op instanceof Resta) {
+							Resta resta = (Resta) op;
+							if(resta.getRight() instanceof VariableID) {
+								variable = (VariableID) resta.getRight();
+							}
+							else if(resta.getLeft() instanceof VariableID) {
+								variable = (VariableID) resta.getLeft();
+							}
+						}
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+						}
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+						if(!ok) {
+							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+					ok = false;
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de validar si la variable utilizada como limite en un bucle desde ha sido previamente declarada
+	protected void checkDesdeTope(Algoritmo algoritmo) {
+		boolean ok = false;
+		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(algoritmo.getConstantes());
+		Map<String,String> globalesTipadas = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion());
+		
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof desde) {
+				desde desdeAux = (desde) s;
+				if(desdeAux.getValor() instanceof VariableID){
+					VariableID variable = (VariableID) desdeAux.getValor();
+					if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						ok = true;
+					}
+					else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						ok = true;
+						error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+					if(!ok) {
+						error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+				}
+				else if(desdeAux.getValor() instanceof operacion) {
+					operacion op = (operacion) desdeAux.getValor();
+					VariableID variable = null;
+					if(op instanceof Suma) {
+						Suma suma = (Suma) op;
+						if(suma.getRight() instanceof VariableID) {
+							variable = (VariableID) suma.getRight();
+						}
+						else if(suma.getLeft() instanceof VariableID) {
+							variable = (VariableID) suma.getLeft();
+						}
+					}
+					else if(op instanceof Resta) {
+						Resta resta = (Resta) op;
+						if(resta.getRight() instanceof VariableID) {
+							variable = (VariableID) resta.getRight();
+						}
+						else if(resta.getLeft() instanceof VariableID) {
+							variable = (VariableID) resta.getLeft();
+						}
+					}
+					if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						ok = true;
+					}
+					else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						ok = true;
+						error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+					if(!ok) {
+						error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+					
+				}
+				
+				ok = false;
+			}
+		}
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			Map<String,String> parametrosTipados = funciones.registrarParametrosTipados(sub.getParametrofuncion());
+			variablesTipadas.putAll(parametrosTipados);
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof desde) {
+					desde desdeAux = (desde) s;
+					if(desdeAux.getValor() instanceof VariableID){
+						VariableID variable = (VariableID) desdeAux.getValor();
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+						}
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+						if(!ok) {
+							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+					else if(desdeAux.getValor() instanceof operacion) {
+						operacion op = (operacion) desdeAux.getValor();
+						VariableID variable = null;
+						if(op instanceof Suma) {
+							Suma suma = (Suma) op;
+							if(suma.getRight() instanceof VariableID) {
+								variable = (VariableID) suma.getRight();
+							}
+							else if(suma.getLeft() instanceof VariableID) {
+								variable = (VariableID) suma.getLeft();
+							}
+						}
+						else if(op instanceof Resta) {
+							Resta resta = (Resta) op;
+							if(resta.getRight() instanceof VariableID) {
+								variable = (VariableID) resta.getRight();
+							}
+							else if(resta.getLeft() instanceof VariableID) {
+								variable = (VariableID) resta.getLeft();
+							}
+						}
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+						}
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+							ok = true;
+							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+						if(!ok) {
+							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+					ok = false;
+				}
+			}
+		}
+	}
+	
+	protected void checkSubrangoEnumeradoAux(List<TipoComplejo> complejos) {
+		ArrayList<String> enumerados = new ArrayList<String>();
+		Map<String, ArrayList<String>> variablesEnumerados = new HashMap<String, ArrayList<String>>();
+		
+		for(TipoComplejo t: complejos) {
+			if(t instanceof Enumerado) {
+				Enumerado enumerado = (Enumerado) t;
+				enumerados.add(enumerado.getNombre());
+				variablesEnumerados.put(enumerado.getNombre(), new ArrayList<String>());
+				for(valor v: enumerado.getValor()) {
+					if(v instanceof Operador) {
+						Operador op = (Operador) v;
+						if(op instanceof VariableID) {
+							VariableID var = (VariableID) op;
+							variablesEnumerados.get(enumerado.getNombre()).add(var.getNombre());
+						}
+					}
+				}
+			}
+		}
+		
+		for(TipoComplejo t: complejos) {
+			if(t instanceof SubrangoEnumerado) {
+				SubrangoEnumerado subrango = (SubrangoEnumerado) t;
+				String limite_inf = subrango.getLimite_inf();
+				String limite_sup = subrango.getLimite_sup();
+				boolean loTiene = false;
+				
+				for(String nombreEnumerado: enumerados) {
+					if(variablesEnumerados.get(nombreEnumerado).contains(limite_inf) && variablesEnumerados.get(nombreEnumerado).contains(limite_sup)) {
+						loTiene = true;
+						if(variablesEnumerados.get(nombreEnumerado).indexOf(limite_inf) > variablesEnumerados.get(nombreEnumerado).indexOf(limite_sup)) {
+							error("El límite inferior del subrango no puede ser posterior en el enumerado de referencia que el límite superior", subrango, DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
+						}
+					}
+				}
+				if(loTiene == false) {
+					error("Los límites inferior y superior del subrango deben pertenecer a un enumerado previamente definido", subrango, DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
+				}
+			}
+		}
+		
+	}
+	
+	@Check
+	protected void checkSubrangoEnumerado(Modulo modulo) {
+		checkSubrangoEnumeradoAux(modulo.getImplementacion().getTipocomplejo());
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si el limite inferior y superior de un SubrangoEnumerado estan ordenados
+	protected void checkSubrangoEnumerado(Algoritmo algoritmo) {
+		checkSubrangoEnumeradoAux(algoritmo.getTipocomplejo());
+	}
+
+	@Check
+	//Función que se encarga de comprobar que no existen casos repetidos en la estructura segun_sea
+	protected void checkCasos(segun s) {
+		List<Integer> numeros = new ArrayList<Integer>();
+		for(Caso c: s.getCaso()) {
+			operacion op = c.getOperador();
+			if(op instanceof NumeroEntero) {
+				NumeroEntero e = (NumeroEntero) op;
+				if(!numeros.contains(e.getValor())) {
+					//Si no esta repetido lo registramos
+					numeros.add(e.getValor());
+				}
+				else {
+					//Si esta repetido lanzamos el error
+					error("No pueden exitir dos valores identificadores de los casos de la estructura segun_sea repetidos.", DiagramapseudocodigoPackage.Literals.SEGUN__CASO, s.getCaso().indexOf(c));
+				}
+			}
+		}
+	}
+	
+	
+	@Check
+	//Función que se encarga de comprobar que no existan dos parámetros en un subproceso con el mismo nombre
+	protected void checkParametros(Subproceso s) {
+		List<String> parametros = new ArrayList<String>();
+		for(ParametroFuncion p: s.getParametrofuncion()) {
+			if(!parametros.contains(p.getVariable().getNombre())) {
+				//Si no esta repetida la registramos
+				parametros.add(p.getVariable().getNombre());
+			}
+			else {
+				//Si esta repetida lanzamos el error
+				error("No pueden existir dos parámetros con el mismo nombre en la misma función o procedimiento", DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si la operación de la condición de la estructura "Si" es de tipo lógico
+	protected void checkCondicionesSi(Si si) {
+		if(si.getValor() instanceof  Suma) {
+			Suma suma = (Suma) si.getValor();
+			error("La expresión debe ser de tipo lógico", suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+		}
+		else if(si.getValor() instanceof Resta) {
+			Resta resta = (Resta) si.getValor();
+			error("La expresión debe ser de tipo lógico", resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+		}
+		else if(si.getValor() instanceof Multiplicacion) {
+			Multiplicacion multiplicacion = (Multiplicacion) si.getValor();
+			error("La expresión debe ser de tipo lógico", multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+		}
+		else if(si.getValor() instanceof Division) {
+			Division division = (Division) si.getValor();
+			error("La expresión debe ser de tipo lógico", division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+		}
+		else if(si.getValor() instanceof Negativa) {
+			Negativa negativa = (Negativa) si.getValor();
+			error("La expresión debe ser de tipo lógico", negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+		}
+		else if(si.getValor() instanceof Or) {
+			Or or = (Or) si.getValor();
+			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
+				error("La expresión debe ser de tipo lógico", or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+			}
+		}
+		else if(si.getValor() instanceof And) {
+			And and = (And) si.getValor();
+			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
+				error("La expresión debe ser de tipo lógico", and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+			}
+		}
+		else if(si.getValor() instanceof Comparacion) {
+			Comparacion comp = (Comparacion) si.getValor();
+			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
+				error("La expresión debe ser de tipo lógico", comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+			}
+		}
+		else if(si.getValor() instanceof Igualdad) {
+			Igualdad igualdad = (Igualdad) si.getValor();
+			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
+				error("La expresión debe ser de tipo lógico", igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+			}
+		}
+	}
+
+	@Check
+	//Función que se encarga de comprobar si la operación de la condición de la estructura "Mientras" es de tipo lógico
+	protected void checkCondicionesMientras(mientras miMientras) {
+		if(miMientras.getValor() instanceof  Suma) {
+			Suma suma = (Suma) miMientras.getValor();
+			error("La expresión debe ser de tipo lógico", suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+		}
+		else if(miMientras.getValor() instanceof Resta) {
+			Resta resta = (Resta) miMientras.getValor();
+			error("La expresión debe ser de tipo lógico", resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+		}
+		else if(miMientras.getValor() instanceof Multiplicacion) {
+			Multiplicacion multiplicacion = (Multiplicacion) miMientras.getValor();
+			error("La expresión debe ser de tipo lógico", multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+		}
+		else if(miMientras.getValor() instanceof Division) {
+			Division division = (Division) miMientras.getValor();
+			error("La expresión debe ser de tipo lógico", division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+		}
+		else if(miMientras.getValor() instanceof Negativa) {
+			Negativa negativa = (Negativa) miMientras.getValor();
+			error("La expresión debe ser de tipo lógico", negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+		}
+		else if(miMientras.getValor() instanceof Or) {
+			Or or = (Or) miMientras.getValor();
+			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
+				error("La expresión debe ser de tipo lógico", or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+			}
+		}
+		else if(miMientras.getValor() instanceof And) {
+			And and = (And) miMientras.getValor();
+			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
+				error("La expresión debe ser de tipo lógico", and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+			}
+		}
+		else if(miMientras.getValor() instanceof Comparacion) {
+			Comparacion comp = (Comparacion) miMientras.getValor();
+			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
+				error("La expresión debe ser de tipo lógico", comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+			}
+		}
+		else if(miMientras.getValor() instanceof Igualdad) {
+			Igualdad igualdad = (Igualdad) miMientras.getValor();
+			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
+				error("La expresión debe ser de tipo lógico", igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+			}
+		}
+	}
+	
+	
+	@Check
+	//Función que se encarga de comprobar si la operación de la condición de la estructura "Repetir" es de tipo lógico
+	protected void checkCondicionesRepetir(repetir miRepetir) {
+		if(miRepetir.getValor() instanceof  Suma) {
+			Suma suma = (Suma) miRepetir.getValor();
+			error("La expresión debe ser de tipo lógico", suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+		}
+		else if(miRepetir.getValor() instanceof Resta) {
+			Resta resta = (Resta) miRepetir.getValor();
+			error("La expresión debe ser de tipo lógico", resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+		}
+		else if(miRepetir.getValor() instanceof Multiplicacion) {
+			Multiplicacion multiplicacion = (Multiplicacion) miRepetir.getValor();
+			error("La expresión debe ser de tipo lógico", multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+		}
+		else if(miRepetir.getValor() instanceof Division) {
+			Division division = (Division) miRepetir.getValor();
+			error("La expresión debe ser de tipo lógico", division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+		}
+		else if(miRepetir.getValor() instanceof Negativa) {
+			Negativa negativa = (Negativa) miRepetir.getValor();
+			error("La expresión debe ser de tipo lógico", negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+		}
+		else if(miRepetir.getValor() instanceof Or) {
+			Or or = (Or) miRepetir.getValor();
+			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
+				error("La expresión debe ser de tipo lógico", or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+			}
+		}
+		else if(miRepetir.getValor() instanceof And) {
+			And and = (And) miRepetir.getValor();
+			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
+				error("La expresión debe ser de tipo lógico", and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+			}
+		}
+		else if(miRepetir.getValor() instanceof Comparacion) {
+			Comparacion comp = (Comparacion) miRepetir.getValor();
+			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
+				error("La expresión debe ser de tipo lógico", comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+			}
+		}
+		else if(miRepetir.getValor() instanceof Igualdad) {
+			Igualdad igualdad = (Igualdad) miRepetir.getValor();
+			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
+				error("La expresión debe ser de tipo lógico", igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+			}
+		}
+	}
+	
+	/*
+	
+	@Check
+	//Función que se encarga de comprobar si un vector al que se accede a un campo es un vector de registro
+	protected void checkValorVectorMatriz(Codigo c) {
+		//Registramos todos los nombres de los registros existentes y registramos los vectores con sus respectivos tipos declarados
+		List<String> nombresRegistros = new ArrayList<String>();
+		Map<String,String> vectoresTipados = new HashMap<String,String>();
+		List<String> nombresVectores = new ArrayList<String>();
+		Map<String,String> matricesTipadas = new HashMap<String,String>();
+		List<String> nombresMatrices = new ArrayList<String>();
+		for(TipoComplejo t: c.getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				nombresRegistros.add(r.getNombre());
+			}
+			else if(t instanceof Vector) {
+				Vector v = (Vector) t;
+				vectoresTipados.put(v.getNombre(), funciones.getTipoComplejo(v.getTipo()));
+				nombresVectores.add(v.getNombre());
+			}
+			else if(t instanceof Matriz) {
+				Matriz m = (Matriz) t;
+				matricesTipadas.put(m.getNombre(), funciones.getTipoComplejo(m.getTipo()));
+				nombresMatrices.add(m.getNombre());
+				
+			}
+		}
+		
+		//Despues comprobamos si todos los vectores que utilicen campos son de un tipo de registro
+		//En el programa de inicio:
+		
+		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(c.getTiene().getDeclaracion());
+		
+		checkValorVectorAux(nombresRegistros,c.getTiene().getTiene(), variablesTipadas, vectoresTipados, nombresVectores);
+		checkValorMatrizAux(nombresRegistros,c.getTiene().getTiene(), variablesTipadas, matricesTipadas, nombresMatrices);
+		
+		for(Sentencias s: c.getTiene().getTiene()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) s;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso caso: seg.getCaso()) {
+						checkValorVectorAux(nombresRegistros,caso.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+						checkValorMatrizAux(nombresRegistros,caso.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+						
+						for(Sentencias sentencias: caso.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+								checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+							}
+						}
+					}
+				}
+				else {
+					checkValorVectorAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+					checkValorMatrizAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+					
+					for(Sentencias sentencias: bloque.getSentencias()) {
+						if(sentencias instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sentencias;
+							checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+							checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+						}
+					}
+				}
+			}
+		}
+		
+		//En los subprocesos:
+		
+		for(Subproceso sub: c.getFuncion()) {
+			variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			checkValorVectorAux(nombresRegistros, sub.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+			checkValorMatrizAux(nombresRegistros, sub.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkValorVectorAux(nombresRegistros,caso.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+							checkValorMatrizAux(nombresRegistros,caso.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+									checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+								}
+							}
+						}
+					}
+					else {
+						checkValorVectorAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+						checkValorMatrizAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
+								checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
+
+							}
+						}
+					}
+				}
+			}
+			
+		}	
+	}
+	
+	private void checkValorVectorAux(List<String> nombresRegistros, List<Sentencias> sentencias, Map<String,String> variablesTipadas, Map<String,String> vectoresTipados, List<String> nombresVectores) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof Asignacion) {
+				Asignacion a = (Asignacion) s;
+				if(a.getOperadores() instanceof ValorVector) {
+					ValorVector v = (ValorVector) a.getOperadores();
+					if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+						error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+					else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+						error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				else if(a.getOperadores() instanceof operacion) {
+					operacion o = (operacion) a.getOperadores();
+					List<valor> valores = funciones.registrarValoresOperacion(o);
+					for(valor val: valores) {
+						if(val instanceof ValorVector) {
+							ValorVector v = (ValorVector) val;
+							if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+								error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+							}
+							else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+								error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+							}
+						}
+						else if(val instanceof LlamadaFuncion) {
+							LlamadaFuncion l = (LlamadaFuncion) val;
+							for(valor valAux: l.getOperadores()) {
+								if(valAux instanceof Operador) {
+									Operador op = (Operador) valAux;
+									if(op instanceof ValorVector) {
+										ValorVector v = (ValorVector) op;
+										if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+											error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+										}
+										else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+											error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else if(a.getOperadores() instanceof LlamadaFuncion) {
+					LlamadaFuncion l = (LlamadaFuncion) a.getOperadores();
+					for(valor valAux: l.getOperadores()) {
+						if(valAux instanceof Operador) {
+							Operador op = (Operador) valAux;
+							if(op instanceof ValorVector) {
+								ValorVector v = (ValorVector) op;
+								if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+									error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+								}
+								else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+									error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+								}
+							}
+						}
+					}
+				}
+			}
+			else if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getComplejo() instanceof ValorVector) {
+					ValorVector v = (ValorVector) a.getComplejo();
+					if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+						error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+					else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+						error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				if(a.getOperador() instanceof ValorVector) {
+					ValorVector v = (ValorVector) a.getOperador();
+					if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+						error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+					else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+						error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				else if(a.getOperador() instanceof operacion) {
+					operacion o = (operacion) a.getOperador();
+					List<valor> valores = funciones.registrarValoresOperacion(o);
+					for(valor val: valores) {
+						if(val instanceof ValorVector) {
+							ValorVector v = (ValorVector) val;
+							if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+								error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+							}
+							else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+								error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+							}
+						}
+						else if(val instanceof LlamadaFuncion) {
+							LlamadaFuncion l = (LlamadaFuncion) val;
+							for(valor valAux: l.getOperador()) {
+								if(valAux instanceof Operador) {
+									Operador op = (Operador) valAux;
+									if(op instanceof ValorVector) {
+										ValorVector v = (ValorVector) op;
+										if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+											error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+										}
+										else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+											error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else if(a.getOperador() instanceof LlamadaFuncion) {
+					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
+					for(valor valAux: l.getOperador()) {
+						if(valAux instanceof Operador) {
+							Operador op = (Operador) valAux;
+							if(op instanceof ValorVector) {
+								ValorVector v = (ValorVector) op;
+								if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
+									error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+								}
+								else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
+									error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	private void checkValorMatrizAux(List<String> nombresRegistros, List<Sentencias> sentencias, Map<String,String> variablesTipadas, Map<String,String> matricesTipadas, List<String> nombresMatrices) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof AsignacionNormal) {
+				AsignacionNormal a = (AsignacionNormal) s;
+				if(a.getOperador() instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) a.getOperador();
+					if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+						error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+					else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+						error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				else if(a.getOperador() instanceof operacion) {
+					operacion o = (operacion) a.getOperador();
+					List<valor> valores = funciones.registrarValoresOperacion(o);
+					for(valor val: valores) {
+						if(val instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) val;
+							if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+								error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+							}
+							else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+								error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+							}
+						}
+						else if(val instanceof LlamadaFuncion) {
+							LlamadaFuncion l = (LlamadaFuncion) val;
+							for(valor valAux: l.getOperador()) {
+								if(valAux instanceof Operador) {
+									Operador op = (Operador) valAux;
+									if(op instanceof ValorMatriz) {
+										ValorMatriz m = (ValorMatriz) op;
+										if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+											error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+										}
+										else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+											error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else if(a.getOperador() instanceof LlamadaFuncion) {
+					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
+					for(valor valAux: l.getOperador()) {
+						if(valAux instanceof Operador) {
+							Operador op = (Operador) valAux;
+							if(op instanceof ValorMatriz) {
+								ValorMatriz m = (ValorMatriz) op;
+								if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+									error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+								}
+								else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+									error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+								}
+							}
+						}
+					}
+				}
+			}
+			else if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getComplejo() instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) a.getComplejo();
+					if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+						error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+					else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+						error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				if(a.getOperador() instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) a.getOperador();
+					if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+						error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+					else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+						error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				else if(a.getOperador() instanceof operacion) {
+					operacion o = (operacion) a.getOperador();
+					List<valor> valores = funciones.registrarValoresOperacion(o);
+					for(valor val: valores) {
+						if(val instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) val;
+							if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+								error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+							}
+							else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+								error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+							}
+						}
+						else if(val instanceof LlamadaFuncion) {
+							LlamadaFuncion l = (LlamadaFuncion) val;
+							for(valor valAux: l.getOperador()) {
+								if(valAux instanceof Operador) {
+									Operador op = (Operador) valAux;
+									if(op instanceof ValorMatriz) {
+										ValorMatriz m = (ValorMatriz) op;
+										if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+											error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+										}
+										else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+											error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				else if(a.getOperador() instanceof LlamadaFuncion) {
+					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
+					for(valor valAux: l.getOperador()) {
+						if(valAux instanceof Operador) {
+							Operador op = (Operador) valAux;
+							if(op instanceof ValorMatriz) {
+								ValorMatriz m = (ValorMatriz) op;
+								if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
+									error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+								}
+								else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
+									error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	*/
+	
+	@Check
+	//Función que se encarga de comprobar que no existan dos variables declaradas en un registro con el mismo nombre
+	protected void checkRegistro(Registro r) {
+		List<String> variables = new ArrayList<String>();
+		for(Declaracion d: r.getVariable()) {
+			if(d instanceof DeclaracionPropia) {
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				for(Variable v: dec.getVariable()) {
+					//Si no esta repetida la registramos
+					if(!variables.contains(v.getNombre())) {
+						variables.add(v.getNombre());
+					}
+					//Si esta repetida lanzamos el error
+					else {
+						error("No se pueden declarar dos variables con el mismo nombre dentro de la declaración de un registro", DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE, r.getVariable().indexOf(d));
+					}
+				}
+			}
+			else {
+				DeclaracionVariable dec = (DeclaracionVariable) d;
+				for(Variable v: dec.getVariable()) {
+					//Si no esta repetida la registramos
+					if(!variables.contains(v.getNombre())) {
+						variables.add(v.getNombre());
+					}
+					//Si esta repetida lanzamos el error
+					else {
+						error("No se pueden declarar dos variables con el mismo nombre dentro de la declaración de un registro", DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE, r.getVariable().indexOf(d));
+					}
+				}
+			}
+		}
+	}
+	
+	
+	private void checkFuncionesAbrirCerrarFicheroAux(List<Sentencias> sentencias, List<String> nombresFicheros, Map<String,String> variablesDeclaradas) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof FuncionFicheroAbrir) {
+				FuncionFicheroAbrir f = (FuncionFicheroAbrir) s;
+				if(f.getVariable().get(0) instanceof VariableID) {
+					VariableID v = (VariableID) f.getVariable().get(0);
+					if(!nombresFicheros.contains(variablesDeclaradas.get(v.getNombre()))) {
+						error("La variable debe pertenecer al tipo Archivo", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 0);
+					}
+				}
+			}
+			else if(s instanceof FuncionFicheroCerrar) {
+				FuncionFicheroCerrar f = (FuncionFicheroCerrar) s;
+				if(f.getVariable() instanceof VariableID) {
+					VariableID v = (VariableID) f.getVariable();
+					if(!nombresFicheros.contains(variablesDeclaradas.get(v.getNombre()))) {
+						error("La variable debe pertenecer al tipo Archivo", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE);
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkFuncionesAbrirCerrarFichero(Modulo modulo) {
+		List<String> nombresFicheros = new ArrayList<String>();
+		for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			if(t instanceof Archivo) {
+				Archivo a = (Archivo) t;
+				nombresFicheros.add(a.getNombre());
+			}
+		}
+		
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			checkFuncionesAbrirCerrarFicheroAux(sub.getSentencias(), nombresFicheros, variablesDeclaradas);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkFuncionesAbrirCerrarFicheroAux(caso.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkFuncionesAbrirCerrarFicheroAux(bloqueAux.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+								}
+							}
+						}
+					}
+					else {
+						checkFuncionesAbrirCerrarFicheroAux(bloque.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkFuncionesAbrirCerrarFicheroAux(bloqueAux.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+							}
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	
+	@Check
+	//Función que se encarga de comprobar si la variable que se le pasa a las funciones "abrir" y "cerrar" es de tipo fichero
+	protected void checkFuncionesAbrirCerrarFichero(Algoritmo algoritmo) {
+		List<String> nombresFicheros = new ArrayList<String>();
+		for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			if(t instanceof Archivo) {
+				Archivo a = (Archivo) t;
+				nombresFicheros.add(a.getNombre());
+			}
+		}
+		
+		Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		
+		//Para el programa de inicio
+		checkFuncionesAbrirCerrarFicheroAux(algoritmo.getTiene().getTiene(), nombresFicheros, variablesDeclaradas);
+		
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) s;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso caso: seg.getCaso()) {
+						checkFuncionesAbrirCerrarFicheroAux(caso.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+						
+						for(Sentencias sentencias: caso.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkFuncionesAbrirCerrarFicheroAux(bloqueAux.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+							}
+						}
+					}
+				}
+				else {
+					checkFuncionesAbrirCerrarFicheroAux(bloque.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+					
+					for(Sentencias sentencias: bloque.getSentencias()) {
+						if(sentencias instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sentencias;
+							checkFuncionesAbrirCerrarFicheroAux(bloqueAux.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+						}
+					}
+				}
+			}
+		}
+		
+		//Para los subprocesos
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			variablesDeclaradas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			checkFuncionesAbrirCerrarFicheroAux(sub.getSentencias(), nombresFicheros, variablesDeclaradas);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkFuncionesAbrirCerrarFicheroAux(caso.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkFuncionesAbrirCerrarFicheroAux(bloqueAux.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+								}
+							}
+						}
+					}
+					else {
+						checkFuncionesAbrirCerrarFicheroAux(bloque.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkFuncionesAbrirCerrarFicheroAux(bloqueAux.getSentencias(), nombresFicheros, variablesDeclaradas);
+
+							}
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	
+	private void checkFuncionAbrirAux(List<Sentencias> sentencias, Map<String,String> variablesDeclaradas) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof FuncionFicheroAbrir) {
+				FuncionFicheroAbrir f = (FuncionFicheroAbrir) s;
+				if(f.getVariable().size() == 2 && f.getVariable().get(1) instanceof VariableID) {
+					VariableID v = (VariableID) f.getVariable().get(1);
+					if(variablesDeclaradas.get(v.getNombre()) != "cadena" && variablesDeclaradas.get(v.getNombre()) != "caracter") {
+						error("La variable no es compatible, debe ser de tipo cadena o caracter", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
+					}
+				}
+				else if(!(f.getVariable().get(1) instanceof ConstCadena) && !(f.getVariable().get(1) instanceof Caracter)) {
+					error("La variable no es compatible, debe ser de tipo cadena o caracter", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkFuncionAbrir(Modulo modulo) {
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(s.getDeclaracion());
+			checkFuncionAbrirAux(s.getSentencias(), variablesDeclaradas);
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si la segunda variable es de tipo cadena o caracter en la función "abrir"
+	protected void checkFuncionAbrir(Algoritmo algoritmo) {
+		Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		
+		//En el programa principal
+		checkFuncionAbrirAux(algoritmo.getTiene().getTiene(), variablesDeclaradas);
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			variablesDeclaradas = funciones.registrarVariablesTipadas(s.getDeclaracion());
+			checkFuncionAbrirAux(s.getSentencias(), variablesDeclaradas);
+		}
+	}
+	
+	protected void checkDeclaracionesRegistroTiposComplejosAux(List<TipoComplejo> complejos) {
+		//Registramos los nombres de todos los tipos complejos suponiendo que no estan repetidos ya que hay otra función que lo comprueba
+		List<String >tipos = funciones.registrarTipos(complejos);
+				
+		//Comprobamos que todas las declaraciones de variables complejas en todos los registros son de tipos existentes
+				
+		for(TipoComplejo t: complejos) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				for(Declaracion d: r.getVariable()) {
+					if(d instanceof DeclaracionPropia) {
+					//Solo nos interesa validar los tipos definidos por el usuario
+						DeclaracionPropia dec = (DeclaracionPropia) d;
+						if(!tipos.contains(dec.getTipo())) {
+							error("El tipo de la variable debe estar previamente definido", dec, DiagramapseudocodigoPackage.Literals.DECLARACION_PROPIA__VARIABLE);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkDeclaracionesRegistroTiposComplejos(Modulo modulo) {
+		checkDeclaracionesRegistroTiposComplejosAux(modulo.getImplementacion().getTipocomplejo());
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que los tipos introducidos en los registros han sido definidos anteriormente
+	protected void checkDeclaracionesRegistroTiposComplejos(Algoritmo algoritmo) {
+		checkDeclaracionesRegistroTiposComplejosAux(algoritmo.getTipocomplejo());
+	}
+	
+	protected void checkTipoDefinidoVectorMatrizAux(List<TipoComplejo> complejos) {
+		//Registramos todos los nombres de los tipos complejos hasta ahora:
+		List<String> tipos = funciones.registrarTipos(complejos);
+				
+		//Comprobamos que todos los tipos asignados a los vectores o a las matrices en su declaración sean tipos existentes
+				
+		for(TipoComplejo t: complejos) {
+			if(t instanceof Vector) {
+				Vector v = (Vector) t;
+				if(v.getTipo() instanceof TipoDefinido) {
+					TipoDefinido tipo = (TipoDefinido) v.getTipo();
+					if(!tipos.contains(tipo.getTipo())) {
+						error("El tipo de la variable debe estar previamente definido", v, DiagramapseudocodigoPackage.Literals.VECTOR__TIPO);
+					}
+				}
+			}
+			else if(t instanceof Matriz) {
+				Matriz m = (Matriz) t;
+				if(m.getTipo() instanceof TipoDefinido) {
+					TipoDefinido tipo = (TipoDefinido) m.getTipo();
+					if(!tipos.contains(tipo.getTipo())) {
+						error("El tipo de la variable debe estar previamente definido", m, DiagramapseudocodigoPackage.Literals.MATRIZ__TIPO);
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkTipoDefinidoVectorMatriz(Modulo modulo) {
+		checkTipoDefinidoVectorMatrizAux(modulo.getImplementacion().getTipocomplejo());
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si el tipo complejo asignado a un vector o a una matriz ha sido previamente definido
+	protected void checkTipoDefinidoVectorMatriz(Algoritmo algoritmo) {
+		checkTipoDefinidoVectorMatrizAux(algoritmo.getTipocomplejo());
+	}
+	
+	
+	@Check
+	//Función que se encarga de comprobar que no existan dos variables con el mismo nombre dentro de un subproceso
+	protected void checkDeclaraciones(Subproceso s) {
+		List<String> variables = new ArrayList<String>();
+		//Registramos los parámetros que ya son válidados por otra función y se presuponen correctos sin repeticiones
+		for(ParametroFuncion p: s.getParametrofuncion()) {
+			variables.add(p.getVariable().getNombre());
+		}
+		for(Declaracion d: s.getDeclaracion()) {
+			//Si la actual se ha instanciado como una subclase de tipo DeclaracionVariable
+			if(d instanceof DeclaracionVariable) {
+				DeclaracionVariable dec = (DeclaracionVariable) d;
+				for(Variable v: dec.getVariable()) {
+					if(!variables.contains(v.getNombre())) {
+						//Si no esta repetida la registramos
+						variables.add(v.getNombre());
+					}
+					else {
+						//Si esta repetida lanzamos el error
+						error("No pueden existir dos variables con el mismo nombre dentro de la misma función o procedimiento", v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+					}
+				}
+			}
+			else {
+				//Si la actual se ha instanciado como una subclase de tipo DeclaracionPropia
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				for(Variable v: dec.getVariable()) {
+					if(!variables.contains(v.getNombre())) {
+						//Si no esta repetida la registramos
+						variables.add(v.getNombre());
+					}
+					else {
+						//Si esta repetida lanzamos el error
+						error("No pueden existir dos variables con el mismo nombre dentro de la misma función o procedimiento", v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);	
+					}
+				}
+			}
+		}
+	}
+	
+	
+	@Check
+	//Función que se encarga de comprobar que no existan dos variables con el mismo nombre dentro de un programa principal
+	protected void checkDeclaraciones(Inicio i) {
+		List<String> variables = new ArrayList<String>();
+		for(Declaracion d: i.getDeclaracion()) {
+			if(d instanceof DeclaracionVariable) {
+				//Si la actual se ha instanciado como una subclase de tipo DeclaracionVariable
+				DeclaracionVariable dec = (DeclaracionVariable) d;
+				for(Variable v: dec.getVariable()) {
+					if(!variables.contains(v.getNombre())) {
+						//Si no esta repetida la registramos
+						variables.add(v.getNombre());
+					}
+					else {
+						//Si esta repetida lanzamos el error
+						error("No pueden existir dos variables con el mismo nombre dentro del mismo programa principal", v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+					}
+				}
+			}
+			else {
+				//Si la actual se ha instanciado como una subclase del tipo DeclaracionPropia
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				for(Variable v: dec.getVariable()) {
+					if(!variables.contains(v.getNombre())) {
+						//Si no esta repetida la registramos
+						variables.add(v.getNombre());
+					}
+					else {
+						//Si esta repetida lanzamos el error
+						error("No pueden existir dos variables con el mismo nombre dentro del mismo programa principal", v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+					}
+				}
+			}
+		}
+	}
+	
+	
+	@Check
+	//Función que comprueba en el programa principal que la variable utilizada en el segun_sea haya sido declarada con anterioridad
+	protected void checkSegun(Inicio i) {
+		//Registramos todas las variables declaradas dando por hecho que son correctas ya que hay otra función encargada de comprobarlo
+		List<String> variables = funciones.registrarVariables(i.getDeclaracion());
+		//Despues de tener todas las variables declaradas comprobamos si la que se usa en el según esta entre ellas
+		for(Sentencias s: i.getTiene()) {
+			if(s instanceof segun) {
+				segun se = (segun) s;
+				if(se.getValor() instanceof Operador) {
+					Operador op = (Operador) se.getValor();
+					if(op instanceof VariableID) {
+						VariableID v = (VariableID) op; //Siempre es una variable
+						
+						if(!variables.contains(v.getNombre())) {
+							error("La variable utilizada como parámetro en el segun_sea debe haber sido previamente declarada", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba en las funciones que la variable utilizada en el segun_sea haya sido declarada con anterioridad
+	protected void checkSegun(Funcion f) {
+		//Registramos todas las variables declaradas dando por hecho que son correctas ya que hay otra función encargada de comprobarlo
+		List<String> variables = funciones.registrarVariables(f.getDeclaracion());
+		//También hay que registrar los parámetros declarados en la función
+		List<String> parametros = funciones.registrarParametros(f.getParametrofuncion());
+		//Despues de tener todas las variables declaradas comprobamos si la que se usa en el según esta entre ellas
+		for(Sentencias s: f.getSentencias()) {
+			if(s instanceof segun) {
+				segun se = (segun) s;
+				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
+				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
+					error("La variable utilizada como parámetro en el segun_sea debe haber sido previamente declarada", DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, f.getSentencias().indexOf(s));
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba en los procedimientos que la variable utilizada en el segun_sea haya sido declarada con anterioridad
+	protected void checkSegun(Procedimiento p) {
+		//Registramos todas las variables declaradas dando por hecho que son correctas ya que hay otra función encargada de comprobarlo
+		List<String> variables = funciones.registrarVariables(p.getDeclaracion());
+		//También hay que registrar los parámetros declarados en la función
+		List<String> parametros = funciones.registrarParametros(p.getParametrofuncion());
+		//Despues de tener todas las variables declaradas comprobamos si la que se usa en el según esta entre ellas
+		for(Sentencias s: p.getSentencias()) {
+			if(s instanceof segun) {
+				segun se = (segun) s;
+				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
+				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
+					error("La variable utilizada como parámetro en el segun_sea debe haber sido previamente declarada", DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, p.getSentencias().indexOf(s));
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkTipoSegun(Inicio i) {
+		//Primero Ahora buscamos la variable y averiguamos su tipo
+		segun se = null;
+		for(Sentencias s: i.getTiene()) {
+			if(s instanceof segun) {
+				se = (segun) s;
+			}
+		}
+		String nombre = null;
+		if(se != null) {
+			//Siempre es una variable
+			VariableID v = (VariableID) se.getValor();
+			nombre = v.getNombre();
+			
+			//Después seleccionamos el tipo de la variable de entrada del segun_sea (damos por hecho que esta declarada porque hay otra función que lo comprueba)
+			
+			DeclaracionVariable parametro = null;
+			
+			for(Declaracion d: i.getDeclaracion()) {
+				if(d instanceof DeclaracionVariable) {
+					DeclaracionVariable dec = (DeclaracionVariable) d;
+					for(Variable var: dec.getVariable()) {
+						if(var.getNombre() == nombre) {
+							parametro = dec;
+						}
+					}
+				}
+			}
+			int cont = 0;
+			boolean valido = true;
+			
+			if(parametro.getTipo() == TipoVariable.getByName("entero")) {
+				//Comprobamos que las variables de los casos sean todas del mismo tipo
+				for(Caso c: se.getCaso()) {
+					if(!(c.getOperador() instanceof NumeroEntero)) {
+						valido = false;
+					}
+					cont++;
+				}
+			}
+			
+			if(!valido) {
+				warning("Todos los parámetros del segun_caso deben ser del mismo tipo que el parámetro de entrada del segun_caso", DiagramapseudocodigoPackage.Literals.SEGUN__CASO,cont);
+			}
+		}
+		
+	}
+	
+	protected void checkConstantesAux(List<Constantes> constantes, List<TipoComplejo> complejos, int tipo) {
+		List<String> nombresConstantes = new ArrayList<String>();
+		for(Constantes cons: constantes) {
+			nombresConstantes.add(cons.getVariable().getNombre());
+		}
+		for(TipoComplejo t: complejos) {
+			if(t instanceof Vector) {
+				Vector v = (Vector) t;
+				if(v.getValor() instanceof VariableID) {
+					VariableID var = (VariableID) v.getValor();
+					if(!nombresConstantes.contains(var.getNombre())) {
+						if(tipo == 1) {
+							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+						}
+						else if(tipo == 2) {
+							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+						}
+					}
+				}
+			}
+			if(t instanceof Matriz) {
+				Matriz m = (Matriz) t;
+				if(m.getValor().get(0) instanceof VariableID) {
+					VariableID var = (VariableID) m.getValor().get(0);
+					if(!nombresConstantes.contains(var.getNombre())) {
+						if(tipo == 1) {
+							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+						}
+						else if(tipo == 2) {
+							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+						}
+					}
+				}
+				if(m.getValor().size() > 1 && m.getValor().get(1) instanceof VariableID) {
+					VariableID var = (VariableID) m.getValor().get(1);
+					if(!nombresConstantes.contains(var.getNombre())) {
+						if(tipo == 1) {
+							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+						}
+						else if(tipo == 2) {
+							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+						}
+					}
+				}
+			}
+		}	
+	}
+	
+	@Check
+	protected void checkConstantes(Implementacion implementacion) {
+		checkConstantesAux(implementacion.getConstantes(), implementacion.getTipocomplejo(), 2);
+	}
+	
+	@Check
+	//Función que compueba que las constantes utilizadas para definir los tamaños de los vectores y matrices han sido declaradas con anterioridad
+	protected void checkConstantes(Algoritmo algoritmo) {
+		checkConstantesAux(algoritmo.getConstantes(), algoritmo.getTipocomplejo(), 1);
+	}
+	
+	protected void checkConstantesRepetidasAux(List<Constantes> constantes, int tipo) {
+		List<String> nombresConstantes = new ArrayList<String>();
+		for(Constantes cons: constantes) {
+			if(nombresConstantes.contains(cons.getVariable().getNombre())) {
+				//Si ya ha sido registrada lanzamos el error
+				if(tipo == 1) {
+					error("No pueden existir dos constantes con el mismo nombre", DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES, constantes.indexOf(cons));
+				} else if(tipo == 2) {
+					error("No pueden existir dos constantes con el mismo nombre", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES, constantes.indexOf(cons));
+				}
+			}
+			else {
+				//Si no ha sido registrada la registramos
+				nombresConstantes.add(cons.getVariable().getNombre());
+			}
+		}	
+	}
+	
+	@Check
+	//Función que comprueba que no existen dos constantes con el mismo nombre
+	protected void checkConstantesRepetidas(Algoritmo algoritmo) {
+		checkConstantesRepetidasAux(algoritmo.getConstantes(), 1);
+	}
+	
+	@Check
+	//Función que comprueba que no existen dos constantes con el mismo nombre
+	protected void checkConstantesRepetidas(Modulo modulo) {
+		checkConstantesRepetidasAux(modulo.getImplementacion().getConstantes(), 2);
+	}
+	
+	/*@Check
+	//Funcion que registra los nombres de todos los modulos
+	protected void checkNombreModulo(Modulo modulo) {
+		int count = 0;
+		System.out.println("El numero de modulos es: "+getAllModulesNames().size());
+		for (Modulo m : getAllModulesNames()) {
+			if (modulo.getNombre().equals(m.getNombre())) {
+				count++;
+				System.out.println("Estoy incrementando el contador!");
+			}
+			System.out.println("No estoy incrementando el contador!");
+		}
+		if ( count >1 ) {
+			error("Ya existe un módulo con este nombre", DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE, modulo.getNombre());
+		}
+	}*/
+	
+	@Check
+	//Funcion que comprueba que el módulo importado existe
+	protected void checkModuloImportado(Algoritmo algoritmo) {
+		/*System.out.println("El numero de modulos importado es:"+algoritmo.getImportaciones().size());
+		for(String nombreModulo: algoritmo.getImportaciones()) {
+			System.out.println("Vueltesita");
+			System.out.println("El numero de modulos guardados es:"+RecursosCompartidos.modulos.size());
+			if(!RecursosCompartidos.modulos.containsValue(nombreModulo)) {
+				System.out.println("No existe "+nombreModulo);
+				error("El módulo importado no existe", DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, algoritmo.getImportaciones().indexOf(nombreModulo));
+			}
+			else {
+				System.out.println("Si existe "+nombreModulo);
+			}
+		}*/
+	}
+	
+	@Check
+	protected void checkDeclaracionesTiposComplejos(Modulo modulo) {
+		//Registramos los nombres de todos los tipos complejos suponiendo que no estan repetidos ya que hay otra funci�n que lo comprueba
+		List<String >tipos = funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo());
+		
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			for(Declaracion d: s.getDeclaracion()) {
+				if(d instanceof DeclaracionPropia) {
+					DeclaracionPropia dec = (DeclaracionPropia) d;
+					if(!tipos.contains(dec.getTipo())) {
+						//Si el tipo no existe entonces lanzamos el error
+						error("El tipo de la variable debe estar previamente definido", s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION, s.getDeclaracion().indexOf(d));
+					}
+				}
+			}
+		}
+		
+		//Comprobamos lo mismo también para las variables globales
+		
+		for(Declaracion d: modulo.getImplementacion().getGlobal()) {
+			if(d instanceof DeclaracionPropia) {
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				if(!tipos.contains(dec.getTipo())) {
+					error("El tipo de la variable debe estar previamente definido", modulo, DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL, modulo.getImplementacion().getGlobal().indexOf(d));
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba que el tipo de una variable ha sido definido con anterioridad
+	protected void checkDeclaracionesTiposComplejos(Algoritmo algoritmo) {
+		//Registramos los nombres de todos los tipos complejos suponiendo que no estan repetidos ya que hay otra funci�n que lo comprueba
+		List<String >tipos = funciones.registrarTipos(algoritmo.getTipocomplejo());
+		
+		//Comprobamos que todas las declaraciones de variables complejas en el programa principal y en los subprocesos son de tipos existentes
+		
+		for(Declaracion d: algoritmo.getTiene().getDeclaracion()) {
+			if(d instanceof DeclaracionPropia) {
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				if(!tipos.contains(dec.getTipo())) {
+					//Si el tipo no existe entonces lanzamos el error
+					error("El tipo de la variable debe estar previamente definido", algoritmo.getTiene(), DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION, algoritmo.getTiene().getDeclaracion().indexOf(d));
+				}
+			}
+		}
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			for(Declaracion d: s.getDeclaracion()) {
+				if(d instanceof DeclaracionPropia) {
+					DeclaracionPropia dec = (DeclaracionPropia) d;
+					if(!tipos.contains(dec.getTipo())) {
+						//Si el tipo no existe entonces lanzamos el error
+						error("El tipo de la variable debe estar previamente definido", s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION, s.getDeclaracion().indexOf(d));
+					}
+				}
+			}
+		}
+		
+		//Comprobamos lo mismo también para las variables globales
+		
+		for(Declaracion d: algoritmo.getGlobal()) {
+			if(d instanceof DeclaracionPropia) {
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				if(!tipos.contains(dec.getTipo())) {
+					error("El tipo de la variable debe estar previamente definido", algoritmo, DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL, algoritmo.getGlobal().indexOf(d));
+				}
+			}
+		}
+	}
+	
+	protected void checkTiposAux(List<TipoComplejo> complejos, int tipo) {
+List<String> tipos = new ArrayList<String>();
+		
+		for(TipoComplejo com: complejos) {
+			if(com instanceof Vector) {
+				Vector v = (Vector) com;
+				if(!tipos.contains(v.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(v.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					if(tipo == 1) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+					} else if(tipo == 2) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+					}
+				}
+			}
+			else if(com instanceof Matriz) {
+				Matriz m = (Matriz) com;
+				if(!tipos.contains(m.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(m.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					if(tipo == 1) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+					} else if(tipo == 2) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+					}
+				}
+			}
+			else if(com instanceof Registro) {
+				Registro r = (Registro) com;
+				if(!tipos.contains(r.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(r.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					if(tipo == 1) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+					} else if(tipo == 2) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+					}
+				}
+			}
+			else if(com instanceof Enumerado) {
+				Enumerado e = (Enumerado) com;
+				if(!tipos.contains(e.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(e.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					if(tipo == 1) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+					} else if(tipo == 2) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+					}
+				}
+			}
+			else if(com instanceof Archivo) {
+				Archivo a = (Archivo) com;
+				if(!tipos.contains(a.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(a.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					if(tipo == 1) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+					} else if(tipo == 2) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+					}
+				}
+			}
+			else {
+				Subrango s = (Subrango) com;
+				if(!tipos.contains(s.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(s.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					if(tipo == 1) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+					} else if(tipo == 2) {
+						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkTipos(Modulo modulo) {
+		checkTiposAux(modulo.getImplementacion().getTipocomplejo(), 2);
+	}
+	
+	@Check
+	//Función que comprueba que no hay dos tipos complejos diferentes con el mismo nombre
+	protected void checkTipos(Algoritmo algoritmo) {
+		checkTiposAux(algoritmo.getTipocomplejo(), 1);
+	}
+	
+	protected void checkFuncionesAux(List<Subproceso> subprocesos) {
+		List<String> nombres = new ArrayList<String>();
+		List<ArrayList<Integer>> parametros = new ArrayList<ArrayList<Integer>>();
+		for(Subproceso s: subprocesos) {
+			//Comprobamos que no haya otro subproceso con el mismo nombre y el mismo número de parámetros
+			if(!nombres.contains(s.getNombre())) {
+				//Si todavia no hay ninguna que se llame así, la registramos
+				nombres.add(s.getNombre());
+				parametros.add(new ArrayList<Integer>());
+				parametros.get(nombres.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+			}
+			else if(nombres.contains(s.getNombre()) && !parametros.get(nombres.indexOf(s.getNombre())).contains(s.getParametrofuncion().size())) {
+				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
+				parametros.get(nombres.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+				
+			}
+			else {
+				error("No puede existir dos subprocesos con el mismo nombre y mismo número de parámetros", s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE, subprocesos.indexOf(s));
+			}
+		}
+	}
+	
+	@Check
+	protected void checkFunciones(Modulo modulo) {
+		checkFuncionesAux(modulo.getImplementacion().getFuncion());
+	}
+	
+	@Check
+	//Función que comprueba que no haya declaradas dos funciones con el mismo nombre y mismo número de parámetros
+	protected void checkFunciones(Algoritmo algoritmo) {
+		checkFuncionesAux(algoritmo.getFuncion());
+	}
+	
+	protected void checkVariablesGlobalesAux(List<Declaracion> globales) {
+		List<String> variables = new ArrayList<String>();
+		for(Declaracion d: globales) {
+			if(d instanceof DeclaracionVariable) {
+				//Si la actual se ha instanciado como una subclase de tipo DeclaracionVariable
+				DeclaracionVariable dec = (DeclaracionVariable) d;
+				for(Variable v: dec.getVariable()) {
+					if(!variables.contains(v.getNombre())) {
+						//Si no esta repetida la registramos
+						variables.add(v.getNombre());
+					}
+					else {
+						//Si esta repetida lanzamos el error
+						error("No pueden existir dos variables globales con el mismo nombre dentro del mismo programa", v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+					}
+				}
+			}
+			else {
+				//Si la actual se ha instanciado como una subclase del tipo DeclaracionPropia
+				DeclaracionPropia dec = (DeclaracionPropia) d;
+				for(Variable v: dec.getVariable()) {
+					if(!variables.contains(v.getNombre())) {
+						//Si no esta repetida la registramos
+						variables.add(v.getNombre());
+					}
+					else {
+						//Si esta repetida lanzamos el error
+						error("No pueden existir dos variables globales con el mismo nombre dentro del mismo programa", v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkVariablesGlobales(Modulo modulo) {
+		checkVariablesGlobalesAux(modulo.getImplementacion().getGlobal());
+	}
+	
+	//Función que se asegura de que no existan dos variables globales con el mismo nombre
+	@Check
+	protected void checkVariablesGlobales(Algoritmo algoritmo) {
+		checkVariablesGlobalesAux(algoritmo.getGlobal());
+	}
+	
+	
+	private void checkVariablesUsadasAux(List<Sentencias> sentencias, List<String> variables) {
+		for(Sentencias sen: sentencias) {
+			if(sen instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) sen;
+				for(valor val: f.getOperadores()) {
+					if(val instanceof Operador) {
+						Operador o = (Operador) val;
+						if(o instanceof VariableID) {
+							VariableID v = (VariableID) o;
+							if(!variables.contains(v.getNombre())) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+					}
+				}
+			}
+			else if(sen instanceof Leer) {
+				Leer l = (Leer) sen;
+				if(l.getVariable() instanceof VariableID) {
+					VariableID v = (VariableID) l.getVariable();
+					if(!variables.contains(v.getNombre())) {
+						error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+				}
+			}
+			
+			else if(sen instanceof Escribir) {
+				Escribir e = (Escribir) sen;
+				for(operacion o: e.getOperador()) {
+					if(o instanceof VariableID) {
+						VariableID v = (VariableID) o;
+						if(!variables.contains(v.getNombre())) {
+							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+				}
+			}
+			
+			else if(sen instanceof Negacion) {
+				Negacion neg = (Negacion) sen;
+				if(!variables.contains(neg.getValor_operacion())){
+					error("La variable debe haber sido previamente definida", neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION);
+				}
+			}
+			
+			else if(sen instanceof Asignacion) {
+				Asignacion a = (Asignacion) sen;
+				if(a instanceof AsignacionNormal) {
+					AsignacionNormal as = (AsignacionNormal) a;
+					
+					if(!variables.contains(as.getValor_asignacion())) {
+						error("La variable debe haber sido previamente definida", as, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION);
+					}
+					if(as.getOperador() instanceof VariableID) {
+						VariableID v = (VariableID) as.getOperador();
+						if(!variables.contains(v.getNombre())){
+							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+					else if(as.getOperador() instanceof unaria) {
+						unaria u = (unaria) as.getOperador();
+						if(u.getVariable() instanceof VariableID) {
+							VariableID v = (VariableID) u.getVariable();
+							if(!variables.contains(v.getNombre())) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+					}
+					else if(as.getOperador() instanceof operacion) {
+						operacion o = (operacion) as.getOperador();
+						ArrayList<valor> valores = new ArrayList<valor>();
+						valores = funciones.registrarValoresOperacion(o, valores);
+						
+						List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
+						if(variablesRegistroNoDeclaradas.size() != 0) {
+							for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+							}
+						}
+						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
+						if(variablesNoDeclaradas.size() != 0) {
+							for(VariableID v: variablesNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
+						if(variablesVectorNoDeclaradas.size() != 0) {
+							for(ValorVector v: variablesVectorNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+							}
+						}
+						List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
+						if(variablesMatrizNoDeclaradas.size() != 0) {
+							for(ValorMatriz m: variablesMatrizNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+							}
+						}
+						
+						for(valor v: valores) {
+							if(v instanceof ValorVector) {
+								ValorVector vector = (ValorVector) v;
+								if(vector.getIndice() instanceof VariableID) {
+									VariableID var = (VariableID) vector.getIndice();
+									if(!variables.contains(var.getNombre())){
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									}
+								}
+							}
+							else if(v instanceof ValorMatriz) {
+								ValorMatriz m = (ValorMatriz) v;
+								ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+								indicesMatriz.add(m.getPrimerIndice());
+								indicesMatriz.add(m.getSegundoIndice());
+								for(operacion op: indicesMatriz) {
+									if(op instanceof VariableID) {
+										VariableID var = (VariableID) op;
+										if(!variables.contains(var.getNombre())) {
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										}
+									}
+								}
+							}
+							else if(v instanceof LlamadaFuncion) {
+								LlamadaFuncion f = (LlamadaFuncion) v;
+								for(valor val: f.getOperadores()) {
+									if(val instanceof Operador) {
+										Operador op = (Operador) val;
+										if(op instanceof VariableID) {
+											VariableID var = (VariableID) op;
+											if(!variables.contains(var.getNombre())) {
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											}
+										}
+										else if(op instanceof ValorVector) {
+											ValorVector vector = (ValorVector) op;
+											if(vector.getIndice() instanceof VariableID) {
+												VariableID var = (VariableID) vector.getIndice();
+												if(!variables.contains(var.getNombre())) {
+													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+												}
+											}
+										}
+										else if(op instanceof ValorMatriz) {
+											ValorMatriz m = (ValorMatriz) op;
+											ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+											indicesMatriz.add(m.getPrimerIndice());
+											indicesMatriz.add(m.getSegundoIndice());
+											for(operacion operacionAux: indicesMatriz) {
+												if(operacionAux instanceof VariableID) {
+													VariableID var = (VariableID) operacionAux;
+													if(!variables.contains(var.getNombre())){
+														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+													}
+												}
+											}
+										}
+									}	
+								}
+							}
+						}
+					}
+					else if(as.getOperador() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) as.getOperador();
+						for(valor v: f.getOperadores()) {
+							if(v instanceof Operador) {
+								Operador o = (Operador) v;
+								if(o instanceof VariableID) {
+									VariableID var = (VariableID) o;
+									if(!variables.contains(var.getNombre())) {
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									}
+								}
+								else if(o instanceof ValorVector) {
+									ValorVector vector = (ValorVector) o;
+									if(vector.getIndice() instanceof VariableID) {
+										VariableID var = (VariableID) vector.getIndice();
+										if(!variables.contains(var.getNombre())) {
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										}
+									}
+								}
+								else if(o instanceof ValorMatriz) {
+									ValorMatriz m = (ValorMatriz) o;
+									ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+									indicesMatriz.add(m.getPrimerIndice());
+									indicesMatriz.add(m.getSegundoIndice());
+									for(operacion op: indicesMatriz) {
+										if(op instanceof VariableID) {
+											VariableID var = (VariableID) op;
+											if(!variables.contains(var.getNombre())){
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					else if(as.getOperador() instanceof ValorVector) {
+						ValorVector v = (ValorVector) as.getOperador();
+						if(v.getIndice() instanceof VariableID) {
+							VariableID var = (VariableID) v.getIndice();
+							if(!variables.contains(var.getNombre())) {
+								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+					}
+					else if(as.getOperador() instanceof ValorMatriz) {
+						ValorMatriz m = (ValorMatriz) as.getOperador();
+						ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+						indicesMatriz.add(m.getPrimerIndice());
+						indicesMatriz.add(m.getSegundoIndice());
+						for(operacion op: indicesMatriz) {
+							if(op instanceof VariableID) {
+								VariableID var = (VariableID) op;
+								if(!variables.contains(var.getNombre())) {
+									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								}
+							}
+						}
+					}
+				}
+				else if(a instanceof AsignacionCompleja) {
+					AsignacionCompleja ac = (AsignacionCompleja) a;
+					if(ac.getValor_asignacion() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) ac.getValor_asignacion();
+						if(!variables.contains(r.getNombre_registro())) {
+							error("La variable debe haber sido previamente definida", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						}
+					}
+					else if(ac.getValor_asignacion() instanceof ValorVector) {
+						ValorVector v = (ValorVector) ac.getValor_asignacion();
+						if(v.getIndice() instanceof VariableID) {
+							VariableID var = (VariableID) v.getIndice();
+							if(!variables.contains(var.getNombre())) {
+								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+					}
+					else if(ac.getOperador() instanceof ValorMatriz) {
+						ValorMatriz m = (ValorMatriz) ac.getOperador();
+						ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+						indicesMatriz.add(m.getPrimerIndice());
+						indicesMatriz.add(m.getSegundoIndice());
+						for(operacion op: indicesMatriz) {
+							if(op instanceof VariableID) {
+								VariableID var = (VariableID) op;
+								if(!variables.contains(var.getNombre())) {
+									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								}
+							}
+						}
+					}
+					if(ac.getOperador() instanceof VariableID) {
+						VariableID v = (VariableID) ac.getOperador();
+						if(!variables.contains(v.getNombre())) {
+							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+					else if(ac.getOperador() instanceof unaria) {
+						unaria u = (unaria) ac.getOperador();
+						if(u.getVariable() instanceof VariableID) {
+							VariableID v = (VariableID) u.getVariable();
+							if(!variables.contains(v.getNombre())) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+					}
+					else if(ac.getOperador() instanceof operacion) {
+						operacion o = (operacion) ac.getOperador();
+						ArrayList<valor> valores = new ArrayList<valor>();
+						valores = funciones.registrarValoresOperacion(o, valores);
+						
+						List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
+						if(variablesRegistroNoDeclaradas.size() != 0) {
+							for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+							}
+						}
+						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
+						if(variablesNoDeclaradas.size() != 0) {
+							for(VariableID v: variablesNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
+						if(variablesVectorNoDeclaradas.size() != 0) {
+							for(ValorVector v: variablesVectorNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+							}
+						}
+						List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
+						if(variablesMatrizNoDeclaradas.size() != 0) {
+							for(ValorMatriz m: variablesMatrizNoDeclaradas) {
+								error("La variable debe haber sido previamente definida", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+							}
+						}
+						
+						for(valor v: valores) {
+							if(v instanceof ValorVector) {
+								ValorVector vector = (ValorVector) v;
+								if(vector.getIndice() instanceof VariableID) {
+									VariableID var = (VariableID) vector.getIndice();
+									if(!variables.contains(var.getNombre())) {
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									}
+								}
+							}
+							else if(v instanceof ValorMatriz) {
+								ValorMatriz m = (ValorMatriz) v;
+								ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+								indicesMatriz.add(m.getPrimerIndice());
+								indicesMatriz.add(m.getSegundoIndice());
+								for(operacion op: indicesMatriz) {
+									if(op instanceof VariableID) {
+										VariableID var = (VariableID) op;
+										if(!variables.contains(var.getNombre())) {
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										}
+									}
+								}
+							}
+							else if(v instanceof LlamadaFuncion) {
+								LlamadaFuncion f = (LlamadaFuncion) v;
+								for(valor val: f.getOperadores()) {
+									if(val instanceof Operador) {
+										Operador op = (Operador) val;
+										if(op instanceof VariableID) {
+											VariableID var = (VariableID) op;
+											if(!variables.contains(var.getNombre())) {
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											}
+										}
+										else if(op instanceof ValorVector) {
+											ValorVector vector = (ValorVector) op;
+											if(vector.getIndice() instanceof VariableID) {
+												VariableID var = (VariableID) vector.getIndice();
+												if(!variables.contains(var.getNombre())) {
+													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+												}
+											}
+										}
+										else if(op instanceof ValorMatriz) {
+											ValorMatriz m = (ValorMatriz) op;
+											ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+											indicesMatriz.add(m.getPrimerIndice());
+											indicesMatriz.add(m.getSegundoIndice());
+											for(operacion operacionAux: indicesMatriz) {
+												if(operacionAux instanceof VariableID) {
+													VariableID var = (VariableID) operacionAux;
+													if(!variables.contains(var.getNombre())) {
+														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+													}
+												}
+											}
+										}
+									}	
+								}
+							}
+						}
+					}
+					else if(ac.getOperador() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) ac.getOperador();
+						for(valor v: f.getOperadores()) {
+							if(v instanceof Operador) {
+								Operador o = (Operador) v;
+								if(o instanceof VariableID) {
+									VariableID var = (VariableID) o;
+									if(!variables.contains(var.getNombre())) {
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									}
+								}
+								else if(o instanceof ValorVector) {
+									ValorVector vector = (ValorVector) o;
+									if(vector.getIndice() instanceof VariableID) {
+										VariableID var = (VariableID) vector.getIndice();
+										if(!variables.contains(var.getNombre())) {
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										}
+									}
+								}
+								else if(o instanceof ValorMatriz) {
+									ValorMatriz m = (ValorMatriz) o;
+									ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+									indicesMatriz.add(m.getPrimerIndice());
+									indicesMatriz.add(m.getSegundoIndice());
+									for(operacion op: indicesMatriz) {
+										if(op instanceof VariableID) {
+											VariableID var = (VariableID) op;
+											if(!variables.contains(var.getNombre())) {
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											}
+										}
+									}
+								}
+							}	
+						}
+					}
+					else if(ac.getOperador() instanceof ValorVector) {
+						ValorVector v = (ValorVector) ac.getOperador();
+						if(v.getIndice() instanceof VariableID) {
+							VariableID var = (VariableID) v.getIndice();
+							if(!variables.contains(var.getNombre())) {
+								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							}
+						}
+					}
+					else if(ac.getOperador() instanceof ValorMatriz) {
+						ValorMatriz m = (ValorMatriz) ac.getOperador();
+						ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+						indicesMatriz.add(m.getPrimerIndice());
+						indicesMatriz.add(m.getSegundoIndice());
+						for(operacion op: indicesMatriz) {
+							if(op instanceof VariableID) {
+								VariableID var = (VariableID) op;
+								if(!variables.contains(var.getNombre())) {
+									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkVariablesUsadas(Modulo modulo) {
+		
+		List<String> variablesGlobales = funciones.registrarVariables(modulo.getImplementacion().getGlobal());
+		List<String> constantes = funciones.registrarConstantes(modulo.getImplementacion().getConstantes());
+		
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			checkVariablesUsadas(s, variablesGlobales, constantes);
+		}
+	}
+	
+	@Check
+	//Función que comprueba que una variable deba estar definida antes de usarse
+	protected void checkVariablesUsadas(Algoritmo algoritmo) {
+		Inicio i = algoritmo.getTiene();
+		List<String> variables = funciones.registrarVariables(i.getDeclaracion());
+		List<String> variablesGlobales = funciones.registrarVariables(algoritmo.getGlobal());
+		List<String> constantes = funciones.registrarConstantes(algoritmo.getConstantes());
+		
+		List<String> totalVariables = variables;
+		totalVariables.addAll(variablesGlobales);
+		totalVariables.addAll(constantes);
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			checkVariablesUsadas(s, variablesGlobales, constantes);
+		}
+		
+		checkVariablesUsadasAux(i.getTiene(), totalVariables);
+		
+		//Ahora vamos a comprobar las sentencias que están en los bloques
+		
+		for(Sentencias s: i.getTiene()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) s;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso c: seg.getCaso()) {
+						checkVariablesUsadasAux(c.getSentencias(), totalVariables);
+						
+						for(Sentencias sentencias: c.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkVariablesUsadasAux(bloqueAux.getSentencias(), totalVariables);
+							}
+						}
+					}
+				}
+				else {
+					checkVariablesUsadasAux(bloque.getSentencias(), totalVariables);
+					
+					for(Sentencias sentencias: bloque.getSentencias()) {
+						if(sentencias instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sentencias;
+							checkVariablesUsadasAux(bloqueAux.getSentencias(), totalVariables);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	//Función que comprueba que una variable deba estar definida antes de usarse
+	private void checkVariablesUsadas(Subproceso s, List<String> variablesGlobales, List<String> constantes) {
+		List<String> variables = funciones.registrarVariables(s.getDeclaracion());
+		
+		List<String> totalVariables = variables;
+		totalVariables.addAll(variablesGlobales);
+		totalVariables.addAll(constantes);
+		
+		//Como son subprocesos también se añaden a la lista los parámetros
+		for(ParametroFuncion p: s.getParametrofuncion()) {
+			variables.add(p.getVariable().getNombre());
+		}
+		
+		checkVariablesUsadasAux(s.getSentencias(), totalVariables);
+		
+		//Ahora vamos a comprobar las sentencias que están en los bloques
+		
+		for(Sentencias sentencias: s.getSentencias()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) sentencias;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso c: seg.getCaso()) {
+						checkVariablesUsadasAux(c.getSentencias(), totalVariables);
+						
+						for(Sentencias sen: c.getSentencias()) {
+							if(sen instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sen;
+								checkVariablesUsadasAux(bloqueAux.getSentencias(), totalVariables);
+							}
+						}
+					}
+				}
+				else {
+					checkVariablesUsadasAux(bloque.getSentencias(), totalVariables);
+					
+					for(Sentencias sen: bloque.getSentencias()) {
+						if(sen instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sen;
+							checkVariablesUsadasAux(bloqueAux.getSentencias(), totalVariables);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	private void checkLlamadaFuncionAux(List<Sentencias> sentencias, List<String> funciones, List<ArrayList<Integer>> parametros) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof LlamadaFuncion) {
+				LlamadaFuncion l = (LlamadaFuncion) s;
+				if(!funciones.contains(l.getNombre())) {
+					error("La función debe haber sido previamente declarada", l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+				}
+				else if(!parametros.get(funciones.indexOf(l.getNombre())).contains(l.getOperadores().size())) {
+					error("El número de parámetros de la función no es el esperado", l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+				}
+			}
+			else if(s instanceof Asignacion) {
+				Asignacion a = (Asignacion) s;
+				if(a instanceof AsignacionNormal) {
+					AsignacionNormal an = (AsignacionNormal) a;
+					if(an.getOperador() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) an.getOperador();
+						if(!funciones.contains(f.getNombre())) {
+							error("La función debe haber sido previamente declarada", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+						}
+						else if(!parametros.get(funciones.indexOf(f.getNombre())).contains(f.getOperadores().size())) {
+							error("El número de parámetros de la función no es el esperado", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkLlamadaFuncion(Modulo modulo) {
+		List<String> funciones = new ArrayList<String>();
+		List<ArrayList<Integer>> parametros = new ArrayList<ArrayList<Integer>>();
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			//Se presupone que no hay ninguna repetida porque ya existe una función que se encarga de ello
+			if(!funciones.contains(s.getNombre())) {
+				//Si todavia no hay ninguna que se llame así, la registramos
+				funciones.add(s.getNombre());
+				parametros.add(new ArrayList<Integer>());
+				parametros.get(funciones.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+			}
+			else {
+				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
+				parametros.get(funciones.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+			}
+		}
+		
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			funciones.add(s.getNombre());
+		}
+		
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			checkLlamadaFuncionAux(sub.getSentencias(), funciones, parametros);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkLlamadaFuncionAux(caso.getSentencias(), funciones, parametros);
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkLlamadaFuncionAux(bloqueAux.getSentencias(), funciones, parametros);
+								}
+							}
+						}
+					}
+					else {
+						checkLlamadaFuncionAux(bloque.getSentencias(), funciones, parametros);
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkLlamadaFuncionAux(bloqueAux.getSentencias(), funciones, parametros);
+							}
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	@Check
+	//Función que comprueba que las funciones que se llamen hayan sido declaradas previamente y se les pase el número de parámetros oportuno
+	protected void checkLlamadaFuncion(Algoritmo algoritmo) {
+		List<String> funciones = new ArrayList<String>();
+		List<ArrayList<Integer>> parametros = new ArrayList<ArrayList<Integer>>();
+		for(Subproceso s: algoritmo.getFuncion()) {
+			//Se presupone que no hay ninguna repetida porque ya existe una función que se encarga de ello
+			if(!funciones.contains(s.getNombre())) {
+				//Si todavia no hay ninguna que se llame así, la registramos
+				funciones.add(s.getNombre());
+				parametros.add(new ArrayList<Integer>());
+				parametros.get(funciones.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+			}
+			else {
+				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
+				parametros.get(funciones.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+			}
+		}
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			funciones.add(s.getNombre());
+		}
+		
+		checkLlamadaFuncionAux(algoritmo.getTiene().getTiene(), funciones, parametros);
+		
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) s;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso caso: seg.getCaso()) {
+						checkLlamadaFuncionAux(caso.getSentencias(), funciones, parametros);
+						
+						for(Sentencias sentencias: caso.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkLlamadaFuncionAux(bloqueAux.getSentencias(), funciones, parametros);
+							}
+						}
+					}
+				}
+				else {
+					checkLlamadaFuncionAux(bloque.getSentencias(), funciones, parametros);
+					
+					for(Sentencias sentencias: bloque.getSentencias()) {
+						if(sentencias instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sentencias;
+							checkLlamadaFuncionAux(bloqueAux.getSentencias(), funciones, parametros);
+						}
+					}
+				}
+			}
+		}
+		
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			checkLlamadaFuncionAux(sub.getSentencias(), funciones, parametros);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkLlamadaFuncionAux(caso.getSentencias(), funciones, parametros);
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkLlamadaFuncionAux(bloqueAux.getSentencias(), funciones, parametros);
+								}
+							}
+						}
+					}
+					else {
+						checkLlamadaFuncionAux(bloque.getSentencias(), funciones, parametros);
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkLlamadaFuncionAux(bloqueAux.getSentencias(), funciones, parametros);
+							}
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	//Función auxiliar para cumplir el principio DRY
+	private void checkParametrosLlamadaAux(List<Sentencias> sentencias, List<String> tipos, String nombre, int parametros, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros) {
+		for(Sentencias sen: sentencias) {
+			if(sen instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) sen;
+				if(f.getNombre().equals(nombre) && f.getOperadores().size() == parametros) {
+					List<String> nombresVariables = new ArrayList<String>();
+					Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
+					List<String> tiposNativos = new ArrayList<String>();
+					List<String> nombresValoresComplejos = new ArrayList<String>();
+					funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+					String salidaBuena = "";
+					String salidaMala = "";
+					if(tipos.size() > 0) {
+						salidaBuena = funciones.getCadenaTiposCorrectos(tipos);
+						salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
+					}
+					//!funciones.comprobarCorreccionTiposLlamada(nombresVariables, variablesDeclaradas, tipos)
+					if(!salidaBuena.equals(salidaMala)) {
+						error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+					}
+				}
+			}
+			else if(sen instanceof Asignacion) {
+				Asignacion a = (Asignacion) sen;
+				if(a instanceof AsignacionNormal) {
+					AsignacionNormal an = (AsignacionNormal) a;
+					if(an.getOperador() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) an.getOperador();
+						if(f.getNombre().equals(nombre) && f.getOperadores().size() == parametros) {
+							List<String> nombresVariables = new ArrayList<String>();
+							Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
+							List<String> tiposNativos = new ArrayList<String>();
+							List<String> nombresValoresComplejos = new ArrayList<String>();
+							funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+							String salidaBuena = "";
+							String salidaMala = "";
+							if(tipos.size() > 0) {
+								salidaBuena = funciones.getCadenaTiposCorrectos(tipos);
+								salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
+							}
+							if(!salidaBuena.equals(salidaMala)) {
+								error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+							}
+						}
+					}
+					else if(funciones.esOperacion(an.getOperador())) {
+						operacion o = (operacion) an.getOperador();
+						ArrayList<valor> valores = new ArrayList<valor>();
+						valores = funciones.registrarValoresOperacion(o, valores);
+						for(valor v: valores) {
+							if(v instanceof LlamadaFuncion) {
+								LlamadaFuncion f = (LlamadaFuncion) v;
+								if(f.getNombre().equals(nombre) && f.getOperadores().size() == parametros) {
+									List<String> nombresVariables = new ArrayList<String>();
+									Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
+									List<String> tiposNativos = new ArrayList<String>();
+									List<String> nombresValoresComplejos = new ArrayList<String>();
+									funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+									String salidaBuena = "";
+									String salidaMala = "";
+									if(tipos.size() > 0) {
+										salidaBuena = funciones.getCadenaTiposCorrectos(tipos);
+										salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
+									}
+									if(!salidaBuena.equals(salidaMala)) {
+										error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+									}
+								}
+							}
+						}
+					}
+				}
+				else if(a instanceof AsignacionCompleja) {
+					AsignacionCompleja ac = (AsignacionCompleja) a;
+					if(ac.getOperador() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) ac.getOperador();
+						if(f.getNombre().equals(nombre) && f.getOperadores().size() == parametros) {
+							List<String> nombresVariables = new ArrayList<String>();
+							Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
+							List<String> tiposNativos = new ArrayList<String>();
+							List<String> nombresValoresComplejos = new ArrayList<String>();
+							funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+							String salidaBuena = "";
+							String salidaMala = "";
+							if(tipos.size() > 0) {
+								salidaBuena = funciones.getCadenaTiposCorrectos(tipos);
+								salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
+							}
+							if(!salidaBuena.equals(salidaMala)) {
+								error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+							}
+						}
+					}
+					else if(ac.getOperador() instanceof operacion) {
+						operacion o = (operacion) ac.getOperador();
+						ArrayList<valor> valores = new ArrayList<valor>();
+						valores = funciones.registrarValoresOperacion(o, valores);
+						for(valor v: valores) {
+							if(v instanceof LlamadaFuncion) {
+								LlamadaFuncion f = (LlamadaFuncion) v;
+								if(f.getNombre().equals(nombre) && f.getOperadores().size() == parametros) {
+									List<String> nombresVariables = new ArrayList<String>();
+									Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
+									List<String> tiposNativos = new ArrayList<String>();
+									List<String> nombresValoresComplejos = new ArrayList<String>();
+									funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+									String salidaBuena = "";
+									String salidaMala = "";
+									if(tipos.size() > 0) {
+										salidaBuena = funciones.getCadenaTiposCorrectos(tipos);
+										salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
+									}
+									if(!salidaBuena.equals(salidaMala)) {
+										error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba que las funciones que se llaman dentro del programa principal se llamen con parámetros del tipo adecuado
+	protected void checkParametrosLlamadaInicio(Algoritmo algoritmo) {
+		//Recogemos los tipos nativos de los tipos complejos
+		Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getTipocomplejo());
+		//Recogemos los tipos nativos de los registros	
+		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getTipocomplejo());
+		//Registramos todas las variables que hay declaradas con sus respectivos tipos para buscar luego las necesarias (no hay repetidas)
+		Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		//Registramos las variables globales y las constantes también
+		Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion());
+		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes());
+		//Unimos todas en el Map que se utilizará
+		variablesDeclaradas.putAll(variablesGlobales);
+		variablesDeclaradas.putAll(constantes);
+		
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			List<String> tipos = funciones.getTiposCabecera(sub.getParametrofuncion());
+			String nombre = sub.getNombre();
+			int parametros = sub.getParametrofuncion().size();
+			checkParametrosLlamadaAux(algoritmo.getTiene().getTiene(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+			
+			for(Sentencias s: algoritmo.getTiene().getTiene()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkParametrosLlamadaAux(caso.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkParametrosLlamadaAux(bloqueAux.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+								}
+							}
+						}
+					}
+					else {
+						checkParametrosLlamadaAux(bloque.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkParametrosLlamadaAux(bloqueAux.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkParametrosLLamadaSubproceso(Modulo modulo) {
+		//Recogemos los tipos nativos de los tipos complejos
+		Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(modulo.getImplementacion().getTipocomplejo());
+		//Recogemos los tipos nativos de los registros	
+		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(modulo.getImplementacion().getTipocomplejo());
+		Map<String,String> constantes = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes());
+				
+		//Registramos los tipos de parámetros necesarios para todos los subprocesos
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			List<String> tipos = funciones.getTiposCabecera(sub.getParametrofuncion());
+			String nombre = sub.getNombre();
+			int parametros = sub.getParametrofuncion().size();
+					
+			for(Subproceso sub2: modulo.getImplementacion().getFuncion()) {
+				//Registramos todas las variables que hay declaradas con sus respectivos tipos para buscar luego las necesarias (no hay repetidas)
+				Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(sub2.getDeclaracion());
+				Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobal(), sub2.getDeclaracion());
+				//Como estamos en el caso de los subprocesos debemos registrar los parámetros también
+				funciones.getTiposCabecera(sub2.getParametrofuncion(), variablesDeclaradas);
+				//Añadimos las constrantes y las variables globales
+				variablesDeclaradas.putAll(variablesGlobales);
+				variablesDeclaradas.putAll(constantes);
+						
+				checkParametrosLlamadaAux(sub2.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+						
+				for(Sentencias s: sub2.getSentencias()) {
+					if(s instanceof Bloque) {
+						Bloque bloque = (Bloque) s;
+						if(bloque instanceof segun) {
+							segun seg = (segun) bloque;
+							for(Caso caso: seg.getCaso()) {
+								checkParametrosLlamadaAux(caso.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+										
+								for(Sentencias sentencias: caso.getSentencias()) {
+									if(sentencias instanceof Bloque) {
+										Bloque bloqueAux = (Bloque) sentencias;
+											checkParametrosLlamadaAux(bloqueAux.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+									}
+								}
+							}
+						}
+						else {
+							checkParametrosLlamadaAux(bloque.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+									
+							for(Sentencias sentencias: bloque.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkParametrosLlamadaAux(bloqueAux.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+								}
+							}
+						}
+				}
+			}
+						
+		}
+		}	
+	}
+	
+	
+	@Check
+	//Función que comprueba que las funciones que se llaman dentro de los subprocesos se llamen con parámetros del tipo adecuado
+	protected void checkParametrosLlamadaSubproceso(Algoritmo algoritmo) {
+		//Recogemos los tipos nativos de los tipos complejos
+		Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getTipocomplejo());
+		//Recogemos los tipos nativos de los registros	
+		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getTipocomplejo());
+		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes());
+		
+		//Registramos los tipos de parámetros necesarios para todos los subprocesos
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			List<String> tipos = funciones.getTiposCabecera(sub.getParametrofuncion());
+			String nombre = sub.getNombre();
+			int parametros = sub.getParametrofuncion().size();
+			
+			for(Subproceso sub2: algoritmo.getFuncion()) {
+				//Registramos todas las variables que hay declaradas con sus respectivos tipos para buscar luego las necesarias (no hay repetidas)
+				Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(sub2.getDeclaracion());
+				Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), sub2.getDeclaracion());
+				//Como estamos en el caso de los subprocesos debemos registrar los parámetros también
+				funciones.getTiposCabecera(sub2.getParametrofuncion(), variablesDeclaradas);
+				//Añadimos las constrantes y las variables globales
+				variablesDeclaradas.putAll(variablesGlobales);
+				variablesDeclaradas.putAll(constantes);
+				
+				checkParametrosLlamadaAux(sub2.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+				
+				for(Sentencias s: sub2.getSentencias()) {
+					if(s instanceof Bloque) {
+						Bloque bloque = (Bloque) s;
+						if(bloque instanceof segun) {
+							segun seg = (segun) bloque;
+							for(Caso caso: seg.getCaso()) {
+								checkParametrosLlamadaAux(caso.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+								
+								for(Sentencias sentencias: caso.getSentencias()) {
+									if(sentencias instanceof Bloque) {
+										Bloque bloqueAux = (Bloque) sentencias;
+										checkParametrosLlamadaAux(bloqueAux.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+									}
+								}
+							}
+						}
+						else {
+							checkParametrosLlamadaAux(bloque.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+							
+							for(Sentencias sentencias: bloque.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkParametrosLlamadaAux(bloqueAux.getSentencias(),tipos,nombre,parametros,variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+
+								}
+							}
+						}
+					}
+				}
+				
+			}
+		}
+	}
+	
+	
+	@Check
+	//Función que comprueba que el tipo de devolución de una función sea compatible o igual al tipo realmente devuelto
+	protected void checkTipoDevolucionFuncion(Subproceso s) {
+		if(s instanceof Funcion) {
+			Funcion f = (Funcion) s;
+			String tipoDevuelve = f.getTipo().getName();
+			if(f.getDevuelve().getDevuelve() instanceof VariableID) {
+				VariableID v = (VariableID) f.getDevuelve().getDevuelve();
+				String nombreVar = v.getNombre();
+				//Buscamos las variables en las declaraciones y en los parametros para averiguar de que tipo es
+				Map<String,String> variables = funciones.registrarVariablesTipadas(f.getDeclaracion());
+				//Registramos los parámetros
+				funciones.getTiposCabecera(f.getParametrofuncion(), variables);
+				
+				//Comprobamos que la variable que se quiere devolver este definida y sea del tipo correcto.
+				if(!variables.containsKey(nombreVar)) {
+					error("La variable no ha sido definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+				else if(variables.get(nombreVar) != tipoDevuelve) {
+					if(variables.get(nombreVar) == "real" && tipoDevuelve == "entero") {
+						warning("El tipo de devolución no es el indicado, puede haber pérdida de precisión", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+					else if(variables.get(nombreVar) != "entero"  || tipoDevuelve != "real") {
+						error("El tipo de devolución no es el indicado, los tipos son incompatibles", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba que un campo utilizado de un registro pertenezca realmente a ese tipo de registro
+	protected void checkVariablesRegistroInicio(Algoritmo algoritmo) {
+		//Preparamos todos los campos clasificados por el nombre del registro (utilizado como identificador)
+		Map<String,List<String>> registros = new HashMap<String,List<String>>();
+		for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				registros.put(r.getNombre(), funciones.registrarCamposRegistroSinTipo(r.getVariable()));
+			}
+		}
+		
+		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getValor_asignacion() instanceof ValorRegistro) {
+					ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
+					for(CampoRegistro campo: r.getCampo()) {
+						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+							error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+						}	
+					}
+				}
+				if(a.getOperador() instanceof ValorRegistro) {
+					ValorRegistro r = (ValorRegistro) a.getOperador();
+					for(CampoRegistro campo: r.getCampo()) {
+						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+							error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+						}	
+					}
+				}
+			}
+			else if(s instanceof AsignacionNormal) {
+				AsignacionNormal a = (AsignacionNormal) s;
+				if(a.getOperador() instanceof LlamadaFuncion) {
+					LlamadaFuncion f = (LlamadaFuncion) a.getOperador();
+					for(valor v: f.getOperadores()) {
+						if(v instanceof Operador) {
+							Operador o = (Operador) v;
+							if(o instanceof ValorRegistro) {
+								ValorRegistro r = (ValorRegistro) o;
+								for(CampoRegistro campo: r.getCampo()) {
+									if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+										error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+									}	
+								}
+							}
+						}
+					}
+				}
+				if(a.getOperador() instanceof ValorRegistro) {
+					ValorRegistro r = (ValorRegistro) a.getOperador();
+					for(CampoRegistro campo: r.getCampo()) {
+						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+							error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+						}	
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkVariablesRegistroSubproceso(Modulo modulo) {
+		//Preparamos todos los campos clasificados por el nombre del registro (utilizado como identificador)
+		Map<String,List<String>> registros = new HashMap<String,List<String>>();
+		for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				registros.put(r.getNombre(), funciones.registrarCamposRegistroSinTipo(r.getVariable()));
+			}
+		}
+					
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+						
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof AsignacionCompleja) {
+					AsignacionCompleja a = (AsignacionCompleja) s;
+					if(a.getValor_asignacion() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
+						for(CampoRegistro campo: r.getCampo()) {
+							if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+								error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+							}	
+						}
+					}
+					if(a.getOperador() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) a.getOperador();
+						for(CampoRegistro campo: r.getCampo()) {
+							if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+								error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+							}	
+						}
+					}
+				}
+				else if(s instanceof AsignacionNormal) {
+					AsignacionNormal a = (AsignacionNormal) s;
+					if(a.getOperador() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) a.getOperador();
+						for(valor v: f.getOperadores()) {
+							if(v instanceof Operador) {
+								Operador o = (Operador) v;
+									if(o instanceof ValorRegistro) {
+										ValorRegistro r = (ValorRegistro) o;
+										for(CampoRegistro campo: r.getCampo()) {
+											if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+												error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+											}	
+										}
+									}
+							}
+						}
+					}
+					if(a.getOperador() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) a.getOperador();
+						for(CampoRegistro campo: r.getCampo()) {
+							if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+								error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+							}	
+						}
+					}
+				}
+			}
+		
+		}
+							
+	}
+	
+	
+	@Check
+	//Función que comprueba que un campo utilizado de un registro pertenezca realmente a ese tipo de registro
+	protected void checkVariablesRegistroSubproceso(Algoritmo algoritmo) {
+		//Preparamos todos los campos clasificados por el nombre del registro (utilizado como identificador)
+		Map<String,List<String>> registros = new HashMap<String,List<String>>();
+			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+				if(t instanceof Registro) {
+					Registro r = (Registro) t;
+					registros.put(r.getNombre(), funciones.registrarCamposRegistroSinTipo(r.getVariable()));
+				}
+			}
+			
+			for(Subproceso sub: algoritmo.getFuncion()) {
+				Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+				
+				for(Sentencias s: sub.getSentencias()) {
+					if(s instanceof AsignacionCompleja) {
+						AsignacionCompleja a = (AsignacionCompleja) s;
+						if(a.getValor_asignacion() instanceof ValorRegistro) {
+							ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
+							for(CampoRegistro campo: r.getCampo()) {
+								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+									error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+								}	
+							}
+						}
+						if(a.getOperador() instanceof ValorRegistro) {
+							ValorRegistro r = (ValorRegistro) a.getOperador();
+							for(CampoRegistro campo: r.getCampo()) {
+								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+									error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+								}	
+							}
+						}
+					}
+					else if(s instanceof AsignacionNormal) {
+						AsignacionNormal a = (AsignacionNormal) s;
+						if(a.getOperador() instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) a.getOperador();
+							for(valor v: f.getOperadores()) {
+								if(v instanceof Operador) {
+									Operador o = (Operador) v;
+									if(o instanceof ValorRegistro) {
+										ValorRegistro r = (ValorRegistro) o;
+										for(CampoRegistro campo: r.getCampo()) {
+											if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+												error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+											}	
+										}
+									}
+								}
+							}
+						}
+						if(a.getOperador() instanceof ValorRegistro) {
+							ValorRegistro r = (ValorRegistro) a.getOperador();
+							for(CampoRegistro campo: r.getCampo()) {
+								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+									error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+								}	
+							}
+						}
+					}
+				}
+			}
+	}
+	
+	
+	private void errorAsignacion(Asignacion a, String mensaje, boolean error) {
+		if(a instanceof AsignacionNormal) {
+			AsignacionNormal an = (AsignacionNormal) a;
+			if(error) {
+				error(mensaje, an, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION);
+			}
+			else {
+				warning(mensaje, an, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION);
+			}
+		}
+		else {
+			AsignacionCompleja ac = (AsignacionCompleja) a;
+			if(error) {
+				error(mensaje, ac, DiagramapseudocodigoPackage.Literals.ASIGNACION_COMPLEJA__VALOR_ASIGNACION);
+			}
+			else {
+				warning(mensaje, ac, DiagramapseudocodigoPackage.Literals.ASIGNACION_COMPLEJA__VALOR_ASIGNACION);
+			}
+		}
+	}
+	
+	//Función auxiliar para evitar la repetición de código (DRY)
+	private void checkAsignacionesAux(Asignacion a, String tipo, operacion op, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,Map<String,String>> registrosCamposTipados) {
+					if(tipo.equals("entero") && !(op instanceof NumeroEntero)) {
+						if(op instanceof NumeroDecimal) {
+							errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+						}
+						else if(funciones.esOperacion(op)) {
+							ArrayList<valor> valores = new ArrayList<valor>();
+							valores = funciones.registrarValoresOperacion(op, valores);
+							//Primero buscamos las dificultades en la operación
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion("entero", valores);
+							//Preparamos los tipos validos
+							ArrayList<String> tiposValidos = new ArrayList<String>();
+							tiposValidos.add(0, "entero"); 
+							tiposValidos.add(1, "real");
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+							else if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 2 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 2 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 2 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 2 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 2) {
+								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							}
+						}
+						else if(op instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) op;
+							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "entero" && funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "real" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+							else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) == "real" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							}
+						}
+						else if(op instanceof VariableID) {
+							VariableID v = (VariableID) op;
+							if(variables.get(v.getNombre()) != "entero" && variables.get(v.getNombre()) != "real" && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+								
+							}
+							else if(variables.get(v.getNombre()) == "real" && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							}
+						}
+						else if(op instanceof ValorRegistro) {
+							ValorRegistro vr = (ValorRegistro) op;
+							//Buscamos el registro del que proviene esa variable
+							for(String nombre: nombresRegistros) {
+								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "entero" && registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "real") {
+										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									}
+									else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) == "real") {
+										errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+									}
+								}
+							}
+						}
+						else if(op instanceof ValorVector) {
+							ValorVector v = (ValorVector) op;
+							if(vectores.get(variables.get(v.getNombre_vector())) != "entero" && vectores.get(variables.get(v.getNombre_vector())) != "real") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+							else if(vectores.get(variables.get(v.getNombre_vector())) == "real") {
+								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							}
+						}
+						else if(op instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) op;
+							if(matrices.get(variables.get(m.getNombre_matriz())) != "entero" && matrices.get(variables.get(m.getNombre_matriz())) != "real") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+							else {
+								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							}
+						}
+						
+						else {
+							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+						}
+					}
+					else if(tipo == "logico" && !(op instanceof ValorBooleano)) {
+						if(funciones.esOperacion(op)) {
+							ArrayList<valor> valores = new ArrayList<valor>();
+							valores = funciones.registrarValoresOperacion(op, valores);
+							//Primero buscamos las dificultades en la operación
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion("logico", valores);
+							//Preparamos los tipos validos
+							ArrayList<String> tiposValidos = new ArrayList<String>();
+							tiposValidos.add(0, "logico"); 
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) op;
+							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "logico" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof unaria) {
+							unaria u = (unaria) op;
+							if(!(u.getVariable() instanceof ValorBooleano) && (!(u.getVariable() instanceof VariableID))) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+							else if(u.getVariable() instanceof VariableID) {
+								VariableID var = (VariableID) u.getVariable();
+								if(variables.get(var.getNombre()) != "logico" && variables.containsKey(var.getNombre())) {
+									errorAsignacion(a, "El tipo de asignación es incompatible", true);
+								}
+							}
+						}
+						else if(op instanceof VariableID) {
+							VariableID v = (VariableID) op;
+							if(variables.get(v.getNombre()) != "logico" && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorRegistro) {
+							ValorRegistro vr = (ValorRegistro) op;
+							//Buscamos el registro del que proviene esa variable
+							for(String nombre: nombresRegistros) {
+								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "logico") {
+										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									}
+								}
+							}
+						}
+						else if(op instanceof ValorVector) {
+							ValorVector v = (ValorVector) op;
+							if(vectores.get(variables.get(v.getNombre_vector())) != "logico") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) op;
+							if(matrices.get(variables.get(m.getNombre_matriz())) != "logico") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else {
+							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+						}
+					}
+					else if(tipo == "real" && !(op instanceof NumeroEntero) && !(op instanceof NumeroDecimal)) {
+						if(funciones.esOperacion(op)) {
+							ArrayList<valor> valores = new ArrayList<valor>();
+							valores = funciones.registrarValoresOperacion(op, valores);
+							//Primero buscamos las dificultades en la operación
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion("real", valores);
+							//Preparamos los tipos validos
+							ArrayList<String> tiposValidos = new ArrayList<String>();
+							tiposValidos.add(0, "real"); 
+							tiposValidos.add(1, "entero");
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) op;
+							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "real" && funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "entero" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof VariableID) {
+							VariableID v = (VariableID) op;
+							if(variables.get(v.getNombre()) != "real" && variables.get(v.getNombre()) != "entero" && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorRegistro) {
+							ValorRegistro vr = (ValorRegistro) op;
+							//Buscamos el registro del que proviene esa variable
+							for(String nombre: nombresRegistros) {
+								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "entero" && registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "real") {
+										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									}
+								}
+							}
+						}
+						else if(op instanceof ValorVector) {
+							ValorVector v = (ValorVector) op;
+							if(vectores.get(variables.get(v.getNombre_vector())) != "entero" && vectores.get(variables.get(v.getNombre_vector())) != "real") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) op;
+							if(matrices.get(variables.get(m.getNombre_matriz())) != "entero" && matrices.get(variables.get(m.getNombre_matriz())) != "real") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else {
+							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+						}
+					}
+					else if(tipo == "cadena" && !(op instanceof ConstCadena)) {
+						if(funciones.esOperacion(op)) {
+							ArrayList<valor> valores = new ArrayList<valor>();
+							valores = funciones.registrarValoresOperacion(op, valores);
+							//Primero buscamos las dificultades en la operación
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion("cadena", valores);
+							//Preparamos los tipos validos
+							ArrayList<String> tiposValidos = new ArrayList<String>();
+							tiposValidos.add(0, "cadena"); 
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) op;
+							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "cadena" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof VariableID) {
+							VariableID v = (VariableID) op;
+							if(variables.get(v.getNombre()) != "cadena" && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorRegistro) {
+							ValorRegistro vr = (ValorRegistro) op;
+							//Buscamos el registro del que proviene esa variable
+							for(String nombre: nombresRegistros) {
+								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "cadena") {
+										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									}
+								}
+							}
+						}
+						else if(op instanceof ValorVector) {
+							ValorVector v = (ValorVector) op;
+							if(vectores.get(variables.get(v.getNombre_vector())) != "cadena") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) op;
+							if(matrices.get(variables.get(m.getNombre_matriz())) != "cadena") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else {
+							errorAsignacion(a,"El tipo de asignación es incompatible", true);
+						}
+					}
+					else if(tipo == "caracter" && !(op instanceof Caracter)) {
+						if(funciones.esOperacion(op)) {
+							ArrayList<valor> valores = new ArrayList<valor>();
+							valores = funciones.registrarValoresOperacion(op, valores);
+							//Primero buscamos las dificultades en la operación
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion("caracter", valores);
+							//Preparamos los tipos validos
+							ArrayList<String> tiposValidos = new ArrayList<String>();
+							tiposValidos.add(0, "caracter"); 
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) op;
+							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "caracter" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof VariableID) {
+							VariableID v = (VariableID) op;
+							if(variables.get(v.getNombre()) != "caracter" && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorRegistro) {
+							ValorRegistro vr = (ValorRegistro) op;
+							//Buscamos el registro del que proviene esa variable
+							for(String nombre: nombresRegistros) {
+								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "caracter") {
+										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									}
+								}
+							}
+						}
+						else if(op instanceof ValorVector) {
+							ValorVector v = (ValorVector) op;
+							if(vectores.get(variables.get(v.getNombre_vector())) != "caracter") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else if(op instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) op;
+							if(matrices.get(variables.get(m.getNombre_matriz())) != "caracter") {
+								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							}
+						}
+						else {
+							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+						}
+				}
+	}
+	
+	private void checkSentenciasAsignaciones(List<Sentencias> sentencias, Map<String,String> variablesTipadas, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String, Map<String,String>> registrosCamposTipados) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof Asignacion) {
+				Asignacion a = (Asignacion) s;
+				if(a instanceof AsignacionNormal) {
+					AsignacionNormal an = (AsignacionNormal) a;
+					String tipo = variablesTipadas.get(an.getValor_asignacion());
+					checkAsignacionesAux(a, tipo, an.getOperador(), variablesTipadas, registros, nombresRegistros,funcionesTipadas, vectores, matrices, registrosCamposTipados);
+				}
+				else if(a instanceof AsignacionCompleja) {
+					AsignacionCompleja ac = (AsignacionCompleja) a;
+					if(ac.getValor_asignacion() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) ac.getValor_asignacion();
+						for(CampoRegistro campo: r.getCampo()) {
+							String tipo = registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo());
+							checkAsignacionesAux(a, tipo, ac.getOperador(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+						}
+					}
+					else if(ac.getValor_asignacion() instanceof ValorVector) {
+						ValorVector v = (ValorVector) ac.getValor_asignacion();
+						if(v.getCampo().size() == 0) {
+							String tipo = vectores.get(variablesTipadas.get(v.getNombre_vector()));
+							checkAsignacionesAux(a, tipo, ac.getOperador(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+						}
+						else {
+							//Cogemos el último campo:
+							String campo = v.getCampo().get(v.getCampo().size()-1).getNombre_campo();
+							String tipo = registrosCamposTipados.get(vectores.get(variablesTipadas.get(v.getNombre_vector()))).get(campo);
+							checkAsignacionesAux(a, tipo, ac.getOperador(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+						}
+					}
+					else if(ac.getValor_asignacion() instanceof ValorMatriz) {
+						ValorMatriz m = (ValorMatriz) ac.getValor_asignacion();
+						if(m.getCampo().size() == 0) {
+							String tipo = matrices.get(variablesTipadas.get(m.getNombre_matriz()));
+							checkAsignacionesAux(a, tipo, ac.getOperador(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+						}
+						else {
+							//Cogemos el último campo:
+							String campo = m.getCampo().get(m.getCampo().size()-1).getNombre_campo();
+							String tipo = registrosCamposTipados.get(matrices.get(variablesTipadas.get(m.getNombre_matriz()))).get(campo);
+							checkAsignacionesAux(a, tipo, ac.getOperador(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que valida que el tipo de dato que se quiere asignar sea compatible con el tipo de la variable (asignación normal)
+	protected void checkAsignacionesInicio(Algoritmo algoritmo) {
+		//Preparamos las variables de tipo registro para permitir asignación
+		Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
+		Map<String,String> vectores = new HashMap<String,String>();
+		List<String> nombresRegistros = new ArrayList<String>();
+		Map<String,String> matrices = new HashMap<String,String>();
+		
+		funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+		
+		//Registramos todas las variables declaradas con sus respectivos tipos
+		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		Map<String,String> variablesTipadasGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+		
+		//Añadimos las variables globales si no hay una variable local que se llame igual
+		
+		List<String> nombresGlobales = new ArrayList<String>();
+		
+		for(Declaracion d: algoritmo.getGlobal()) {
+			if(d instanceof DeclaracionPropia) {
+				DeclaracionPropia dp = (DeclaracionPropia) d;
+				for(Variable v: dp.getVariable()) {
+					nombresGlobales.add(v.getNombre());
+				}
+			}
+			else {
+				DeclaracionVariable dv = (DeclaracionVariable) d;
+				for(Variable v: dv.getVariable()) {
+					nombresGlobales.add(v.getNombre());
+				}
+			}
+		}
+		
+		for(String nombre: nombresGlobales) {
+			if(!variablesTipadas.containsKey(nombre)) {
+				variablesTipadas.put(nombre, variablesTipadasGlobales.get(nombre));
+			}
+		}
+		
+		//Registramos todas las funciones que están definidas
+		Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
+		
+		//Registramos todos los campos tipados de cada registro
+		Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
+		
+		for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
+			}
+		}
+		
+		funciones.prepararColeccionFunciones(algoritmo.getFuncion(), funcionesTipadas);
+		checkSentenciasAsignaciones(algoritmo.getTiene().getTiene(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+		
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) s;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso caso: seg.getCaso()) {
+						checkSentenciasAsignaciones(caso.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+						
+						for(Sentencias sentencias: caso.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkSentenciasAsignaciones(bloqueAux.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+							}
+						}
+					}
+				}
+				else {
+					checkSentenciasAsignaciones(bloque.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+					
+					for(Sentencias sentencias: bloque.getSentencias()) {
+						if(sentencias instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sentencias;
+							checkSentenciasAsignaciones(bloqueAux.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkAsignacionesSubproceso(Modulo modulo) {
+		//Preparamos las variables de tipo registro para permitir asignación
+		Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
+		Map<String,String> vectores = new HashMap<String,String>();
+		List<String> nombresRegistros = new ArrayList<String>();
+		Map<String,String> matrices = new HashMap<String,String>();
+				
+		funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+				
+		//Registramos todas las funciones que están definidas
+		Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
+				
+		funciones.prepararColeccionFunciones(modulo.getImplementacion().getFuncion(), funcionesTipadas);
+				
+		//Registramos todos los campos tipados de cada registro
+		Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
+						
+		for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
+			}
+		}
+				
+		Map<String,String> variablesTipadasGlobales = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
+				
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+		//Registramos todas las variables declaradas con sus respectivos tipos
+			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+					
+			//Añadimos las variables globales si no hay una variable local que se llame igual
+					
+			List<String> nombresGlobales = new ArrayList<String>();
+					
+			for(Declaracion d: modulo.getImplementacion().getGlobal()) {
+				if(d instanceof DeclaracionPropia) {
+					DeclaracionPropia dp = (DeclaracionPropia) d;
+					for(Variable v: dp.getVariable()) {
+						nombresGlobales.add(v.getNombre());
+					}
+				}
+				else {
+					DeclaracionVariable dv = (DeclaracionVariable) d;
+					for(Variable v: dv.getVariable()) {
+						nombresGlobales.add(v.getNombre());
+					}
+				}
+			}
+					
+			for(String nombre: nombresGlobales) {
+				if(!variablesTipadas.containsKey(nombre)) {
+					variablesTipadas.put(nombre, variablesTipadasGlobales.get(nombre));
+				}
+			}
+					
+			//Como es una función también debemos registrar los parámetros
+					
+			funciones.getTiposCabecera(sub.getParametrofuncion(), variablesTipadas);
+			checkSentenciasAsignaciones(sub.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkSentenciasAsignaciones(caso.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+									
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkSentenciasAsignaciones(bloqueAux.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+								}
+							}
+						}
+					}
+					else {
+						checkSentenciasAsignaciones(bloque.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+								
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkSentenciasAsignaciones(bloqueAux.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+							}
+						}
+					}
+				}
+			}
+		}		
+	}
+	
+	@Check
+	//Función que valida que el tipo de dato que se quiere asignar sea compatible con el tipo de la variable (asignación normal)
+	protected void checkAsignacionesSubproceso(Algoritmo algoritmo) {
+		//Preparamos las variables de tipo registro para permitir asignación
+		Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
+		Map<String,String> vectores = new HashMap<String,String>();
+		List<String> nombresRegistros = new ArrayList<String>();
+		Map<String,String> matrices = new HashMap<String,String>();
+		
+		funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+		
+		//Registramos todas las funciones que están definidas
+		Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
+		
+		funciones.prepararColeccionFunciones(algoritmo.getFuncion(), funcionesTipadas);
+		
+		//Registramos todos los campos tipados de cada registro
+		Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
+				
+		for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
+			}
+		}
+		
+		Map<String,String> variablesTipadasGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+		
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			//Registramos todas las variables declaradas con sus respectivos tipos
+			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			
+			//Añadimos las variables globales si no hay una variable local que se llame igual
+			
+			List<String> nombresGlobales = new ArrayList<String>();
+			
+			for(Declaracion d: algoritmo.getGlobal()) {
+				if(d instanceof DeclaracionPropia) {
+					DeclaracionPropia dp = (DeclaracionPropia) d;
+					for(Variable v: dp.getVariable()) {
+						nombresGlobales.add(v.getNombre());
+					}
+				}
+				else {
+					DeclaracionVariable dv = (DeclaracionVariable) d;
+					for(Variable v: dv.getVariable()) {
+						nombresGlobales.add(v.getNombre());
+					}
+				}
+			}
+			
+			for(String nombre: nombresGlobales) {
+				if(!variablesTipadas.containsKey(nombre)) {
+					variablesTipadas.put(nombre, variablesTipadasGlobales.get(nombre));
+				}
+			}
+			
+			//Como es una función también debemos registrar los parámetros
+			
+			funciones.getTiposCabecera(sub.getParametrofuncion(), variablesTipadas);
+			checkSentenciasAsignaciones(sub.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkSentenciasAsignaciones(caso.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkSentenciasAsignaciones(bloqueAux.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+								}
+							}
+						}
+					}
+					else {
+						checkSentenciasAsignaciones(bloque.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkSentenciasAsignaciones(bloqueAux.getSentencias(), variablesTipadas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+
+							}
+						}
+					}
+				}
+			}
+		}
+			
+	}
+	
+	private void comprobarParametrosTipoComplejoLlamada(List<operacion> operaciones, List<String> nombresRegistros, List<String> nombresVectores, List<String> nombresMatrices, Map<String,String> variables) {
+		for(operacion opAux: operaciones) {
+			if(opAux instanceof Operador) {
+				Operador op = (Operador) opAux;
+				if(op instanceof ValorVector) {
+					ValorVector vector = (ValorVector) op;
+					if(!nombresVectores.contains(variables.get(vector.getNombre_vector()))) {
+						error("La variable "+vector.getNombre_vector()+" no pertenece al tipo vector", vector, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				else if(op instanceof ValorMatriz) {
+					ValorMatriz matriz = (ValorMatriz) op;
+					if(!nombresMatrices.contains(variables.get(matriz.getNombre_matriz()))) {
+						error("La variable "+matriz.getNombre_matriz()+" no pertenece al tipo matriz", matriz, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				else if(op instanceof ValorRegistro) {
+					ValorRegistro registro = (ValorRegistro) op;
+					if(!nombresRegistros.contains(variables.get(registro.getNombre_registro()))) {
+						//Si no lo contiene es que el tipo de la variable no era un registro
+						error("La variable "+registro.getNombre_registro()+" no pertenece al tipo registro", registro, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+					}
+				}
+			}
+		}		
+	}
+	
+	private void checkVariblesUsadasTiposComplejosAux(List<Sentencias> sentencias, Map<String,String> variables, List<String> nombresRegistros, List<String> nombresVectores, List<String> nombresMatrices) {
+		
+		for(Sentencias s: sentencias) {
+			if(s instanceof AsignacionNormal) {
+				AsignacionNormal a = (AsignacionNormal) s;
+				if(a.getOperador() instanceof ValorRegistro) {
+					ValorRegistro r = (ValorRegistro) a.getOperador();
+					if(!nombresRegistros.contains(variables.get(r.getNombre_registro()))) {
+						//Si no lo contiene es que el tipo de la variable no era un registro
+						error("La variable "+r.getNombre_registro()+" no pertenece al tipo registro", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+					}
+				}
+				else if(a.getOperador() instanceof ValorVector) {
+					ValorVector v = (ValorVector) a.getOperador();
+					if(!nombresVectores.contains(variables.get(v.getNombre_vector()))) {
+						error("La variable "+v.getNombre_vector()+" no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				else if(a.getOperador() instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) a.getOperador();
+					if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
+						error("La variable "+m.getNombre_matriz()+" no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				else if(a.getOperador() instanceof LlamadaFuncion) {
+					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
+					comprobarParametrosTipoComplejoLlamada(l.getOperadores(), nombresRegistros, nombresVectores, nombresMatrices, variables);	
+				}
+				
+				else if(funciones.esOperacion(a.getOperador())) {
+					//Si es una operación debemos comprobar la lista de operadores completa
+					ArrayList<valor> valores = new ArrayList<valor>();
+					valores = funciones.registrarValoresOperacion(a.getOperador(), valores);
+					List<ValorRegistro> valoresRegistro = funciones.variablesRegistroExistentes(valores, variables, nombresRegistros);
+					for(ValorRegistro vr: valoresRegistro) {
+						error("La variable "+vr.getNombre_registro()+" no pertenece al tipo registro", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+					}
+					List<ValorVector> valoresVector = funciones.variablesVectorExistentes(valores, variables, nombresVectores);
+					for(ValorVector vv: valoresVector) {
+						error("La variable "+vv.getNombre_vector()+" no pertenece al tipo vector", vv, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+					List<ValorMatriz> valoresMatriz = funciones.variablesMatrizExistentes(valores, variables, nombresMatrices);
+					for(ValorMatriz vm: valoresMatriz) {
+						error("La variable "+vm.getNombre_matriz()+" no pertenece al tipo matriz", vm, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+					//Comprobamos los parámetros de las funciones
+					
+					for(valor v: valores) {
+						if(v instanceof LlamadaFuncion) {
+							LlamadaFuncion l = (LlamadaFuncion) v;
+							comprobarParametrosTipoComplejoLlamada(l.getOperadores(), nombresRegistros, nombresVectores, nombresMatrices, variables);
+						}
+					}
+					
+				}
+			}
+			else if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getValor_asignacion() instanceof ValorRegistro) {
+					ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
+					if(!nombresRegistros.contains(variables.get(r.getNombre_registro()))) {
+						//Si no lo contiene es que el tipo de la variable no era un registro
+						error("La variable "+r.getNombre_registro()+" no pertenece al tipo registro", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+					}
+				}
+				else if(a.getValor_asignacion() instanceof ValorVector) {
+					ValorVector v = (ValorVector) a.getValor_asignacion();
+					if(!nombresVectores.contains(variables.get(v.getNombre_vector()))) {
+						error("La variable "+v.getNombre_vector()+" no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				else if(a.getValor_asignacion() instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) a.getValor_asignacion();
+					if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
+						error("La variable "+m.getNombre_matriz()+" no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				if(a.getOperador() instanceof ValorRegistro) {
+					ValorRegistro r = (ValorRegistro) a.getOperador();
+					if(!nombresRegistros.contains(variables.get(r.getNombre_registro()))) {
+						//Si no lo contiene es que el tipo de la variable no era un registro
+						error("La variable "+r.getNombre_registro()+" no pertenece al tipo registro", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+					}
+				}
+				else if(a.getOperador() instanceof ValorVector) {
+					ValorVector v = (ValorVector) a.getOperador();
+					if(!nombresVectores.contains(variables.get(v.getNombre_vector()))) {
+						error("La variable "+v.getNombre_vector()+" no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+				}
+				else if(a.getOperador() instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) a.getOperador();
+					if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
+						error("La variable "+m.getNombre_matriz()+" no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+				}
+				else if(a.getOperador() instanceof LlamadaFuncion) {
+					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
+					comprobarParametrosTipoComplejoLlamada(l.getOperadores(), nombresRegistros, nombresVectores, nombresMatrices, variables);	
+				}
+				else if(funciones.esOperacion(a.getOperador())) {
+					//Si es una operación debemos comprobar la lista de operadores completa
+					ArrayList<valor> valores = new ArrayList<valor>();
+					valores = funciones.registrarValoresOperacion(a.getOperador(), valores);
+					List<ValorRegistro> valoresRegistro = funciones.variablesRegistroExistentes(valores, variables, nombresRegistros);
+					for(ValorRegistro vr: valoresRegistro) {
+						error("La variable "+vr.getNombre_registro()+" no pertenece al tipo registro", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+					}
+					List<ValorVector> valoresVector = funciones.variablesVectorExistentes(valores, variables, nombresVectores);
+					for(ValorVector vv: valoresVector) {
+						error("La variable "+vv.getNombre_vector()+" no pertenece al tipo vector", vv, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+					}
+					List<ValorMatriz> valoresMatriz = funciones.variablesMatrizExistentes(valores, variables, nombresMatrices);
+					for(ValorMatriz vm: valoresMatriz) {
+						error("La variable "+vm.getNombre_matriz()+" no pertenece al tipo matriz", vm, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+					}
+					
+					//Comprobamos los parámetros de las funciones:
+					
+					for(valor v: valores) {
+						if(v instanceof LlamadaFuncion) {
+							LlamadaFuncion l = (LlamadaFuncion) v;
+							comprobarParametrosTipoComplejoLlamada(l.getOperadores(), nombresRegistros, nombresVectores, nombresMatrices, variables);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkVariableUsadaTipoComplejo(Modulo modulo) {	
+		//Recogemos todos los registros, con los nombres nos vale porque ya tenemos una función que se encarga de
+		//validar si un campo es o no de un determinado registro
+		List<String> nombresRegistros = new ArrayList<String>();
+		List<String> nombresVectores = new ArrayList<String>();
+		List<String> nombresMatrices = new ArrayList<String>();
+		for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				nombresRegistros.add(r.getNombre());
+			}
+			else if(t instanceof Vector) {
+				Vector v = (Vector) t;
+				nombresVectores.add(v.getNombre());
+			}
+			else if(t instanceof Matriz) {
+				Matriz m = (Matriz) t;
+				nombresMatrices.add(m.getNombre());
+			}
+		}
+		
+		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
+			Map<String,String> variables = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			
+			//Como son subprocesos también debemos registrar sus parámetros
+			
+			funciones.getTiposCabecera(sub.getParametrofuncion(), variables);
+			
+			checkVariblesUsadasTiposComplejosAux(sub.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkVariblesUsadasTiposComplejosAux(caso.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkVariblesUsadasTiposComplejosAux(bloqueAux.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+								}
+							}
+						}
+					}
+					else {
+						checkVariblesUsadasTiposComplejosAux(bloque.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkVariblesUsadasTiposComplejosAux(bloqueAux.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+							}
+						}
+					}
+				}
+			}
+		}
+	}	
+	
+	@Check
+	protected void checkVariableUsadaTipoComplejo(Algoritmo algoritmo) {
+		//Recogemos todos los registros, con los nombres nos vale porque ya tenemos una función que se encarga de
+		//validar si un campo es o no de un determinado registro
+		List<String> nombresRegistros = new ArrayList<String>();
+		List<String> nombresVectores = new ArrayList<String>();
+		List<String> nombresMatrices = new ArrayList<String>();
+		for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			if(t instanceof Registro) {
+				Registro r = (Registro) t;
+				nombresRegistros.add(r.getNombre());
+			}
+			else if(t instanceof Vector) {
+				Vector v = (Vector) t;
+				nombresVectores.add(v.getNombre());
+			}
+			else if(t instanceof Matriz) {
+				Matriz m = (Matriz) t;
+				nombresMatrices.add(m.getNombre());
+			}
+		}
+		
+		//Ahora comprobamos que ni en el programa principal ni en los subprocesos se utilice una variable declarada
+		//como si fuese un registro sin serlo.
+		
+		//1) En el programa principal:
+		
+		Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		
+		checkVariblesUsadasTiposComplejosAux(algoritmo.getTiene().getTiene(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+		
+		for(Sentencias s: algoritmo.getTiene().getTiene()) {
+			if(s instanceof Bloque) {
+				Bloque bloque = (Bloque) s;
+				if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso caso: seg.getCaso()) {
+						checkVariblesUsadasTiposComplejosAux(caso.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+						
+						for(Sentencias sentencias: caso.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkVariblesUsadasTiposComplejosAux(bloqueAux.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+							}
+						}
+					}
+				}
+				else {
+					checkVariblesUsadasTiposComplejosAux(bloque.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+					
+					for(Sentencias sentencias: bloque.getSentencias()) {
+						if(sentencias instanceof Bloque) {
+							Bloque bloqueAux = (Bloque) sentencias;
+							checkVariblesUsadasTiposComplejosAux(bloqueAux.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+						}
+					}
+				}
+			}
+		}
+		
+		//2) En los subprocesos:
+		
+		for(Subproceso sub: algoritmo.getFuncion()) {
+			variables = funciones.registrarVariablesTipadas(sub.getDeclaracion());
+			
+			//Como son subprocesos también debemos registrar sus parámetros
+			
+			funciones.getTiposCabecera(sub.getParametrofuncion(), variables);
+			
+			checkVariblesUsadasTiposComplejosAux(sub.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+			
+			for(Sentencias s: sub.getSentencias()) {
+				if(s instanceof Bloque) {
+					Bloque bloque = (Bloque) s;
+					if(bloque instanceof segun) {
+						segun seg = (segun) bloque;
+						for(Caso caso: seg.getCaso()) {
+							checkVariblesUsadasTiposComplejosAux(caso.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+							
+							for(Sentencias sentencias: caso.getSentencias()) {
+								if(sentencias instanceof Bloque) {
+									Bloque bloqueAux = (Bloque) sentencias;
+									checkVariblesUsadasTiposComplejosAux(bloqueAux.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+								}
+							}
+						}
+					}
+					else {
+						checkVariblesUsadasTiposComplejosAux(bloque.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+						
+						for(Sentencias sentencias: bloque.getSentencias()) {
+							if(sentencias instanceof Bloque) {
+								Bloque bloqueAux = (Bloque) sentencias;
+								checkVariblesUsadasTiposComplejosAux(bloqueAux.getSentencias(), variables, nombresRegistros, nombresVectores, nombresMatrices);
+
+							}
+						}
+					}
+				}
+			}
+		}
+		
+	}
+}

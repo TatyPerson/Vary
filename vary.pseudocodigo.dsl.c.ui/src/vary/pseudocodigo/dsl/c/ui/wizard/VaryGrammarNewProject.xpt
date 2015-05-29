@@ -1,0 +1,210 @@
+«IMPORT vary::pseudocodigo::dsl::c::english::ui::wizard»
+«IMPORT vary::pseudocodigo::dsl::c::english::ui::extension»
+«EXTENSION extension::JavaExtensions»
+
+«DEFINE main FOR VaryGrammarProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR VaryGrammarProjectInfo»
+«FILE "src/main.vyc"-»
+/*
+ * Algoritmo: Ejemplo
+ * Autor: 
+ * Fecha: 
+ */
+ 
+Algoritmo main
+
+importa
+	operaciones
+fin_importa
+ 
+//Seccion de definicion de constantes (opcional)
+const	
+	//Ejemplo de declaracion de una constante:
+	DIM = 10
+
+
+//Seccion de definicion de tipos (opcional)
+tipo
+	//Ejemplo de vector de tipo entero
+	vector [DIM] de entero:  tVect
+	
+	
+//Seccion de definicion de subalgoritmos: funciones y procedimientos	
+
+
+//Ejemplo de funcion para realizar la suma de dos numeros
+
+//Precondicion: a, b>=0 (enteros inicializados)
+//Postcondicion: devuelve a + b
+entero funcion sumaFun(E entero: a, E entero:  b)
+var //Declaracion de variables
+	entero:  resultado
+inicio //Cuerpo de la funcion
+	resultado <- a + b
+	devolver resultado
+fin_funcion
+
+//Ejemplo de procedimiento para realizar la suma de dos numeros
+
+//Precondicion: a, b>=0 (enteros inicializados)
+//Postcondicion: devuelve a + b
+procedimiento sumaProc(E entero: a, E entero: b, S entero: res)
+var
+inicio //Cuerpo del procedimiento
+	res <- a +b
+fin_procedimiento
+
+//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero.
+//      n es una variable entera que debe estar inicializada n>=0. 
+//Postcondicion: v es inicializado
+procedimiento leerVector(S tVect: v, E entero: n)
+var
+    entero: i
+inicio
+   desde i <- 1 hasta n hacer
+      leer(v[i])
+   fin_desde
+fin_procedimiento
+
+//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero. 
+//      n es una variable entera que debe estar inicializada n>=0.
+//Postcondicion: devuelve el producto escalar del vector v
+entero funcion productoEscalar(E tVect: v, E entero: n)
+var
+    entero: res, i
+inicio
+    i <- 1
+    res <- 0
+    //Ejemplo de bucle mientras.  
+    mientras i <=n hacer
+        res <- res + v[i]
+    fin_mientras
+    devolver res
+fin_funcion
+
+//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero. 
+//      n es una variable entera que debe estar inicializada n>=0.
+//Postcondicion: escribe los valores del vector por la salida estandar
+procedimiento escribirVector(E tVect: v, E entero: n)
+var
+    entero: i
+inicio
+    desde i <- 1 hasta n hacer
+        escribir(v[i])
+    fin_desde
+fin_procedimiento
+
+
+//Precondicion: funcion para comenzar el calculo del producto escalar de un vector
+//Postcondicion: llama a los procedimientos y funciones para inicializar un vector, escribirlo y calcular su producto escalar.
+procedimiento calculo_productoEscalar()
+var
+    tVect: v    
+inicio
+   
+	escribir("Introduzca los elementos del vector: ")
+	leerVector(v, DIM)
+		
+	escribir("El producto escalar del vector: ")
+	escribirVector(v, DIM)
+    escribir("es: ", productoEscalar(v,DIM))
+fin_procedimiento		
+
+
+//Precondicion: funcion menu, no recibe ningun parametro
+//Postcondicion: visualiza menu de operaciones en pantalla
+entero funcion menu()
+var
+    entero: valor
+inicio
+    repetir 
+       escribir("Elija una opcion: ")
+       escribir("1: Sumar dos operandos con una funcion.")
+       escribir("2: Sumar dos operandos con un procedimiento.")
+       escribir("3: Calcular el producto escalar de un vector.")
+    hasta_que valor>0 y valor<=3
+    devolver valor
+fin_funcion
+	
+procedimiento operacion(E entero: opcion)
+var
+    tVect: vect
+	entero: a, b, resultado
+inicio
+    escribir("Introduce el valor del sumando a")
+	leer(a)
+	escribir("Introduce el valor del sumando b")
+	leer(b)
+	
+	//CORRECCION DE ERRORES: Parametro de funcion no reconocido en segun_sea
+	
+	segun_sea(opcion) hacer
+		caso 1:  escribir("La suma de ambos valores calculado con la funcion es: ", sumaFun(a,b))
+	    caso 2: sumaProc(a,b, resultado)
+	        escribir("La suma de ambos valores calculdo con el procedimiento es: ", resultado)
+       caso 3:  //Llamadas a los subalgoritmos para calcular el producto escalar de un vector	
+            calculo_productoEscalar()
+		en_otro_caso: escribir("Opcion no valida.")
+	fin_segun
+fin_procedimiento	
+
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+    entero: opcion
+inicio //Cuerpo del algoritmo principal	
+
+	//Llamadas a los subalgoritmos para comenzar la traza del algoritmo	
+	
+	//En este ejemplo se realiza la llamada al menu y posteriormente a operacion
+	opcion <- menu()
+	operacion(opcion)
+fin_inicio
+
+fin_algoritmo
+«ENDFILE»
+«FILE "src/module.vyc"-»
+Modulo modulo1
+
+importa
+	modulo2
+	modulo3
+fin_importa
+
+exporta
+const
+	DIM
+	
+tipo
+	Vector
+	//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero.
+	//      n es una variable entera que debe estar inicializada n>=0. 
+	//Postcondicion: v es inicializado
+	procedimiento leerVector(S tVect: v, E entero: n)
+fin_exporta
+
+implementacion
+	//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero.
+	//      n es una variable entera que debe estar inicializada n>=0. 
+	//Postcondicion: v es inicializado
+	procedimiento leerVector(S tVect: v, E entero: n)
+		var
+    	entero: i
+		inicio
+   			desde i <- 1 hasta n hacer
+      		leer(v[i])
+   			fin_desde
+	fin_procedimiento
+fin_implementacion
+
+fin_modulo
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR VaryGrammarProjectInfo»
+«ENDDEFINE»
