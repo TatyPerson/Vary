@@ -36,6 +36,7 @@ import diagramapseudocodigo.Asignacion;
 import diagramapseudocodigo.AsignacionCompleja;
 import diagramapseudocodigo.AsignacionNormal;
 import diagramapseudocodigo.Bloque;
+import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.Caracter;
 import diagramapseudocodigo.Caso;
@@ -2663,10 +2664,23 @@ List<String> tipos = new ArrayList<String>();
 				parametros.get(funciones.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
 			}
 		}
-		
-		for(Subproceso s: algoritmo.getFuncion()) {
-			funciones.add(s.getNombre());
+		//Añadimos las funciones publicas de los modulos importados
+		for(Modulo m: algoritmo.getImportaciones()) {
+			for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+				if(!funciones.contains(cabecera.getNombre())) {
+					funciones.add(cabecera.getNombre());
+					parametros.add(new ArrayList<Integer>());
+					parametros.get(funciones.indexOf(cabecera.getNombre())).add(cabecera.getParametrofuncion().size());
+				}
+				else {
+					parametros.get(funciones.indexOf(cabecera.getNombre())).add(cabecera.getParametrofuncion().size());
+				}
+			}
 		}
+		
+		//for(Subproceso s: algoritmo.getFuncion()) {
+		//	funciones.add(s.getNombre());
+		//}
 		
 		checkLlamadaFuncionAux(algoritmo.getTiene().getTiene(), funciones, parametros);
 		
