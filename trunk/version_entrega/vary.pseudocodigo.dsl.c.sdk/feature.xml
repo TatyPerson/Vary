@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature id="vary.pseudocodigo.dsl.c.sdk"
+	label="VaryGrammar SDK Feature "
+	version="1.0.0">
+	<plugin
+			id="vary.pseudocodigo.dsl.c"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+	<plugin
+			id="vary.pseudocodigo.dsl.c.ui"
+			download-size="0"
+			install-size="0"
+			version="0.0.0"
+			unpack="false"/>
+</feature>

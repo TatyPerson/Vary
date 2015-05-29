@@ -1,0 +1,50 @@
+«IMPORT vary::pseudocodigo::dsl::c::ui::wizard»
+«IMPORT vary::pseudocodigo::dsl::c::ui::extension»
+«EXTENSION extension::JavaExtensions»
+
+«DEFINE main FOR VaryGrammarProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE template FOR VaryGrammarProjectInfo»
+«FILE "../.metadata/.plugins/org.eclipse.core.runtime/.settings/vary.pseudocodigo.dsl.c.ui.prefs"-»
+vary.pseudocodigo.dsl.c.VaryGrammar.templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" deleted\="false" description\="Template con estructura b\u00E1sica para mientras" enabled\="true" name\="Mientras">mientras ${variable1} &lt;\= ${variable2} hacer\n        ${variable3} &lt;- ${variable4} + ${variable5}\nfin_mientras</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" deleted\="false" description\="Template con estructura b\u00E1sica para repetir" enabled\="true" name\="Repetir">repetir \n    ${variable1} &lt;- ${variable2} + 1\nhasta_que ${variable1} &lt; ${variable3}</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.desde" deleted\="false" description\="Template con estructura b\u00E1sica para desde" enabled\="true" name\="Desde">desde ${variable1} &lt;- 1 hasta ${variable2} hacer\n        escribir(${variable1})\nfin_desde</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.segun" deleted\="false" description\="Template con estructura b\u00E1sica para segun" enabled\="true" name\="Segun">segun_sea(${variable1}) hacer\n\t\tcaso 1\:  escribir("Caso 1")\n\t    caso 2\:  escribir("Caso 2")\n        caso 3\:  escribir("Caso 3")\n\t\ten_otro_caso\:  escribir("Otro caso")\nfin_segun</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted\="false" description\="Template con estructura b\u00E1sica para si" enabled\="true" name\="Si">si ${variable1} &lt; ${variable2} entonces\n\t${variable1} &lt;- ${variable2} + 1\nfin_si</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" deleted\="false" description\="Template con estructura b\u00E1sica para la declaraci\u00F3n de un vector" enabled\="true" name\="Vector">vector [${dimension}] de entero\:  ${nombreTipo}</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.kw_&lt;-" deleted\="false" description\="Template con estructura b\u00E1sica para asignaci\u00F3n" enabled\="true" name\="&lt;-">${variable1} &lt;- ${variable2}</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" deleted\="false" description\="Template con estructura b\u00E1sica para una funci\u00F3n" enabled\="true" name\="Funci\u00F3n">${tipoDevolucion} funcion ${nombre}(E entero\: ${parametro1}, E entero\:  ${parametro2})\nvar //Declaracion de variables\n\t${tipoDevolucion}\:  ${variableDevolver}\ninicio //Cuerpo de la funcion\n\t${variableDevolver} &lt;- ${parametro1} + ${parametro2}\n\tdevolver ${variableDevolver}\nfin_funcion</template><template autoinsert\="true" context\="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" deleted\="false" description\="Template con estructura b\u00E1sica para un procedimiento" enabled\="true" name\="Procedimiento">procedimiento ${nombre}(E entero\: ${parametro1}, S entero\: ${parametro2})\nvar\ninicio //Cuerpo del procedimiento\n\t${parametro2} &lt;- ${parametro1} + 1\nfin_procedimiento</template></templates>
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE model FOR VaryGrammarProjectInfo»
+«FILE "src/input.vyc"-»
+/*
+ * Algoritmo: Ejemplo
+ * Autor: 
+ * Fecha: 
+ */
+ 
+Algoritmo ejemplo
+ 
+//Seccion de definicion de constantes (opcional)
+const	
+
+
+//Seccion de definicion de tipos (opcional)
+tipo
+	
+	
+//Seccion de definicion de subalgoritmos: funciones y procedimientos	
+
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+
+inicio //Cuerpo del algoritmo principal	
+
+fin_inicio
+
+fin_algoritmo
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR VaryGrammarProjectInfo»
+«ENDDEFINE»
