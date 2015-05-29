@@ -137,6 +137,7 @@ import diagramapseudocodigo.impl.AlgoritmoImpl
 import diagramapseudocodigo.Subrango
 import diagramapseudocodigo.CabeceraProcedimiento
 import diagramapseudocodigo.CabeceraFuncion
+import diagramapseudocodigo.CabeceraSubproceso
 
 /**
  * Generates code from your model files on save.
@@ -578,6 +579,11 @@ class VaryGrammarGeneratorCPP implements IGenerator {
 		«ENDFOR»
 		using namespace std;
 		
+		//Instanciamos los modulos que vamos a usar
+		«FOR myRefModulo:myModulo.importaciones»
+			«myRefModulo.nombre» ref«myRefModulo.nombre» = «myRefModulo.nombre»();
+		«ENDFOR»
+		
 		«FOR myConstante:myModulo.implementacion.constantes»
 			«IF !myModulo.exporta_constantes.contains(myConstante.variable.nombre)»
 				«myConstante.toCpp»
@@ -630,14 +636,14 @@ class VaryGrammarGeneratorCPP implements IGenerator {
 				«IF mySubproceso.eClass.name.equals("Procedimiento")»
 					«var procedimiento = mySubproceso as Procedimiento»
 					«IF (!myModulo.exporta_funciones.contains(procedimiento.nombre)) && procedimiento.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
-						«procedimiento.toCpp»
+						«procedimiento.toCpp(modulo.nombre)»
 						«procedimiento.addProcedimiento(procedimientosUsados)»
 					«ENDIF»
 				«ENDIF»
 				«IF mySubproceso.eClass.name.equals("Funcion")»
 					«var funcion = mySubproceso as Funcion»
 					«IF (!myModulo.exporta_funciones.contains(funcion.nombre)) && funcion.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
-						«funcion.toCpp»
+						«funcion.toCpp(modulo.nombre)»
 						«funcion.addFuncion(funcionesUsadas)»
 					«ENDIF»
 				«ENDIF»
@@ -807,8 +813,17 @@ class VaryGrammarGeneratorCPP implements IGenerator {
 		«IF cabeceras»
 		#include "«algoritmo.nombre».h"
 		«ENDIF»
+		«FOR myRefModulo:algoritmo.importaciones»
+		#include "«myRefModulo.nombre».h"
+		«ENDFOR»
 		
 		using namespace std;
+		
+		//Instanciamos los modulos que vamos a usar
+		«FOR myRefModulo:algoritmo.importaciones»
+			«myRefModulo.nombre» ref«myRefModulo.nombre» = «myRefModulo.nombre»();
+		«ENDFOR»
+		
 		«FOR myComentario:myAlgoritmo.comentarios»
 			«myComentario.toCpp»
 		«ENDFOR»
@@ -1051,6 +1066,34 @@ class VaryGrammarGeneratorCPP implements IGenerator {
 		return funcionDeclarada;
 	}
 	
+	def toCpp(Funcion myFun, String nombreModulo) {
+		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + "(" + myFun.parametrofuncion.toCpp + "){" + "\n";
+		var punteros = new ArrayList<String>();
+		for(parametroFuncion: myFun.parametrofuncion) {
+			if(parametroFuncion.paso == TipoPaso::SALIDA) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+		}
+		for(myVariable:myFun.declaracion) {
+			funcionDeclarada = funcionDeclarada + "\t" + myVariable.toCpp + "\n";
+		}
+		if(punteros.size() == 0) {
+			for(mySentencia:myFun.sentencias) {
+				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.toCpp + "\n";
+			}
+		}
+		else {
+			for(mySentencia:myFun.sentencias) {
+				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.toCppPunteros(punteros) + "\n";
+			}
+		}
+		if(myFun.devuelve != null) {
+			funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.toCpp + "\n";
+		}
+		funcionDeclarada = funcionDeclarada + "\n" + "}";
+		return funcionDeclarada;
+	}
+	
 	def toCppStatic(Funcion myFun, String nombreModulo) {
 		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + "(" + myFun.parametrofuncion.toCpp + "){" + "\n";
 		var punteros = new ArrayList<String>();
@@ -1081,6 +1124,31 @@ class VaryGrammarGeneratorCPP implements IGenerator {
 	
 	def toCpp(Procedimiento myProc) {
 		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.toCpp + "){" + "\n";
+		var punteros = new ArrayList<String>();
+		for(parametroFuncion: myProc.parametrofuncion) {
+			if(parametroFuncion.paso == TipoPaso::SALIDA) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+		}
+		for(myVariable:myProc.declaracion) {
+			procedimientoDeclarado = procedimientoDeclarado + "\t" + myVariable.toCpp + "\n";
+		}
+		if(punteros.size() == 0) {
+			for(mySentencia:myProc.sentencias) {
+				procedimientoDeclarado = procedimientoDeclarado + "\t" + mySentencia.toCpp + "\n";
+			}
+		}
+		else {
+			for(mySentencia:myProc.sentencias) {
+				procedimientoDeclarado = procedimientoDeclarado + "\t" + mySentencia.toCppPunteros(punteros) + "\n";
+			}
+		}
+		procedimientoDeclarado = procedimientoDeclarado + "\n" + "}";
+		return procedimientoDeclarado;
+	}
+	
+	def toCpp(Procedimiento myProc, String nombreModulo) {
+		var procedimientoDeclarado = "void " + nombreModulo + "::" + myProc.nombre + "(" + myProc.parametrofuncion.toCpp + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
 			if(parametroFuncion.paso == TipoPaso::SALIDA) {
@@ -1714,8 +1782,53 @@ class VaryGrammarGeneratorCPP implements IGenerator {
 		return total;
 	}
 
-	def toCpp(LlamadaFuncion fun, boolean a) '''«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»'''
-
+	def toCpp(LlamadaFuncion fun, boolean a) {
+		
+		var nombreModulo = new String()
+		nombreModulo = ""
+		
+		if(algoritmo != null) {
+			for(Modulo m: algoritmo.importaciones) {
+				for(CabeceraSubproceso cabecera: m.exporta_funciones) {
+					if(cabecera instanceof CabeceraProcedimiento) {
+						var cabeceraProc = cabecera as CabeceraProcedimiento
+						if(fun.nombre.equals(cabeceraProc.nombre) && fun.operadores.size == cabeceraProc.parametrofuncion.size) {
+							nombreModulo = m.nombre
+						}
+					}
+					else if(cabecera instanceof CabeceraFuncion) {
+						var cabeceraFun = cabecera as CabeceraFuncion
+						if(fun.nombre.equals(cabeceraFun.nombre) && fun.operadores.size == cabeceraFun.parametrofuncion.size) {
+							nombreModulo = m.nombre
+						}
+					}
+				}	
+			}			
+		}
+		else if(modulo != null) {
+			for(Modulo m: modulo.importaciones) {
+				for(CabeceraSubproceso cabecera: m.exporta_funciones) {
+					if(cabecera instanceof CabeceraProcedimiento) {
+						var cabeceraProc = cabecera as CabeceraProcedimiento
+						if(fun.nombre.equals(cabeceraProc.nombre) && fun.operadores.size == cabeceraProc.parametrofuncion.size) {
+							nombreModulo = m.nombre
+						}
+					}
+					else if(cabecera instanceof CabeceraFuncion) {
+						var cabeceraFun = cabecera as CabeceraFuncion
+						if(fun.nombre.equals(cabeceraFun.nombre) && fun.operadores.size == cabeceraFun.parametrofuncion.size) {
+							nombreModulo = m.nombre
+						}
+					}
+				}	
+			}
+		}
+		
+		'''«IF !nombreModulo.equals("")»
+		ref«nombreModulo».«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»
+		«ELSE»
+		«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
+	}
 	def toCpp(Operador op) {
 		if (op.eClass.name.equals("NumeroEntero")) {
 			var NumeroEntero prueba = new NumeroEnteroImpl

@@ -300,14 +300,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			«FOR mySubproceso:myModulo.implementacion.funcion»
 				«IF mySubproceso.eClass.name.equals("Procedimiento")»
 					«var procedimiento = mySubproceso as Procedimiento»
-					«IF myModulo.exporta_funciones.contains(procedimiento.nombre) && procedimiento.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
-						«procedimiento.toC»
+					«IF (!myModulo.exporta_funciones.contains(procedimiento.nombre)) && procedimiento.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
+						«procedimiento.cabecerasFuncion»
 					«ENDIF»
 				«ENDIF»
 				«IF mySubproceso.eClass.name.equals("Funcion")»
 					«var funcion = mySubproceso as Funcion»
-					«IF myModulo.exporta_funciones.contains(funcion.nombre) && funcion.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
-						«funcion.toC»
+					«IF (!myModulo.exporta_funciones.contains(funcion.nombre)) && funcion.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
+						«funcion.cabecerasFuncion»
 					«ENDIF»
 				«ENDIF»
 			«ENDFOR»
@@ -382,6 +382,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			modulo = myCodigo as Modulo
 			modulo.toC
 		}
+	}
+	
+	def void addProcedimiento(Procedimiento procedimiento, List<Procedimiento> procedimientos) {
+		procedimientos.add(procedimiento)
+	}
+	
+	def void addFuncion(Funcion funcion, List<Funcion> funciones) {
+		funciones.add(funcion)
 	}
 	
 	def toC(Modulo myModulo) {
@@ -504,6 +512,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 		}
 	}
+	
+	var procedimientosUsados = new ArrayList<Procedimiento>();
+	var funcionesUsadas = new ArrayList<Funcion>();
 		
 		'''
 		#include <stdio.h>
@@ -563,21 +574,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			«ENDIF»
 		«ENDFOR»
 		
-		«FOR exportaCabecera:myModulo.exporta_funciones»
-			«FOR mySubproceso:myModulo.implementacion.funcion»
-				«IF mySubproceso.eClass.name.equals("Procedimiento")»
-					«var procedimiento = mySubproceso as Procedimiento»
-					«IF (!myModulo.exporta_funciones.contains(procedimiento.nombre)) && procedimiento.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
-						«procedimiento.toC»
-					«ENDIF»
-				«ENDIF»
-				«IF mySubproceso.eClass.name.equals("Funcion")»
-					«var funcion = mySubproceso as Funcion»
-					«IF (!myModulo.exporta_funciones.contains(funcion.nombre)) && funcion.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
-						«funcion.toC»
-					«ENDIF»
-				«ENDIF»
-			«ENDFOR»
+		
+		«FOR mySubproceso:myModulo.implementacion.funcion»
+			«mySubproceso.toC»
 		«ENDFOR»
 		
 		'''
