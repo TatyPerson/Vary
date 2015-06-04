@@ -15,12 +15,30 @@ import diagramapseudocodigo.Variable
 import diagramapseudocodigo.Declaracion
 import diagramapseudocodigo.DeclaracionVariable
 import diagramapseudocodigo.DeclaracionPropia
+import org.eclipse.xtext.RuleCall
+import org.eclipse.xtext.Group
+import diagramapseudocodigo.VariableID
+import org.eclipse.xtext.EcoreUtil2
+import diagramapseudocodigo.Algoritmo
+import diagramapseudocodigo.Vector
+import diagramapseudocodigo.Matriz
+import diagramapseudocodigo.Registro
+import diagramapseudocodigo.Enumerado
+import diagramapseudocodigo.Subrango
+import diagramapseudocodigo.Archivo
+import java.util.List
+import diagramapseudocodigo.TipoComplejo
+import diagramapseudocodigo.Subproceso
+import diagramapseudocodigo.Procedimiento
+import diagramapseudocodigo.Funcion
+import diagramapseudocodigo.AsignacionNormal
+import javax.imageio.ImageIO
+import diagramapseudocodigo.ParametroFuncion
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
-	
 	
 	override getStyledDisplayString(EObject element, String qualifiedNameAsString, String shortName) {
 		if (element instanceof Modulo) {
@@ -40,4 +58,155 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		} else
 			super.getStyledDisplayString(element, qualifiedNameAsString, shortName)
 	}
+	
+	//Proposal para las variables definidas con un tipo personalizado -----------------------
+	override void completeDeclaracionPropia_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel() as Algoritmo;
+			//Cogemos todos los tipos
+			completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo)
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel() as Modulo;
+			//Cogemos todos los tipos
+			completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo)
+		}
+	}
+	
+	def void completeDeclaracionPropia_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<TipoComplejo> complejos) {
+		for(tipo: complejos) {
+			if(tipo instanceof Vector) {
+				var vector = tipo as Vector
+				//Creamos un nuevo proposal
+				var completionProposal = createCompletionProposal(vector.nombre, context);
+				acceptor.accept(completionProposal);
+			}
+			else if(tipo instanceof Matriz) {
+				var matriz = tipo as Matriz
+				var completionProposal = createCompletionProposal(matriz.nombre, context);
+				acceptor.accept(completionProposal);
+			}
+			else if(tipo instanceof Registro) {
+				var registro = tipo as Registro
+				var completionProposal = createCompletionProposal(registro.nombre, context);
+				acceptor.accept(completionProposal);
+			}
+			else if(tipo instanceof Enumerado) {
+				var enumerado = tipo as Enumerado
+				var completionProposal = createCompletionProposal(enumerado.nombre, context);
+				acceptor.accept(completionProposal);
+			}
+			else if(tipo instanceof Subrango) {
+				var subrango = tipo as Subrango
+				var completionProposal = createCompletionProposal(subrango.nombre, context);
+				acceptor.accept(completionProposal);
+			}
+			else if(tipo instanceof Archivo) {
+				var archivo = tipo as Archivo
+				var completionProposal = createCompletionProposal(archivo.nombre, context);
+				acceptor.accept(completionProposal);
+			}
+		}
+	}
+	//Proposal para las variables definidas con un tipo nativo ------------------------------
+	override void completeDeclaracionVariable_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel() as Algoritmo;
+			//Cogemos todos los tipos
+			completeDeclaracionVariable_TipoAux(context, acceptor)
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel() as Modulo;
+			//Cogemos todos los tipos
+			completeDeclaracionVariable_TipoAux(context, acceptor)
+		}
+	}
+	
+	def void completeDeclaracionVariable_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		//Añadimos todas las propuestas con los tipos nativos posibles
+		var completionProposal = createCompletionProposal("entero", context)
+		acceptor.accept(completionProposal)
+		completionProposal = createCompletionProposal("real", context)
+		acceptor.accept(completionProposal)
+		completionProposal = createCompletionProposal("logico", context)
+		acceptor.accept(completionProposal)
+		completionProposal = createCompletionProposal("caracter", context)
+		acceptor.accept(completionProposal)
+		completionProposal = createCompletionProposal("cadena", context)
+		acceptor.accept(completionProposal)
+	}
+	
+	//Proposal para las variableID en las asignacionesNormal---------------------------------
+	override void completeAsignacionNormal_Operador(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			//Recogemos la sentencia para buscar si pertenece a un Subproceso
+			var asignacionNormal = context.currentModel as AsignacionNormal
+			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
+			var algoritmo = context.getRootModel() as Algoritmo;
+			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
+			
+			if(procedimiento == null && funcion == null) {
+				//Si los dos son nulos pertenece a Inicio
+				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
+			}
+			else {
+				if(procedimiento != null) {
+					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+					
+				}
+				else if(funcion != null) {
+					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+				}
+			}
+			
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			//Recogemos la sentencia para buscar si pertenece a un Subproceso
+			var asignacionNormal = context.currentModel as AsignacionNormal
+			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
+			var modulo = context.getRootModel() as Modulo
+			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
+			
+			if(procedimiento != null) {
+				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+			}
+			else if(funcion != null) {
+				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+			}
+		}
+	}
+	
+	def completeAsignacionNormal_OperadorParametrosSubproceso(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<ParametroFuncion> parametros) {
+		for(ParametroFuncion parametro: parametros) {
+			var completionProposal = createCompletionProposal(parametro.variable.nombre, context)
+			acceptor.accept(completionProposal)
+		}
+	}
+	
+	def completeAsignacionNormal_OperadorAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Declaracion> declaraciones) {
+		for(Declaracion declaracion: declaraciones) {
+			if(declaracion instanceof DeclaracionPropia) {
+				var dec = declaracion as DeclaracionPropia
+				for(Variable v: dec.variable) {
+					var completionProposal = createCompletionProposal(v.nombre, context)
+					acceptor.accept(completionProposal)
+				}
+			}
+			else if(declaracion instanceof DeclaracionVariable) {
+				var dec = declaracion as DeclaracionVariable
+				for(Variable v: dec.variable) {
+					var completionProposal = createCompletionProposal(v.nombre, context)
+					acceptor.accept(completionProposal)
+				}
+			}
+		}
+	}
+	
 }

@@ -146,9 +146,9 @@
         <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//VariableID/Mat"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVrIvy1EeS1g8BfuAAiGQ"/>
       </children>
-      <children xmi:type="notation:Node" xmi:id="_Yir7sAYHEeWtYdbs4pPKsg" type="2001">
+      <children xmi:type="notation:Node" xmi:id="_HsCpkAo3EeWRifrHYiietg" type="2001">
         <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//VariableID/nombre"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_Yir7sQYHEeWtYdbs4pPKsg"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HsCpkQo3EeWRifrHYiietg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_AeVrI_y1EeS1g8BfuAAiGQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_AeVrJPy1EeS1g8BfuAAiGQ"/>
@@ -2734,7 +2734,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_XjDoEPyuEeS1g8BfuAAiGQ" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_-afoMPytEeS1g8BfuAAiGQ">
     <children xmi:type="notation:Node" xmi:id="_XjEPIPyuEeS1g8BfuAAiGQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPIfyuEeS1g8BfuAAiGQ" x="-10" y="-10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPIfyuEeS1g8BfuAAiGQ" x="24" y="-16"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_XjEPIvyuEeS1g8BfuAAiGQ" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPI_yuEeS1g8BfuAAiGQ" x="10" y="10"/>

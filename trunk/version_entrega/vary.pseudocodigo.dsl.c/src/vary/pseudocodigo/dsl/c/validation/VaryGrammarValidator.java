@@ -102,6 +102,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	public static final String INVALID_VAR_NAME = "xtext.workshop.advanced.quickfix.InvalidTypeName";
 	public static final String CONSTANTE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.ConstanteNoDefinida";
 	public static String DUPLICATE_MODULE = "vary.pseudocodigo.dsl.c.VaryGrammar.DuplicateModule";
+	public static final String VARIABLE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.VariableNoDefinida";
+	
 	private ResourceSet resourceSet;
 	@Inject
 	ResourceDescriptionsProvider resourceDescriptionsProvider;
@@ -2034,7 +2036,7 @@ List<String> tipos = new ArrayList<String>();
 						if(o instanceof VariableID) {
 							VariableID v = (VariableID) o;
 							if(!variables.contains(v.getNombre())) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2045,7 +2047,7 @@ List<String> tipos = new ArrayList<String>();
 				if(l.getVariable() instanceof VariableID) {
 					VariableID v = (VariableID) l.getVariable();
 					if(!variables.contains(v.getNombre())) {
-						error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 					}
 				}
 			}
@@ -2056,7 +2058,7 @@ List<String> tipos = new ArrayList<String>();
 					if(o instanceof VariableID) {
 						VariableID v = (VariableID) o;
 						if(!variables.contains(v.getNombre())) {
-							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 				}
@@ -2065,7 +2067,7 @@ List<String> tipos = new ArrayList<String>();
 			else if(sen instanceof Negacion) {
 				Negacion neg = (Negacion) sen;
 				if(!variables.contains(neg.getValor_operacion())){
-					error("La variable debe haber sido previamente definida", neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION);
+					error("La variable debe haber sido previamente definida", neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION, VARIABLE_NO_DEFINIDA);
 				}
 			}
 			
@@ -2075,12 +2077,12 @@ List<String> tipos = new ArrayList<String>();
 					AsignacionNormal as = (AsignacionNormal) a;
 					
 					if(!variables.contains(as.getValor_asignacion())) {
-						error("La variable debe haber sido previamente definida", as, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION);
+						error("La variable debe haber sido previamente definida", as, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION, VARIABLE_NO_DEFINIDA);
 					}
 					if(as.getOperador() instanceof VariableID) {
 						VariableID v = (VariableID) as.getOperador();
 						if(!variables.contains(v.getNombre())){
-							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					else if(as.getOperador() instanceof unaria) {
@@ -2088,7 +2090,7 @@ List<String> tipos = new ArrayList<String>();
 						if(u.getVariable() instanceof VariableID) {
 							VariableID v = (VariableID) u.getVariable();
 							if(!variables.contains(v.getNombre())) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2106,7 +2108,7 @@ List<String> tipos = new ArrayList<String>();
 						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
 						if(variablesNoDeclaradas.size() != 0) {
 							for(VariableID v: variablesNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
@@ -2128,7 +2130,7 @@ List<String> tipos = new ArrayList<String>();
 								if(vector.getIndice() instanceof VariableID) {
 									VariableID var = (VariableID) vector.getIndice();
 									if(!variables.contains(var.getNombre())){
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 							}
@@ -2141,7 +2143,7 @@ List<String> tipos = new ArrayList<String>();
 									if(op instanceof VariableID) {
 										VariableID var = (VariableID) op;
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2154,7 +2156,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())) {
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 										else if(op instanceof ValorVector) {
@@ -2162,7 +2164,7 @@ List<String> tipos = new ArrayList<String>();
 											if(vector.getIndice() instanceof VariableID) {
 												VariableID var = (VariableID) vector.getIndice();
 												if(!variables.contains(var.getNombre())) {
-													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 												}
 											}
 										}
@@ -2175,7 +2177,7 @@ List<String> tipos = new ArrayList<String>();
 												if(operacionAux instanceof VariableID) {
 													VariableID var = (VariableID) operacionAux;
 													if(!variables.contains(var.getNombre())){
-														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 													}
 												}
 											}
@@ -2193,7 +2195,7 @@ List<String> tipos = new ArrayList<String>();
 								if(o instanceof VariableID) {
 									VariableID var = (VariableID) o;
 									if(!variables.contains(var.getNombre())) {
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 								else if(o instanceof ValorVector) {
@@ -2201,7 +2203,7 @@ List<String> tipos = new ArrayList<String>();
 									if(vector.getIndice() instanceof VariableID) {
 										VariableID var = (VariableID) vector.getIndice();
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2214,7 +2216,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())){
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 									}
@@ -2227,7 +2229,7 @@ List<String> tipos = new ArrayList<String>();
 						if(v.getIndice() instanceof VariableID) {
 							VariableID var = (VariableID) v.getIndice();
 							if(!variables.contains(var.getNombre())) {
-								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2240,7 +2242,7 @@ List<String> tipos = new ArrayList<String>();
 							if(op instanceof VariableID) {
 								VariableID var = (VariableID) op;
 								if(!variables.contains(var.getNombre())) {
-									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 								}
 							}
 						}
@@ -2259,7 +2261,7 @@ List<String> tipos = new ArrayList<String>();
 						if(v.getIndice() instanceof VariableID) {
 							VariableID var = (VariableID) v.getIndice();
 							if(!variables.contains(var.getNombre())) {
-								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2272,7 +2274,7 @@ List<String> tipos = new ArrayList<String>();
 							if(op instanceof VariableID) {
 								VariableID var = (VariableID) op;
 								if(!variables.contains(var.getNombre())) {
-									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 								}
 							}
 						}
@@ -2280,7 +2282,7 @@ List<String> tipos = new ArrayList<String>();
 					if(ac.getOperador() instanceof VariableID) {
 						VariableID v = (VariableID) ac.getOperador();
 						if(!variables.contains(v.getNombre())) {
-							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					else if(ac.getOperador() instanceof unaria) {
@@ -2288,7 +2290,7 @@ List<String> tipos = new ArrayList<String>();
 						if(u.getVariable() instanceof VariableID) {
 							VariableID v = (VariableID) u.getVariable();
 							if(!variables.contains(v.getNombre())) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2306,7 +2308,7 @@ List<String> tipos = new ArrayList<String>();
 						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
 						if(variablesNoDeclaradas.size() != 0) {
 							for(VariableID v: variablesNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
@@ -2328,7 +2330,7 @@ List<String> tipos = new ArrayList<String>();
 								if(vector.getIndice() instanceof VariableID) {
 									VariableID var = (VariableID) vector.getIndice();
 									if(!variables.contains(var.getNombre())) {
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 							}
@@ -2341,7 +2343,7 @@ List<String> tipos = new ArrayList<String>();
 									if(op instanceof VariableID) {
 										VariableID var = (VariableID) op;
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2354,7 +2356,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())) {
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 										else if(op instanceof ValorVector) {
@@ -2362,7 +2364,7 @@ List<String> tipos = new ArrayList<String>();
 											if(vector.getIndice() instanceof VariableID) {
 												VariableID var = (VariableID) vector.getIndice();
 												if(!variables.contains(var.getNombre())) {
-													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 												}
 											}
 										}
@@ -2375,7 +2377,7 @@ List<String> tipos = new ArrayList<String>();
 												if(operacionAux instanceof VariableID) {
 													VariableID var = (VariableID) operacionAux;
 													if(!variables.contains(var.getNombre())) {
-														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 													}
 												}
 											}
@@ -2393,7 +2395,7 @@ List<String> tipos = new ArrayList<String>();
 								if(o instanceof VariableID) {
 									VariableID var = (VariableID) o;
 									if(!variables.contains(var.getNombre())) {
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 								else if(o instanceof ValorVector) {
@@ -2401,7 +2403,7 @@ List<String> tipos = new ArrayList<String>();
 									if(vector.getIndice() instanceof VariableID) {
 										VariableID var = (VariableID) vector.getIndice();
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2414,7 +2416,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())) {
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 									}
@@ -2427,7 +2429,7 @@ List<String> tipos = new ArrayList<String>();
 						if(v.getIndice() instanceof VariableID) {
 							VariableID var = (VariableID) v.getIndice();
 							if(!variables.contains(var.getNombre())) {
-								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2440,7 +2442,7 @@ List<String> tipos = new ArrayList<String>();
 							if(op instanceof VariableID) {
 								VariableID var = (VariableID) op;
 								if(!variables.contains(var.getNombre())) {
-									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 								}
 							}
 						}

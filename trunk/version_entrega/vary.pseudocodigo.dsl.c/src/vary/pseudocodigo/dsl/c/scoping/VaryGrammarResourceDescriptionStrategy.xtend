@@ -30,14 +30,14 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 			var modulo = eObject as Modulo
 			//var modulo2 = modulo.eContainer as Modulo
 			val fullyQualifiedName = QualifiedName.create(modulo.getNombre)
-			System.out.println("fullyQualifiedName "+fullyQualifiedName)
+			System.out.println("fullyQualifiedName Modulo "+fullyQualifiedName)
 			if (fullyQualifiedName != null)
 					acceptor.accept(
 						EObjectDescription::create(
 							fullyQualifiedName, modulo
 						)
 					)
-			for(CabeceraSubproceso cabecera: modulo.exporta_funciones) {
+			/*for(CabeceraSubproceso cabecera: modulo.exporta_funciones) {
 				if(cabecera instanceof CabeceraProcedimiento) {
 					var cabeceraProc = cabecera as CabeceraProcedimiento
 					var cabeceraTexto = cabeceraProc.nombre + "("
@@ -57,7 +57,7 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 						)
 					)
 				}
-			}
+			}*/
 		true
 		}
 		else if(eObject instanceof Algoritmo) {
@@ -71,7 +71,34 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 							fullyQualifiedName, algoritmo
 						)
 					)
-			for(Modulo modulo: algoritmo.importaciones) {
+			for(Declaracion declaracion: algoritmo.tiene.declaracion) {
+				if(declaracion instanceof DeclaracionVariable) {
+					var dec = declaracion as DeclaracionVariable
+					for(Variable variable: dec.variable) {
+						val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
+						System.out.println("Variable de Algoritmo - DeclaracionVariable "+fullyQualifiedNameVar)
+						if (fullyQualifiedNameVar != null)
+							acceptor.accept(
+							EObjectDescription::create(
+							fullyQualifiedNameVar, variable
+								)
+							)
+						}
+				}else if(declaracion instanceof DeclaracionPropia) {
+					var dec = declaracion as DeclaracionPropia
+					for(Variable variable: dec.variable) {
+						val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
+						System.out.println("Variable de Algoritmo - DeclaracionPropia "+fullyQualifiedNameVar)
+						if (fullyQualifiedNameVar != null)
+							acceptor.accept(
+							EObjectDescription::create(
+							fullyQualifiedNameVar, variable
+								)
+							)
+						}
+				}
+			} 
+			/*for(Modulo modulo: algoritmo.importaciones) {
 				for(Declaracion dec: modulo.exporta_globales) {
 					if(dec instanceof DeclaracionVariable) {
 						var decVariable = dec as DeclaracionVariable
@@ -87,8 +114,34 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 						}
 					}
 				}
-			}
+			}*/
 		true
+		}else if(eObject instanceof DeclaracionVariable) {
+			var dec = eObject as DeclaracionVariable
+			for(Variable variable: dec.variable) {
+				val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
+					System.out.println("Variable de DeclaracionVariable "+fullyQualifiedNameVar)
+						if (fullyQualifiedNameVar != null)
+							acceptor.accept(
+							EObjectDescription::create(
+							fullyQualifiedNameVar, variable
+								)
+							)
+			}
+			true
+		}else if(eObject instanceof DeclaracionPropia) {
+			var dec = eObject as DeclaracionPropia
+			for(Variable variable: dec.variable) {
+				val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
+					System.out.println("Variable de DeclaracionPropia "+fullyQualifiedNameVar)
+						if (fullyQualifiedNameVar != null)
+							acceptor.accept(
+							EObjectDescription::create(
+							fullyQualifiedNameVar, variable
+								)
+							)
+			}
+			true
 		}else if(eObject instanceof Constantes) {
 			var constante = eObject as Constantes
 			val fullyQualifiedName = QualifiedName.create(constante.variable.nombre)

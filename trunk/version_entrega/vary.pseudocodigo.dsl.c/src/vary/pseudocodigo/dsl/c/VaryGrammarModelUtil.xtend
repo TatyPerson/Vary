@@ -5,6 +5,7 @@ import diagramapseudocodigo.Constantes
 import diagramapseudocodigo.Algoritmo
 import diagramapseudocodigo.DiagramapseudocodigoFactory
 import diagramapseudocodigo.Implementacion
+import diagramapseudocodigo.VariableID
 
 class VaryGrammarModelUtil {
 	def static addConstante(Algoritmo algoritmo, Constantes constante, String nameOfEntityToAdd) {

@@ -50,8 +50,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableID" eSuperTypes="#//Operador #//operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mat" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="cadena"/>
   <eClassifiers xsi:type="ecore:EClass" name="ConstCadena" eSuperTypes="#//Operador #//operacion">
