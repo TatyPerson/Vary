@@ -49,7 +49,7 @@ public interface VariableID extends Operador, operacion {
 	 * @return the value of the '<em>Nombre</em>' attribute.
 	 * @see #setNombre(String)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVariableID_Nombre()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getNombre();

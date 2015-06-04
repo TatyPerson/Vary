@@ -20,7 +20,7 @@ import diagramapseudocodigo.Modulo;
 @Singleton
 public class VaryGrammarGlobalScopeProvider extends DefaultGlobalScopeProvider {
 
-	private List<String> accessibleObjects;
+	/*private List<String> accessibleObjects;
 
 	@Override
 	public IScope getScope(Resource resource, EReference reference, Predicate<IEObjectDescription> filter) {
@@ -50,6 +50,6 @@ public class VaryGrammarGlobalScopeProvider extends DefaultGlobalScopeProvider {
 	protected IScope createContainerScopeWithContext(Resource eResource, IScope parent, IContainer container,
 			Predicate<IEObjectDescription> filter, EClass type, boolean ignoreCase) {
 		return createContainerScope(parent, container, filter, type, ignoreCase);
-	}
+	}*/
 	
 }

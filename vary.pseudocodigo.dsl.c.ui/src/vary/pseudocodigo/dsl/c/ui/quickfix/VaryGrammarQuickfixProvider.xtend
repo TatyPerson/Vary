@@ -17,6 +17,10 @@ import diagramapseudocodigo.Algoritmo
 import vary.pseudocodigo.dsl.c.ui.quickfix.util.VaryGrammarQuickfixProviderUtil
 import diagramapseudocodigo.Modulo
 import diagramapseudocodigo.Implementacion
+import diagramapseudocodigo.VariableID
+import java.util.HashSet
+import org.eclipse.xtext.naming.QualifiedName
+import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
 
 /**
  * Custom quickfixes.
@@ -47,6 +51,29 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 			]
  		 );
 	}
+	
+	/* @Fix(VaryGrammarValidator::VARIABLE_NO_DEFINIDA)
+	def ofrecerVariable(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "Crear la variable no definida", "Crear la variable no definida", "Entity.gif",
+		[ EObject element, IModificationContext context |
+				var indice = VaryGrammarQuickfixProviderUtil.buscarIndiceVector(context.xtextDocument.get(issue.offset, issue.length))
+				if(element instanceof Algoritmo) {
+					VaryGrammarModelUtil::addVariable(
+					element as Algoritmo,
+					element.getContainerOfType(typeof(VariableID)),
+					indice
+					)
+				}
+				else if(element instanceof Implementacion) {
+					VaryGrammarModelUtil::addVariable(
+					element as Implementacion,
+					element.getContainerOfType(typeof(VariableID)),
+					indice
+					)
+				}
+			]
+ 		 );
+	}*/
 
 //	@Fix(MyDslValidator::INVALID_NAME)
 //	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {

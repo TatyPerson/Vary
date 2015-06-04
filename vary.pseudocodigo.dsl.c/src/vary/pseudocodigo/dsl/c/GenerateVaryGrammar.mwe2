@@ -82,8 +82,8 @@ Workflow {
 			}
 
 			// old scoping and exporting API 
-			// fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
-			// fragment = exporting.QualifiedNamesFragment auto-inject {}
+			 //fragment = scoping.ImportNamespacesScopingFragment auto-inject {}
+			 //fragment = exporting.QualifiedNamesFragment auto-inject {}
 
 			// scoping and exporting API
 			fragment = scoping.ImportURIScopingFragment auto-inject {}

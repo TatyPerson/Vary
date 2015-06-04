@@ -45,7 +45,6 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * @ordered
 	 */
 	protected static final String NOMBRE_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
