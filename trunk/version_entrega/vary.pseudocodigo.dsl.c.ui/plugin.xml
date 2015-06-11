@@ -9,6 +9,7 @@
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
+            icon="icons/vary_file.gif"
             extensions="vyc"
             id="vary.pseudocodigo.dsl.c.VaryGrammar"
             name="VaryGrammar Editor">

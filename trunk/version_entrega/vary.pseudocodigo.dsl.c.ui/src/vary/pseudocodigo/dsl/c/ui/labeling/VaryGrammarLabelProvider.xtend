@@ -4,6 +4,39 @@
 package vary.pseudocodigo.dsl.c.ui.labeling
 
 import com.google.inject.Inject
+import diagramapseudocodigo.Modulo
+import diagramapseudocodigo.Procedimiento
+import org.eclipse.xtext.EcoreUtil2
+import diagramapseudocodigo.Algoritmo
+import diagramapseudocodigo.CabeceraProcedimiento
+import java.util.List
+import diagramapseudocodigo.ParametroFuncion
+import diagramapseudocodigo.TipoExistente
+import diagramapseudocodigo.Funcion
+import diagramapseudocodigo.TipoDefinido
+import diagramapseudocodigo.CabeceraFuncion
+import diagramapseudocodigo.Declaracion
+import diagramapseudocodigo.DeclaracionVariable
+import diagramapseudocodigo.Variable
+import diagramapseudocodigo.Inicio
+import diagramapseudocodigo.DeclaracionPropia
+import diagramapseudocodigo.TipoComplejo
+import diagramapseudocodigo.Vector
+import diagramapseudocodigo.NumeroEntero
+import diagramapseudocodigo.VariableID
+import diagramapseudocodigo.Matriz
+import diagramapseudocodigo.Subrango
+import diagramapseudocodigo.SubrangoEnumerado
+import diagramapseudocodigo.SubrangoNumerico
+import diagramapseudocodigo.Constantes
+import diagramapseudocodigo.cadena
+import diagramapseudocodigo.ConstCadena
+import diagramapseudocodigo.Caracter
+import diagramapseudocodigo.NumeroDecimal
+import diagramapseudocodigo.ValorBooleano
+import diagramapseudocodigo.Registro
+import diagramapseudocodigo.Enumerado
+import diagramapseudocodigo.Archivo
 
 /**
  * Provides labels for a EObjects.
@@ -11,10 +44,317 @@ import com.google.inject.Inject
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
 class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
-
+	var a = new Integer(5);
 	@Inject
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
 		super(delegate);
+	}
+	
+	def text(Modulo modulo) {
+		modulo.nombre
+	}
+	
+	def image(Modulo modulo) {
+		'modulo.gif'
+	}
+	
+	def text(Archivo archivo) {
+		var tipo = new String()
+		if(archivo.tipo instanceof TipoExistente) {
+			var tipoAux = archivo.tipo as TipoExistente
+			tipo = tipoAux.tipo.literal
+		} else {
+			var tipoAux = archivo.tipo as TipoDefinido
+			tipo = tipoAux.tipo
+		}
+		archivo.nombre + ' : ' + tipo
+	}
+	
+	def image(TipoComplejo tipoComplejo) {
+		var modulo = EcoreUtil2.getContainerOfType(tipoComplejo, Modulo)
+		if(modulo == null) { //Es del algoritmo
+			'typevariable_private.gif'
+		}
+		else {
+			var nombre = new String()
+			if(tipoComplejo instanceof Vector) {
+				var vector = tipoComplejo as Vector
+				nombre = vector.nombre
+			} else if(tipoComplejo instanceof Matriz) {
+				var matriz = tipoComplejo as Matriz
+				nombre = matriz.nombre
+			} else if(tipoComplejo instanceof Registro) {
+				var registro = tipoComplejo as Registro
+				nombre = registro.nombre
+			} else if(tipoComplejo instanceof Enumerado) {
+				var enumerado = tipoComplejo as Enumerado
+				nombre = enumerado.nombre
+			} else if(tipoComplejo instanceof Archivo) {
+				var archivo = tipoComplejo as Archivo
+				nombre = archivo.nombre
+			} else {
+				var subrango = tipoComplejo as Subrango
+				nombre = subrango.nombre
+			}
+			if(modulo.exporta_tipos.contains(nombre)) {
+				'typevariable_public.gif'
+			}
+			else {
+				'typevariable_private.gif'
+			}
+		}
+	}
+	
+	def text(Vector vector) {
+		if(vector.tipo instanceof TipoExistente) {
+			var tipo = vector.tipo as TipoExistente
+			if(vector.valor instanceof NumeroEntero) {
+				var indice = vector.valor as NumeroEntero
+				vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo.literal
+			}
+			else {
+				var indice = vector.valor as VariableID
+				vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo.literal
+			}
+		}
+		else {
+			var tipo = vector.tipo as TipoDefinido
+			if(vector.valor instanceof NumeroEntero) {
+				var indice = vector.valor as NumeroEntero
+				vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo
+			}
+			else {
+				var indice = vector.valor as VariableID
+				vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo
+			}
+		}
+	}
+	
+	def image(Constantes constante) {
+		var modulo = EcoreUtil2.getContainerOfType(constante, Modulo)
+		if(modulo == null) { //Es del algoritmo
+			'compare_field_private.gif'
+		} else {
+			if(modulo.exporta_constantes.contains(constante.variable.nombre)) {
+				'compare_field_public.gif'
+			} else {
+				'compare_field_private.gif'
+			}
+		}
+	}
+	
+	def text(Constantes constantes) {
+		var valor = new String()
+		if(constantes.valor instanceof NumeroEntero) {
+			var numero = constantes.valor as NumeroEntero
+			valor = numero.valor.toString
+		}
+		else if(constantes.valor instanceof ConstCadena) {
+			var cadena = constantes.valor as ConstCadena
+			valor = cadena.contenido
+		}
+		else if(constantes.valor instanceof Caracter) {
+			var caracter = constantes.valor as Caracter
+			valor = caracter.contenido
+		}
+		else if(constantes.valor instanceof NumeroDecimal) {
+			var real = constantes.valor as NumeroDecimal
+			valor = real.valor.toString
+		}
+		else if(constantes.valor instanceof ValorBooleano) {
+			var logico = constantes.valor as ValorBooleano
+			valor = logico.valor.literal
+		}
+		else if(constantes.valor instanceof VariableID) {
+			var variable = constantes.valor as VariableID
+			valor = variable.nombre
+		}
+		constantes.variable.nombre + ' ' + valor
+	}
+	
+	def text(Matriz matriz) {
+		if(matriz.tipo instanceof TipoExistente) {
+			var tipo = matriz.tipo as TipoExistente
+			var indice1 = new String()
+			var indice2 = new String()
+			if(matriz.valor.get(0) instanceof NumeroEntero) {
+				var indice = matriz.valor.get(0) as NumeroEntero
+				indice1 = indice.valor.toString
+			}
+			else {
+				var indice = matriz.valor.get(0) as VariableID
+				indice1 = indice.nombre
+			}
+			if(matriz.valor.get(1) instanceof NumeroEntero) {
+				var indice = matriz.valor.get(1) as NumeroEntero
+				indice2 = indice.valor.toString
+			}
+			else {
+				var indice = matriz.valor.get(1) as NumeroEntero
+				indice2 = indice.valor.toString
+			}
+			matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo.literal
+		}
+		else {
+			var tipo = matriz.tipo as TipoDefinido
+			var indice1 = new String()
+			var indice2 = new String()
+			if(matriz.valor.get(0) instanceof NumeroEntero) {
+				var indice = matriz.valor.get(0) as NumeroEntero
+				indice1 = indice.valor.toString
+			}
+			else {
+				var indice = matriz.valor.get(0) as VariableID
+				indice1 = indice.nombre
+			}
+			if(matriz.valor.get(1) instanceof NumeroEntero) {
+				var indice = matriz.valor.get(1) as NumeroEntero
+				indice2 = indice.valor.toString
+			}
+			else {
+				var indice = matriz.valor.get(1) as NumeroEntero
+				indice2 = indice.valor.toString
+			}
+			matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo
+		}
+	}
+	
+	def image(Inicio inicio) {
+		'envvar_obj.gif'
+	}
+	
+	def text(Inicio inicio) {
+		'Principal'
+	}
+	
+	def image(VariableID variableID) {
+		'compare_field.gif'
+	}
+	
+	def text(SubrangoEnumerado subrango) {
+		subrango.nombre + ' [' + subrango.limite_inf + ',' + subrango.limite_sup + ']'
+	}
+	
+	def text(SubrangoNumerico subrango) {
+		subrango.nombre + ' [' + subrango.limite_inf + ',' + subrango.limite_sup + ']'
+	}
+	
+	def text(Funcion funcion) {
+		funcion.nombre + '(' + cadenaTiposSubproceso(funcion.parametrofuncion) + ') : ' + funcion.tipo.literal
+	}
+	
+	def text(Procedimiento procedimiento) {
+		procedimiento.nombre + '(' + cadenaTiposSubproceso(procedimiento.parametrofuncion) + ')'
+	}
+	
+	def image(Algoritmo algoritmo) {
+		'algoritmo.gif'
+	}
+	
+	def cadenaTiposSubproceso(List<ParametroFuncion> parametros) {
+		var tiposParametros = new String()
+		for(parametro: parametros) {
+			if(parametro.tipo instanceof TipoExistente) {
+				var tipo = parametro.tipo as TipoExistente
+				tiposParametros = tiposParametros + tipo.tipo.literal
+			}
+			else {
+				var tipo = parametro.tipo as TipoDefinido
+				tiposParametros = tiposParametros + tipo.tipo
+			}
+			if(parametros.indexOf(parametro) != parametros.size - 1) {
+				tiposParametros = tiposParametros + ','
+			}
+		}
+		return tiposParametros
+	}
+	
+	def image(Procedimiento procedimiento) {
+		var modulo = EcoreUtil2.getContainerOfType(procedimiento, Modulo)
+		var algoritmo = EcoreUtil2.getContainerOfType(procedimiento, Algoritmo)
+		if(modulo != null) {
+			for(cabecera: modulo.exporta_funciones) {
+				if(cabecera.nombre.equals(procedimiento.nombre) && cabecera instanceof CabeceraProcedimiento) {
+					return 'methpub_obj.gif'
+				}
+			}
+			return 'methpri_obj.gif'
+		}
+		else if(algoritmo != null) {
+			//Si son funciones/procedimientos del algoritmo, no se pueden importar
+			'methpri_obj.gif' 
+		}
+	}
+	
+	def image(Funcion funcion) {
+		var modulo = EcoreUtil2.getContainerOfType(funcion, Modulo)
+		var algoritmo = EcoreUtil2.getContainerOfType(funcion, Algoritmo)
+		if(modulo != null) {
+			for(cabecera: modulo.exporta_funciones) {
+				if(cabecera.nombre.equals(funcion.nombre) && cabecera instanceof CabeceraFuncion) {
+					return 'methpub_obj.gif'
+				}
+			}
+			return 'methpri_obj.gif'
+		}
+		else if(algoritmo != null) {
+			//Si son funciones/procedimientos del algoritmo, no se pueden importar
+			return 'methpri_obj.gif' 
+		}
+	}
+	
+	def image(Variable variable) {
+		var modulo = EcoreUtil2.getContainerOfType(variable, Modulo)
+		var registro = EcoreUtil2.getContainerOfType(variable, Registro)
+		
+		if(modulo != null) {
+			if(registro != null) {
+				return 'compare_field.gif'
+			}
+			var esPublica = new Boolean(false)
+			for(declaracion: modulo.exporta_globales) {
+				if(declaracion instanceof DeclaracionPropia) {
+					var declaracionAux = declaracion as DeclaracionPropia
+					for(variableAux: declaracionAux.variable) {
+						if(variableAux.nombre.equals(variable.nombre)) {
+							esPublica = true
+						}
+					}
+				}else {
+					var declaracionAux = declaracion as DeclaracionVariable
+					for(variableAux: declaracionAux.variable) {
+						if(variableAux.nombre.equals(variable.nombre)) {
+							esPublica = true
+						}
+					}
+				}
+			}
+			if(esPublica) {
+				return 'field_public_obj.gif'
+			}
+			else {
+				return 'field_private_obj.gif'
+			}
+		}
+		
+		else if(registro != null) {
+			return 'compare_field.gif'
+		}
+		
+		else {
+			return 'field_private_obj.gif'
+		}
+	}
+	
+	def text(Variable variable) {
+		var declaracionVariable = EcoreUtil2.getContainerOfType(variable, DeclaracionVariable)
+		var declaracionPropia = EcoreUtil2.getContainerOfType(variable, DeclaracionPropia)
+		if(declaracionVariable != null) {
+			variable.nombre + ' : ' + declaracionVariable.tipo.literal
+		}
+		else {
+			variable.nombre + ' : ' + declaracionPropia.tipo
+		}
 	}
 
 	// Labels and icons can be computed like this:
