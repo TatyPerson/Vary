@@ -34,6 +34,8 @@ import diagramapseudocodigo.Funcion
 import diagramapseudocodigo.AsignacionNormal
 import javax.imageio.ImageIO
 import diagramapseudocodigo.ParametroFuncion
+import diagramapseudocodigo.LlamadaFuncion
+import diagramapseudocodigo.ValorRegistro
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -59,7 +61,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			super.getStyledDisplayString(element, qualifiedNameAsString, shortName)
 	}
 	
-	//Proposal para las variables definidas con un tipo personalizado -----------------------
+	//Proposal para las variables definidas con un tipo personalizado -----------------------------------------------------
 	override void completeDeclaracionPropia_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		
 		if(context.getRootModel instanceof Algoritmo) {
@@ -109,7 +111,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			}
 		}
 	}
-	//Proposal para las variables definidas con un tipo nativo ------------------------------
+	//Proposal para las variables definidas con un tipo nativo ------------------------------------------------------------
 	override void completeDeclaracionVariable_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var algoritmo = context.getRootModel() as Algoritmo;
@@ -137,7 +139,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		acceptor.accept(completionProposal)
 	}
 	
-	//Proposal para las variableID en las asignacionesNormal---------------------------------
+	//Proposal para las variableID en las asignacionesNormal---------------------------------------------------------------
 	override void completeAsignacionNormal_Operador(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			//Recogemos la sentencia para buscar si pertenece a un Subproceso
@@ -207,6 +209,225 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				}
 			}
 		}
+	}
+	
+	//Proposal para las llamadas a funciones ------------------------------------------------------------------------------
+	
+	override void completeInicio_Tiene(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		var algoritmo = context.getRootModel() as Algoritmo
+		for(Subproceso s: algoritmo.funcion) {
+			if(s instanceof Procedimiento) {
+				//Sólo los procedimientos porque son los que no devuelven nada
+				var procedimiento = s as Procedimiento
+				completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+			}
+		}
+	}
+	
+	override void completeProcedimiento_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel as Algoritmo
+			for(Subproceso s: algoritmo.funcion) {
+				if(s instanceof Procedimiento) {
+					//Sólo los procedimientos porque son los que no devuelven nada
+					var procedimiento = s as Procedimiento
+					completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+				}
+			}
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel as Modulo
+			for(Subproceso s: modulo.implementacion.funcion) {
+				//Sólo los procedimientos porque son los que no devuelven nada
+				var procedimiento = s as Procedimiento
+				completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+			}
+		}
+			
+	}
+	
+	override void completeFuncion_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel as Algoritmo
+			for(Subproceso s: algoritmo.funcion) {
+				if(s instanceof Procedimiento) {
+					//Sólo los procedimientos porque son los que no devuelven nada
+					var procedimiento = s as Procedimiento
+					completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+				}
+			}
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel as Modulo
+			for(Subproceso s: modulo.implementacion.funcion) {
+				//Sólo los procedimientos porque son los que no devuelven nada
+				var procedimiento = s as Procedimiento
+				completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+			}
+		}
+	}
+	
+	def void completeInicio_TieneAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, String nombre, List<ParametroFuncion> parametros) {
+		var valorProposal = nombre + "("
+		if(parametros.size == 0) {
+			valorProposal = valorProposal + ")"
+		}
+		else {
+			for(ParametroFuncion p: parametros) {
+				if(parametros.indexOf(p) != parametros.size - 1) {
+					valorProposal = valorProposal + p.variable.nombre + ","
+				}
+				else {
+					valorProposal = valorProposal + p.variable.nombre + ")"
+				}
+			}
+		}
+		var completionProposal = createCompletionProposal(valorProposal , context)
+		acceptor.accept(completionProposal)
+	}
+	
+	//Proposal para los parametros de las llamadas a funciones y procedimientos -------------------------------------------
+	
+	override void completeFunciones_Operadores(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var llamadaFuncion = context.currentModel as LlamadaFuncion
+			var procedimiento = EcoreUtil2.getContainerOfType(llamadaFuncion, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(llamadaFuncion, Funcion)
+			var algoritmo = context.getRootModel() as Algoritmo;
+			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
+			
+			if(procedimiento == null && funcion == null) {
+				//Si los dos son nulos pertenece a Inicio
+				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
+			}
+			else {
+				if(procedimiento != null) {
+					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+					
+				}
+				else if(funcion != null) {
+					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+				}
+			}
+			
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			//Recogemos la sentencia para buscar si pertenece a un Subproceso
+			var llamadaFuncion = context.currentModel as LlamadaFuncion
+			var procedimiento = EcoreUtil2.getContainerOfType(llamadaFuncion, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(llamadaFuncion, Funcion)
+			var modulo = context.getRootModel() as Modulo
+			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
+			
+			if(procedimiento != null) {
+				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+			}
+			else if(funcion != null) {
+				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+			}
+			
+		}
+	}
+	
+	//Proposal para los campos de un registro -----------------------------------------------------------------------------
+	
+	override void completeCampoRegistro_Nombre_campo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var valorRegistro = context.getCurrentModel as ValorRegistro
+			var procedimiento = EcoreUtil2.getContainerOfType(valorRegistro, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
+			var algoritmo = context.getRootModel as Algoritmo
+			
+			if(procedimiento == null && funcion == null) {
+				var declaraciones = algoritmo.tiene.declaracion
+				declaraciones.addAll(algoritmo.global)
+				var complejos = algoritmo.tipocomplejo
+				completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+			}
+			else {
+				if(procedimiento != null) {
+					var declaraciones = procedimiento.declaracion
+					declaraciones.addAll(algoritmo.global)
+					var complejos = algoritmo.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+				}
+				else {
+					var declaraciones = funcion.declaracion
+					declaraciones.addAll(algoritmo.global)
+					var complejos = algoritmo.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+				}
+			}
+			
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel as Modulo
+			var valorRegistro = context.getCurrentModel as ValorRegistro
+			var procedimiento = EcoreUtil2.getContainerOfType(valorRegistro, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
+			
+			if(procedimiento != null) {
+				var declaraciones = procedimiento.declaracion
+				declaraciones.addAll(modulo.implementacion.global)
+				var complejos = modulo.implementacion.tipocomplejo
+				completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+			}
+			else {
+				var declaraciones = funcion.declaracion
+				declaraciones.addAll(modulo.implementacion.global)
+				var complejos = modulo.implementacion.tipocomplejo
+				completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+			}
+		}
+	}
+	
+	def void completeCampoRegistro_Nombre_campoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Declaracion> declaraciones, List<TipoComplejo> complejos, String nombreVariable) {
+		var tipo = ""
+		for(Declaracion dec: declaraciones) {
+			if(dec instanceof DeclaracionPropia) {
+				var decPropia = dec as DeclaracionPropia
+				for(Variable v: decPropia.variable) {
+					if(v.nombre.equals(nombreVariable)) {
+						tipo = decPropia.tipo
+					}
+				}
+			}
+			else {
+				var decVariable = dec as DeclaracionVariable
+				for(Variable v: decVariable.variable) {
+					if(v.nombre.equals(nombreVariable)) {
+						tipo = decVariable.tipo.literal
+					}
+				}
+			}
+		}
+		
+		for(TipoComplejo complejo: complejos) {
+			if(complejo instanceof Registro) {
+				var registro = complejo as Registro
+				for(Declaracion dec: registro.variable) {
+					if(dec instanceof DeclaracionPropia) {
+						var decPropia = dec as DeclaracionPropia
+						for(Variable v: decPropia.variable) {
+							var completionProposal = createCompletionProposal(v.nombre, context)
+							acceptor.accept(completionProposal)
+						}
+					}
+					else {
+						var decVariable = dec as DeclaracionVariable
+						for(Variable v: decVariable.variable) {
+							var completionProposal = createCompletionProposal(v.nombre, context)
+							acceptor.accept(completionProposal)
+						}
+					}
+				}
+			}
+		}
+		
 	}
 	
 }
