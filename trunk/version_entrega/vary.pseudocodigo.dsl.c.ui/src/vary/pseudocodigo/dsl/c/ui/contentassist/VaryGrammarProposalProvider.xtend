@@ -5,7 +5,6 @@ package vary.pseudocodigo.dsl.c.ui.contentassist
 
 import vary.pseudocodigo.dsl.c.ui.contentassist.AbstractVaryGrammarProposalProvider
 import org.eclipse.emf.ecore.EObject
-import org.eclipse.xtext.CrossReference
 import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
@@ -16,8 +15,6 @@ import diagramapseudocodigo.Declaracion
 import diagramapseudocodigo.DeclaracionVariable
 import diagramapseudocodigo.DeclaracionPropia
 import org.eclipse.xtext.RuleCall
-import org.eclipse.xtext.Group
-import diagramapseudocodigo.VariableID
 import org.eclipse.xtext.EcoreUtil2
 import diagramapseudocodigo.Algoritmo
 import diagramapseudocodigo.Vector
@@ -32,10 +29,13 @@ import diagramapseudocodigo.Subproceso
 import diagramapseudocodigo.Procedimiento
 import diagramapseudocodigo.Funcion
 import diagramapseudocodigo.AsignacionNormal
-import javax.imageio.ImageIO
 import diagramapseudocodigo.ParametroFuncion
 import diagramapseudocodigo.LlamadaFuncion
 import diagramapseudocodigo.ValorRegistro
+import diagramapseudocodigo.ValorVector
+import diagramapseudocodigo.ValorMatriz
+import diagramapseudocodigo.TipoDefinido
+import diagramapseudocodigo.TipoExistente
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -337,70 +337,212 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	override void completeCampoRegistro_Nombre_campo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
-			var valorRegistro = context.getCurrentModel as ValorRegistro
-			var procedimiento = EcoreUtil2.getContainerOfType(valorRegistro, Procedimiento)
-			var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
-			var algoritmo = context.getRootModel as Algoritmo
-			
-			if(procedimiento == null && funcion == null) {
-				var declaraciones = algoritmo.tiene.declaracion
-				declaraciones.addAll(algoritmo.global)
-				var complejos = algoritmo.tipocomplejo
-				completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
-			}
-			else {
-				if(procedimiento != null) {
-					var declaraciones = procedimiento.declaracion
+			if(context.getCurrentModel instanceof ValorRegistro) {
+				var valorRegistro = context.getCurrentModel as ValorRegistro
+				var procedimiento = EcoreUtil2.getContainerOfType(valorRegistro, Procedimiento)
+				var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
+				var algoritmo = context.getRootModel as Algoritmo
+				
+				if(procedimiento == null && funcion == null) {
+					var declaraciones = algoritmo.tiene.declaracion
 					declaraciones.addAll(algoritmo.global)
 					var complejos = algoritmo.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
 				}
 				else {
-					var declaraciones = funcion.declaracion
+					if(procedimiento != null) {
+						var declaraciones = procedimiento.declaracion
+						declaraciones.addAll(algoritmo.global)
+						var complejos = algoritmo.tipocomplejo
+						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+					}
+					else {
+						var declaraciones = funcion.declaracion
+						declaraciones.addAll(algoritmo.global)
+						var complejos = algoritmo.tipocomplejo
+						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+					}
+				}
+			}
+			else if(context.getCurrentModel instanceof ValorVector) {
+				var valorVector = context.getCurrentModel as ValorVector
+				var procedimiento = EcoreUtil2.getContainerOfType(valorVector, Procedimiento)
+				var funcion = EcoreUtil2.getContainerOfType(valorVector, Funcion)
+				var algoritmo = context.getRootModel as Algoritmo
+				
+				if(procedimiento == null && funcion == null) {
+					var declaraciones = algoritmo.tiene.declaracion
 					declaraciones.addAll(algoritmo.global)
 					var complejos = algoritmo.tipocomplejo
-					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+				}
+				else {
+					if(procedimiento != null) {
+						var declaraciones = procedimiento.declaracion
+						declaraciones.addAll(algoritmo.global)
+						var complejos = algoritmo.tipocomplejo
+						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+					}
+					else {
+						var declaraciones = funcion.declaracion
+						declaraciones.addAll(algoritmo.global)
+						var complejos = algoritmo.tipocomplejo
+						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+					}
+				}
+			}
+			else if(context.getCurrentModel instanceof ValorMatriz) {
+				var valorMatriz = context.getCurrentModel as ValorMatriz
+				var procedimiento = EcoreUtil2.getContainerOfType(valorMatriz, Procedimiento)
+				var funcion = EcoreUtil2.getContainerOfType(valorMatriz, Funcion)
+				var algoritmo = context.getRootModel as Algoritmo
+				
+				if(procedimiento == null && funcion == null) {
+					var declaraciones = algoritmo.tiene.declaracion
+					declaraciones.addAll(algoritmo.global)
+					var complejos = algoritmo.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+				}
+				else {
+					if(procedimiento != null) {
+						var declaraciones = procedimiento.declaracion
+						declaraciones.addAll(algoritmo.global)
+						var complejos = algoritmo.tipocomplejo
+						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+					}
+					else {
+						var declaraciones = funcion.declaracion
+						declaraciones.addAll(algoritmo.global)
+						var complejos = algoritmo.tipocomplejo
+						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+					}
 				}
 			}
 			
 		}
 		else if(context.getRootModel instanceof Modulo) {
 			var modulo = context.getRootModel as Modulo
-			var valorRegistro = context.getCurrentModel as ValorRegistro
-			var procedimiento = EcoreUtil2.getContainerOfType(valorRegistro, Procedimiento)
-			var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
+			if(context.getCurrentModel instanceof ValorRegistro) {
+				var valorRegistro = context.getCurrentModel as ValorRegistro
+				var procedimiento = EcoreUtil2.getContainerOfType(valorRegistro, Procedimiento)
+				var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
 			
-			if(procedimiento != null) {
-				var declaraciones = procedimiento.declaracion
-				declaraciones.addAll(modulo.implementacion.global)
-				var complejos = modulo.implementacion.tipocomplejo
-				completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
-			}
-			else {
-				var declaraciones = funcion.declaracion
-				declaraciones.addAll(modulo.implementacion.global)
-				var complejos = modulo.implementacion.tipocomplejo
-				completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+				if(procedimiento != null) {
+					var declaraciones = procedimiento.declaracion
+					declaraciones.addAll(modulo.implementacion.global)
+					var complejos = modulo.implementacion.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+				}
+				else {
+					var declaraciones = funcion.declaracion
+					declaraciones.addAll(modulo.implementacion.global)
+					var complejos = modulo.implementacion.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+			
+				}	
+			} else if(context.getCurrentModel instanceof ValorVector) {
+				var valorVector = context.getCurrentModel as ValorVector
+				var procedimiento = EcoreUtil2.getContainerOfType(valorVector, Procedimiento)
+				var funcion = EcoreUtil2.getContainerOfType(valorVector, Funcion)
+			
+				if(procedimiento != null) {
+					var declaraciones = procedimiento.declaracion
+					declaraciones.addAll(modulo.implementacion.global)
+					var complejos = modulo.implementacion.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+				}
+				else {
+					var declaraciones = funcion.declaracion
+					declaraciones.addAll(modulo.implementacion.global)
+					var complejos = modulo.implementacion.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+			
+				}	
+			} else if(context.getCurrentModel instanceof ValorMatriz) {
+				var valorMatriz = context.getCurrentModel as ValorMatriz
+				var procedimiento = EcoreUtil2.getContainerOfType(valorMatriz, Procedimiento)
+				var funcion = EcoreUtil2.getContainerOfType(valorMatriz, Funcion)
+			
+				if(procedimiento != null) {
+					var declaraciones = procedimiento.declaracion
+					declaraciones.addAll(modulo.implementacion.global)
+					var complejos = modulo.implementacion.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+				}
+				else {
+					var declaraciones = funcion.declaracion
+					declaraciones.addAll(modulo.implementacion.global)
+					var complejos = modulo.implementacion.tipocomplejo
+					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+			
+				}
 			}
 		}
 	}
 	
 	def void completeCampoRegistro_Nombre_campoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Declaracion> declaraciones, List<TipoComplejo> complejos, String nombreVariable) {
-		var tipo = ""
-		for(Declaracion dec: declaraciones) {
-			if(dec instanceof DeclaracionPropia) {
-				var decPropia = dec as DeclaracionPropia
-				for(Variable v: decPropia.variable) {
-					if(v.nombre.equals(nombreVariable)) {
-						tipo = decPropia.tipo
+		var tipo = new String()
+		if(context.getCurrentModel instanceof ValorRegistro) {
+			for(Declaracion dec: declaraciones) {
+				if(dec instanceof DeclaracionPropia) {
+					var decPropia = dec as DeclaracionPropia
+					for(Variable v: decPropia.variable) {
+						if(v.nombre.equals(nombreVariable)) {
+							tipo = decPropia.tipo
+						}
+					}
+				}
+				else {
+					var decVariable = dec as DeclaracionVariable
+					for(Variable v: decVariable.variable) {
+						if(v.nombre.equals(nombreVariable)) {
+							tipo = decVariable.tipo.literal
+						}
 					}
 				}
 			}
-			else {
-				var decVariable = dec as DeclaracionVariable
-				for(Variable v: decVariable.variable) {
-					if(v.nombre.equals(nombreVariable)) {
-						tipo = decVariable.tipo.literal
+		}
+		else if(context.getCurrentModel instanceof ValorVector || context.getCurrentModel instanceof ValorMatriz) {
+			for(Declaracion dec: declaraciones) {
+				if(dec instanceof DeclaracionPropia) {
+					var decPropia = dec as DeclaracionPropia
+					for(Variable v: decPropia.variable) {
+						if(v.nombre.equals(nombreVariable)) {
+							tipo = decPropia.tipo
+						}
+					}
+				}
+				else {
+					var decVariable = dec as DeclaracionVariable
+					for(Variable v: decVariable.variable) {
+						if(v.nombre.equals(nombreVariable)) {
+							tipo = decVariable.tipo.literal
+						}
+					}
+				}
+			}
+			for(TipoComplejo complejo: complejos) {
+				if(complejo instanceof Vector) {
+					var vector = complejo as Vector
+					if(vector.nombre.equals(tipo)) {
+						if(vector.tipo instanceof TipoDefinido) {
+							var tipoDefinido = vector.tipo as TipoDefinido
+							tipo = tipoDefinido.tipo
+						} else {
+							var tipoExistente = vector.tipo as TipoExistente
+							tipo = tipoExistente.tipo.literal
+						}
+					}
+				} else if(complejo instanceof Matriz) {
+					var matriz = complejo as Matriz
+					if(matriz.nombre.equals(tipo)) {
+						if(matriz.tipo instanceof TipoDefinido) {
+							var tipoDefinido = matriz.tipo as TipoDefinido
+							tipo = tipoDefinido.tipo
+						} else {
+							var tipoExistente = matriz.tipo as TipoExistente
+							tipo = tipoExistente.tipo.literal
+						}
 					}
 				}
 			}
@@ -409,25 +551,90 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		for(TipoComplejo complejo: complejos) {
 			if(complejo instanceof Registro) {
 				var registro = complejo as Registro
-				for(Declaracion dec: registro.variable) {
-					if(dec instanceof DeclaracionPropia) {
-						var decPropia = dec as DeclaracionPropia
-						for(Variable v: decPropia.variable) {
-							var completionProposal = createCompletionProposal(v.nombre, context)
-							acceptor.accept(completionProposal)
+				if(registro.nombre.equals(tipo)) {
+					for(Declaracion dec: registro.variable) {
+						if(dec instanceof DeclaracionPropia) {
+							var decPropia = dec as DeclaracionPropia
+							for(Variable v: decPropia.variable) {
+								var completionProposal = createCompletionProposal(v.nombre, context)
+								acceptor.accept(completionProposal)
+							}
 						}
-					}
-					else {
-						var decVariable = dec as DeclaracionVariable
-						for(Variable v: decVariable.variable) {
-							var completionProposal = createCompletionProposal(v.nombre, context)
-							acceptor.accept(completionProposal)
+						else {
+							var decVariable = dec as DeclaracionVariable
+							for(Variable v: decVariable.variable) {
+								var completionProposal = createCompletionProposal(v.nombre, context)
+								acceptor.accept(completionProposal)
+							}
 						}
 					}
 				}
 			}
 		}
 		
+	}
+	
+	//Proposal para la creación de tipos----------------------------------------------------------------------------------
+	
+	override void completeTipoDefinido_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel as Algoritmo
+			completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo)
+		} else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel as Modulo
+			completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo)
+		}
+	}
+	
+	override void completeTipoExistente_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeDeclaracionVariable_TipoAux(context, acceptor)
+	}
+	
+	//Proposal para los tipo de paso de los parametros de los subprocesos-------------------------------------------------
+	
+	override void complete_TipoPaso(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		var completionProposal = createCompletionProposal("E", context)
+		acceptor.accept(completionProposal)
+		completionProposal = createCompletionProposal("E/S", context)
+		acceptor.accept(completionProposal)
+		completionProposal = createCompletionProposal("S", context)
+		acceptor.accept(completionProposal)
+	}
+	
+	//Proposal para la variable constante que se usa al crear el tipo vector-----------------------------------------------
+	
+	override void completeVector_Valor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel as Algoritmo
+			for(constante: algoritmo.constantes) {
+				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
+				acceptor.accept(completionProposal)
+			}
+		} else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel as Modulo
+			for(constante: modulo.implementacion.constantes) {
+				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
+				acceptor.accept(completionProposal)
+			}
+		}
+	}
+	
+	//Proposal para la variable constante que se usa al crear el tipo Matriz-----------------------------------------------
+	
+	override void completeMatriz_Valor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			var algoritmo = context.getRootModel as Algoritmo
+			for(constante: algoritmo.constantes) {
+				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
+				acceptor.accept(completionProposal)
+			}
+		} else if(context.getRootModel instanceof Modulo) {
+			var modulo = context.getRootModel as Modulo
+			for(constante: modulo.implementacion.constantes) {
+				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
+				acceptor.accept(completionProposal)
+			}
+		}
 	}
 	
 }

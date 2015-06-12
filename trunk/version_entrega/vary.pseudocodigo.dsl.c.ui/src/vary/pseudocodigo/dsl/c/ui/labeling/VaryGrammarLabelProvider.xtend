@@ -177,21 +177,25 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			var tipo = matriz.tipo as TipoExistente
 			var indice1 = new String()
 			var indice2 = new String()
-			if(matriz.valor.get(0) instanceof NumeroEntero) {
-				var indice = matriz.valor.get(0) as NumeroEntero
-				indice1 = indice.valor.toString
+			if(matriz.valor.size() > 0) {
+				if(matriz.valor.get(0) instanceof NumeroEntero) {
+					var indice = matriz.valor.get(0) as NumeroEntero
+					indice1 = indice.valor.toString
+				}
+				else {
+					var indice = matriz.valor.get(0) as VariableID
+					indice1 = indice.nombre
+				}
 			}
-			else {
-				var indice = matriz.valor.get(0) as VariableID
-				indice1 = indice.nombre
-			}
-			if(matriz.valor.get(1) instanceof NumeroEntero) {
-				var indice = matriz.valor.get(1) as NumeroEntero
-				indice2 = indice.valor.toString
-			}
-			else {
-				var indice = matriz.valor.get(1) as NumeroEntero
-				indice2 = indice.valor.toString
+			if(matriz.valor.size() > 1) {
+				if(matriz.valor.get(1) instanceof NumeroEntero) {
+					var indice = matriz.valor.get(1) as NumeroEntero
+					indice2 = indice.valor.toString
+				}
+				else {
+					var indice = matriz.valor.get(1) as VariableID
+					indice2 = indice.nombre
+				}
 			}
 			matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo.literal
 		}
@@ -199,21 +203,25 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			var tipo = matriz.tipo as TipoDefinido
 			var indice1 = new String()
 			var indice2 = new String()
-			if(matriz.valor.get(0) instanceof NumeroEntero) {
-				var indice = matriz.valor.get(0) as NumeroEntero
-				indice1 = indice.valor.toString
+			if(matriz.valor.size() > 0) {
+				if(matriz.valor.get(0) instanceof NumeroEntero) {
+					var indice = matriz.valor.get(0) as NumeroEntero
+					indice1 = indice.valor.toString
+				}
+				else {
+					var indice = matriz.valor.get(0) as VariableID
+					indice1 = indice.nombre
+				}
 			}
-			else {
-				var indice = matriz.valor.get(0) as VariableID
-				indice1 = indice.nombre
-			}
-			if(matriz.valor.get(1) instanceof NumeroEntero) {
-				var indice = matriz.valor.get(1) as NumeroEntero
-				indice2 = indice.valor.toString
-			}
-			else {
-				var indice = matriz.valor.get(1) as NumeroEntero
-				indice2 = indice.valor.toString
+			if(matriz.valor.size() > 1) {
+				if(matriz.valor.get(1) instanceof NumeroEntero) {
+					var indice = matriz.valor.get(1) as NumeroEntero
+					indice2 = indice.valor.toString
+				}
+				else {
+					var indice = matriz.valor.get(1) as VariableID
+					indice2 = indice.nombre
+				}
 			}
 			matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo
 		}
