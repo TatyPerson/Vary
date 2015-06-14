@@ -79,7 +79,9 @@ class VaryGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline
 		for(subproceso: modelElement.funcion) {
 			super._createNode(parentNode, subproceso)
 		}
-		super._createNode(parentNode, modelElement.tiene)
+		if(modelElement.tiene != null) {
+			super._createNode(parentNode, modelElement.tiene)
+		}
 	}
 	
 	def protected _createChildren(IOutlineNode parentNode, Modulo modelElement) {

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" deleted="false" description="Plantilla para crear una funcion" enabled="true" name="Template Funcion">
+${entero} funcion ${nombre_funcion}(${E} ${entero}: ${a}) 
+const
+tipo
+var
+inicio
+devolver ${a}
+fin_funcion
+</template>
+</templates>
