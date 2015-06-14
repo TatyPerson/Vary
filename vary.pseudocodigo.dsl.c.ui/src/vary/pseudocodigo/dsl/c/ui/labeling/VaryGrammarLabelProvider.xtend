@@ -37,6 +37,11 @@ import diagramapseudocodigo.ValorBooleano
 import diagramapseudocodigo.Registro
 import diagramapseudocodigo.Enumerado
 import diagramapseudocodigo.Archivo
+import org.eclipse.xtext.ui.editor.utils.TextStyle
+import org.eclipse.swt.SWT
+import org.eclipse.swt.graphics.RGB
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.xtext.ui.label.StylerFactory
 
 /**
  * Provides labels for a EObjects.
@@ -44,18 +49,55 @@ import diagramapseudocodigo.Archivo
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
 class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
-	var a = new Integer(5);
+	@Inject 
+	private StylerFactory stylerFactory;
 	@Inject
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 	
+	//Definición de colores para los nodos---------------------------------------------------------------------------------
+	
+	def protected TextStyle getAlgoritmoTextStyle() {
+ 		var textStyle = new TextStyle();
+  		textStyle.setColor(new RGB(220, 20, 60));
+ 		textStyle.setStyle(SWT.ITALIC);
+  		return textStyle;
+	}
+	
+	def protected TextStyle getPrincipalesTextStyle() {
+ 		var textStyle = new TextStyle();
+  		textStyle.setColor(new RGB(0, 0, 139));
+ 		textStyle.setStyle(SWT.ITALIC);
+  		return textStyle;
+	}
+	
+	def protected TextStyle getTiposTextStyle() {
+ 		var textStyle = new TextStyle();
+  		textStyle.setColor(new RGB(139, 0, 139));
+ 		textStyle.setStyle(SWT.ITALIC);
+  		return textStyle;
+	}
+	
+	def protected TextStyle getDeclaracionTextStyle() {
+ 		var textStyle = new TextStyle();
+  		textStyle.setColor(new RGB(205, 155, 29));
+ 		textStyle.setStyle(SWT.ITALIC);
+  		return textStyle;
+	}
+	
+	//Definición de las imágenes y textos para los nodos-------------------------------------------------------------------
+	
 	def text(Modulo modulo) {
-		modulo.nombre
+		return new StyledString(modulo.nombre, stylerFactory.createXtextStyleAdapterStyler(getAlgoritmoTextStyle()));
 	}
 	
 	def image(Modulo modulo) {
 		'modulo.gif'
+	}
+	
+	def text(Registro registro) {
+		return new StyledString(registro.nombre, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def text(Archivo archivo) {
@@ -67,7 +109,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			var tipoAux = archivo.tipo as TipoDefinido
 			tipo = tipoAux.tipo
 		}
-		archivo.nombre + ' : ' + tipo
+		return new StyledString(archivo.nombre + ' : ' + tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def image(TipoComplejo tipoComplejo) {
@@ -110,22 +152,22 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			var tipo = vector.tipo as TipoExistente
 			if(vector.valor instanceof NumeroEntero) {
 				var indice = vector.valor as NumeroEntero
-				vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo.literal
+				return new StyledString(vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo.literal + ' : ' + tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
 			else {
 				var indice = vector.valor as VariableID
-				vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo.literal
+				return new StyledString(vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo.literal, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
 		}
 		else {
 			var tipo = vector.tipo as TipoDefinido
 			if(vector.valor instanceof NumeroEntero) {
 				var indice = vector.valor as NumeroEntero
-				vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo
+				return new StyledString(vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
 			else {
 				var indice = vector.valor as VariableID
-				vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo
+				return new StyledString(vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
 		}
 	}
@@ -169,7 +211,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			var variable = constantes.valor as VariableID
 			valor = variable.nombre
 		}
-		constantes.variable.nombre + ' ' + valor
+		return new StyledString(constantes.variable.nombre + ' ' + valor, stylerFactory.createXtextStyleAdapterStyler(getPrincipalesTextStyle()));
 	}
 	
 	def text(Matriz matriz) {
@@ -197,7 +239,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 					indice2 = indice.nombre
 				}
 			}
-			matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo.literal
+			return new StyledString(matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo.literal, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 		}
 		else {
 			var tipo = matriz.tipo as TipoDefinido
@@ -223,7 +265,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 					indice2 = indice.nombre
 				}
 			}
-			matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo
+			return new StyledString(matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 		}
 	}
 	
@@ -232,31 +274,39 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Inicio inicio) {
-		'Principal'
+		return new StyledString('Principal', stylerFactory.createXtextStyleAdapterStyler(getPrincipalesTextStyle()));
 	}
 	
 	def image(VariableID variableID) {
 		'compare_field.gif'
 	}
 	
+	def text(Enumerado enumerado) {
+		return new StyledString(enumerado.nombre, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
+	}
+	
 	def text(SubrangoEnumerado subrango) {
-		subrango.nombre + ' [' + subrango.limite_inf + ',' + subrango.limite_sup + ']'
+		return new StyledString(subrango.nombre + ' [' + subrango.limite_inf + ',' + subrango.limite_sup + ']', stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def text(SubrangoNumerico subrango) {
-		subrango.nombre + ' [' + subrango.limite_inf + ',' + subrango.limite_sup + ']'
+		return new StyledString(subrango.nombre + ' [' + subrango.limite_inf + ',' + subrango.limite_sup + ']', stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def text(Funcion funcion) {
-		funcion.nombre + '(' + cadenaTiposSubproceso(funcion.parametrofuncion) + ') : ' + funcion.tipo.literal
+		return new StyledString(funcion.nombre + '(' + cadenaTiposSubproceso(funcion.parametrofuncion) + ') : ' + funcion.tipo.literal, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def text(Procedimiento procedimiento) {
-		procedimiento.nombre + '(' + cadenaTiposSubproceso(procedimiento.parametrofuncion) + ')'
+		return new StyledString(procedimiento.nombre + '(' + cadenaTiposSubproceso(procedimiento.parametrofuncion) + ')', stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def image(Algoritmo algoritmo) {
 		'algoritmo.gif'
+	}
+	
+	def text(Algoritmo algoritmo) {
+		return new StyledString(algoritmo.nombre, stylerFactory.createXtextStyleAdapterStyler(getAlgoritmoTextStyle()));
 	}
 	
 	def cadenaTiposSubproceso(List<ParametroFuncion> parametros) {
@@ -357,11 +407,16 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	def text(Variable variable) {
 		var declaracionVariable = EcoreUtil2.getContainerOfType(variable, DeclaracionVariable)
 		var declaracionPropia = EcoreUtil2.getContainerOfType(variable, DeclaracionPropia)
-		if(declaracionVariable != null) {
-			variable.nombre + ' : ' + declaracionVariable.tipo.literal
+		var registro = EcoreUtil2.getContainerOfType(variable, Registro)
+		if(declaracionVariable != null && registro == null) {
+			return new StyledString(variable.nombre + ' : ' + declaracionVariable.tipo.literal, stylerFactory.createXtextStyleAdapterStyler(getDeclaracionTextStyle()));
 		}
-		else {
-			variable.nombre + ' : ' + declaracionPropia.tipo
+		else if(declaracionVariable == null && registro == null) {
+			return new StyledString(variable.nombre + ' : ' + declaracionPropia.tipo, stylerFactory.createXtextStyleAdapterStyler(getDeclaracionTextStyle()));
+		} else if(declaracionVariable != null && registro != null) {
+			return variable.nombre + ' : ' + declaracionVariable.tipo.literal
+		} else if(declaracionVariable == null && registro == null) {
+			return variable.nombre + ' : ' + declaracionPropia.tipo
 		}
 	}
 
