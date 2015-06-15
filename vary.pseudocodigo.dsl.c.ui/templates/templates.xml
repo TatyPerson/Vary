@@ -102,4 +102,8 @@ fin_si</template>
 fin_si</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Subrango" context="vary.pseudocodigo.dsl.c.VaryGrammar.Subrango" deleted="false" description="Plantilla para crear un subrango" enabled="true" name="Subrango">${nombreSubrango} = ${limiteInf}..${limiteSup}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" context="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" deleted="false" description="Plantilla para crear un vector" enabled="true" name="Vector">vector [${dimension}] de ${tipoVector}: ${nombreVector}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.FuncionFicheroAbrir" context="vary.pseudocodigo.dsl.c.VaryGrammar.FuncionFicheroAbrir" deleted="false" description="Plantilla para la función abrir" enabled="true" name="Abrir">abrir(${variableFichero}, ${public:Enum('ModoApertura')}, ${variableCadena})</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.FuncionFicheroCerrar" context="vary.pseudocodigo.dsl.c.VaryGrammar.FuncionFicheroCerrar" deleted="false" description="Plantilla para la función cerrar" enabled="true" name="Cerrar">cerrar(${variableFichero})</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Escribir" context="vary.pseudocodigo.dsl.c.VaryGrammar.Escribir" deleted="false" description="Plantilla para la función escribir" enabled="true" name="Escribir">escribir("${Contenido_Cadena}", ${variable})</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Leer" context="vary.pseudocodigo.dsl.c.VaryGrammar.Leer" deleted="false" description="Plantilla para la función leer" enabled="true" name="Leer">leer(${variable})</template>
 </templates>
