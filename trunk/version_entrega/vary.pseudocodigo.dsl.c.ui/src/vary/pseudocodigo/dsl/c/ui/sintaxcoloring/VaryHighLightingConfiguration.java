@@ -12,6 +12,8 @@ public class VaryHighLightingConfiguration extends DefaultHighlightingConfigurat
 	public static final String TIPOS_ID = "Keywords_Tipos";
 	public static final String DECLARACIONES_ID = "Keywords_Tipos_Declaraciones";
 	public static final String GENERAL_ID = "Keywords_Generales";
+	public static final String CAMPOREGISTRO_ID = "Campos_Registro";
+	public static final String CADENA_ID = "Cadena";
 	
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
 		super.configure(acceptor);
@@ -20,6 +22,8 @@ public class VaryHighLightingConfiguration extends DefaultHighlightingConfigurat
 		acceptor.acceptDefaultHighlighting(TIPOS_ID, "Keywords_Tipos", tiposTextStyle());
 		acceptor.acceptDefaultHighlighting(DECLARACIONES_ID, "Keywords_Tipos_Declaraciones", declaracionesTextStyle());
 		acceptor.acceptDefaultHighlighting(GENERAL_ID, "Keywords_Generales", generalTextStyle());
+		acceptor.acceptDefaultHighlighting(CAMPOREGISTRO_ID, "Campos_Registro", campoRegistroTextStyle());
+		acceptor.acceptDefaultHighlighting(CADENA_ID, "Cadena", cadenaTextStyle());
 	}
 	
 	public TextStyle algoritmoTextStyle() {
@@ -56,5 +60,20 @@ public class VaryHighLightingConfiguration extends DefaultHighlightingConfigurat
 		textStyle.setStyle(SWT.BOLD);
 		return textStyle;
 	}
+	
+	public TextStyle campoRegistroTextStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setColor(new RGB(255, 128, 0));
+		textStyle.setStyle(SWT.ITALIC);
+		return textStyle;
+	}
+	
+	public TextStyle cadenaTextStyle() {
+		TextStyle textStyle = new TextStyle();
+		textStyle.setColor(new RGB(0, 154, 205));
+		textStyle.setStyle(SWT.NORMAL);
+		return textStyle;
+	}
+	
 	
 }

@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <templates>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" deleted="false" description="Plantilla para crear una funcion" enabled="true" name="Template Funcion">
-${entero} funcion ${nombre_funcion}(${E} ${entero}: ${a}) 
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Algoritmo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Algoritmo" deleted="false" description="Plantilla para crear la estructura básica del Algoritmo" enabled="true" name="Algoritmo">/*
+ * Algoritmo: Ejemplo
+ * Autor: 
+ * Fecha: 
+ */
+ 
+Algoritmo ${nombre_algoritmo}
+
+//Sección para importar módulos
+importa
+fin_importa
+
+//Sección de definición de variables constantes
+const 
+
+//Sección de definición de tipos
+tipo
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
+
+
+//Comienzo del algoritmo (Obligatorio)
+principal	
+var
+inicio 	
+fin_inicio
+
+fin_algoritmo</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Archivo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Archivo" deleted="false" description="Plantilla para crear un archivo" enabled="true" name="Archivo">archivo de ${tipoArchivo}: ${nombreArchivo}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Asignacion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Asignacion" deleted="false" description="Plantilla para crear una asignación" enabled="true" name="Asignación">${nombre_variable} &lt;- ${nombre_variable2} </template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion" deleted="false" description="Plantilla para declarar una variable" enabled="true" name="Declaración Variable">${nombreTipo}: ${nombreVariable}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.desde" context="vary.pseudocodigo.dsl.c.VaryGrammar.desde" deleted="false" description="Plantilla para definir un bucle desde" enabled="true" name="Desde">desde ${iterador} &lt;- ${valorInicial} hasta ${tope} hacer
+fin_desde</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Devolver" context="vary.pseudocodigo.dsl.c.VaryGrammar.Devolver" deleted="false" description="Plantilla para añadir devolver" enabled="true" name="Devolver">devolver ${nombre_variable}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Enumerado" context="vary.pseudocodigo.dsl.c.VaryGrammar.Enumerado" deleted="false" description="Plantilla para crear un enumerado" enabled="true" name="Enumerado">${nombreEnumerado} = {${valorEnumerado1}, ${valorEnumerado2}, ${valorEnumerado3}}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" deleted="false" description="Plantilla para crear una función" enabled="true" name="Función">${entero} funcion ${nombre_funcion}(${public:Enum('TipoPaso')} ${entero}: ${a}) 
 const
 tipo
 var
@@ -9,4 +46,60 @@ inicio
 devolver ${a}
 fin_funcion
 </template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" context="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" deleted="false" description="Plantilla para crear una matriz" enabled="true" name="Matriz">matriz [${dimension1}][${dimension2}] de ${tipoMatriz}: ${nombreMatriz}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" context="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" deleted="false" description="Plantilla para definir un bucle mientras" enabled="true" name="Mientras">mientras ${iterador} ${public:Enum('signo')} ${tope} hacer
+fin_mientras</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Modulo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Modulo" deleted="false" description="Plantilla para crear la estructura básica de un Módulo" enabled="true" name="Módulo">Modulo ${nombre_modulo}
+
+//Sección para importar modulos
+importa
+fin_importa
+
+//Sección de exportación de datos del módulo (visibles para otros módulos)
+exporta
+const
+	
+tipo
+	
+var
+
+fin_exporta
+
+//Sección de implementación del módulo
+implementacion
+
+const 
+
+tipo
+
+var
+
+fin_implementacion
+
+fin_modulo</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion" context="vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion" deleted="false" description="Plantilla para crear la entrada de un parámetro de un subproceso" enabled="true" name="Parámetro">${public:Enum('TipoPaso')} ${entero}: ${nombre_parametro}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" context="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" deleted="false" description="Plantilla para crear un procedimiento" enabled="true" name="Procedimiento">procedimiento ${nombre_procedimiento}(${public:Enum('TipoPaso')} ${entero}: a)
+const
+tipo
+var
+inicio
+fin_procedimiento</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" context="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" deleted="false" description="Plantilla para definir un registro" enabled="true" name="Registro">registro: ${NombreRegistro}
+	${tipoCampo}: ${nombreCampo}
+fin_registro</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" context="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" deleted="false" description="Plantilla para definir un bucle repetir" enabled="true" name="Repetir">repetir
+hasta_que ${variableCondicion} ${public:Enum('signo')} ${valorCondicion}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.segun" context="vary.pseudocodigo.dsl.c.VaryGrammar.segun" deleted="false" description="Plantilla para definir una estructura segun_sea" enabled="true" name="Segun_sea">segun_sea(${variable}) hacer
+	caso 1: escribir("caso 1")
+	caso 2: escribir("caso 2")
+	caso ${n}: escribir("caso n")
+	en_otro_caso: escribir("otro caso")
+fin_segun</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.SiCompuesto" context="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted="false" description="Plantilla para la definición de la estructura selectiva si con sino" enabled="true" name="Si Compuesto">si ${variableCondicion} ${public:Enum('signo')} ${variableCondicion2} entonces
+sino
+fin_si</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.SiSimple" context="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted="false" description="Plantilla para definir la estructura selectiva si" enabled="true" name="Si Simple">si ${variableCondicion} ${public:Enum('signo')} ${variableCondicion2} entonces
+fin_si</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Subrango" context="vary.pseudocodigo.dsl.c.VaryGrammar.Subrango" deleted="false" description="Plantilla para crear un subrango" enabled="true" name="Subrango">${nombreSubrango} = ${limiteInf}..${limiteSup}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" context="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" deleted="false" description="Plantilla para crear un vector" enabled="true" name="Vector">vector [${dimension}] de ${tipoVector}: ${nombreVector}</template>
 </templates>

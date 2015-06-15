@@ -5,6 +5,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultAntlrTokenToAttributeId
 public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttributeIdMapper {
 	@Override
 	protected String calculateId(String tokenName, int tokenType) {
+		System.out.println("El token es: "+tokenName);
 		if("'Algoritmo'".equals(tokenName) || "'fin_algoritmo'".equals(tokenName) ||
 				"'Modulo'".equals(tokenName) || "'fin_modulo'".equals(tokenName)) {
 			return VaryHighLightingConfiguration.ALGORITMO_ID;
@@ -25,7 +26,7 @@ public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttrib
 				"'}'".equals(tokenName) || "'devolver'".equals(tokenName) ||
 				"'<-'".equals(tokenName) || "'leer'".equals(tokenName) ||
 				"'escribir'".equals(tokenName) || "'abrir'".equals(tokenName) ||
-				"'cerrar'".equals(tokenName)) {
+				"'cerrar'".equals(tokenName) || "'.'".equals(tokenName))  {
 			return VaryHighLightingConfiguration.TIPOS_ID;
 		} else if("'entero'".equals(tokenName) || "'real'".equals(tokenName) ||
 				"'logico'".equals(tokenName) || "'cadena'".equals(tokenName) ||
@@ -40,7 +41,9 @@ public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttrib
 				"'segun_sea'".equals(tokenName) || "'en_otro_caso:'".equals(tokenName) ||
 				"'fin_segun'".equals(tokenName) || "'sino'".equals(tokenName)) {
 			return VaryHighLightingConfiguration.GENERAL_ID;
-		}
+		} else if("RULE_CAD".equals(tokenName) || "RULE_CAR".equals(tokenName)) {
+			return VaryHighLightingConfiguration.CADENA_ID;
+		} 
 		return super.calculateId(tokenName, tokenType);
 	}
 }
