@@ -7,9 +7,11 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.editor.contentassist.XtextContentAssistProcessor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.AbstractAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 
 import vary.pseudocodigo.dsl.c.ui.sintaxcoloring.VaryAntlrTokenToAttributeIdMapper;
 import vary.pseudocodigo.dsl.c.ui.sintaxcoloring.VaryHighLightingConfiguration;
+import vary.pseudocodigo.dsl.c.ui.sintaxcoloring.VarySemanticHighlightingCalculator;
 
 import com.google.inject.Binder;
 
@@ -37,4 +39,9 @@ public class VaryGrammarUiModule extends vary.pseudocodigo.dsl.c.ui.AbstractVary
 	public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindAbstractAntlrTokenToAttributeIdMapper() {
 		return VaryAntlrTokenToAttributeIdMapper.class;
 	}
+	
+	public Class<? extends ISemanticHighlightingCalculator> bindSematicTextHighlightCalculator() {
+		return VarySemanticHighlightingCalculator.class;
+	}
+	
 }
