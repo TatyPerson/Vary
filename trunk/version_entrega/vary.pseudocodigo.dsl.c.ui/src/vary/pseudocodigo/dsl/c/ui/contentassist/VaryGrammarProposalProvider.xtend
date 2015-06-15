@@ -36,29 +36,23 @@ import diagramapseudocodigo.ValorVector
 import diagramapseudocodigo.ValorMatriz
 import diagramapseudocodigo.TipoDefinido
 import diagramapseudocodigo.TipoExistente
+import org.eclipse.xtext.Keyword
+import com.google.common.collect.Sets
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
-	override getStyledDisplayString(EObject element, String qualifiedNameAsString, String shortName) {
-		if (element instanceof Modulo) {
-			new StyledString("Modulo :: " + shortName,StyledString::QUALIFIER_STYLER)
-		if (element instanceof Variable) {
-			var variable = element as Variable
-			var dec = variable.eContainer() as Declaracion
-			if(dec instanceof DeclaracionVariable) {
-				var decVar = dec as DeclaracionVariable
-				new StyledString("Variable :: " + shortName + " Tipo::" + decVar.tipo.name,StyledString::QUALIFIER_STYLER)
-			}
-			if(dec instanceof DeclaracionPropia) {
-				var decPropia = dec as DeclaracionPropia
-				new StyledString("Variable :: " + shortName + " Tipo::" + decPropia.tipo,StyledString::QUALIFIER_STYLER)
-			}
+	var filtrarKeywords = Sets.newHashSet("Algoritmo", "Modulo", "abrir", "cerrar", "desde", "escribir", "leer", "mientras", "repetir",
+		"segun_sea", "si", "archivo de ", "matriz", "procedimiento", "funcion", "registro:", "fin_registro", "vector", "devolver")
+	
+	//Filtramos los keywords "sueltos" que ofrece -------------------------------------------------------------------------
+	override void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
+		if(filtrarKeywords.contains(keyword.getValue)) {
+			return;
 		}
-		} else
-			super.getStyledDisplayString(element, qualifiedNameAsString, shortName)
+		super.completeKeyword(keyword, contentAssistContext, acceptor);
 	}
 	
 	//Proposal para las variables definidas con un tipo personalizado -----------------------------------------------------
