@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizard;
+package vary.pseudocodigo.dsl.c.ui.wizard.creator;
 
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.xtext.ui.wizard.IProjectCreator;

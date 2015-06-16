@@ -1,32 +1,28 @@
 package vary.pseudocodigo.dsl.c.ui.wizard;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.mwe2.language.Mwe2StandaloneSetup;
-import org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher;
-import org.eclipse.emf.mwe2.launch.runtime.Mwe2Runner;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.xtext.ui.wizard.IProjectInfo;
 import org.eclipse.xtext.ui.wizard.IProjectCreator;
 
-import vary.pseudocodigo.dsl.c.generator.util.IdiomaProyecto;
 import vary.pseudocodigo.dsl.c.generator.util.LenguajeProyecto;
 import vary.pseudocodigo.dsl.c.generator.util.NombreProyecto;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectHeaderFile;
-import vary.pseudocodigo.dsl.c.generator.util.TipoProyecto;
 
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 
 public class VaryGrammarNewProjectWizard extends org.eclipse.xtext.ui.wizard.XtextNewProjectWizard {
 
 	private WizardNewProjectCreationPage mainPage;
 	private VaryGrammarWizardSelectionTypeProjectPage selectionProjectTypePage;
+	private VaryGrammarWizardSelectionPropertiesPage selectionPropertiesPage;
 
 	@Inject
 	public VaryGrammarNewProjectWizard(IProjectCreator projectCreator) {
 		super(projectCreator);
-		setWindowTitle("New VaryGrammar Project");
+		setWindowTitle("New Vary Project");
 	}
 
 	/**
@@ -35,23 +31,34 @@ public class VaryGrammarNewProjectWizard extends org.eclipse.xtext.ui.wizard.Xte
 	 */
 	public void addPages() {
 		mainPage = new WizardNewProjectCreationPage("basicNewProjectPage");
-		mainPage.setTitle("VaryGrammar Project");
-		mainPage.setDescription("Create a new VaryGrammar project.");
+		mainPage.setTitle("Vary Project");
+		mainPage.setDescription("Create a new Vary project.");
 		addPage(mainPage);
 		selectionProjectTypePage = new VaryGrammarWizardSelectionTypeProjectPage("selectNewProjectTypePage");
 		selectionProjectTypePage.setPreviousPage(mainPage);
-		selectionProjectTypePage.setTitle("Vary C Project options");
-		selectionProjectTypePage.setDescription("The project will be generated depending on the options you choose.");
+		selectionProjectTypePage.setTitle("Vary C/C++ Project options");
+		selectionProjectTypePage.setDescription("Select the language of the project.");
 		addPage(selectionProjectTypePage);
+		selectionPropertiesPage = new VaryGrammarWizardSelectionPropertiesPage("selectPropertiesPage");
+		selectionPropertiesPage.setPreviousPage(selectionProjectTypePage);
+		selectionPropertiesPage.setTitle("Vary C/C++ Project options");
+		selectionPropertiesPage.setDescription("The project will be generated depending on the options you choose.");
+		addPage(selectionPropertiesPage);
 	}
 	
 	@Override
 	protected void doFinish(final IProjectInfo projectInfo, final IProgressMonitor monitor) {
 		//IdiomaProyecto.setIdiomaProyecto(selectionProjectTypePage.getSelectedNodeLanguage().getName());
 		//TipoProyecto.setTipoProyecto(selectionProjectTypePage.getSelectedNode().getName());
-		ProjectEmpty.setEmptyOption(selectionProjectTypePage.getChecboxWhiteValue());
-		ProjectHeaderFile.setHeaderOption(selectionProjectTypePage.getChecboxHeaderValue());
-		LenguajeProyecto.setLenguajeProyecto(selectionProjectTypePage.getSelectedNodeLanguage().getName());
+		
+		if(selectionProjectTypePage.getSelectedNodeLanguage().getName().equals("C") || selectionProjectTypePage.getSelectedNodeLanguage().getName().equals("C++")) {
+			selectionPropertiesPage = (VaryGrammarWizardSelectionPropertiesPage) selectionProjectTypePage.getNextPage();
+			ProjectEmpty.setEmptyOption(selectionPropertiesPage.getChecboxWhiteValue());
+			//ProjectEmpty.setEmptyOption(selectionPropertiesPage.getProperties().getPropertyValue(0));
+			ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getChecboxHeaderValue());
+			//ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getProperties().getPropertyValue(1));
+			LenguajeProyecto.setLenguajeProyecto(selectionProjectTypePage.getSelectedNodeLanguage().getName());
+		}
 		super.doFinish(projectInfo, monitor);
 
 	}
@@ -65,6 +72,15 @@ public class VaryGrammarNewProjectWizard extends org.eclipse.xtext.ui.wizard.Xte
 		projectInfo.setProjectName(mainPage.getProjectName());
 		NombreProyecto.setNombreProyecto(mainPage.getProjectName());
 		return projectInfo;
+	}
+	
+	@Override
+	public boolean canFinish() {
+		if(selectionProjectTypePage.getSelectedNodeLanguage() != null && selectionPropertiesPage.getLanguage() != null) {
+			return true;
+		} else {
+			return super.canFinish();
+		}
 	}
 
 }

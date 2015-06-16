@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizard;
+package vary.pseudocodigo.dsl.c.ui.wizard.creator;
 
 import java.util.Collections;
 import java.util.List;

@@ -14,32 +14,35 @@ vary.pseudocodigo.dsl.c.VaryGrammar.templates=<?xml version\="1.0" encoding\="UT
 «ENDDEFINE»
 
 «DEFINE model FOR VaryGrammarProjectInfo»
-«FILE "src/input.vyc"-»
+«FILE "src/main.vyc"-»
 /*
  * Algoritmo: Ejemplo
  * Autor: 
  * Fecha: 
  */
  
-Algoritmo ejemplo
- 
-//Seccion de definicion de constantes (opcional)
-const	
+Algoritmo main
 
+//Sección para importar módulos
+importa
+fin_importa
 
-//Seccion de definicion de tipos (opcional)
+//Sección de definición de variables constantes
+const 
+
+//Sección de definición de tipos
 tipo
-	
-	
-//Seccion de definicion de subalgoritmos: funciones y procedimientos	
+
+//Sección de declaración de variables globales	
+var
+
+//Sección de definición de subalgoritmos: funciones y procedimientos	
 
 
 //Comienzo del algoritmo (Obligatorio)
 principal	
 var
-
-inicio //Cuerpo del algoritmo principal	
-
+inicio 	
 fin_inicio
 
 fin_algoritmo

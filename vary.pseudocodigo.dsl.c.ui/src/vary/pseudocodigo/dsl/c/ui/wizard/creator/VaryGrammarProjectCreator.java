@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizard;
+package vary.pseudocodigo.dsl.c.ui.wizard.creator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -25,6 +25,7 @@ import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigNature;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
 import vary.pseudocodigo.dsl.c.ui.util.PluginProjectFactory;
 import vary.pseudocodigo.dsl.c.ui.util.ProjectFactory;
+import vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarProjectInfo;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
