@@ -130,7 +130,7 @@ public abstract class AbstractVaryGrammarUiModule extends DefaultUiModule {
 
 	// contributed by org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment
 	public Class<? extends org.eclipse.xtext.ui.wizard.IProjectCreator> bindIProjectCreator() {
-		return vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarProjectCreator.class;
+		return vary.pseudocodigo.dsl.c.ui.wizard.creator.VaryGrammarProjectCreator.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.refactoring.RefactorElementNameFragment

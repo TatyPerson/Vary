@@ -8,25 +8,20 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
+import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardSelectionPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Text;
 
 public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPage {
 	
 	VaryWizardNode selectedWizardNode;
 	VaryWizardNode selectedWizardNodeLanguage;
-	boolean checkboxHeaderValue;
-	boolean checkboxWhiteValue;
-	Button checkboxHeader;
-	Button checkboxWhite;
 
 	public VaryGrammarWizardSelectionTypeProjectPage(String pageName) {
 		super(pageName);
@@ -45,19 +40,11 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
 	public void setSelectedNodeLanguage(VaryWizardNode node) {
 		this.selectedWizardNodeLanguage = node;
 	}
-	
-	public boolean getChecboxHeaderValue() {
-		return checkboxHeaderValue;
-	}
-	
-	public boolean getChecboxWhiteValue() {
-		return checkboxWhiteValue;
-	}
  
 	@Override
 	public void createControl(Composite parent) {
 		// TODO Auto-generated method stub
-		Composite composite = new Composite(parent, SWT.NONE);
+		final Composite composite = new Composite(parent, SWT.NONE);
 		// Name, you can create your form like normally
         //Label l = new Label(composite, SWT.NONE);
         //l.setText("Project name");
@@ -66,47 +53,6 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
         // Project type
         //Label labelType = new Label(composite, SWT.NONE);
         //labelType.setText("Reply .h file");
-        
-        //Checkbox para elegir si quieres .h o no
-		checkboxHeader = new Button(composite, SWT.CHECK);
-		//checkbox.setData(p);
-		checkboxHeader.setSelection(false);
-		checkboxHeader.setText("Generate .h file.");
-		checkboxHeader.addSelectionListener(new SelectionAdapter()
-		{
-		    @Override
-		    public void widgetSelected(SelectionEvent e)
-		    {
-		        if (checkboxHeader.getSelection()) {
-		        	checkboxHeaderValue = true;
-		        }
-		        else {
-		        	checkboxHeaderValue = false;
-		        }
-		        setPageComplete(true);
-		    }
-		});
-		
-		Label l = new Label(composite, SWT.NONE);
-		l.setText("");
-		//Checbox para elegir si quieres el fichero inicial en blanco o no
-		checkboxWhite = new Button(composite, SWT.CHECK);
-		checkboxWhite.setSelection(false);
-		checkboxWhite.setText("Generate an empty initial file.");
-		checkboxWhite.addSelectionListener(new SelectionAdapter()
-		{
-		    @Override
-		    public void widgetSelected(SelectionEvent e)
-		    {
-		        if (checkboxWhite.getSelection()) {
-		        	checkboxWhiteValue = true;
-		        }
-		        else {
-		        	checkboxWhiteValue = false;
-		        }
-		        setPageComplete(true);
-		    }
-		});
         
         /*TableViewer projectType = new TableViewer(composite);
         projectType.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -132,8 +78,8 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
             }
         }); */
         // Project language
-
-        l.setText("Selecciona el lenguaje para la transformación:");
+		Label l = new Label(composite, SWT.NONE);
+        l.setText("Select the language for transformation:");
         
         TableViewer projectLanguage = new TableViewer(composite);
         projectLanguage.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
@@ -153,7 +99,9 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
                         	setTitle("C++");
                         }
                         setSelectedNodeLanguage(selectedWizardNodeLanguage);
-                        setPageComplete(true);
+                        VarySelectorWizardProperties.setLanguageSelected(selectedWizardNodeLanguage.getName());
+                        setPageComplete(false);
+                        canFlipToNextPage();
                     }
                 }
             }
@@ -193,4 +141,29 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
         
         setControl(composite);
     }
+	
+	@Override
+	public boolean canFlipToNextPage() {
+		if(selectedWizardNodeLanguage == null) {
+			return false;
+		}
+		else if(selectedWizardNodeLanguage.getName() != null) {
+			VaryGrammarWizardSelectionPropertiesPage selectionPage = (VaryGrammarWizardSelectionPropertiesPage) getWizard().getPage("selectPropertiesPage");
+			selectionPage.setLanguage(selectedWizardNodeLanguage.getName());
+			return true;
+		}
+		else {
+			return super.canFlipToNextPage();
+		}
+	}
+	
+	@Override
+	public IWizardPage getNextPage() {
+		if(selectedWizardNodeLanguage.getName() != null) {
+			return getWizard().getPage("selectPropertiesPage");
+		}
+		else {
+			return super.getNextPage();
+		}
+	}
 }
