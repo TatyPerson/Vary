@@ -32,6 +32,7 @@ import org.eclipse.xtext.ui.util.Messages;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
+@SuppressWarnings("restriction")
 public class ProjectFactory {
 	private static final Logger logger = Logger.getLogger(ProjectFactory.class);
 
