@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.jface.layout.GridLayoutFactory;
-import org.eclipse.jface.wizard.WizardSelectionPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -25,14 +24,11 @@ public class VaryPropertiesForC implements VaryPropertiesForLanguage {
 		
 	@Override
 	public boolean getPropertyValue(int indexProperty) {
-		// TODO Auto-generated method stub
-		return false;
+		return properties.get(indexProperty);
 	}
 
 	@Override
-	public void defineControlForLanguage(Composite parent, WizardSelectionPage page) {
-		Composite composite = new Composite(parent, SWT.NONE);
-		
+	public void defineControlForLanguage(Composite composite) {
         //Checkbox para elegir si quieres .h o no
 		checkboxHeader = new Button(composite, SWT.CHECK);
 		//checkbox.setData(p);
@@ -73,7 +69,6 @@ public class VaryPropertiesForC implements VaryPropertiesForLanguage {
 		});
 		
 		GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(composite);
-		
 	}
 
 }

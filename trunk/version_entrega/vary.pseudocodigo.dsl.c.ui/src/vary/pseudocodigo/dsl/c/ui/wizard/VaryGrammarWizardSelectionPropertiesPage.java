@@ -14,20 +14,21 @@ import vary.pseudocodigo.dsl.c.ui.wizard.properties.VaryPropertiesForLanguage;
 
 public class VaryGrammarWizardSelectionPropertiesPage extends WizardSelectionPage {
 	
-	private boolean checkboxHeaderValue = false;
-	private boolean checkboxWhiteValue = false;
-	private Button checkboxHeader;
-	private Button checkboxWhite;
+	//private boolean checkboxHeaderValue = false;
+	//private boolean checkboxWhiteValue = false;
+	//private Button checkboxHeader;
+	//private Button checkboxWhite;
 	private String language;
-	VaryPropertiesForLanguage properties;
+	private VaryPropertiesForLanguage properties;
+	private Composite composite;
 	
-	public boolean getChecboxHeaderValue() {
+	/*public boolean getChecboxHeaderValue() {
 		return checkboxHeaderValue;
 	}
 	
 	public boolean getChecboxWhiteValue() {
 		return checkboxWhiteValue;
-	}
+	}*/
 	
 	public void setLanguage(String language) {
 		this.language = language;
@@ -36,7 +37,12 @@ public class VaryGrammarWizardSelectionPropertiesPage extends WizardSelectionPag
 	
 	public void setProperties(String language) {
 		if(language.equals("C") || language.equals("C++")) {
-			this.properties = new VaryPropertiesForC();
+			if(!(this.properties instanceof VaryPropertiesForC)) {
+				this.properties = new VaryPropertiesForC();
+				createControl(this.composite);
+			}
+		} else {
+			//this.properties = new VaryPropertiesForOtherLanguage();
 		}
 	}
 	
@@ -50,37 +56,44 @@ public class VaryGrammarWizardSelectionPropertiesPage extends WizardSelectionPag
 
 	protected VaryGrammarWizardSelectionPropertiesPage(String pageName) {
 		super(pageName);
-		// TODO Auto-generated constructor stub
+		//Lo instanciamos por defecto con las propiedades de C/C++
+	
+		this.properties = new VaryPropertiesForC();
+	}
+	
+	private void setComposite(Composite composite) {
+		this.composite = composite;
+	}
+	
+	public Composite getComposite() {
+		return this.composite;
 	}
 
 	@Override
 	public void createControl(Composite parent) {
 		
-		setPageComplete(true);
-		
-		/*if(language == null) {
-			//Al inicio por defecto cargamos el wizard de C y C++
-			setProperties("C");
-			this.properties.defineControlForLanguage(parent, this);
-			createControl(parent);
+		if(this.composite == null) {
+			Composite composite = new Composite(parent, SWT.NONE);
+			setComposite(composite);
+			this.properties.defineControlForLanguage(this.composite);
+			setPageComplete(true);
+			setControl(this.composite);
+		} else {
+			this.properties.defineControlForLanguage(this.composite);
+			setPageComplete(true);
+			setControl(this.composite);
 		}
 		
-		else {
-			setPageComplete(true);
-			this.properties.defineControlForLanguage(parent, this);
-			createControl(parent);
-		}*/
-		
-		if(language == null) {
+		/*if(language == null) {
 			showOptionsCProjects(parent);
 		}
 		else if(language.equals("C") || language.equals("C++")) {
 			showOptionsCProjects(parent);
-		}
+		}*/
 	}
 	
 	
-	private void showOptionsCProjects(Composite parent) {
+	/*private void showOptionsCProjects(Composite parent) {
 		Composite composite = new Composite(parent, SWT.NONE);
 		
         //Checkbox para elegir si quieres .h o no
@@ -125,6 +138,6 @@ public class VaryGrammarWizardSelectionPropertiesPage extends WizardSelectionPag
 		GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(composite);
         
         setControl(composite);
-	}
+	}*/
 
 }
