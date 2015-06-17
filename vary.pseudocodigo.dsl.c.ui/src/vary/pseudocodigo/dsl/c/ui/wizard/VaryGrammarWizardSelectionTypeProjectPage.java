@@ -99,7 +99,6 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
                         	setTitle("C++");
                         }
                         setSelectedNodeLanguage(selectedWizardNodeLanguage);
-                        VarySelectorWizardProperties.setLanguageSelected(selectedWizardNodeLanguage.getName());
                         setPageComplete(false);
                         canFlipToNextPage();
                     }
@@ -148,8 +147,6 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
 			return false;
 		}
 		else if(selectedWizardNodeLanguage.getName() != null) {
-			VaryGrammarWizardSelectionPropertiesPage selectionPage = (VaryGrammarWizardSelectionPropertiesPage) getWizard().getPage("selectPropertiesPage");
-			selectionPage.setLanguage(selectedWizardNodeLanguage.getName());
 			return true;
 		}
 		else {
@@ -160,7 +157,9 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
 	@Override
 	public IWizardPage getNextPage() {
 		if(selectedWizardNodeLanguage.getName() != null) {
-			return getWizard().getPage("selectPropertiesPage");
+			VaryGrammarWizardSelectionPropertiesPage nextPage = (VaryGrammarWizardSelectionPropertiesPage) getWizard().getPage("selectPropertiesPage");
+			nextPage.setLanguage(selectedWizardNodeLanguage.getName());
+			return nextPage;
 		}
 		else {
 			return super.getNextPage();

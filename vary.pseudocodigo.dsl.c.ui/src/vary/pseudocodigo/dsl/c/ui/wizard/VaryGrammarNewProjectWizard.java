@@ -52,11 +52,11 @@ public class VaryGrammarNewProjectWizard extends org.eclipse.xtext.ui.wizard.Xte
 		//TipoProyecto.setTipoProyecto(selectionProjectTypePage.getSelectedNode().getName());
 		
 		if(selectionProjectTypePage.getSelectedNodeLanguage().getName().equals("C") || selectionProjectTypePage.getSelectedNodeLanguage().getName().equals("C++")) {
-			selectionPropertiesPage = (VaryGrammarWizardSelectionPropertiesPage) selectionProjectTypePage.getNextPage();
-			ProjectEmpty.setEmptyOption(selectionPropertiesPage.getChecboxWhiteValue());
-			//ProjectEmpty.setEmptyOption(selectionPropertiesPage.getProperties().getPropertyValue(0));
-			ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getChecboxHeaderValue());
-			//ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getProperties().getPropertyValue(1));
+			//selectionPropertiesPage = (VaryGrammarWizardSelectionPropertiesPage) selectionProjectTypePage.getNextPage();
+			//ProjectEmpty.setEmptyOption(selectionPropertiesPage.getChecboxWhiteValue());
+			ProjectEmpty.setEmptyOption(selectionPropertiesPage.getProperties().getPropertyValue(1));
+			//ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getChecboxHeaderValue());
+			ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getProperties().getPropertyValue(0));
 			LenguajeProyecto.setLenguajeProyecto(selectionProjectTypePage.getSelectedNodeLanguage().getName());
 		}
 		super.doFinish(projectInfo, monitor);
