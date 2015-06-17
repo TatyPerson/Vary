@@ -10,7 +10,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
 import org.eclipse.xtext.ui.XtextProjectHelper;
 import org.eclipse.xpand2.XpandExecutionContextImpl;
@@ -48,6 +47,7 @@ public class VaryGrammarProjectCreator extends PluginProjectCreator {
 		return (VaryGrammarProjectInfo) super.getProjectInfo();
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	protected IProject createProject(IProgressMonitor monitor) {
 		ID_PROJECT = projects;

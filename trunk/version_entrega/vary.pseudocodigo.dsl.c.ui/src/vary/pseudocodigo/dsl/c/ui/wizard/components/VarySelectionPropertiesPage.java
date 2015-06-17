@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizard;
+package vary.pseudocodigo.dsl.c.ui.wizard.components;
 
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.wizard.WizardSelectionPage;
@@ -12,7 +12,7 @@ import org.eclipse.swt.widgets.Label;
 import vary.pseudocodigo.dsl.c.ui.wizard.properties.VaryPropertiesForC;
 import vary.pseudocodigo.dsl.c.ui.wizard.properties.VaryPropertiesForLanguage;
 
-public class VaryGrammarWizardSelectionPropertiesPage extends WizardSelectionPage {
+public class VarySelectionPropertiesPage extends WizardSelectionPage {
 	
 	//private boolean checkboxHeaderValue = false;
 	//private boolean checkboxWhiteValue = false;
@@ -54,10 +54,9 @@ public class VaryGrammarWizardSelectionPropertiesPage extends WizardSelectionPag
 		return this.language;
 	}
 
-	protected VaryGrammarWizardSelectionPropertiesPage(String pageName) {
+	public VarySelectionPropertiesPage(String pageName) {
 		super(pageName);
 		//Lo instanciamos por defecto con las propiedades de C/C++
-	
 		this.properties = new VaryPropertiesForC();
 	}
 	
