@@ -10,6 +10,8 @@ import vary.pseudocodigo.dsl.c.generator.util.ReadFileProperties
 import vary.pseudocodigo.dsl.c.generator.util.ProjectLocationFolder
 import java.io.IOException
 import diagramapseudocodigo.Codigo
+import vary.pseudocodigo.dsl.c.generator.c.VaryGrammarGeneratorC
+import vary.pseudocodigo.dsl.c.generator.cpp.VaryGrammarGeneratorCPP
 
 /**
  * Generates code from your model files on save.
