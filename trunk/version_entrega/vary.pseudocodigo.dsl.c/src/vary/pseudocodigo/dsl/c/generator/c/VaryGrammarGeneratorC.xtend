@@ -1,10 +1,8 @@
-package vary.pseudocodigo.dsl.c.generator
+package vary.pseudocodigo.dsl.c.generator.c
 
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
-import javax.inject.Inject
-import org.eclipse.xtext.naming.IQualifiedNameProvider
 import java.util.Map
 import java.util.HashMap
 import java.util.ArrayList
@@ -134,8 +132,8 @@ import diagramapseudocodigo.Algoritmo
 import diagramapseudocodigo.impl.AlgoritmoImpl
 import diagramapseudocodigo.Modulo
 import diagramapseudocodigo.impl.ModuloImpl
-import vary.pseudocodigo.dsl.c.generator.util.NombreProyecto
 import diagramapseudocodigo.Subrango
+import vary.pseudocodigo.dsl.c.generator.VaryGeneratorInterface
 
 /**
  * Generates code from your model files on save.
@@ -143,9 +141,6 @@ import diagramapseudocodigo.Subrango
  * see http://www.eclipse.org/Xtext/documentation.html#TutorialCodeGeneration
  */
 class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
-	
-
-	@Inject extension IQualifiedNameProvider
 	static Map<String, String> variablesInicio = new HashMap<String,String>();
 	static Map<String, Map<String,String>>variablesSubprocesos = new HashMap<String,Map<String,String>>();
 	static Map<String,String> vectoresMatrices = new HashMap<String,String>();
@@ -158,9 +153,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	static boolean cabeceras;
 	static ReadFileProperties readerFileProperties = new ReadFileProperties();
 	static Map<String,ArrayList<Integer>> subprocesosConPunteros = new HashMap<String,ArrayList<Integer>>();
-	//public String nombreFichero;
 
-	//EMap<String, TipoVariable> tablaSimbolos;
 	override void doGenerate(Resource resource, IFileSystemAccess myCFile) {
 
 		for (myPseudo : resource.allContents.toIterable.filter(typeof(Codigo))) {
@@ -187,38 +180,28 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				e.printStackTrace();
 			}
 			
-				
-			//ProjectLocationFolder.getLogger().error("El contenido del fichero es:");
-			//ProjectLocationFolder.getLogger().error(contenidoFichero);
-			
 			//Recogemos el tipo de proyecto de la cadena
 			
 			var tipoProyecto = contenidoFichero.replaceAll("ficheroCabeceras=","");
 			
-			/*nombreFichero = resource.getURI.toString().replaceAll("platform:/resource/","");
-			nombreFichero = nombreFichero.replaceAll("/", "")
-			nombreFichero = nombreFichero.replaceAll(".vyc", "");
-			nombreFichero = nombreFichero.replaceAll("src", "");
-			nombreFichero = nombreFichero.replaceAll(NombreProyecto.getNombreProyecto(),"");*/
-			
 			if(tipoProyecto == "false") {
 				cabeceras = false;
-				myCFile.generateFile(myPseudo.obtenerNombre + ".c", myPseudo.toC)
+				if(myPseudo instanceof Algoritmo) {
+					myCFile.generateFile(myPseudo.obtenerNombre + ".c", myPseudo.generate)	
+				} else {
+					myCFile.generateFile(myPseudo.obtenerNombre +".c", myPseudo.generate)
+					myCFile.generateFile(myPseudo.obtenerNombre + ".h", myPseudo.generarCabeceras)
+				}
 			}
 			else {
 				cabeceras = true;
-				myCFile.generateFile(myPseudo.obtenerNombre +".c", myPseudo.toC)
+				myCFile.generateFile(myPseudo.obtenerNombre +".c", myPseudo.generate)
 				myCFile.generateFile(myPseudo.obtenerNombre + ".h", myPseudo.generarCabeceras)
 			}
 		}
-		
-		//Lo comento por si lo necesito para los .h
-		//for (myPseudo : resource.allContents.toIterable.filter(typeof(Codigo))) {
-		//	myCFile.generateFile("salida.cpp", MyOutputConfigurationProvider::DEFAULT_OUTPUT_CPP, myPseudo.toCpp)
-		//}
 	}
 	
-	override obtenerNombre(Codigo myCodigo) {
+	def obtenerNombre(Codigo myCodigo) {
 		if (myCodigo.eClass.name.equals("Algoritmo")) {
 			var Algoritmo algoritmo = new AlgoritmoImpl
 			algoritmo = myCodigo as Algoritmo
@@ -245,14 +228,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 	
-	override generarCabeceras(Modulo myModulo) '''
+	def generarCabeceras(Modulo myModulo) '''
 		
 		#ifndef «myModulo.nombre.toUpperCase»_H
 		#define «myModulo.nombre.toUpperCase»_H
 		
 		«FOR myConstante:myModulo.implementacion.constantes»
 			«IF myModulo.exporta_constantes.contains(myConstante.variable.nombre)»
-				«myConstante.toC»
+				«myConstante.generate»
 			«ENDIF»
 		«ENDFOR»
 
@@ -261,37 +244,37 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			«IF myTipo.eClass.name.equals("Vector")»
 				«var vector = myTipo as Vector»
 				«IF myModulo.exporta_tipos.contains(vector.nombre)»
-					«vector.toC»
+					«vector.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Matriz")»
 				«var matriz = myTipo as Matriz»
 				«IF myModulo.exporta_tipos.contains(matriz.nombre)»
-					«matriz.toC»
+					«matriz.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Registro")»
 				«var registro = myTipo as Registro»
 				«IF myModulo.exporta_tipos.contains(registro.nombre)»
-					«registro.toC»
+					«registro.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Archivo")»
 				«var archivo = myTipo as Archivo»
 				«IF myModulo.exporta_tipos.contains(archivo.nombre)»
-					«archivo.toC»
+					«archivo.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Enumerado")»
 				«var enumerado = myTipo as Enumerado»
 				«IF myModulo.exporta_tipos.contains(enumerado.nombre)»
-					«enumerado.toC»
+					«enumerado.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Subrango")»
 				«var subrango = myTipo as Subrango»
 				«IF myModulo.exporta_tipos.contains(subrango.nombre)»
-					«subrango.toC»
+					«subrango.generate»
 				«ENDIF»
 			«ENDIF»
 		«ENDFOR»
@@ -322,10 +305,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		#define «algoritmo.nombre.toUpperCase»_H
 		
 		«FOR myConstante:myAlgoritmo.constantes»
-			«myConstante.toC»
+			«myConstante.generate»
 		«ENDFOR»
 		«FOR myComplejo:myAlgoritmo.tipocomplejo»
-			«myComplejo.toC»
+			«myComplejo.generate»
 		«ENDFOR»
 		«FOR funcion:myAlgoritmo.funcion»
 			«funcion.cabecerasFuncion»
@@ -356,31 +339,29 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			if (actual != 1)
 				total = total + ", "
 			if (p.paso == TipoPaso::ENTRADA) {
-				total = total + "const " + p.tipo.toC;
+				total = total + "const " + p.tipo.generate;
 			} else if (p.paso == TipoPaso::ENTRADA_SALIDA) {
-				total = total + p.tipo.toC + "*";
+				total = total + p.tipo.generate + "*";
 			} else {
-				total = total + p.tipo.toC + "*";
+				total = total + p.tipo.generate + "*";
 			}
 			actual = actual + 1;
 		}
 		total = total + ");"
-		//cabeceraAux = cabeceraAux.replaceAll("\\,\\)",")");
-		//cabeceraAux = cabeceraAux + ";"
 		return total;
 		
 	}
 	
-	def toC(Codigo myCodigo) {
+	override generate(Codigo myCodigo) {
 		if (myCodigo.eClass.name.equals("Algoritmo")) {
 			var Algoritmo algoritmo = new AlgoritmoImpl
 			algoritmo = myCodigo as Algoritmo
-			algoritmo.toC
+			algoritmo.generate
 		}
 		else if(myCodigo.eClass.name.equals("Modulo")) {
 			var Modulo modulo = new ModuloImpl
 			modulo = myCodigo as Modulo
-			modulo.toC
+			modulo.generate
 		}
 	}
 	
@@ -392,7 +373,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		funciones.add(funcion)
 	}
 	
-	def toC(Modulo myModulo) {
+	override generate(Modulo myModulo) {
 		
 		modulo = myModulo
 		
@@ -512,9 +493,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 		}
 	}
-	
-	var procedimientosUsados = new ArrayList<Procedimiento>();
-	var funcionesUsadas = new ArrayList<Funcion>();
 		
 		'''
 		#include <stdio.h>
@@ -527,62 +505,62 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		
 		«FOR myConstante:myModulo.implementacion.constantes»
 			«IF !myModulo.exporta_constantes.contains(myConstante.variable.nombre)»
-				«myConstante.toC»
+				«myConstante.generate»
 			«ENDIF»
 		«ENDFOR»
 		
 		«FOR myVariable:modulo.implementacion.global»
-			«myVariable.toC»
+			«myVariable.generate»
 		«ENDFOR»
 		
 		«FOR myTipo:myModulo.implementacion.tipocomplejo»
 			«IF myTipo.eClass.name.equals("Vector")»
 				«var vector = myTipo as Vector»
 				«IF !myModulo.exporta_tipos.contains(vector.nombre)»
-					«vector.toC»
+					«vector.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Matriz")»
 				«var matriz = myTipo as Matriz»
 				«IF !myModulo.exporta_tipos.contains(matriz.nombre)»
-					«matriz.toC»
+					«matriz.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Registro")»
 				«var registro = myTipo as Registro»
 				«IF !myModulo.exporta_tipos.contains(registro.nombre)»
-					«registro.toC»
+					«registro.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Archivo")»
 				«var archivo = myTipo as Archivo»
 				«IF !myModulo.exporta_tipos.contains(archivo.nombre)»
-					«archivo.toC»
+					«archivo.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Enumerado")»
 				«var enumerado = myTipo as Enumerado»
 				«IF !myModulo.exporta_tipos.contains(enumerado.nombre)»
-					«enumerado.toC»
+					«enumerado.generate»
 				«ENDIF»
 			«ENDIF»
 			«IF myTipo.eClass.name.equals("Subrango")»
 				«var subrango = myTipo as Subrango»
 				«IF !myModulo.exporta_tipos.contains(subrango.nombre)»
-					«subrango.toC»
+					«subrango.generate»
 				«ENDIF»
 			«ENDIF»
 		«ENDFOR»
 		
 		
 		«FOR mySubproceso:myModulo.implementacion.funcion»
-			«mySubproceso.toC»
+			«mySubproceso.generate»
 		«ENDFOR»
 		
 		'''
 	}
 
-	def toC(Algoritmo myAlgoritmo) {
+	override generate(Algoritmo myAlgoritmo) {
 	
 	algoritmo = myAlgoritmo;
 	
@@ -729,116 +707,116 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		«ENDFOR»
 
 		«FOR myComentario:algoritmo.comentarios»
-			«myComentario.toC»
+			«myComentario.generate»
 		«ENDFOR»
 		«IF !cabeceras»
 			«FOR myConstante:algoritmo.constantes»
-				«myConstante.toC»
+				«myConstante.generate»
 			«ENDFOR»
 			«FOR myComplejo:algoritmo.tipocomplejo»
-				«myComplejo.toC»
+				«myComplejo.generate»
 			«ENDFOR»
 		«ENDIF»
 		«FOR myVariable:algoritmo.global»
-			«myVariable.toC»
+			«myVariable.generate»
 		«ENDFOR»
 		
 		«FOR funcion:algoritmo.funcion»
-			«funcion.toC»
+			«funcion.generate»
 			
 		«ENDFOR»
-		«algoritmo.tiene.toC»
+		«algoritmo.tiene.generate»
 	'''
 	}
 
-	def toC(TipoComplejo myComplejo) {
+	override generate(TipoComplejo myComplejo) {
 		if (myComplejo.eClass.name.equals("Vector")) {
 			var Vector prueba = new VectorImpl
 			prueba = myComplejo as Vector
-			prueba.toC
+			prueba.generate
 		} else if (myComplejo.eClass.name.equals("Matriz")) {
 			var Matriz prueba = new MatrizImpl
 			prueba = myComplejo as Matriz
-			prueba.toC
+			prueba.generate
 		} else if (myComplejo.eClass.name.equals("Registro")) {
 			var Registro prueba = new RegistroImpl
 			prueba = myComplejo as Registro
-			prueba.toC
+			prueba.generate
 		} else if (myComplejo.eClass.name.equals("Archivo")) {
 			var Archivo prueba = new ArchivoImpl
 			prueba = myComplejo as Archivo
-			prueba.toC
+			prueba.generate
 		} else if (myComplejo.eClass.name.equals("Enumerado")) {
 			var Enumerado prueba = new EnumeradoImpl
 			prueba = myComplejo as Enumerado
-			prueba.toC
+			prueba.generate
 		} else if (myComplejo.eClass.name.equals("SubrangoNumerico")) {
 			var SubrangoNumerico prueba = new SubrangoNumericoImpl
 			prueba = myComplejo as SubrangoNumerico
-			prueba.toC
+			prueba.generate
 		} else if (myComplejo.eClass.name.equals("SubrangoEnumerado")) {
 			var SubrangoEnumerado prueba = new SubrangoEnumeradoImpl
 			prueba = myComplejo as SubrangoEnumerado
-			prueba.toC
+			prueba.generate
 		}
 	}
 
-	def toC(Tipo myTipo) {
+	override generate(Tipo myTipo) {
 		if (myTipo.eClass.name.equals("TipoDefinido")) {
 			var TipoDefinido prueba = new TipoDefinidoImpl
 			prueba = myTipo as TipoDefinido
-			prueba.toC
+			prueba.generate
 		} else if (myTipo.eClass.name.equals("TipoExistente")) {
 			var TipoExistente prueba = new TipoExistenteImpl
 			prueba = myTipo as TipoExistente
-			prueba.toC
+			prueba.generate
 		}
 	}
 
-	def toC(TipoExistente myTipo) {
+	override generate(TipoExistente myTipo) {
 		return tipoVariableC(myTipo.tipo)
 	}
 	
-	def toC(Comentario myComentario)
+	override generate(Comentario myComentario)
 		'''«myComentario.mensaje»'''
 
-	def toC(TipoDefinido myTipo) {
+	override generate(TipoDefinido myTipo) {
 		return myTipo.tipo
 	}
 
-	def toC(Constantes myConstante) '''
-		#define «myConstante.variable.nombre»  «myConstante.valor.toC»
+	override generate(Constantes myConstante) '''
+		#define «myConstante.variable.nombre»  «myConstante.valor.generate»
 	'''
 
-	def toC(Vector myVector) '''
-		typedef «myVector.tipo.toC» «myVector.nombre»[«myVector.valor.toC»];
+	override generate(Vector myVector) '''
+		typedef «myVector.tipo.generate» «myVector.nombre»[«myVector.valor.generate»];
 	'''
 
-	def toC(Matriz myMatriz) '''
-		typedef «myMatriz.tipo.toC» «myMatriz.nombre»[«myMatriz.valor.get(0).toC»][«myMatriz.valor.get(1).toC»];
+	override generate(Matriz myMatriz) '''
+		typedef «myMatriz.tipo.generate» «myMatriz.nombre»[«myMatriz.valor.get(0).generate»][«myMatriz.valor.get(1).generate»];
 	'''
 
-	def toC(Registro myRegistro) '''
+	override generate(Registro myRegistro) '''
 		typedef struct {
 			«FOR myVariable:myRegistro.variable»
-				«myVariable.toC»
+				«myVariable.generate»
 			«ENDFOR»
 		} «myRegistro.nombre»;
 	'''
 
-	def toC(Archivo myArchivo) '''
+	override generate(Archivo myArchivo) '''
 		typedef FILE *«myArchivo.nombre»;
 	'''
 
-	def toC(Enumerado myEnumerado) '''
-		typedef enum {«FOR myVariable:myEnumerado.valor»«IF myVariable == myEnumerado.valor.get(myEnumerado.valor.size()-1)»«myVariable.toC»«ELSE»«myVariable.toC», «ENDIF»«ENDFOR»} «myEnumerado.nombre»;
+	override generate(Enumerado myEnumerado) '''
+		typedef enum {«FOR myVariable:myEnumerado.valor»«IF myVariable == myEnumerado.valor.get(myEnumerado.valor.size()-1)»«myVariable.generate»«ELSE»«myVariable.generate», «ENDIF»«ENDFOR»} «myEnumerado.nombre»;
 	'''
 	
-	def toC(SubrangoNumerico mySubrango) '''
+	override generate(SubrangoNumerico mySubrango) '''
 		typedef enum {«generaSubrango(mySubrango.limite_inf,mySubrango.limite_sup)»} «mySubrango.nombre»;
 	'''
 	
-	def toC(SubrangoEnumerado mySubrango) '''
+	override generate(SubrangoEnumerado mySubrango) '''
 		typedef enum {«generaSubrangoEnumerado(mySubrango.limite_inf,mySubrango.limite_sup)»} «mySubrango.nombre»;
 	'''
 	
@@ -851,12 +829,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 	
-	def toC(FuncionFicheroAbrir myFuncionFicheroAbrir) '''
-		«myFuncionFicheroAbrir.variable.get(0).toC» = fopen(«myFuncionFicheroAbrir.variable.get(1).toC»,"«obtenerModo(myFuncionFicheroAbrir.modo.getName)»")
+	override generate(FuncionFicheroAbrir myFuncionFicheroAbrir) '''
+		«myFuncionFicheroAbrir.variable.get(0).generate» = fopen(«myFuncionFicheroAbrir.variable.get(1).generate»,"«obtenerModo(myFuncionFicheroAbrir.modo.getName)»")
 	'''
 	
-	def toC(FuncionFicheroCerrar myFuncionFicheroCerrar)'''
-		fclose(«myFuncionFicheroCerrar.variable.toC»)
+	override generate(FuncionFicheroCerrar myFuncionFicheroCerrar)'''
+		fclose(«myFuncionFicheroCerrar.variable.generate»)
 	'''
 
 	def generaSubrango(int limite_inf,int limite_sup) {
@@ -886,26 +864,26 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 
-	def toC(Inicio myInicio) '''
+	override generate(Inicio myInicio) '''
 		int main(){
 			«FOR myVariable:myInicio.declaracion»
-				«myVariable.toC»
+				«myVariable.generate»
 			«ENDFOR»
 			«FOR mySentencia:myInicio.tiene»
-				«mySentencia.toC»
+				«mySentencia.generate»
 			«ENDFOR»
 		}
 	'''
 
-	def toC(Subproceso subp) {
+	override generate(Subproceso subp) {
 		if (subp.eClass.name.equals("Funcion")) {
 			var Funcion prueba = new FuncionImpl
 			prueba = subp as Funcion
-			prueba.toC
+			prueba.generate
 		} else if (subp.eClass.name.equals("Procedimiento")) {
 			var Procedimiento prueba = new ProcedimientoImpl
 			prueba = subp as Procedimiento
-			prueba.toC
+			prueba.generate
 		}
 	}
 	
@@ -924,26 +902,26 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		if(tipo == TipoVariable::LOGICO) return "bool";
 	}
 
-	def toC(EList<ParametroFuncion> parametros) {
+	override generate(EList<ParametroFuncion> parametros) {
 		var total = "";
 		var actual = 1;
 		for (p : parametros) {
 			if (actual != 1)
 				total = total + ", "
 			if (p.paso == TipoPaso::ENTRADA) {
-				total = total + "const " + p.tipo.toC + " " + p.variable.nombre;
+				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
 			} else if (p.paso == TipoPaso::ENTRADA_SALIDA) {
-				total = total + p.tipo.toC + "* " + p.variable.nombre;
+				total = total + p.tipo.generate + "* " + p.variable.nombre;
 			} else {
-				total = total + p.tipo.toC + "* " + p.variable.nombre;
+				total = total + p.tipo.generate + "* " + p.variable.nombre;
 			}
 			actual = actual + 1;
 		}
 		return total;
 	}
 	
-	def toC(Funcion myFun) {
-		var funcionDeclarada = myFun.tipo.tipoVariableC + " " + myFun.nombre + "(" + myFun.parametrofuncion.toC + "){" + "\n";
+	override generate(Funcion myFun) {
+		var funcionDeclarada = myFun.tipo.tipoVariableC + " " + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
 			if(parametroFuncion.paso == TipoPaso::SALIDA) {
@@ -951,27 +929,27 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 		}
 		for(myVariable:myFun.declaracion) {
-			funcionDeclarada = funcionDeclarada + "\t" + myVariable.toC + "\n";
+			funcionDeclarada = funcionDeclarada + "\t" + myVariable.generate + "\n";
 		}
 		if(punteros.size() == 0) {
 			for(mySentencia:myFun.sentencias) {
-				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.toC + "\n";
+				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.generate + "\n";
 			}
 		}
 		else {
 			for(mySentencia:myFun.sentencias) {
-				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.toCPunteros(punteros) + "\n";
+				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.generatePunteros(punteros) + "\n";
 			}
 		}
 		if(myFun.devuelve != null) {
-			funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.toC + "\n";
+			funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate + "\n";
 		}
 		funcionDeclarada = funcionDeclarada + "\n" + "}";
 		return funcionDeclarada;
 	}
 	
-	def toC(Procedimiento myProc) {
-		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.toC + "){" + "\n";
+	override generate(Procedimiento myProc) {
+		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
 			if(parametroFuncion.paso == TipoPaso::SALIDA) {
@@ -979,163 +957,163 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 		}
 		for(myVariable:myProc.declaracion) {
-			procedimientoDeclarado = procedimientoDeclarado + "\t" + myVariable.toC + "\n";
+			procedimientoDeclarado = procedimientoDeclarado + "\t" + myVariable.generate + "\n";
 		}
 		if(punteros.size() == 0) {
 			for(mySentencia:myProc.sentencias) {
-				procedimientoDeclarado = procedimientoDeclarado + "\t" + mySentencia.toC + "\n";
+				procedimientoDeclarado = procedimientoDeclarado + "\t" + mySentencia.generate + "\n";
 			}
 		}
 		else {
 			for(mySentencia:myProc.sentencias) {
-				procedimientoDeclarado = procedimientoDeclarado + "\t" + mySentencia.toCPunteros(punteros) + "\n";
+				procedimientoDeclarado = procedimientoDeclarado + "\t" + mySentencia.generatePunteros(punteros) + "\n";
 			}
 		}
 		procedimientoDeclarado = procedimientoDeclarado + "\n" + "}";
 		return procedimientoDeclarado;
 	}
 	
-	def toCPunteros(Sentencias mySent, List<String> punteros) {
+	def generatePunteros(Sentencias mySent, List<String> punteros) {
 		if (mySent.eClass.name.equals("AsignacionNormal")) {
 			var AsignacionNormal prueba = new AsignacionNormalImpl
 			prueba = mySent as AsignacionNormal
-			prueba.toCAsignacionPunteros(punteros)
+			prueba.generateAsignacionPunteros(punteros)
 		} else if (mySent.eClass.name.equals("AsignacionCompleja")) {
 			var AsignacionCompleja prueba = new AsignacionComplejaImpl
 			prueba = mySent as AsignacionCompleja
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("LlamadaFuncion")) {
 			var LlamadaFuncion prueba = new LlamadaFuncionImpl
 			prueba = mySent as LlamadaFuncion
-			prueba.toC(true)
+			prueba.generate(true)
 		} else if (mySent.eClass.name.equals("Si")) {
 			var Si prueba = new SiImpl
 			prueba = mySent as Si
-			prueba.toCSiPunteros(punteros)
+			prueba.generateSiPunteros(punteros)
 		} else if (mySent.eClass.name.equals("segun")) {
 			var segun prueba = new segunImpl
 			prueba = mySent as segun
-			prueba.toCSegunPunteros(punteros)
+			prueba.generateSegunPunteros(punteros)
 		} else if (mySent.eClass.name.equals("Caso")) {
 			var Caso prueba = new CasoImpl
 			prueba = mySent as Caso
-			prueba.toCCasoPunteros(punteros)
+			prueba.generateCasoPunteros(punteros)
 		} else if (mySent.eClass.name.equals("mientras")) {
 			var mientras prueba = new mientrasImpl
 			prueba = mySent as mientras
-			prueba.toCMientrasPunteros(punteros)
+			prueba.generateMientrasPunteros(punteros)
 		} else if (mySent.eClass.name.equals("repetir")) {
 			var repetir prueba = new repetirImpl
 			prueba = mySent as repetir
-			prueba.toCRepetirPunteros(punteros)
+			prueba.generateRepetirPunteros(punteros)
 		} else if (mySent.eClass.name.equals("desde")) {
 			var desde prueba = new desdeImpl
 			prueba = mySent as desde
-			prueba.toCDesdePunteros(punteros)
+			prueba.generateDesdePunteros(punteros)
 		} else if (mySent.eClass.name.equals("negacion")) {
 			var Negacion prueba = new NegacionImpl
 			prueba = mySent as Negacion
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("Leer")) {
 			if(modulo != null) {
 				var Leer prueba = new LeerImpl
 				prueba = mySent as Leer
-				prueba.toCModulo
+				prueba.generateModulo
 			} else {
 				var Leer prueba = new LeerImpl
 				prueba = mySent as Leer
-				prueba.toC
+				prueba.generate
 			}
 		} else if (mySent.eClass.name.equals("Escribir")) {
 			if(modulo != null) {
 				var Escribir prueba = new EscribirImpl
 				prueba = mySent as Escribir
-				prueba.toCModulo
+				prueba.generateModulo
 			} else {
 				var Escribir prueba = new EscribirImpl
 				prueba = mySent as Escribir
-				prueba.toC
+				prueba.generate
 			}
 		} else if (mySent.eClass.name.equals("FuncionFicheroAbrir")) {
 			var FuncionFicheroAbrir prueba = new FuncionFicheroAbrirImpl
 			prueba = mySent as FuncionFicheroAbrir
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("FuncionFicheroCerrar")) {
 			var FuncionFicheroCerrar prueba = new FuncionFicheroCerrarImpl
 			prueba = mySent as FuncionFicheroCerrar
-			prueba.toC
+			prueba.generate
 		}
 	}
 	
-	def toC(Sentencias mySent) {
+	override generate(Sentencias mySent) {
 		if (mySent.eClass.name.equals("AsignacionNormal")) {
 			var AsignacionNormal prueba = new AsignacionNormalImpl
 			prueba = mySent as AsignacionNormal
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("AsignacionCompleja")) {
 			var AsignacionCompleja prueba = new AsignacionComplejaImpl
 			prueba = mySent as AsignacionCompleja
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("LlamadaFuncion")) {
 			var LlamadaFuncion prueba = new LlamadaFuncionImpl
 			prueba = mySent as LlamadaFuncion
-			prueba.toC(true)
+			prueba.generate(true)
 		} else if (mySent.eClass.name.equals("Si")) {
 			var Si prueba = new SiImpl
 			prueba = mySent as Si
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("segun")) {
 			var segun prueba = new segunImpl
 			prueba = mySent as segun
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("Caso")) {
 			var Caso prueba = new CasoImpl
 			prueba = mySent as Caso
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("mientras")) {
 			var mientras prueba = new mientrasImpl
 			prueba = mySent as mientras
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("repetir")) {
 			var repetir prueba = new repetirImpl
 			prueba = mySent as repetir
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("desde")) {
 			var desde prueba = new desdeImpl
 			prueba = mySent as desde
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("negacion")) {
 			var Negacion prueba = new NegacionImpl
 			prueba = mySent as Negacion
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("Leer")) {
 			if(modulo != null) {
 				var Leer prueba = new LeerImpl
 				prueba = mySent as Leer
-				prueba.toCModulo
+				prueba.generateModulo
 			} else {
 				var Leer prueba = new LeerImpl
 				prueba = mySent as Leer
-				prueba.toC
+				prueba.generate
 			}
 		} else if (mySent.eClass.name.equals("Escribir")) {
 			if(modulo != null) {
 				var Escribir prueba = new EscribirImpl
 				prueba = mySent as Escribir
-				prueba.toCModulo
+				prueba.generateModulo
 			} else {
 				var Escribir prueba = new EscribirImpl
 				prueba = mySent as Escribir
-				prueba.toC
+				prueba.generate
 			}
 		} else if (mySent.eClass.name.equals("FuncionFicheroAbrir")) {
 			var FuncionFicheroAbrir prueba = new FuncionFicheroAbrirImpl
 			prueba = mySent as FuncionFicheroAbrir
-			prueba.toC
+			prueba.generate
 		} else if (mySent.eClass.name.equals("FuncionFicheroCerrar")) {
 			var FuncionFicheroCerrar prueba = new FuncionFicheroCerrarImpl
 			prueba = mySent as FuncionFicheroCerrar
-			prueba.toC
+			prueba.generate
 		}
 	}
 
@@ -1158,21 +1136,20 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return resultado;
 	}
 
-	// «myDec.tieneIDs.get(0).nombre»«FOR id:myDec.tieneIDs»«IF id.nombre != myDec.tieneIDs.get(0).nombre», «id.nombre»«ENDIF»«ENDFOR»;
-	def toC(Declaracion myDec) {
+	override generate(Declaracion myDec) {
 		if (myDec.eClass.name.equals("DeclaracionVariable")) {
 			var DeclaracionVariable prueba = new DeclaracionVariableImpl
 			prueba = myDec as DeclaracionVariable
-			prueba.toC
+			prueba.generate
 		} else if (myDec.eClass.name.equals("DeclaracionPropia")) {
 			var DeclaracionPropia prueba = new DeclaracionPropiaImpl
 			prueba = myDec as DeclaracionPropia
-			prueba.toC
+			prueba.generate
 		}
 
 	}
 	
-	def toC(DeclaracionVariable myDec) {
+	override generate(DeclaracionVariable myDec) {
 		if(myDec.tipo != TipoVariable::CADENA) {
 			return myDec.tipo.tipoVariableCDeclaraciones + " " + pintarVariables(myDec.variable);
 		}
@@ -1181,14 +1158,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 
-	def toC(DeclaracionPropia myDec) '''
+	override generate(DeclaracionPropia myDec) '''
 		«myDec.tipo» «pintarVariables(myDec.variable)»
 	'''
-
-	//def toC(Asignacion myAsig) '''
-	//	«myAsig.valor_asignacion»«FOR matri:myAsig.mat»«matri.toString»«ENDFOR» = «myAsig.operadores.toC»;'''
 	
-	def toCAsignacionPunteros(AsignacionNormal asig, List<String> punteros) {
+	def generateAsignacionPunteros(AsignacionNormal asig, List<String> punteros) {
 		var asignacion = new String();
 		if(punteros.contains(asig.valor_asignacion)) {
 			asignacion = "*(" + asig.valor_asignacion + ")";
@@ -1199,161 +1173,157 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		for(matri:asig.mat) {
 			asignacion = asignacion + matri.toString;
 		}
-		asignacion = asignacion + " = " + asig.operador.toC + ";";
+		asignacion = asignacion + " = " + asig.operador.generate + ";";
 		return asignacion;
 	}
 	
-	def toC(AsignacionNormal asig) '''
-	«asig.valor_asignacion»«FOR matri:asig.mat»«matri.toString»«ENDFOR» = «asig.operador.toC»;'''
+	override generate(AsignacionNormal asig) '''
+	«asig.valor_asignacion»«FOR matri:asig.mat»«matri.toString»«ENDFOR» = «asig.operador.generate»;'''
 
-	def toC(AsignacionCompleja asig) '''
-	«asig.valor_asignacion.toC.toString» = «asig.operador.toC.toString»;'''
+	override generate(AsignacionCompleja asig) '''
+	«asig.valor_asignacion.generate.toString» = «asig.operador.generate.toString»;'''
 
-	def toC(ValorComplejo myComplejo) {
+	override generate(ValorComplejo myComplejo) {
 		if (myComplejo.eClass.name.equals("ValorRegistro")) {
 			var ValorRegistro prueba = new ValorRegistroImpl
 			prueba = myComplejo as ValorRegistro
-			prueba.toC
+			prueba.generate
 		}
 		else if(myComplejo.eClass.name.equals("ValorVector")) {
 			var ValorVector prueba = new ValorVectorImpl
 			prueba = myComplejo as ValorVector
-			prueba.toC
+			prueba.generate
 		}
 		else if(myComplejo.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
 			prueba = myComplejo as ValorMatriz
-			prueba.toC
+			prueba.generate
 		}
 	}
 
-	def toC(ValorRegistro myValor) {
+	override generate(ValorRegistro myValor) {
 
 		//Este metodo esta escrito con otra sintaxis diferente porque me generaba un salto de linea innecesario
 		var concat = new String;
 		concat = myValor.nombre_registro.toString + '.'
 		for (myVariable : myValor.campo) {
-			concat = concat + myVariable.toC.toString;
+			concat = concat + myVariable.generate.toString;
 		}
 		return concat;
 	}
 
-	def toC(ValorVector myValor) {
+	override generate(ValorVector myValor) {
 		var concat = new String;
 		if(myValor.campo.size() == 0) {
-			concat = myValor.nombre_vector.toString + '[' + myValor.indice.toC + ']';
+			concat = myValor.nombre_vector.toString + '[' + myValor.indice.generate + ']';
 		}
 		else {
-			concat = myValor.nombre_vector.toString + '[' + myValor.indice.toC + ']' + '.' + myValor.campo.get(0).nombre_campo;
+			concat = myValor.nombre_vector.toString + '[' + myValor.indice.generate + ']' + '.' + myValor.campo.get(0).nombre_campo;
 		}
 		return concat;
 	}
 
-	def toC(CampoRegistro myCampo) {
+	override generate(CampoRegistro myCampo) {
 
 		//Este metodo esta escrito con otra sintaxis diferente porque me generaba un salto de linea innecesario
 		return myCampo.nombre_campo;
 	}
 
-	def toC(ValorMatriz myValor) {
+	override generate(ValorMatriz myValor) {
 		var concat = new String;
 		if(myValor.campo.size() == 0) {
-			concat = myValor.nombre_matriz.toString + '[' + myValor.primerIndice.toC + '][' + myValor.segundoIndice.toC + ']';
+			concat = myValor.nombre_matriz.toString + '[' + myValor.primerIndice.generate + '][' + myValor.segundoIndice.generate + ']';
 		}
 		else {
-			concat = myValor.nombre_matriz.toString + '[' + myValor.primerIndice.toC + '][' + myValor.segundoIndice.toC + ']' + '.' + myValor.campo.get(0).nombre_campo;
+			concat = myValor.nombre_matriz.toString + '[' + myValor.primerIndice.generate + '][' + myValor.segundoIndice.generate + ']' + '.' + myValor.campo.get(0).nombre_campo;
 		}
 		return concat;
 	}
 
-	def toC(valor myVal) {
+	override generate(valor myVal) {
 		if (myVal.eClass.name.equals("NumeroEntero")) {
 			var NumeroEntero prueba = new NumeroEnteroImpl
 			prueba = myVal as NumeroEntero
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("NumeroDecimal")) {
 			var NumeroDecimal prueba = new NumeroDecimalImpl
 			prueba = myVal as NumeroDecimal
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("ValorBooleano")) {
 			var ValorBooleano prueba = new ValorBooleanoImpl
 			prueba = myVal as ValorBooleano
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("ConstCadena")) {
 			var ConstCadena prueba = new ConstCadenaImpl
 			prueba = myVal as ConstCadena
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("Caracter")) {
 			var Caracter prueba = new CaracterImpl
 			prueba = myVal as Caracter
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("VariableID")) {
 			var VariableID prueba = new VariableIDImpl
 			prueba = myVal as VariableID
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("LlamadaFuncion")) {
 			var LlamadaFuncion prueba = new LlamadaFuncionImpl
 			prueba = myVal as LlamadaFuncion
-			prueba.toC(false)
+			prueba.generate(false)
 		} else if (myVal.eClass.name.equals("operacion")) {
 			var operacion prueba = new operacionImpl
 			prueba = myVal as operacion
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = myVal as Internas
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("unaria")) {
 			var unaria prueba = new unariaImpl
 			prueba = myVal as unaria
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("ValorRegistro")) {
 			var ValorRegistro prueba = new ValorRegistroImpl
 			prueba = myVal as ValorRegistro
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("ValorVector")) {
 			var ValorVector prueba = new ValorVectorImpl
 			prueba = myVal as ValorVector
-			prueba.toC
+			prueba.generate
 		} else if (myVal.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
 			prueba = myVal as ValorMatriz
-			prueba.toC
+			prueba.generate
 		}
 	}
 
-	def toC(NumeroEntero numero) {
+	override generate(NumeroEntero numero) {
 		return numero.valor.toString
 	}
 
-	def toC(NumeroDecimal numero) {
+	override generate(NumeroDecimal numero) {
 		return numero.valor.toString
 	}
 
-	def toC(ValorBooleano valBool) {
+	override generate(ValorBooleano valBool) {
 		if (valBool.valor == booleano::VERDADERO)
 			return "true"
 		else
 			return "false"
 	}
 
-	def toC(ConstCadena cadena) {
+	override generate(ConstCadena cadena) {
 		print(cadena.contenido)
 	}
 
-	def toC(Caracter caract) {
+	override generate(Caracter caract) {
 		print(caract.contenido)
 	}
 
-	def toC(VariableID variable) '''
+	override generate(VariableID variable) '''
 	«variable.nombre»«FOR matri:variable.mat»«matri.toString»«ENDFOR»'''
 
-	//def toC(negacion neg) '''
-	//	«neg.nombre»«neg.ssigno»;
-	//'''
-
-	def toC(unaria myUnaria) {
-		return "!" + myUnaria.variable.toC;
+	override generate(unaria myUnaria) {
+		return "!" + myUnaria.variable.generate;
 	}
 	
 	def contienenExpresionLeer(EList<Sentencias> sentencias, Leer l) {
@@ -1432,7 +1402,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return false;
 	}
 	
-	def toCModulo(Leer l) {
+	def generateModulo(Leer l) {
 		for(Subproceso s: modulo.implementacion.funcion) {
 			var perteneceSubproceso = false;
 			if(!s.sentencias.contains(l)) {
@@ -1496,22 +1466,22 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 				System.out.println("El tipo es: "+tipo);
 				if(tipo == "ENTERO") {
-					return '''scanf("%i", &«l.variable.toC»);'''
+					return '''scanf("%i", &«l.variable.generate»);'''
 				}
 				else if(tipo == "CARACTER") {
-					return '''scanf("%c", &«l.variable.toC»);'''
+					return '''scanf("%c", &«l.variable.generate»);'''
 				}
 				else if(tipo == "CADENA") {
-					return '''scanf("%s", &«l.variable.toC»);'''
+					return '''scanf("%s", &«l.variable.generate»);'''
 				}
 				else if(tipo == "REAL") {
-					return '''scanf("%r", &«l.variable.toC»);'''
+					return '''scanf("%r", &«l.variable.generate»);'''
 				}
 			}	
 		}	
 	}
 	
-	def toC(Leer l) {
+	override generate(Leer l) {
 		var perteneceInicio = false;
 		if(!algoritmo.tiene.tiene.contains(l)) {
 			for(Sentencias s: algoritmo.tiene.tiene) {
@@ -1573,16 +1543,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 			}
 			if(tipo == "ENTERO") {
-				'''scanf("%i", &«l.variable.toC»);'''
+				'''scanf("%i", &«l.variable.generate»);'''
 			}
 			else if(tipo == "CARACTER") {
-				'''scanf("%c", &«l.variable.toC»);'''
+				'''scanf("%c", &«l.variable.generate»);'''
 			}
 			else if(tipo == "CADENA") {
-				'''scanf("%s", &«l.variable.toC»);'''
+				'''scanf("%s", &«l.variable.generate»);'''
 			}
 			else if(tipo == "REAL") {
-				'''scanf("%r", &«l.variable.toC»);'''
+				'''scanf("%r", &«l.variable.generate»);'''
 			}
 		}
 		else {
@@ -1648,41 +1618,41 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 				}
 				if(tipo == "ENTERO") {
-					return '''scanf("%i", &«l.variable.toC»);'''
+					return '''scanf("%i", &«l.variable.generate»);'''
 				}
 				else if(tipo == "CARACTER") {
-					return '''scanf("%c", &«l.variable.toC»);'''
+					return '''scanf("%c", &«l.variable.generate»);'''
 				}
 				else if(tipo == "CADENA") {
-					return '''scanf("%s", &«l.variable.toC»);'''
+					return '''scanf("%s", &«l.variable.generate»);'''
 				}
 				else if(tipo == "REAL") {
-					return '''scanf("%r", &«l.variable.toC»);'''
+					return '''scanf("%r", &«l.variable.generate»);'''
 				}
 			}
 		}
 		}
 	}
 
-	def toC(Internas i) {
+	override generate(Internas i) {
 		if (i.nombre == NombreInterna::COS) {
-			'''cos(«i.operadores.get(0).toC»)'''
+			'''cos(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::SEN) {
-			'''sin(«i.operadores.get(0).toC»)'''
+			'''sin(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::CUADRADO) {
-			'''pow(«i.operadores.get(0).toC»,«2.0»)'''
+			'''pow(«i.operadores.get(0).generate»,«2.0»)'''
 		} else if (i.nombre == NombreInterna::EXP) {
-			'''exp2(«i.operadores.get(0).toC»)'''
+			'''exp2(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::LN) {
-			'''log(«i.operadores.get(0).toC»)'''
+			'''log(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::LOG) {
-			'''log10(«i.operadores.get(0).toC»)'''
+			'''log10(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::SQRT) {
-			'''sqrt(«i.operadores.get(0).toC»)'''
+			'''sqrt(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::LONGITUD) {
-			'''strlen(«i.operadores.get(0).toC»)'''
+			'''strlen(«i.operadores.get(0).generate»)'''
 		} else if (i.nombre == NombreInterna::CONCATENA) {
-			'''strcat(«i.operadores.get(0).toC»,«i.operadores.get(1).toC»)'''
+			'''strcat(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)'''
 		} 
 	}
 	
@@ -1691,10 +1661,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var numero = 1;
 		for (op : operaciones) {
 			if(operaciones.size() > 1 && numero < operaciones.size && numero != 1) {
-				resultado = resultado + op.toC + " , ";
+				resultado = resultado + op.generate + " , ";
 			}
 			else if(numero != 1 || operaciones.size() == 1) {
-				resultado = resultado + op.toC;
+				resultado = resultado + op.generate;
 			}
 			numero = numero + 1;
 		}
@@ -1777,7 +1747,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return false;
 	}
 	
-	def toCModulo(Escribir a) {	
+	def generateModulo(Escribir a) {	
 		for(Subproceso s: modulo.implementacion.funcion) {
 			var perteneceSubproceso = false;
 			if(!s.sentencias.contains(a) && a.operador.size() > 0) {
@@ -1902,7 +1872,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		
 	}
 	
-	def toC(Escribir a) {
+	override generate(Escribir a) {
 		var perteneceInicio = false;
 		if(!algoritmo.tiene.tiene.contains(a)) {
 			for(Sentencias s: algoritmo.tiene.tiene) {
@@ -2145,8 +2115,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}	
 	}
 	}
-		
-		//'''printf(«a.operador.coutOperadoresC»);'''
 	
 	}
 
@@ -2156,7 +2124,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		for (op : operaciones) {
 			if (actual != 1)
 				total = total + ", "
-			total = total + op.toC;
+			total = total + op.generate;
 			actual = actual + 1;
 		}
 		return total;
@@ -2170,358 +2138,358 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			}
 			if(subprocesosConPunteros.get(nombreSubproceso).contains(actual)) {
-					total = total + "&" + op.toC;
+					total = total + "&" + op.generate;
 					actual = actual + 1;
 			}
 			else {
-				total = total + op.toC;
+				total = total + op.generate;
 				actual = actual + 1;
 			}
 		}
 		return total;
 	}
 
-	def toC(LlamadaFuncion fun, boolean a) '''«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»'''
+	override generate(LlamadaFuncion fun, boolean a) '''«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»'''
 
-	def toC(Operador op) {
+	override generate(Operador op) {
 		if (op.eClass.name.equals("NumeroEntero")) {
 			var NumeroEntero prueba = new NumeroEnteroImpl
 			prueba = op as NumeroEntero
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("NumeroDecimal")) {
 			var NumeroDecimal prueba = new NumeroDecimalImpl
 			prueba = op as NumeroDecimal
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("ValorBooleano")) {
 			var ValorBooleano prueba = new ValorBooleanoImpl
 			prueba = op as ValorBooleano
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("ConstCadena")) {
 			var ConstCadena prueba = new ConstCadenaImpl
 			prueba = op as ConstCadena
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("Caracter")) {
 			var Caracter prueba = new CaracterImpl
 			prueba = op as Caracter
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("VariableID")) {
 			var VariableID prueba = new VariableIDImpl
 			prueba = op as VariableID
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("ValorRegistro")) {
 			var ValorRegistro prueba = new ValorRegistroImpl
 			prueba = op as ValorRegistro
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("ValorVector")) {
 			var ValorVector prueba = new ValorVectorImpl
 			prueba = op as ValorVector
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
 			prueba = op as ValorMatriz
-			prueba.toC
+			prueba.generate
 		}
 	}
 
-	def toC(operacion op) {
+	override generate(operacion op) {
 		if (op.eClass.name.equals("NumeroEntero")) {
 			var NumeroEntero prueba = new NumeroEnteroImpl
 			prueba = op as NumeroEntero
-			prueba.toC	
+			prueba.generate	
 		} else if (op.eClass.name.equals("NumeroDecimal")) {
 			var NumeroDecimal prueba = new NumeroDecimalImpl
 			prueba = op as NumeroDecimal
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("ValorBooleano")) {
 			var ValorBooleano prueba = new ValorBooleanoImpl
 			prueba = op as ValorBooleano
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("ConstCadena")) {
 			var ConstCadena prueba = new ConstCadenaImpl
 			prueba = op as ConstCadena
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("Caracter")) {
 			var Caracter prueba = new CaracterImpl
 			prueba = op as Caracter
-			prueba.toC
+			prueba.generate
 		} else if (op.eClass.name.equals("VariableID")) {
 			var VariableID prueba = new VariableIDImpl
 			prueba = op as VariableID
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("ValorRegistro")) {
 			var ValorRegistro prueba = new ValorRegistroImpl
 			prueba = op as ValorRegistro
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("ValorVector")) {
 			var ValorVector prueba = new ValorVectorImpl
 			prueba = op as ValorVector
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
 			prueba = op as ValorMatriz
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("LlamadaFuncion")) {
 			var LlamadaFuncion prueba = new LlamadaFuncionImpl
 			prueba = op as LlamadaFuncion
-			prueba.toC(false)
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl
 			prueba = op as Suma
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Resta")) {
 			var Resta prueba = new RestaImpl
 			prueba = op as Resta
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Multiplicacion")) {
 			var Multiplicacion prueba = new MultiplicacionImpl
 			prueba = op as Multiplicacion
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Division")) {
 			var Division prueba = new DivisionImpl
 			prueba = op as Division
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("And")) {
 			var And prueba = new AndImpl
 			prueba = op as And
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Comparacion")) {
 			var Comparacion prueba = new ComparacionImpl
 			prueba = op as Comparacion
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Igualdad")) {
 			var Igualdad prueba = new IgualdadImpl
 			prueba = op as Igualdad
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Negativa")) {
 			var Negativa prueba = new NegativaImpl
 			prueba = op as Negativa
-			prueba.toC
+			prueba.generate
 		}
 		else if (op.eClass.name.equals("Negacion")) {
 			var Negacion prueba = new NegacionImpl
 			prueba = op as Negacion
-			prueba.toC
+			prueba.generate
 		}
 	}
 	
-	def toC(Suma mySuma) {
-		return mySuma.left.toC + " " + mySuma.signo_op + " " + mySuma.right.toC;
+	override generate(Suma mySuma) {
+		return mySuma.left.generate + " " + mySuma.signo_op + " " + mySuma.right.generate;
 	}
 	
-	def toC(Resta myResta) {
-		return myResta.left.toC + " " + myResta.signo_op + " " + myResta.right.toC;
+	override generate(Resta myResta) {
+		return myResta.left.generate + " " + myResta.signo_op + " " + myResta.right.generate;
 	}
 	
-	def toC(Multiplicacion myMulti) {
-		return myMulti.left.toC + " " + myMulti.signo_op + " " + myMulti.right.toC;
+	override generate(Multiplicacion myMulti) {
+		return myMulti.left.generate + " " + myMulti.signo_op + " " + myMulti.right.generate;
 	}
 	
-	def toC(Division myDivi) {
-		return myDivi.left.toC + " " + myDivi.signo_op + " " + myDivi.right.toC;
+	override generate(Division myDivi) {
+		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
 	}
 	
-	def toC(Or myOr) {
-		return myOr.left.toC + " " + "||" + " " + myOr.right.toC;
+	override generate(Or myOr) {
+		return myOr.left.generate + " " + "||" + " " + myOr.right.generate;
 	}
 	
-	def toC(And myAnd) {
-		return myAnd.left.toC + " " + "&&" + " " + myAnd.right.toC;
+	override generate(And myAnd) {
+		return myAnd.left.generate + " " + "&&" + " " + myAnd.right.generate;
 	}
 	
-	def toC(Comparacion myComparacion) {
-		return myComparacion.left.toC + " " + myComparacion.signo_op + " " + myComparacion.right.toC;
+	override generate(Comparacion myComparacion) {
+		return myComparacion.left.generate + " " + myComparacion.signo_op + " " + myComparacion.right.generate;
 	}
 	
-	def toC(Igualdad myIgualdad) {
-		return myIgualdad.left.toC + " " + myIgualdad.signo_op + " " + myIgualdad.right.toC;
+	override generate(Igualdad myIgualdad) {
+		return myIgualdad.left.generate + " " + myIgualdad.signo_op + " " + myIgualdad.right.generate;
 	}
 	
-	def toC(Negativa myNegativa) {
-		return "( - " + myNegativa.valor_operacion.toC + ")";
+	override generate(Negativa myNegativa) {
+		return "( - " + myNegativa.valor_operacion.generate + ")";
 	}
 	
-	def toC(Negacion myNegacion) {
-		return "!" + myNegacion.valor_operacion.toC;
+	override generate(Negacion myNegacion) {
+		return "!" + myNegacion.valor_operacion.generate;
 	}
 	
-	def toCSiPunteros(Si mySi, List<String> punteros) '''
-		if(«mySi.valor.toC»){
+	def generateSiPunteros(Si mySi, List<String> punteros) '''
+		if(«mySi.valor.generate»){
 			«FOR sent:mySi.sentencias»
-				«sent.toCPunteros(punteros)»
+				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF mySi.devuelve != null» 
-			«mySi.devuelve.toC»
+			«mySi.devuelve.generate»
 			«ENDIF»	
 		}
 		«IF mySi.sino != null» 
-			«mySi.sino.toCSinoPunteros(punteros)»
+			«mySi.sino.generateSinoPunteros(punteros)»
 		«ENDIF»
 	'''
 
-	def toC(Si mySi) '''
-		if(«mySi.valor.toC»){
+	override generate(Si mySi) '''
+		if(«mySi.valor.generate»){
 			«FOR sent:mySi.sentencias»
-				«sent.toC»
+				«sent.generate»
 			«ENDFOR»
 			«IF mySi.devuelve != null» 
-			«mySi.devuelve.toC»
+			«mySi.devuelve.generate»
 			«ENDIF»	
 		}
 		«IF mySi.sino != null» 
-			«mySi.sino.toC»
+			«mySi.sino.generate»
 		«ENDIF»
 	'''
 	
-	def toCCasoPunteros(Caso myCaso, List<String> punteros) '''
-		case «myCaso.operador.toC»:
+	def generateCasoPunteros(Caso myCaso, List<String> punteros) '''
+		case «myCaso.operador.generate»:
 			«FOR sent:myCaso.sentencias»
-				«sent.toCPunteros(punteros)»
+				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF myCaso.devuelve != null» 
-			«myCaso.devuelve.toC»
+			«myCaso.devuelve.generate»
 			«ENDIF»
 		break;
 	'''
 
-	def toC(Caso myCaso) '''
-		case «myCaso.operador.toC»:
+	override generate(Caso myCaso) '''
+		case «myCaso.operador.generate»:
 			«FOR sent:myCaso.sentencias»
-				«sent.toC»
+				«sent.generate»
 			«ENDFOR»
 			«IF myCaso.devuelve != null» 
-			«myCaso.devuelve.toC»
+			«myCaso.devuelve.generate»
 			«ENDIF»
 		break;
 	'''
 	
-	def toCSegunPunteros(segun mySegun, List<String> punteros) '''
-		switch(«mySegun.valor.toC»){
+	def generateSegunPunteros(segun mySegun, List<String> punteros) '''
+		switch(«mySegun.valor.generate»){
 			«FOR caso:mySegun.caso»
-				«caso.toC» 
+				«caso.generate» 
 			«ENDFOR»
 			default:
 				«FOR sent:mySegun.sentencias»
-					«sent.toCPunteros(punteros)»
+					«sent.generatePunteros(punteros)»
 				«ENDFOR»
 				«IF mySegun.devuelve != null» 
-				«mySegun.devuelve.toC»
+				«mySegun.devuelve.generate»
 				«ENDIF»
 			break;
 		}
 	'''
 
-	def toC(segun mySegun) '''
-		switch(«mySegun.valor.toC»){
+	override generate(segun mySegun) '''
+		switch(«mySegun.valor.generate»){
 			«FOR caso:mySegun.caso»
-				«caso.toC» 
+				«caso.generate» 
 			«ENDFOR»
 			default:
 				«FOR sent:mySegun.sentencias»
-					«sent.toC»
+					«sent.generate»
 				«ENDFOR»
 				«IF mySegun.devuelve != null» 
-				«mySegun.devuelve.toC»
+				«mySegun.devuelve.generate»
 				«ENDIF»
 			break;
 		}
 	'''
 
-	def toC(Devolver myDevuelve) '''
-		return «myDevuelve.devuelve.toC»;
+	override generate(Devolver myDevuelve) '''
+		return «myDevuelve.devuelve.generate»;
 	'''
 	
-	def toCSinoPunteros(Sino mySino, List<String> punteros) '''
+	def generateSinoPunteros(Sino mySino, List<String> punteros) '''
 		else{
 			«FOR sent:mySino.sentencias»	
-				«sent.toCPunteros(punteros)»
+				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF mySino.devuelve != null» 
-			«mySino.devuelve.toC»
+			«mySino.devuelve.generate»
 			«ENDIF»	
 		}
 	'''
 
-	def toC(Sino mySino) '''
+	override generate(Sino mySino) '''
 		else{
 			«FOR sent:mySino.sentencias»	
-				«sent.toC»
+				«sent.generate»
 			«ENDFOR»
 			«IF mySino.devuelve != null» 
-			«mySino.devuelve.toC»
+			«mySino.devuelve.generate»
 			«ENDIF»	
 		}
 	'''
 	
-	def toCMientrasPunteros(mientras m, List<String> punteros) '''
-		while(«m.valor.toC»){
+	def generateMientrasPunteros(mientras m, List<String> punteros) '''
+		while(«m.valor.generate»){
 			«FOR sent:m.sentencias»
-				«sent.toCPunteros(punteros)»
+				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 		}
 	'''
 
-	def toC(mientras m) '''
-		while(«m.valor.toC»){
+	override generate(mientras m) '''
+		while(«m.valor.generate»){
 			«FOR sent:m.sentencias»
-				«sent.toC»
+				«sent.generate»
 			«ENDFOR»
 		}
 	'''
 	
-	def toCDesdePunteros(desde d, List<String> punteros) '''
-		for(«d.asignacion.toC» «d.asignacion.valor_asignacion.toString» <= «d.valor.toC»; «d.asignacion.valor_asignacion.toString»++){
+	def generateDesdePunteros(desde d, List<String> punteros) '''
+		for(«d.asignacion.generate» «d.asignacion.valor_asignacion.toString» <= «d.valor.generate»; «d.asignacion.valor_asignacion.toString»++){
 			«FOR sent:d.sentencias»
-				«sent.toCPunteros(punteros)»
+				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 		}
 	'''
 	
-	def toC(desde d) '''
-		for(«d.asignacion.toC» «d.asignacion.valor_asignacion.toString» <= «d.valor.toC»; «d.asignacion.valor_asignacion.toString»++){
+	override generate(desde d) '''
+		for(«d.asignacion.generate» «d.asignacion.valor_asignacion.toString» <= «d.valor.generate»; «d.asignacion.valor_asignacion.toString»++){
 			«FOR sent:d.sentencias»
-				«sent.toC»
+				«sent.generate»
 			«ENDFOR»
 		}
 	'''
 	
-	def toCRepetirPunteros(repetir r, List<String> punteros) '''
+	def generateRepetirPunteros(repetir r, List<String> punteros) '''
 		do{
 			«FOR sent:r.sentencias»
-				«sent.toCPunteros(punteros)»
+				«sent.generatePunteros(punteros)»
 			«ENDFOR»
-		}while(«r.valor.toC»);
+		}while(«r.valor.generate»);
 	'''
 
-	def toC(repetir r) '''
+	override generate(repetir r) '''
 		do{
 			«FOR sent:r.sentencias»
-				«sent.toC»
+				«sent.generate»
 			«ENDFOR»
-		}while(«r.valor.toC»);
+		}while(«r.valor.generate»);
 	'''
 }
