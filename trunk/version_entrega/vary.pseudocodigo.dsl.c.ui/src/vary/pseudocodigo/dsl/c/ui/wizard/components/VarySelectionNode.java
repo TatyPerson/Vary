@@ -19,22 +19,12 @@ public class VarySelectionNode implements IWizardNode {
 	@Override
 	public void dispose() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
 	public Point getExtent() {
 		return new Point(-1, -1);
 	}
-
-	/*@Override
-	public IWizard getWizard() {
-		if(wizard == null) {
-           wizard = (IWizard) new FinalWizard();
-        }
-        
-        return (IWizard) wizard;
-	}*/
 
 	@Override
 	public boolean isContentCreated() {
