@@ -34,10 +34,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkingSet;
 
 import vary.pseudocodigo.dsl.c.generator.util.LenguajeProyecto;
-import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectHeaderFile;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectLocationFolder;
-import vary.pseudocodigo.dsl.c.generator.util.TipoProyecto;
 
 
 @SuppressWarnings("restriction")
