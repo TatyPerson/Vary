@@ -11,72 +11,30 @@ import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.WizardSelectionPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 public class VarySelectionLanguagePage extends WizardSelectionPage {
-	
-	VarySelectionNode selectedWizardNode;
-	VarySelectionNode selectedWizardNodeLanguage;
+	private VarySelectionNode selectedNodeLanguage;
 
 	public VarySelectionLanguagePage(String pageName) {
 		super(pageName);
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
-	public VarySelectionNode getSelectedNode() {
-		return selectedWizardNode;
-	}
-	
 	public VarySelectionNode getSelectedNodeLanguage() {
-		return selectedWizardNodeLanguage;
+		return selectedNodeLanguage;
 	}
 	
 	public void setSelectedNodeLanguage(VarySelectionNode node) {
-		this.selectedWizardNodeLanguage = node;
+		this.selectedNodeLanguage = node;
 	}
  
 	@Override
 	public void createControl(Composite parent) {
-		// TODO Auto-generated method stub
 		final Composite composite = new Composite(parent, SWT.NONE);
-		// Name, you can create your form like normally
-        //Label l = new Label(composite, SWT.NONE);
-        //l.setText("Project name");
-        //new Text(composite, SWT.BORDER);
-        
-        // Project type
-        //Label labelType = new Label(composite, SWT.NONE);
-        //labelType.setText("Reply .h file");
-        
-        /*TableViewer projectType = new TableViewer(composite);
-        projectType.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
-        projectType.addSelectionChangedListener(new ISelectionChangedListener() {
-            @Override
-            public void selectionChanged(SelectionChangedEvent event) {
-                ISelection selection = event.getSelection();
-                if(!selection.isEmpty() && selection instanceof IStructuredSelection) {
-                    Object o = ((IStructuredSelection) selection).getFirstElement();
-                    if(o instanceof VaryWizardNode) {
-                        // Now we set our selected node, which toggles the next button
-                        selectedWizardNode = (VaryWizardNode) o;
-                        if(selectedWizardNode.getName() == "Yes") {
-                        	setTitle("The .h file will be generated.");
-                        }
-                        else {
-                        	setTitle("The .h file won't be generated.");
-                        }
-                        setSelectedNode(selectedWizardNode);
-                        setPageComplete(true);
-                    }
-                }
-            }
-        }); */
+
         // Project language
 		Label l = new Label(composite, SWT.NONE);
         l.setText("Select the language for transformation:");
@@ -91,30 +49,21 @@ public class VarySelectionLanguagePage extends WizardSelectionPage {
                     Object o = ((IStructuredSelection) selection).getFirstElement();
                     if(o instanceof VarySelectionNode) {
                         // Now we set our selected node, which toggles the next button
-                        selectedWizardNodeLanguage = (VarySelectionNode) o;
-                        if(selectedWizardNodeLanguage.getName() == "C") {
+                        selectedNodeLanguage = (VarySelectionNode) o;
+                        if(selectedNodeLanguage.getName() == "C") {
                         	setTitle("C");
                         }
                         else {
                         	setTitle("C++");
                         }
-                        setSelectedNodeLanguage(selectedWizardNodeLanguage);
+                        setSelectedNodeLanguage(selectedNodeLanguage);
                         setPageComplete(false);
                         canFlipToNextPage();
                     }
                 }
             }
         });
-        //projectType.setContentProvider(new ArrayContentProvider());
-        //projectType.setLabelProvider(new LabelProvider() {
-         /*   @Override
-            public String getText(Object element) {
-                if(element instanceof VaryWizardNode) {
-                    return ((VaryWizardNode) element).getName();
-                }
-                return super.getText(element);
-            }
-        });*/
+      
         projectLanguage.setContentProvider(new ArrayContentProvider());
         projectLanguage.setLabelProvider(new LabelProvider() {
             @Override
@@ -125,15 +74,10 @@ public class VarySelectionLanguagePage extends WizardSelectionPage {
                 return super.getText(element);
             }
         });
-        //VaryWizardNode[] wizardNodesType = new VaryWizardNode[]{
-        //    new VaryWizardNode("Yes"),
-        //    new VaryWizardNode("No")
-        //};
         VarySelectionNode[] wizardNodesLanguage = new VarySelectionNode[]{
                 new VarySelectionNode("C"),
                new VarySelectionNode("C++")
         };
-        //projectType.setInput(wizardNodesType);
         projectLanguage.setInput(wizardNodesLanguage);
         
         GridLayoutFactory.swtDefaults().numColumns(2).generateLayout(composite);
@@ -143,10 +87,10 @@ public class VarySelectionLanguagePage extends WizardSelectionPage {
 	
 	@Override
 	public boolean canFlipToNextPage() {
-		if(selectedWizardNodeLanguage == null) {
+		if(selectedNodeLanguage == null) {
 			return false;
 		}
-		else if(selectedWizardNodeLanguage.getName() != null) {
+		else if(selectedNodeLanguage.getName() != null) {
 			return true;
 		}
 		else {
@@ -156,9 +100,9 @@ public class VarySelectionLanguagePage extends WizardSelectionPage {
 	
 	@Override
 	public IWizardPage getNextPage() {
-		if(selectedWizardNodeLanguage.getName() != null) {
+		if(selectedNodeLanguage.getName() != null) {
 			VarySelectionPropertiesPage nextPage = (VarySelectionPropertiesPage) getWizard().getPage("selectionPropertiesPage");
-			nextPage.setLanguage(selectedWizardNodeLanguage.getName());
+			nextPage.setLanguage(selectedNodeLanguage.getName());
 			return nextPage;
 		}
 		else {
