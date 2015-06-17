@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizard;
+package vary.pseudocodigo.dsl.c.ui.wizard.components;
 
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -18,26 +18,26 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPage {
+public class VarySelectionLanguagePage extends WizardSelectionPage {
 	
-	VaryWizardNode selectedWizardNode;
-	VaryWizardNode selectedWizardNodeLanguage;
+	VarySelectionNode selectedWizardNode;
+	VarySelectionNode selectedWizardNodeLanguage;
 
-	public VaryGrammarWizardSelectionTypeProjectPage(String pageName) {
+	public VarySelectionLanguagePage(String pageName) {
 		super(pageName);
 		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
-	public VaryWizardNode getSelectedNode() {
+	public VarySelectionNode getSelectedNode() {
 		return selectedWizardNode;
 	}
 	
-	public VaryWizardNode getSelectedNodeLanguage() {
+	public VarySelectionNode getSelectedNodeLanguage() {
 		return selectedWizardNodeLanguage;
 	}
 	
-	public void setSelectedNodeLanguage(VaryWizardNode node) {
+	public void setSelectedNodeLanguage(VarySelectionNode node) {
 		this.selectedWizardNodeLanguage = node;
 	}
  
@@ -89,9 +89,9 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
                 ISelection selection = event.getSelection();
                 if(!selection.isEmpty() && selection instanceof IStructuredSelection) {
                     Object o = ((IStructuredSelection) selection).getFirstElement();
-                    if(o instanceof VaryWizardNode) {
+                    if(o instanceof VarySelectionNode) {
                         // Now we set our selected node, which toggles the next button
-                        selectedWizardNodeLanguage = (VaryWizardNode) o;
+                        selectedWizardNodeLanguage = (VarySelectionNode) o;
                         if(selectedWizardNodeLanguage.getName() == "C") {
                         	setTitle("C");
                         }
@@ -119,8 +119,8 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
         projectLanguage.setLabelProvider(new LabelProvider() {
             @Override
             public String getText(Object element) {
-                if(element instanceof VaryWizardNode) {
-                    return ((VaryWizardNode) element).getName();
+                if(element instanceof VarySelectionNode) {
+                    return ((VarySelectionNode) element).getName();
                 }
                 return super.getText(element);
             }
@@ -129,9 +129,9 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
         //    new VaryWizardNode("Yes"),
         //    new VaryWizardNode("No")
         //};
-        VaryWizardNode[] wizardNodesLanguage = new VaryWizardNode[]{
-                new VaryWizardNode("C"),
-               new VaryWizardNode("C++")
+        VarySelectionNode[] wizardNodesLanguage = new VarySelectionNode[]{
+                new VarySelectionNode("C"),
+               new VarySelectionNode("C++")
         };
         //projectType.setInput(wizardNodesType);
         projectLanguage.setInput(wizardNodesLanguage);
@@ -157,7 +157,7 @@ public class VaryGrammarWizardSelectionTypeProjectPage extends WizardSelectionPa
 	@Override
 	public IWizardPage getNextPage() {
 		if(selectedWizardNodeLanguage.getName() != null) {
-			VaryGrammarWizardSelectionPropertiesPage nextPage = (VaryGrammarWizardSelectionPropertiesPage) getWizard().getPage("selectPropertiesPage");
+			VarySelectionPropertiesPage nextPage = (VarySelectionPropertiesPage) getWizard().getPage("selectionPropertiesPage");
 			nextPage.setLanguage(selectedWizardNodeLanguage.getName());
 			return nextPage;
 		}

@@ -1,14 +1,14 @@
-package vary.pseudocodigo.dsl.c.ui.wizard;
+package vary.pseudocodigo.dsl.c.ui.wizard.components;
 
 import org.eclipse.jface.wizard.IWizard;
 import org.eclipse.jface.wizard.IWizardNode;
 import org.eclipse.swt.graphics.Point;
 
-public class VaryWizardNode implements IWizardNode {
+public class VarySelectionNode implements IWizardNode {
 	String name;
 	IWizard wizard;
 	
-	public VaryWizardNode(String name) {
+	public VarySelectionNode(String name) {
         this.name = name;
     }
 	
