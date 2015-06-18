@@ -324,9 +324,23 @@
             descriptionImage="icons/Vary_C.png"
             icon="icons/Vary_Icono.png"
             id="vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarNewProjectWizard"
-            name="Vary C/C++"
+            name="New Vary Project"
             project="true">
-      </wizard>
+      	</wizard>
+         <wizard
+               category="org.eclipselabs.vary"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.AlgoritmoNewWizard"
+               icon="icons/Vary_Icono.png"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.AlgoritmoNewWizard"
+               name="New Algorithm">
+         </wizard>
+          <wizard
+               category="org.eclipselabs.vary"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.ModuloNewWizard"
+               icon="icons/Vary_Icono.png"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.ModuloNewWizard"
+               name="New Module">
+         </wizard>
     </extension>
     <!-- quickfix marker resolution generator for vary.pseudocodigo.dsl.c.VaryGrammar -->
     <extension
