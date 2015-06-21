@@ -41,7 +41,7 @@ import vary.pseudocodigo.dsl.c.generator.util.ProjectLocationFolder;
 @SuppressWarnings("restriction")
 public class CProjectFactory extends ProjectFactory {
 	
-	private static final Logger logger = Logger.getLogger(CProjectFactory.class);
+	protected static final Logger logger = Logger.getLogger(CProjectFactory.class);
 
 	@Override
 	protected void enhanceProject(IProject project, SubMonitor monitor, Shell shell) throws CoreException, CModelException {
@@ -150,8 +150,9 @@ public class CProjectFactory extends ProjectFactory {
 		    ManagedBuildManager.saveBuildInfo(project, true);
 		    monitor.worked(1);
 		}
+		System.out.println("Creador Español");
 		createFile(".varyproject", project, "ficheroCabeceras="+ProjectHeaderFile.getHeaderOption()
-				+'\n' + "lenguajeGeneracion=" +LenguajeProyecto.getLenguajeProyecto() , monitor);
+				+'\n' + "lenguajeGeneracion=" +LenguajeProyecto.getLenguajeProyecto() + '\n' + "idioma=Spanish" , monitor);
 	}
 	
 	protected void addMoreClasspathEntriesTo(List<IClasspathEntry> classpathEntries) {}

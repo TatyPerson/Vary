@@ -1,5 +1,4 @@
 package vary.pseudocodigo.dsl.c.ui.sintaxcoloring;
-
 import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultAntlrTokenToAttributeIdMapper;
 
 public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttributeIdMapper {

@@ -97,6 +97,7 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 			throwCoreException("Container \"" + containerName + "\" does not exist.");
 		}
 		IContainer container = (IContainer) resource;
+		System.out.println("La path del wizard creation es:" +container.getProjectRelativePath().toOSString());
 		final IFile file = container.getFile(new Path(fileName));
 		try {
 			InputStream stream = openContentStream(fileName);
@@ -128,19 +129,35 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 	 */
 
 	private InputStream openContentStream(String fileName) {
-		fileName = fileName.replaceAll(".vyc","");
-		String contents =
-				"Algoritmo " + fileName + '\n' + '\n' +
-				"importa" + '\n' +
-				"fin_importa" + '\n' +	'\n' +
-				"const" + '\n' +
-				"tipo" + '\n' + '\n' +
-				"var" + '\n' + '\n' +
-				"principal" + '\n' +	
-				"var" + '\n' +
-				"inicio" + '\n' +	
-				"fin_inicio" + '\n' +
-				"fin_algoritmo";
+		String contents = new String();
+		if(page.getExtensionFile().equals("p")) {
+			fileName = fileName.replaceAll(".p","");
+			contents =
+					"Algoritmo " + fileName + '\n' + '\n' +
+					"importa" + '\n' +
+					"fin_importa" + '\n' +	'\n' +
+					"const" + '\n' +
+					"tipo" + '\n' + '\n' +
+					"var" + '\n' + '\n' +
+					"principal" + '\n' +	
+					"var" + '\n' +
+					"inicio" + '\n' +	
+					"fin_inicio" + '\n' +
+					"fin_algoritmo";
+		} else if(page.getExtensionFile().equals("ep")) {
+			fileName = fileName.replaceAll(".ep","");
+			contents = "Algorithm " + fileName + '\n' + '\n' +
+			"import" + '\n' +
+			"end_import" + '\n' +	'\n' +
+			"const" + '\n' +
+			"type" + '\n' + '\n' +
+			"var" + '\n' + '\n' +
+			"main" + '\n' +	
+			"var" + '\n' +
+			"initiation" + '\n' +	
+			"end_initiation" + '\n' +
+			"end_algorithm";
+		}
 		return new ByteArrayInputStream(contents.getBytes());
 	}
 

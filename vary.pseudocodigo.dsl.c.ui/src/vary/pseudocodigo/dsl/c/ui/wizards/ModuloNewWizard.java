@@ -128,16 +128,30 @@ public class ModuloNewWizard extends Wizard implements INewWizard {
 	 */
 
 	private InputStream openContentStream(String fileName) {
-		fileName = fileName.replaceAll(".vyc","");
-		String contents =
-				"Modulo " + fileName + '\n' +
-				"importa" + '\n' +
-				"fin_importa" + '\n' + '\n' +
-				"exporta" + '\n' +
-				"fin_exporta" + '\n' + '\n' +
-				"implementacion" + '\n' +
-				"fin_implementacion" + '\n' +
-				"fin_modulo";
+		String contents = new String();
+		if(page.getExtensionFile().equals("p")) {
+			fileName = fileName.replaceAll(".p","");
+			contents =
+					"Modulo " + fileName + '\n' +
+					"importa" + '\n' +
+					"fin_importa" + '\n' + '\n' +
+					"exporta" + '\n' +
+					"fin_exporta" + '\n' + '\n' +
+					"implementacion" + '\n' +
+					"fin_implementacion" + '\n' +
+					"fin_modulo";
+		} else if(page.getExtensionFile().equals("ep")) {
+			fileName = fileName.replaceAll(".ep","");
+			contents =
+					"Module " + fileName + '\n' +
+					"import" + '\n' +
+					"end_import" + '\n' + '\n' +
+					"export" + '\n' +
+					"end_export" + '\n' + '\n' +
+					"implementation" + '\n' +
+					"end_implementation" + '\n' +
+					"end_module";
+		}
 		return new ByteArrayInputStream(contents.getBytes());
 	}
 

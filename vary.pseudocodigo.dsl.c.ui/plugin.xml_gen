@@ -9,7 +9,7 @@
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
             contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
             default="true"
-            extensions="vyc"
+            extensions="p"
             id="vary.pseudocodigo.dsl.c.VaryGrammar"
             name="VaryGrammar Editor">
         </editor>
@@ -213,13 +213,13 @@
 		point="org.eclipse.emf.ecore.extension_parser">
 		<parser
 			class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory"
-			type="vyc">
+			type="p">
 		</parser>
 	</extension>
 	<extension point="org.eclipse.xtext.extension_resourceServiceProvider">
         <resourceServiceProvider
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider"
-            uriExtension="vyc">
+            uriExtension="p">
         </resourceServiceProvider>
     </extension>
 
@@ -388,19 +388,19 @@
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="vary.pseudocodigo.dsl.c.VaryGrammar.compare.contentViewers"
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="vyc">
+            extensions="p">
     </viewer>
   </extension>
   <extension point="org.eclipse.compare.contentMergeViewers">
     <viewer id="vary.pseudocodigo.dsl.c.VaryGrammar.compare.contentMergeViewers"
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator"
-            extensions="vyc" label="VaryGrammar Compare">
+            extensions="p" label="VaryGrammar Compare">
      </viewer>
   </extension>
   <extension point="org.eclipse.ui.editors.documentProviders">
     <provider id="vary.pseudocodigo.dsl.c.VaryGrammar.editors.documentProviders"
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider"
-            extensions="vyc">
+            extensions="p">
     </provider>
   </extension>
 

@@ -16,9 +16,9 @@ import com.google.inject.Inject;
 
 public class VaryGrammarNewProjectWizard extends org.eclipse.xtext.ui.wizard.XtextNewProjectWizard {
 
-	private WizardNewProjectCreationPage main;
-	private VarySelectionLanguagePage selectionLanguage;
-	private VarySelectionPropertiesPage selectionProperties;
+	protected WizardNewProjectCreationPage main;
+	protected VarySelectionLanguagePage selectionLanguage;
+	protected VarySelectionPropertiesPage selectionProperties;
 
 	@Inject
 	public VaryGrammarNewProjectWizard(IProjectCreator projectCreator) {

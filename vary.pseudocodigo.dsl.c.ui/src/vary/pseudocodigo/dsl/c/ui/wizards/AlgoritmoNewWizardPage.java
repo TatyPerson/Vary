@@ -32,7 +32,13 @@ public class AlgoritmoNewWizardPage extends WizardPage {
 	private Text fileText;
 
 	private ISelection selection;
-
+	
+	private String extension;
+	
+	public String getExtensionFile() {
+		return extension;
+	}
+ 
 	/**
 	 * Constructor for SampleNewWizardPage.
 	 * 
@@ -109,7 +115,7 @@ public class AlgoritmoNewWizardPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("main.vyc");
+		fileText.setText("test.p");
 	}
 
 	/**
@@ -162,8 +168,9 @@ public class AlgoritmoNewWizardPage extends WizardPage {
 		int dotLoc = fileName.lastIndexOf('.');
 		if (dotLoc != -1) {
 			String ext = fileName.substring(dotLoc + 1);
-			if (ext.equalsIgnoreCase("vyc") == false) {
-				updateStatus("File extension must be \"mpe\"");
+			extension = ext;
+			if (ext.equalsIgnoreCase("p") == false && ext.equalsIgnoreCase("ep") == false) {
+				updateStatus("File extension must be \"p\" or \"ep\"");
 				return;
 			}
 		}
