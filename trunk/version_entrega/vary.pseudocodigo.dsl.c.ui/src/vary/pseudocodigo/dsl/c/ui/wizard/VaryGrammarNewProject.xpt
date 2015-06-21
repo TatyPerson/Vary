@@ -8,7 +8,7 @@
 «ENDDEFINE»
 
 «DEFINE model FOR VaryGrammarProjectInfo»
-«FILE "src/main.vyc"-»
+«FILE "src/main.p"-»
 /*
  * Algoritmo: Ejemplo
  * Autor: 
@@ -168,7 +168,7 @@ fin_inicio
 
 fin_algoritmo
 «ENDFILE»
-«FILE "src/module.vyc"-»
+«FILE "src/module.p"-»
 Modulo modulo1
 
 importa

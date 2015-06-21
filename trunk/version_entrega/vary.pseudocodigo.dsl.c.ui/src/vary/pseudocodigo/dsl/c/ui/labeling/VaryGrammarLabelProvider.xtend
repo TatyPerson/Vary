@@ -50,7 +50,7 @@ import org.eclipse.xtext.ui.label.StylerFactory
  */
 class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
 	@Inject 
-	private StylerFactory stylerFactory;
+	protected StylerFactory stylerFactory;
 	@Inject
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
 		super(delegate);

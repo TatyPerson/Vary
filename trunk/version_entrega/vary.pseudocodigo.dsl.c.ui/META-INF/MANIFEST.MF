@@ -30,8 +30,16 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib,
  diagramapseudocodigo
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: vary.pseudocodigo.dsl.c.ui.quickfix,
- vary.pseudocodigo.dsl.c.ui.contentassist,
+Export-Package: vary.pseudocodigo.dsl.c.ui.contentassist,
  vary.pseudocodigo.dsl.c.ui.contentassist.antlr,
- vary.pseudocodigo.dsl.c.ui.internal
+ vary.pseudocodigo.dsl.c.ui.internal,
+ vary.pseudocodigo.dsl.c.ui.labeling,
+ vary.pseudocodigo.dsl.c.ui.outline,
+ vary.pseudocodigo.dsl.c.ui.quickfix,
+ vary.pseudocodigo.dsl.c.ui.sintaxcoloring,
+ vary.pseudocodigo.dsl.c.ui.util,
+ vary.pseudocodigo.dsl.c.ui.wizard,
+ vary.pseudocodigo.dsl.c.ui.wizard.components,
+ vary.pseudocodigo.dsl.c.ui.wizard.creator,
+ vary.pseudocodigo.dsl.c.ui.wizard.properties
 Bundle-Activator: vary.pseudocodigo.dsl.c.ui.internal.VaryGrammarActivator
