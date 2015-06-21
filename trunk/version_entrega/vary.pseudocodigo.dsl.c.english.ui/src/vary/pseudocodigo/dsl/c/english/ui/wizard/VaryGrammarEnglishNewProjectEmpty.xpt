@@ -1,0 +1,49 @@
+«IMPORT vary::pseudocodigo::dsl::c::english::ui::wizard»
+«IMPORT vary::pseudocodigo::dsl::c::english::ui::extension»
+«EXTENSION extension::JavaExtensions»
+
+«DEFINE main FOR VaryGrammarEnglishProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR VaryGrammarEnglishProjectInfo»
+«FILE "src/main.ep"-»
+/*
+* Algorithm: test
+* Author:
+* Date:
+ */
+ 
+Algorithm test
+
+//Import module section
+import
+end_import
+
+//Constant definition section (optional)
+const
+
+
+//Section type definition (optional)
+type
+	
+	
+//Subalgorithms definition section: functions and procedures	
+
+
+
+//Start of algorithm (Required)
+main	
+var
+
+initiation //Body main algorithm	
+
+end_initiation
+
+end_algorithm
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR VaryGrammarEnglishProjectInfo»
+«ENDDEFINE»

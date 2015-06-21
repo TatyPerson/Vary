@@ -1,0 +1,214 @@
+«IMPORT vary::pseudocodigo::dsl::c::english::ui::wizard»
+«IMPORT vary::pseudocodigo::dsl::c::english::ui::extension»
+«EXTENSION extension::JavaExtensions»
+
+«DEFINE main FOR VaryGrammarEnglishProjectInfo»
+«EXPAND model FOR this»
+«EXPAND workflow FOR this»
+«ENDDEFINE»
+
+«DEFINE model FOR VaryGrammarEnglishProjectInfo»
+«FILE "src/main.ep"-»
+/*
+* Algorithm: test
+* Author:
+* Date:
+ */
+ 
+Algorithm test
+
+//Import module section
+import
+	module1
+end_import
+ 
+//Constant definition section (optional)
+const	
+	//Example of declaration of a constant:
+	DIM = 10
+
+
+//Section type definition (optional)
+type
+	//Example integer vector
+	vector [DIM] of integer:  tVect
+	
+	
+//Subalgorithms definition section: functions and procedures	
+
+
+//Example function for the sum of two numbers
+
+//Precondition: a, b>= 0 (integer initialized)
+//Postcondition: returns a + b
+integer function sumFun(E integer: a, E integer:  b)
+var //Declaration of variables
+	integer:  result
+initiation //Body Function
+	result <- a + b
+	return result
+end_initiation
+end_function
+
+//Example of the procedure for adding two numbers
+
+//Precondition: a, b>= 0 (integer initialized)
+//Postcondition: returns a + b
+procedure sumProc(E integer: a, E integer: b, S integer: res)
+var
+initiation //Body Procedure
+	res <- a +b
+end_initiation
+end_procedure
+
+//Precondition: v is a variable of type tVect, vector integer elements.
+//      n is an integer variable that must be initialized n>= 0. 
+//Postcondition: v is initialized
+procedure readVector(S tVect: v, E integer: n)
+var
+    integer: i
+initiation
+   for i <- 1 to n do
+      read(v[i])
+   end_for
+end_initiation
+end_procedure
+
+//Precondition: v is a variable of type tVect, vector integer elements.
+//     n is an integer variable that must be initialized n>= 0. 
+//Postcondition: returns the scalar product of the vector v
+integer function scalarProduct(E tVect: v, E integer: n)
+var
+    integer: res, i
+initiation
+    i <- 1
+    res <- 0
+    //While loop example.  
+    while i <=n do
+        res <- res + v[i]
+    end_while
+    return res
+end_initiation
+end_function
+
+//Precondition: v is a variable of type tVect, vector integer elements. 
+//      n is an integer variable that must be initialized n>= 0.
+//Postcondition: vector values writes to stdout
+procedure writeVector(E tVect: v, E integer: n)
+var
+    integer: i
+initiation
+    for i <- 1 to n do
+        write(v[i])
+    end_for
+end_initiation
+end_procedure
+
+
+//Precondition: function to start calculating the scalar product of a vector
+//Postcondition: calls to procedures and functions to initialize a vector, write and calculate their scalar product.
+procedure calculation_scalarProduct()
+var
+    tVect: v    
+initiation
+   
+	write("Enter the vector elements: ")
+	readVector(v, DIM)
+		
+	write("The scalar product of the vector: ")
+	writeVector(v, DIM)
+    write("is: ", scalarProduct(v,DIM))
+end_initiation
+end_procedure		
+
+
+//Precondition: Menu function receives no parameter
+//Postcondition: Operation menu displayed on screen
+integer function menu()
+var
+    integer: value
+initiation
+    repeat 
+       write("Choose one: ")
+       write("1: Add two operands to a function.")
+       write("2: Add two operands with a procedure.")
+       write("3: Calculate the scalar product of a vector.")
+    until value>0 and value<=3
+    return value
+end_initiation
+end_function
+	
+procedure operation(E integer: option)
+var
+    tVect: vect
+	integer: a, b, result
+initiation
+    write("Enter the value of adding a.")
+	read(a)
+	write("Enter the value of adding b.")
+	read(b)
+	
+	according_to(option) do
+		case 1:  write("The sum of both values is calculated with the function: ", sumFun(a,b))
+	    case 2: sumProc(a,b, result)
+	        write("The sum of both values calculated with the procedure is: ", result)
+       case 3:  //Call the sub-algorithms to calculate the scalar product of a vector	
+            calculation_scalarProduct()
+		otherwise: write("Invalid option.")
+	end_according_to
+end_initiation
+end_procedure	
+
+
+//Start of algorithm (Required)
+main	
+var
+    integer: option
+initiation //Body main algorithm	
+
+	//Calls to subalgorithms to start the trace of the algorithm
+	
+	//In this example the menu call operation is performed subsequently.
+	option <- menu()
+	operation(option)
+end_initiation
+
+end_algorithm
+«ENDFILE»
+«FILE "src/module.ep"-»
+Module module1
+
+import
+end_import
+
+export
+const
+	DIM
+	
+type
+	tVect
+	procedure leerVector(S tVect: v, E integer: n)
+end_export
+
+implementation
+	//Precondition: v is a variable of type tVect, vector integer elements.
+	//      n is an integer variable that must be initialized n>=0.
+	//Postcondition: v is initialized
+	procedure leerVector(S tVect: v, E integer: n)
+		var
+    	integer: i
+		initiation
+   			for i <- 1 to n do
+      		read(v[i])
+   			end_for
+   		end_initiation
+	end_procedure
+end_implementation
+
+end_module
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE workflow FOR VaryGrammarEnglishProjectInfo»
+«ENDDEFINE»
+
