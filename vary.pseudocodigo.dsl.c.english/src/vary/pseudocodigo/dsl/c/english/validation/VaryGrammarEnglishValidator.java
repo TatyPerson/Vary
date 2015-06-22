@@ -1,76 +1,15 @@
 package vary.pseudocodigo.dsl.c.english.validation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.google.inject.Inject;
 
-import org.eclipse.xtext.validation.Check;
-
-import vary.pseudocodigo.dsl.c.english.generator.util.IdiomaProyecto;
 import vary.pseudocodigo.dsl.c.validation.VaryGrammarValidator;
-import diagramapseudocodigo.And;
-import diagramapseudocodigo.Archivo;
-import diagramapseudocodigo.Asignacion;
-import diagramapseudocodigo.AsignacionCompleja;
-import diagramapseudocodigo.AsignacionNormal;
-import diagramapseudocodigo.Bloque;
-import diagramapseudocodigo.CampoRegistro;
-import diagramapseudocodigo.Caracter;
-import diagramapseudocodigo.Caso;
-import diagramapseudocodigo.Codigo;
-import diagramapseudocodigo.Comparacion;
-import diagramapseudocodigo.ConstCadena;
-import diagramapseudocodigo.Constantes;
-import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
-import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Division;
-import diagramapseudocodigo.Enumerado;
-import diagramapseudocodigo.Escribir;
-import diagramapseudocodigo.Funcion;
-import diagramapseudocodigo.FuncionFicheroAbrir;
-import diagramapseudocodigo.FuncionFicheroCerrar;
-import diagramapseudocodigo.Igualdad;
-import diagramapseudocodigo.Inicio;
-import diagramapseudocodigo.Leer;
-import diagramapseudocodigo.LlamadaFuncion;
-import diagramapseudocodigo.Matriz;
-import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.Negacion;
-import diagramapseudocodigo.Negativa;
-import diagramapseudocodigo.NumeroDecimal;
-import diagramapseudocodigo.NumeroEntero;
-import diagramapseudocodigo.Operador;
-import diagramapseudocodigo.Or;
-import diagramapseudocodigo.ParametroFuncion;
-import diagramapseudocodigo.Procedimiento;
-import diagramapseudocodigo.Registro;
-import diagramapseudocodigo.Resta;
-import diagramapseudocodigo.Sentencias;
-import diagramapseudocodigo.Si;
-import diagramapseudocodigo.Subproceso;
-import diagramapseudocodigo.Subrango;
-import diagramapseudocodigo.SubrangoEnumerado;
-import diagramapseudocodigo.SubrangoNumerico;
-import diagramapseudocodigo.Suma;
-import diagramapseudocodigo.TipoComplejo;
-import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.TipoVariable;
-import diagramapseudocodigo.ValorBooleano;
-import diagramapseudocodigo.ValorMatriz;
-import diagramapseudocodigo.ValorRegistro;
-import diagramapseudocodigo.ValorVector;
-import diagramapseudocodigo.Variable;
-import diagramapseudocodigo.VariableID;
-import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.desde;
-import diagramapseudocodigo.mientras;
-import diagramapseudocodigo.operacion;
-import diagramapseudocodigo.repetir;
-import diagramapseudocodigo.segun;
-import diagramapseudocodigo.unaria;
-import diagramapseudocodigo.valor;
 
-public class VaryGrammarEnglishValidator extends VaryGrammarValidator {}
+public class VaryGrammarEnglishValidator extends VaryGrammarValidator {
+	
+	@Inject
+	public VaryGrammarEnglishValidator() {
+		super("English Messages");
+		System.out.println("Instanciando validador Inglés");
+	}
+	
+}

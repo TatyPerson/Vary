@@ -2,6 +2,7 @@ package vary.pseudocodigo.dsl.c.english.ui.wizard.creator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+
 import org.eclipse.cdt.core.CCProjectNature;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -19,8 +20,11 @@ import org.eclipse.cdt.make.core.MakeBuilder;
 import org.eclipse.cdt.make.core.MakeProjectNature;
 import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigBuilder;
 import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigNature;
+
 import vary.pseudocodigo.dsl.c.english.ui.wizard.VaryGrammarEnglishProjectInfo;
+import vary.pseudocodigo.dsl.c.english.validation.VaryGrammarEnglishValidator;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
+
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -131,6 +135,7 @@ public class VaryGrammarEnglishProjectCreator extends PluginProjectCreator {
 		execCtx.registerMetaModel(new JavaBeansMetaModel());
 
 		XpandFacade facade = XpandFacade.create(execCtx);
+		new VaryGrammarEnglishValidator();
 		
 		if(ProjectEmpty.getEmptyOption()) {
 			facade.evaluate("vary::pseudocodigo::dsl::c::english::ui::wizard::VaryGrammarEnglishNewProjectEmpty::main", getProjectInfo());

@@ -16,6 +16,7 @@ import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 
 import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescriptionStrategy;
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;

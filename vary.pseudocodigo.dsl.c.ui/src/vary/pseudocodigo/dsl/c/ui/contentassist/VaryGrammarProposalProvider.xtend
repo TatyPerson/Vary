@@ -47,6 +47,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	var filtrarKeywords = Sets.newHashSet("Algoritmo", "Modulo", "abrir", "cerrar", "desde", "escribir", "leer", "mientras", "repetir",
 		"segun_sea", "si", "archivo de ", "matriz", "procedimiento", "funcion", "registro:", "fin_registro", "vector", "devolver")
 	
+	
 	//Filtramos los keywords "sueltos" que ofrece -------------------------------------------------------------------------
 	override void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
 		if(filtrarKeywords.contains(keyword.getValue)) {

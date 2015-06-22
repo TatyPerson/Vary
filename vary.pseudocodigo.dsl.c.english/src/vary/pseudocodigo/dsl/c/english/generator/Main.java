@@ -15,6 +15,9 @@ import org.eclipse.xtext.validation.CheckMode;
 import org.eclipse.xtext.validation.IResourceValidator;
 import org.eclipse.xtext.validation.Issue;
 
+import vary.pseudocodigo.dsl.c.english.validation.VaryGrammarEnglishValidator;
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator;
+
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;

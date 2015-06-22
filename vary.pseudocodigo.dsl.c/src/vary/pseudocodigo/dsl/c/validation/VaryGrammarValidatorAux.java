@@ -8,6 +8,7 @@ import java.util.Map;
 import org.eclipse.emf.common.util.EList;
 
 import vary.pseudocodigo.dsl.c.generator.util.IdiomaProyecto;
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface;
 import diagramapseudocodigo.And;
 import diagramapseudocodigo.Archivo;
 import diagramapseudocodigo.Caracter;
@@ -120,24 +121,24 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		
 	}
 	
-	protected Map<String,String> registrarConstantesTipadas(List<Constantes> constantes) {
+	protected Map<String,String> registrarConstantesTipadas(List<Constantes> constantes, ReadMessagesValidatorInterface readerMessages) {
 		Map<String,String> constantesTipadas = new HashMap<String,String>();
 		
 		for(Constantes c: constantes) {
 			if(c.getValor() instanceof NumeroEntero) {
-				constantesTipadas.put(c.getVariable().getNombre(), "entero");
+				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_ENTERO"));
 			}
 			else if(c.getValor() instanceof NumeroDecimal) {
-				constantesTipadas.put(c.getVariable().getNombre(), "real");
+				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_REAL"));
 			}
 			else if(c.getValor() instanceof ConstCadena) {
-				constantesTipadas.put(c.getVariable().getNombre(), "cadena");
+				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_CADENA"));
 			}
 			else if(c.getValor() instanceof Caracter) {
-				constantesTipadas.put(c.getVariable().getNombre(), "caracter");
+				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_CARACTER"));
 			}
 			else if(c.getValor() instanceof ValorBooleano) {
-				constantesTipadas.put(c.getVariable().getNombre(), "logico");
+				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_LOGICO"));
 			}
 		}
 		
@@ -261,36 +262,36 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return parametrosDeclarados;
 	}
 	
-	private String prioridadTipoOperacion(String tipo1, String tipo2) {
+	private String prioridadTipoOperacion(String tipo1, String tipo2, ReadMessagesValidatorInterface readerMessages) {
 		String salida = "";
-		if(tipo1.equals("cadena")) {
+		if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 			salida = tipo1;
 		}
-		else if(tipo2.equals("cadena")) {
+		else if(tipo2.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 			salida = tipo2;
 		}
-		else if(tipo1.equals("entero") && tipo2.equals("real")) {
+		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			salida = tipo1;
 		}
-		else if(tipo1.equals("real") && tipo2.equals("entero")) {
+		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 			salida = tipo2;
 		}
-		else if(tipo1.equals("logico") && tipo2.equals("entero") || tipo2.equals("real")) {
+		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			salida = tipo2;
 		}
-		else if(tipo2.equals("logico") && tipo1.equals("entero") || tipo1.equals("real")) {
+		else if(tipo2.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && tipo1.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo1.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			salida = tipo1;
 		}
-		else if(tipo1.equals("caracter") && tipo2.equals("entero") || tipo2.equals("real")) {
+		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			salida = tipo2;
 		}
-		else if(tipo1.equals("caracter") && tipo2.equals("entero") || tipo2.equals("real")) {
+		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			salida = tipo2;
 		}
 		return salida;
 	}
 	
-	private String getValorTotalOperacion(List<valor> valores, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros) {
+	private String getValorTotalOperacion(List<valor> valores, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, ReadMessagesValidatorInterface readerMessages) {
 		List<String> tipos = new ArrayList<String>();
 		for(valor v: valores) {
 			if(v instanceof Operador) {
@@ -330,27 +331,27 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 
 				}
 				else if(op instanceof NumeroEntero) {
-					tipos.add("entero");
+					tipos.add(readerMessages.getBundle().getString("TIPO_ENTERO"));
 				}
 				else if(op instanceof NumeroDecimal) {
-					tipos.add("real");
+					tipos.add(readerMessages.getBundle().getString("TIPO_REAL"));
 				}
 				else if(op instanceof ValorBooleano) {
-					tipos.add("logico");
+					tipos.add(readerMessages.getBundle().getString("TIPO_LOGICO"));
 				}
 				else if(op instanceof ConstCadena) {
-					tipos.add("cadena");
+					tipos.add(readerMessages.getBundle().getString("TIPO_CADENA"));
 				}
 				else if(op instanceof Caracter) {
-					tipos.add("caracter");
+					tipos.add(readerMessages.getBundle().getString("TIPO_CARACTER"));
 				}
 			}
 		}
 		//Por ahora solo 2 operadores
-		return prioridadTipoOperacion(tipos.get(0), tipos.get(1));
+		return prioridadTipoOperacion(tipos.get(0), tipos.get(1), readerMessages);
 	}
 
-	protected void registrarParametros(List<operacion> operaciones, List<String> nombresVariables, Map<String,String> nombresVariablesCampos, List<String> tiposNativos, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, List<String> nombresValoresComplejos) {
+	protected void registrarParametros(List<operacion> operaciones, List<String> nombresVariables, Map<String,String> nombresVariablesCampos, List<String> tiposNativos, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, List<String> nombresValoresComplejos, ReadMessagesValidatorInterface readerMessages) {
 		for(operacion op: operaciones) { 
 			if(op instanceof Operador) {
 				Operador o = (Operador) op;
@@ -383,29 +384,29 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				}
 				else if(o instanceof NumeroEntero) {
 					nombresVariables.add("tipoNativo");
-					tiposNativos.add("entero");
+					tiposNativos.add(readerMessages.getBundle().getString("TIPO_ENTERO"));
 				}
 				else if(o instanceof NumeroDecimal) {
 					nombresVariables.add("tipoNativo");
-					tiposNativos.add("real");
+					tiposNativos.add(readerMessages.getBundle().getString("TIPO_REAL"));
 				}
 				else if(o instanceof ValorBooleano) {
 					nombresVariables.add("tipoNativo");
-					tiposNativos.add("logico");
+					tiposNativos.add(readerMessages.getBundle().getString("TIPO_LOGICO"));
 				}
 				else if(o instanceof ConstCadena) {
 					nombresVariables.add("tipoNativo");
-					tiposNativos.add("cadena");
+					tiposNativos.add(readerMessages.getBundle().getString("TIPO_CADENA"));
 				}
 				else if(o instanceof Caracter) {
 					nombresVariables.add("tipoNativo");
-					tiposNativos.add("caracter");
+					tiposNativos.add(readerMessages.getBundle().getString("TIPO_CARACTER"));
 				}
 			}
 			else if(esOperacion(op)) {
 				ArrayList<valor> valoresAux = new ArrayList<valor>();
 				valoresAux = registrarValoresOperacion(op, valoresAux);
-				String tipoOperacion = getValorTotalOperacion(valoresAux, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros);
+				String tipoOperacion = getValorTotalOperacion(valoresAux, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, readerMessages);
 				nombresVariables.add("tipoNativo");
 				tiposNativos.add(tipoOperacion);
 			}
@@ -878,37 +879,37 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 * 
 	 */
 	
-	protected List<valor> buscarProblemasOperacion(String tipo, List<valor> valores) {
+	protected List<valor> buscarProblemasOperacion(String tipo, List<valor> valores, ReadMessagesValidatorInterface readerMessages) {
 		List<valor> valoresProblem = new ArrayList<valor>();
-		if(tipo.equals("entero")) {
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 			for(valor v: valores) {
 				if(!(v instanceof NumeroEntero)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
-		else if(tipo == "real") {
+		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			for(valor v: valores) {
 				if(!(v instanceof NumeroDecimal) && !(v instanceof NumeroEntero)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
-		else if(tipo == "logico") {
+		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
 			for(valor v: valores) {
 				if(!(v instanceof ValorBooleano)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
-		else if(tipo == "cadena") {
+		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 			for(valor v: valores) {
 				if(!(v instanceof ConstCadena)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
-		else if(tipo == "caracter") {
+		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 			for(valor v: valores) {
 				if(!(v instanceof Caracter)) {
 					valoresProblem.add(v);
@@ -926,44 +927,44 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return !(v instanceof VariableID) && !(v instanceof LlamadaFuncion) && !(v instanceof ValorRegistro) && !(v instanceof ValorVector) && !(v instanceof ValorMatriz) && !esOperacion(v);
 	}
 	
-	protected int asignacionOperacionVariable(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos) {
+	protected int asignacionOperacionVariable(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
 			for(valor v: valoresProblem) {
-				if(v instanceof NumeroDecimal && tiposValidos.get(0).equals("entero") && esValorSimple(v)) {
+				if(v instanceof NumeroDecimal && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorSimple(v)) {
 					check = 2;
 				}
-				else if(!(v instanceof NumeroEntero) && !(v instanceof NumeroDecimal) && tiposValidos.get(0).equals("entero") && esValorSimple(v)) {
+				else if(!(v instanceof NumeroEntero) && !(v instanceof NumeroDecimal) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof ValorBooleano) && tiposValidos.get(0) == "logico" && esValorSimple(v)) {
+				else if(!(v instanceof ValorBooleano) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof ConstCadena) && tiposValidos.get(0) == "cadena" && esValorSimple(v)) {
+				else if(!(v instanceof ConstCadena) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_CADENA")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof Caracter) && tiposValidos.get(0) == "caracter" && esValorSimple(v)) {
+				else if(!(v instanceof Caracter) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof NumeroEntero) && !(v instanceof NumeroDecimal) && tiposValidos.get(0) == "real" && esValorSimple(v)) {
+				else if(!(v instanceof NumeroEntero) && !(v instanceof NumeroDecimal) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL")) && esValorSimple(v)) {
 					return 3;
 				}
 				else if(v instanceof VariableID) {
 					VariableID var = (VariableID) v;
-					if(tiposValidos.get(0).equals("entero")) {
-						if(variables.get(var.getNombre()) != tiposValidos.get(0) && variables.get(var.getNombre()) != tiposValidos.get(1) && variables.containsKey(var.getNombre())) {
+					if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						if(!(variables.get(var.getNombre()).equals(tiposValidos.get(0))) && !(variables.get(var.getNombre()).equals(tiposValidos.get(1))) && variables.containsKey(var.getNombre())) {
 							return 3;
 						}
-						else if(variables.get(var.getNombre()) == tiposValidos.get(1)) {
+						else if(variables.get(var.getNombre()).equals(tiposValidos.get(1))) {
 							check = 2;
 						}
 					}
-					else if(tiposValidos.get(0) == "real") {
-						if(variables.get(var.getNombre()) != tiposValidos.get(0) && variables.get(var.getNombre()) != tiposValidos.get(1) && variables.containsKey(var.getNombre())) {
+					else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						if(!(variables.get(var.getNombre()).equals(tiposValidos.get(0))) && !(variables.get(var.getNombre()).equals(tiposValidos.get(1))) && variables.containsKey(var.getNombre())) {
 							return 3;
 						}
 					}
 					else {
-						if(variables.get(var.getNombre()) != tiposValidos.get(0) && variables.containsKey(var.getNombre())) {
+						if(!(variables.get(var.getNombre()).equals(tiposValidos.get(0))) && variables.containsKey(var.getNombre())) {
 							return 3;
 						}
 					}
@@ -973,7 +974,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionRegistro(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros) {
+	protected int asignacionOperacionRegistro(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
 		for(valor v: valoresProblem) {
 			if(v instanceof ValorRegistro) {
@@ -981,21 +982,21 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				ValorRegistro vr = (ValorRegistro) v;
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-						if(tiposValidos.get(0).equals("entero")) {
-							if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != tiposValidos.get(0) && registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != tiposValidos.get(1)) {
+						if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
 								return 3;
 							}
-							else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) == tiposValidos.get(1)) {
+							else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(1))) {
 								check = 2;
 							}
 						}
-						else if(tiposValidos.get(0) == "real") {
-							if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != tiposValidos.get(0) && registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != tiposValidos.get(1)) {
+						else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
 								return 3;
 							}
 						}
 						else {
-							if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != tiposValidos.get(0)) {
+							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(0)))) {
 								return 3;
 							}
 						}
@@ -1006,26 +1007,26 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionFuncion(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<Integer,String>> funcionesTipadas) {
+	protected int asignacionOperacionFuncion(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<Integer,String>> funcionesTipadas, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
 		for(valor v: valoresProblem) {
 			if(v instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) v;
-				if(tiposValidos.get(0).equals("entero")) {
-					if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != tiposValidos.get(0) && funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != tiposValidos.get(1) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(tiposValidos.get(0))) && !(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(tiposValidos.get(1))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
 						return 3;
 					}
-					else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) == tiposValidos.get(1) &&  funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+					else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(tiposValidos.get(1)) &&  funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
 						check = 2;
 					}
 				}
-				else if(tiposValidos.get(0) == "real") {
-					if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != tiposValidos.get(0) && funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != tiposValidos.get(1) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+				else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(tiposValidos.get(0))) && !(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(tiposValidos.get(1))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
 						return 3;
 					}
 				}
 				else {
-					if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != tiposValidos.get(0) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(tiposValidos.get(0))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
 						return 3;
 					}
 				}
@@ -1034,26 +1035,26 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionVector(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> vectores) {
+	protected int asignacionOperacionVector(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> vectores, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
 		for(valor v: valoresProblem) {
 			if(v instanceof ValorVector) {
 				ValorVector vector = (ValorVector) v;
-				if(tiposValidos.get(0).equals("entero")) {
-					if(vectores.get(variables.get(vector.getNombre_vector())) != tiposValidos.get(0) && vectores.get(variables.get(vector.getNombre_vector())) != tiposValidos.get(1) && vectores.containsKey(variables.get(vector.getNombre_vector()))) {
+				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(!(vectores.get(variables.get(vector.getNombre_vector())).equals(tiposValidos.get(0))) && !(vectores.get(variables.get(vector.getNombre_vector())).equals(tiposValidos.get(1))) && vectores.containsKey(variables.get(vector.getNombre_vector()))) {
 						return 3;
 					}
-					else if(vectores.get(variables.get(vector.getNombre_vector())) == tiposValidos.get(1)) {
+					else if(vectores.get(variables.get(vector.getNombre_vector())).equals(tiposValidos.get(1))) {
 						check = 2;
 					}
 				}
-				else if(tiposValidos.get(0) == "real") {
-					if(vectores.get(variables.get(vector.getNombre_vector())) != tiposValidos.get(0) && vectores.get(variables.get(vector.getNombre_vector())) != tiposValidos.get(1) && vectores.containsKey(variables.get(vector.getNombre_vector()))) {
+				else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(!(vectores.get(variables.get(vector.getNombre_vector())).equals(tiposValidos.get(0))) && !(vectores.get(variables.get(vector.getNombre_vector())).equals(tiposValidos.get(1))) && vectores.containsKey(variables.get(vector.getNombre_vector()))) {
 						return 3;
 					}
 				}
 				else {
-					if(vectores.get(variables.get(vector.getNombre_vector())) != tiposValidos.get(0) && vectores.containsKey(variables.get(vector.getNombre_vector()))) {
+					if(!(vectores.get(variables.get(vector.getNombre_vector())).equals(tiposValidos.get(0))) && vectores.containsKey(variables.get(vector.getNombre_vector()))) {
 						return 3;
 					}
 				}
@@ -1062,26 +1063,26 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionMatriz(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> matrices) {
+	protected int asignacionOperacionMatriz(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> matrices, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
 		for(valor v: valoresProblem) {
 			if(v instanceof ValorMatriz) {
 				ValorMatriz matriz = (ValorMatriz) v;
-				if(tiposValidos.get(0).equals("entero")) {
-					if(matrices.get(variables.get(matriz.getNombre_matriz())) != tiposValidos.get(0) && matrices.get(variables.get(matriz.getNombre_matriz())) != tiposValidos.get(1) && matrices.containsKey(variables.get(matriz.getNombre_matriz()))) {
+				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(!(matrices.get(variables.get(matriz.getNombre_matriz())).equals(tiposValidos.get(0))) && !(matrices.get(variables.get(matriz.getNombre_matriz())).equals(tiposValidos.get(1))) && matrices.containsKey(variables.get(matriz.getNombre_matriz()))) {
 						return 3;
 					}
-					else if(matrices.get(variables.get(matriz.getNombre_matriz())) == tiposValidos.get(1)) {
+					else if(matrices.get(variables.get(matriz.getNombre_matriz())).equals(tiposValidos.get(1))) {
 						check = 2;
 					}
 				}
-				else if(tiposValidos.get(0) == "real") {
-					if(matrices.get(variables.get(matriz.getNombre_matriz())) != tiposValidos.get(0) && matrices.get(variables.get(matriz.getNombre_matriz())) != tiposValidos.get(1) && matrices.containsKey(variables.get(matriz.getNombre_matriz()))) {
+				else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(!(matrices.get(variables.get(matriz.getNombre_matriz())).equals(tiposValidos.get(0))) && !(matrices.get(variables.get(matriz.getNombre_matriz())).equals(tiposValidos.get(1))) && matrices.containsKey(variables.get(matriz.getNombre_matriz()))) {
 						return 3;
 					}
 				}
 				else {
-					if(matrices.get(variables.get(matriz.getNombre_matriz())) != tiposValidos.get(0) && matrices.containsKey(variables.get(matriz.getNombre_matriz()))) {
+					if(!(matrices.get(variables.get(matriz.getNombre_matriz())).equals(tiposValidos.get(0))) && matrices.containsKey(variables.get(matriz.getNombre_matriz()))) {
 						return 3;
 					}
 				}
