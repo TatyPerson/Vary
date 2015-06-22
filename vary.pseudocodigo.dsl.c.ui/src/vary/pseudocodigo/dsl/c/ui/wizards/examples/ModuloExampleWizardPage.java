@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizards;
+package vary.pseudocodigo.dsl.c.ui.wizards.examples;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
@@ -26,7 +26,7 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
  * OR with the extension that matches the expected one (vyc).
  */
 
-public class ModuloNewWizardPage extends WizardPage {
+public class ModuloExampleWizardPage extends WizardPage {
 	private Text containerText;
 
 	private Text fileText;
@@ -44,7 +44,7 @@ public class ModuloNewWizardPage extends WizardPage {
 	 * 
 	 * @param pageName
 	 */
-	public ModuloNewWizardPage(ISelection selection) {
+	public ModuloExampleWizardPage(ISelection selection) {
 		super("wizardPage");
 		setTitle("Create new module file");
 		setDescription("This wizard creates a new module in the project you select.");

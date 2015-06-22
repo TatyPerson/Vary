@@ -323,6 +323,11 @@
                			name="New Vary Project"
                			parentCategory="org.eclipselabs.vary">
          </category>
+         <category
+               			id="org.eclipselabs.vary.examples"
+               			name="Examples"
+               			parentCategory="org.eclipselabs.vary">
+         </category>
          <wizard
             category="org.eclipselabs.vary/org.eclipselabs.vary.projects"
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarNewProjectWizard"
@@ -334,17 +339,31 @@
       	</wizard>
          <wizard
                category="org.eclipselabs.vary"
-               class="vary.pseudocodigo.dsl.c.ui.wizards.AlgoritmoNewWizard"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.empty.AlgoritmoNewWizard"
                icon="icons/Vary_Icono.png"
-               id="vary.pseudocodigo.dsl.c.ui.wizards.AlgoritmoNewWizard"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.empty.AlgoritmoNewWizard"
                name="New Algorithm">
          </wizard>
           <wizard
                category="org.eclipselabs.vary"
-               class="vary.pseudocodigo.dsl.c.ui.wizards.ModuloNewWizard"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.empty.ModuloNewWizard"
                icon="icons/Vary_Icono.png"
-               id="vary.pseudocodigo.dsl.c.ui.wizards.ModuloNewWizard"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.empty.ModuloNewWizard"
                name="New Module">
+         </wizard>
+         <wizard
+               category="org.eclipselabs.vary/org.eclipselabs.vary.examples"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.examples.AlgoritmoExampleWizard"
+               icon="icons/Vary_Icono.png"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.examples.AlgoritmoExampleWizard"
+               name="Example Algorithm">
+         </wizard>
+         <wizard
+               category="org.eclipselabs.vary/org.eclipselabs.vary.examples"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.examples.ModuloExampleWizard"
+               icon="icons/Vary_Icono.png"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.examples.ModuloExampleWizard"
+               name="Example Module">
          </wizard>
     </extension>
     <!-- quickfix marker resolution generator for vary.pseudocodigo.dsl.c.VaryGrammar -->
