@@ -30,4 +30,5 @@ Export-Package: vary.pseudocodigo.dsl.c.english,
  vary.pseudocodigo.dsl.c.english.parser.antlr.internal,
  vary.pseudocodigo.dsl.c.english.scoping,
  vary.pseudocodigo.dsl.c.english.services,
- vary.pseudocodigo.dsl.c.english.validation
+ vary.pseudocodigo.dsl.c.english.validation,
+ vary.pseudocodigo.dsl.c.english.validation.messages

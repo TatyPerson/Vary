@@ -1,5 +1,6 @@
 package vary.pseudocodigo.dsl.c.validation;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -29,6 +30,8 @@ import vary.pseudocodigo.dsl.c.generator.util.IdiomaProyecto;
 import vary.pseudocodigo.dsl.c.resources.VaryGrammarIndex;
 import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescription;
 import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescriptionStrategy;
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator;
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface;
 import diagramapseudocodigo.Algoritmo;
 import diagramapseudocodigo.And;
 import diagramapseudocodigo.Archivo;
@@ -103,6 +106,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	public static final String CONSTANTE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.ConstanteNoDefinida";
 	public static String DUPLICATE_MODULE = "vary.pseudocodigo.dsl.c.VaryGrammar.DuplicateModule";
 	public static final String VARIABLE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.VariableNoDefinida";
+	protected final ReadMessagesValidatorInterface readerMessages;
 	
 	private ResourceSet resourceSet;
 	@Inject
@@ -114,10 +118,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	IContainer.Manager containerManager;
 	
 	private static VaryGrammarValidatorAux funciones = new VaryGrammarValidatorAux();
-	private static RecursosCompartidos recursosCompartidos = new RecursosCompartidos();
 	
 	@Inject
 	IResourceDescriptions resourceDescriptions;
+	
+	@Inject
+	public VaryGrammarValidator() {
+		readerMessages = new ReadMessagesValidator();
+	}
+	
+	public VaryGrammarValidator(String URL) {
+		readerMessages = new vary.pseudocodigo.dsl.c.english.validation.messages.ReadMessagesValidator();
+	}
 	
 
 	@Check(CheckType.NORMAL)
@@ -129,7 +141,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO)) {
 				System.out.println("Estoy entrando en el bucle interior pero no en el if");
 				if (!names.add(od.getQualifiedName())) {
-					error("El modulo "+ modulo.getNombre() + " ya ha sido definido", DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE);
+					error(readerMessages.getString("MODULO_NOMBRE_REPETIDO", modulo.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE);
 				}
 			}
 		}
@@ -144,64 +156,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.ALGORITMO)) {
 				System.out.println("Estoy entrando en el bucle interior pero no en el if");
 				if (!names.add(od.getQualifiedName()) || names.size() > 1) {
-					error("Solo es posible declarar un único algoritmo principal", DiagramapseudocodigoPackage.Literals.ALGORITMO__NOMBRE);
+					error(readerMessages.getBundle().getString("ALGORITMO_REPETIDO"), DiagramapseudocodigoPackage.Literals.ALGORITMO__NOMBRE);
 				}
 			}
 		}
 	}
-	
-
-	/*@Check
-	public void checkNombreModuloUnico(Modulo modulo) {
-		/*if(resourceDescriptions == null) {
-			System.out.println("El inject es nulo...");
-		}
-		else {
-			System.out.println("El inject no es nulo!");
-		}*/
-		/*List<Modulo> modulos = getAllModules();
-		if(modulos == null) {
-			System.out.println("Devuelve una lista nula..");
-		}
-		if(modulos.isEmpty()) {
-			System.out.println("Devuelve una lista vacia..");
-		}
-		System.out.println("Hay "+modulos.size()+" modulos");
-		int count = 0;
-		for (Modulo m : modulos) {
-			System.out.println("Hay un modulo que se llama: "+m.getNombre());
-			if (modulo.getNombre().equals(m.getNombre())) {
-				count++;
-			}
-		}
-		if ( count >1 ) {
-			error("Nombre unico", DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE, modulo.getNombre());
-		}
-	}
-	
-	private List<Modulo> getAllModules() {
-		List<Modulo> result = new ArrayList<Modulo>();
-		/*for (IResourceDescription resourceDescription : resourceDescriptions.getAllResourceDescriptions()) {
-			result.addAll(resourceDescription.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO));
-			System.out.println("Primer bucle");
-			for (IEObjectDescription eobjectDescription : resourceDescription.getExportedObjects()) {
-				System.out.println("Segundo bucle");
-				result.add((Modulo) eobjectDescription.getEObjectOrProxy());
-			}
-		}*/
-		/*IResourceDescriptions index = resourceDescriptionsProvider.getResourceDescriptions(resourceSet);
-		for (IResourceDescription resourceDescription : index.getAllResourceDescriptions()) {
-			for (IContainer visibleContainer : containerManager.getVisibleContainers(resourceDescription, index)) {
-				for (IEObjectDescription od : visibleContainer.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO)) {
-					// Proxy only :(
-					Modulo modulo = (Modulo) od.getEObjectOrProxy();
-					result.add(modulo);
-					// Do validation
-				}
-			}
-		}
-		return result;
-	}*/
 	
 	
 	@Check
@@ -210,7 +169,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		if(s instanceof SubrangoNumerico) {
 			SubrangoNumerico sn = (SubrangoNumerico) s;
 			if(sn.getLimite_inf() > sn.getLimite_sup()) {
-				error("El limite inferior del subrango no puede ser mayor que el superior.",DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
+				error(readerMessages.getBundle().getString("SUBRANGO_LIMITES"),DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
 			}
 		}
 	}
@@ -228,18 +187,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							DeclaracionVariable dec = (DeclaracionVariable) d;
 							for(Variable v: dec.getVariable()) {
 								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
-								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals("entero")) {
+								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 								}
-								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals("entero")) {
+								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
-									error("La variable utilizada en el bucle desde debe ser de tipo entero", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+									error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 								}
 							}
 						}
 					}
 					if(!ok) {
-						error("La variable utilizada en el bucle debe haber sido previamente declarada", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 					}
 					ok = false;
 				}
@@ -259,18 +218,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						DeclaracionVariable dec = (DeclaracionVariable) d;
 						for(Variable v: dec.getVariable()) {
 							System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
-							if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals("entero")) {
+							if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 								ok = true;
 							}
-							else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals("entero")) {
+							else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 								ok = true;
-								error("La variable utilizada en el bucle desde debe ser de tipo entero", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+								error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 							}
 						}
 					}
 				}
 				if(!ok) {
-					error("La variable utilizada en el bucle debe haber sido previamente declarada", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 				}
 				ok = false;
 			}
@@ -284,18 +243,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							DeclaracionVariable dec = (DeclaracionVariable) d;
 							for(Variable v: dec.getVariable()) {
 								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
-								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals("entero")) {
+								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 								}
-								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals("entero")) {
+								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
-									error("La variable utilizada en el bucle desde debe ser de tipo entero", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+									error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 								}
 							}
 						}
 					}
 					if(!ok) {
-						error("La variable utilizada en el bucle debe haber sido previamente declarada", desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 					}
 					ok = false;
 				}
@@ -306,7 +265,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	@Check
 	protected void checkDesdeTope(Modulo modulo) {
 		boolean ok = false;
-		Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes());
+		Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes(), readerMessages);
 		
 		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
 			Map<String,String> globalesTipadas = funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobal(), sub.getDeclaracion());
@@ -318,19 +277,19 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					desde desdeAux = (desde) s;
 					if(desdeAux.getValor() instanceof VariableID){
 						VariableID variable = (VariableID) desdeAux.getValor();
-						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
 						}
-						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
-							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 					}
 					else if(desdeAux.getValor() instanceof operacion) {
@@ -354,19 +313,19 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								variable = (VariableID) resta.getLeft();
 							}
 						}
-						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
 						}
-						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
-							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 					}
 					ok = false;
@@ -380,7 +339,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	protected void checkDesdeTope(Algoritmo algoritmo) {
 		boolean ok = false;
 		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-		Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(algoritmo.getConstantes());
+		Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 		Map<String,String> globalesTipadas = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion());
 		
 		for(Sentencias s: algoritmo.getTiene().getTiene()) {
@@ -388,19 +347,19 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				desde desdeAux = (desde) s;
 				if(desdeAux.getValor() instanceof VariableID){
 					VariableID variable = (VariableID) desdeAux.getValor();
-					if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
-							|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
-							|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+					if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 						ok = true;
 					}
-					else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
-							|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
-							|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+					else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 						ok = true;
-						error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 					if(!ok) {
-						error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 				}
 				else if(desdeAux.getValor() instanceof operacion) {
@@ -424,19 +383,19 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							variable = (VariableID) resta.getLeft();
 						}
 					}
-					if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
-							|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
-							|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+					if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 						ok = true;
 					}
-					else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
-							|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
-							|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+					else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+							|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+							|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 						ok = true;
-						error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 					if(!ok) {
-						error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 					
 				}
@@ -453,19 +412,19 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					desde desdeAux = (desde) s;
 					if(desdeAux.getValor() instanceof VariableID){
 						VariableID variable = (VariableID) desdeAux.getValor();
-						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
 						}
-						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
-							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 					}
 					else if(desdeAux.getValor() instanceof operacion) {
@@ -489,19 +448,19 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								variable = (VariableID) resta.getLeft();
 							}
 						}
-						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						if((variablesTipadas.containsKey(variable.getNombre()) && variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
 						}
-						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals("entero") 
-								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals("entero")) 
-								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals("entero")))) {
+						else if((variablesTipadas.containsKey(variable.getNombre()) && !variablesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) 
+								|| (constantesTipadas.containsKey(variable.getNombre()) && !constantesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) 
+								|| (globalesTipadas.containsKey(variable.getNombre()) && !globalesTipadas.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))))) {
 							ok = true;
-							error("La variable utilizada en el bucle desde debe ser de tipo entero", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error("La variable utilizada en el bucle debe haber sido previamente declarada", variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 					}
 					ok = false;
@@ -542,12 +501,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					if(variablesEnumerados.get(nombreEnumerado).contains(limite_inf) && variablesEnumerados.get(nombreEnumerado).contains(limite_sup)) {
 						loTiene = true;
 						if(variablesEnumerados.get(nombreEnumerado).indexOf(limite_inf) > variablesEnumerados.get(nombreEnumerado).indexOf(limite_sup)) {
-							error("El límite inferior del subrango no puede ser posterior en el enumerado de referencia que el límite superior", subrango, DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
+							error(readerMessages.getBundle().getString("SUBRANGO_LIMITES_ENUMERADO"), subrango, DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
 						}
 					}
 				}
 				if(loTiene == false) {
-					error("Los límites inferior y superior del subrango deben pertenecer a un enumerado previamente definido", subrango, DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
+					error(readerMessages.getBundle().getString("SUBRANGO_ENUMERADO_NO_DEFINIDO"), subrango, DiagramapseudocodigoPackage.Literals.SUBRANGO__NOMBRE);
 				}
 			}
 		}
@@ -579,7 +538,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 				else {
 					//Si esta repetido lanzamos el error
-					error("No pueden exitir dos valores identificadores de los casos de la estructura segun_sea repetidos.", DiagramapseudocodigoPackage.Literals.SEGUN__CASO, s.getCaso().indexOf(c));
+					error(readerMessages.getString("CASO_REPETIDO", e.getValor()), DiagramapseudocodigoPackage.Literals.SEGUN__CASO, s.getCaso().indexOf(c));
 				}
 			}
 		}
@@ -597,7 +556,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			}
 			else {
 				//Si esta repetida lanzamos el error
-				error("No pueden existir dos parámetros con el mismo nombre en la misma función o procedimiento", DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+				error(readerMessages.getString("PARAMETRO_REPETIDO",p.getVariable().getNombre(), s.getNombre()), DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
 			}
 		}
 	}
@@ -607,46 +566,46 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	protected void checkCondicionesSi(Si si) {
 		if(si.getValor() instanceof  Suma) {
 			Suma suma = (Suma) si.getValor();
-			error("La expresión debe ser de tipo lógico", suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
 		}
 		else if(si.getValor() instanceof Resta) {
 			Resta resta = (Resta) si.getValor();
-			error("La expresión debe ser de tipo lógico", resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
 		}
 		else if(si.getValor() instanceof Multiplicacion) {
 			Multiplicacion multiplicacion = (Multiplicacion) si.getValor();
-			error("La expresión debe ser de tipo lógico", multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
 		}
 		else if(si.getValor() instanceof Division) {
 			Division division = (Division) si.getValor();
-			error("La expresión debe ser de tipo lógico", division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
 		}
 		else if(si.getValor() instanceof Negativa) {
 			Negativa negativa = (Negativa) si.getValor();
-			error("La expresión debe ser de tipo lógico", negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
 		}
 		else if(si.getValor() instanceof Or) {
 			Or or = (Or) si.getValor();
 			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
-				error("La expresión debe ser de tipo lógico", or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
 			}
 		}
 		else if(si.getValor() instanceof And) {
 			And and = (And) si.getValor();
 			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
-				error("La expresión debe ser de tipo lógico", and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
 			}
 		}
 		else if(si.getValor() instanceof Comparacion) {
 			Comparacion comp = (Comparacion) si.getValor();
 			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
-				error("La expresión debe ser de tipo lógico", comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
 			}
 		}
 		else if(si.getValor() instanceof Igualdad) {
 			Igualdad igualdad = (Igualdad) si.getValor();
 			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
-				error("La expresión debe ser de tipo lógico", igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
 			}
 		}
 	}
@@ -656,46 +615,46 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	protected void checkCondicionesMientras(mientras miMientras) {
 		if(miMientras.getValor() instanceof  Suma) {
 			Suma suma = (Suma) miMientras.getValor();
-			error("La expresión debe ser de tipo lógico", suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
 		}
 		else if(miMientras.getValor() instanceof Resta) {
 			Resta resta = (Resta) miMientras.getValor();
-			error("La expresión debe ser de tipo lógico", resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
 		}
 		else if(miMientras.getValor() instanceof Multiplicacion) {
 			Multiplicacion multiplicacion = (Multiplicacion) miMientras.getValor();
-			error("La expresión debe ser de tipo lógico", multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
 		}
 		else if(miMientras.getValor() instanceof Division) {
 			Division division = (Division) miMientras.getValor();
-			error("La expresión debe ser de tipo lógico", division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
 		}
 		else if(miMientras.getValor() instanceof Negativa) {
 			Negativa negativa = (Negativa) miMientras.getValor();
-			error("La expresión debe ser de tipo lógico", negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
 		}
 		else if(miMientras.getValor() instanceof Or) {
 			Or or = (Or) miMientras.getValor();
 			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
-				error("La expresión debe ser de tipo lógico", or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
 			}
 		}
 		else if(miMientras.getValor() instanceof And) {
 			And and = (And) miMientras.getValor();
 			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
-				error("La expresión debe ser de tipo lógico", and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
 			}
 		}
 		else if(miMientras.getValor() instanceof Comparacion) {
 			Comparacion comp = (Comparacion) miMientras.getValor();
 			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
-				error("La expresión debe ser de tipo lógico", comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
 			}
 		}
 		else if(miMientras.getValor() instanceof Igualdad) {
 			Igualdad igualdad = (Igualdad) miMientras.getValor();
 			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
-				error("La expresión debe ser de tipo lógico", igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
 			}
 		}
 	}
@@ -706,46 +665,46 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	protected void checkCondicionesRepetir(repetir miRepetir) {
 		if(miRepetir.getValor() instanceof  Suma) {
 			Suma suma = (Suma) miRepetir.getValor();
-			error("La expresión debe ser de tipo lógico", suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
 		}
 		else if(miRepetir.getValor() instanceof Resta) {
 			Resta resta = (Resta) miRepetir.getValor();
-			error("La expresión debe ser de tipo lógico", resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
 		}
 		else if(miRepetir.getValor() instanceof Multiplicacion) {
 			Multiplicacion multiplicacion = (Multiplicacion) miRepetir.getValor();
-			error("La expresión debe ser de tipo lógico", multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
 		}
 		else if(miRepetir.getValor() instanceof Division) {
 			Division division = (Division) miRepetir.getValor();
-			error("La expresión debe ser de tipo lógico", division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
 		}
 		else if(miRepetir.getValor() instanceof Negativa) {
 			Negativa negativa = (Negativa) miRepetir.getValor();
-			error("La expresión debe ser de tipo lógico", negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
 		}
 		else if(miRepetir.getValor() instanceof Or) {
 			Or or = (Or) miRepetir.getValor();
 			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
-				error("La expresión debe ser de tipo lógico", or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
 			}
 		}
 		else if(miRepetir.getValor() instanceof And) {
 			And and = (And) miRepetir.getValor();
 			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
-				error("La expresión debe ser de tipo lógico", and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
 			}
 		}
 		else if(miRepetir.getValor() instanceof Comparacion) {
 			Comparacion comp = (Comparacion) miRepetir.getValor();
 			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
-				error("La expresión debe ser de tipo lógico", comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
 			}
 		}
 		else if(miRepetir.getValor() instanceof Igualdad) {
 			Igualdad igualdad = (Igualdad) miRepetir.getValor();
 			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
-				error("La expresión debe ser de tipo lógico", igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
 			}
 		}
 	}
@@ -1159,7 +1118,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 					//Si esta repetida lanzamos el error
 					else {
-						error("No se pueden declarar dos variables con el mismo nombre dentro de la declaración de un registro", DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE, r.getVariable().indexOf(d));
+						error(readerMessages.getString("VARIABLE_REPETIDA_REGISTRO", v.getNombre(), r.getNombre()), DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE, r.getVariable().indexOf(d));
 					}
 				}
 			}
@@ -1172,7 +1131,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 					//Si esta repetida lanzamos el error
 					else {
-						error("No se pueden declarar dos variables con el mismo nombre dentro de la declaración de un registro", DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE, r.getVariable().indexOf(d));
+						error(readerMessages.getString("VARIABLE_REPETIDA_REGISTRO", v.getNombre(), r.getNombre()), DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE, r.getVariable().indexOf(d));
 					}
 				}
 			}
@@ -1187,7 +1146,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(f.getVariable().get(0) instanceof VariableID) {
 					VariableID v = (VariableID) f.getVariable().get(0);
 					if(!nombresFicheros.contains(variablesDeclaradas.get(v.getNombre()))) {
-						error("La variable debe pertenecer al tipo Archivo", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 0);
+						error(readerMessages.getString("VARIABLE_TIPO_ARCHIVO", v.getNombre()), f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 0);
 					}
 				}
 			}
@@ -1196,7 +1155,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(f.getVariable() instanceof VariableID) {
 					VariableID v = (VariableID) f.getVariable();
 					if(!nombresFicheros.contains(variablesDeclaradas.get(v.getNombre()))) {
-						error("La variable debe pertenecer al tipo Archivo", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE);
+						error(readerMessages.getString("VARIABLE_TIPO_ARCHIVO", v.getNombre()), f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE);
 					}
 				}
 			}
@@ -1351,12 +1310,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				FuncionFicheroAbrir f = (FuncionFicheroAbrir) s;
 				if(f.getVariable().size() == 2 && f.getVariable().get(1) instanceof VariableID) {
 					VariableID v = (VariableID) f.getVariable().get(1);
-					if(variablesDeclaradas.get(v.getNombre()) != "cadena" && variablesDeclaradas.get(v.getNombre()) != "caracter") {
-						error("La variable no es compatible, debe ser de tipo cadena o caracter", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
+					if(variablesDeclaradas.get(v.getNombre()) != readerMessages.getBundle().getString("TIPO_CADENA") && variablesDeclaradas.get(v.getNombre()) != readerMessages.getBundle().getString("TIPO_CARACTER")) {
+						error(readerMessages.getString("VARIABLE_TIPO_CADENA", v.getNombre()), f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
 					}
 				}
 				else if(!(f.getVariable().get(1) instanceof ConstCadena) && !(f.getVariable().get(1) instanceof Caracter)) {
-					error("La variable no es compatible, debe ser de tipo cadena o caracter", f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
+					error(readerMessages.getBundle().getString("ENTRADA_TIPO_CADENA"), f, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
 				}
 			}
 		}
@@ -1398,7 +1357,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					//Solo nos interesa validar los tipos definidos por el usuario
 						DeclaracionPropia dec = (DeclaracionPropia) d;
 						if(!tipos.contains(dec.getTipo())) {
-							error("El tipo de la variable debe estar previamente definido", dec, DiagramapseudocodigoPackage.Literals.DECLARACION_PROPIA__VARIABLE);
+							error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), dec, DiagramapseudocodigoPackage.Literals.DECLARACION_PROPIA__VARIABLE);
 						}
 					}
 				}
@@ -1429,7 +1388,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(v.getTipo() instanceof TipoDefinido) {
 					TipoDefinido tipo = (TipoDefinido) v.getTipo();
 					if(!tipos.contains(tipo.getTipo())) {
-						error("El tipo de la variable debe estar previamente definido", v, DiagramapseudocodigoPackage.Literals.VECTOR__TIPO);
+						error(readerMessages.getString("TIPO_NO_DEFINIDO", tipo.getTipo()), v, DiagramapseudocodigoPackage.Literals.VECTOR__TIPO);
 					}
 				}
 			}
@@ -1438,7 +1397,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(m.getTipo() instanceof TipoDefinido) {
 					TipoDefinido tipo = (TipoDefinido) m.getTipo();
 					if(!tipos.contains(tipo.getTipo())) {
-						error("El tipo de la variable debe estar previamente definido", m, DiagramapseudocodigoPackage.Literals.MATRIZ__TIPO);
+						error(readerMessages.getString("TIPO_NO_DEFINIDO", tipo.getTipo()), m, DiagramapseudocodigoPackage.Literals.MATRIZ__TIPO);
 					}
 				}
 			}
@@ -1476,7 +1435,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 					else {
 						//Si esta repetida lanzamos el error
-						error("No pueden existir dos variables con el mismo nombre dentro de la misma función o procedimiento", v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+						error(readerMessages.getString("VARIABLE_REPETIDA", v.getNombre(), s.getNombre()), v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
 					}
 				}
 			}
@@ -1490,7 +1449,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 					else {
 						//Si esta repetida lanzamos el error
-						error("No pueden existir dos variables con el mismo nombre dentro de la misma función o procedimiento", v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);	
+						error(readerMessages.getString("VARIABLE_REPETIDA", v.getNombre(), s.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);	
 					}
 				}
 			}
@@ -1513,7 +1472,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 					else {
 						//Si esta repetida lanzamos el error
-						error("No pueden existir dos variables con el mismo nombre dentro del mismo programa principal", v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+						error(readerMessages.getString("VARIABLE_REPETIDA_PRINCIPAL", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
 					}
 				}
 			}
@@ -1527,7 +1486,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 					else {
 						//Si esta repetida lanzamos el error
-						error("No pueden existir dos variables con el mismo nombre dentro del mismo programa principal", v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+						error(readerMessages.getString("VARIABLE_REPETIDA_PRINCIPAL", v.getNombre()), v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
 					}
 				}
 			}
@@ -1550,7 +1509,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						VariableID v = (VariableID) op; //Siempre es una variable
 						
 						if(!variables.contains(v.getNombre())) {
-							error("La variable utilizada como parámetro en el segun_sea debe haber sido previamente declarada", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 					}
 				}
@@ -1571,7 +1530,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				segun se = (segun) s;
 				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
 				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
-					error("La variable utilizada como parámetro en el segun_sea debe haber sido previamente declarada", DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, f.getSentencias().indexOf(s));
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, f.getSentencias().indexOf(s));
 				}
 			}
 		}
@@ -1590,7 +1549,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				segun se = (segun) s;
 				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
 				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
-					error("La variable utilizada como parámetro en el segun_sea debe haber sido previamente declarada", DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, p.getSentencias().indexOf(s));
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, p.getSentencias().indexOf(s));
 				}
 			}
 		}
@@ -1628,7 +1587,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			int cont = 0;
 			boolean valido = true;
 			
-			if(parametro.getTipo() == TipoVariable.getByName("entero")) {
+			if(parametro.getTipo() == TipoVariable.getByName(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 				//Comprobamos que las variables de los casos sean todas del mismo tipo
 				for(Caso c: se.getCaso()) {
 					if(!(c.getOperador() instanceof NumeroEntero)) {
@@ -1639,7 +1598,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			}
 			
 			if(!valido) {
-				warning("Todos los parámetros del segun_caso deben ser del mismo tipo que el parámetro de entrada del segun_caso", DiagramapseudocodigoPackage.Literals.SEGUN__CASO,cont);
+				warning(readerMessages.getBundle().getString("PARAMETROS_SEGUN"), DiagramapseudocodigoPackage.Literals.SEGUN__CASO,cont);
 			}
 		}
 		
@@ -1657,10 +1616,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					VariableID var = (VariableID) v.getValor();
 					if(!nombresConstantes.contains(var.getNombre())) {
 						if(tipo == 1) {
-							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
 						}
 						else if(tipo == 2) {
-							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
 						}
 					}
 				}
@@ -1671,10 +1630,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					VariableID var = (VariableID) m.getValor().get(0);
 					if(!nombresConstantes.contains(var.getNombre())) {
 						if(tipo == 1) {
-							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
 						}
 						else if(tipo == 2) {
-							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
 						}
 					}
 				}
@@ -1682,10 +1641,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					VariableID var = (VariableID) m.getValor().get(1);
 					if(!nombresConstantes.contains(var.getNombre())) {
 						if(tipo == 1) {
-							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
 						}
 						else if(tipo == 2) {
-							error("La constante debe estar definida", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
+							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
 						}
 					}
 				}
@@ -1710,9 +1669,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			if(nombresConstantes.contains(cons.getVariable().getNombre())) {
 				//Si ya ha sido registrada lanzamos el error
 				if(tipo == 1) {
-					error("No pueden existir dos constantes con el mismo nombre", DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES, constantes.indexOf(cons));
+					error(readerMessages.getString("CONSTANTE_REPETIDA",  cons.getVariable().getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES, constantes.indexOf(cons));
 				} else if(tipo == 2) {
-					error("No pueden existir dos constantes con el mismo nombre", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES, constantes.indexOf(cons));
+					error(readerMessages.getString("CONSTANTE_REPETIDA",  cons.getVariable().getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES, constantes.indexOf(cons));
 				}
 			}
 			else {
@@ -1779,7 +1738,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					DeclaracionPropia dec = (DeclaracionPropia) d;
 					if(!tipos.contains(dec.getTipo())) {
 						//Si el tipo no existe entonces lanzamos el error
-						error("El tipo de la variable debe estar previamente definido", s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION, s.getDeclaracion().indexOf(d));
+						error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION, s.getDeclaracion().indexOf(d));
 					}
 				}
 			}
@@ -1791,7 +1750,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			if(d instanceof DeclaracionPropia) {
 				DeclaracionPropia dec = (DeclaracionPropia) d;
 				if(!tipos.contains(dec.getTipo())) {
-					error("El tipo de la variable debe estar previamente definido", modulo, DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL, modulo.getImplementacion().getGlobal().indexOf(d));
+					error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), modulo, DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL, modulo.getImplementacion().getGlobal().indexOf(d));
 				}
 			}
 		}
@@ -1810,7 +1769,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				DeclaracionPropia dec = (DeclaracionPropia) d;
 				if(!tipos.contains(dec.getTipo())) {
 					//Si el tipo no existe entonces lanzamos el error
-					error("El tipo de la variable debe estar previamente definido", algoritmo.getTiene(), DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION, algoritmo.getTiene().getDeclaracion().indexOf(d));
+					error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), algoritmo.getTiene(), DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION, algoritmo.getTiene().getDeclaracion().indexOf(d));
 				}
 			}
 		}
@@ -1821,7 +1780,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					DeclaracionPropia dec = (DeclaracionPropia) d;
 					if(!tipos.contains(dec.getTipo())) {
 						//Si el tipo no existe entonces lanzamos el error
-						error("El tipo de la variable debe estar previamente definido", s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION, s.getDeclaracion().indexOf(d));
+						error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION, s.getDeclaracion().indexOf(d));
 					}
 				}
 			}
@@ -1833,7 +1792,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			if(d instanceof DeclaracionPropia) {
 				DeclaracionPropia dec = (DeclaracionPropia) d;
 				if(!tipos.contains(dec.getTipo())) {
-					error("El tipo de la variable debe estar previamente definido", algoritmo, DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL, algoritmo.getGlobal().indexOf(d));
+					error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), algoritmo, DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL, algoritmo.getGlobal().indexOf(d));
 				}
 			}
 		}
@@ -1852,9 +1811,9 @@ List<String> tipos = new ArrayList<String>();
 				else {
 					//Si existe lanzamos el error
 					if(tipo == 1) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", v.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
 					} else if(tipo == 2) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", v.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
 					}
 				}
 			}
@@ -1867,9 +1826,9 @@ List<String> tipos = new ArrayList<String>();
 				else {
 					//Si existe lanzamos el error
 					if(tipo == 1) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
 					} else if(tipo == 2) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", m.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
 					}
 				}
 			}
@@ -1882,9 +1841,9 @@ List<String> tipos = new ArrayList<String>();
 				else {
 					//Si existe lanzamos el error
 					if(tipo == 1) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", r.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
 					} else if(tipo == 2) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", r.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
 					}
 				}
 			}
@@ -1897,9 +1856,9 @@ List<String> tipos = new ArrayList<String>();
 				else {
 					//Si existe lanzamos el error
 					if(tipo == 1) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", e.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
 					} else if(tipo == 2) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", e.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
 					}
 				}
 			}
@@ -1912,9 +1871,9 @@ List<String> tipos = new ArrayList<String>();
 				else {
 					//Si existe lanzamos el error
 					if(tipo == 1) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", a.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
 					} else if(tipo == 2) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", a.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
 					}
 				}
 			}
@@ -1927,9 +1886,9 @@ List<String> tipos = new ArrayList<String>();
 				else {
 					//Si existe lanzamos el error
 					if(tipo == 1) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", s.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
 					} else if(tipo == 2) {
-						error("El nombre del tipo debe ser único", DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
+						error(readerMessages.getString("TIPO_REPETIDO", s.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
 					}
 				}
 			}
@@ -1964,7 +1923,7 @@ List<String> tipos = new ArrayList<String>();
 				
 			}
 			else {
-				error("No puede existir dos subprocesos con el mismo nombre y mismo número de parámetros", s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE, subprocesos.indexOf(s));
+				error(readerMessages.getString("SUBPROCESO_REPETIDO", s.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE, subprocesos.indexOf(s));
 			}
 		}
 	}
@@ -1993,7 +1952,7 @@ List<String> tipos = new ArrayList<String>();
 					}
 					else {
 						//Si esta repetida lanzamos el error
-						error("No pueden existir dos variables globales con el mismo nombre dentro del mismo programa", v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+						error(readerMessages.getString("GLOBAL_REPETIDA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
 					}
 				}
 			}
@@ -2007,7 +1966,7 @@ List<String> tipos = new ArrayList<String>();
 					}
 					else {
 						//Si esta repetida lanzamos el error
-						error("No pueden existir dos variables globales con el mismo nombre dentro del mismo programa", v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
+						error(readerMessages.getString("GLOBAL_REPETIDA", v.getNombre()), v,  DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
 					}
 				}
 			}
@@ -2036,7 +1995,7 @@ List<String> tipos = new ArrayList<String>();
 						if(o instanceof VariableID) {
 							VariableID v = (VariableID) o;
 							if(!variables.contains(v.getNombre())) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2047,7 +2006,7 @@ List<String> tipos = new ArrayList<String>();
 				if(l.getVariable() instanceof VariableID) {
 					VariableID v = (VariableID) l.getVariable();
 					if(!variables.contains(v.getNombre())) {
-						error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 					}
 				}
 			}
@@ -2058,7 +2017,7 @@ List<String> tipos = new ArrayList<String>();
 					if(o instanceof VariableID) {
 						VariableID v = (VariableID) o;
 						if(!variables.contains(v.getNombre())) {
-							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 				}
@@ -2067,7 +2026,7 @@ List<String> tipos = new ArrayList<String>();
 			else if(sen instanceof Negacion) {
 				Negacion neg = (Negacion) sen;
 				if(!variables.contains(neg.getValor_operacion())){
-					error("La variable debe haber sido previamente definida", neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION, VARIABLE_NO_DEFINIDA);
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", neg.getValor_operacion()), neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION, VARIABLE_NO_DEFINIDA);
 				}
 			}
 			
@@ -2077,12 +2036,12 @@ List<String> tipos = new ArrayList<String>();
 					AsignacionNormal as = (AsignacionNormal) a;
 					
 					if(!variables.contains(as.getValor_asignacion())) {
-						error("La variable debe haber sido previamente definida", as, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION, VARIABLE_NO_DEFINIDA);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", as.getValor_asignacion()), as, DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__VALOR_ASIGNACION, VARIABLE_NO_DEFINIDA);
 					}
 					if(as.getOperador() instanceof VariableID) {
 						VariableID v = (VariableID) as.getOperador();
 						if(!variables.contains(v.getNombre())){
-							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					else if(as.getOperador() instanceof unaria) {
@@ -2090,7 +2049,7 @@ List<String> tipos = new ArrayList<String>();
 						if(u.getVariable() instanceof VariableID) {
 							VariableID v = (VariableID) u.getVariable();
 							if(!variables.contains(v.getNombre())) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2102,25 +2061,25 @@ List<String> tipos = new ArrayList<String>();
 						List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
 						if(variablesRegistroNoDeclaradas.size() != 0) {
 							for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 							}
 						}
 						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
 						if(variablesNoDeclaradas.size() != 0) {
 							for(VariableID v: variablesNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
 						if(variablesVectorNoDeclaradas.size() != 0) {
 							for(ValorVector v: variablesVectorNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 							}
 						}
 						List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
 						if(variablesMatrizNoDeclaradas.size() != 0) {
 							for(ValorMatriz m: variablesMatrizNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 							}
 						}
 						
@@ -2130,7 +2089,7 @@ List<String> tipos = new ArrayList<String>();
 								if(vector.getIndice() instanceof VariableID) {
 									VariableID var = (VariableID) vector.getIndice();
 									if(!variables.contains(var.getNombre())){
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 							}
@@ -2143,7 +2102,7 @@ List<String> tipos = new ArrayList<String>();
 									if(op instanceof VariableID) {
 										VariableID var = (VariableID) op;
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+											error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2156,7 +2115,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())) {
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+												error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 										else if(op instanceof ValorVector) {
@@ -2164,7 +2123,7 @@ List<String> tipos = new ArrayList<String>();
 											if(vector.getIndice() instanceof VariableID) {
 												VariableID var = (VariableID) vector.getIndice();
 												if(!variables.contains(var.getNombre())) {
-													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+													error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 												}
 											}
 										}
@@ -2177,7 +2136,7 @@ List<String> tipos = new ArrayList<String>();
 												if(operacionAux instanceof VariableID) {
 													VariableID var = (VariableID) operacionAux;
 													if(!variables.contains(var.getNombre())){
-														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+														error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 													}
 												}
 											}
@@ -2195,7 +2154,7 @@ List<String> tipos = new ArrayList<String>();
 								if(o instanceof VariableID) {
 									VariableID var = (VariableID) o;
 									if(!variables.contains(var.getNombre())) {
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 								else if(o instanceof ValorVector) {
@@ -2203,7 +2162,7 @@ List<String> tipos = new ArrayList<String>();
 									if(vector.getIndice() instanceof VariableID) {
 										VariableID var = (VariableID) vector.getIndice();
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+											error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2216,7 +2175,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())){
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+												error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 									}
@@ -2229,7 +2188,7 @@ List<String> tipos = new ArrayList<String>();
 						if(v.getIndice() instanceof VariableID) {
 							VariableID var = (VariableID) v.getIndice();
 							if(!variables.contains(var.getNombre())) {
-								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2242,7 +2201,7 @@ List<String> tipos = new ArrayList<String>();
 							if(op instanceof VariableID) {
 								VariableID var = (VariableID) op;
 								if(!variables.contains(var.getNombre())) {
-									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+									error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 								}
 							}
 						}
@@ -2253,7 +2212,7 @@ List<String> tipos = new ArrayList<String>();
 					if(ac.getValor_asignacion() instanceof ValorRegistro) {
 						ValorRegistro r = (ValorRegistro) ac.getValor_asignacion();
 						if(!variables.contains(r.getNombre_registro())) {
-							error("La variable debe haber sido previamente definida", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", r.getNombre_registro()), r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 						}
 					}
 					else if(ac.getValor_asignacion() instanceof ValorVector) {
@@ -2261,7 +2220,7 @@ List<String> tipos = new ArrayList<String>();
 						if(v.getIndice() instanceof VariableID) {
 							VariableID var = (VariableID) v.getIndice();
 							if(!variables.contains(var.getNombre())) {
-								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2274,7 +2233,7 @@ List<String> tipos = new ArrayList<String>();
 							if(op instanceof VariableID) {
 								VariableID var = (VariableID) op;
 								if(!variables.contains(var.getNombre())) {
-									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+									error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 								}
 							}
 						}
@@ -2282,7 +2241,7 @@ List<String> tipos = new ArrayList<String>();
 					if(ac.getOperador() instanceof VariableID) {
 						VariableID v = (VariableID) ac.getOperador();
 						if(!variables.contains(v.getNombre())) {
-							error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					else if(ac.getOperador() instanceof unaria) {
@@ -2290,7 +2249,7 @@ List<String> tipos = new ArrayList<String>();
 						if(u.getVariable() instanceof VariableID) {
 							VariableID v = (VariableID) u.getVariable();
 							if(!variables.contains(v.getNombre())) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2302,25 +2261,25 @@ List<String> tipos = new ArrayList<String>();
 						List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
 						if(variablesRegistroNoDeclaradas.size() != 0) {
 							for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 							}
 						}
 						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
 						if(variablesNoDeclaradas.size() != 0) {
 							for(VariableID v: variablesNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
 						if(variablesVectorNoDeclaradas.size() != 0) {
 							for(ValorVector v: variablesVectorNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 							}
 						}
 						List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
 						if(variablesMatrizNoDeclaradas.size() != 0) {
 							for(ValorMatriz m: variablesMatrizNoDeclaradas) {
-								error("La variable debe haber sido previamente definida", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 							}
 						}
 						
@@ -2330,7 +2289,7 @@ List<String> tipos = new ArrayList<String>();
 								if(vector.getIndice() instanceof VariableID) {
 									VariableID var = (VariableID) vector.getIndice();
 									if(!variables.contains(var.getNombre())) {
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 							}
@@ -2343,7 +2302,7 @@ List<String> tipos = new ArrayList<String>();
 									if(op instanceof VariableID) {
 										VariableID var = (VariableID) op;
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+											error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2356,7 +2315,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())) {
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+												error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 										else if(op instanceof ValorVector) {
@@ -2364,7 +2323,7 @@ List<String> tipos = new ArrayList<String>();
 											if(vector.getIndice() instanceof VariableID) {
 												VariableID var = (VariableID) vector.getIndice();
 												if(!variables.contains(var.getNombre())) {
-													error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+													error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 												}
 											}
 										}
@@ -2377,7 +2336,7 @@ List<String> tipos = new ArrayList<String>();
 												if(operacionAux instanceof VariableID) {
 													VariableID var = (VariableID) operacionAux;
 													if(!variables.contains(var.getNombre())) {
-														error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+														error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 													}
 												}
 											}
@@ -2395,7 +2354,7 @@ List<String> tipos = new ArrayList<String>();
 								if(o instanceof VariableID) {
 									VariableID var = (VariableID) o;
 									if(!variables.contains(var.getNombre())) {
-										error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 									}
 								}
 								else if(o instanceof ValorVector) {
@@ -2403,7 +2362,7 @@ List<String> tipos = new ArrayList<String>();
 									if(vector.getIndice() instanceof VariableID) {
 										VariableID var = (VariableID) vector.getIndice();
 										if(!variables.contains(var.getNombre())) {
-											error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+											error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 										}
 									}
 								}
@@ -2416,7 +2375,7 @@ List<String> tipos = new ArrayList<String>();
 										if(op instanceof VariableID) {
 											VariableID var = (VariableID) op;
 											if(!variables.contains(var.getNombre())) {
-												error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+												error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 											}
 										}
 									}
@@ -2429,7 +2388,7 @@ List<String> tipos = new ArrayList<String>();
 						if(v.getIndice() instanceof VariableID) {
 							VariableID var = (VariableID) v.getIndice();
 							if(!variables.contains(var.getNombre())) {
-								error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
 					}
@@ -2442,7 +2401,7 @@ List<String> tipos = new ArrayList<String>();
 							if(op instanceof VariableID) {
 								VariableID var = (VariableID) op;
 								if(!variables.contains(var.getNombre())) {
-									error("La variable debe haber sido previamente definida", var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+									error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 								}
 							}
 						}
@@ -2567,10 +2526,10 @@ List<String> tipos = new ArrayList<String>();
 			if(s instanceof LlamadaFuncion) {
 				LlamadaFuncion l = (LlamadaFuncion) s;
 				if(!funciones.contains(l.getNombre())) {
-					error("La función debe haber sido previamente declarada", l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+					error(readerMessages.getString("FUNCION_NO_DECLARADA", l.getNombre()), l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 				}
 				else if(!parametros.get(funciones.indexOf(l.getNombre())).contains(l.getOperadores().size())) {
-					error("El número de parámetros de la función no es el esperado", l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+					error(readerMessages.getString("FUNCION_NUMERO_PARAMETROS", parametros.get(funciones.indexOf(l.getNombre()))), l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 				}
 			}
 			else if(s instanceof Asignacion) {
@@ -2580,10 +2539,10 @@ List<String> tipos = new ArrayList<String>();
 					if(an.getOperador() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) an.getOperador();
 						if(!funciones.contains(f.getNombre())) {
-							error("La función debe haber sido previamente declarada", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+							error(readerMessages.getString("FUNCION_NO_DECLARADA", f.getNombre()), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 						}
 						else if(!parametros.get(funciones.indexOf(f.getNombre())).contains(f.getOperadores().size())) {
-							error("El número de parámetros de la función no es el esperado", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+							error(readerMessages.getString("FUNCION_NUMERO_PARAMETROS", parametros.get(funciones.indexOf(f.getNombre()))), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 						}
 					}
 				}
@@ -2760,7 +2719,7 @@ List<String> tipos = new ArrayList<String>();
 					Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
 					List<String> tiposNativos = new ArrayList<String>();
 					List<String> nombresValoresComplejos = new ArrayList<String>();
-					funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+					funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos, readerMessages);
 					String salidaBuena = "";
 					String salidaMala = "";
 					if(tipos.size() > 0) {
@@ -2769,7 +2728,7 @@ List<String> tipos = new ArrayList<String>();
 					}
 					//!funciones.comprobarCorreccionTiposLlamada(nombresVariables, variablesDeclaradas, tipos)
 					if(!salidaBuena.equals(salidaMala)) {
-						error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+						error(readerMessages.getString("TIPOS_LLAMADA", nombre, salidaMala, salidaBuena), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 					}
 				}
 			}
@@ -2784,7 +2743,7 @@ List<String> tipos = new ArrayList<String>();
 							Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
 							List<String> tiposNativos = new ArrayList<String>();
 							List<String> nombresValoresComplejos = new ArrayList<String>();
-							funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+							funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos, readerMessages);
 							String salidaBuena = "";
 							String salidaMala = "";
 							if(tipos.size() > 0) {
@@ -2792,7 +2751,7 @@ List<String> tipos = new ArrayList<String>();
 								salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
 							}
 							if(!salidaBuena.equals(salidaMala)) {
-								error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+								error(readerMessages.getString("TIPOS_LLAMADA", nombre, salidaMala, salidaBuena), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 							}
 						}
 					}
@@ -2808,7 +2767,7 @@ List<String> tipos = new ArrayList<String>();
 									Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
 									List<String> tiposNativos = new ArrayList<String>();
 									List<String> nombresValoresComplejos = new ArrayList<String>();
-									funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+									funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos, readerMessages);
 									String salidaBuena = "";
 									String salidaMala = "";
 									if(tipos.size() > 0) {
@@ -2816,7 +2775,7 @@ List<String> tipos = new ArrayList<String>();
 										salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
 									}
 									if(!salidaBuena.equals(salidaMala)) {
-										error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+										error(readerMessages.getString("TIPOS_LLAMADA", nombre, salidaMala, salidaBuena), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 									}
 								}
 							}
@@ -2832,7 +2791,7 @@ List<String> tipos = new ArrayList<String>();
 							Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
 							List<String> tiposNativos = new ArrayList<String>();
 							List<String> nombresValoresComplejos = new ArrayList<String>();
-							funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+							funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos, readerMessages);
 							String salidaBuena = "";
 							String salidaMala = "";
 							if(tipos.size() > 0) {
@@ -2840,7 +2799,7 @@ List<String> tipos = new ArrayList<String>();
 								salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
 							}
 							if(!salidaBuena.equals(salidaMala)) {
-								error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+								error(readerMessages.getString("TIPOS_LLAMADA", nombre, salidaMala, salidaBuena), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 							}
 						}
 					}
@@ -2856,7 +2815,7 @@ List<String> tipos = new ArrayList<String>();
 									Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
 									List<String> tiposNativos = new ArrayList<String>();
 									List<String> nombresValoresComplejos = new ArrayList<String>();
-									funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos);
+									funciones.registrarParametros(f.getOperadores(), nombresVariables, nombresVariablesCampos, tiposNativos, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresValoresComplejos, readerMessages);
 									String salidaBuena = "";
 									String salidaMala = "";
 									if(tipos.size() > 0) {
@@ -2864,7 +2823,7 @@ List<String> tipos = new ArrayList<String>();
 										salidaMala = funciones.getCadenaTiposIncorrectos(nombresVariables, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, nombresVariablesCampos, tiposNativos, nombresValoresComplejos);
 									}
 									if(!salidaBuena.equals(salidaMala)) {
-										error("Los tipos de las variables no coinciden con los de la declaración de la cabecera de la función: " +nombre+"("+salidaMala+") "+ "en lugar de " +nombre+"("+salidaBuena+")", f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+										error(readerMessages.getString("TIPOS_LLAMADA", nombre, salidaMala, salidaBuena), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 									}
 								}
 							}
@@ -2886,7 +2845,7 @@ List<String> tipos = new ArrayList<String>();
 		Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
 		//Registramos las variables globales y las constantes también
 		Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion());
-		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes());
+		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 		//Unimos todas en el Map que se utilizará
 		variablesDeclaradas.putAll(variablesGlobales);
 		variablesDeclaradas.putAll(constantes);
@@ -2937,7 +2896,7 @@ List<String> tipos = new ArrayList<String>();
 		Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(modulo.getImplementacion().getTipocomplejo());
 		//Recogemos los tipos nativos de los registros	
 		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(modulo.getImplementacion().getTipocomplejo());
-		Map<String,String> constantes = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes());
+		Map<String,String> constantes = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes(), readerMessages);
 				
 		//Registramos los tipos de parámetros necesarios para todos los subprocesos
 		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
@@ -3001,7 +2960,7 @@ List<String> tipos = new ArrayList<String>();
 		Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getTipocomplejo());
 		//Recogemos los tipos nativos de los registros	
 		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getTipocomplejo());
-		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes());
+		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 		
 		//Registramos los tipos de parámetros necesarios para todos los subprocesos
 		for(Subproceso sub: algoritmo.getFuncion()) {
@@ -3074,14 +3033,14 @@ List<String> tipos = new ArrayList<String>();
 				
 				//Comprobamos que la variable que se quiere devolver este definida y sea del tipo correcto.
 				if(!variables.containsKey(nombreVar)) {
-					error("La variable no ha sido definida", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 				}
 				else if(variables.get(nombreVar) != tipoDevuelve) {
-					if(variables.get(nombreVar) == "real" && tipoDevuelve == "entero") {
-						warning("El tipo de devolución no es el indicado, puede haber pérdida de precisión", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					if(variables.get(nombreVar) == readerMessages.getBundle().getString("TIPO_REAL") && tipoDevuelve == readerMessages.getBundle().getString("TIPO_ENTERO")) {
+						warning(readerMessages.getBundle().getString("PERDIDA_PRECISION"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
-					else if(variables.get(nombreVar) != "entero"  || tipoDevuelve != "real") {
-						error("El tipo de devolución no es el indicado, los tipos son incompatibles", v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					else if(variables.get(nombreVar) != readerMessages.getBundle().getString("TIPO_ENTERO")  || tipoDevuelve != readerMessages.getBundle().getString("TIPO_REAL")) {
+						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 				}
 			}
@@ -3109,7 +3068,7 @@ List<String> tipos = new ArrayList<String>();
 					ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
 					for(CampoRegistro campo: r.getCampo()) {
 						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-							error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 						}	
 					}
 				}
@@ -3117,7 +3076,7 @@ List<String> tipos = new ArrayList<String>();
 					ValorRegistro r = (ValorRegistro) a.getOperador();
 					for(CampoRegistro campo: r.getCampo()) {
 						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-							error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 						}	
 					}
 				}
@@ -3133,7 +3092,7 @@ List<String> tipos = new ArrayList<String>();
 								ValorRegistro r = (ValorRegistro) o;
 								for(CampoRegistro campo: r.getCampo()) {
 									if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-										error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+										error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 									}	
 								}
 							}
@@ -3144,7 +3103,7 @@ List<String> tipos = new ArrayList<String>();
 					ValorRegistro r = (ValorRegistro) a.getOperador();
 					for(CampoRegistro campo: r.getCampo()) {
 						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-							error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 						}	
 					}
 				}
@@ -3173,7 +3132,7 @@ List<String> tipos = new ArrayList<String>();
 						ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
 						for(CampoRegistro campo: r.getCampo()) {
 							if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-								error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+								error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 							}	
 						}
 					}
@@ -3181,7 +3140,7 @@ List<String> tipos = new ArrayList<String>();
 						ValorRegistro r = (ValorRegistro) a.getOperador();
 						for(CampoRegistro campo: r.getCampo()) {
 							if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-								error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+								error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 							}	
 						}
 					}
@@ -3197,7 +3156,7 @@ List<String> tipos = new ArrayList<String>();
 										ValorRegistro r = (ValorRegistro) o;
 										for(CampoRegistro campo: r.getCampo()) {
 											if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-												error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+												error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 											}	
 										}
 									}
@@ -3208,7 +3167,7 @@ List<String> tipos = new ArrayList<String>();
 						ValorRegistro r = (ValorRegistro) a.getOperador();
 						for(CampoRegistro campo: r.getCampo()) {
 							if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-								error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+								error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 							}	
 						}
 					}
@@ -3242,7 +3201,7 @@ List<String> tipos = new ArrayList<String>();
 							ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
 							for(CampoRegistro campo: r.getCampo()) {
 								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-									error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+									error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 								}	
 							}
 						}
@@ -3250,7 +3209,7 @@ List<String> tipos = new ArrayList<String>();
 							ValorRegistro r = (ValorRegistro) a.getOperador();
 							for(CampoRegistro campo: r.getCampo()) {
 								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-									error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+									error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 								}	
 							}
 						}
@@ -3266,7 +3225,7 @@ List<String> tipos = new ArrayList<String>();
 										ValorRegistro r = (ValorRegistro) o;
 										for(CampoRegistro campo: r.getCampo()) {
 											if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-												error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+												error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 											}	
 										}
 									}
@@ -3277,7 +3236,7 @@ List<String> tipos = new ArrayList<String>();
 							ValorRegistro r = (ValorRegistro) a.getOperador();
 							for(CampoRegistro campo: r.getCampo()) {
 								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-									error("El campo especificado no pertenece al Registro de tipo "+variablesTipadas.get(r.getNombre_registro())+" definido", campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+									error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 								}	
 							}
 						}
@@ -3310,43 +3269,43 @@ List<String> tipos = new ArrayList<String>();
 	
 	//Función auxiliar para evitar la repetición de código (DRY)
 	private void checkAsignacionesAux(Asignacion a, String tipo, operacion op, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,Map<String,String>> registrosCamposTipados) {
-					if(tipo.equals("entero") && !(op instanceof NumeroEntero)) {
+					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(op instanceof NumeroEntero)) {
 						if(op instanceof NumeroDecimal) {
-							errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 						}
 						else if(funciones.esOperacion(op)) {
 							ArrayList<valor> valores = new ArrayList<valor>();
 							valores = funciones.registrarValoresOperacion(op, valores);
 							//Primero buscamos las dificultades en la operación
-							List<valor> valoresProblem = funciones.buscarProblemasOperacion("entero", valores);
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valores, readerMessages);
 							//Preparamos los tipos validos
 							ArrayList<String> tiposValidos = new ArrayList<String>();
-							tiposValidos.add(0, "entero"); 
-							tiposValidos.add(1, "real");
-							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_ENTERO")); 
+							tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_REAL"));
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
-							else if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 2 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 2 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 2 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 2 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 2) {
-								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							else if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 2 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 2 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 2 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 2 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 2) {
+								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							}
 						}
 						else if(op instanceof LlamadaFuncion) {
 							LlamadaFuncion f = (LlamadaFuncion) op;
-							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "entero" && funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "real" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
-							else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) == "real" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							}
 						}
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
-							if(variables.get(v.getNombre()) != "entero" && variables.get(v.getNombre()) != "real" && variables.containsKey(v.getNombre())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 								
 							}
-							else if(variables.get(v.getNombre()) == "real" && variables.containsKey(v.getNombre())) {
-								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							else if(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							}
 						}
 						else if(op instanceof ValorRegistro) {
@@ -3354,73 +3313,73 @@ List<String> tipos = new ArrayList<String>();
 							//Buscamos el registro del que proviene esa variable
 							for(String nombre: nombresRegistros) {
 								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "entero" && registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "real") {
-										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+										errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 									}
-									else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) == "real") {
-										errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+									else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+										errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 									}
 								}
 							}
 						}
 						else if(op instanceof ValorVector) {
 							ValorVector v = (ValorVector) op;
-							if(vectores.get(variables.get(v.getNombre_vector())) != "entero" && vectores.get(variables.get(v.getNombre_vector())) != "real") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
-							else if(vectores.get(variables.get(v.getNombre_vector())) == "real") {
-								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+							else if(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							}
 						}
 						else if(op instanceof ValorMatriz) {
 							ValorMatriz m = (ValorMatriz) op;
-							if(matrices.get(variables.get(m.getNombre_matriz())) != "entero" && matrices.get(variables.get(m.getNombre_matriz())) != "real") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 							else {
-								errorAsignacion(a, "Posible pérdida de precisión al asignar un real a un entero", false);
+								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							}
 						}
 						
 						else {
-							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(tipo == "logico" && !(op instanceof ValorBooleano)) {
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !(op instanceof ValorBooleano)) {
 						if(funciones.esOperacion(op)) {
 							ArrayList<valor> valores = new ArrayList<valor>();
 							valores = funciones.registrarValoresOperacion(op, valores);
 							//Primero buscamos las dificultades en la operación
-							List<valor> valoresProblem = funciones.buscarProblemasOperacion("logico", valores);
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_LOGICO"), valores, readerMessages);
 							//Preparamos los tipos validos
 							ArrayList<String> tiposValidos = new ArrayList<String>();
-							tiposValidos.add(0, "logico"); 
-							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_LOGICO")); 
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof LlamadaFuncion) {
 							LlamadaFuncion f = (LlamadaFuncion) op;
-							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "logico" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof unaria) {
 							unaria u = (unaria) op;
 							if(!(u.getVariable() instanceof ValorBooleano) && (!(u.getVariable() instanceof VariableID))) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 							else if(u.getVariable() instanceof VariableID) {
 								VariableID var = (VariableID) u.getVariable();
-								if(variables.get(var.getNombre()) != "logico" && variables.containsKey(var.getNombre())) {
-									errorAsignacion(a, "El tipo de asignación es incompatible", true);
+								if(!(variables.get(var.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(var.getNombre())) {
+									errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 								}
 							}
 						}
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
-							if(variables.get(v.getNombre()) != "logico" && variables.containsKey(v.getNombre())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorRegistro) {
@@ -3428,52 +3387,52 @@ List<String> tipos = new ArrayList<String>();
 							//Buscamos el registro del que proviene esa variable
 							for(String nombre: nombresRegistros) {
 								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "logico") {
-										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+										errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 									}
 								}
 							}
 						}
 						else if(op instanceof ValorVector) {
 							ValorVector v = (ValorVector) op;
-							if(vectores.get(variables.get(v.getNombre_vector())) != "logico") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorMatriz) {
 							ValorMatriz m = (ValorMatriz) op;
-							if(matrices.get(variables.get(m.getNombre_matriz())) != "logico") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else {
-							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(tipo == "real" && !(op instanceof NumeroEntero) && !(op instanceof NumeroDecimal)) {
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !(op instanceof NumeroEntero) && !(op instanceof NumeroDecimal)) {
 						if(funciones.esOperacion(op)) {
 							ArrayList<valor> valores = new ArrayList<valor>();
 							valores = funciones.registrarValoresOperacion(op, valores);
 							//Primero buscamos las dificultades en la operación
-							List<valor> valoresProblem = funciones.buscarProblemasOperacion("real", valores);
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_REAL"), valores, readerMessages);
 							//Preparamos los tipos validos
 							ArrayList<String> tiposValidos = new ArrayList<String>();
-							tiposValidos.add(0, "real"); 
-							tiposValidos.add(1, "entero");
-							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_REAL")); 
+							tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_ENTERO"));
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof LlamadaFuncion) {
 							LlamadaFuncion f = (LlamadaFuncion) op;
-							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "real" && funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "entero" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
-							if(variables.get(v.getNombre()) != "real" && variables.get(v.getNombre()) != "entero" && variables.containsKey(v.getNombre())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorRegistro) {
@@ -3481,51 +3440,51 @@ List<String> tipos = new ArrayList<String>();
 							//Buscamos el registro del que proviene esa variable
 							for(String nombre: nombresRegistros) {
 								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "entero" && registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "real") {
-										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+										errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 									}
 								}
 							}
 						}
 						else if(op instanceof ValorVector) {
 							ValorVector v = (ValorVector) op;
-							if(vectores.get(variables.get(v.getNombre_vector())) != "entero" && vectores.get(variables.get(v.getNombre_vector())) != "real") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorMatriz) {
 							ValorMatriz m = (ValorMatriz) op;
-							if(matrices.get(variables.get(m.getNombre_matriz())) != "entero" && matrices.get(variables.get(m.getNombre_matriz())) != "real") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else {
-							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(tipo == "cadena" && !(op instanceof ConstCadena)) {
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !(op instanceof ConstCadena)) {
 						if(funciones.esOperacion(op)) {
 							ArrayList<valor> valores = new ArrayList<valor>();
 							valores = funciones.registrarValoresOperacion(op, valores);
 							//Primero buscamos las dificultades en la operación
-							List<valor> valoresProblem = funciones.buscarProblemasOperacion("cadena", valores);
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_CADENA"), valores, readerMessages);
 							//Preparamos los tipos validos
 							ArrayList<String> tiposValidos = new ArrayList<String>();
-							tiposValidos.add(0, "cadena"); 
-							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CADENA")); 
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof LlamadaFuncion) {
 							LlamadaFuncion f = (LlamadaFuncion) op;
-							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "cadena" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
-							if(variables.get(v.getNombre()) != "cadena" && variables.containsKey(v.getNombre())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorRegistro) {
@@ -3533,51 +3492,51 @@ List<String> tipos = new ArrayList<String>();
 							//Buscamos el registro del que proviene esa variable
 							for(String nombre: nombresRegistros) {
 								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "cadena") {
-										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != readerMessages.getBundle().getString("TIPO_CADENA")) {
+										errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 									}
 								}
 							}
 						}
 						else if(op instanceof ValorVector) {
 							ValorVector v = (ValorVector) op;
-							if(vectores.get(variables.get(v.getNombre_vector())) != "cadena") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorMatriz) {
 							ValorMatriz m = (ValorMatriz) op;
-							if(matrices.get(variables.get(m.getNombre_matriz())) != "cadena") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else {
-							errorAsignacion(a,"El tipo de asignación es incompatible", true);
+							errorAsignacion(a,readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(tipo == "caracter" && !(op instanceof Caracter)) {
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !(op instanceof Caracter)) {
 						if(funciones.esOperacion(op)) {
 							ArrayList<valor> valores = new ArrayList<valor>();
 							valores = funciones.registrarValoresOperacion(op, valores);
 							//Primero buscamos las dificultades en la operación
-							List<valor> valoresProblem = funciones.buscarProblemasOperacion("caracter", valores);
+							List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_CARACTER"), valores, readerMessages);
 							//Preparamos los tipos validos
 							ArrayList<String> tiposValidos = new ArrayList<String>();
-							tiposValidos.add(0, "caracter"); 
-							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices) == 3) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CARACTER")); 
+							if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof LlamadaFuncion) {
 							LlamadaFuncion f = (LlamadaFuncion) op;
-							if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()) != "caracter" && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
-							if(variables.get(v.getNombre()) != "caracter" && variables.containsKey(v.getNombre())) {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && variables.containsKey(v.getNombre())) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorRegistro) {
@@ -3585,26 +3544,26 @@ List<String> tipos = new ArrayList<String>();
 							//Buscamos el registro del que proviene esa variable
 							for(String nombre: nombresRegistros) {
 								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != "caracter") {
-										errorAsignacion(a, "El tipo de asignación es incompatible", true);
+									if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+										errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 									}
 								}
 							}
 						}
 						else if(op instanceof ValorVector) {
 							ValorVector v = (ValorVector) op;
-							if(vectores.get(variables.get(v.getNombre_vector())) != "caracter") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof ValorMatriz) {
 							ValorMatriz m = (ValorMatriz) op;
-							if(matrices.get(variables.get(m.getNombre_matriz())) != "caracter") {
-								errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else {
-							errorAsignacion(a, "El tipo de asignación es incompatible", true);
+							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 				}
 	}
@@ -3949,20 +3908,20 @@ List<String> tipos = new ArrayList<String>();
 				if(op instanceof ValorVector) {
 					ValorVector vector = (ValorVector) op;
 					if(!nombresVectores.contains(variables.get(vector.getNombre_vector()))) {
-						error("La variable "+vector.getNombre_vector()+" no pertenece al tipo vector", vector, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+						error(readerMessages.getString("NO_TIPO_VECTOR", vector.getNombre_vector()), vector, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 					}
 				}
 				else if(op instanceof ValorMatriz) {
 					ValorMatriz matriz = (ValorMatriz) op;
 					if(!nombresMatrices.contains(variables.get(matriz.getNombre_matriz()))) {
-						error("La variable "+matriz.getNombre_matriz()+" no pertenece al tipo matriz", matriz, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+						error(readerMessages.getString("NO_TIPO_MATRIZ", matriz.getNombre_matriz()), matriz, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 					}
 				}
 				else if(op instanceof ValorRegistro) {
 					ValorRegistro registro = (ValorRegistro) op;
 					if(!nombresRegistros.contains(variables.get(registro.getNombre_registro()))) {
 						//Si no lo contiene es que el tipo de la variable no era un registro
-						error("La variable "+registro.getNombre_registro()+" no pertenece al tipo registro", registro, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						error(readerMessages.getString("NO_TIPO_REGISTRO", registro.getNombre_registro()), registro, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 					}
 				}
 			}
@@ -3978,19 +3937,19 @@ List<String> tipos = new ArrayList<String>();
 					ValorRegistro r = (ValorRegistro) a.getOperador();
 					if(!nombresRegistros.contains(variables.get(r.getNombre_registro()))) {
 						//Si no lo contiene es que el tipo de la variable no era un registro
-						error("La variable "+r.getNombre_registro()+" no pertenece al tipo registro", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						error(readerMessages.getString("NO_TIPO_REGISTRO", r.getNombre_registro()), r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 					}
 				}
 				else if(a.getOperador() instanceof ValorVector) {
 					ValorVector v = (ValorVector) a.getOperador();
 					if(!nombresVectores.contains(variables.get(v.getNombre_vector()))) {
-						error("La variable "+v.getNombre_vector()+" no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+						error(readerMessages.getString("NO_TIPO_VECTOR", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 					}
 				}
 				else if(a.getOperador() instanceof ValorMatriz) {
 					ValorMatriz m = (ValorMatriz) a.getOperador();
 					if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
-						error("La variable "+m.getNombre_matriz()+" no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+						error(readerMessages.getString("NO_TIPO_MATRIZ", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 					}
 				}
 				else if(a.getOperador() instanceof LlamadaFuncion) {
@@ -4004,15 +3963,15 @@ List<String> tipos = new ArrayList<String>();
 					valores = funciones.registrarValoresOperacion(a.getOperador(), valores);
 					List<ValorRegistro> valoresRegistro = funciones.variablesRegistroExistentes(valores, variables, nombresRegistros);
 					for(ValorRegistro vr: valoresRegistro) {
-						error("La variable "+vr.getNombre_registro()+" no pertenece al tipo registro", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						error(readerMessages.getString("NO_TIPO_REGISTRO", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 					}
 					List<ValorVector> valoresVector = funciones.variablesVectorExistentes(valores, variables, nombresVectores);
 					for(ValorVector vv: valoresVector) {
-						error("La variable "+vv.getNombre_vector()+" no pertenece al tipo vector", vv, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+						error(readerMessages.getString("NO_TIPO_VECTOR", vv.getNombre_vector()), vv, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 					}
 					List<ValorMatriz> valoresMatriz = funciones.variablesMatrizExistentes(valores, variables, nombresMatrices);
 					for(ValorMatriz vm: valoresMatriz) {
-						error("La variable "+vm.getNombre_matriz()+" no pertenece al tipo matriz", vm, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+						error(readerMessages.getString("NO_TIPO_MATRIZ", vm.getNombre_matriz()), vm, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 					}
 					//Comprobamos los parámetros de las funciones
 					
@@ -4031,38 +3990,38 @@ List<String> tipos = new ArrayList<String>();
 					ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
 					if(!nombresRegistros.contains(variables.get(r.getNombre_registro()))) {
 						//Si no lo contiene es que el tipo de la variable no era un registro
-						error("La variable "+r.getNombre_registro()+" no pertenece al tipo registro", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						error(readerMessages.getString("NO_TIPO_REGISTRO", r.getNombre_registro()), r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 					}
 				}
 				else if(a.getValor_asignacion() instanceof ValorVector) {
 					ValorVector v = (ValorVector) a.getValor_asignacion();
 					if(!nombresVectores.contains(variables.get(v.getNombre_vector()))) {
-						error("La variable "+v.getNombre_vector()+" no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+						error(readerMessages.getString("NO_TIPO_VECTOR", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 					}
 				}
 				else if(a.getValor_asignacion() instanceof ValorMatriz) {
 					ValorMatriz m = (ValorMatriz) a.getValor_asignacion();
 					if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
-						error("La variable "+m.getNombre_matriz()+" no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+						error(readerMessages.getString("NO_TIPO_MATRIZ", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 					}
 				}
 				if(a.getOperador() instanceof ValorRegistro) {
 					ValorRegistro r = (ValorRegistro) a.getOperador();
 					if(!nombresRegistros.contains(variables.get(r.getNombre_registro()))) {
 						//Si no lo contiene es que el tipo de la variable no era un registro
-						error("La variable "+r.getNombre_registro()+" no pertenece al tipo registro", r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						error(readerMessages.getString("NO_TIPO_REGISTRO", r.getNombre_registro()), r, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 					}
 				}
 				else if(a.getOperador() instanceof ValorVector) {
 					ValorVector v = (ValorVector) a.getOperador();
 					if(!nombresVectores.contains(variables.get(v.getNombre_vector()))) {
-						error("La variable "+v.getNombre_vector()+" no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+						error(readerMessages.getString("NO_TIPO_VECTOR", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 					}
 				}
 				else if(a.getOperador() instanceof ValorMatriz) {
 					ValorMatriz m = (ValorMatriz) a.getOperador();
 					if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
-						error("La variable "+m.getNombre_matriz()+" no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+						error(readerMessages.getString("NO_TIPO_MATRIZ", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 					}
 				}
 				else if(a.getOperador() instanceof LlamadaFuncion) {
@@ -4075,15 +4034,15 @@ List<String> tipos = new ArrayList<String>();
 					valores = funciones.registrarValoresOperacion(a.getOperador(), valores);
 					List<ValorRegistro> valoresRegistro = funciones.variablesRegistroExistentes(valores, variables, nombresRegistros);
 					for(ValorRegistro vr: valoresRegistro) {
-						error("La variable "+vr.getNombre_registro()+" no pertenece al tipo registro", vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						error(readerMessages.getString("NO_TIPO_REGISTRO", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 					}
 					List<ValorVector> valoresVector = funciones.variablesVectorExistentes(valores, variables, nombresVectores);
 					for(ValorVector vv: valoresVector) {
-						error("La variable "+vv.getNombre_vector()+" no pertenece al tipo vector", vv, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+						error(readerMessages.getString("NO_TIPO_VECTOR", vv.getNombre_vector()), vv, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
 					}
 					List<ValorMatriz> valoresMatriz = funciones.variablesMatrizExistentes(valores, variables, nombresMatrices);
 					for(ValorMatriz vm: valoresMatriz) {
-						error("La variable "+vm.getNombre_matriz()+" no pertenece al tipo matriz", vm, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+						error(readerMessages.getString("NO_TIPO_MATRIZ", vm.getNombre_matriz()), vm, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 					}
 					
 					//Comprobamos los parámetros de las funciones:
