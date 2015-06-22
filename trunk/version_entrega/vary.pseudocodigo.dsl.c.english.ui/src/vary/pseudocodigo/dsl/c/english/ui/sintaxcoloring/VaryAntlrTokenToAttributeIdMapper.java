@@ -39,7 +39,7 @@ public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttrib
 				"'if'".equals(tokenName) || "'then'".equals(tokenName) || 
 				"'end_if'".equals(tokenName) || "'repeat'".equals(tokenName) ||
 				"'until'".equals(tokenName) || "'case'".equals(tokenName) ||
-				"'according_to'".equals(tokenName) || "'in_another_case:'".equals(tokenName) ||
+				"'according_to'".equals(tokenName) || "'otherwise:'".equals(tokenName) ||
 				"'end_according_to'".equals(tokenName) || "'else'".equals(tokenName)) {
 			return VaryHighLightingConfiguration.GENERAL_ID;
 		} else if("RULE_CAD".equals(tokenName) || "RULE_CAR".equals(tokenName)) {
