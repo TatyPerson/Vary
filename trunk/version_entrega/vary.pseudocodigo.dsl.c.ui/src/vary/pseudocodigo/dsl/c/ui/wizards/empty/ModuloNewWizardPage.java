@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizards;
+package vary.pseudocodigo.dsl.c.ui.wizards.empty;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
@@ -26,7 +26,7 @@ import org.eclipse.ui.dialogs.ContainerSelectionDialog;
  * OR with the extension that matches the expected one (vyc).
  */
 
-public class AlgoritmoNewWizardPage extends WizardPage {
+public class ModuloNewWizardPage extends WizardPage {
 	private Text containerText;
 
 	private Text fileText;
@@ -38,16 +38,16 @@ public class AlgoritmoNewWizardPage extends WizardPage {
 	public String getExtensionFile() {
 		return extension;
 	}
- 
+
 	/**
 	 * Constructor for SampleNewWizardPage.
 	 * 
 	 * @param pageName
 	 */
-	public AlgoritmoNewWizardPage(ISelection selection) {
+	public ModuloNewWizardPage(ISelection selection) {
 		super("wizardPage");
-		setTitle("Create new algorithm file");
-		setDescription("This wizard creates a new algorithm in the project you select.");
+		setTitle("Create new module file");
+		setDescription("This wizard creates a new module in the project you select.");
 		this.selection = selection;
 	}
 
@@ -115,7 +115,7 @@ public class AlgoritmoNewWizardPage extends WizardPage {
 				containerText.setText(container.getFullPath().toString());
 			}
 		}
-		fileText.setText("test.p");
+		fileText.setText("module.p");
 	}
 
 	/**

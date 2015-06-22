@@ -1,4 +1,4 @@
-package vary.pseudocodigo.dsl.c.ui.wizards;
+package vary.pseudocodigo.dsl.c.ui.wizards.empty;
 
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -26,14 +26,14 @@ import org.eclipse.ui.ide.IDE;
  * be able to open it.
  */
 
-public class AlgoritmoNewWizard extends Wizard implements INewWizard {
-	private AlgoritmoNewWizardPage page;
+public class ModuloNewWizard extends Wizard implements INewWizard {
+	private ModuloNewWizardPage page;
 	private ISelection selection;
 
 	/**
 	 * Constructor for SampleNewWizard.
 	 */
-	public AlgoritmoNewWizard() {
+	public ModuloNewWizard() {
 		super();
 		setNeedsProgressMonitor(true);
 	}
@@ -43,7 +43,7 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 	 */
 
 	public void addPages() {
-		page = new AlgoritmoNewWizardPage(selection);
+		page = new ModuloNewWizardPage(selection);
 		addPage(page);
 	}
 
@@ -97,7 +97,6 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 			throwCoreException("Container \"" + containerName + "\" does not exist.");
 		}
 		IContainer container = (IContainer) resource;
-		System.out.println("La path del wizard creation es:" +container.getProjectRelativePath().toOSString());
 		final IFile file = container.getFile(new Path(fileName));
 		try {
 			InputStream stream = openContentStream(fileName);
@@ -133,30 +132,25 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 		if(page.getExtensionFile().equals("p")) {
 			fileName = fileName.replaceAll(".p","");
 			contents =
-					"Algoritmo " + fileName + '\n' + '\n' +
+					"Modulo " + fileName + '\n' +
 					"importa" + '\n' +
-					"fin_importa" + '\n' +	'\n' +
-					"const" + '\n' +
-					"tipo" + '\n' + '\n' +
-					"var" + '\n' + '\n' +
-					"principal" + '\n' +	
-					"var" + '\n' +
-					"inicio" + '\n' +	
-					"fin_inicio" + '\n' +
-					"fin_algoritmo";
+					"fin_importa" + '\n' + '\n' +
+					"exporta" + '\n' +
+					"fin_exporta" + '\n' + '\n' +
+					"implementacion" + '\n' +
+					"fin_implementacion" + '\n' +
+					"fin_modulo";
 		} else if(page.getExtensionFile().equals("ep")) {
 			fileName = fileName.replaceAll(".ep","");
-			contents = "Algorithm " + fileName + '\n' + '\n' +
-			"import" + '\n' +
-			"end_import" + '\n' +	'\n' +
-			"const" + '\n' +
-			"type" + '\n' + '\n' +
-			"var" + '\n' + '\n' +
-			"main" + '\n' +	
-			"var" + '\n' +
-			"initiation" + '\n' +	
-			"end_initiation" + '\n' +
-			"end_algorithm";
+			contents =
+					"Module " + fileName + '\n' +
+					"import" + '\n' +
+					"end_import" + '\n' + '\n' +
+					"export" + '\n' +
+					"end_export" + '\n' + '\n' +
+					"implementation" + '\n' +
+					"end_implementation" + '\n' +
+					"end_module";
 		}
 		return new ByteArrayInputStream(contents.getBytes());
 	}
