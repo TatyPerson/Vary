@@ -365,6 +365,13 @@
                id="vary.pseudocodigo.dsl.c.ui.wizards.examples.ModuloExampleWizard"
                name="Example Module">
          </wizard>
+         <wizard
+               category="org.eclipselabs.vary/org.eclipselabs.vary.examples"
+               class="vary.pseudocodigo.dsl.c.ui.wizards.examples.AlgoritmoHelloWorldWizard"
+               icon="icons/Vary_Icono.png"
+               id="vary.pseudocodigo.dsl.c.ui.wizards.examples.AlgoritmoHelloWorldWizard"
+               name="Hello World Algorithm">
+         </wizard>
     </extension>
     <!-- quickfix marker resolution generator for vary.pseudocodigo.dsl.c.VaryGrammar -->
     <extension
