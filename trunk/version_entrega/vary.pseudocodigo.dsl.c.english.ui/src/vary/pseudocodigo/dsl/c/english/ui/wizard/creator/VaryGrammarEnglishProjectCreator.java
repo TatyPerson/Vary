@@ -20,11 +20,7 @@ import org.eclipse.cdt.make.core.MakeBuilder;
 import org.eclipse.cdt.make.core.MakeProjectNature;
 import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigBuilder;
 import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigNature;
-
 import vary.pseudocodigo.dsl.c.english.ui.wizard.VaryGrammarEnglishProjectInfo;
-import vary.pseudocodigo.dsl.c.english.validation.VaryGrammarEnglishValidator;
-import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
-
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 
@@ -135,14 +131,8 @@ public class VaryGrammarEnglishProjectCreator extends PluginProjectCreator {
 		execCtx.registerMetaModel(new JavaBeansMetaModel());
 
 		XpandFacade facade = XpandFacade.create(execCtx);
-		new VaryGrammarEnglishValidator();
 		
-		if(ProjectEmpty.getEmptyOption()) {
-			facade.evaluate("vary::pseudocodigo::dsl::c::english::ui::wizard::VaryGrammarEnglishNewProjectEmpty::main", getProjectInfo());
-		}
-		else {
-			facade.evaluate("vary::pseudocodigo::dsl::c::english::ui::wizard::VaryGrammarEnglishNewProject::main", getProjectInfo());
-		}
+		facade.evaluate("vary::pseudocodigo::dsl::c::english::ui::wizard::VaryGrammarEnglishNewProjectEmpty::main", getProjectInfo());
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 	}

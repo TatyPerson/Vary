@@ -4,16 +4,12 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.xtext.ui.wizard.IProjectInfo;
 import org.eclipse.xtext.ui.wizard.IProjectCreator;
-
 import vary.pseudocodigo.dsl.c.generator.util.LenguajeProyecto;
 import vary.pseudocodigo.dsl.c.generator.util.NombreProyecto;
-import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectHeaderFile;
 import vary.pseudocodigo.dsl.c.ui.wizard.components.VarySelectionLanguagePage;
 import vary.pseudocodigo.dsl.c.ui.wizard.components.VarySelectionPropertiesPage;
-
 import com.google.inject.Inject;
-import com.google.inject.Injector;
 
 public class VaryGrammarEnglishNewProjectWizard extends org.eclipse.xtext.ui.wizard.XtextNewProjectWizard {
 
@@ -50,14 +46,7 @@ public class VaryGrammarEnglishNewProjectWizard extends org.eclipse.xtext.ui.wiz
 	
 	@Override
 	protected void doFinish(final IProjectInfo projectInfo, final IProgressMonitor monitor) {
-		//IdiomaProyecto.setIdiomaProyecto(selectionProjectTypePage.getSelectedNodeLanguage().getName());
-		//TipoProyecto.setTipoProyecto(selectionProjectTypePage.getSelectedNode().getName());
-		
 		if(selectionLanguage.getSelectedNodeLanguage().getName().equals("C") || selectionLanguage.getSelectedNodeLanguage().getName().equals("C++")) {
-			//selectionPropertiesPage = (VaryGrammarWizardSelectionPropertiesPage) selectionProjectTypePage.getNextPage();
-			//ProjectEmpty.setEmptyOption(selectionPropertiesPage.getChecboxWhiteValue());
-			ProjectEmpty.setEmptyOption(selectionProperties.getProperties().getPropertyValue(1));
-			//ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getChecboxHeaderValue());
 			ProjectHeaderFile.setHeaderOption(selectionProperties.getProperties().getPropertyValue(0));
 			LenguajeProyecto.setLenguajeProyecto(selectionLanguage.getSelectedNodeLanguage().getName());
 		}
