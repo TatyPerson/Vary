@@ -2,7 +2,6 @@ package vary.pseudocodigo.dsl.c.ui.wizard.creator;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
 import org.eclipse.cdt.core.CCProjectNature;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -20,8 +19,6 @@ import org.eclipse.cdt.make.core.MakeBuilder;
 import org.eclipse.cdt.make.core.MakeProjectNature;
 import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigBuilder;
 import org.eclipse.cdt.build.core.scannerconfig.ScannerConfigNature;
-
-import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
 import vary.pseudocodigo.dsl.c.ui.util.PluginProjectFactory;
 import vary.pseudocodigo.dsl.c.ui.util.ProjectFactory;
 import vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarProjectInfo;
@@ -137,12 +134,7 @@ public class VaryGrammarProjectCreator extends PluginProjectCreator {
 
 		XpandFacade facade = XpandFacade.create(execCtx);
 		
-		if(ProjectEmpty.getEmptyOption()) {
-			facade.evaluate("vary::pseudocodigo::dsl::c::ui::wizard::VaryGrammarNewProjectEmpty::main", getProjectInfo());
-		}
-		else {
-			facade.evaluate("vary::pseudocodigo::dsl::c::ui::wizard::VaryGrammarNewProject::main", getProjectInfo());
-		}
+		facade.evaluate("vary::pseudocodigo::dsl::c::ui::wizard::VaryGrammarNewProjectEmpty::main", getProjectInfo());
 
 		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 	}

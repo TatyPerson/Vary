@@ -150,7 +150,6 @@ public class CProjectFactory extends ProjectFactory {
 		    ManagedBuildManager.saveBuildInfo(project, true);
 		    monitor.worked(1);
 		}
-		System.out.println("Creador Español");
 		createFile(".varyproject", project, "ficheroCabeceras="+ProjectHeaderFile.getHeaderOption()
 				+'\n' + "lenguajeGeneracion=" +LenguajeProyecto.getLenguajeProyecto() + '\n' + "idioma=Spanish" , monitor);
 	}

@@ -7,7 +7,6 @@ import org.eclipse.xtext.ui.wizard.IProjectCreator;
 
 import vary.pseudocodigo.dsl.c.generator.util.LenguajeProyecto;
 import vary.pseudocodigo.dsl.c.generator.util.NombreProyecto;
-import vary.pseudocodigo.dsl.c.generator.util.ProjectEmpty;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectHeaderFile;
 import vary.pseudocodigo.dsl.c.ui.wizard.components.VarySelectionPropertiesPage;
 import vary.pseudocodigo.dsl.c.ui.wizard.components.VarySelectionLanguagePage;
@@ -49,14 +48,7 @@ public class VaryGrammarNewProjectWizard extends org.eclipse.xtext.ui.wizard.Xte
 	
 	@Override
 	protected void doFinish(final IProjectInfo projectInfo, final IProgressMonitor monitor) {
-		//IdiomaProyecto.setIdiomaProyecto(selectionProjectTypePage.getSelectedNodeLanguage().getName());
-		//TipoProyecto.setTipoProyecto(selectionProjectTypePage.getSelectedNode().getName());
-		
 		if(selectionLanguage.getSelectedNodeLanguage().getName().equals("C") || selectionLanguage.getSelectedNodeLanguage().getName().equals("C++")) {
-			//selectionPropertiesPage = (VaryGrammarWizardSelectionPropertiesPage) selectionProjectTypePage.getNextPage();
-			//ProjectEmpty.setEmptyOption(selectionPropertiesPage.getChecboxWhiteValue());
-			ProjectEmpty.setEmptyOption(selectionProperties.getProperties().getPropertyValue(1));
-			//ProjectHeaderFile.setHeaderOption(selectionPropertiesPage.getChecboxHeaderValue());
 			ProjectHeaderFile.setHeaderOption(selectionProperties.getProperties().getPropertyValue(0));
 			LenguajeProyecto.setLenguajeProyecto(selectionLanguage.getSelectedNodeLanguage().getName());
 		}
