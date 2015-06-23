@@ -7,6 +7,8 @@ import com.google.inject.Inject
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter
 import org.eclipse.xtext.formatting.impl.FormattingConfig
 import vary.pseudocodigo.dsl.c.services.VaryGrammarGrammarAccess
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywords
 
 /**
  * This class contains custom formatting description.
@@ -19,8 +21,10 @@ import vary.pseudocodigo.dsl.c.services.VaryGrammarGrammarAccess
 public class VaryGrammarFormatter extends AbstractDeclarativeFormatter {
 	
 	@Inject extension VaryGrammarGrammarAccess
+	protected final ReadKeywordsInterface readerKeywords = new ReadKeywords();
 	
 	override protected configureFormatting(FormattingConfig c) {
+		
 		for(pair: findKeywordPairs('{', '}')) {
 			c.setIndentation(pair.first, pair.second)
 			c.setLinewrap(1).after(pair.first)
@@ -60,10 +64,10 @@ public class VaryGrammarFormatter extends AbstractDeclarativeFormatter {
         }
         
         //Para el formato de los registros:
-        for(registro: findKeywords("registro:")) {
+        for(registro: findKeywords(readerKeywords.getBundle().getString("KEYWORD_REGISTRO"))) {
         	c.setLinewrap(1).before(registro);
         }
-        for(finRegistro: findKeywords("fin_registro")) {
+        for(finRegistro: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_REGISTRO"))) {
         	c.setLinewrap(2).after(finRegistro);
         }
         c.setLinewrap(1).after(getRegistroAccess().getNombreEStringParserRuleCall_1_0());
@@ -80,7 +84,7 @@ public class VaryGrammarFormatter extends AbstractDeclarativeFormatter {
         
         c.setLinewrap(2).after(getSentenciasRule());
         
-        for(keyEntonces: findKeywords("entonces")) {
+        for(keyEntonces: findKeywords(readerKeywords.getBundle().getString("KEYWORD_ENTONCES"))) {
         	c.setLinewrap(2).after(keyEntonces);
         }
         
@@ -107,28 +111,28 @@ public class VaryGrammarFormatter extends AbstractDeclarativeFormatter {
         	c.setNoSpace().before(llave);
         }
         
-        for(keyConst: findKeywords("const")) {
+        for(keyConst: findKeywords(readerKeywords.getBundle().getString("KEYWORD_CONST"))) {
         	c.setLinewrap(2).before(keyConst);
         }
         
-        for(keyTipo: findKeywords("tipo")) {
+        for(keyTipo: findKeywords(readerKeywords.getBundle().getString("KEYWORD_TIPO"))) {
         	c.setLinewrap(2).before(keyTipo);
         }
         
         
-        for(keyInicio: findKeywords("inicio")) {
+        for(keyInicio: findKeywords(readerKeywords.getBundle().getString("KEYWORD_INICIO"))) {
         	c.setLinewrap(2).before(keyInicio);
         }
         
-        for(keyFinDesde: findKeywords("fin_desde")) {
+        for(keyFinDesde: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_DESDE"))) {
         	c.setLinewrap(2).after(keyFinDesde);
         }
         
-        for(keyConst: findKeywords("const")) {
+        for(keyConst: findKeywords(readerKeywords.getBundle().getString("KEYWORD_CONST"))) {
         	c.setIndentationIncrement().after(keyConst);
         }
         
-        for(keyTipo: findKeywords("tipo")) {
+        for(keyTipo: findKeywords(readerKeywords.getBundle().getString("KEYWORD_TIPO"))) {
         	c.setIndentationDecrement().before(keyTipo);
         	c.setIndentationIncrement().after(keyTipo);
         }
@@ -136,7 +140,7 @@ public class VaryGrammarFormatter extends AbstractDeclarativeFormatter {
         c.setIndentationDecrement().before(getSubprocesoRule());
         
         
-        for(keyVar: findKeywords("var")) {
+        for(keyVar: findKeywords(readerKeywords.getBundle().getString("KEYWORD_VAR"))) {
         	c.setLinewrap(2).before(keyVar);
         	c.setLinewrap(2).after(keyVar);
         	c.setIndentationIncrement().before(keyVar);
@@ -147,63 +151,63 @@ public class VaryGrammarFormatter extends AbstractDeclarativeFormatter {
 
         c.setLinewrap(2).after(getTipoComplejoRule());
         
-        for(keyInicio: findKeywords("inicio")) {
+        for(keyInicio: findKeywords(readerKeywords.getBundle().getString("KEYWORD_INICIO"))) {
         	c.setIndentationDecrement().before(keyInicio);
         	c.setIndentationIncrement().after(keyInicio);
         }
         
         c.setLinewrap(2).after(getDevolverRule());
         
-        for(keyFinFuncion: findKeywords("fin_funcion")) {
+        for(keyFinFuncion: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_FUNCION"))) {
         	c.setIndentationDecrement().before(keyFinFuncion);
         }
         
         c.setIndentationDecrement().between(getSubprocesoRule(), getInicioRule());
         c.setIndentationDecrement().between(getSubprocesoRule(), getInicioRule());
         
-        for(keyFinProc: findKeywords("fin_procedimiento")) {
+        for(keyFinProc: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_PROCEDIMIENTO"))) {
         	c.setIndentationDecrement().before(keyFinProc);
         }
         
-        for(keyFinInicio: findKeywords("fin_inicio")) {
+        for(keyFinInicio: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_INICIO"))) {
         	c.setIndentationDecrement().before(keyFinInicio);
         }
         
-        for(keyHacerDesde: findKeywords("hacer")) {
+        for(keyHacerDesde: findKeywords(readerKeywords.getBundle().getString("KEYWORD_HACER"))) {
         	c.setLinewrap(1).after(keyHacerDesde);
         	c.setIndentationIncrement().before(keyHacerDesde);
         }
         
-        for(keyFinDesde: findKeywords("fin_desde")) {
+        for(keyFinDesde: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_DESDE"))) {
         	c.setIndentationDecrement().before(keyFinDesde);
         }
         
-        for(keyEntoncesSi: findKeywords("entonces")) {
+        for(keyEntoncesSi: findKeywords(readerKeywords.getBundle().getString("KEYWORD_ENTONCES"))) {
         	c.setIndentationIncrement().before(keyEntoncesSi);
         }
         
-        for(keySinoSi: findKeywords("sino")) {
+        for(keySinoSi: findKeywords(readerKeywords.getBundle().getString("KEYWORD_SINO"))) {
         	c.setIndentationDecrement().before(keySinoSi);
         	c.setIndentationIncrement().after(keySinoSi);
         }
         
-        for(keyFinSi: findKeywords("fin_si")) {
+        for(keyFinSi: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_SI"))) {
         	c.setIndentationDecrement().before(keyFinSi);
         }
         
-        for(keyFinMientras: findKeywords("fin_mientras")) {
+        for(keyFinMientras: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_MIENTRAS"))) {
         	c.setIndentationDecrement().before(keyFinMientras);
         }
         
-        for(keyRepetir: findKeywords("repetir")) {
+        for(keyRepetir: findKeywords(readerKeywords.getBundle().getString("KEYWORD_REPETIR"))) {
         	c.setIndentationIncrement().after(keyRepetir);
         }
         
-        for(keyHastaQueRepetir: findKeywords("hasta_que")) {
+        for(keyHastaQueRepetir: findKeywords(readerKeywords.getBundle().getString("KEYWORD_HASTA_QUE"))) {
         	c.setIndentationDecrement().before(keyHastaQueRepetir);
         }
         
-        for(keyFinSegun: findKeywords("fin_segun")) {
+        for(keyFinSegun: findKeywords(readerKeywords.getBundle().getString("KEYWORD_FIN_SEGUN"))) {
         	c.setIndentationDecrement().before(keyFinSegun);
         }
         
