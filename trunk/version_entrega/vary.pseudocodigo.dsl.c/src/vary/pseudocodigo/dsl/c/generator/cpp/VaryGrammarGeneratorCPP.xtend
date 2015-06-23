@@ -137,6 +137,7 @@ import diagramapseudocodigo.CabeceraProcedimiento
 import diagramapseudocodigo.CabeceraFuncion
 import diagramapseudocodigo.CabeceraSubproceso
 import vary.pseudocodigo.dsl.c.generator.VaryGeneratorInterface
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface
 
 /**
  * Generates code from your model files on save.
@@ -156,6 +157,11 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	static Map<String, String> funciones = new HashMap<String,String>();
 	static ReadFileProperties readerFileProperties = new ReadFileProperties();
 	static Map<String,ArrayList<Integer>> subprocesosConPunteros = new HashMap<String,ArrayList<Integer>>();
+	static ReadMessagesValidatorInterface readerMessages;
+	
+	new(ReadMessagesValidatorInterface readerMessages) {
+		VaryGrammarGeneratorCPP.readerMessages = readerMessages;
+	}
 
 	override void doGenerate(Resource resource, IFileSystemAccess myCFile) {
 		for (myPseudo : resource.allContents.toIterable.filter(typeof(Codigo))) {
@@ -1008,18 +1014,11 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 
 	def tipoVariableCpp(TipoVariable tipo) {
-		if(tipo == TipoVariable::ENTERO) return "int";
-		if(tipo == TipoVariable::CARACTER) return "char";
-		if(tipo == TipoVariable::REAL) return "float";
-		if(tipo == TipoVariable::LOGICO) return "bool";
-		if(tipo == TipoVariable::CADENA) return "string";
-	}
-	
-	def tipoVariableCppDeclaraciones(TipoVariable tipo) {
-		if(tipo == TipoVariable::ENTERO) return "int";
-		if(tipo == TipoVariable::CARACTER) return "char";
-		if(tipo == TipoVariable::REAL) return "float";
-		if(tipo == TipoVariable::LOGICO) return "bool";
+		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) return "int";
+		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) return "char";
+		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_REAL"))) return "float";
+		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) return "bool";
+		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_CADENA"))) return "string";
 	}
 
 	override generate(EList<ParametroFuncion> parametros) {

@@ -397,9 +397,9 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + "tVect: vect" + '\n' +
 					'\t' + '\t' + "integer: a, b, result" + '\n' +
 					'\t' + "initiation" + '\n' +
-				    '\t' + '\t' + "write(\"Introduce el valor del sumando a\")" + '\n' +
+				    '\t' + '\t' + "write(\"Enter the value of adding a\")" + '\n' +
 					'\t' + '\t' + "read(a)" + '\n' +
-					'\t' + '\t' + "write(\"Introduce el valor del sumando b\")" + '\n' +
+					'\t' + '\t' + "write(\"Enter the value of adding b\")" + '\n' +
 					'\t' + '\t' + "read(b)" + '\n' +
 					'\t' + '\t' + "according_to(option) do" + '\n' +
 					'\t' + '\t' + '\t' + "case 1:  write(\"The sum of both values is calculated with the function: \", sumFun(a,b))" + '\n' +

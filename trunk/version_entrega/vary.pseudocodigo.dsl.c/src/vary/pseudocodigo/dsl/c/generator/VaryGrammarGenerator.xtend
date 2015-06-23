@@ -12,6 +12,9 @@ import java.io.IOException
 import diagramapseudocodigo.Codigo
 import vary.pseudocodigo.dsl.c.generator.c.VaryGrammarGeneratorC
 import vary.pseudocodigo.dsl.c.generator.cpp.VaryGrammarGeneratorCPP
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface
+import com.google.inject.Inject
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator
 
 /**
  * Generates code from your model files on save.
@@ -21,6 +24,16 @@ import vary.pseudocodigo.dsl.c.generator.cpp.VaryGrammarGeneratorCPP
 class VaryGrammarGenerator implements IGenerator {
 	
 	static ReadFileProperties readerFileProperties = new ReadFileProperties();
+	protected final ReadMessagesValidatorInterface readerMessages;
+	
+	@Inject
+	new() {
+		readerMessages = new ReadMessagesValidator();
+	}
+	
+	new(String lenguaje) {
+		readerMessages = new vary.pseudocodigo.dsl.c.english.validation.messages.ReadMessagesValidator();
+	}
 
 	//EMap<String, TipoVariable> tablaSimbolos;
 	override void doGenerate(Resource resource, IFileSystemAccess myCFile) {
@@ -50,12 +63,13 @@ class VaryGrammarGenerator implements IGenerator {
 			
 			var tipoProyecto = contenidoFichero.replaceAll("lenguajeGeneracion=","");
 			
+			
 			if(tipoProyecto == "C") {
-				var generadorC = new VaryGrammarGeneratorC()
+				var generadorC = new VaryGrammarGeneratorC(readerMessages)
 				generadorC.doGenerate(resource, myCFile)
 			}
 			else {
-				var generadorCPP = new VaryGrammarGeneratorCPP()
+				var generadorCPP = new VaryGrammarGeneratorCPP(readerMessages)
 				generadorCPP.doGenerate(resource, myCFile)
 			}
 		}
