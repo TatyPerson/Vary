@@ -3,38 +3,16 @@
  */
 package vary.pseudocodigo.dsl.c.english.ui.contentassist
 import vary.pseudocodigo.dsl.c.ui.contentassist.VaryGrammarProposalProvider
-import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
-import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
-import com.google.common.collect.Sets
-import org.eclipse.xtext.Keyword
+import com.google.inject.Inject
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class VaryGrammarEnglishProposalProvider extends VaryGrammarProposalProvider {
 	
-	var filtrarKeywords = Sets.newHashSet("Algorithm", "Module", "open", "close", "for", "write", "read", "while", "repeat",
-		"according_to", "if", "archive of ", "matrix", "procedure", "function", "registry:", "end_registry", "vector", "return")
-		
-	override void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
-		if(filtrarKeywords.contains(keyword.getValue)) {
-			return;
-		}
-		super.completeKeyword(keyword, contentAssistContext, acceptor);
-	}
-	
-	override void completeDeclaracionVariable_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		//Añadimos todas las propuestas con los tipos nativos posibles
-		var completionProposal = createCompletionProposal("integer", context)
-		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("real", context)
-		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("boolean", context)
-		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("character", context)
-		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("string", context)
-		acceptor.accept(completionProposal)
+	@Inject
+	public new() {
+		super("English")
 	}
 	
 }

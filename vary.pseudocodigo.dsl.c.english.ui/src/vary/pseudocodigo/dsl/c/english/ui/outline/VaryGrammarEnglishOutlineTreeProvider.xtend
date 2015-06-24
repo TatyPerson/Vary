@@ -10,6 +10,4 @@ import vary.pseudocodigo.dsl.c.ui.outline.VaryGrammarOutlineTreeProvider
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class VaryGrammarEnglishOutlineTreeProvider extends VaryGrammarOutlineTreeProvider {
-	
-}
+class VaryGrammarEnglishOutlineTreeProvider extends VaryGrammarOutlineTreeProvider {}
