@@ -5,8 +5,6 @@ package vary.pseudocodigo.dsl.c.english.ui.labeling
 
 import com.google.inject.Inject
 import vary.pseudocodigo.dsl.c.ui.labeling.VaryGrammarLabelProvider
-import diagramapseudocodigo.Inicio
-import org.eclipse.jface.viewers.StyledString
 
 /**
  * Provides labels for a EObjects.
@@ -17,11 +15,7 @@ class VaryGrammarEnglishLabelProvider extends VaryGrammarLabelProvider {
 
 	@Inject
 	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
-		super(delegate);
-	}
-	
-	override text(Inicio inicio) {
-		return new StyledString('Main', stylerFactory.createXtextStyleAdapterStyler(getPrincipalesTextStyle()));
+		super(delegate, "English");
 	}
 	
 }

@@ -42,6 +42,8 @@ import org.eclipse.swt.SWT
 import org.eclipse.swt.graphics.RGB
 import org.eclipse.jface.viewers.StyledString
 import org.eclipse.xtext.ui.label.StylerFactory
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywords
 
 /**
  * Provides labels for a EObjects.
@@ -49,11 +51,18 @@ import org.eclipse.xtext.ui.label.StylerFactory
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
 class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+	protected final ReadKeywordsInterface readerKeywords
 	@Inject 
 	protected StylerFactory stylerFactory;
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	public new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
 		super(delegate);
+		readerKeywords = new ReadKeywords();
+	}
+	
+	public new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate, String language) {
+		super(delegate);
+		readerKeywords = new vary.pseudocodigo.dsl.c.english.keywords.ReadKeywords();
 	}
 	
 	//Definición de colores para los nodos---------------------------------------------------------------------------------
@@ -274,7 +283,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Inicio inicio) {
-		return new StyledString('Principal', stylerFactory.createXtextStyleAdapterStyler(getPrincipalesTextStyle()));
+		return new StyledString(readerKeywords.getBundle.getString("KEYWORD_PRINCIPAL"), stylerFactory.createXtextStyleAdapterStyler(getPrincipalesTextStyle()));
 	}
 	
 	def image(VariableID variableID) {
