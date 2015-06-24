@@ -454,5 +454,22 @@
             extensions="p">
     </provider>
   </extension>
+  <extension
+        point="org.eclipse.ui.importWizards">
+     <category
+           id="vary.pseudocodigo.dsl.c.ui.wizards.import.vary"
+           name="Vary">
+     </category>
+     <wizard
+           category="vary.pseudocodigo.dsl.c.ui.wizards.import.vary"
+           class="vary.pseudocodigo.dsl.c.ui.wizards.imports.ImportWizard"
+           icon="icons/Vary_Icono.png"
+           id="vary.pseudocodigo.dsl.c.ui.wizards.imports.ImportWizard"
+           name="Vary File">
+        <description>
+           Import a file from the local file system into the workspace.
+        </description>
+     </wizard>
+  </extension>
 
 </plugin>
