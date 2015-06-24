@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <templates>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Algoritmo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Algoritmo" deleted="false" description="Plantilla para crear la estructura básica del Algoritmo" enabled="true" name="Algoritmo">/*
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Algoritmo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Algoritmo" deleted="false" description="Template to create the basic structure of a Algorithm" enabled="true" name="Algorithm">/*
 /*
 * Algorithm: test
 * Author:
