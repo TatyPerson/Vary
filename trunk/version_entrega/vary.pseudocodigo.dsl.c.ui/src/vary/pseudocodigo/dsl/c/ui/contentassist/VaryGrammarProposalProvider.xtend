@@ -9,7 +9,6 @@ import org.eclipse.xtext.Assignment
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import diagramapseudocodigo.Modulo
-import org.eclipse.jface.viewers.StyledString
 import diagramapseudocodigo.Variable
 import diagramapseudocodigo.Declaracion
 import diagramapseudocodigo.DeclaracionVariable
@@ -38,19 +37,55 @@ import diagramapseudocodigo.TipoDefinido
 import diagramapseudocodigo.TipoExistente
 import org.eclipse.xtext.Keyword
 import com.google.common.collect.Sets
+import com.google.inject.Inject
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywords
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface
+import java.util.HashSet
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
  */
 class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
-	var filtrarKeywords = Sets.newHashSet("Algoritmo", "Modulo", "abrir", "cerrar", "desde", "escribir", "leer", "mientras", "repetir",
-		"segun_sea", "si", "archivo de ", "matriz", "procedimiento", "funcion", "registro:", "fin_registro", "vector", "devolver")
+	protected final ReadKeywordsInterface readerKeywords
+	protected HashSet<String> filteringKeywods
+	
+	@Inject
+	public new() {
+		readerKeywords = new ReadKeywords();
+		initializeFilteringKeywords();
+	}
+	
+	public new(String language) {
+		readerKeywords = new vary.pseudocodigo.dsl.c.english.keywords.ReadKeywords();
+		initializeFilteringKeywords();
+	}
+	
+	def initializeFilteringKeywords() {
+		filteringKeywods = Sets.newHashSet(readerKeywords.getBundle.getString("KEYWORD_ALGORITMO"), 
+		readerKeywords.getBundle.getString("KEYWORD_MODULO"), 
+		readerKeywords.getBundle.getString("KEYWORD_ABRIR"),
+		readerKeywords.getBundle.getString("KEYWORD_CERRAR"), 
+		readerKeywords.getBundle.getString("KEYWORD_DESDE"), 
+		readerKeywords.getBundle.getString("KEYWORD_ESCRIBIR"), 
+		readerKeywords.getBundle.getString("KEYWORD_LEER"), 
+		readerKeywords.getBundle.getString("KEYWORD_MIENTRAS"), 
+		readerKeywords.getBundle.getString("KEYWORD_REPETIR"),
+		readerKeywords.getBundle.getString("KEYWORD_SEGUN_SEA"), 
+		readerKeywords.getBundle.getString("KEYWORD_SI"), 
+		readerKeywords.getBundle.getString("KEYWORD_ARCHIVO"), 
+		readerKeywords.getBundle.getString("KEYWORD_MATRIZ"), 
+		readerKeywords.getBundle.getString("KEYWORD_PROCEDIMIENTO"), 
+		readerKeywords.getBundle.getString("KEYWORD_FUNCION"), 
+		readerKeywords.getBundle.getString("KEYWORD_REGISTRO"), 
+		readerKeywords.getBundle.getString("KEYWORD_VECTOR"), 
+		readerKeywords.getBundle.getString("KEYWORD_DEVOLVER"))
+	}
 	
 	
 	//Filtramos los keywords "sueltos" que ofrece -------------------------------------------------------------------------
 	override void completeKeyword(Keyword keyword, ContentAssistContext contentAssistContext, ICompletionProposalAcceptor acceptor) {
-		if(filtrarKeywords.contains(keyword.getValue)) {
+		if(filteringKeywods.contains(keyword.getValue)) {
 			return;
 		}
 		super.completeKeyword(keyword, contentAssistContext, acceptor);
@@ -122,15 +157,15 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def void completeDeclaracionVariable_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		//Añadimos todas las propuestas con los tipos nativos posibles
-		var completionProposal = createCompletionProposal("entero", context)
+		var completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_ENTERO"), context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("real", context)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_REAL"), context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("logico", context)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_LOGICO"), context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("caracter", context)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_CARACTER"), context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("cadena", context)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_CADENA"), context)
 		acceptor.accept(completionProposal)
 	}
 	
