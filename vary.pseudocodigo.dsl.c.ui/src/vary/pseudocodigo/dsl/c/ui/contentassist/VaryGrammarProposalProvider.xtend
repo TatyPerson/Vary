@@ -41,6 +41,10 @@ import com.google.inject.Inject
 import vary.pseudocodigo.dsl.c.keywords.ReadKeywords
 import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface
 import java.util.HashSet
+import org.eclipse.jface.viewers.StyledString
+import org.eclipse.swt.graphics.Image
+import org.eclipse.jface.resource.ImageDescriptor
+import java.util.ArrayList
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -49,16 +53,22 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	protected final ReadKeywordsInterface readerKeywords
 	protected HashSet<String> filteringKeywods
+	private static Image localIcon
+	private static Image constPublic
 	
 	@Inject
 	public new() {
 		readerKeywords = new ReadKeywords();
 		initializeFilteringKeywords();
+		localIcon = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/localvariable_obj.gif").createImage();
+		constPublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field_public.gif").createImage();
 	}
 	
 	public new(String language) {
 		readerKeywords = new vary.pseudocodigo.dsl.c.english.keywords.ReadKeywords();
 		initializeFilteringKeywords();
+		localIcon = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/localvariable_obj.gif").createImage();
+		constPublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field_public.gif").createImage();
 	}
 	
 	def initializeFilteringKeywords() {
@@ -636,15 +646,39 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	override void completeVector_Valor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var algoritmo = context.getRootModel as Algoritmo
+			var constantesLocales = new ArrayList<String>()
 			for(constante: algoritmo.constantes) {
-				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
+				constantesLocales.add(constante.variable.nombre)
+				var styledString = new StyledString(constante.variable.nombre)
+				var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, localIcon, context)
 				acceptor.accept(completionProposal)
+			}
+			for(modulo: algoritmo.importaciones) {
+				for(constante: modulo.implementacion.constantes) {
+					if(modulo.exporta_constantes.contains(constante.variable.nombre) && !constantesLocales.contains(constante.variable.nombre)) {
+						var styledString = new StyledString(constante.variable.nombre + " : " + modulo.nombre)
+						var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
 			}
 		} else if(context.getRootModel instanceof Modulo) {
 			var modulo = context.getRootModel as Modulo
+			var constantesLocales = new ArrayList<String>()
 			for(constante: modulo.implementacion.constantes) {
-				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
+				constantesLocales.add(constante.variable.nombre)
+				var styledString = new StyledString(constante.variable.nombre)
+				var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, localIcon, context)
 				acceptor.accept(completionProposal)
+			}
+			for(moduloImp: modulo.importaciones) {
+				for(constante: moduloImp.implementacion.constantes) {
+					if(moduloImp.exporta_constantes.contains(constante.variable.nombre) && !constantesLocales.contains(constante.variable.nombre)) {
+						var styledString = new StyledString(constante.variable.nombre + " : " + moduloImp.nombre)
+						var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
 			}
 		}
 	}
