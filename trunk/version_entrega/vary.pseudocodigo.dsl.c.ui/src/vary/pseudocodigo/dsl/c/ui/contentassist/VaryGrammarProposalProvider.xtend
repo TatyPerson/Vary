@@ -55,20 +55,25 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	protected HashSet<String> filteringKeywods
 	private static Image localIcon
 	private static Image constPublic
+	private static Image typePrivate
 	
 	@Inject
 	public new() {
 		readerKeywords = new ReadKeywords();
 		initializeFilteringKeywords();
-		localIcon = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/localvariable_obj.gif").createImage();
-		constPublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field_public.gif").createImage();
+		initializeIcons()
 	}
 	
 	public new(String language) {
 		readerKeywords = new vary.pseudocodigo.dsl.c.english.keywords.ReadKeywords();
 		initializeFilteringKeywords();
+		initializeIcons()
+	}
+	
+	def initializeIcons() {
 		localIcon = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/localvariable_obj.gif").createImage();
 		constPublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field_public.gif").createImage();
+		typePrivate = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/typevariable_private.gif").createImage();
 	}
 	
 	def initializeFilteringKeywords() {
@@ -105,51 +110,66 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	override void completeDeclaracionPropia_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		
 		if(context.getRootModel instanceof Algoritmo) {
+			var tiposLocales = new ArrayList<String>()
 			var algoritmo = context.getRootModel() as Algoritmo;
 			//Cogemos todos los tipos
-			completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo)
+			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo, tiposLocales)
 		}
 		else if(context.getRootModel instanceof Modulo) {
+			var tiposLocales = new ArrayList<String>()
 			var modulo = context.getRootModel() as Modulo;
 			//Cogemos todos los tipos
-			completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo)
+			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo, tiposLocales)
 		}
 	}
 	
-	def void completeDeclaracionPropia_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<TipoComplejo> complejos) {
+	def ArrayList<String> completeDeclaracionPropia_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<TipoComplejo> complejos, ArrayList<String> tiposLocales) {
 		for(tipo: complejos) {
 			if(tipo instanceof Vector) {
 				var vector = tipo as Vector
+				tiposLocales.add(vector.nombre)
 				//Creamos un nuevo proposal
-				var completionProposal = createCompletionProposal(vector.nombre, context);
-				acceptor.accept(completionProposal);
+				var styledString = new StyledString(vector.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_VECTOR"))
+				var completionProposal = createCompletionProposal(vector.nombre, styledString, typePrivate, context)
+				acceptor.accept(completionProposal)
 			}
 			else if(tipo instanceof Matriz) {
 				var matriz = tipo as Matriz
-				var completionProposal = createCompletionProposal(matriz.nombre, context);
-				acceptor.accept(completionProposal);
+				tiposLocales.add(matriz.nombre)
+				var styledString = new StyledString(matriz.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_MATRIZ"))
+				var completionProposal = createCompletionProposal(matriz.nombre, styledString, typePrivate, context)
+				acceptor.accept(completionProposal)
 			}
 			else if(tipo instanceof Registro) {
 				var registro = tipo as Registro
-				var completionProposal = createCompletionProposal(registro.nombre, context);
-				acceptor.accept(completionProposal);
+				tiposLocales.add(registro.nombre)
+				var styledString = new StyledString(registro.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_REGISTRO"))
+				var completionProposal = createCompletionProposal(registro.nombre, styledString, typePrivate, context)
+				acceptor.accept(completionProposal)
 			}
 			else if(tipo instanceof Enumerado) {
 				var enumerado = tipo as Enumerado
-				var completionProposal = createCompletionProposal(enumerado.nombre, context);
-				acceptor.accept(completionProposal);
+				tiposLocales.add(enumerado.nombre)
+				var styledString = new StyledString(enumerado.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_ENUMERADO"))
+				var completionProposal = createCompletionProposal(enumerado.nombre, styledString, typePrivate, context)
+				acceptor.accept(completionProposal)
 			}
 			else if(tipo instanceof Subrango) {
 				var subrango = tipo as Subrango
-				var completionProposal = createCompletionProposal(subrango.nombre, context);
-				acceptor.accept(completionProposal);
+				tiposLocales.add(subrango.nombre)
+				var styledString = new StyledString(subrango.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_SUBRANGO"))
+				var completionProposal = createCompletionProposal(subrango.nombre, styledString, typePrivate, context)
+				acceptor.accept(completionProposal)
 			}
 			else if(tipo instanceof Archivo) {
 				var archivo = tipo as Archivo
-				var completionProposal = createCompletionProposal(archivo.nombre, context);
-				acceptor.accept(completionProposal);
+				tiposLocales.add(archivo.nombre)
+				var styledString = new StyledString(archivo.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_ARCHIVO"))
+				var completionProposal = createCompletionProposal(archivo.nombre, styledString, typePrivate, context)
+				acceptor.accept(completionProposal)
 			}
 		}
+		return tiposLocales
 	}
 	//Proposal para las variables definidas con un tipo nativo ------------------------------------------------------------
 	override void completeDeclaracionVariable_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -618,11 +638,13 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	override void completeTipoDefinido_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
+			var tiposLocales = new ArrayList<String>()
 			var algoritmo = context.getRootModel as Algoritmo
-			completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo)
+			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo, tiposLocales)
 		} else if(context.getRootModel instanceof Modulo) {
+			var tiposLocales = new ArrayList<String>()
 			var modulo = context.getRootModel as Modulo
-			completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo)
+			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo, tiposLocales)
 		}
 	}
 	
@@ -643,41 +665,45 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	//Proposal para la variable constante que se usa al crear el tipo vector-----------------------------------------------
 	
-	override void completeVector_Valor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	def void completeVectorMatriz_Valor(EObject model, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var algoritmo = context.getRootModel as Algoritmo
 			var constantesLocales = new ArrayList<String>()
 			for(constante: algoritmo.constantes) {
 				constantesLocales.add(constante.variable.nombre)
 				var styledString = new StyledString(constante.variable.nombre)
-				var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, localIcon, context)
+				var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
 				acceptor.accept(completionProposal)
 			}
-			for(modulo: algoritmo.importaciones) {
-				for(constante: modulo.implementacion.constantes) {
-					if(modulo.exporta_constantes.contains(constante.variable.nombre) && !constantesLocales.contains(constante.variable.nombre)) {
-						var styledString = new StyledString(constante.variable.nombre + " : " + modulo.nombre)
-						var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
-						acceptor.accept(completionProposal)
-					}
-				}
-			}
+			complete_ValorAux(context, acceptor, algoritmo.importaciones, constantesLocales)
+			
 		} else if(context.getRootModel instanceof Modulo) {
 			var modulo = context.getRootModel as Modulo
 			var constantesLocales = new ArrayList<String>()
 			for(constante: modulo.implementacion.constantes) {
 				constantesLocales.add(constante.variable.nombre)
 				var styledString = new StyledString(constante.variable.nombre)
-				var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, localIcon, context)
+				var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
 				acceptor.accept(completionProposal)
 			}
-			for(moduloImp: modulo.importaciones) {
-				for(constante: moduloImp.implementacion.constantes) {
-					if(moduloImp.exporta_constantes.contains(constante.variable.nombre) && !constantesLocales.contains(constante.variable.nombre)) {
-						var styledString = new StyledString(constante.variable.nombre + " : " + moduloImp.nombre)
-						var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
-						acceptor.accept(completionProposal)
-					}
+			complete_ValorAux(context, acceptor, modulo.importaciones, constantesLocales)
+		}
+	}
+	
+	override void completeVector_Valor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeVectorMatriz_Valor(model, context, acceptor)
+	}
+	
+	def void complete_ValorAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos, List<String> constantesLocales) {
+		for(modulo: modulos) {
+			for(constante: modulo.implementacion.constantes) {
+				if(modulo.exporta_constantes.contains(constante.variable.nombre) && !constantesLocales.contains(constante.variable.nombre)) {
+					var styledString = new StyledString(constante.variable.nombre)
+					var styledStringAux = new StyledString(" - " + modulo.nombre)
+					styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+					styledString.append(styledStringAux)
+					var completionProposal = createCompletionProposal(constante.variable.nombre, styledString, constPublic, context)
+					acceptor.accept(completionProposal)
 				}
 			}
 		}
@@ -686,19 +712,6 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	//Proposal para la variable constante que se usa al crear el tipo Matriz-----------------------------------------------
 	
 	override void completeMatriz_Valor(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		if(context.getRootModel instanceof Algoritmo) {
-			var algoritmo = context.getRootModel as Algoritmo
-			for(constante: algoritmo.constantes) {
-				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
-				acceptor.accept(completionProposal)
-			}
-		} else if(context.getRootModel instanceof Modulo) {
-			var modulo = context.getRootModel as Modulo
-			for(constante: modulo.implementacion.constantes) {
-				var completionProposal = createCompletionProposal(constante.variable.nombre, context)
-				acceptor.accept(completionProposal)
-			}
-		}
+		completeVectorMatriz_Valor(model, context, acceptor)
 	}
-	
 }
