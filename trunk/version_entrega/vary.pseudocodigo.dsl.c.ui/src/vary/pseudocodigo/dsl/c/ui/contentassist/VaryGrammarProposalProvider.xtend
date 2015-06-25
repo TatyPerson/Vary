@@ -56,6 +56,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	private static Image localIcon
 	private static Image constPublic
 	private static Image typePrivate
+	private static Image typePublic
+	private static Image typesClassics
 	
 	@Inject
 	public new() {
@@ -74,6 +76,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		localIcon = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/localvariable_obj.gif").createImage();
 		constPublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field_public.gif").createImage();
 		typePrivate = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/typevariable_private.gif").createImage();
+		typePublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/typevariable_public.gif").createImage();
+		typesClassics = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/methpub_obj.gif").createImage();
 	}
 	
 	def initializeFilteringKeywords() {
@@ -114,12 +118,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var algoritmo = context.getRootModel() as Algoritmo;
 			//Cogemos todos los tipos
 			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo, tiposLocales)
+			completeDeclaracionPropia_TipoModulos(context, acceptor, algoritmo.importaciones, tiposLocales)
 		}
 		else if(context.getRootModel instanceof Modulo) {
 			var tiposLocales = new ArrayList<String>()
 			var modulo = context.getRootModel() as Modulo;
 			//Cogemos todos los tipos
 			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo, tiposLocales)
+			completeDeclaracionPropia_TipoModulos(context, acceptor, modulo.importaciones, tiposLocales)
 		}
 	}
 	
@@ -171,6 +177,82 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		}
 		return tiposLocales
 	}
+	
+	def void completeDeclaracionPropia_TipoModulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos, ArrayList<String> tiposLocales) {
+		for(modulo: modulos) {
+			for(tipo: modulo.implementacion.tipocomplejo) {
+				if(tipo instanceof Vector) {
+					var vector = tipo as Vector
+					if(modulo.exporta_tipos.contains(vector.nombre) && !tiposLocales.contains(vector.nombre)) {
+						//Creamos un nuevo proposal
+						var styledString = new StyledString(vector.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_VECTOR"))
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(vector.nombre, styledString, typePublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
+				else if(tipo instanceof Matriz) {
+					var matriz = tipo as Matriz
+					if(modulo.exporta_tipos.contains(matriz.nombre) && !tiposLocales.contains(matriz.nombre)) {
+						var styledString = new StyledString(matriz.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_MATRIZ"))
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(matriz.nombre, styledString, typePublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
+				else if(tipo instanceof Registro) {
+					var registro = tipo as Registro
+					if(modulo.exporta_tipos.contains(registro.nombre) && !tiposLocales.contains(registro.nombre)) {
+						var styledString = new StyledString(registro.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_REGISTRO"))
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(registro.nombre, styledString, typePublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
+				else if(tipo instanceof Enumerado) {
+					var enumerado = tipo as Enumerado
+					if(modulo.exporta_tipos.contains(enumerado.nombre) && !tiposLocales.contains(enumerado.nombre)) {
+						var styledString = new StyledString(enumerado.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_ENUMERADO"))
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(enumerado.nombre, styledString, typePublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
+				else if(tipo instanceof Subrango) {
+					var subrango = tipo as Subrango
+					if(modulo.exporta_tipos.contains(subrango.nombre) && !tiposLocales.contains(subrango.nombre)) {
+						var styledString = new StyledString(subrango.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_SUBRANGO"))
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(subrango.nombre, styledString, typePublic, context)
+						acceptor.accept(completionProposal)
+					}
+				}
+				else if(tipo instanceof Archivo) {
+					var archivo = tipo as Archivo
+					if(modulo.exporta_tipos.contains(archivo.nombre) && !tiposLocales.contains(archivo.nombre)) {
+						var styledString = new StyledString(archivo.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_ARCHIVO"))
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(archivo.nombre, styledString, typePublic, context)
+						acceptor.accept(completionProposal)
+					}
+				
+				}
+			}
+		}
+	}
+	
 	//Proposal para las variables definidas con un tipo nativo ------------------------------------------------------------
 	override void completeDeclaracionVariable_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
@@ -187,16 +269,27 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def void completeDeclaracionVariable_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		//Añadimos todas las propuestas con los tipos nativos posibles
-		var completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_ENTERO"), context)
+		var styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_ENTERO"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		var completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_ENTERO"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_REAL"), context)
+		styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_REAL"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_REAL"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_LOGICO"), context)
+		styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_LOGICO"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_LOGICO"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_CARACTER"), context)
+		styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_CARACTER"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_CARACTER"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_CADENA"), context)
+		styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_CADENA"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_CADENA"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
+		
 	}
 	
 	//Proposal para las variableID en las asignacionesNormal---------------------------------------------------------------
@@ -641,10 +734,12 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var tiposLocales = new ArrayList<String>()
 			var algoritmo = context.getRootModel as Algoritmo
 			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo, tiposLocales)
+			completeDeclaracionPropia_TipoModulos(context, acceptor, algoritmo.importaciones, tiposLocales)
 		} else if(context.getRootModel instanceof Modulo) {
 			var tiposLocales = new ArrayList<String>()
 			var modulo = context.getRootModel as Modulo
 			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo, tiposLocales)
+			completeDeclaracionPropia_TipoModulos(context, acceptor, modulo.importaciones, tiposLocales)
 		}
 	}
 	
