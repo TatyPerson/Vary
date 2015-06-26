@@ -60,6 +60,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	private static Image typesClassics
 	private static Image varPrivate
 	private static Image funcionPrivada
+	private static Image fieldRegistry
 	
 	@Inject
 	public new() {
@@ -82,6 +83,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		typesClassics = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/methpub_obj.gif").createImage();
 		varPrivate = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/field_private_obj.gif").createImage();
 		funcionPrivada = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/methpri_obj.gif").createImage();
+		fieldRegistry = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field.gif").createImage();
 	}
 	
 	def initializeFilteringKeywords() {
@@ -153,7 +155,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			else if(tipo instanceof Registro) {
 				var registro = tipo as Registro
 				tiposLocales.add(registro.nombre)
-				var styledString = new StyledString(registro.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_REGISTRO"))
+				var styledString = new StyledString(registro.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_REGISTRO").replaceAll(":", ""))
 				var completionProposal = createCompletionProposal(registro.nombre, styledString, typePrivate, context)
 				acceptor.accept(completionProposal)
 			}
@@ -211,7 +213,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				else if(tipo instanceof Registro) {
 					var registro = tipo as Registro
 					if(modulo.exporta_tipos.contains(registro.nombre) && !tiposLocales.contains(registro.nombre)) {
-						var styledString = new StyledString(registro.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_REGISTRO"))
+						var styledString = new StyledString(registro.nombre + " : " + readerKeywords.bundle.getString("KEYWORD_REGISTRO").replaceAll(":", ""))
 						var styledStringAux = new StyledString(" - " + modulo.nombre)
 						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 						styledString.append(styledStringAux)
@@ -550,6 +552,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					declaraciones.addAll(algoritmo.global)
 					var complejos = algoritmo.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, algoritmo.importaciones)
 				}
 				else {
 					if(procedimiento != null) {
@@ -557,12 +560,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						declaraciones.addAll(algoritmo.global)
 						var complejos = algoritmo.tipocomplejo
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, algoritmo.importaciones)
 					}
 					else {
 						var declaraciones = funcion.declaracion
 						declaraciones.addAll(algoritmo.global)
 						var complejos = algoritmo.tipocomplejo
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, algoritmo.importaciones)
 					}
 				}
 			}
@@ -577,6 +582,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					declaraciones.addAll(algoritmo.global)
 					var complejos = algoritmo.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, algoritmo.importaciones)
 				}
 				else {
 					if(procedimiento != null) {
@@ -584,12 +590,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						declaraciones.addAll(algoritmo.global)
 						var complejos = algoritmo.tipocomplejo
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, algoritmo.importaciones)
 					}
 					else {
 						var declaraciones = funcion.declaracion
 						declaraciones.addAll(algoritmo.global)
 						var complejos = algoritmo.tipocomplejo
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, algoritmo.importaciones)
 					}
 				}
 			}
@@ -604,6 +612,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					declaraciones.addAll(algoritmo.global)
 					var complejos = algoritmo.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, algoritmo.importaciones)
 				}
 				else {
 					if(procedimiento != null) {
@@ -611,12 +620,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						declaraciones.addAll(algoritmo.global)
 						var complejos = algoritmo.tipocomplejo
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, algoritmo.importaciones)
 					}
 					else {
 						var declaraciones = funcion.declaracion
 						declaraciones.addAll(algoritmo.global)
 						var complejos = algoritmo.tipocomplejo
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, algoritmo.importaciones)
 					}
 				}
 			}
@@ -634,12 +645,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					declaraciones.addAll(modulo.implementacion.global)
 					var complejos = modulo.implementacion.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, modulo.importaciones)
 				}
 				else {
 					var declaraciones = funcion.declaracion
 					declaraciones.addAll(modulo.implementacion.global)
 					var complejos = modulo.implementacion.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, modulo.importaciones)
 			
 				}	
 			} else if(context.getCurrentModel instanceof ValorVector) {
@@ -652,12 +665,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					declaraciones.addAll(modulo.implementacion.global)
 					var complejos = modulo.implementacion.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, modulo.importaciones)
 				}
 				else {
 					var declaraciones = funcion.declaracion
 					declaraciones.addAll(modulo.implementacion.global)
 					var complejos = modulo.implementacion.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, modulo.importaciones)
 			
 				}	
 			} else if(context.getCurrentModel instanceof ValorMatriz) {
@@ -670,12 +685,14 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					declaraciones.addAll(modulo.implementacion.global)
 					var complejos = modulo.implementacion.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, modulo.importaciones)
 				}
 				else {
 					var declaraciones = funcion.declaracion
 					declaraciones.addAll(modulo.implementacion.global)
 					var complejos = modulo.implementacion.tipocomplejo
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
+					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, modulo.importaciones)
 			
 				}
 			}
@@ -758,14 +775,16 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						if(dec instanceof DeclaracionPropia) {
 							var decPropia = dec as DeclaracionPropia
 							for(Variable v: decPropia.variable) {
-								var completionProposal = createCompletionProposal(v.nombre, context)
+								var styledString = new StyledString(v.nombre + " : " + decPropia.tipo + " : " + tipo)
+								var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
 								acceptor.accept(completionProposal)
 							}
 						}
 						else {
 							var decVariable = dec as DeclaracionVariable
 							for(Variable v: decVariable.variable) {
-								var completionProposal = createCompletionProposal(v.nombre, context)
+								var styledString = new StyledString(v.nombre + " : " + decVariable.tipo.literal + " : " + tipo)
+								var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
 								acceptor.accept(completionProposal)
 							}
 						}
@@ -774,6 +793,113 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			}
 		}
 		
+	}
+	
+	def void completeCampoRegistro_Nombre_CampoAux_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Declaracion> declaraciones, List<TipoComplejo> complejos, String nombreVariable, List<Modulo> modulos) {
+		for(modulo: modulos) {
+			var tipo = new String()
+			if(context.getCurrentModel instanceof ValorRegistro) {
+				for(Declaracion dec: declaraciones) {
+					if(dec instanceof DeclaracionPropia) {
+						var decPropia = dec as DeclaracionPropia
+						for(Variable v: decPropia.variable) {
+							if(v.nombre.equals(nombreVariable)) {
+							tipo = decPropia.tipo
+							}
+						}
+					}
+					else {
+						var decVariable = dec as DeclaracionVariable
+						for(Variable v: decVariable.variable) {
+							if(v.nombre.equals(nombreVariable)) {
+								tipo = decVariable.tipo.literal
+							}
+						}
+					}
+				}
+			}
+			else if(context.getCurrentModel instanceof ValorVector || context.getCurrentModel instanceof ValorMatriz) {
+				for(Declaracion dec: declaraciones) {
+					if(dec instanceof DeclaracionPropia) {
+						var decPropia = dec as DeclaracionPropia
+						for(Variable v: decPropia.variable) {
+							if(v.nombre.equals(nombreVariable)) {
+								tipo = decPropia.tipo
+							}
+						}
+					}
+					else {
+						var decVariable = dec as DeclaracionVariable
+						for(Variable v: decVariable.variable) {
+							if(v.nombre.equals(nombreVariable)) {
+								tipo = decVariable.tipo.literal
+							}
+						}
+					}
+				}
+				for(TipoComplejo complejo: modulo.implementacion.tipocomplejo) {
+					if(!complejos.contains(complejo)) {
+						if(complejo instanceof Vector) {
+							var vector = complejo as Vector
+							if(vector.nombre.equals(tipo)) {
+								if(vector.tipo instanceof TipoDefinido) {
+									var tipoDefinido = vector.tipo as TipoDefinido
+									tipo = tipoDefinido.tipo
+								} else {
+									var tipoExistente = vector.tipo as TipoExistente
+									tipo = tipoExistente.tipo.literal
+								}
+							}
+						} else if(complejo instanceof Matriz) {
+							var matriz = complejo as Matriz
+							if(matriz.nombre.equals(tipo)) {
+								if(matriz.tipo instanceof TipoDefinido) {
+									var tipoDefinido = matriz.tipo as TipoDefinido
+									tipo = tipoDefinido.tipo
+								} else {
+									var tipoExistente = matriz.tipo as TipoExistente
+									tipo = tipoExistente.tipo.literal
+								}
+							}
+						}
+					}
+				}
+			}
+		
+			for(TipoComplejo complejo: complejos) {
+				if(!complejos.contains(complejo)) {
+					if(complejo instanceof Registro) {
+						var registro = complejo as Registro
+						if(registro.nombre.equals(tipo)) {
+							for(Declaracion dec: registro.variable) {
+								if(dec instanceof DeclaracionPropia) {
+									var decPropia = dec as DeclaracionPropia
+									for(Variable v: decPropia.variable) {
+										var styledString = new StyledString(v.nombre + " : " + decPropia.tipo + " : " + tipo)
+										var styledStringAux = new StyledString(" - " + modulo.nombre)
+										styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+										styledString.append(styledStringAux)
+										var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
+										acceptor.accept(completionProposal)
+									}	
+								}
+								else {
+									var decVariable = dec as DeclaracionVariable
+									for(Variable v: decVariable.variable) {
+										var styledString = new StyledString(v.nombre + " : " + decVariable.tipo.literal + " : " + tipo)
+										var styledStringAux = new StyledString(" - " + modulo.nombre)
+										styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+										styledString.append(styledStringAux)
+										var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
+										acceptor.accept(completionProposal)
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	//Proposal para la creación de tipos----------------------------------------------------------------------------------
@@ -799,11 +925,17 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	//Proposal para los tipo de paso de los parametros de los subprocesos-------------------------------------------------
 	
 	override void complete_TipoPaso(EObject model, RuleCall ruleCall, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		var completionProposal = createCompletionProposal("E", context)
+		var styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_ENTRADA"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		var completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_ENTRADA"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("E/S", context)
+		styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_SALIDA"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_SALIDA"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
-		completionProposal = createCompletionProposal("S", context)
+		styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_ENTRADASALIDA"))
+		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
+		completionProposal = createCompletionProposal(readerKeywords.getBundle.getString("KEYWORD_ENTRADASALIDA"), styledString, typesClassics, context)
 		acceptor.accept(completionProposal)
 	}
 	
