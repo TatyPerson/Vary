@@ -58,6 +58,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	private static Image typePrivate
 	private static Image typePublic
 	private static Image typesClassics
+	private static Image varPrivate
+	private static Image funcionPrivada
 	
 	@Inject
 	public new() {
@@ -78,6 +80,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		typePrivate = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/typevariable_private.gif").createImage();
 		typePublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/typevariable_public.gif").createImage();
 		typesClassics = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/methpub_obj.gif").createImage();
+		varPrivate = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/field_private_obj.gif").createImage();
+		funcionPrivada = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/methpri_obj.gif").createImage();
 	}
 	
 	def initializeFilteringKeywords() {
@@ -372,41 +376,57 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			if(s instanceof Procedimiento) {
 				//Sólo los procedimientos porque son los que no devuelven nada
 				var procedimiento = s as Procedimiento
-				completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+				complete_SentenciasAux(context, acceptor, procedimiento)
+				complete_SentenciasAux_Modulos(context, acceptor, algoritmo.importaciones, procedimiento)
 			}
 		}
 	}
 	
 	override void completeProcedimiento_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		if(context.getRootModel instanceof Algoritmo) {
-			var algoritmo = context.getRootModel as Algoritmo
-			for(Subproceso s: algoritmo.funcion) {
-				if(s instanceof Procedimiento) {
-					//Sólo los procedimientos porque son los que no devuelven nada
-					var procedimiento = s as Procedimiento
-					completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
-				}
-			}
-		}
-		else if(context.getRootModel instanceof Modulo) {
-			var modulo = context.getRootModel as Modulo
-			for(Subproceso s: modulo.implementacion.funcion) {
-				//Sólo los procedimientos porque son los que no devuelven nada
-				var procedimiento = s as Procedimiento
-				completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
-			}
-		}
-			
+		complete_Sentencias(model, assignment, context, acceptor)	
 	}
 	
 	override void completeFuncion_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeSi_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeMientras_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeRepetir_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeDesde_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeCaso_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeSegun_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	override void completeSino_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		complete_Sentencias(model, assignment, context, acceptor)	
+	}
+	
+	def void complete_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var algoritmo = context.getRootModel as Algoritmo
 			for(Subproceso s: algoritmo.funcion) {
 				if(s instanceof Procedimiento) {
 					//Sólo los procedimientos porque son los que no devuelven nada
 					var procedimiento = s as Procedimiento
-					completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+					complete_SentenciasAux(context, acceptor, procedimiento)
+					complete_SentenciasAux_Modulos(context, acceptor, algoritmo.importaciones, procedimiento)
 				}
 			}
 		}
@@ -415,28 +435,57 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			for(Subproceso s: modulo.implementacion.funcion) {
 				//Sólo los procedimientos porque son los que no devuelven nada
 				var procedimiento = s as Procedimiento
-				completeInicio_TieneAux(context, acceptor, procedimiento.nombre, procedimiento.parametrofuncion)
+				complete_SentenciasAux(context, acceptor, procedimiento)
+				complete_SentenciasAux_Modulos(context, acceptor, modulo.importaciones, procedimiento)
 			}
 		}
 	}
 	
-	def void completeInicio_TieneAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, String nombre, List<ParametroFuncion> parametros) {
-		var valorProposal = nombre + "("
-		if(parametros.size == 0) {
-			valorProposal = valorProposal + ")"
+	def void complete_SentenciasAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, Procedimiento procedimiento) {
+		var styledString = new StyledString(procedimiento.nombre + "(")
+		if(procedimiento.parametrofuncion.size == 0) {
+			styledString.append(")")
 		}
 		else {
-			for(ParametroFuncion p: parametros) {
-				if(parametros.indexOf(p) != parametros.size - 1) {
-					valorProposal = valorProposal + p.variable.nombre + ","
+			for(ParametroFuncion p: procedimiento.parametrofuncion) {
+				if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
+					styledString.append(p.variable.nombre + ",")
 				}
 				else {
-					valorProposal = valorProposal + p.variable.nombre + ")"
+					styledString.append(p.variable.nombre + ")")
 				}
 			}
 		}
-		var completionProposal = createCompletionProposal(valorProposal , context)
+		var completionProposal = createCompletionProposal(styledString.toString, styledString, funcionPrivada, context)
 		acceptor.accept(completionProposal)
+	}
+	
+	def void complete_SentenciasAux_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos, Procedimiento procedimiento) {
+		for(modulo: modulos) {
+			for(cabeceraFuncion: modulo.exporta_funciones) {
+				if(cabeceraFuncion.nombre.equals(procedimiento.nombre) && cabeceraFuncion.parametrofuncion.size == procedimiento.parametrofuncion.size) {
+					var styledString = new StyledString(procedimiento.nombre + "(")
+					if(procedimiento.parametrofuncion.size == 0) {
+						styledString.append(")")
+					}
+					else {
+						for(ParametroFuncion p: procedimiento.parametrofuncion) {
+							if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
+								styledString.append(p.variable.nombre + ",")
+							}
+							else {
+								styledString.append(p.variable.nombre + ")")
+							}
+						}
+					}
+					var styledStringAux = new StyledString(" - " + modulo.nombre)
+					styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+					styledString.append(styledStringAux)
+					var completionProposal = createCompletionProposal(styledString.toString, styledString, typesClassics, context)
+					acceptor.accept(completionProposal)
+				}
+			}
+		}
 	}
 	
 	//Proposal para los parametros de las llamadas a funciones y procedimientos -------------------------------------------
