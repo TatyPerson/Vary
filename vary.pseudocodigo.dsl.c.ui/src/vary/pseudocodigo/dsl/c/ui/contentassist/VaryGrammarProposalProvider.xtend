@@ -61,6 +61,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	private static Image varPrivate
 	private static Image funcionPrivada
 	private static Image fieldRegistry
+	private static Image varPublic
 	
 	@Inject
 	public new() {
@@ -84,6 +85,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		varPrivate = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/field_private_obj.gif").createImage();
 		funcionPrivada = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/methpri_obj.gif").createImage();
 		fieldRegistry = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/compare_field.gif").createImage();
+		varPublic = ImageDescriptor.createFromFile(VaryGrammarProposalProvider, "/icons/field_public_obj.gif").createImage();
 	}
 	
 	def initializeFilteringKeywords() {
@@ -306,21 +308,32 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
 			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
 			var algoritmo = context.getRootModel() as Algoritmo;
+			var variablesLocales = new ArrayList<String>()
+			variablesLocales = registrarVariables(algoritmo.global)
 			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
 			
 			if(procedimiento == null && funcion == null) {
 				//Si los dos son nulos pertenece a Inicio
 				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
+				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
+				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
+				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
 			}
 			else {
 				if(procedimiento != null) {
 					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
 					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+					variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
+					variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
+					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
 					
 				}
 				else if(funcion != null) {
 					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
 					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+					variablesLocales.addAll(registrarVariables(funcion.declaracion))
+					variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
+					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
 				}
 			}
 			
@@ -331,23 +344,40 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
 			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
 			var modulo = context.getRootModel() as Modulo
+			var variablesLocales = new ArrayList<String>()
+			variablesLocales = registrarVariables(modulo.implementacion.global)
 			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
 			
 			if(procedimiento != null) {
 				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
 				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+				variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
+				variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
+				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
 			}
 			else if(funcion != null) {
 				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
 				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+				variablesLocales.addAll(registrarVariables(funcion.declaracion))
+				variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
+				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
 			}
 		}
 	}
 	
 	def completeAsignacionNormal_OperadorParametrosSubproceso(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<ParametroFuncion> parametros) {
 		for(ParametroFuncion parametro: parametros) {
-			var completionProposal = createCompletionProposal(parametro.variable.nombre, context)
-			acceptor.accept(completionProposal)
+			if(parametro.tipo instanceof TipoDefinido) {
+				var tipoDefinido = parametro.tipo as TipoDefinido
+				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoDefinido.tipo)
+				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
+				acceptor.accept(completionProposal)
+			} else if(parametro.tipo instanceof TipoExistente) {
+				var tipoExistente = parametro.tipo as TipoExistente
+				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoExistente.tipo.literal)
+				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
+				acceptor.accept(completionProposal)
+			}
 		}
 	}
 	
@@ -356,18 +386,80 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			if(declaracion instanceof DeclaracionPropia) {
 				var dec = declaracion as DeclaracionPropia
 				for(Variable v: dec.variable) {
-					var completionProposal = createCompletionProposal(v.nombre, context)
+					var styledString = new StyledString(v.nombre + " : " + dec.tipo)
+					var completionProposal = createCompletionProposal(v.nombre, styledString, varPrivate, context)
 					acceptor.accept(completionProposal)
 				}
 			}
 			else if(declaracion instanceof DeclaracionVariable) {
 				var dec = declaracion as DeclaracionVariable
 				for(Variable v: dec.variable) {
-					var completionProposal = createCompletionProposal(v.nombre, context)
+					var styledString = new StyledString(v.nombre + " : " + dec.tipo.literal)
+					var completionProposal = createCompletionProposal(v.nombre, styledString, varPrivate, context)
 					acceptor.accept(completionProposal)
 				}
 			}
 		}
+	}
+	
+	def void completeAsignacionNormal_OperadorAuxModulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<String> variablesLocales, List<Modulo> modulos) {
+		for(modulo: modulos) {
+			var variablesPublicas = registrarVariables(modulo.exporta_globales)
+			for(declaracion: modulo.implementacion.global) {
+				if(declaracion instanceof DeclaracionVariable) {
+					var declaracionVariable = declaracion as DeclaracionVariable
+					for(variable: declaracionVariable.variable) {
+						if(!variablesLocales.contains(variable.nombre) && variablesPublicas.contains(variable.nombre)) {
+							var styledString = new StyledString(variable.nombre + " : " + declaracionVariable.tipo.literal)
+							var styledStringAux = new StyledString(" - " + modulo.nombre)
+							styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+							styledString.append(styledStringAux)
+							var completionProposal = createCompletionProposal(variable.nombre, styledString, varPublic, context)
+							acceptor.accept(completionProposal)
+						}
+					}
+				} else if(declaracion instanceof DeclaracionPropia) {
+					var declaracionPropia = declaracion as DeclaracionPropia
+					for(variable: declaracionPropia.variable) {
+						if(!variablesLocales.contains(variable.nombre) && variablesPublicas.contains(variable.nombre)) {
+							var styledString = new StyledString(variable.nombre + " : " + declaracionPropia.tipo)
+							var styledStringAux = new StyledString(" - " + modulo.nombre)
+							styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+							styledString.append(styledStringAux)
+							var completionProposal = createCompletionProposal(variable.nombre, styledString, varPublic, context)
+							acceptor.accept(completionProposal)
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	def ArrayList<String> registrarParametros(List<ParametroFuncion> parametros) {
+		var variables = new ArrayList<String>()
+		for(parametro: parametros) {
+			variables.add(parametro.variable.nombre)
+		}
+		return variables
+	}
+	
+	def ArrayList<String> registrarVariables(List<Declaracion> declaraciones) {
+		var variables = new ArrayList<String>()
+		for(declaracion: declaraciones) {
+			if(declaracion instanceof DeclaracionVariable) {
+				var declaracionVariable = declaracion as DeclaracionVariable
+				for(variable: declaracionVariable.variable) {
+				variables.add(variable.nombre)
+				}
+			}
+			else if(declaracion instanceof DeclaracionPropia) {
+				var declaracionPropia = declaracion as DeclaracionPropia
+				for(variable: declaracionPropia.variable) {
+				variables.add(variable.nombre)
+			}
+			}
+		}
+		return variables
 	}
 	
 	//Proposal para las llamadas a funciones ------------------------------------------------------------------------------
