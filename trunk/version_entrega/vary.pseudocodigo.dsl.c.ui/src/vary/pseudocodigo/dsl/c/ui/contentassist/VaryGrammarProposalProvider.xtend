@@ -45,6 +45,8 @@ import org.eclipse.jface.viewers.StyledString
 import org.eclipse.swt.graphics.Image
 import org.eclipse.jface.resource.ImageDescriptor
 import java.util.ArrayList
+import diagramapseudocodigo.CabeceraSubproceso
+import diagramapseudocodigo.CabeceraFuncion
 
 /**
  * see http://www.eclipse.org/Xtext/documentation.html#contentAssist on how to customize content assistant
@@ -302,67 +304,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	//Proposal para las variableID en las asignacionesNormal---------------------------------------------------------------
 	override void completeAsignacionNormal_Operador(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		if(context.getRootModel instanceof Algoritmo) {
-			//Recogemos la sentencia para buscar si pertenece a un Subproceso
-			var asignacionNormal = context.currentModel as AsignacionNormal
-			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
-			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
-			var algoritmo = context.getRootModel() as Algoritmo;
-			var variablesLocales = new ArrayList<String>()
-			variablesLocales = registrarVariables(algoritmo.global)
-			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
-			
-			if(procedimiento == null && funcion == null) {
-				//Si los dos son nulos pertenece a Inicio
-				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
-				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
-				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
-				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
-			}
-			else {
-				if(procedimiento != null) {
-					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
-					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
-					variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
-					variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
-					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
-					
-				}
-				else if(funcion != null) {
-					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
-					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
-					variablesLocales.addAll(registrarVariables(funcion.declaracion))
-					variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
-					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
-				}
-			}
-			
-		}
-		else if(context.getRootModel instanceof Modulo) {
-			//Recogemos la sentencia para buscar si pertenece a un Subproceso
-			var asignacionNormal = context.currentModel as AsignacionNormal
-			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
-			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
-			var modulo = context.getRootModel() as Modulo
-			var variablesLocales = new ArrayList<String>()
-			variablesLocales = registrarVariables(modulo.implementacion.global)
-			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
-			
-			if(procedimiento != null) {
-				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
-				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
-				variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
-				variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
-				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
-			}
-			else if(funcion != null) {
-				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
-				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
-				variablesLocales.addAll(registrarVariables(funcion.declaracion))
-				variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
-				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
-			}
-		}
+		completeAsignacionNormalCompleja_Operador(model, assignment, context, acceptor)
 	}
 	
 	def completeAsignacionNormal_OperadorParametrosSubproceso(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<ParametroFuncion> parametros) {
@@ -460,6 +402,151 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			}
 		}
 		return variables
+	}
+	
+	//Proposal para las VariableID en las AsignacionesComplejas-------------------------------------------------
+	
+	override void completeAsignacionCompleja_Operador(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeAsignacionNormalCompleja_Operador(model, assignment, context, acceptor)
+	}
+	
+	def void completeAsignacionNormalCompleja_Operador(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		if(context.getRootModel instanceof Algoritmo) {
+			//Recogemos la sentencia para buscar si pertenece a un Subproceso
+			var asignacionNormal = context.currentModel as AsignacionNormal
+			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
+			var algoritmo = context.getRootModel() as Algoritmo;
+			completeFuncionesAsignacion(context, acceptor, algoritmo.funcion)
+			completeFuncionesAsignacion_Modulos(context, acceptor, algoritmo.importaciones)
+			var variablesLocales = new ArrayList<String>()
+			variablesLocales = registrarVariables(algoritmo.global)
+			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
+			
+			if(procedimiento == null && funcion == null) {
+				//Si los dos son nulos pertenece a Inicio
+				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
+				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
+				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
+				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
+			}
+			else {
+				if(procedimiento != null) {
+					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+					variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
+					variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
+					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
+					
+				}
+				else if(funcion != null) {
+					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+					variablesLocales.addAll(registrarVariables(funcion.declaracion))
+					variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
+					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
+				}
+			}
+			
+		}
+		else if(context.getRootModel instanceof Modulo) {
+			//Recogemos la sentencia para buscar si pertenece a un Subproceso
+			var asignacionNormal = context.currentModel as AsignacionNormal
+			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
+			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
+			var modulo = context.getRootModel() as Modulo
+			completeFuncionesAsignacion(context, acceptor, modulo.implementacion.funcion)
+			completeFuncionesAsignacion_Modulos(context, acceptor, modulo.importaciones)
+			var variablesLocales = new ArrayList<String>()
+			variablesLocales = registrarVariables(modulo.implementacion.global)
+			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
+			
+			if(procedimiento != null) {
+				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+				variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
+				variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
+				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
+			}
+			else if(funcion != null) {
+				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+				variablesLocales.addAll(registrarVariables(funcion.declaracion))
+				variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
+				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
+			}
+		}
+	}
+	
+	
+	def void completeFuncionesAsignacion(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Subproceso> subprocesos) {
+		for(subproceso: subprocesos) {
+			if(subproceso instanceof Funcion) {
+				var funcion = subproceso as Funcion
+				var styledString = new StyledString(funcion.nombre + "(")
+				if(funcion.parametrofuncion.size == 0) {
+					styledString.append(")")
+				}
+				else {
+					for(ParametroFuncion p: funcion.parametrofuncion) {
+						if(funcion.parametrofuncion.indexOf(p) != funcion.parametrofuncion.size - 1) {
+							styledString.append(p.variable.nombre + ",")
+						}
+						else {
+							styledString.append(p.variable.nombre + ")")
+						}
+					}
+				}
+				var content = styledString.toString
+				styledString.append(" : " + funcion.tipo.literal)
+				var completionProposal = createCompletionProposal(content, styledString, funcionPrivada, context)
+				acceptor.accept(completionProposal)
+			}
+		}
+	}
+	
+	def void completeFuncionesAsignacion_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos) {
+		for(modulo: modulos) {
+			for(subproceso: modulo.implementacion.funcion) {
+				if(subproceso instanceof Funcion) {
+					var funcion = subproceso as Funcion
+					var funciones_publicas = registrarFuncionesPublicas(modulo.exporta_funciones)
+					if(funciones_publicas.contains(funcion.nombre)) {
+						var styledString = new StyledString(funcion.nombre + "(")
+						if(funcion.parametrofuncion.size == 0) {
+							styledString.append(")")
+						}
+						else {
+							for(ParametroFuncion p: funcion.parametrofuncion) {
+								if(funcion.parametrofuncion.indexOf(p) != funcion.parametrofuncion.size - 1) {
+									styledString.append(p.variable.nombre + ",")
+								}
+								else {
+									styledString.append(p.variable.nombre + ")")
+								}
+							}
+						}
+						var contenido = styledString.toString
+						styledString.append(" : " + funcion.tipo.literal)
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(contenido, styledString, typesClassics, context)
+						acceptor.accept(completionProposal)
+					}
+				}
+			}
+		}
+	}
+	
+	def ArrayList<String> registrarFuncionesPublicas(List<CabeceraSubproceso> cabeceras) {
+		var funcionesPublicas = new ArrayList<String>
+		for(cabeceraSubproceso: cabeceras) {
+			if(cabeceraSubproceso instanceof CabeceraFuncion) {
+				funcionesPublicas.add(cabeceraSubproceso.nombre)
+			}
+		}
+		return funcionesPublicas
 	}
 	
 	//Proposal para las llamadas a funciones ------------------------------------------------------------------------------
