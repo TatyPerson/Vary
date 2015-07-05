@@ -4,6 +4,7 @@
 package vary.pseudocodigo.dsl.c.english.ui.quickfix
 
 import vary.pseudocodigo.dsl.c.ui.quickfix.VaryGrammarQuickfixProvider
+import com.google.inject.Inject
 
 //import org.eclipse.xtext.ui.editor.quickfix.Fix
 //import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
@@ -14,4 +15,11 @@ import vary.pseudocodigo.dsl.c.ui.quickfix.VaryGrammarQuickfixProvider
  *
  * see http://www.eclipse.org/Xtext/documentation.html#quickfixes
  */
-class VaryGrammarEnglishQuickfixProvider extends VaryGrammarQuickfixProvider {}
+class VaryGrammarEnglishQuickfixProvider extends VaryGrammarQuickfixProvider {
+	
+	@Inject
+	public new() {
+		super("English")
+	}
+	
+}

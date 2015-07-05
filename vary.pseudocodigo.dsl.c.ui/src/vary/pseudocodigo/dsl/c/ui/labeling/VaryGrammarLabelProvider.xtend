@@ -428,14 +428,4 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			return variable.nombre + ' : ' + declaracionPropia.tipo
 		}
 	}
-
-	// Labels and icons can be computed like this:
-	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
 }

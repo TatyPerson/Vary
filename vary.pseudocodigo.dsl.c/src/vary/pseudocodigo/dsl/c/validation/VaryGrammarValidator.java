@@ -106,6 +106,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	public static final String CONSTANTE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.ConstanteNoDefinida";
 	public static String DUPLICATE_MODULE = "vary.pseudocodigo.dsl.c.VaryGrammar.DuplicateModule";
 	public static final String VARIABLE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.VariableNoDefinida";
+	public static final String NOMBRE_MODULO_REPETIDO = "vary.pseudocodigo.dsl.c.VaryGrammar.NombreModuloRepetido";
 	protected final ReadMessagesValidatorInterface readerMessages;
 	
 	private ResourceSet resourceSet;
@@ -141,7 +142,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO)) {
 				System.out.println("Estoy entrando en el bucle interior pero no en el if");
 				if (!names.add(od.getQualifiedName())) {
-					error(readerMessages.getString("MODULO_NOMBRE_REPETIDO", modulo.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE);
+					error(readerMessages.getString("MODULO_NOMBRE_REPETIDO", modulo.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE, NOMBRE_MODULO_REPETIDO);
 				}
 			}
 		}
@@ -198,7 +199,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						}
 					}
 					if(!ok) {
-						error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION, VARIABLE_NO_DEFINIDA);
 					}
 					ok = false;
 				}
@@ -229,7 +230,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 				}
 				if(!ok) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION, VARIABLE_NO_DEFINIDA);
 				}
 				ok = false;
 			}
@@ -254,7 +255,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						}
 					}
 					if(!ok) {
-						error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", desdeAux.getAsignacion().getValor_asignacion()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION, VARIABLE_NO_DEFINIDA);
 					}
 					ok = false;
 				}
@@ -289,7 +290,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					else if(desdeAux.getValor() instanceof operacion) {
@@ -325,7 +326,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					ok = false;
@@ -359,7 +360,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 					if(!ok) {
-						error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 					}
 				}
 				else if(desdeAux.getValor() instanceof operacion) {
@@ -395,7 +396,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 					if(!ok) {
-						error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 					}
 					
 				}
@@ -424,7 +425,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					else if(desdeAux.getValor() instanceof operacion) {
@@ -460,7 +461,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 						}
 						if(!ok) {
-							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 					ok = false;
@@ -1509,7 +1510,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						VariableID v = (VariableID) op; //Siempre es una variable
 						
 						if(!variables.contains(v.getNombre())) {
-							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
 				}
@@ -1530,7 +1531,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				segun se = (segun) s;
 				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
 				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, f.getSentencias().indexOf(s));
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 				}
 			}
 		}
@@ -1549,7 +1550,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				segun se = (segun) s;
 				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
 				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS, p.getSentencias().indexOf(s));
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 				}
 			}
 		}
@@ -2416,9 +2417,14 @@ List<String> tipos = new ArrayList<String>();
 		
 		List<String> variablesGlobales = funciones.registrarVariables(modulo.getImplementacion().getGlobal());
 		List<String> constantes = funciones.registrarConstantes(modulo.getImplementacion().getConstantes());
+		List<String> importadas = new ArrayList<String>();
+		
+		for(Modulo m: modulo.getImportaciones()) {
+			importadas.addAll(funciones.registrarVariables(m.getExporta_globales()));
+		}
 		
 		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
-			checkVariablesUsadas(s, variablesGlobales, constantes);
+			checkVariablesUsadas(s, variablesGlobales, constantes, importadas);
 		}
 	}
 	
@@ -2429,13 +2435,22 @@ List<String> tipos = new ArrayList<String>();
 		List<String> variables = funciones.registrarVariables(i.getDeclaracion());
 		List<String> variablesGlobales = funciones.registrarVariables(algoritmo.getGlobal());
 		List<String> constantes = funciones.registrarConstantes(algoritmo.getConstantes());
+		List<String> importadas = new ArrayList<String>();
+		for(Modulo m: algoritmo.getImportaciones()) {
+			importadas.addAll(funciones.registrarVariables(m.getExporta_globales()));
+		}
 		
 		List<String> totalVariables = variables;
 		totalVariables.addAll(variablesGlobales);
 		totalVariables.addAll(constantes);
+		totalVariables.addAll(importadas);
+		
+		for(String variable: importadas) {
+			System.out.println("Variable importada: "+variable);
+		}
 		
 		for(Subproceso s: algoritmo.getFuncion()) {
-			checkVariablesUsadas(s, variablesGlobales, constantes);
+			checkVariablesUsadas(s, variablesGlobales, constantes, importadas);
 		}
 		
 		checkVariablesUsadasAux(i.getTiene(), totalVariables);
@@ -2474,12 +2489,13 @@ List<String> tipos = new ArrayList<String>();
 	
 	
 	//Función que comprueba que una variable deba estar definida antes de usarse
-	private void checkVariablesUsadas(Subproceso s, List<String> variablesGlobales, List<String> constantes) {
+	private void checkVariablesUsadas(Subproceso s, List<String> variablesGlobales, List<String> constantes, List<String> importadas) {
 		List<String> variables = funciones.registrarVariables(s.getDeclaracion());
 		
 		List<String> totalVariables = variables;
 		totalVariables.addAll(variablesGlobales);
 		totalVariables.addAll(constantes);
+		totalVariables.addAll(importadas);
 		
 		//Como son subprocesos también se añaden a la lista los parámetros
 		for(ParametroFuncion p: s.getParametrofuncion()) {
@@ -2568,6 +2584,19 @@ List<String> tipos = new ArrayList<String>();
 			}
 		}
 		
+		for(Modulo m: modulo.getImportaciones()) {
+			for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+				if(!funciones.contains(cabecera.getNombre())) {
+					funciones.add(cabecera.getNombre());
+					parametros.add(new ArrayList<Integer>());
+					parametros.get(funciones.indexOf(cabecera.getNombre())).add(cabecera.getParametrofuncion().size());
+				}
+				else {
+					parametros.get(funciones.indexOf(cabecera.getNombre())).add(cabecera.getParametrofuncion().size());
+				}
+			}
+		}
+		
 		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
 			funciones.add(s.getNombre());
 		}
@@ -2623,6 +2652,18 @@ List<String> tipos = new ArrayList<String>();
 			else {
 				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
 				parametros.get(funciones.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+			}
+		}
+		for(Modulo m: algoritmo.getImportaciones()) {
+			for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+				if(!funciones.contains(cabecera.getNombre())) {
+					funciones.add(cabecera.getNombre());
+					parametros.add(new ArrayList<Integer>());
+					parametros.get(funciones.indexOf(cabecera.getNombre())).add(cabecera.getParametrofuncion().size());
+				}
+				else {
+					parametros.get(funciones.indexOf(cabecera.getNombre())).add(cabecera.getParametrofuncion().size());
+				}
 			}
 		}
 		//Añadimos las funciones publicas de los modulos importados
@@ -3033,7 +3074,7 @@ List<String> tipos = new ArrayList<String>();
 				
 				//Comprobamos que la variable que se quiere devolver este definida y sea del tipo correcto.
 				if(!variables.containsKey(nombreVar)) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 				}
 				else if(variables.get(nombreVar) != tipoDevuelve) {
 					if(variables.get(nombreVar) == readerMessages.getBundle().getString("TIPO_REAL") && tipoDevuelve == readerMessages.getBundle().getString("TIPO_ENTERO")) {
