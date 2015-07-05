@@ -15,12 +15,24 @@ import vary.pseudocodigo.dsl.c.validation.VaryGrammarValidator
 import static extension org.eclipse.xtext.EcoreUtil2.*
 import diagramapseudocodigo.Algoritmo
 import vary.pseudocodigo.dsl.c.ui.quickfix.util.VaryGrammarQuickfixProviderUtil
-import diagramapseudocodigo.Modulo
 import diagramapseudocodigo.Implementacion
+import diagramapseudocodigo.Asignacion
 import diagramapseudocodigo.VariableID
-import java.util.HashSet
-import org.eclipse.xtext.naming.QualifiedName
-import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
+import diagramapseudocodigo.AsignacionNormal
+import diagramapseudocodigo.Declaracion
+import diagramapseudocodigo.DeclaracionVariable
+import diagramapseudocodigo.Inicio
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface
+import vary.pseudocodigo.dsl.c.keywords.ReadKeywords
+import com.google.inject.Inject
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface
+import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator
+import diagramapseudocodigo.Subproceso
+import diagramapseudocodigo.Funcion
+import diagramapseudocodigo.Procedimiento
+import diagramapseudocodigo.Modulo
+import diagramapseudocodigo.LlamadaFuncion
+import diagramapseudocodigo.segun
 
 /**
  * Custom quickfixes.
@@ -29,9 +41,25 @@ import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider
  */
 class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 	
+	protected final ReadKeywordsInterface readerKeywords
+	protected final ReadMessagesValidatorInterface readerMessages
+	
+	@Inject
+	public new() {
+		super()
+		readerKeywords = new ReadKeywords();
+		readerMessages = new ReadMessagesValidator();
+	}
+	
+	public new(String language) {
+		readerKeywords = new vary.pseudocodigo.dsl.c.english.keywords.ReadKeywords();
+		readerMessages = new vary.pseudocodigo.dsl.c.english.validation.messages.ReadMessagesValidator();
+	}
+	
+	
 	@Fix(VaryGrammarValidator::CONSTANTE_NO_DEFINIDA)
 	def ofrecerConstante(Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, "Crear la constante no definida", "Crear la constante no definida", "Entity.gif",
+		acceptor.accept(issue, readerMessages.getBundle().getString("QUICKFIX_CONSTANTE_NO_DEFINIDA"), readerMessages.getBundle().getString("QUICKFIX_CONSTANTE_NO_DEFINIDA"), "compare_field_private.gif",
 		[ EObject element, IModificationContext context |
 				var indice = VaryGrammarQuickfixProviderUtil.buscarIndiceVector(context.xtextDocument.get(issue.offset, issue.length))
 				if(element instanceof Algoritmo) {
@@ -52,28 +80,141 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
  		 );
 	}
 	
-	/* @Fix(VaryGrammarValidator::VARIABLE_NO_DEFINIDA)
+	 @Fix(VaryGrammarValidator::VARIABLE_NO_DEFINIDA)
 	def ofrecerVariable(Issue issue, IssueResolutionAcceptor acceptor) {
-		acceptor.accept(issue, "Crear la variable no definida", "Crear la variable no definida", "Entity.gif",
+		System.out.println("Quickfix es: "+readerMessages.getBundle().getString("QUICKFIX_VARIABLE_NO_DEFINIDA"))
+		acceptor.accept(issue, readerMessages.getBundle().getString("QUICKFIX_VARIABLE_NO_DEFINIDA"), readerMessages.getBundle().getString("QUICKFIX_VARIABLE_NO_DEFINIDA"), "Entity.gif",
 		[ EObject element, IModificationContext context |
-				var indice = VaryGrammarQuickfixProviderUtil.buscarIndiceVector(context.xtextDocument.get(issue.offset, issue.length))
-				if(element instanceof Algoritmo) {
+				var tipo = ""
+				System.out.println("CadenaError= "+context.xtextDocument.get(issue.offset, issue.length))
+				if(element.getContainerOfType(typeof(Algoritmo)) != null) {
+					var algoritmo = element.getContainerOfType(typeof(Algoritmo))
+					if(element.getContainerOfType(typeof(Inicio)) != null) {
+						var inicio = element.getContainerOfType(typeof(Inicio))
+						if(element instanceof Asignacion) {
+							tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(element as Asignacion,context.xtextDocument.get(issue.offset, issue.length), readerKeywords, inicio.declaracion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+						} else if(element instanceof VariableID) {
+							if(element.getContainerOfType(typeof(Asignacion)) != null) {
+								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(element.getContainerOfType(typeof(Asignacion)),context.xtextDocument.get(issue.offset, issue.length), readerKeywords, inicio.declaracion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+							}
+							else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
+								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.funcion)
+							}
+							else if(element.getContainerOfType(typeof(segun)) != null) {
+								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+							}
+						}
+					}
+					else if(element.getContainerOfType(typeof(Subproceso)) != null) {
+						var subproceso = element.getContainerOfType(typeof(Subproceso))
+						if(subproceso instanceof Funcion) {
+					 		var funcion = subproceso as Funcion
+					 		if(element instanceof Asignacion) {
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 		}
+					 		else if(element instanceof VariableID) {
+					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 			}
+					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.funcion)
+								} 
+								else if(element.getContainerOfType(typeof(segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								}
+								
+					 		}
+					 	}
+					 	else {
+					 		var procedimiento = subproceso as Procedimiento
+					 		if(element instanceof Asignacion) {
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 		}
+					 		else if(element instanceof VariableID) {
+					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 			}
+					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.funcion)
+								}
+								else if(element.getContainerOfType(typeof(segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								}
+					 		}
+					 	}
+					}
+				}
+				else if(element.getContainerOfType(typeof(Modulo)) != null) {
+					var modulo = element.getContainerOfType(typeof(Modulo))
+					if(element.getContainerOfType(typeof(Subproceso)) != null) {
+						var subproceso = element.getContainerOfType(typeof(Subproceso))
+						if(subproceso instanceof Funcion) {
+					 		var funcion = subproceso as Funcion
+					 		if(element instanceof Asignacion) {
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 		}
+					 		else if(element instanceof VariableID) {
+					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 			}
+					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), modulo.implementacion.funcion)
+								}
+								else if(element.getContainerOfType(typeof(segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								}
+					 		}
+					 	}
+					 	else {
+					 		var procedimiento = subproceso as Procedimiento
+					 		if(element instanceof Asignacion) {
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 		}
+					 		else if(element instanceof VariableID) {
+					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 			}
+					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), modulo.implementacion.funcion)
+								}
+								else if(element.getContainerOfType(typeof(segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								}
+					 		}
+					 	}
+					}
+				}
+				System.out.println("el elemento es: "+element.class)
+				if(element.getContainerOfType(typeof(Inicio)) != null) {
 					VaryGrammarModelUtil::addVariable(
-					element as Algoritmo,
-					element.getContainerOfType(typeof(VariableID)),
-					indice
+					element.getContainerOfType(typeof(Inicio)),
+					context.xtextDocument.get(issue.offset, issue.length),
+					element.getContainerOfType(typeof(Declaracion)),
+					tipo,
+					readerKeywords
 					)
 				}
-				else if(element instanceof Implementacion) {
+				else if(element.getContainerOfType(typeof(Subproceso)) != null) {
 					VaryGrammarModelUtil::addVariable(
-					element as Implementacion,
-					element.getContainerOfType(typeof(VariableID)),
-					indice
+					element.getContainerOfType(typeof(Subproceso)),
+					context.xtextDocument.get(issue.offset, issue.length),
+					element.getContainerOfType(typeof(Declaracion)),
+					tipo,
+					readerKeywords
+					)
+				}
+				else if(element.getContainerOfType(typeof(Implementacion)) != null) {
+					VaryGrammarModelUtil::addVariable(
+					element.getContainerOfType(typeof(Implementacion)),
+					context.xtextDocument.get(issue.offset, issue.length),
+					element.getContainerOfType(typeof(Declaracion)),
+					tipo,
+					readerKeywords
 					)
 				}
 			]
  		 );
-	}*/
+	}
 
 //	@Fix(MyDslValidator::INVALID_NAME)
 //	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
