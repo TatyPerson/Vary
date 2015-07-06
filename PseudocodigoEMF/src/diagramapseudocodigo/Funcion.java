@@ -23,7 +23,6 @@ package diagramapseudocodigo;
 public interface Funcion extends Subproceso {
 	/**
 	 * Returns the value of the '<em><b>Tipo</b></em>' attribute.
-	 * The literals are from the enumeration {@link diagramapseudocodigo.TipoVariable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tipo</em>' attribute isn't clear,
@@ -31,24 +30,22 @@ public interface Funcion extends Subproceso {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tipo</em>' attribute.
-	 * @see diagramapseudocodigo.TipoVariable
-	 * @see #setTipo(TipoVariable)
+	 * @see #setTipo(String)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncion_Tipo()
 	 * @model
 	 * @generated
 	 */
-	TipoVariable getTipo();
+	String getTipo();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Funcion#getTipo <em>Tipo</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Tipo</em>' attribute.
-	 * @see diagramapseudocodigo.TipoVariable
 	 * @see #getTipo()
 	 * @generated
 	 */
-	void setTipo(TipoVariable value);
+	void setTipo(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Devuelve</b></em>' containment reference.

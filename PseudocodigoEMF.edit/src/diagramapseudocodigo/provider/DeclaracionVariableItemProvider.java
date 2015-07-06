@@ -6,7 +6,6 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.DeclaracionVariable;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.TipoVariable;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -133,8 +132,7 @@ public class DeclaracionVariableItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		TipoVariable labelValue = ((DeclaracionVariable)object).getTipo();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((DeclaracionVariable)object).getTipo();
 		return label == null || label.length() == 0 ?
 			getString("_UI_DeclaracionVariable_type") :
 			getString("_UI_DeclaracionVariable_type") + " " + label;

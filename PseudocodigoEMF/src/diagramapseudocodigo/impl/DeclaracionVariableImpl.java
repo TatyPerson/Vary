@@ -4,7 +4,6 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DeclaracionVariable;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.TipoVariable;
 import diagramapseudocodigo.Variable;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
@@ -39,7 +38,7 @@ public class DeclaracionVariableImpl extends DeclaracionImpl implements Declarac
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TipoVariable TIPO_EDEFAULT = TipoVariable.ENTERO;
+	protected static final String TIPO_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
@@ -49,7 +48,7 @@ public class DeclaracionVariableImpl extends DeclaracionImpl implements Declarac
 	 * @generated
 	 * @ordered
 	 */
-	protected TipoVariable tipo = TIPO_EDEFAULT;
+	protected String tipo = TIPO_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference list.
@@ -85,7 +84,7 @@ public class DeclaracionVariableImpl extends DeclaracionImpl implements Declarac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TipoVariable getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
@@ -94,9 +93,9 @@ public class DeclaracionVariableImpl extends DeclaracionImpl implements Declarac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTipo(TipoVariable newTipo) {
-		TipoVariable oldTipo = tipo;
-		tipo = newTipo == null ? TIPO_EDEFAULT : newTipo;
+	public void setTipo(String newTipo) {
+		String oldTipo = tipo;
+		tipo = newTipo;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.DECLARACION_VARIABLE__TIPO, oldTipo, tipo));
 	}
@@ -153,7 +152,7 @@ public class DeclaracionVariableImpl extends DeclaracionImpl implements Declarac
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.DECLARACION_VARIABLE__TIPO:
-				setTipo((TipoVariable)newValue);
+				setTipo((String)newValue);
 				return;
 			case DiagramapseudocodigoPackage.DECLARACION_VARIABLE__VARIABLE:
 				getVariable().clear();
@@ -190,7 +189,7 @@ public class DeclaracionVariableImpl extends DeclaracionImpl implements Declarac
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.DECLARACION_VARIABLE__TIPO:
-				return tipo != TIPO_EDEFAULT;
+				return TIPO_EDEFAULT == null ? tipo != null : !TIPO_EDEFAULT.equals(tipo);
 			case DiagramapseudocodigoPackage.DECLARACION_VARIABLE__VARIABLE:
 				return variable != null && !variable.isEmpty();
 		}
