@@ -267,7 +267,7 @@ segun returns segun:
 //	ssigno=neg
 //	variable=Primaria;
 
-TipoVariable returns TipoVariable:
+TipoVariable returns ecore::EString:
 	'entero' | 'caracter' | 'real' | 'logico' | 'cadena';
 	
 Variable returns Variable:

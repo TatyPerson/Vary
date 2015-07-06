@@ -39,6 +39,8 @@ import diagramapseudocodigo.Asignacion;
 import diagramapseudocodigo.AsignacionCompleja;
 import diagramapseudocodigo.AsignacionNormal;
 import diagramapseudocodigo.Bloque;
+import diagramapseudocodigo.CabeceraFuncion;
+import diagramapseudocodigo.CabeceraProcedimiento;
 import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.Caracter;
@@ -163,6 +165,250 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 	}
 	
+	@Check
+	//Función que se encarga de que no existan funciones repetidas definidas en los módulos que importa
+	protected void checkFuncionesModulosImportados(Algoritmo a) {
+		System.out.println("Estoy entrando en el check nuevo");
+		//Primero se comprueba las que están definidas en el algoritmo con las que estan definidas en los módulos que importa
+		for(Modulo m: a.getImportaciones()) {
+			for(Subproceso s: a.getFuncion()) {
+				for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+					if(cabecera instanceof CabeceraFuncion) {
+						CabeceraFuncion cabeceraFuncion = (CabeceraFuncion) cabecera;
+						if(cabeceraFuncion.getNombre().equals(s.getNombre()) && cabeceraFuncion.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+							error(readerMessages.getString("FUNCION_REPETIDA", s.getNombre(), m.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+						}
+					}
+					else if(cabecera instanceof CabeceraSubproceso) {
+						CabeceraProcedimiento cabeceraProcedimiento = (CabeceraProcedimiento) cabecera;
+						if(cabeceraProcedimiento.getNombre().equals(s.getNombre()) && cabeceraProcedimiento.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+							error(readerMessages.getString("PROCEDIMIENTO_REPETIDO", s.getNombre(), m.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+						}
+					}
+				}
+			}
+		}
+		
+		//Después la de los módulos que se importan entre sí
+		
+		for(Modulo m: a.getImportaciones()) {
+			for(Modulo m2: a.getImportaciones()) {
+				if(!m.getNombre().equals(m2.getNombre())) { //Nos saltamos a él mismo
+					for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+						for(CabeceraSubproceso cabecera2: m2.getExporta_funciones()) {
+							if(cabecera.getNombre().equals(cabecera2.getNombre()) && cabecera.getParametrofuncion().size() == cabecera2.getParametrofuncion().size()) {
+								if(cabecera instanceof CabeceraFuncion) {
+									error(readerMessages.getString("FUNCION_REPETIDA_IMPORTADA", cabecera.getNombre(), m.getNombre(), m2.getNombre()), a, DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
+								}
+								else {
+									error(readerMessages.getString("PROCEDIMIENTO_REPETIDO_IMPORTADO", cabecera.getNombre(), m.getNombre(), m2.getNombre()), a, DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkCiclosImportacion(Algoritmo a) {
+		for(Modulo m: a.getImportaciones()) {
+			for(Modulo m2: m.getImportaciones()) {
+				if(a.getImportaciones().contains(m2)) {
+					error(readerMessages.getString("CICLO_IMPORTACION", m.getNombre(), m2.getNombre()), a, DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkCiclosImportacion(Modulo modulo) {
+		for(Modulo m: modulo.getImportaciones()) {
+			for(Modulo m2: m.getImportaciones()) {
+				if(modulo.getImportaciones().contains(m2)) {
+					error(readerMessages.getString("CICLO_IMPORTACION", m.getNombre(), m2.getNombre()), modulo, DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, modulo.getImportaciones().indexOf(m));
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkCabeceraSubprocesoExistente(Modulo m) {
+		boolean funcionDefinida = false;
+		for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+			for(Subproceso s: m.getImplementacion().getFuncion()) {
+				if(cabecera.getNombre().equals(s.getNombre()) && cabecera.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+					funcionDefinida = true;
+				}
+			}
+			if(!funcionDefinida) {
+				if(cabecera instanceof CabeceraFuncion) {
+					error(readerMessages.getString("CABECERA_FUNCION_NO_DEFINIDA", cabecera.getNombre()), cabecera, DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__NOMBRE);
+				}
+				else {
+					error(readerMessages.getString("CABECERA_PROCEDIMIENTO_NO_DEFINIDO", cabecera.getNombre()), cabecera, DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__NOMBRE);
+				}
+			}
+			funcionDefinida = false;
+		}
+	}
+	
+	@Check
+	protected void checkCabecerasRepetidas(Modulo m) {
+		int repeticiones = 0;
+		for(CabeceraSubproceso cabecera1: m.getExporta_funciones()) {
+			for(CabeceraSubproceso cabecera2: m.getExporta_funciones()) {
+				if(cabecera1.getNombre().equals(cabecera2.getNombre()) && cabecera1.getParametrofuncion().size() == cabecera2.getParametrofuncion().size()) {
+					repeticiones++;
+				}
+			}
+			if(repeticiones > 1) {
+				if(cabecera1 instanceof CabeceraFuncion) {
+					error(readerMessages.getString("CABECERA_REPETIDA_FUNCION", cabecera1.getNombre()), cabecera1, DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__NOMBRE);
+				} else {
+					error(readerMessages.getString("CABECERA_REPETIDA_PROCEDIMIENTO", cabecera1.getNombre()), cabecera1, DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__NOMBRE);
+				}
+			}
+			repeticiones = 0;
+		}
+	}
+	
+	@Check
+	protected void checkConstantesNoDeclaradasExportadas(Modulo m) {
+		boolean constanteDefinida = false;
+		for(String nombreConstante: m.getExporta_constantes()) {
+			for(Constantes constante: m.getImplementacion().getConstantes()) {
+				if(nombreConstante.equals(constante.getVariable().getNombre())) {
+					constanteDefinida = true;
+				}
+			}
+			if(!constanteDefinida) {
+				error(readerMessages.getString("CONSTANTE_NO_DECLARADA", nombreConstante), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES, m.getExporta_constantes().indexOf(nombreConstante));
+			}
+			constanteDefinida = false;
+		}
+	}
+	
+	@Check
+	protected void checkConstantesRepetidasExportadas(Modulo m) {
+		int repeticiones = 0;
+		System.out.println("Size: "+m.getExporta_constantes().size());
+		for(String nombreConstante: m.getExporta_constantes()) {
+			for(String nombreConstante2: m.getExporta_constantes()) {
+				System.out.println("NombreConstante: "+nombreConstante);
+				System.out.println("NombreConstante2: "+nombreConstante2);
+				if(nombreConstante.equals(nombreConstante2)) {
+					repeticiones++;
+				}
+			}
+			if(repeticiones > 1) {
+				error(readerMessages.getString("CONSTANTE_EXPORTADA_REPETIDA", nombreConstante), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES, m.getExporta_constantes().indexOf(nombreConstante));
+			}
+			repeticiones = 0;
+		}
+	}
+	
+	@Check
+	protected void checkTiposExportadosNoDefinidos(Modulo m) {
+		boolean tipoDefinido = false;
+		for(String nombreTipo: m.getExporta_tipos()) {
+			for(TipoComplejo complejo: m.getImplementacion().getTipocomplejo()) {
+				if(complejo instanceof Vector) {
+					Vector v = (Vector) complejo;
+					if(v.getNombre().equals(nombreTipo)) {
+						tipoDefinido = true;
+					}
+				} else if(complejo instanceof Matriz) {
+					Matriz matriz = (Matriz) complejo;
+					if(matriz.getNombre().equals(nombreTipo)) {
+						tipoDefinido = true;
+					}
+				} else if(complejo instanceof Registro) {
+					Registro r = (Registro) complejo;
+					if(r.getNombre().equals(nombreTipo)) {
+						tipoDefinido = true;
+					}
+				} else if(complejo instanceof Enumerado) {
+					Enumerado e = (Enumerado) complejo;
+					if(e.getNombre().equals(nombreTipo)) {
+						tipoDefinido = true;
+					}
+				} else if(complejo instanceof Subrango) {
+					Subrango s = (Subrango) complejo;
+					if(s.getNombre().equals(nombreTipo)) {
+						tipoDefinido = true;
+					}
+				} else if(complejo instanceof Archivo) {
+					Archivo a = (Archivo) complejo;
+					if(a.getNombre().equals(nombreTipo)) {
+						tipoDefinido = true;
+					}
+				}
+			}
+			if(!tipoDefinido) {
+				error(readerMessages.getString("TIPO_NO_DEFINIDO", nombreTipo), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_TIPOS, m.getExporta_tipos().indexOf(nombreTipo));
+			}
+			tipoDefinido = false;
+		}
+	}
+	
+	@Check
+	protected void checkVariablesExportadas(Modulo m) {
+		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(m.getImplementacion().getGlobal());
+		for(Declaracion declaracion: m.getExporta_globales()) {
+			if(declaracion instanceof DeclaracionVariable) {
+				DeclaracionVariable declaracionVariable = (DeclaracionVariable) declaracion;
+				for(Variable v: declaracionVariable.getVariable()) {
+					if(variablesTipadas.containsKey(v.getNombre())) {
+						if(!variablesTipadas.get(v.getNombre()).equals(declaracionVariable.getTipo())) {
+							error(readerMessages.getString("EXPORTA_VARIABLE_TIPO_INCORRECTO", v.getNombre(), variablesTipadas.get(v.getNombre())), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionVariable));
+						}
+					}
+					else {
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionVariable));
+						
+					}
+				}
+			} else {
+				DeclaracionPropia declaracionPropia = (DeclaracionPropia) declaracion;
+				for(Variable v: declaracionPropia.getVariable()) {
+					if(variablesTipadas.containsKey(v.getNombre())) {
+						if(!variablesTipadas.get(v.getNombre()).equals(declaracionPropia.getTipo())) {
+							error(readerMessages.getString("EXPORTA_VARIABLE_TIPO_INCORRECTO", v.getNombre(), variablesTipadas.get(v.getNombre())), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionPropia));
+						}
+					}
+					else {
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionPropia));
+					}
+				}
+			}
+		}
+		
+	}
+	
+	@Check
+	protected void checkFuncionesModulosImportados(Modulo m) {
+		for(Modulo mAux: m.getImportaciones()) {
+			for(Subproceso s: m.getImplementacion().getFuncion()) {
+				for(CabeceraSubproceso cabecera: mAux.getExporta_funciones()) {
+					if(cabecera instanceof CabeceraFuncion) {
+						CabeceraFuncion cabeceraFuncion = (CabeceraFuncion) cabecera;
+						if(cabeceraFuncion.getNombre().equals(s.getNombre()) && cabeceraFuncion.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+							error(readerMessages.getString("FUNCION_REPETIDA", s.getNombre(), mAux.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+						}
+					}
+					else if(cabecera instanceof CabeceraSubproceso) {
+						CabeceraProcedimiento cabeceraProcedimiento = (CabeceraProcedimiento) cabecera;
+						if(cabeceraProcedimiento.getNombre().equals(s.getNombre()) && cabeceraProcedimiento.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+							error(readerMessages.getString("PROCEDIMIENTO_REPETIDO", s.getNombre(), mAux.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+						}
+					}
+				}
+			}
+		}
+	}
+	
 	
 	@Check
 	//Función que se encarga de comprobar si el limite inferior de un subrango es siempre inferior al superior.
@@ -188,10 +434,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							DeclaracionVariable dec = (DeclaracionVariable) d;
 							for(Variable v: dec.getVariable()) {
 								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
-								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 								}
-								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 									error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 								}
@@ -219,10 +465,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						DeclaracionVariable dec = (DeclaracionVariable) d;
 						for(Variable v: dec.getVariable()) {
 							System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
-							if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+							if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 								ok = true;
 							}
-							else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+							else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 								ok = true;
 								error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 							}
@@ -244,10 +490,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							DeclaracionVariable dec = (DeclaracionVariable) d;
 							for(Variable v: dec.getVariable()) {
 								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
-								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 								}
-								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().getName().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+								else if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && !dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 									error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), desdeAux, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 								}
@@ -1588,7 +1834,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			int cont = 0;
 			boolean valido = true;
 			
-			if(parametro.getTipo() == TipoVariable.getByName(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+			if(parametro.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 				//Comprobamos que las variables de los casos sean todas del mismo tipo
 				for(Caso c: se.getCaso()) {
 					if(!(c.getOperador() instanceof NumeroEntero)) {
@@ -3063,7 +3309,7 @@ List<String> tipos = new ArrayList<String>();
 	protected void checkTipoDevolucionFuncion(Subproceso s) {
 		if(s instanceof Funcion) {
 			Funcion f = (Funcion) s;
-			String tipoDevuelve = f.getTipo().getName();
+			String tipoDevuelve = f.getTipo();
 			if(f.getDevuelve().getDevuelve() instanceof VariableID) {
 				VariableID v = (VariableID) f.getDevuelve().getDevuelve();
 				String nombreVar = v.getNombre();
@@ -3076,11 +3322,13 @@ List<String> tipos = new ArrayList<String>();
 				if(!variables.containsKey(nombreVar)) {
 					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 				}
-				else if(variables.get(nombreVar) != tipoDevuelve) {
-					if(variables.get(nombreVar) == readerMessages.getBundle().getString("TIPO_REAL") && tipoDevuelve == readerMessages.getBundle().getString("TIPO_ENTERO")) {
+				else if(!variables.get(nombreVar).equals(tipoDevuelve)) {
+					System.out.println("Tipo Variable: "+variables.get(nombreVar));
+					System.out.println("Tipo función: "+tipoDevuelve);
+					if(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						warning(readerMessages.getBundle().getString("PERDIDA_PRECISION"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
-					else if(variables.get(nombreVar) != readerMessages.getBundle().getString("TIPO_ENTERO")  || tipoDevuelve != readerMessages.getBundle().getString("TIPO_REAL")) {
+					else if(!(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_ENTERO")))  || !(tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
 						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
 				}

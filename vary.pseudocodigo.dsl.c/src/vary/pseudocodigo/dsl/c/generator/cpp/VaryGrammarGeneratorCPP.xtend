@@ -478,7 +478,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		if (s.eClass.name.equals("Funcion")) {
 			var Funcion funcion = new FuncionImpl
 			funcion = s as Funcion
-			funciones.put(funcion.nombre, funcion.tipo.name)
+			funciones.put(funcion.nombre, funcion.tipo)
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
@@ -509,7 +509,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			if(d instanceof DeclaracionVariable) {
 				var dec = d as DeclaracionVariable;
 				for(Variable v: dec.variable) {
-					variablesSubprocesos.get(s.nombre).put(v.nombre, dec.tipo.name);
+					variablesSubprocesos.get(s.nombre).put(v.nombre, dec.tipo);
 				}
 			}
 			else if(d instanceof DeclaracionPropia) {
@@ -522,7 +522,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		for(ParametroFuncion p: s.parametrofuncion) {
 			if(p.tipo.eClass.name.equals("TipoExistente")) {
 				var tipo = p.tipo as TipoExistente;
-				variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.tipo.name);
+				variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.tipo);
 			}
 			else if(p.tipo.eClass.name.equals("TipoDefinido")) {
 				var tipo = p.tipo as TipoDefinido;
@@ -536,7 +536,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			var v = t as Vector;
 			if(v.tipo.eClass.name.equals("TipoExistente")) {
 				var tipo = v.tipo as TipoExistente;
-				vectoresMatrices.put(v.nombre, tipo.tipo.name);
+				vectoresMatrices.put(v.nombre, tipo.tipo);
 			}
 			else if(v.tipo.eClass.name.equals("TipoDefinido")) {
 				var tipo = v.tipo as TipoDefinido;
@@ -547,7 +547,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			var m = t as Matriz;
 			if(m.tipo.eClass.name.equals("TipoExistente")) {
 				var tipo = m.tipo as TipoExistente;
-				vectoresMatrices.put(m.nombre, tipo.tipo.name);
+				vectoresMatrices.put(m.nombre, tipo.tipo);
 			}
 			else if(m.tipo.eClass.name.equals("TipoDefinido")) {
 				var tipo = m.tipo as TipoDefinido;
@@ -561,7 +561,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				if(d instanceof DeclaracionVariable) {
 					var dec = d as DeclaracionVariable;
 					for(Variable v: dec.variable) {
-						registros.get(r.nombre).put(v.nombre, dec.tipo.name);
+						registros.get(r.nombre).put(v.nombre, dec.tipo);
 					}
 				}
 				else if(d instanceof DeclaracionPropia) {
@@ -704,7 +704,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		if (s.eClass.name.equals("Funcion")) {
 			var Funcion funcion = new FuncionImpl
 			funcion = s as Funcion
-			funciones.put(funcion.nombre, funcion.tipo.name)
+			funciones.put(funcion.nombre, funcion.tipo)
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
@@ -733,7 +733,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		if(d instanceof DeclaracionVariable) {
 			var dec = d as DeclaracionVariable;
 			for(Variable v: dec.variable) {
-				variablesInicio.put(v.nombre, dec.tipo.name);
+				variablesInicio.put(v.nombre, dec.tipo);
 			}
 		}
 		else if(d instanceof DeclaracionPropia) {
@@ -749,7 +749,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			if(d instanceof DeclaracionVariable) {
 				var dec = d as DeclaracionVariable;
 				for(Variable v: dec.variable) {
-					variablesSubprocesos.get(s.nombre).put(v.nombre, dec.tipo.name);
+					variablesSubprocesos.get(s.nombre).put(v.nombre, dec.tipo);
 				}
 			}
 			else if(d instanceof DeclaracionPropia) {
@@ -762,7 +762,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		for(ParametroFuncion p: s.parametrofuncion) {
 			if(p.tipo.eClass.name.equals("TipoExistente")) {
 				var tipo = p.tipo as TipoExistente;
-				variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.tipo.name);
+				variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.tipo);
 			}
 			else if(p.tipo.eClass.name.equals("TipoDefinido")) {
 				var tipo = p.tipo as TipoDefinido;
@@ -776,7 +776,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			var v = t as Vector;
 			if(v.tipo.eClass.name.equals("TipoExistente")) {
 				var tipo = v.tipo as TipoExistente;
-				vectoresMatrices.put(v.nombre, tipo.tipo.name);
+				vectoresMatrices.put(v.nombre, tipo.tipo);
 			}
 			else if(v.tipo.eClass.name.equals("TipoDefinido")) {
 				var tipo = v.tipo as TipoDefinido;
@@ -787,7 +787,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			var m = t as Matriz;
 			if(m.tipo.eClass.name.equals("TipoExistente")) {
 				var tipo = m.tipo as TipoExistente;
-				vectoresMatrices.put(m.nombre, tipo.tipo.name);
+				vectoresMatrices.put(m.nombre, tipo.tipo);
 			}
 			else if(m.tipo.eClass.name.equals("TipoDefinido")) {
 				var tipo = m.tipo as TipoDefinido;
@@ -801,7 +801,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				if(d instanceof DeclaracionVariable) {
 					var dec = d as DeclaracionVariable;
 					for(Variable v: dec.variable) {
-						registros.get(r.nombre).put(v.nombre, dec.tipo.name);
+						registros.get(r.nombre).put(v.nombre, dec.tipo);
 					}
 				}
 				else if(d instanceof DeclaracionPropia) {
@@ -1013,12 +1013,12 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 
-	def tipoVariableCpp(TipoVariable tipo) {
-		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) return "int";
-		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) return "char";
-		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_REAL"))) return "float";
-		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) return "bool";
-		if(tipo.toString().equals(readerMessages.getBundle().getString("TIPO_CADENA"))) return "string";
+	def tipoVariableCpp(String tipo) {
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) return "int";
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) return "char";
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) return "float";
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) return "bool";
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) return "string";
 	}
 
 	override generate(EList<ParametroFuncion> parametros) {

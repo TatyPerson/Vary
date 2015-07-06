@@ -65,7 +65,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				//Registramos todas las variables declaradas y sus respectivos tipos
 				//Nota: No se comprueba si están repetidas porque ya hay una función que se encarga de ello.
 				for(Variable var: dec.getVariable()) {
-					variablesDeclaradas.put(var.getNombre(), dec.getTipo().getName());
+					variablesDeclaradas.put(var.getNombre(), dec.getTipo());
 				}
 			}
 			else if(d instanceof DeclaracionPropia) {
@@ -102,7 +102,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				//Registramos las variables que no han sido declaradas en el cuerpo de la función como locales
 				for(Variable var: dec.getVariable()) {
 					if(!variablesRepetidas.contains(var.getNombre())) {
-						variablesDeclaradas.put(var.getNombre(), dec.getTipo().getName());
+						variablesDeclaradas.put(var.getNombre(), dec.getTipo());
 					}
 				}
 			}
@@ -155,7 +155,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			}
 			else if(p.getTipo() instanceof TipoExistente) {
 				TipoExistente tipo = (TipoExistente) p.getTipo();
-				parametrosTipados.put(p.getVariable().getNombre(), tipo.getTipo().getName());
+				parametrosTipados.put(p.getVariable().getNombre(), tipo.getTipo());
 			}
 		}
 		return parametrosTipados;
@@ -477,7 +477,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	protected String getTipoParametro(Tipo tipo) {
 		if(tipo instanceof TipoExistente) {
 			TipoExistente t = (TipoExistente) tipo;
-			return t.getTipo().getName();
+			return t.getTipo();
 		}
 		else {
 			TipoDefinido t = (TipoDefinido) tipo;
@@ -1245,7 +1245,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			else {
 				DeclaracionVariable dec = (DeclaracionVariable) d;
 				for(Variable v: dec.getVariable()) {
-					campos.put(v.getNombre(), dec.getTipo().getName());
+					campos.put(v.getNombre(), dec.getTipo());
 				}
 			}
 		}
@@ -1283,7 +1283,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 					if(s2 instanceof Funcion) {
 						Funcion f2 = (Funcion) s2;
 						if(f.getNombre().equals(f2.getNombre())) {
-							aux.put(f2.getParametrofuncion().size(), f2.getTipo().getName());
+							aux.put(f2.getParametrofuncion().size(), f2.getTipo());
 						}
 					}
 				}

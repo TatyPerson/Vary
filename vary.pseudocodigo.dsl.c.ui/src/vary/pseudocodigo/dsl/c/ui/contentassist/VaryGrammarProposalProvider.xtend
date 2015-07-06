@@ -316,7 +316,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				acceptor.accept(completionProposal)
 			} else if(parametro.tipo instanceof TipoExistente) {
 				var tipoExistente = parametro.tipo as TipoExistente
-				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoExistente.tipo.literal)
+				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoExistente.tipo)
 				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
 				acceptor.accept(completionProposal)
 			}
@@ -336,7 +336,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			else if(declaracion instanceof DeclaracionVariable) {
 				var dec = declaracion as DeclaracionVariable
 				for(Variable v: dec.variable) {
-					var styledString = new StyledString(v.nombre + " : " + dec.tipo.literal)
+					var styledString = new StyledString(v.nombre + " : " + dec.tipo)
 					var completionProposal = createCompletionProposal(v.nombre, styledString, varPrivate, context)
 					acceptor.accept(completionProposal)
 				}
@@ -352,7 +352,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					var declaracionVariable = declaracion as DeclaracionVariable
 					for(variable: declaracionVariable.variable) {
 						if(!variablesLocales.contains(variable.nombre) && variablesPublicas.contains(variable.nombre)) {
-							var styledString = new StyledString(variable.nombre + " : " + declaracionVariable.tipo.literal)
+							var styledString = new StyledString(variable.nombre + " : " + declaracionVariable.tipo)
 							var styledStringAux = new StyledString(" - " + modulo.nombre)
 							styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 							styledString.append(styledStringAux)
@@ -498,7 +498,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					}
 				}
 				var content = styledString.toString
-				styledString.append(" : " + funcion.tipo.literal)
+				styledString.append(" : " + funcion.tipo)
 				var completionProposal = createCompletionProposal(content, styledString, funcionPrivada, context)
 				acceptor.accept(completionProposal)
 			}
@@ -527,7 +527,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 							}
 						}
 						var contenido = styledString.toString
-						styledString.append(" : " + funcion.tipo.literal)
+						styledString.append(" : " + funcion.tipo)
 						var styledStringAux = new StyledString(" - " + modulo.nombre)
 						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 						styledString.append(styledStringAux)
@@ -558,9 +558,9 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				//Sólo los procedimientos porque son los que no devuelven nada
 				var procedimiento = s as Procedimiento
 				complete_SentenciasAux(context, acceptor, procedimiento)
-				complete_SentenciasAux_Modulos(context, acceptor, algoritmo.importaciones, procedimiento)
 			}
 		}
+		complete_SentenciasAux_Modulos(context, acceptor, algoritmo.importaciones)
 	}
 	
 	override void completeProcedimiento_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -607,9 +607,9 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					//Sólo los procedimientos porque son los que no devuelven nada
 					var procedimiento = s as Procedimiento
 					complete_SentenciasAux(context, acceptor, procedimiento)
-					complete_SentenciasAux_Modulos(context, acceptor, algoritmo.importaciones, procedimiento)
 				}
 			}
+			complete_SentenciasAux_Modulos(context, acceptor, algoritmo.importaciones)
 		}
 		else if(context.getRootModel instanceof Modulo) {
 			var modulo = context.getRootModel as Modulo
@@ -617,8 +617,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				//Sólo los procedimientos porque son los que no devuelven nada
 				var procedimiento = s as Procedimiento
 				complete_SentenciasAux(context, acceptor, procedimiento)
-				complete_SentenciasAux_Modulos(context, acceptor, modulo.importaciones, procedimiento)
 			}
+			complete_SentenciasAux_Modulos(context, acceptor, modulo.importaciones)
 		}
 	}
 	
@@ -641,33 +641,38 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		acceptor.accept(completionProposal)
 	}
 	
-	def void complete_SentenciasAux_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos, Procedimiento procedimiento) {
+	def void complete_SentenciasAux_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos) {
 		for(modulo: modulos) {
-			for(cabeceraFuncion: modulo.exporta_funciones) {
-				if(cabeceraFuncion.nombre.equals(procedimiento.nombre) && cabeceraFuncion.parametrofuncion.size == procedimiento.parametrofuncion.size) {
-					var styledString = new StyledString(procedimiento.nombre + "(")
-					if(procedimiento.parametrofuncion.size == 0) {
-						styledString.append(")")
-					}
-					else {
-						for(ParametroFuncion p: procedimiento.parametrofuncion) {
-							if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
-								styledString.append(p.variable.nombre + ",")
-							}
-							else {
-								styledString.append(p.variable.nombre + ")")
+			for(subproceso: modulo.implementacion.funcion) {
+				if(subproceso instanceof Procedimiento) {
+					var procedimiento = subproceso as Procedimiento
+					for(cabeceraFuncion: modulo.exporta_funciones) {
+						if(cabeceraFuncion.nombre.equals(procedimiento.nombre) && cabeceraFuncion.parametrofuncion.size == procedimiento.parametrofuncion.size) {
+						var styledString = new StyledString(procedimiento.nombre + "(")
+						if(procedimiento.parametrofuncion.size == 0) {
+							styledString.append(")")
+						}
+						else {
+							for(ParametroFuncion p: procedimiento.parametrofuncion) {
+								if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
+									styledString.append(p.variable.nombre + ",")
+								}
+								else {
+									styledString.append(p.variable.nombre + ")")
+								}
 							}
 						}
+						var styledStringAux = new StyledString(" - " + modulo.nombre)
+						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
+						styledString.append(styledStringAux)
+						var completionProposal = createCompletionProposal(styledString.toString, styledString, typesClassics, context)
+						acceptor.accept(completionProposal)
 					}
-					var styledStringAux = new StyledString(" - " + modulo.nombre)
-					styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
-					styledString.append(styledStringAux)
-					var completionProposal = createCompletionProposal(styledString.toString, styledString, typesClassics, context)
-					acceptor.accept(completionProposal)
 				}
 			}
 		}
-	}
+	 }
+  }
 	
 	//Proposal para los parametros de las llamadas a funciones y procedimientos -------------------------------------------
 	
@@ -894,7 +899,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					var decVariable = dec as DeclaracionVariable
 					for(Variable v: decVariable.variable) {
 						if(v.nombre.equals(nombreVariable)) {
-							tipo = decVariable.tipo.literal
+							tipo = decVariable.tipo
 						}
 					}
 				}
@@ -914,7 +919,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					var decVariable = dec as DeclaracionVariable
 					for(Variable v: decVariable.variable) {
 						if(v.nombre.equals(nombreVariable)) {
-							tipo = decVariable.tipo.literal
+							tipo = decVariable.tipo
 						}
 					}
 				}
@@ -928,7 +933,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 							tipo = tipoDefinido.tipo
 						} else {
 							var tipoExistente = vector.tipo as TipoExistente
-							tipo = tipoExistente.tipo.literal
+							tipo = tipoExistente.tipo
 						}
 					}
 				} else if(complejo instanceof Matriz) {
@@ -939,7 +944,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 							tipo = tipoDefinido.tipo
 						} else {
 							var tipoExistente = matriz.tipo as TipoExistente
-							tipo = tipoExistente.tipo.literal
+							tipo = tipoExistente.tipo
 						}
 					}
 				}
@@ -962,7 +967,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						else {
 							var decVariable = dec as DeclaracionVariable
 							for(Variable v: decVariable.variable) {
-								var styledString = new StyledString(v.nombre + " : " + decVariable.tipo.literal + " : " + tipo)
+								var styledString = new StyledString(v.nombre + " : " + decVariable.tipo + " : " + tipo)
 								var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
 								acceptor.accept(completionProposal)
 							}
@@ -991,7 +996,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						var decVariable = dec as DeclaracionVariable
 						for(Variable v: decVariable.variable) {
 							if(v.nombre.equals(nombreVariable)) {
-								tipo = decVariable.tipo.literal
+								tipo = decVariable.tipo
 							}
 						}
 					}
@@ -1011,7 +1016,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						var decVariable = dec as DeclaracionVariable
 						for(Variable v: decVariable.variable) {
 							if(v.nombre.equals(nombreVariable)) {
-								tipo = decVariable.tipo.literal
+								tipo = decVariable.tipo
 							}
 						}
 					}
@@ -1026,7 +1031,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 									tipo = tipoDefinido.tipo
 								} else {
 									var tipoExistente = vector.tipo as TipoExistente
-									tipo = tipoExistente.tipo.literal
+									tipo = tipoExistente.tipo
 								}
 							}
 						} else if(complejo instanceof Matriz) {
@@ -1037,7 +1042,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 									tipo = tipoDefinido.tipo
 								} else {
 									var tipoExistente = matriz.tipo as TipoExistente
-									tipo = tipoExistente.tipo.literal
+									tipo = tipoExistente.tipo
 								}
 							}
 						}
@@ -1065,7 +1070,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 								else {
 									var decVariable = dec as DeclaracionVariable
 									for(Variable v: decVariable.variable) {
-										var styledString = new StyledString(v.nombre + " : " + decVariable.tipo.literal + " : " + tipo)
+										var styledString = new StyledString(v.nombre + " : " + decVariable.tipo + " : " + tipo)
 										var styledStringAux = new StyledString(" - " + modulo.nombre)
 										styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 										styledString.append(styledStringAux)
