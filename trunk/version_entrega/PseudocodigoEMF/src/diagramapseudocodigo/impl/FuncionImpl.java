@@ -5,7 +5,6 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Funcion;
-import diagramapseudocodigo.TipoVariable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
@@ -35,7 +34,7 @@ public class FuncionImpl extends SubprocesoImpl implements Funcion {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TipoVariable TIPO_EDEFAULT = TipoVariable.ENTERO;
+	protected static final String TIPO_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
@@ -45,7 +44,7 @@ public class FuncionImpl extends SubprocesoImpl implements Funcion {
 	 * @generated
 	 * @ordered
 	 */
-	protected TipoVariable tipo = TIPO_EDEFAULT;
+	protected String tipo = TIPO_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDevuelve() <em>Devuelve</em>}' containment reference.
@@ -81,7 +80,7 @@ public class FuncionImpl extends SubprocesoImpl implements Funcion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TipoVariable getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
@@ -90,9 +89,9 @@ public class FuncionImpl extends SubprocesoImpl implements Funcion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTipo(TipoVariable newTipo) {
-		TipoVariable oldTipo = tipo;
-		tipo = newTipo == null ? TIPO_EDEFAULT : newTipo;
+	public void setTipo(String newTipo) {
+		String oldTipo = tipo;
+		tipo = newTipo;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.FUNCION__TIPO, oldTipo, tipo));
 	}
@@ -179,7 +178,7 @@ public class FuncionImpl extends SubprocesoImpl implements Funcion {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.FUNCION__TIPO:
-				setTipo((TipoVariable)newValue);
+				setTipo((String)newValue);
 				return;
 			case DiagramapseudocodigoPackage.FUNCION__DEVUELVE:
 				setDevuelve((Devolver)newValue);
@@ -215,7 +214,7 @@ public class FuncionImpl extends SubprocesoImpl implements Funcion {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.FUNCION__TIPO:
-				return tipo != TIPO_EDEFAULT;
+				return TIPO_EDEFAULT == null ? tipo != null : !TIPO_EDEFAULT.equals(tipo);
 			case DiagramapseudocodigoPackage.FUNCION__DEVUELVE:
 				return devuelve != null;
 		}

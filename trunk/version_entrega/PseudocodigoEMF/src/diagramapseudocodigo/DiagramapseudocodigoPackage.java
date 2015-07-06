@@ -3579,16 +3579,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CABECERA_FUNCION_OPERATION_COUNT = CABECERA_SUBPROCESO_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.TipoVariable <em>Tipo Variable</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.TipoVariable
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoVariable()
-	 * @generated
-	 */
-	int TIPO_VARIABLE = 75;
-
-	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3596,7 +3586,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 76;
+	int SIGNO = 75;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.booleano <em>booleano</em>}' enum.
@@ -3606,7 +3596,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getbooleano()
 	 * @generated
 	 */
-	int BOOLEANO = 77;
+	int BOOLEANO = 76;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
@@ -3616,7 +3606,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
 	 * @generated
 	 */
-	int NEG = 78;
+	int NEG = 77;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.TipoPaso <em>Tipo Paso</em>}' enum.
@@ -3626,7 +3616,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoPaso()
 	 * @generated
 	 */
-	int TIPO_PASO = 79;
+	int TIPO_PASO = 78;
 
 
 	/**
@@ -3637,7 +3627,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 80;
+	int NOMBRE_INTERNA = 79;
 
 
 	/**
@@ -3648,7 +3638,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 81;
+	int MODO_APERTURA = 80;
 
 
 	/**
@@ -5876,16 +5866,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EAttribute getunaria_Ssigno();
 
 	/**
-	 * Returns the meta object for enum '{@link diagramapseudocodigo.TipoVariable <em>Tipo Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Tipo Variable</em>'.
-	 * @see diagramapseudocodigo.TipoVariable
-	 * @generated
-	 */
-	EEnum getTipoVariable();
-
-	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.signo <em>signo</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7788,16 +7768,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNARIA__SSIGNO = eINSTANCE.getunaria_Ssigno();
-
-		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.TipoVariable <em>Tipo Variable</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.TipoVariable
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoVariable()
-		 * @generated
-		 */
-		EEnum TIPO_VARIABLE = eINSTANCE.getTipoVariable();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.

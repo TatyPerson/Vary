@@ -140,8 +140,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case DiagramapseudocodigoPackage.TIPO_VARIABLE:
-				return createTipoVariableFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.SIGNO:
 				return createsignoFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.BOOLEANO:
@@ -167,8 +165,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case DiagramapseudocodigoPackage.TIPO_VARIABLE:
-				return convertTipoVariableToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.SIGNO:
 				return convertsignoToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.BOOLEANO:
@@ -884,26 +880,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public AsignacionCompleja createAsignacionCompleja() {
 		AsignacionComplejaImpl asignacionCompleja = new AsignacionComplejaImpl();
 		return asignacionCompleja;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TipoVariable createTipoVariableFromString(EDataType eDataType, String initialValue) {
-		TipoVariable result = TipoVariable.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertTipoVariableToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

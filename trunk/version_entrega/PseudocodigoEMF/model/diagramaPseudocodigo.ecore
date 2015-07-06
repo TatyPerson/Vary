@@ -27,20 +27,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sentencias" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="DeclaracionVariable" eSuperTypes="#//Declaracion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="#//TipoVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
         eType="#//Variable" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="TipoVariable">
-    <eLiterals name="entero"/>
-    <eLiterals name="caracter" value="1"/>
-    <eLiterals name="cadena" value="2"/>
-    <eLiterals name="logico" value="3"/>
-    <eLiterals name="real" value="4"/>
-    <eLiterals name="integer" value="5"/>
-    <eLiterals name="character" value="6"/>
-    <eLiterals name="boolean" value="7"/>
-    <eLiterals name="string" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LlamadaFuncion" eSuperTypes="#//valor #//operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
@@ -72,7 +61,7 @@
         upperBound="-1" eType="#//operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Funcion" eSuperTypes="#//Subproceso">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="#//TipoVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devuelve" eType="#//Devolver"
         containment="true"/>
   </eClassifiers>
@@ -242,7 +231,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TipoExistente" eSuperTypes="#//Tipo">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="#//TipoVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Archivo" eSuperTypes="#//TipoComplejo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
@@ -431,6 +420,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraProcedimiento" eSuperTypes="#//CabeceraSubproceso"/>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraFuncion" eSuperTypes="#//CabeceraSubproceso">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="#//TipoVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

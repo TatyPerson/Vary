@@ -4,12 +4,8 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.CabeceraFuncion;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.TipoVariable;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -34,7 +30,7 @@ public class CabeceraFuncionImpl extends CabeceraSubprocesoImpl implements Cabec
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TipoVariable TIPO_EDEFAULT = TipoVariable.ENTERO;
+	protected static final String TIPO_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
@@ -44,7 +40,7 @@ public class CabeceraFuncionImpl extends CabeceraSubprocesoImpl implements Cabec
 	 * @generated
 	 * @ordered
 	 */
-	protected TipoVariable tipo = TIPO_EDEFAULT;
+	protected String tipo = TIPO_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,7 +66,7 @@ public class CabeceraFuncionImpl extends CabeceraSubprocesoImpl implements Cabec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TipoVariable getTipo() {
+	public String getTipo() {
 		return tipo;
 	}
 
@@ -79,9 +75,9 @@ public class CabeceraFuncionImpl extends CabeceraSubprocesoImpl implements Cabec
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTipo(TipoVariable newTipo) {
-		TipoVariable oldTipo = tipo;
-		tipo = newTipo == null ? TIPO_EDEFAULT : newTipo;
+	public void setTipo(String newTipo) {
+		String oldTipo = tipo;
+		tipo = newTipo;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CABECERA_FUNCION__TIPO, oldTipo, tipo));
 	}
@@ -109,7 +105,7 @@ public class CabeceraFuncionImpl extends CabeceraSubprocesoImpl implements Cabec
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CABECERA_FUNCION__TIPO:
-				setTipo((TipoVariable)newValue);
+				setTipo((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,7 +135,7 @@ public class CabeceraFuncionImpl extends CabeceraSubprocesoImpl implements Cabec
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CABECERA_FUNCION__TIPO:
-				return tipo != TIPO_EDEFAULT;
+				return TIPO_EDEFAULT == null ? tipo != null : !TIPO_EDEFAULT.equals(tipo);
 		}
 		return super.eIsSet(featureID);
 	}

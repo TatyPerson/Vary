@@ -66,7 +66,6 @@ import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
 import diagramapseudocodigo.TipoExistente;
 import diagramapseudocodigo.TipoPaso;
-import diagramapseudocodigo.TipoVariable;
 import diagramapseudocodigo.ValorBooleano;
 import diagramapseudocodigo.ValorComplejo;
 import diagramapseudocodigo.ValorMatriz;
@@ -624,13 +623,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EClass negativaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum tipoVariableEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2621,15 +2613,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getTipoVariable() {
-		return tipoVariableEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getsigno() {
 		return signoEEnum;
 	}
@@ -2992,7 +2975,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		createEAttribute(cabeceraFuncionEClass, CABECERA_FUNCION__TIPO);
 
 		// Create enums
-		tipoVariableEEnum = createEEnum(TIPO_VARIABLE);
 		signoEEnum = createEEnum(SIGNO);
 		booleanoEEnum = createEEnum(BOOLEANO);
 		negEEnum = createEEnum(NEG);
@@ -3115,7 +3097,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(sentenciasEClass, Sentencias.class, "Sentencias", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(declaracionVariableEClass, DeclaracionVariable.class, "DeclaracionVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeclaracionVariable_Tipo(), this.getTipoVariable(), "tipo", null, 1, 1, DeclaracionVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDeclaracionVariable_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, DeclaracionVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeclaracionVariable_Variable(), this.getVariable(), null, "variable", null, 0, -1, DeclaracionVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(llamadaFuncionEClass, LlamadaFuncion.class, "LlamadaFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3146,7 +3128,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEReference(getEscribir_Operador(), this.getoperacion(), null, "operador", null, 1, -1, Escribir.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(funcionEClass, Funcion.class, "Funcion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFuncion_Tipo(), this.getTipoVariable(), "tipo", null, 0, 1, Funcion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFuncion_Tipo(), ecorePackage.getEString(), "tipo", null, 0, 1, Funcion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFuncion_Devuelve(), this.getDevolver(), null, "devuelve", null, 0, 1, Funcion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(parametroFuncionEClass, ParametroFuncion.class, "ParametroFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3250,7 +3232,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEAttribute(getTipoDefinido_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, TipoDefinido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tipoExistenteEClass, TipoExistente.class, "TipoExistente", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTipoExistente_Tipo(), this.getTipoVariable(), "tipo", null, 1, 1, TipoExistente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTipoExistente_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, TipoExistente.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(archivoEClass, Archivo.class, "Archivo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArchivo_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Archivo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3380,20 +3362,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(cabeceraProcedimientoEClass, CabeceraProcedimiento.class, "CabeceraProcedimiento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(cabeceraFuncionEClass, CabeceraFuncion.class, "CabeceraFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCabeceraFuncion_Tipo(), this.getTipoVariable(), "tipo", null, 1, 1, CabeceraFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCabeceraFuncion_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, CabeceraFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(tipoVariableEEnum, TipoVariable.class, "TipoVariable");
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.ENTERO);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.CARACTER);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.CADENA);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.LOGICO);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.REAL);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.INTEGER);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.CHARACTER);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.BOOLEAN);
-		addEEnumLiteral(tipoVariableEEnum, TipoVariable.STRING);
-
 		initEEnum(signoEEnum, signo.class, "signo");
 		addEEnumLiteral(signoEEnum, signo.SUM);
 		addEEnumLiteral(signoEEnum, signo.RES);

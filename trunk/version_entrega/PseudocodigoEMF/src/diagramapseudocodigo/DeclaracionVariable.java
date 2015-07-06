@@ -24,7 +24,6 @@ import org.eclipse.emf.common.util.EList;
 public interface DeclaracionVariable extends Declaracion {
 	/**
 	 * Returns the value of the '<em><b>Tipo</b></em>' attribute.
-	 * The literals are from the enumeration {@link diagramapseudocodigo.TipoVariable}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Tipo</em>' attribute isn't clear,
@@ -32,24 +31,22 @@ public interface DeclaracionVariable extends Declaracion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Tipo</em>' attribute.
-	 * @see diagramapseudocodigo.TipoVariable
-	 * @see #setTipo(TipoVariable)
+	 * @see #setTipo(String)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getDeclaracionVariable_Tipo()
 	 * @model required="true"
 	 * @generated
 	 */
-	TipoVariable getTipo();
+	String getTipo();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.DeclaracionVariable#getTipo <em>Tipo</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Tipo</em>' attribute.
-	 * @see diagramapseudocodigo.TipoVariable
 	 * @see #getTipo()
 	 * @generated
 	 */
-	void setTipo(TipoVariable value);
+	void setTipo(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' containment reference list.
