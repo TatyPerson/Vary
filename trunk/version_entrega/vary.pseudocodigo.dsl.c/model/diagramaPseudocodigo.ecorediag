@@ -72,53 +72,6 @@
     <element xmi:type="ecore:EClass" href="diagramaPseudocodigo.ecore#//DeclaracionVariable"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AeVECfy1EeS1g8BfuAAiGQ" x="-50" y="295"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_AeVECvy1EeS1g8BfuAAiGQ" type="1005">
-    <children xmi:type="notation:Node" xmi:id="_AeVEC_y1EeS1g8BfuAAiGQ" type="4010"/>
-    <children xmi:type="notation:Node" xmi:id="_AeVEDPy1EeS1g8BfuAAiGQ" type="5008">
-      <children xmi:type="notation:Node" xmi:id="_AeVEDfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/entero"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEDvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVED_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/caracter"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEEPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEEfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/cadena"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEEvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEE_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/logico"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEFPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEFfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/real"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEFvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEF_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/integer"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEGPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEGfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/character"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEGvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEG_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/boolean"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEHPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeVEHfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoVariable/string"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeVEHvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_AeVEH_y1EeS1g8BfuAAiGQ"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_AeVEIPy1EeS1g8BfuAAiGQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_AeVEIfy1EeS1g8BfuAAiGQ"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_AeVEIvy1EeS1g8BfuAAiGQ" fontColor="4210752" fontName="Times New Roman" fontHeight="12" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="diagramaPseudocodigo.ecore#//TipoVariable"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AeVEI_y1EeS1g8BfuAAiGQ" x="-348" y="316"/>
-  </children>
   <children xmi:type="notation:Node" xmi:id="_AeVEJPy1EeS1g8BfuAAiGQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_AeVEJfy1EeS1g8BfuAAiGQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_AeVrEPy1EeS1g8BfuAAiGQ" type="5001">
@@ -2734,7 +2687,7 @@
   </edges>
   <edges xmi:type="notation:Edge" xmi:id="_XjDoEPyuEeS1g8BfuAAiGQ" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_-afoMPytEeS1g8BfuAAiGQ">
     <children xmi:type="notation:Node" xmi:id="_XjEPIPyuEeS1g8BfuAAiGQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPIfyuEeS1g8BfuAAiGQ" x="-10" y="-10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPIfyuEeS1g8BfuAAiGQ" x="24" y="-16"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_XjEPIvyuEeS1g8BfuAAiGQ" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPI_yuEeS1g8BfuAAiGQ" x="10" y="10"/>

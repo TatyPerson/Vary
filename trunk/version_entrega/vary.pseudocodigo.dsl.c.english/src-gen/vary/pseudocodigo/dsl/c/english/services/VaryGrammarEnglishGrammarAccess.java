@@ -2383,7 +2383,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		////unaria returns unaria:
 		////	ssigno=neg
 		////	variable=Primaria;
-		//TipoVariable:
+		//TipoVariable returns ecore::EString:
 		//	"integer" | "character" | "real" | "boolean" | "string";
 		public ParserRule getRule() { return rule; }
 
@@ -4498,7 +4498,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	////unaria returns unaria:
 	////	ssigno=neg
 	////	variable=Primaria;
-	//TipoVariable:
+	//TipoVariable returns ecore::EString:
 	//	"integer" | "character" | "real" | "boolean" | "string";
 	public TipoVariableElements getTipoVariableAccess() {
 		return (pTipoVariable != null) ? pTipoVariable : (pTipoVariable = new TipoVariableElements());

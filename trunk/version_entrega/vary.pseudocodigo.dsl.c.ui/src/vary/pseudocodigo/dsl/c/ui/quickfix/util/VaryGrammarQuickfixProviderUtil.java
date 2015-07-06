@@ -513,7 +513,7 @@ public class VaryGrammarQuickfixProviderUtil {
 								DeclaracionVariable declaracionVariable = (DeclaracionVariable) declaracion;
 								for(Variable variable: declaracionVariable.getVariable()) {
 									if(variable.getNombre().equals(campos.get(0).getNombre_campo())) {
-										tipoFinal = declaracionVariable.getTipo().getLiteral();
+										tipoFinal = declaracionVariable.getTipo();
 									}
 								}
 							} else {
@@ -552,7 +552,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				if(vector.getNombre().equals(tipoVariable)) {
 					if(vector.getTipo() instanceof TipoExistente) {
 						TipoExistente tipo = (TipoExistente) vector.getTipo();
-						tipoFinal = tipo.getTipo().getLiteral();
+						tipoFinal = tipo.getTipo();
 					}
 					else {
 						TipoDefinido tipo = (TipoDefinido) vector.getTipo();
@@ -565,7 +565,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				if(matriz.getNombre().equals(tipoVariable)) {
 					if(matriz.getTipo() instanceof TipoExistente) {
 						TipoExistente tipo = (TipoExistente) matriz.getTipo();
-						tipoFinal = tipo.getTipo().getLiteral();
+						tipoFinal = tipo.getTipo();
 					}
 					else {
 						TipoDefinido tipo = (TipoDefinido) matriz.getTipo();
@@ -589,7 +589,7 @@ public class VaryGrammarQuickfixProviderUtil {
 			if(s instanceof Funcion) {
 				Funcion funcion = (Funcion) s;
 				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametrofuncion().size() == llamada.getOperadores().size()) {
-					tipo = funcion.getTipo().getLiteral();
+					tipo = funcion.getTipo();
 				}
 			}
 		}
@@ -608,7 +608,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				}
 				else {
 					TipoExistente tipoExistente = (TipoExistente) parametro.getTipo();
-					tipo = tipoExistente.getTipo().getLiteral();
+					tipo = tipoExistente.getTipo();
 				}
 			}
 		}
@@ -622,7 +622,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				DeclaracionVariable declaracionVariable = (DeclaracionVariable) declaracion;
 				for(Variable v: declaracionVariable.getVariable()) {
 					if(v.getNombre().equals(nombreVariable)) {
-						tipo = declaracionVariable.getTipo().getLiteral();
+						tipo = declaracionVariable.getTipo();
 					}
 				}
 			} else {
@@ -653,7 +653,7 @@ public class VaryGrammarQuickfixProviderUtil {
 									tipo = tipoDefinido.getTipo();
 								} else {
 									TipoExistente tipoExistente = (TipoExistente) parametro.getTipo();
-									tipo = tipoExistente.getTipo().getLiteral();
+									tipo = tipoExistente.getTipo();
 								}
 							}
 						}
@@ -672,7 +672,7 @@ public class VaryGrammarQuickfixProviderUtil {
 									tipo = tipoDefinido.getTipo();
 								} else {
 									TipoExistente tipoExistente = (TipoExistente) parametro.getTipo();
-									tipo = tipoExistente.getTipo().getLiteral();
+									tipo = tipoExistente.getTipo();
 								}
 							}
 						}

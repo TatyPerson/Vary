@@ -49,19 +49,19 @@ class VaryGrammarModelUtil {
 			System.out.println("Es tipo nativo")
 			model.declaracion.add(DiagramapseudocodigoFactory::eINSTANCE.createDeclaracionVariable() => [
 				if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_ENTERO"))) {
-					tipo = TipoVariable::ENTERO
+					tipo = readerKeywords.getBundle.getString("KEYWORD_ENTERO")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_LOGICO"))) {
-					tipo = TipoVariable::LOGICO
+					tipo = readerKeywords.getBundle.getString("KEYWORD_LOGICO")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_REAL"))) {
-					tipo = TipoVariable::REAL
+					tipo = readerKeywords.getBundle.getString("KEYWORD_REAL")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_CADENA"))) {
-					tipo = TipoVariable::CADENA
+					tipo = readerKeywords.getBundle.getString("KEYWORD_CADENA")
 				}
 				else {
-					tipo = TipoVariable::CARACTER
+					tipo = readerKeywords.getBundle.getString("KEYWORD_CARACTER")
 				}
 				variable.add(DiagramapseudocodigoFactory::eINSTANCE.createVariable() => [
 				nombre = nombreVariable
@@ -85,19 +85,19 @@ class VaryGrammarModelUtil {
 			System.out.println("Es tipo nativo")
 			model.declaracion.add(DiagramapseudocodigoFactory::eINSTANCE.createDeclaracionVariable() => [
 				if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_ENTERO"))) {
-					tipo = TipoVariable::ENTERO
+					tipo = readerKeywords.getBundle.getString("KEYWORD_ENTERO")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_LOGICO"))) {
-					tipo = TipoVariable::LOGICO
+					tipo = readerKeywords.getBundle.getString("KEYWORD_LOGICO")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_REAL"))) {
-					tipo = TipoVariable::REAL
+					tipo = readerKeywords.getBundle.getString("KEYWORD_REAL")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_CADENA"))) {
-					tipo = TipoVariable::CADENA
+					tipo = readerKeywords.getBundle.getString("KEYWORD_CADENA")
 				}
 				else {
-					tipo = TipoVariable::CARACTER
+					tipo = readerKeywords.getBundle.getString("KEYWORD_CARACTER")
 				}
 				variable.add(DiagramapseudocodigoFactory::eINSTANCE.createVariable() => [
 				nombre = nombreVariable
@@ -121,19 +121,19 @@ class VaryGrammarModelUtil {
 			System.out.println("Es tipo nativo")
 			model.global.add(DiagramapseudocodigoFactory::eINSTANCE.createDeclaracionVariable() => [
 				if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_ENTERO"))) {
-					tipo = TipoVariable::ENTERO
+					tipo = readerKeywords.getBundle.getString("KEYWORD_ENTERO")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_LOGICO"))) {
-					tipo = TipoVariable::LOGICO
+					tipo = readerKeywords.getBundle.getString("KEYWORD_LOGICO")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_REAL"))) {
-					tipo = TipoVariable::REAL
+					tipo = readerKeywords.getBundle.getString("KEYWORD_REAL")
 				}
 				else if(nombreTipo.equals(readerKeywords.getBundle.getString("KEYWORD_CADENA"))) {
-					tipo = TipoVariable::CADENA
+					tipo = readerKeywords.getBundle.getString("KEYWORD_CADENA")
 				}
 				else {
-					tipo = TipoVariable::CARACTER
+					tipo = readerKeywords.getBundle.getString("KEYWORD_CARACTER")
 				}
 				variable.add(DiagramapseudocodigoFactory::eINSTANCE.createVariable() => [
 				nombre = nombreVariable
