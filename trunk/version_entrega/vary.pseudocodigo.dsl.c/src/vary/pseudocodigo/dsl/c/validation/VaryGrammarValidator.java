@@ -211,6 +211,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 	}
 	
+	
 	@Check
 	protected void checkCiclosImportacion(Algoritmo a) {
 		for(Modulo m: a.getImportaciones()) {
@@ -402,6 +403,222 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						CabeceraProcedimiento cabeceraProcedimiento = (CabeceraProcedimiento) cabecera;
 						if(cabeceraProcedimiento.getNombre().equals(s.getNombre()) && cabeceraProcedimiento.getParametrofuncion().size() == s.getParametrofuncion().size()) {
 							error(readerMessages.getString("PROCEDIMIENTO_REPETIDO", s.getNombre(), mAux.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
+						}
+					}
+				}
+			}
+		}
+		
+		//Después la de los módulos que se importan entre sí
+		
+		for(Modulo mAux: m.getImportaciones()) {
+			for(Modulo mAux2: m.getImportaciones()) {
+				if(!mAux.getNombre().equals(mAux2.getNombre())) { //Nos saltamos a él mismo
+					for(CabeceraSubproceso cabecera: mAux.getExporta_funciones()) {
+						for(CabeceraSubproceso cabecera2: mAux2.getExporta_funciones()) {
+							if(cabecera.getNombre().equals(cabecera2.getNombre()) && cabecera.getParametrofuncion().size() == cabecera2.getParametrofuncion().size()) {
+								if(cabecera instanceof CabeceraFuncion) {
+									error(readerMessages.getString("FUNCION_REPETIDA_IMPORTADA", cabecera.getNombre(), mAux.getNombre(), mAux2.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__IMPORTACIONES, m.getImportaciones().indexOf(mAux));
+								}
+								else {
+									error(readerMessages.getString("PROCEDIMIENTO_REPETIDO_IMPORTADO", cabecera.getNombre(), mAux.getNombre(), mAux2.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__IMPORTACIONES, m.getImportaciones().indexOf(mAux));
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si los módulos importados exportan variables con el mismo nombre que las globales
+	protected void checkAlgortimoGlobalesExportadas(Algoritmo a) {
+		Map<String,String> variablesGlobalesAlgoritmo = funciones.registrarVariablesTipadas(a.getGlobal());
+		List<String> nombresVariablesModulos = new ArrayList<String>();
+		
+		for(Modulo m: a.getImportaciones()) {
+			nombresVariablesModulos = funciones.registrarVariables(m.getExporta_globales());
+			for(String nombreVariable: nombresVariablesModulos) {
+				if(variablesGlobalesAlgoritmo.containsKey(nombreVariable)) {
+					error(readerMessages.getString("VARIABLE_REPETIDA_MODULO", nombreVariable, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL, a.getGlobal().indexOf(variablesGlobalesAlgoritmo.get(nombreVariable)));
+				}
+			}
+			
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si los módulos importados exportan variables con el mismo nombre que las globales del módulo principal
+	protected void checkModuloGlobalesExportadas(Modulo m) {
+		Map<String, String> variablesGlobalesModuloPrincipal = funciones.registrarVariablesTipadas(m.getImplementacion().getGlobal());
+		List<String> nombresVariablesModulos = new ArrayList<String>();
+		
+		for(Modulo mAux: m.getImportaciones()) {
+			nombresVariablesModulos = funciones.registrarVariables(mAux.getExporta_globales());
+			for(String nombreVariable: nombresVariablesModulos) {
+				if(variablesGlobalesModuloPrincipal.containsKey(nombreVariable)) {
+					error(readerMessages.getString("VARIABLE_REPETIDA_MODULO", nombreVariable, m.getNombre()), m.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL, m.getImplementacion().getGlobal().indexOf(variablesGlobalesModuloPrincipal.get(nombreVariable)));
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar de que los módulos importados no contengan variables exportadas con el mismo nombre
+	protected void checkVariablesExportadasModulos(Algoritmo a) {
+		List<String> variablesModulo1 = new ArrayList<String>();
+		List<String> variablesModulo2 = new ArrayList<String>();
+		for(Modulo m: a.getImportaciones()) {
+			for(Modulo m2: a.getImportaciones()) {
+				if(!m.getNombre().equals(m2.getNombre())) {
+					variablesModulo1 = funciones.registrarVariables(m.getExporta_globales());
+					variablesModulo2 = funciones.registrarVariables(m2.getExporta_globales());
+					for(String nombreVariable: variablesModulo1) {
+						if(variablesModulo2.contains(nombreVariable)) {
+							error(readerMessages.getString("VARIABLE_REPETIDA_MODULO_IMPORTADA", nombreVariable, m.getNombre(), m2.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar de que los módulos importados no contengan variables exportadas con el mismo nombre
+	protected void checkVariablesExportadasModulos(Modulo m) {
+		List<String> variablesModulo1 = new ArrayList<String>();
+		List<String> variablesModulo2 = new ArrayList<String>();
+		for(Modulo mAux: m.getImportaciones()) {
+			for(Modulo mAux2: m.getImportaciones()) {
+				if(!mAux.getNombre().equals(mAux2.getNombre())) {
+					variablesModulo1 = funciones.registrarVariables(mAux.getExporta_globales());
+					variablesModulo2 = funciones.registrarVariables(mAux2.getExporta_globales());
+					for(String nombreVariable: variablesModulo1) {
+						if(variablesModulo2.contains(nombreVariable)) {
+							error(readerMessages.getString("VARIABLE_REPETIDA_MODULO_IMPORTADA", nombreVariable, mAux.getNombre(), mAux2.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__IMPORTACIONES, m.getImportaciones().indexOf(mAux));
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que el módulo importado no exporte un tipo con el mismo nombre que uno de los del algoritmo
+	protected void checkTiposExportadosModulo(Algoritmo a) {
+		List<String> nombreTiposAlgoritmo = funciones.registrarTipos(a.getTipocomplejo());
+		
+		for(Modulo m: a.getImportaciones()) {
+			for(String nombreTipo: m.getExporta_tipos()) {
+				if(nombreTiposAlgoritmo.contains(nombreTipo)) {
+					error(readerMessages.getString("TIPO_REPETIDO_MODULO", nombreTipo, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, nombreTiposAlgoritmo.indexOf(nombreTipo));
+				}
+			}
+		}
+		
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que el módulo importado no exporte un tipo con el mismo nombre que uno de los del módulo principal
+	protected void checkTiposExportadosModulo(Modulo m) {
+		List<String> nombreTiposAlgoritmo = funciones.registrarTipos(m.getImplementacion().getTipocomplejo());
+		
+		for(Modulo mAux: m.getImportaciones()) {
+			for(String nombreTipo: m.getExporta_tipos()) {
+				if(nombreTiposAlgoritmo.contains(nombreTipo)) {
+					error(readerMessages.getString("TIPO_REPETIDO_MODULO", nombreTipo, mAux.getNombre()), m.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, nombreTiposAlgoritmo.indexOf(nombreTipo));
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que los módulos importados no contengan tipos exportados repetidos entre sí
+	protected void checkTiposExportadosModulosImportados(Algoritmo a) {		
+		for(Modulo m: a.getImportaciones()) {
+			for(Modulo m2: a.getImportaciones()) {
+				if(!m.getNombre().equals(m2.getNombre())) {
+					for(String nombreTipo: m.getExporta_tipos()) {
+						if(m2.getExporta_tipos().contains(nombreTipo)) {
+							error(readerMessages.getString("TIPO_REPETIDO_MODULO_IMPORTADO", nombreTipo, m.getNombre(), m2.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que los módulos importados no contengan tipos exportados repetidos entre sí
+	protected void checkTiposExportadosModulosImportados(Modulo m) {
+		for(Modulo mAux: m.getImportaciones()) {
+			for(Modulo mAux2: m.getImportaciones()) {
+				if(!mAux.getNombre().equals(mAux2.getNombre())) {
+					for(String nombreTipo: mAux.getExporta_tipos()) {
+						if(mAux2.getExporta_tipos().contains(nombreTipo)) {
+							error(readerMessages.getString("TIPO_REPETIDO_MODULO_IMPORTADO", nombreTipo, mAux.getNombre(), mAux2.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__IMPORTACIONES, m.getImportaciones().indexOf(mAux));
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que los módulos importados no definan constantes repetidas
+	protected void checkConstanteExportadaModulo(Algoritmo a) {
+		List<String> nombreConstantesAlgoritmo = funciones.registrarConstantes(a.getConstantes());
+		
+		for(Modulo m: a.getImportaciones()) {
+			for(String nombreConstante: m.getExporta_constantes()) {
+				if(nombreConstantesAlgoritmo.contains(nombreConstante)) {
+					error(readerMessages.getString("CONSTANTE_REPETIDA_MODULO", nombreConstante, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES, nombreConstantesAlgoritmo.indexOf(nombreConstante));
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que los módulos importados no definan constantes repetidas
+	protected void checkConstanteExportadaModulo(Modulo m) {
+		List<String> nombreConstantesModulo = funciones.registrarConstantes(m.getImplementacion().getConstantes());
+		
+		for(Modulo mAux: m.getImportaciones()) {
+			for(String nombreConstante: mAux.getExporta_constantes()) {
+				if(nombreConstantesModulo.contains(nombreConstante)) {
+					error(readerMessages.getString("CONSTANTE_REPETIDA_MODULO", nombreConstante, mAux.getNombre()), m.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES, nombreConstantesModulo.indexOf(nombreConstante));
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar que los módulos importados no definan constantes repetidas entre sí
+	protected void checkConstanteExportadaModuloImportado(Algoritmo a) {
+		for(Modulo m: a.getImportaciones()) {
+			for(Modulo m2: a.getImportaciones()) {
+				if(!m.getNombre().equals(m2.getNombre())) {
+					for(String nombreConstante: m.getExporta_constantes()) {
+						if(m2.getExporta_constantes().contains(nombreConstante)) {
+							error(readerMessages.getString("CONSTANTE_REPETIDA_MODULO_IMPORTADA", nombreConstante, m.getNombre(), m2.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	@Check
+	//Función que se encarga de comprobar que los módulos importados no definan constantes repetidas entre sí
+	protected void checkConstanteExportadaModuloImportado(Modulo m) {
+		for(Modulo mAux: m.getImportaciones()) {
+			for(Modulo mAux2: m.getImportaciones()) {
+				if(!mAux.getNombre().equals(mAux2.getNombre())) {
+					for(String nombreConstante: mAux.getExporta_constantes()) {
+						if(mAux2.getExporta_constantes().contains(nombreConstante)) {
+							error(readerMessages.getString("CONSTANTE_REPETIDA_MODULO_IMPORTADA", nombreConstante, mAux.getNombre(), mAux2.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__IMPORTACIONES, m.getImportaciones().indexOf(mAux));
 						}
 					}
 				}
