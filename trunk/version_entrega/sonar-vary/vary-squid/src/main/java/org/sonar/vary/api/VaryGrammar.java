@@ -4,7 +4,7 @@ import com.sonar.sslr.api.Grammar;
 import com.sonar.sslr.api.Rule;
 
 public class VaryGrammar extends Grammar {
-	
+
 	 public Rule CODIGO;
 	 public Rule ALGORITMO;
 	 public Rule MODULO;
@@ -25,8 +25,6 @@ public class VaryGrammar extends Grammar {
 	 public Rule FUNCION_FICHERO_CERRAR;
 	 public Rule MODO_APERTURA;
 	 public Rule NOMBRE_INTERNA;
-	 public Rule ENTERO;
-	 public Rule REAL;
 	 public Rule CAMPO_REGISTRO;
 	 public Rule TIPO;
 	 public Rule TIPO_DEFINIDO;
@@ -41,8 +39,6 @@ public class VaryGrammar extends Grammar {
 	 public Rule SUBRANGO_ENUMERADO;
 	 public Rule SUBRANGO_NUMERICO;
 	 public Rule INICIO;
-	 public Rule CADENA;
-	 public Rule CARACTER;
 	 public Rule DECLARACION_VARIABLE;
 	 public Rule DECLARACION_PROPIA;
 	 public Rule ASIGNACION;
@@ -72,8 +68,10 @@ public class VaryGrammar extends Grammar {
 	 public Rule AND;
 	 public Rule IGUALDAD;
 	 public Rule COMPARACION;
-	 public Rule SUMA_RESTA;
-	 public Rule MULTIPLICACION_DIVISION;
+	 public Rule SUMA;
+	 public Rule RESTA;
+	 public Rule MULTIPLICACION;
+	 public Rule DIVISION;
 	 public Rule PRIMARIA;
 	 public Rule FUNCIONES;
 	 public Rule VARIABLES_COMPLEJAS;
@@ -87,6 +85,7 @@ public class VaryGrammar extends Grammar {
 	 public Rule VALOR_MATRIZ;
 	 public Rule VALOR_REGISTRO;
 	 public Rule LLAMADA_FUNCION;
+	 public Rule DEVOLVER;
 	 public Rule INTERNAS;
 	
 

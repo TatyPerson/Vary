@@ -23,7 +23,7 @@ public class VaryFileVisitor<GRAMMAR extends Grammar> extends SquidAstVisitor<GR
    */
   @Override
   public void visitFile(AstNode node) {
-    VaryParser.finishedParsing(context.getFile());
+    //VaryParser.finishedParsing(context.getFile());
   }
 
   /**

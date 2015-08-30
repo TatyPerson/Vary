@@ -9,10 +9,9 @@ public enum VaryTokenType implements TokenType, GrammarRuleKey {
   NUMERO,
   LOGICO,
   CADENA,
+  IDENTIFICADOR;
 
   // TODO in fact it's STRING_LITERAL, but we need to keep compatibility of XPath expressions
-
-  IDENTIFICADOR;
 
   public String getName() {
     return name();

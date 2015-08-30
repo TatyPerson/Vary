@@ -92,6 +92,7 @@ public final class VarySquidSensor implements Sensor {
    * {@inheritDoc}
    */
   public void analyse(Project project, SensorContext context) {
+	  
     this.project = project;
     this.context = context;
 
@@ -129,15 +130,15 @@ public final class VarySquidSensor implements Sensor {
     VaryConfiguration varyConf = new VaryConfiguration(fs, resourcePerspectives, CompileIncludePathNotFoundOrInvalid.getActiveRule(rules));
     varyConf.setBaseDir(fs.baseDir().getAbsolutePath());
     String[] lines = conf.getStringLines(VaryPlugin.DEFINES_KEY);
-    if(lines.length > 0){
-      varyConf.setDefines(Arrays.asList(lines));
-    }
-    varyConf.setIncludeDirectories(conf.getStringArray(VaryPlugin.INCLUDE_DIRECTORIES_KEY));
+    //if(lines.length > 0){
+    //  varyConf.setDefines(Arrays.asList(lines));
+    //}
+    //varyConf.setIncludeDirectories(conf.getStringArray(VaryPlugin.INCLUDE_DIRECTORIES_KEY));
     varyConf.setErrorRecoveryEnabled(conf.getBoolean(VaryPlugin.ERROR_RECOVERY_KEY));
-    varyConf.setForceIncludeFiles(conf.getStringArray(VaryPlugin.FORCE_INCLUDE_FILES_KEY));
-    varyConf.setCFilesPatterns(conf.getStringArray(VaryPlugin.FILE_SUFFIXES_DEFVALUE));
-    varyConf.setHeaderFileSuffixes(conf.getStringArray(VaryPlugin.HEADER_FILE_SUFFIXES_KEY));
-    varyConf.setMissingIncludeWarningsEnabled(conf.getBoolean(VaryPlugin.MISSING_INCLUDE_WARN));
+    //varyConf.setForceIncludeFiles(conf.getStringArray(VaryPlugin.FORCE_INCLUDE_FILES_KEY));
+    //varyConf.setCFilesPatterns(conf.getStringArray(VaryPlugin.FILE_SUFFIXES_DEFVALUE));
+    //varyConf.setHeaderFileSuffixes(conf.getStringArray(VaryPlugin.HEADER_FILE_SUFFIXES_KEY));
+    //varyConf.setMissingIncludeWarningsEnabled(conf.getBoolean(VaryPlugin.MISSING_INCLUDE_WARN));
     
     /*String filePaths = conf.getString(VaryCompilerSensor.REPORT_PATH_KEY);    
     if (filePaths != null && !"".equals(filePaths)) {

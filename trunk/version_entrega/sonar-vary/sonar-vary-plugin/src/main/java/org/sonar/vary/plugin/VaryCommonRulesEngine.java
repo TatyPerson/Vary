@@ -12,12 +12,12 @@ public class VaryCommonRulesEngine extends CommonRulesEngine {
   @Override
   protected void doEnableRules(CommonRulesRepository repository) {
 	repository
-    .enableDuplicatedBlocksRule()
+    //.enableDuplicatedBlocksRule()
     .enableSkippedUnitTestsRule()
     .enableFailedUnitTestsRule()
     // null parameters -> keep default values as hardcoded in sonar-common-rules
     .enableInsufficientBranchCoverageRule(null)
-    .enableInsufficientCommentDensityRule(0.40)
+    .enableInsufficientCommentDensityRule(0.20)
     .enableInsufficientLineCoverageRule(null);
 	
   }
