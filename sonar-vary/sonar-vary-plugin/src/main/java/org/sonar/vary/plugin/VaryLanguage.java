@@ -32,7 +32,7 @@ public class VaryLanguage extends AbstractLanguage {
   /**
    * Default Java files knows suffixes
    */
-  public static final String DEFAULT_FILE_SUFFIXES = ".p";
+  public static final String DEFAULT_FILE_SUFFIXES = ".p,.ep";
 
   /**
    * Settings of the plugin.

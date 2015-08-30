@@ -6,6 +6,7 @@ import org.sonar.sslr.grammar.GrammarRuleKey;
 
 public enum VaryPunctuator implements TokenType, GrammarRuleKey {
 
+  //Gramática en español:	
   O("o"),
   Y("y"),
   IGUAL("="),
@@ -28,7 +29,12 @@ public enum VaryPunctuator implements TokenType, GrammarRuleKey {
   LLAVE_IZQ("{"),
   CORCHETE_DER("]"),
   CORCHETE_IZQ("["),
-  ASIGNACION("<-");
+  ASIGNACION("<-"),
+  
+  //Gramática en inglés
+  OR("or"),
+  AND("and");
+  
 
   private final String value;
 

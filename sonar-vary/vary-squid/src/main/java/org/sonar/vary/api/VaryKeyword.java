@@ -2,10 +2,13 @@ package org.sonar.vary.api;
 
 import com.sonar.sslr.api.AstNode;
 import com.sonar.sslr.api.TokenType;
+
 import org.sonar.sslr.grammar.GrammarRuleKey;
 
 public enum VaryKeyword implements TokenType, GrammarRuleKey {
 
+  //Pseudocódigo en español:
+	
   ALGORITMO("Algoritmo"),
   MODULO("Modulo"),
   IMPORTA("importa"),
@@ -63,7 +66,64 @@ public enum VaryKeyword implements TokenType, GrammarRuleKey {
   E("E"),
   E_S("E/S"),
   S("S"),
-  DE("de");
+  DE("de"),
+  
+  //Pseudocódigo en inglés:
+  
+  ALGORITHM("Algorithm"),
+  MODULE("Module"),
+  IMPORT("import"),
+  END_IMPORT("end_import"),
+  EXPORT("export"),
+  END_EXPORT("end_export"),
+  END_MODULE("end_module"),
+  IMPLEMENTATION("implementation"),
+  END_IMPLEMENTATION("end_implementation"),
+  TYPE("type"),
+  END_ALGORITHM("end_algorithm"),
+  OPEN("open"),
+  CLOSE("close"),
+  MATRIX("matrix"),
+  REGISTRY("registry"),
+  END_REGISTRY("end_registry"),
+  ARCHIVE("archive of "),
+  MAIN("main"),
+  INITIATION("initiation"),
+  END_INITIATION("end_initiation"),
+  WRITE("write"),
+  READ("read"),
+  IF("if"),
+  THEN("then"),
+  END_IF("end_if"),
+  WHILE("while"),
+  DO("do"),
+  END_WHILE("end_while"),
+  REPEAT("repeat"),
+  UNTIL("until"),
+  FOR("for"),
+  TO("to"),
+  END_FOR("end_for"),
+  CASE("case"),
+  ACCORDING_TO("according_to"),
+  OTHERWISE("otherwise"),
+  END_ACCORDING_TO("end_according_to"),
+  INTEGER("integer"),
+  STRING("string"),
+  CHARACTER("character"),
+  BOOLEAN("boolean"),
+  TRUE("true"),
+  FALSE("false"),
+  NOT("not"),
+  ELSE("else"),
+  RETURN("return"),
+  FUNCTION("function"),
+  END_FUNCTION("end_function"),
+  PROCEDURE("procedure"),
+  END_PROCEDURE("end_procedure"),
+  I("I"),
+  I_O("I/O"),
+  O("O"),
+  OF("of");
 
   private final String value;
 

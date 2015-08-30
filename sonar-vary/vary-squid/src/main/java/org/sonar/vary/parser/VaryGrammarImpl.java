@@ -9,6 +9,7 @@ import org.sonar.vary.api.VaryKeyword;
 import org.sonar.vary.api.VaryPunctuator;
 
 import com.sonar.sslr.api.Grammar;
+import com.sonar.sslr.api.Rule;
 
 import static com.sonar.sslr.api.GenericTokenType.IDENTIFIER;
 import static com.sonar.sslr.api.GenericTokenType.EOL;
@@ -17,6 +18,9 @@ import static org.sonar.vary.api.VaryTokenType.CADENA;
 import static org.sonar.vary.api.VaryTokenType.CARACTER;
 
 public enum VaryGrammarImpl implements GrammarRuleKey {
+	
+	//Gramática en español:
+	
 	 CODIGO,
 	 ALGORITMO,
 	 MODULO,
@@ -123,44 +127,43 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 			 b.rule(CODIGO).is(
 						b.firstOf(ALGORITMO, MODULO)).skipIfOneChild();
 			 
-			 
 			 b.rule(ALGORITMO).is(b.sequence(
-					 b.isOneOfThem(VaryKeyword.ALGORITMO, VaryKeyword.ALGORITMO), 
+					 b.isOneOfThem(VaryKeyword.ALGORITMO, VaryKeyword.ALGORITHM), 
 					 IDENTIFIER,
-					 b.isOneOfThem(VaryKeyword.IMPORTA, VaryKeyword.IMPORTA),
+					 b.isOneOfThem(VaryKeyword.IMPORTA, VaryKeyword.IMPORT),
 					 b.zeroOrMore(MODULO_REF),
-					 b.isOneOfThem(VaryKeyword.FIN_IMPORTA, VaryKeyword.FIN_IMPORTA),
+					 b.isOneOfThem(VaryKeyword.FIN_IMPORTA, VaryKeyword.END_IMPORT),
 					 b.isOneOfThem(VaryKeyword.CONST, VaryKeyword.CONST),
 					 b.zeroOrMore(CONSTANTES),
-					 b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TIPO),
+					 b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TYPE),
 					 b.zeroOrMore(TIPO_COMPLEJO), 
 					 b.isOneOfThem(VaryKeyword.VAR, VaryKeyword.VAR),
 					 b.zeroOrMore(DECLARACION_GLOBAL), 
 					 b.zeroOrMore(SUBPROCESO), 
 					 INICIO,
-					 b.isOneOfThem(VaryKeyword.FIN_ALGORITMO, VaryKeyword.FIN_ALGORITMO)));
+					 b.isOneOfThem(VaryKeyword.FIN_ALGORITMO, VaryKeyword.END_ALGORITHM)));
 			 
 			 b.rule(MODULO_REF).is(IDENTIFIER);
 			 b.rule(CONSTANTE_REF).is(IDENTIFIER);
 			 b.rule(TIPO_REF).is(IDENTIFIER);
 			 
 			 b.rule(MODULO).is(b.sequence(
-					 b.isOneOfThem(VaryKeyword.MODULO, VaryKeyword.MODULO), 
+					 b.isOneOfThem(VaryKeyword.MODULO, VaryKeyword.MODULE), 
 					 IDENTIFIER,
-					 b.isOneOfThem(VaryKeyword.IMPORTA, VaryKeyword.IMPORTA), 
+					 b.isOneOfThem(VaryKeyword.IMPORTA, VaryKeyword.IMPORT), 
 					 b.zeroOrMore(MODULO_REF),
-					 b.isOneOfThem(VaryKeyword.FIN_IMPORTA, VaryKeyword.FIN_IMPORTA), 
-					 b.isOneOfThem(VaryKeyword.EXPORTA, VaryKeyword.EXPORTA), 
+					 b.isOneOfThem(VaryKeyword.FIN_IMPORTA, VaryKeyword.END_IMPORT), 
+					 b.isOneOfThem(VaryKeyword.EXPORTA, VaryKeyword.EXPORT), 
 					 b.optional(b.isOneOfThem(VaryKeyword.CONST, VaryKeyword.CONST)), 
 					 b.zeroOrMore(CONSTANTE_REF),
-					 b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TIPO)), 
+					 b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TYPE)), 
 					 b.zeroOrMore(TIPO_REF),
 					 b.optional(b.isOneOfThem(VaryKeyword.VAR, VaryKeyword.VAR)), 
 					 b.zeroOrMore(DECLARACION),
 					 b.zeroOrMore(CABECERA_SUBPROCESO),
-					 b.isOneOfThem(VaryKeyword.FIN_EXPORTA, VaryKeyword.FIN_EXPORTA), 
+					 b.isOneOfThem(VaryKeyword.FIN_EXPORTA, VaryKeyword.END_EXPORT), 
 					 IMPLEMENTACION,
-					 b.isOneOfThem(VaryKeyword.FIN_MODULO, VaryKeyword.FIN_MODULO)));
+					 b.isOneOfThem(VaryKeyword.FIN_MODULO, VaryKeyword.END_MODULE)));
 			 
 		 /*}
 		 else {
@@ -211,7 +214,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 	 
 	 private static void types(LexerfulGrammarBuilder b) {
 		 //b.rule(CADENA).is(VaryTokenType.CADENA);
-		 b.rule(LOGICO).is((b.isOneOfThem(VaryKeyword.VERDADERO, VaryKeyword.FALSO)));
+		 b.rule(LOGICO).is((b.isOneOfThem(VaryKeyword.VERDADERO, VaryKeyword.TRUE, VaryKeyword.FALSO, VaryKeyword.FALSE)));
 		 //b.rule(CARACTER).is(VaryTokenType.CARACTER);
 		 //b.rule(NUMERO).is(VaryTokenType.NUMERO);
 		 //b.rule(REAL).is(VaryTokenType.NUMERO.getValue()); 
@@ -220,37 +223,37 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 				 b.firstOf(VECTOR, MATRIZ, REGISTRO, ARCHIVO, ENUMERADO, SUBRANGO)).skipIfOneChild();
 		 
 		 b.rule(VECTOR).is(
-				 b.sequence(VaryKeyword.VECTOR.getValue(),
+				 b.sequence(b.isOneOfThem(VaryKeyword.VECTOR, VaryKeyword.VECTOR),
 						 b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), 
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER),
-						 b.isOneOfThem(VaryKeyword.DE, VaryKeyword.DE),
+						 b.isOneOfThem(VaryKeyword.DE, VaryKeyword.OF),
 						 TIPO,
 						 b.isOneOfThem(VaryPunctuator.DOS_PUNTOS, VaryPunctuator.DOS_PUNTOS),
 						 IDENTIFIER));
 		 
 		 b.rule(MATRIZ).is(
-				 b.sequence(VaryKeyword.MATRIZ.getValue(),
+				 b.sequence(b.isOneOfThem(VaryKeyword.MATRIZ, VaryKeyword.MATRIX),
 						 b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ),
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER),
 						 b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ),
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER),
-						 b.isOneOfThem(VaryKeyword.DE, VaryKeyword.DE),
+						 b.isOneOfThem(VaryKeyword.DE, VaryKeyword.OF),
 						 TIPO,
 						 b.isOneOfThem(VaryPunctuator.DOS_PUNTOS, VaryPunctuator.DOS_PUNTOS),
 						 IDENTIFIER));
 		 
 		 b.rule(REGISTRO).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.REGISTRO, VaryKeyword.REGISTRO),
+				 b.sequence(b.isOneOfThem(VaryKeyword.REGISTRO, VaryKeyword.REGISTRY),
 						 b.isOneOfThem(VaryPunctuator.DOS_PUNTOS, VaryPunctuator.DOS_PUNTOS),
 						 IDENTIFIER,
 						 b.oneOrMore(DECLARACION),
-						 b.isOneOfThem(VaryKeyword.FIN_REGISTRO, VaryKeyword.FIN_REGISTRO)));
+						 b.isOneOfThem(VaryKeyword.FIN_REGISTRO, VaryKeyword.END_REGISTRY)));
 		 
 		 b.rule(ARCHIVO).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.ARCHIVO, VaryKeyword.ARCHIVO),
+				 b.sequence(b.isOneOfThem(VaryKeyword.ARCHIVO, VaryKeyword.ARCHIVE),
 						 TIPO,
 						 b.isOneOfThem(VaryPunctuator.DOS_PUNTOS, VaryPunctuator.DOS_PUNTOS),
 						 IDENTIFIER));
@@ -290,13 +293,13 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		 b.rule(CABECERA_SUBPROCESO).is(b.firstOf(CABECERA_FUNCION, CABECERA_PROCEDIMIENTO)).skipIfOneChild();
 		 
 		 b.rule(CABECERA_FUNCION).is(TIPO_VARIABLE,
-				    b.isOneOfThem(VaryKeyword.FUNCION, VaryKeyword.FUNCION),
+				    b.isOneOfThem(VaryKeyword.FUNCION, VaryKeyword.FUNCTION),
 					IDENTIFIER,
 					b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 					b.zeroOrMore(b.firstOf(PARAMETRO_FUNCION, b.sequence(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), PARAMETRO_FUNCION))),
 					b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER));
 		 
-		 b.rule(CABECERA_PROCEDIMIENTO).is(b.sequence(b.isOneOfThem(VaryKeyword.PROCEDIMIENTO, VaryKeyword.PROCEDIMIENTO),
+		 b.rule(CABECERA_PROCEDIMIENTO).is(b.sequence(b.isOneOfThem(VaryKeyword.PROCEDIMIENTO, VaryKeyword.PROCEDURE),
 					IDENTIFIER,
 					b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 					b.zeroOrMore(b.firstOf(PARAMETRO_FUNCION, b.sequence(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), PARAMETRO_FUNCION))),
@@ -312,19 +315,20 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						 VARIABLES_COMPLEJAS,
 						 VARIABLES_BASICAS,
 						 b.sequence("-(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
-						 b.sequence("no(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)))).skipIfOneChild();
+						 b.sequence("no(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
+						 b.sequence("not(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)))).skipIfOneChild();
 		 
 		 b.rule(OPERACION).is(DIVISION);
 		 
 		 b.rule(OR).is(
 				 b.oneOrMore(b.sequence(PRIMARIA,  b.zeroOrMore(SIGNO_OR, PRIMARIA)))).skipIfOneChild();
 		 
-		 b.rule(SIGNO_OR).is(b.isOneOfThem(VaryPunctuator.O, VaryPunctuator.O));
+		 b.rule(SIGNO_OR).is(b.isOneOfThem(VaryPunctuator.O, VaryPunctuator.OR));
 		 
 		 b.rule(AND).is(
 				 b.oneOrMore(b.sequence(OR,  b.zeroOrMore(SIGNO_AND, OR)))).skipIfOneChild();
 		 
-		 b.rule(SIGNO_AND).is(b.isOneOfThem(VaryPunctuator.Y, VaryPunctuator.Y));
+		 b.rule(SIGNO_AND).is(b.isOneOfThem(VaryPunctuator.Y, VaryPunctuator.AND));
 		 
 		 b.rule(IGUALDAD).is(
 				 b.oneOrMore(b.sequence(AND,  b.zeroOrMore(SIGNO_IGUALDAD, AND)))).skipIfOneChild();
@@ -388,9 +392,9 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		 b.rule(INTERNAS).is(
 				 b.sequence(NOMBRE_INTERNA, b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), b.sequence(OPERACION, b.zeroOrMore(b.sequence(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), OPERACION), b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)))));
 		 
-		 b.rule(NOMBRE_INTERNA).is(b.firstOf("cos", "cuadrado", "exp", "ln", "log", "sen", "sqrt", "longitud", "concatena")).skipIfOneChild();
+		 b.rule(NOMBRE_INTERNA).is(b.firstOf("cos", b.firstOf("cuadrado", "square"), "exp", "ln", "log", "sen", "sqrt", b.firstOf("longitud", "lenght"), "concatena")).skipIfOneChild();
 		 
-		 b.rule(DEVOLVER).is(b.sequence(b.isOneOfThem(VaryKeyword.DEVOLVER, VaryKeyword.DEVOLVER), OPERACION));
+		 b.rule(DEVOLVER).is(b.sequence(b.isOneOfThem(VaryKeyword.DEVOLVER, VaryKeyword.RETURN), OPERACION));
 		  
 	 }	 
 	 
@@ -407,11 +411,11 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						 FUNCIONES)).skipIfOneChild();
 		 
 		 b.rule(ESCRIBIR).is(b.firstOf(
-				 b.sequence(b.isOneOfThem(VaryKeyword.ESCRIBIR, VaryKeyword.ESCRIBIR), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.optional(b.oneOrMore(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), OPERACION)), b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
-				 b.sequence(b.isOneOfThem(VaryKeyword.ESCRIBIR, VaryKeyword.ESCRIBIR), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.optional(b.oneOrMore(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), PRIMARIA)), b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)))).skipIfOneChild();
+				 b.sequence(b.isOneOfThem(VaryKeyword.ESCRIBIR, VaryKeyword.WRITE), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.optional(b.oneOrMore(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), OPERACION)), b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
+				 b.sequence(b.isOneOfThem(VaryKeyword.ESCRIBIR, VaryKeyword.WRITE), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.optional(b.oneOrMore(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), PRIMARIA)), b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)))).skipIfOneChild();
 		 
 		 b.rule(LEER).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.LEER, VaryKeyword.LEER), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)));
+				 b.sequence(b.isOneOfThem(VaryKeyword.LEER, VaryKeyword.READ), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)));
 		 
 		 b.rule(BLOQUE).is(b.firstOf(
 				 SI,
@@ -421,63 +425,63 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 				 SEGUN)).skipIfOneChild();
 		 
 		 b.rule(SI).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.SI, VaryKeyword.SI), 
+				 b.sequence(b.isOneOfThem(VaryKeyword.SI, VaryKeyword.IF), 
 						 OPERACION,
-						 b.isOneOfThem(VaryKeyword.ENTONCES, VaryKeyword.ENTONCES),
+						 b.isOneOfThem(VaryKeyword.ENTONCES, VaryKeyword.THEN),
 						 b.zeroOrMore(SENTENCIAS),
 						 b.zeroOrMore(DEVOLVER),
 						 b.zeroOrMore(SINO),
-						 b.isOneOfThem(VaryKeyword.FIN_SI, VaryKeyword.FIN_SI)));
+						 b.isOneOfThem(VaryKeyword.FIN_SI, VaryKeyword.END_IF)));
 		 
 		 b.rule(SINO).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.SINO, VaryKeyword.SINO),
+				 b.sequence(b.isOneOfThem(VaryKeyword.SINO, VaryKeyword.ELSE),
 						 b.zeroOrMore(SENTENCIAS),
 						 b.zeroOrMore(DEVOLVER)));
 		 
 		 b.rule(MIENTRAS).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.MIENTRAS, VaryKeyword.MIENTRAS),
+				 b.sequence(b.isOneOfThem(VaryKeyword.MIENTRAS, VaryKeyword.WHILE),
 						 OPERACION,
-						 b.isOneOfThem(VaryKeyword.HACER, VaryKeyword.HACER),
+						 b.isOneOfThem(VaryKeyword.HACER, VaryKeyword.DO),
 						 b.zeroOrMore(SENTENCIAS),
-						 b.isOneOfThem(VaryKeyword.FIN_MIENTRAS, VaryKeyword.FIN_MIENTRAS)));
+						 b.isOneOfThem(VaryKeyword.FIN_MIENTRAS, VaryKeyword.END_WHILE)));
 		 
 		 b.rule(REPETIR).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.REPETIR, VaryKeyword.REPETIR),
+				 b.sequence(b.isOneOfThem(VaryKeyword.REPETIR, VaryKeyword.REPEAT),
 						 b.zeroOrMore(SENTENCIAS),
-						 b.isOneOfThem(VaryKeyword.HASTA_QUE, VaryKeyword.HASTA_QUE),
+						 b.isOneOfThem(VaryKeyword.HASTA_QUE, VaryKeyword.UNTIL),
 						 OPERACION));
 		 
 		 b.rule(DESDE).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.DESDE, VaryKeyword.DESDE),
+				 b.sequence(b.isOneOfThem(VaryKeyword.DESDE, VaryKeyword.FOR),
 						 ASIGNACION_NORMAL,
-						 b.isOneOfThem(VaryKeyword.HASTA, VaryKeyword.HASTA),
+						 b.isOneOfThem(VaryKeyword.HASTA, VaryKeyword.TO),
 						 OPERACION,
-						 b.isOneOfThem(VaryKeyword.HACER, VaryKeyword.HACER),
+						 b.isOneOfThem(VaryKeyword.HACER, VaryKeyword.DO),
 						 b.zeroOrMore(SENTENCIAS),
-						 b.isOneOfThem(VaryKeyword.FIN_DESDE, VaryKeyword.FIN_DESDE)));
+						 b.isOneOfThem(VaryKeyword.FIN_DESDE, VaryKeyword.END_FOR)));
 		 
 		 b.rule(SEGUN).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.SEGUN_SEA, VaryKeyword.SEGUN_SEA),
+				 b.sequence(b.isOneOfThem(VaryKeyword.SEGUN_SEA, VaryKeyword.ACCORDING_TO),
 						 b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER),
-						 b.isOneOfThem(VaryKeyword.HACER, VaryKeyword.HACER),
+						 b.isOneOfThem(VaryKeyword.HACER, VaryKeyword.DO),
 						 b.zeroOrMore(CASO),
-						 b.isOneOfThem(VaryKeyword.EN_OTRO_CASO, VaryKeyword.EN_OTRO_CASO),
+						 b.isOneOfThem(VaryKeyword.EN_OTRO_CASO, VaryKeyword.OTHERWISE),
 						 b.isOneOfThem(VaryPunctuator.DOS_PUNTOS, VaryPunctuator.DOS_PUNTOS),
 						 b.zeroOrMore(SENTENCIAS),
 						 b.zeroOrMore(DEVOLVER),
-						 b.isOneOfThem(VaryKeyword.FIN_SEGUN, VaryKeyword.FIN_SEGUN)));
+						 b.isOneOfThem(VaryKeyword.FIN_SEGUN, VaryKeyword.END_ACCORDING_TO)));
 		 
 		 b.rule(CASO).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.CASO, VaryKeyword.CASO),
+				 b.sequence(b.isOneOfThem(VaryKeyword.CASO, VaryKeyword.CASE),
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.DOS_PUNTOS, VaryPunctuator.DOS_PUNTOS),
 						 b.zeroOrMore(SENTENCIAS),
 						 b.zeroOrMore(DEVOLVER)));
 		 
 		 b.rule(FUNCION_FICHERO_ABRIR).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.ABRIR, VaryKeyword.ABRIR),
+				 b.sequence(b.isOneOfThem(VaryKeyword.ABRIR, VaryKeyword.OPEN),
 						 b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA),
@@ -487,10 +491,10 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						 b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)));
 		 
 		 b.rule(MODO_APERTURA).is(
-				 b.firstOf("escritura", "lectura")).skipIfOneChild();
+				 b.firstOf(b.firstOf("escritura", "writing"), b.firstOf("lectura", "reading"))).skipIfOneChild();
 		 
 		 b.rule(FUNCION_FICHERO_CERRAR).is(
-				 b.sequence(b.isOneOfThem(VaryKeyword.CERRAR, VaryKeyword.CERRAR),
+				 b.sequence(b.isOneOfThem(VaryKeyword.CERRAR, VaryKeyword.CLOSE),
 						 b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 						 PRIMARIA,
 						 b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)));
@@ -516,33 +520,33 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		
 		b.rule(FUNCION).is(
 				b.sequence(TIPO_VARIABLE,
-						b.isOneOfThem(VaryKeyword.FUNCION, VaryKeyword.FUNCION),
+						b.isOneOfThem(VaryKeyword.FUNCION, VaryKeyword.FUNCTION),
 						IDENTIFIER,
 						b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 						b.zeroOrMore(b.firstOf(PARAMETRO_FUNCION, b.sequence(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), PARAMETRO_FUNCION))),
 						b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER),
 						b.optional(b.isOneOfThem(VaryKeyword.CONST, VaryKeyword.CONST)),
-						b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TIPO)),
+						b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TYPE)),
 						b.isOneOfThem(VaryKeyword.VAR, VaryKeyword.VAR),
 						b.zeroOrMore(DECLARACION),
-						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INICIO),
+						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INITIATION),
 						b.zeroOrMore(SENTENCIAS),
 						DEVOLVER,
-						b.isOneOfThem(VaryKeyword.FIN_FUNCION, VaryKeyword.FIN_FUNCION)));
+						b.isOneOfThem(VaryKeyword.FIN_FUNCION, VaryKeyword.END_FUNCTION)));
 		
 		b.rule(PROCEDIMIENTO).is(
-				b.sequence(b.isOneOfThem(VaryKeyword.PROCEDIMIENTO, VaryKeyword.PROCEDIMIENTO),
+				b.sequence(b.isOneOfThem(VaryKeyword.PROCEDIMIENTO, VaryKeyword.PROCEDURE),
 						IDENTIFIER,
 						b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ),
 						b.zeroOrMore(b.firstOf(PARAMETRO_FUNCION, b.sequence(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), PARAMETRO_FUNCION))),
 						b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER),
 						b.optional(b.isOneOfThem(VaryKeyword.CONST, VaryKeyword.CONST)),
-						b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TIPO)),
+						b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TYPE)),
 						b.isOneOfThem(VaryKeyword.VAR, VaryKeyword.VAR),
 						b.zeroOrMore(DECLARACION),
-						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INICIO),
+						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INITIATION),
 						b.zeroOrMore(SENTENCIAS),
-						b.isOneOfThem(VaryKeyword.FIN_PROCEDIMIENTO, VaryKeyword.FIN_PROCEDIMIENTO)));
+						b.isOneOfThem(VaryKeyword.FIN_PROCEDIMIENTO, VaryKeyword.END_PROCEDURE)));
 		
 		b.rule(PARAMETRO_FUNCION).is(
 				b.sequence(TIPO_PASO,
@@ -553,25 +557,25 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		b.rule(VARIABLE).is(IDENTIFIER);
 		
 		b.rule(TIPO_PASO).is(
-				b.firstOf("E", "E/S", "S")).skipIfOneChild();
+				b.firstOf(b.firstOf("E", "I"), b.firstOf("E/S", "I/O"), b.firstOf("S", "O"))).skipIfOneChild();
 		
 		b.rule(INICIO).is(
-				b.sequence(b.isOneOfThem(VaryKeyword.PRINCIPAL, VaryKeyword.PRINCIPAL),
+				b.sequence(b.isOneOfThem(VaryKeyword.PRINCIPAL, VaryKeyword.MAIN),
 						b.isOneOfThem(VaryKeyword.VAR, VaryKeyword.VAR),
 						b.zeroOrMore(DECLARACION),
-						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INICIO),
+						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INITIATION),
 						b.zeroOrMore(SENTENCIAS),
-						b.isOneOfThem(VaryKeyword.FIN_INICIO, VaryKeyword.FIN_INICIO)));
+						b.isOneOfThem(VaryKeyword.FIN_INICIO, VaryKeyword.END_INITIATION)));
 		
-		b.rule(IMPLEMENTACION).is(b.sequence(b.isOneOfThem(VaryKeyword.IMPLEMENTACION, VaryKeyword.IMPLEMENTACION),
+		b.rule(IMPLEMENTACION).is(b.sequence(b.isOneOfThem(VaryKeyword.IMPLEMENTACION, VaryKeyword.IMPLEMENTATION),
 				b.optional(b.isOneOfThem(VaryKeyword.CONST, VaryKeyword.CONST)),
 				b.zeroOrMore(CONSTANTES),
-				b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TIPO)),
+				b.optional(b.isOneOfThem(VaryKeyword.TIPO, VaryKeyword.TYPE)),
 				b.zeroOrMore(TIPO_COMPLEJO),
 				b.optional(b.isOneOfThem(VaryKeyword.VAR, VaryKeyword.VAR)),
 				b.zeroOrMore(DECLARACION_GLOBAL),
 				b.zeroOrMore(SUBPROCESO),
-				b.isOneOfThem(VaryKeyword.FIN_IMPLEMENTACION, VaryKeyword.FIN_IMPLEMENTACION)));
+				b.isOneOfThem(VaryKeyword.FIN_IMPLEMENTACION, VaryKeyword.END_IMPLEMENTATION)));
 		
 	}
 	
@@ -595,7 +599,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						b.zeroOrMore(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), VARIABLE)));
 		
 		b.rule(TIPO_VARIABLE).is(
-				b.firstOf("entero", "logico", "real", "caracter", "cadena")).skipIfOneChild();
+				b.firstOf(b.firstOf("entero", "integer"), b.firstOf("logico", "boolean"), "real", b.firstOf("caracter", "character"), b.firstOf("cadena", "string"))).skipIfOneChild();
 		
 		b.rule(CONSTANTES).is(
 				b.sequence(VARIABLE,

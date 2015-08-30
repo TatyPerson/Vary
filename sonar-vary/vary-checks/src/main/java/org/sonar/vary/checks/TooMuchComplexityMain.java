@@ -55,8 +55,14 @@ public class TooMuchComplexityMain extends SquidCheck<Grammar> {
 	  
 	  @Override
 	  public void visitNode(AstNode node) {
-		  numberSentences.add(node.getChildren(VaryKeyword.INICIO).get(0).getTokenLine());
-		  numberSentences.add(node.getChildren(VaryKeyword.FIN_INICIO).get(0).getTokenLine());
+		  if(!node.getChildren(VaryKeyword.FIN_INICIO).isEmpty()) {
+			  numberSentences.add(node.getChildren(VaryKeyword.INICIO).get(0).getTokenLine());
+			  numberSentences.add(node.getChildren(VaryKeyword.FIN_INICIO).get(0).getTokenLine());
+		  }
+		  else {
+			  numberSentences.add(node.getChildren(VaryKeyword.INITIATION).get(0).getTokenLine());
+			  numberSentences.add(node.getChildren(VaryKeyword.END_INITIATION).get(0).getTokenLine());
+		  }
 	  }
 	  
 	  @Override
