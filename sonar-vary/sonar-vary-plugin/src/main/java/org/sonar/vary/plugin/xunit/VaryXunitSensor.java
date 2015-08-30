@@ -344,11 +344,11 @@ public class VaryXunitSensor extends VaryReportSensor {
     VaryConfiguration cxxConf = new VaryConfiguration(fs.encoding());
     cxxConf.setBaseDir(fs.baseDir().getAbsolutePath());
     String[] lines = conf.getStringLines(VaryPlugin.DEFINES_KEY);
-    if (lines.length > 0) {
+   /* if (lines.length > 0) {
       cxxConf.setDefines(Arrays.asList(lines));
     }
     cxxConf.setIncludeDirectories(conf.getStringArray(VaryPlugin.INCLUDE_DIRECTORIES_KEY));
-    cxxConf.setMissingIncludeWarningsEnabled(conf.getBoolean(VaryPlugin.MISSING_INCLUDE_WARN));
+    cxxConf.setMissingIncludeWarningsEnabled(conf.getBoolean(VaryPlugin.MISSING_INCLUDE_WARN));*/
 
     for (File file : files) {
       @SuppressWarnings("unchecked")

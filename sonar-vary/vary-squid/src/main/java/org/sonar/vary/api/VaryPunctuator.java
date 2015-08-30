@@ -8,7 +8,7 @@ public enum VaryPunctuator implements TokenType, GrammarRuleKey {
 
   O("o"),
   Y("y"),
-  IGUAL("=="),
+  IGUAL("="),
   DISTINTO("!="),
   MENOR("<"),
   MAYOR(">"),
@@ -28,7 +28,7 @@ public enum VaryPunctuator implements TokenType, GrammarRuleKey {
   LLAVE_IZQ("{"),
   CORCHETE_DER("]"),
   CORCHETE_IZQ("["),
-  ASIGNACION("<=");
+  ASIGNACION("<-");
 
   private final String value;
 

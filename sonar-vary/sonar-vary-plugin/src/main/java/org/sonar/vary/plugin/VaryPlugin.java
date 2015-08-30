@@ -32,6 +32,7 @@ public final class VaryPlugin extends SonarPlugin {
   private static List<PropertyDefinition> generalProperties() {
     String subcateg = "(1) General";
     return ImmutableList.of(
+    
       PropertyDefinition.builder(SOURCE_FILE_SUFFIXES_KEY)
       .defaultValue(VaryLanguage.DEFAULT_FILE_SUFFIXES)
       .name("Source files suffixes")

@@ -24,41 +24,41 @@ import org.sonar.squidbridge.api.SquidConfiguration;
 public class VaryConfiguration extends SquidConfiguration {
 
 	  private static final org.slf4j.Logger LOG = LoggerFactory.getLogger("VaryConfiguration");
-	  public static final String OverallIncludeKey = "VaryOverallInclude";
-	  public static final String OverallDefineKey = "VaryOverallDefine";
+	  //public static final String OverallIncludeKey = "VaryOverallInclude";
+	  //public static final String OverallDefineKey = "VaryOverallDefine";
 	  
-	  private boolean ignoreHeaderComments = false;
-	  private final HashMap<String, Set<String>> uniqueIncludes = new HashMap<>();
-	  private final HashMap<String, Set<String>> uniqueDefines = new HashMap<>();
-	  private List<String> forceIncludeFiles = new ArrayList<>();
-	  private List<String> headerFileSuffixes = new ArrayList<>();
+	  //private boolean ignoreHeaderComments = false;
+	  //private final HashMap<String, Set<String>> uniqueIncludes = new HashMap<>();
+	  //private final HashMap<String, Set<String>> uniqueDefines = new HashMap<>();
+	  //private List<String> forceIncludeFiles = new ArrayList<>();
+	  //private List<String> headerFileSuffixes = new ArrayList<>();
 	  private String baseDir;
 	  private boolean errorRecoveryEnabled = true;
-	  private List<String> cFilesPatterns = new ArrayList<>();
-	  private boolean missingIncludeWarningsEnabled = true;
+	  //private List<String> cFilesPatterns = new ArrayList<>();
+	  //private boolean missingIncludeWarningsEnabled = true;
 	  private ResourcePerspectives perspectives;
 	  private FileSystem fs;
 	  
 	  private ActiveRule activeRule;
 	  
 	  public VaryConfiguration() {
-	    uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
-	    uniqueDefines.put(OverallDefineKey, new HashSet<String>());
+	    //uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
+	    //uniqueDefines.put(OverallDefineKey, new HashSet<String>());
 	    //cxxVCppParser = new VaryBuildLogParser(uniqueIncludes, uniqueDefines);
 	  }
 
 	  public VaryConfiguration(Charset encoding) {
 	    super(encoding);   
-	    uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
-	    uniqueDefines.put(OverallDefineKey, new HashSet<String>());
+	    //uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
+	    //uniqueDefines.put(OverallDefineKey, new HashSet<String>());
 	    //cxxVCppParser = new VaryBuildLogParser(uniqueIncludes, uniqueDefines);
 	  }
 	  
 	  public VaryConfiguration(FileSystem fs) {
 	    super(fs.encoding());   
 	    this.fs = fs;
-	    uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
-	    uniqueDefines.put(OverallDefineKey, new HashSet<String>());
+	    //uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
+	    //uniqueDefines.put(OverallDefineKey, new HashSet<String>());
 	    //cxxVCppParser = new VaryBuildLogParser(uniqueIncludes, uniqueDefines);
 	  }
 	  
@@ -68,36 +68,36 @@ public class VaryConfiguration extends SquidConfiguration {
 	    super(fs.encoding());   
 	    this.fs = fs;
 	    perspectives = perspectivesIn;
-	    uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
-	    uniqueDefines.put(OverallDefineKey, new HashSet<String>());
+	    //uniqueIncludes.put(OverallIncludeKey, new HashSet<String>());
+	    //uniqueDefines.put(OverallDefineKey, new HashSet<String>());
 	    //cxxVCppParser = new VaryBuildLogParser(uniqueIncludes, uniqueDefines);
 	    this.activeRule = activeRule;
 	  }
 
-	  public void setIgnoreHeaderComments(boolean ignoreHeaderComments) {
-	    this.ignoreHeaderComments = ignoreHeaderComments;
-	  }
+	 /* public void setIgnoreHeaderComments(boolean ignoreHeaderComments) {
+	    //this.ignoreHeaderComments = ignoreHeaderComments;
+	  }*/
 
-	  public boolean getIgnoreHeaderComments() {
+	  /*public boolean getIgnoreHeaderComments() {
 	    return ignoreHeaderComments;
-	  }
+	  }*/
 
-	  public void setDefines(List<String> defines) {
+	  /*public void setDefines(List<String> defines) {
 	    Set<String> overallDefs = uniqueDefines.get(OverallDefineKey);
 	    for(String define : defines) {      
 	      if (!overallDefs.contains(define)) {
 	        overallDefs.add(define);
 	      }
 	    }
-	  }
+	  }*/
 
-	  public void setDefines(String[] defines) {
+	  /*public void setDefines(String[] defines) {
 	    if (defines != null) {
 	      setDefines(Arrays.asList(defines));
 	    }
-	  }
+	  }*/
 
-	  public List<String> getDefines() {
+	 /* public List<String> getDefines() {
 	    Set<String> allDefines = new HashSet<>();
 	    
 	    for(Set<String> elemSet : uniqueDefines.values()) {
@@ -109,18 +109,18 @@ public class VaryConfiguration extends SquidConfiguration {
 	    }
 	    
 	    return new ArrayList<>(allDefines);
-	  }
+	  }*/
 
-	  public void setIncludeDirectories(List<String> includeDirectories) {
+	  /*public void setIncludeDirectories(List<String> includeDirectories) {
 	    Set<String> overallIncludes = uniqueIncludes.get(OverallIncludeKey);
 	    for(String include : includeDirectories) {      
 	      if (!overallIncludes.contains(include)) {
 	        overallIncludes.add(include);
 	      }
 	    }
-	  }
+	  }*/
 
-	  public void setIncludeDirectories(String[] includeDirectories) {
+	  /*public void setIncludeDirectories(String[] includeDirectories) {
 	    if (includeDirectories != null) {
 	      setIncludeDirectories(Arrays.asList(includeDirectories));
 	    }
@@ -152,7 +152,7 @@ public class VaryConfiguration extends SquidConfiguration {
 
 	  public List<String> getForceIncludeFiles() {
 	    return forceIncludeFiles;
-	  }
+	  }*/
 
 	  public void setBaseDir(String baseDir) {
 	    this.baseDir = baseDir;
@@ -170,7 +170,7 @@ public class VaryConfiguration extends SquidConfiguration {
 	    return this.errorRecoveryEnabled;
 	  }
 
-	  public List<String> getCFilesPatterns() {
+	  /*public List<String> getCFilesPatterns() {
 	    return cFilesPatterns;
 	  }
 
@@ -200,9 +200,9 @@ public class VaryConfiguration extends SquidConfiguration {
 
 	  public boolean getMissingIncludeWarningsEnabled(){
 	    return this.missingIncludeWarningsEnabled;
-	  }
+	  }*/
 	  
-	  public void setCompilationPropertiesWithBuildLog(List<File> reports,
+	  /*public void setCompilationPropertiesWithBuildLog(List<File> reports,
 	          String fileFormat,
 	          String charsetName) {
 	    
@@ -226,9 +226,9 @@ public class VaryConfiguration extends SquidConfiguration {
 	    if(activeRule != null) {
 	     // RaiseIssuesForNotFoundIncludes(activeRule, fs);  
 	    }     
-	  }
+	  }*/
 
-	 /* private void RaiseIssuesForNotFoundIncludes(ActiveRule rule, FileSystem fs ) {
+	 /*private void RaiseIssuesForNotFoundIncludes(ActiveRule rule, FileSystem fs ) {
 	    
 	    
 	    // raise issues for files that have invalid include folders

@@ -40,7 +40,17 @@ implements AstAndTokenVisitor {
 
 	      // Expressions
 	      VaryPunctuator.Y,
-	      VaryPunctuator.O);
+	      VaryPunctuator.O,
+	      VaryPunctuator.SUMA,
+	      VaryPunctuator.RESTA, 
+	      VaryPunctuator.MULTIPLICACION,
+	      VaryPunctuator.DIVISION,
+	      VaryPunctuator.MAYOR,
+	      VaryPunctuator.MAYOR_IGUAL,
+	      VaryPunctuator.MENOR,
+	      VaryPunctuator.MENOR_IGUAL,
+	      VaryKeyword.ESCRIBIR,
+	      VaryKeyword.LEER);
 	  }
 
 	  @Override
@@ -49,13 +59,20 @@ implements AstAndTokenVisitor {
 	    if (astNode.is(VaryKeyword.DEVOLVER) && isLastReturnStatement(astNode)) {
 	      return;
 	    }
+	    else if(astNode.is(VaryKeyword.FIN_PROCEDIMIENTO)) {
+	    	return;
+	    }
+	    else if(astNode.is(VaryKeyword.FIN_INICIO)) {
+	    	return;
+	    }
 	    getContext().peekSourceCode().add(VaryMetric.COMPLEXITY, 1);
 	  }
 
 	  private static boolean isLastReturnStatement(AstNode returnNode) {
 	    AstNode nextNode = returnNode.getNextAstNode();
-	    return (nextNode.is(VaryKeyword.FIN_FUNCION) || nextNode.is(VaryKeyword.FIN_PROCEDIMIENTO) || nextNode.is(VaryKeyword.FIN_INICIO));
+	    return (nextNode.is(VaryKeyword.FIN_FUNCION));
 	  }
+	  
 
 	@Override
 	public void visitToken(Token arg0) {

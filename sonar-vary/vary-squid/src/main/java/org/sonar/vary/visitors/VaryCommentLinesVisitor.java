@@ -6,6 +6,7 @@ import org.sonar.vary.api.VaryKeyword;
 import org.sonar.vary.api.VaryMetric;
 import org.sonar.squidbridge.SquidAstVisitor;
 import org.sonar.squidbridge.api.SourceCode;
+import org.sonar.squidbridge.measures.MetricDef;
 
 import com.google.common.collect.Sets;
 import com.sonar.sslr.api.AstAndTokenVisitor;
@@ -16,12 +17,22 @@ import com.sonar.sslr.api.Trivia;
 
 public class VaryCommentLinesVisitor <GRAMMAR extends Grammar> extends SquidAstVisitor<GRAMMAR> implements AstAndTokenVisitor {
 
+  private final MetricDef metric;
   private Set<Integer> comments = Sets.newHashSet();
   private boolean seenFirstToken;
+  
+  public VaryCommentLinesVisitor(MetricDef metric) {
+	    this.metric = metric;
+  }
 
   @Override
   public void init() {
     subscribeTo(VaryKeyword.ALGORITMO);
+    subscribeTo(VaryKeyword.MODULO);
+    subscribeTo(VaryKeyword.INICIO);
+    subscribeTo(VaryKeyword.IMPLEMENTACION);
+    subscribeTo(VaryKeyword.FUNCION);
+    subscribeTo(VaryKeyword.PROCEDIMIENTO);
   }
 
   @Override
@@ -64,6 +75,7 @@ public class VaryCommentLinesVisitor <GRAMMAR extends Grammar> extends SquidAstV
   }
 
   public void leaveFile(AstNode ast) {
+	getContext().peekSourceCode().add(metric, comments.size());
     getContext().peekSourceCode().setMeasure(VaryMetric.COMMENT_LINES, comments.size());
     comments.clear();
   }

@@ -14,7 +14,6 @@ import org.sonar.vary.api.VaryTokenType;
 import org.sonar.vary.channels.CharacterLiteralsChannel;
 import org.sonar.vary.channels.StringLiteralsChannel;
 
-import com.sonar.sslr.api.Preprocessor; //@todo: deprecated, see http://javadocs.sonarsource.org/4.5.2/apidocs/deprecated-list.html
 import com.sonar.sslr.impl.Lexer;
 import com.sonar.sslr.impl.channel.BlackHoleChannel;
 import com.sonar.sslr.impl.channel.IdentifierAndKeywordChannel;
@@ -40,13 +39,14 @@ public final class VaryLexer {
         .withFailIfNoChannelToConsumeOneCharacter(true)
 
         .withChannel(new BlackHoleChannel("\\s"))
-
+        
+        // Comments
         // C++ Standard, Section 2.8 "Comments"
         .withChannel(commentRegexp("//[^\\n\\r]*+"))
         .withChannel(commentRegexp("/\\*", ANY_CHAR + "*?", "\\*/"))
 
         // backslash at the end of the line: just throw away
-        //.withChannel(new BackslashChannel())
+        .withChannel(new BackslashChannel())
 
         // Preprocessor directives
         //.withChannel(new PreprocessorChannel())
