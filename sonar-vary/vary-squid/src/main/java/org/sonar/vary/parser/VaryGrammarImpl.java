@@ -9,17 +9,13 @@ import org.sonar.vary.api.VaryKeyword;
 import org.sonar.vary.api.VaryPunctuator;
 
 import com.sonar.sslr.api.Grammar;
-import com.sonar.sslr.api.Rule;
 
 import static com.sonar.sslr.api.GenericTokenType.IDENTIFIER;
-import static com.sonar.sslr.api.GenericTokenType.EOL;
 import static org.sonar.vary.api.VaryTokenType.NUMERO;
 import static org.sonar.vary.api.VaryTokenType.CADENA;
 import static org.sonar.vary.api.VaryTokenType.CARACTER;
 
 public enum VaryGrammarImpl implements GrammarRuleKey {
-	
-	//Gramática en español:
 	
 	 CODIGO,
 	 ALGORITMO,
@@ -102,7 +98,8 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 	 VALOR_REGISTRO,
 	 LLAMADA_FUNCION,
 	 DEVOLVER,
-	 INTERNAS;
+	 INTERNAS,
+	 SIGNO_OP;
 	 
 	 public static final Logger LOG = LoggerFactory.getLogger("VaryGrammarImpl");
 	 
@@ -164,61 +161,12 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 					 b.isOneOfThem(VaryKeyword.FIN_EXPORTA, VaryKeyword.END_EXPORT), 
 					 IMPLEMENTACION,
 					 b.isOneOfThem(VaryKeyword.FIN_MODULO, VaryKeyword.END_MODULE)));
-			 
-		 /*}
-		 else {
-
-			 b.rule(CODIGO).is(
-						b.firstOf(ALGORITMO, MODULO)).skipIfOneChild();
-			 
-			 
-			 b.rule(ALGORITMO).is(b.sequence(
-					 VaryKeyword.ALGORITMO.getValue(), 
-					 IDENTIFIER,
-					 VaryKeyword.IMPORTA.getValue(),
-					 b.zeroOrMore(MODULO_REF),
-					 VaryKeyword.FIN_IMPORTA.getValue(),
-					 VaryKeyword.CONST.getValue(),
-					 b.zeroOrMore(CONSTANTES),
-					 VaryKeyword.TIPO.getValue(),
-					 b.zeroOrMore(TIPO_COMPLEJO), 
-					 VaryKeyword.VAR.getValue(),
-					 b.zeroOrMore(DECLARACION_GLOBAL), 
-					 b.zeroOrMore(SUBPROCESO), 
-					 INICIO,
-					 VaryKeyword.FIN_ALGORITMO.getValue()));	
-			 
-			 b.rule(MODULO_REF).is(IDENTIFIER);
-			 b.rule(CONSTANTE_REF).is(IDENTIFIER);
-			 b.rule(TIPO_REF).is(IDENTIFIER);
-			 
-			 b.rule(MODULO).is(b.sequence(
-					 VaryKeyword.MODULO.getValue(),
-					 IDENTIFIER,
-					 VaryKeyword.IMPORTA.getValue(),
-					 b.zeroOrMore(MODULO_REF),
-					 VaryKeyword.FIN_IMPORTA.getValue(),
-					 VaryKeyword.EXPORTA.getValue(),
-					 VaryKeyword.CONST.getValue(),
-					 b.zeroOrMore(CONSTANTE_REF),
-					 VaryKeyword.TIPO.getValue(),
-					 b.zeroOrMore(TIPO_REF),
-					 VaryKeyword.VAR.getValue(),
-					 b.zeroOrMore(DECLARACION_GLOBAL),
-					 b.zeroOrMore(CABECERA_SUBPROCESO),
-					 VaryKeyword.FIN_EXPORTA.getValue(),
-					 IMPLEMENTACION,
-					 VaryKeyword.FIN_MODULO.getValue()));	
-		 }*/
 	 }
 	 
 	 private static void types(LexerfulGrammarBuilder b) {
-		 //b.rule(CADENA).is(VaryTokenType.CADENA);
-		 b.rule(LOGICO).is((b.isOneOfThem(VaryKeyword.VERDADERO, VaryKeyword.TRUE, VaryKeyword.FALSO, VaryKeyword.FALSE)));
-		 //b.rule(CARACTER).is(VaryTokenType.CARACTER);
-		 //b.rule(NUMERO).is(VaryTokenType.NUMERO);
-		 //b.rule(REAL).is(VaryTokenType.NUMERO.getValue()); 
 		 
+		 b.rule(LOGICO).is((b.isOneOfThem(VaryKeyword.VERDADERO, VaryKeyword.TRUE, VaryKeyword.FALSO, VaryKeyword.FALSE)));
+
 		 b.rule(TIPO_COMPLEJO).is(
 				 b.firstOf(VECTOR, MATRIZ, REGISTRO, ARCHIVO, ENUMERADO, SUBRANGO)).skipIfOneChild();
 		 
@@ -308,7 +256,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 	 }
 	 
 	 private static void expressions(LexerfulGrammarBuilder b) {
-		 
+						 
 		 b.rule(PRIMARIA).is(
 				 b.firstOf(//b.sequence(b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER), OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ)),
 						 FUNCIONES,
@@ -316,44 +264,49 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						 VARIABLES_BASICAS,
 						 b.sequence("-(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
 						 b.sequence("no(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
-						 b.sequence("not(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)))).skipIfOneChild();
+						 b.sequence("not(", OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER))));
+
+		 
+		 b.rule(SIGNO_OP).is(b.firstOf(
+				 SIGNO_OR,
+				 SIGNO_AND,
+				 SIGNO_IGUALDAD,
+				 SIGNO_SUMA,
+				 SIGNO_RESTA,
+				 SIGNO_MULTIPLICACION,
+				 SIGNO_DIVISION));
+		 
+		 b.rule(SIGNO_OR).is(b.isOneOfThem(VaryPunctuator.O, VaryPunctuator.OR));
+		 b.rule(SIGNO_AND).is(b.isOneOfThem(VaryPunctuator.Y, VaryPunctuator.AND));
+		 b.rule(SIGNO_IGUALDAD).is(b.isOneOfThem(VaryPunctuator.IGUAL, VaryPunctuator.DISTINTO));
+		 b.rule(SIGNO_COMPARACION).is(b.isOneOfThem(VaryPunctuator.MENOR, VaryPunctuator.MAYOR, VaryPunctuator.MENOR_IGUAL, VaryPunctuator.MAYOR_IGUAL));
+		 b.rule(SIGNO_SUMA).is(b.isOneOfThem(VaryPunctuator.SUMA, VaryPunctuator.SUMA));
+		 b.rule(SIGNO_RESTA).is(b.isOneOfThem(VaryPunctuator.RESTA, VaryPunctuator.RESTA));
+		 b.rule(SIGNO_MULTIPLICACION).is(b.isOneOfThem(VaryPunctuator.MULTIPLICACION, VaryPunctuator.MULTIPLICACION));
+		 b.rule(SIGNO_DIVISION).is(b.isOneOfThem(VaryPunctuator.DIVISION, VaryPunctuator.DIVISION));
 		 
 		 b.rule(OPERACION).is(DIVISION);
 		 
 		 b.rule(OR).is(
-				 b.oneOrMore(b.sequence(PRIMARIA,  b.zeroOrMore(SIGNO_OR, PRIMARIA)))).skipIfOneChild();
-		 
-		 b.rule(SIGNO_OR).is(b.isOneOfThem(VaryPunctuator.O, VaryPunctuator.OR));
+				 b.oneOrMore(b.sequence(b.firstOf(ASIGNACION, PRIMARIA),  b.zeroOrMore(SIGNO_OR, PRIMARIA))));
 		 
 		 b.rule(AND).is(
-				 b.oneOrMore(b.sequence(OR,  b.zeroOrMore(SIGNO_AND, OR)))).skipIfOneChild();
-		 
-		 b.rule(SIGNO_AND).is(b.isOneOfThem(VaryPunctuator.Y, VaryPunctuator.AND));
+				 b.oneOrMore(b.sequence(OR,  b.zeroOrMore(SIGNO_AND, OR))));
 		 
 		 b.rule(IGUALDAD).is(
-				 b.oneOrMore(b.sequence(AND,  b.zeroOrMore(SIGNO_IGUALDAD, AND)))).skipIfOneChild();
-		 
-		 b.rule(SIGNO_IGUALDAD).is(b.isOneOfThem(VaryPunctuator.IGUAL, VaryPunctuator.DISTINTO));
+				 b.oneOrMore(b.sequence(AND,  b.zeroOrMore(SIGNO_IGUALDAD, AND))));
 		 
 		 b.rule(COMPARACION).is(
-				 b.oneOrMore(b.sequence(IGUALDAD,  b.zeroOrMore(SIGNO_COMPARACION, IGUALDAD)))).skipIfOneChild();
-		 
-		 b.rule(SIGNO_COMPARACION).is(b.isOneOfThem(VaryPunctuator.MENOR, VaryPunctuator.MAYOR, VaryPunctuator.MENOR_IGUAL, VaryPunctuator.MAYOR_IGUAL));
+				 b.oneOrMore(b.sequence(IGUALDAD,  b.zeroOrMore(SIGNO_COMPARACION, IGUALDAD))));
 		 
 		 b.rule(SUMA).is(b.oneOrMore(b.sequence(COMPARACION,  b.zeroOrMore(SIGNO_SUMA, COMPARACION))));
 
 		 b.rule(RESTA).is(b.oneOrMore(b.sequence(SUMA,  b.zeroOrMore(SIGNO_RESTA, SUMA))));
 		 
-		 
-		 b.rule(SIGNO_SUMA).is(b.isOneOfThem(VaryPunctuator.SUMA, VaryPunctuator.SUMA));
-		 b.rule(SIGNO_RESTA).is(b.isOneOfThem(VaryPunctuator.RESTA, VaryPunctuator.RESTA));
-		 
 		 b.rule(MULTIPLICACION).is(b.oneOrMore(b.sequence(RESTA,  b.zeroOrMore(SIGNO_MULTIPLICACION, RESTA))));
 				 
 		 b.rule(DIVISION).is(b.oneOrMore(b.sequence(MULTIPLICACION,  b.zeroOrMore(SIGNO_DIVISION, MULTIPLICACION))));
-		 
-		 b.rule(SIGNO_MULTIPLICACION).is(b.isOneOfThem(VaryPunctuator.MULTIPLICACION, VaryPunctuator.MULTIPLICACION));
-		 b.rule(SIGNO_DIVISION).is(b.isOneOfThem(VaryPunctuator.DIVISION, VaryPunctuator.DIVISION));
+
 		 
 		 b.rule(VARIABLES_BASICAS).is(b.firstOf(
 				 IDENTIFIER,
@@ -367,11 +320,11 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 				 ));
 		 
 		 b.rule(VALOR_VECTOR).is(
-				 b.sequence(IDENTIFIER, b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), VARIABLES_BASICAS, b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER), b.zeroOrMore(b.sequence(b.isOneOfThem(VaryPunctuator.PUNTO, VaryPunctuator.PUNTO), CAMPO_REGISTRO))));
+				 b.sequence(IDENTIFIER, b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), OPERACION, b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER), b.zeroOrMore(b.sequence(b.isOneOfThem(VaryPunctuator.PUNTO, VaryPunctuator.PUNTO), CAMPO_REGISTRO))));
 		 
 		 b.rule(VALOR_MATRIZ).is(
-				 b.sequence(IDENTIFIER, b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), VARIABLES_BASICAS, b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER),
-						 b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), VARIABLES_BASICAS, b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER), b.zeroOrMore(b.sequence(b.isOneOfThem(VaryPunctuator.PUNTO, VaryPunctuator.PUNTO), CAMPO_REGISTRO))));
+				 b.sequence(IDENTIFIER, b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), OPERACION, b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER),
+						 b.isOneOfThem(VaryPunctuator.CORCHETE_IZQ, VaryPunctuator.CORCHETE_IZQ), OPERACION, b.isOneOfThem(VaryPunctuator.CORCHETE_DER, VaryPunctuator.CORCHETE_DER), b.zeroOrMore(b.sequence(b.isOneOfThem(VaryPunctuator.PUNTO, VaryPunctuator.PUNTO), CAMPO_REGISTRO))));
 		 
 		 b.rule(VALOR_REGISTRO).is(
 				 b.sequence(IDENTIFIER, b.oneOrMore(b.sequence(b.isOneOfThem(VaryPunctuator.PUNTO, VaryPunctuator.PUNTO), CAMPO_REGISTRO))));
@@ -381,7 +334,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		 
 		 b.rule(FUNCIONES).is(b.firstOf(
 				 LLAMADA_FUNCION,
-				 INTERNAS)).skipIfOneChild();
+				 INTERNAS));
 		 
 		 b.rule(LLAMADA_FUNCION).is(
 				 b.sequence(IDENTIFIER, 
@@ -401,14 +354,13 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 	 public static void statements(LexerfulGrammarBuilder b) {
 		 b.rule(SENTENCIAS).is(
 				 b.firstOf(
-						 ASIGNACION_NORMAL,
-						 ASIGNACION_COMPLEJA,
+						 ASIGNACION,
 						 ESCRIBIR,
 						 LEER,
 						 BLOQUE,
 						 FUNCION_FICHERO_ABRIR,
 						 FUNCION_FICHERO_CERRAR,
-						 FUNCIONES)).skipIfOneChild();
+						 FUNCIONES));
 		 
 		 b.rule(ESCRIBIR).is(b.firstOf(
 				 b.sequence(b.isOneOfThem(VaryKeyword.ESCRIBIR, VaryKeyword.WRITE), b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ), PRIMARIA, b.optional(b.oneOrMore(b.isOneOfThem(VaryPunctuator.COMA, VaryPunctuator.COMA), OPERACION)), b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER)),
@@ -422,7 +374,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 				 MIENTRAS,
 				 REPETIR,
 				 DESDE,
-				 SEGUN)).skipIfOneChild();
+				 SEGUN));
 		 
 		 b.rule(SI).is(
 				 b.sequence(b.isOneOfThem(VaryKeyword.SI, VaryKeyword.IF), 
@@ -504,12 +456,12 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		 
 		 b.rule(ASIGNACION_NORMAL).is(
 				 b.sequence(IDENTIFIER,
-						 b.isOneOfThem(VaryPunctuator.ASIGNACION, VaryPunctuator.ASIGNACION),
-						 OPERACION));
+						 b.isOneOfThem(VaryPunctuator.ASIGNACION),
+						 OPERACION));	
 		 
 		 b.rule(ASIGNACION_COMPLEJA).is(
 				 b.sequence(VARIABLES_COMPLEJAS,
-						 b.isOneOfThem(VaryPunctuator.ASIGNACION, VaryPunctuator.ASIGNACION),
+						 b.isOneOfThem(VaryPunctuator.ASIGNACION),
 						 OPERACION));	 
 	 }
 	 
@@ -531,7 +483,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						b.zeroOrMore(DECLARACION),
 						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INITIATION),
 						b.zeroOrMore(SENTENCIAS),
-						DEVOLVER,
+						b.optional(DEVOLVER),
 						b.isOneOfThem(VaryKeyword.FIN_FUNCION, VaryKeyword.END_FUNCTION)));
 		
 		b.rule(PROCEDIMIENTO).is(
@@ -584,7 +536,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		b.rule(DECLARACION_GLOBAL).is(DECLARACION);
 		
 		b.rule(DECLARACION).is(
-				b.firstOf(DECLARACION_VARIABLE, DECLARACION_PROPIA)).skipIfOneChild();
+				b.firstOf(DECLARACION_VARIABLE, DECLARACION_PROPIA));
 		
 		b.rule(DECLARACION_VARIABLE).is(
 				b.sequence(TIPO_VARIABLE,
@@ -603,8 +555,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 		
 		b.rule(CONSTANTES).is(
 				b.sequence(VARIABLE,
-						b.isOneOfThem(VaryPunctuator.IGUAL, VaryPunctuator.IGUAL),
+						b.isOneOfThem(VaryPunctuator.IGUAL_ASIGNACION, VaryPunctuator.IGUAL_ASIGNACION),
 						PRIMARIA));
-	}
-	 
+	} 
 }

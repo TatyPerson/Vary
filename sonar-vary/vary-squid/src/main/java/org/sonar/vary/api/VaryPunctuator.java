@@ -9,7 +9,8 @@ public enum VaryPunctuator implements TokenType, GrammarRuleKey {
   //Gramática en español:	
   O("o"),
   Y("y"),
-  IGUAL("="),
+  IGUAL("=="),
+  IGUAL_ASIGNACION("="),
   DISTINTO("!="),
   MENOR("<"),
   MAYOR(">"),
