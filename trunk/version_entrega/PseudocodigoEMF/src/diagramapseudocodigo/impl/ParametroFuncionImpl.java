@@ -5,7 +5,6 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ParametroFuncion;
 import diagramapseudocodigo.Tipo;
-import diagramapseudocodigo.TipoPaso;
 import diagramapseudocodigo.Variable;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -48,7 +47,7 @@ public class ParametroFuncionImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected static final TipoPaso PASO_EDEFAULT = TipoPaso.ENTRADA;
+	protected static final String PASO_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getPaso() <em>Paso</em>}' attribute.
@@ -58,7 +57,7 @@ public class ParametroFuncionImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 * @ordered
 	 */
-	protected TipoPaso paso = PASO_EDEFAULT;
+	protected String paso = PASO_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' containment reference.
@@ -180,7 +179,7 @@ public class ParametroFuncionImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TipoPaso getPaso() {
+	public String getPaso() {
 		return paso;
 	}
 
@@ -189,9 +188,9 @@ public class ParametroFuncionImpl extends MinimalEObjectImpl.Container implement
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPaso(TipoPaso newPaso) {
-		TipoPaso oldPaso = paso;
-		paso = newPaso == null ? PASO_EDEFAULT : newPaso;
+	public void setPaso(String newPaso) {
+		String oldPaso = paso;
+		paso = newPaso;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.PARAMETRO_FUNCION__PASO, oldPaso, paso));
 	}
@@ -242,7 +241,7 @@ public class ParametroFuncionImpl extends MinimalEObjectImpl.Container implement
 				setVariable((Variable)newValue);
 				return;
 			case DiagramapseudocodigoPackage.PARAMETRO_FUNCION__PASO:
-				setPaso((TipoPaso)newValue);
+				setPaso((String)newValue);
 				return;
 			case DiagramapseudocodigoPackage.PARAMETRO_FUNCION__TIPO:
 				setTipo((Tipo)newValue);
@@ -283,7 +282,7 @@ public class ParametroFuncionImpl extends MinimalEObjectImpl.Container implement
 			case DiagramapseudocodigoPackage.PARAMETRO_FUNCION__VARIABLE:
 				return variable != null;
 			case DiagramapseudocodigoPackage.PARAMETRO_FUNCION__PASO:
-				return paso != PASO_EDEFAULT;
+				return PASO_EDEFAULT == null ? paso != null : !PASO_EDEFAULT.equals(paso);
 			case DiagramapseudocodigoPackage.PARAMETRO_FUNCION__TIPO:
 				return tipo != null;
 		}

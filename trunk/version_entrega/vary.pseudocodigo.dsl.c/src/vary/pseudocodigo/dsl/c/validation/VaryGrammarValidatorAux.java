@@ -90,14 +90,14 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				Funcion funcion = (Funcion) s;
 				funcionesParametros.put(funcion.getNombre(), new ArrayList<String>());
 				for(ParametroFuncion parametro: funcion.getParametrofuncion()) {
-					funcionesParametros.get(funcion.getNombre()).add(parametro.getPaso().getLiteral());
+					funcionesParametros.get(funcion.getNombre()).add(parametro.getPaso().toString());
 				}
 			}
 			else {
 				Procedimiento procedimiento = (Procedimiento) s;
 				funcionesParametros.put(procedimiento.getNombre(), new ArrayList<String>());
 				for(ParametroFuncion parametro: procedimiento.getParametrofuncion()) {
-					funcionesParametros.get(procedimiento.getNombre()).add(parametro.getPaso().getLiteral());
+					funcionesParametros.get(procedimiento.getNombre()).add(parametro.getPaso().toString());
 				}
 			}
 		}
@@ -109,7 +109,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		for(CabeceraSubproceso cabecera: cabeceras) {
 			funcionesParametros.put(cabecera.getNombre(), new ArrayList<String>());
 			for(ParametroFuncion parametro: cabecera.getParametrofuncion()) {
-				funcionesParametros.get(cabecera.getNombre()).add(parametro.getPaso().getLiteral());
+				funcionesParametros.get(cabecera.getNombre()).add(parametro.getPaso().toString());
 			}
 		}
 		return funcionesParametros;

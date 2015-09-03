@@ -446,5 +446,5 @@ Procedimiento returns Procedimiento:
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
 	'fin_procedimiento';
 	
-TipoPaso returns TipoPaso:
-	'E' | 'E/S' | 'S'/* TODO: implement this rule and an appropriate IValueConverter */;
+TipoPaso returns ecore::EString:
+	'E' | 'E/S' | 'S';

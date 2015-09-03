@@ -6,7 +6,6 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ParametroFuncion;
-import diagramapseudocodigo.TipoPaso;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -158,8 +157,7 @@ public class ParametroFuncionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		TipoPaso labelValue = ((ParametroFuncion)object).getPaso();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((ParametroFuncion)object).getPaso();
 		return label == null || label.length() == 0 ?
 			getString("_UI_ParametroFuncion_type") :
 			getString("_UI_ParametroFuncion_type") + " " + label;

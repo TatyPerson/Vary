@@ -589,29 +589,6 @@
     <element xmi:type="ecore:EClass" href="diagramaPseudocodigo.ecore#//Procedimiento"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AeYub_y1EeS1g8BfuAAiGQ" x="-265" y="20"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_AeYucPy1EeS1g8BfuAAiGQ" type="1005">
-    <children xmi:type="notation:Node" xmi:id="_AeYucfy1EeS1g8BfuAAiGQ" type="4010"/>
-    <children xmi:type="notation:Node" xmi:id="_AeYucvy1EeS1g8BfuAAiGQ" type="5008">
-      <children xmi:type="notation:Node" xmi:id="_AeYuc_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoPaso/Entrada"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeYudPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeYudfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoPaso/EntradaSalida"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeYudvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeYud_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//TipoPaso/Salida"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeYuePy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_AeYuefy1EeS1g8BfuAAiGQ"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_AeYuevy1EeS1g8BfuAAiGQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_AeYue_y1EeS1g8BfuAAiGQ"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_AeYufPy1EeS1g8BfuAAiGQ" fontColor="4210752" fontName="Times New Roman" fontHeight="12" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="diagramaPseudocodigo.ecore#//TipoPaso"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AeYuffy1EeS1g8BfuAAiGQ" x="-310" y="510" width="118" height="93"/>
-  </children>
   <children xmi:type="notation:Node" xmi:id="_AeYufvy1EeS1g8BfuAAiGQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_AeYuf_y1EeS1g8BfuAAiGQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_AeYugPy1EeS1g8BfuAAiGQ" type="5001">

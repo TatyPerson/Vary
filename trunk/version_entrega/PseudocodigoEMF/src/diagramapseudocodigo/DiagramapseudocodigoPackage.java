@@ -3609,17 +3609,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int NEG = 77;
 
 	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.TipoPaso <em>Tipo Paso</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.TipoPaso
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoPaso()
-	 * @generated
-	 */
-	int TIPO_PASO = 78;
-
-
-	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3627,7 +3616,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 79;
+	int NOMBRE_INTERNA = 78;
 
 
 	/**
@@ -3638,7 +3627,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 80;
+	int MODO_APERTURA = 79;
 
 
 	/**
@@ -5896,16 +5885,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EEnum getneg();
 
 	/**
-	 * Returns the meta object for enum '{@link diagramapseudocodigo.TipoPaso <em>Tipo Paso</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Tipo Paso</em>'.
-	 * @see diagramapseudocodigo.TipoPaso
-	 * @generated
-	 */
-	EEnum getTipoPaso();
-
-	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7798,16 +7777,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum NEG = eINSTANCE.getneg();
-
-		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.TipoPaso <em>Tipo Paso</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.TipoPaso
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoPaso()
-		 * @generated
-		 */
-		EEnum TIPO_PASO = eINSTANCE.getTipoPaso();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
