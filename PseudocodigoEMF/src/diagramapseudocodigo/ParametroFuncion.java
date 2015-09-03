@@ -77,7 +77,6 @@ public interface ParametroFuncion extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Paso</b></em>' attribute.
-	 * The literals are from the enumeration {@link diagramapseudocodigo.TipoPaso}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Paso</em>' attribute isn't clear,
@@ -85,23 +84,21 @@ public interface ParametroFuncion extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Paso</em>' attribute.
-	 * @see diagramapseudocodigo.TipoPaso
-	 * @see #setPaso(TipoPaso)
+	 * @see #setPaso(String)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getParametroFuncion_Paso()
 	 * @model required="true"
 	 * @generated
 	 */
-	TipoPaso getPaso();
+	String getPaso();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.ParametroFuncion#getPaso <em>Paso</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Paso</em>' attribute.
-	 * @see diagramapseudocodigo.TipoPaso
 	 * @see #getPaso()
 	 * @generated
 	 */
-	void setPaso(TipoPaso value);
+	void setPaso(String value);
 
 } // ParametroFuncion

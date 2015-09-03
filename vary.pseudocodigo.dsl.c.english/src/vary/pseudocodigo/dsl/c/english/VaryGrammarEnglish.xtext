@@ -423,6 +423,5 @@ Procedimiento returns Procedimiento:
 	'end_initiation'
 	'end_procedure';
 	
-TipoPaso returns TipoPaso:
-	'I' | 'I/O' | 'O'/* TO
-DO: implement this rule and an appropriate IValueConverter */;
+TipoPaso returns ecore::EString:
+	'I' | 'I/O' | 'O';

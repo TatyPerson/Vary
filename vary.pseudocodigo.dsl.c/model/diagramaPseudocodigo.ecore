@@ -68,7 +68,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ParametroFuncion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//Variable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paso" lowerBound="1" eType="#//TipoPaso"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="paso" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tipo" lowerBound="1" eType="#//Tipo"
         containment="true"/>
   </eClassifiers>
@@ -141,11 +141,6 @@
         eType="#//Declaracion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Procedimiento" eSuperTypes="#//Subproceso"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="TipoPaso">
-    <eLiterals name="Entrada" literal="E"/>
-    <eLiterals name="EntradaSalida" value="1" literal="E/S"/>
-    <eLiterals name="Salida" value="2" literal="S"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Caracter" eSuperTypes="#//Operador #//operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="contenido" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

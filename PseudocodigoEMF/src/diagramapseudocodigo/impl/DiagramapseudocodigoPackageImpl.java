@@ -65,7 +65,6 @@ import diagramapseudocodigo.Tipo;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
 import diagramapseudocodigo.TipoExistente;
-import diagramapseudocodigo.TipoPaso;
 import diagramapseudocodigo.ValorBooleano;
 import diagramapseudocodigo.ValorComplejo;
 import diagramapseudocodigo.ValorMatriz;
@@ -644,13 +643,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EEnum negEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum tipoPasoEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2640,15 +2632,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getTipoPaso() {
-		return tipoPasoEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getNombreInterna() {
 		return nombreInternaEEnum;
 	}
@@ -2978,7 +2961,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		signoEEnum = createEEnum(SIGNO);
 		booleanoEEnum = createEEnum(BOOLEANO);
 		negEEnum = createEEnum(NEG);
-		tipoPasoEEnum = createEEnum(TIPO_PASO);
 		nombreInternaEEnum = createEEnum(NOMBRE_INTERNA);
 		modoAperturaEEnum = createEEnum(MODO_APERTURA);
 	}
@@ -3133,7 +3115,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEClass(parametroFuncionEClass, ParametroFuncion.class, "ParametroFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParametroFuncion_Variable(), this.getVariable(), null, "variable", null, 1, 1, ParametroFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getParametroFuncion_Paso(), this.getTipoPaso(), "paso", null, 1, 1, ParametroFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getParametroFuncion_Paso(), ecorePackage.getEString(), "paso", null, 1, 1, ParametroFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getParametroFuncion_Tipo(), this.getTipo(), null, "tipo", null, 1, 1, ParametroFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(leerEClass, Leer.class, "Leer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3387,11 +3369,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEEnum(negEEnum, neg.class, "neg");
 		addEEnumLiteral(negEEnum, neg.NO);
-
-		initEEnum(tipoPasoEEnum, TipoPaso.class, "TipoPaso");
-		addEEnumLiteral(tipoPasoEEnum, TipoPaso.ENTRADA);
-		addEEnumLiteral(tipoPasoEEnum, TipoPaso.ENTRADA_SALIDA);
-		addEEnumLiteral(tipoPasoEEnum, TipoPaso.SALIDA);
 
 		initEEnum(nombreInternaEEnum, NombreInterna.class, "NombreInterna");
 		addEEnumLiteral(nombreInternaEEnum, NombreInterna.COS);

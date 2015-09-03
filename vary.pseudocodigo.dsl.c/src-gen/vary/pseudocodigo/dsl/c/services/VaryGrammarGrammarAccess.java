@@ -4204,7 +4204,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cESKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cSKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
-		/// * TODO: implement this rule and an appropriate IValueConverter * / TipoPaso:
+		//TipoPaso returns ecore::EString:
 		//	"E" | "E/S" | "S";
 		public ParserRule getRule() { return rule; }
 
@@ -5272,7 +5272,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getProcedimientoAccess().getRule();
 	}
 
-	/// * TODO: implement this rule and an appropriate IValueConverter * / TipoPaso:
+	//TipoPaso returns ecore::EString:
 	//	"E" | "E/S" | "S";
 	public TipoPasoElements getTipoPasoAccess() {
 		return (pTipoPaso != null) ? pTipoPaso : (pTipoPaso = new TipoPasoElements());

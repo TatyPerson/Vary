@@ -23,6 +23,7 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: vary.pseudocodigo.dsl.c,
+ vary.pseudocodigo.dsl.c.english.keywords,
  vary.pseudocodigo.dsl.c.formatting,
  vary.pseudocodigo.dsl.c.generator,
  vary.pseudocodigo.dsl.c.generator.c,

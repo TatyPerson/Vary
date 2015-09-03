@@ -3847,13 +3847,11 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cIOKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cOKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		
-		//TipoPaso:
-		//	"I" | "I/O" | / * TO
-		//DO: implement this rule and an appropriate IValueConverter * / "O";
+		//TipoPaso returns ecore::EString:
+		//	"I" | "I/O" | "O";
 		public ParserRule getRule() { return rule; }
 
-		//"I" | "I/O" | / * TO
-		//DO: implement this rule and an appropriate IValueConverter * / "O"
+		//"I" | "I/O" | "O"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"I"
@@ -3862,8 +3860,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		//"I/O"
 		public Keyword getIOKeyword_1() { return cIOKeyword_1; }
 
-		/// * TO
-		//DO: implement this rule and an appropriate IValueConverter * / "O"
+		//"O"
 		public Keyword getOKeyword_2() { return cOKeyword_2; }
 	}
 	
@@ -4826,9 +4823,8 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		return getProcedimientoAccess().getRule();
 	}
 
-	//TipoPaso:
-	//	"I" | "I/O" | / * TO
-	//DO: implement this rule and an appropriate IValueConverter * / "O";
+	//TipoPaso returns ecore::EString:
+	//	"I" | "I/O" | "O";
 	public TipoPasoElements getTipoPasoAccess() {
 		return (pTipoPaso != null) ? pTipoPaso : (pTipoPaso = new TipoPasoElements());
 	}
