@@ -53,7 +53,7 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 	
 	public new(String language) {
 		readerKeywords = new vary.pseudocodigo.dsl.c.english.keywords.ReadKeywords();
-		readerMessages = new vary.pseudocodigo.dsl.c.english.validation.messages.ReadMessagesValidator();
+		readerMessages = new vary.pseudocodigo.dsl.c.validation.english.messages.ReadMessagesValidator();
 	}
 	
 	
