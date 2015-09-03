@@ -100,7 +100,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("5");
 		  assertThat(p).matches("a + b");
 		  assertThat(p).matches("a - b");
-		  assertThat(p).matches("a = b");
+		  assertThat(p).matches("a == b");
 		  assertThat(p).matches("a * 2");
 		  assertThat(p).matches("a != b");
 		  assertThat(p).matches("4 + 5");
@@ -281,7 +281,16 @@ public class VaryParserTest extends ParserBaseTest {
 	  @Test
 	  public void inicio_reallife() {
 		  p.setRootRule(g.rule(VaryGrammarImpl.INICIO));
-		  assertThat(p).matches("principal" + '\n' + "var" + '\n' + "entero: a" + '\n' + "inicio" + '\n' + "variable <- 10" + '\n' + "operacion(prueba)" + '\n' + "fin_inicio");
+		  assertThat(p).matches("principal" + '\n' + "var" + '\n' + "entero: a" + '\n' + "inicio" + '\n' + "a <- 1 + 2" + '\n' + "fun(a)" + "\n" + "b <- 2 + a" + '\n' + "fin_inicio");
+		  assertThat(p).matches("principal" + '\n' + "var" + '\n' + "entero: a" + '\n' + "inicio" + '\n' + "a <- 1 + 2" + '\n' + "escribir(\"hola\")" + "\n" + "b <- 2 + a" + '\n' + "fin_inicio");
+		  assertThat(p).matches("principal" + '\n' + "var" + '\n' + "entero: a" + '\n' + "inicio" + '\n' + "a <- 1" + '\n' + "b <- 2" + '\n' + "fin_inicio");
+		  assertThat(p).matches("principal" + '\n' + "var" + '\n' + "entero: a" + '\n' + "inicio" + '\n' + "v[0] <- 1" + '\n' + "v[1] <- 2" + '\n' + "fin_inicio");
+	  }
+	  
+	  @Test
+	  public void si_reallife() {
+		 p.setRootRule(g.rule(VaryGrammarImpl.SI));
+		 assertThat(p).matches("si v[j] > v[j+1] entonces" + "\n" + "fin_si");
 	  }
 }
 
