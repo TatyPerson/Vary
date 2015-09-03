@@ -347,9 +347,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			if (p.paso == TipoPaso::ENTRADA) {
 				total = total + "const " + p.tipo.generate;
 			} else if (p.paso == TipoPaso::ENTRADA_SALIDA) {
-				total = total + p.tipo.generate + "*";
+				total = total + p.tipo.generate + " ";
 			} else {
-				total = total + p.tipo.generate + "*";
+				total = total + p.tipo.generate + " ";
 			}
 			actual = actual + 1;
 		}
@@ -910,9 +910,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			if (p.paso == TipoPaso::ENTRADA) {
 				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
 			} else if (p.paso == TipoPaso::ENTRADA_SALIDA) {
-				total = total + p.tipo.generate + "* " + p.variable.nombre;
+				total = total + p.tipo.generate + " " + p.variable.nombre;
 			} else {
-				total = total + p.tipo.generate + "* " + p.variable.nombre;
+				total = total + p.tipo.generate + " " + p.variable.nombre;
 			}
 			actual = actual + 1;
 		}
@@ -2132,7 +2132,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			}
 			if(subprocesosConPunteros.get(nombreSubproceso).contains(actual)) {
-					total = total + "&" + op.generate;
+					total = total + " " + op.generate;
 					actual = actual + 1;
 			}
 			else {

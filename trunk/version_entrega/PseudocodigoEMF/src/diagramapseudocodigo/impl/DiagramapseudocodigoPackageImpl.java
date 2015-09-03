@@ -841,7 +841,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	public EReference getModulo_Importaciones() {
-		return (EReference)moduloEClass.getEStructuralFeatures().get(5);
+		return (EReference)moduloEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -849,26 +849,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModulo_Exporta_globales() {
-		return (EReference)moduloEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModulo_Exporta_funciones() {
-		return (EReference)moduloEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getModulo_Exporta_constantes() {
-		return (EAttribute)moduloEClass.getEStructuralFeatures().get(2);
+	public EReference getModulo_Exporta_global() {
+		return (EReference)moduloEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -877,7 +859,25 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	public EAttribute getModulo_Exporta_tipos() {
-		return (EAttribute)moduloEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)moduloEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getModulo_Exporta_constantes() {
+		return (EAttribute)moduloEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getModulo_Exporta_funciones() {
+		return (EReference)moduloEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -886,7 +886,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	public EReference getModulo_Implementacion() {
-		return (EReference)moduloEClass.getEStructuralFeatures().get(4);
+		return (EReference)moduloEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2952,12 +2952,12 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		moduloEClass = createEClass(MODULO);
 		createEAttribute(moduloEClass, MODULO__NOMBRE);
-		createEReference(moduloEClass, MODULO__EXPORTA_FUNCIONES);
-		createEAttribute(moduloEClass, MODULO__EXPORTA_CONSTANTES);
-		createEAttribute(moduloEClass, MODULO__EXPORTA_TIPOS);
 		createEReference(moduloEClass, MODULO__IMPLEMENTACION);
 		createEReference(moduloEClass, MODULO__IMPORTACIONES);
-		createEReference(moduloEClass, MODULO__EXPORTA_GLOBALES);
+		createEReference(moduloEClass, MODULO__EXPORTA_GLOBAL);
+		createEAttribute(moduloEClass, MODULO__EXPORTA_TIPOS);
+		createEAttribute(moduloEClass, MODULO__EXPORTA_CONSTANTES);
+		createEReference(moduloEClass, MODULO__EXPORTA_FUNCIONES);
 
 		cabeceraSubprocesoEClass = createEClass(CABECERA_SUBPROCESO);
 		createEAttribute(cabeceraSubprocesoEClass, CABECERA_SUBPROCESO__NOMBRE);
@@ -3342,12 +3342,12 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEClass(moduloEClass, Modulo.class, "Modulo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModulo_Nombre(), ecorePackage.getEString(), "nombre", "", 1, 1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModulo_Exporta_funciones(), this.getCabeceraSubproceso(), null, "exporta_funciones", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModulo_Exporta_constantes(), ecorePackage.getEString(), "exporta_constantes", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getModulo_Exporta_tipos(), ecorePackage.getEString(), "exporta_tipos", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModulo_Implementacion(), this.getImplementacion(), null, "implementacion", null, 1, 1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModulo_Importaciones(), this.getModulo(), null, "importaciones", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModulo_Exporta_globales(), this.getDeclaracion(), null, "exporta_globales", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModulo_Exporta_global(), this.getDeclaracion(), null, "exporta_global", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModulo_Exporta_tipos(), ecorePackage.getEString(), "exporta_tipos", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getModulo_Exporta_constantes(), ecorePackage.getEString(), "exporta_constantes", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModulo_Exporta_funciones(), this.getCabeceraSubproceso(), null, "exporta_funciones", null, 0, -1, Modulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cabeceraSubprocesoEClass, CabeceraSubproceso.class, "CabeceraSubproceso", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCabeceraSubproceso_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, CabeceraSubproceso.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

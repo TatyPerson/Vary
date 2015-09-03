@@ -34,7 +34,7 @@ Modulo returns Modulo:
 	('type'
 	(exporta_tipos+=EString (exporta_tipos+=EString)* )? )?
 	('var'
-		( exporta_globales+=Declaracion ( exporta_globales+=Declaracion)* )? )?
+		( exporta_global+=Declaracion ( exporta_global+=Declaracion)* )? )?
 	(exporta_funciones+=CabeceraSubproceso (exporta_funciones+=CabeceraSubproceso)* )?
 	'end_export'
 	implementacion=Implementacion
@@ -365,7 +365,7 @@ Funciones returns operacion:
 	| {Internas} nombre=NombreInterna '(' (operadores+=operacion ( ',' operadores+=operacion)* )? ')';
 	
 VariablesComplejas returns operacion:
-	{ValorVector} ((nombre_vector=EString)'['(indice=VariablesBasicas)']') ('.' (campo+=CampoRegistro) )?
+	{ValorVector} ((nombre_vector=EString)'['(indice=operacion)']') ('.' (campo+=CampoRegistro) )?
 	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=VariablesBasicas)']['(segundoIndice=VariablesBasicas)']') ('.' (campo+=CampoRegistro) )?
 	| {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
 	
@@ -424,5 +424,5 @@ Procedimiento returns Procedimiento:
 	'end_procedure';
 	
 TipoPaso returns TipoPaso:
-	'E' | 'E/S' | 'S'/* TO
+	'I' | 'I/O' | 'O'/* TO
 DO: implement this rule and an appropriate IValueConverter */;

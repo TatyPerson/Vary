@@ -218,8 +218,8 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModuloAccess().getExporta_constantesAssignment_6_1_1(), "rule__Modulo__Exporta_constantesAssignment_6_1_1");
 					put(grammarAccess.getModuloAccess().getExporta_tiposAssignment_7_1_0(), "rule__Modulo__Exporta_tiposAssignment_7_1_0");
 					put(grammarAccess.getModuloAccess().getExporta_tiposAssignment_7_1_1(), "rule__Modulo__Exporta_tiposAssignment_7_1_1");
-					put(grammarAccess.getModuloAccess().getExporta_globalesAssignment_8_1_0(), "rule__Modulo__Exporta_globalesAssignment_8_1_0");
-					put(grammarAccess.getModuloAccess().getExporta_globalesAssignment_8_1_1(), "rule__Modulo__Exporta_globalesAssignment_8_1_1");
+					put(grammarAccess.getModuloAccess().getExporta_globalAssignment_8_1_0(), "rule__Modulo__Exporta_globalAssignment_8_1_0");
+					put(grammarAccess.getModuloAccess().getExporta_globalAssignment_8_1_1(), "rule__Modulo__Exporta_globalAssignment_8_1_1");
 					put(grammarAccess.getModuloAccess().getExporta_funcionesAssignment_9_0(), "rule__Modulo__Exporta_funcionesAssignment_9_0");
 					put(grammarAccess.getModuloAccess().getExporta_funcionesAssignment_9_1(), "rule__Modulo__Exporta_funcionesAssignment_9_1");
 					put(grammarAccess.getModuloAccess().getImplementacionAssignment_11(), "rule__Modulo__ImplementacionAssignment_11");

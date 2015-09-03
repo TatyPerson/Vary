@@ -138,6 +138,8 @@ import diagramapseudocodigo.CabeceraFuncion
 import diagramapseudocodigo.CabeceraSubproceso
 import vary.pseudocodigo.dsl.c.generator.VaryGeneratorInterface
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface
+import diagramapseudocodigo.impl.CabeceraFuncionImpl
+import diagramapseudocodigo.impl.CabeceraProcedimientoImpl
 
 /**
  * Generates code from your model files on save.
@@ -245,6 +247,22 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		funciones.add(funcion)
 	}
 	
+	def void addVariable(List<String> variablesPublicas, Declaracion declaracion) {
+		if(declaracion instanceof DeclaracionVariable) {
+			var decVar = declaracion as DeclaracionVariable
+			for(myVariable: decVar.variable) {
+				variablesPublicas.add(myVariable.nombre)
+			}
+			
+		}
+		else {
+			var decPropia = declaracion as DeclaracionPropia
+			for(myVariable: decPropia.variable) {
+				variablesPublicas.add(myVariable.nombre)
+			}
+		}
+	}
+	
 	def generate(CabeceraProcedimiento myCabecera) {
 		
 	}
@@ -260,6 +278,8 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	'''
 		#ifndef «myModulo.nombre.toUpperCase»_H
 		#define «myModulo.nombre.toUpperCase»_H
+		
+		using namespace std;
 		
 		«FOR myConstante:myModulo.implementacion.constantes»
 			«IF myModulo.exporta_constantes.contains(myConstante.variable.nombre)»
@@ -304,13 +324,14 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				«ENDIF»
 			«ENDIF»
 		«ENDFOR»
-		
+		«var variablesPublicas = new ArrayList<String>()»
 		class  «myModulo.nombre» {
 			
 			public:
 				//Variables a exportar
-				«FOR myVariable:modulo.exporta_globales»
-					«myVariable.generate»
+				«FOR myDeclaracion:modulo.exporta_global»
+					«variablesPublicas.addVariable(myDeclaracion)»
+					«myDeclaracion.generate»
 				«ENDFOR»
 				
 				//Métodos (funciones) a exportar
@@ -332,7 +353,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 						«FOR mySubproceso:myModulo.implementacion.funcion»
 							«IF mySubproceso.eClass.name.equals("Funcion")»
 								«var funcion = mySubproceso as Funcion»
-								«IF	funcion.nombre.equals(funcion.nombre) && funcion.parametrofuncion.size == cabecera.parametrofuncion.size»
+								«IF	cabecera.nombre.equals(funcion.nombre) && funcion.parametrofuncion.size == cabecera.parametrofuncion.size»
 									«mySubproceso.cabecerasFuncion»
 									«funcion.addFuncion(funcionesUsadas)»
 								«ENDIF»
@@ -352,15 +373,19 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				«FOR mySubproceso:myModulo.implementacion.funcion»
 					«IF mySubproceso.eClass.name.equals("Procedimiento")»
 						«var procedimiento = mySubproceso as Procedimiento»
-						«IF !procedimientosUsados.contains(procedimiento)»
-							«mySubproceso.cabecerasFuncionStatic»
-						«ENDIF»
+						«FOR myProcedimiento:procedimientosUsados»
+							«IF myProcedimiento.nombre.equals(procedimiento) && myProcedimiento.parametrofuncion.size == procedimiento.parametrofuncion.size»
+								«mySubproceso.cabecerasFuncionStatic»
+							«ENDIF»
+						«ENDFOR»
 					«ENDIF»
 					«IF mySubproceso.eClass.name.equals("Funcion")»
 						«var funcion = mySubproceso as Funcion»
-						«IF !funcionesUsadas.contains(funcion)»
-							«mySubproceso.cabecerasFuncionStatic»
-						«ENDIF»
+						«FOR myFuncion:funcionesUsadas»
+							«IF myFuncion.nombre.equals(funcion) && myFuncion.parametrofuncion.size == funcion.parametrofuncion.size»
+								«mySubproceso.cabecerasFuncionStatic»
+							«ENDIF»
+						«ENDFOR»
 					«ENDIF»
 				«ENDFOR»
 		};
@@ -426,9 +451,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			if (p.paso == TipoPaso::ENTRADA) {
 				total = total + "const " + p.tipo.generate;
 			} else if (p.paso == TipoPaso::ENTRADA_SALIDA) {
-				total = total + p.tipo.generate + "*";
+				total = total + p.tipo.generate;
 			} else {
-				total = total + p.tipo.generate + "*";
+				total = total + p.tipo.generate;
 			}
 			actual = actual + 1;
 		}
@@ -499,6 +524,38 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
+			}
+		}
+	}
+	
+	for(Modulo m: modulo.importaciones) {
+		for(CabeceraSubproceso cabecera: m.exporta_funciones) {
+			if(cabecera.eClass.name.equals("CabeceraFuncion")) {
+				var CabeceraFuncion cabeceraFuncion = new CabeceraFuncionImpl
+				cabeceraFuncion = cabecera as CabeceraFuncion
+				funciones.put(cabeceraFuncion.nombre, cabeceraFuncion.tipo)
+				subprocesosConPunteros.put(cabeceraFuncion.nombre, new ArrayList<Integer>());
+				var numParametro = 1;
+				for(ParametroFuncion parametro: cabeceraFuncion.parametrofuncion) {
+					if(parametro.paso == TipoPaso::SALIDA) {
+						subprocesosConPunteros.get(cabeceraFuncion.nombre).add(numParametro)
+					}
+					numParametro = numParametro + 1;
+				}
+			}
+			
+			else if(cabecera.eClass.name.equals("CabeceraProcedimiento")) {
+				var CabeceraProcedimiento cabeceraProcedimiento = new CabeceraProcedimientoImpl
+				cabeceraProcedimiento = cabecera as CabeceraProcedimiento
+				funciones.put(cabeceraProcedimiento.nombre, "void")
+				subprocesosConPunteros.put(cabeceraProcedimiento.nombre, new ArrayList<Integer>());
+				var numParametro = 1;
+				for(ParametroFuncion parametro: cabeceraProcedimiento.parametrofuncion) {
+					if(parametro.paso == TipoPaso::SALIDA) {
+						subprocesosConPunteros.get(cabeceraProcedimiento.nombre).add(numParametro)
+					}
+					numParametro = numParametro + 1;
+				}
 			}
 		}
 	}
@@ -725,6 +782,37 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
+			}
+		}
+	}
+	
+	for(Modulo m: algoritmo.importaciones) {
+		for(CabeceraSubproceso cabecera: m.exporta_funciones) {
+			if(cabecera.eClass.name.equals("CabeceraFuncion")) {
+				var CabeceraFuncion cabeceraFuncion = new CabeceraFuncionImpl
+				cabeceraFuncion = cabecera as CabeceraFuncion
+				funciones.put(cabeceraFuncion.nombre, cabeceraFuncion.tipo)
+				subprocesosConPunteros.put(cabeceraFuncion.nombre, new ArrayList<Integer>());
+				var numParametro = 1;
+				for(ParametroFuncion parametro: cabeceraFuncion.parametrofuncion) {
+					if(parametro.paso == TipoPaso::SALIDA) {
+						subprocesosConPunteros.get(cabeceraFuncion.nombre).add(numParametro)
+					}
+					numParametro = numParametro + 1;
+				}
+			}
+			else if(cabecera.eClass.name.equals("CabeceraProcedimiento")) {
+				var CabeceraProcedimiento cabeceraProcedimiento = new CabeceraProcedimientoImpl
+				cabeceraProcedimiento = cabecera as CabeceraProcedimiento
+				funciones.put(cabeceraProcedimiento.nombre, "void")
+				subprocesosConPunteros.put(cabeceraProcedimiento.nombre, new ArrayList<Integer>());
+				var numParametro = 1;
+				for(ParametroFuncion parametro: cabeceraProcedimiento.parametrofuncion) {
+					if(parametro.paso == TipoPaso::SALIDA) {
+						subprocesosConPunteros.get(cabeceraProcedimiento.nombre).add(numParametro)
+					}
+					numParametro = numParametro + 1;
+				}
 			}
 		}
 	}
@@ -1030,9 +1118,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			if (p.paso == TipoPaso::ENTRADA) {
 				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
 			} else if (p.paso == TipoPaso::ENTRADA_SALIDA) {
-				total = total + p.tipo.generate + "* " + p.variable.nombre;
+				total = total + p.tipo.generate + " " + p.variable.nombre;
 			} else {
-				total = total + p.tipo.generate + "* " + p.variable.nombre;
+				total = total + p.tipo.generate + " " + p.variable.nombre;
 			}
 			actual = actual + 1;
 		}
@@ -1317,7 +1405,6 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba.generate
 		}	
 	}
-	
 
 	def pintarVariables(EList<Variable> v) '''
 		«v.get(0).nombre»«FOR matri:v.get(0).mat»«matri.toString»«ENDFOR»«FOR id:v»«IF id.nombre != v.get(0).nombre», «id.nombre»«FOR matri2:id.mat»«matri2.toString»«ENDFOR»«ENDIF»«ENDFOR»;	
@@ -1769,7 +1856,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			}
 			if(subprocesosConPunteros.get(nombreSubproceso).contains(actual)) {
-					total = total + "&" + op.generate;
+					total = total + op.generate;
 					actual = actual + 1;
 			}
 			else {

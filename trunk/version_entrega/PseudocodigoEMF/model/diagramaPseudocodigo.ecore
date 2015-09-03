@@ -389,18 +389,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral=""
         iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_funciones" upperBound="-1"
-        eType="#//CabeceraSubproceso" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exporta_constantes" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exporta_tipos" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="implementacion" lowerBound="1"
         eType="#//Implementacion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importaciones" upperBound="-1"
         eType="#//Modulo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_globales" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_global" upperBound="-1"
         eType="#//Declaracion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exporta_tipos" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="exporta_constantes" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_funciones" upperBound="-1"
+        eType="#//CabeceraSubproceso" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraSubproceso">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"

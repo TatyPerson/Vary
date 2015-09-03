@@ -28,8 +28,5 @@ Import-Package: diagramapseudocodigo,
  org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: vary.pseudocodigo.dsl.c.english.ui.quickfix,
- vary.pseudocodigo.dsl.c.english.ui.contentassist,
- vary.pseudocodigo.dsl.c.english.ui.contentassist.antlr,
- vary.pseudocodigo.dsl.c.english.ui.internal
 Bundle-Activator: vary.pseudocodigo.dsl.c.english.ui.internal.VaryGrammarEnglishActivator
+Export-Package: vary.pseudocodigo.dsl.c.english.ui.internal

@@ -152,6 +152,10 @@ public class CProjectFactory extends ProjectFactory {
 		}
 		createFile(".varyproject", project, "ficheroCabeceras="+ProjectHeaderFile.getHeaderOption()
 				+'\n' + "lenguajeGeneracion=" +LenguajeProyecto.getLenguajeProyecto() + '\n' + "idioma=Spanish" , monitor);
+		createFile("sonar-project.properties", project, "sonar.projectKey=" + project.getName() + "\n" + 
+				"sonar.projectName=" + project.getName() + "\n" + "sonar.projectVersion=1.0.0" + "\n" + 
+				"sonar.projectDescription= Testing " + project.getName() + "\n" + "sonar.sources=src" + "\n" +
+				"sonar.language=vary", monitor);
 	}
 	
 	protected void addMoreClasspathEntriesTo(List<IClasspathEntry> classpathEntries) {}

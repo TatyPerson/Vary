@@ -331,7 +331,7 @@
          <wizard
             category="org.eclipselabs.vary/org.eclipselabs.vary.projects"
             class="vary.pseudocodigo.dsl.c.ui.VaryGrammarExecutableExtensionFactory:vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarNewProjectWizard"
-            descriptionImage="icons/Vary_C.png"
+            descriptionImage="icons/Vary_Logo.png"
             icon="icons/Vary_Icono.png"
             id="vary.pseudocodigo.dsl.c.ui.wizard.VaryGrammarNewProjectWizard"
             name="Spanish Vary Project"

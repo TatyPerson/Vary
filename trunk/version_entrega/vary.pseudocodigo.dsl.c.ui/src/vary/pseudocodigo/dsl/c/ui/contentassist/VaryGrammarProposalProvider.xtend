@@ -346,7 +346,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def void completeAsignacionNormal_OperadorAuxModulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<String> variablesLocales, List<Modulo> modulos) {
 		for(modulo: modulos) {
-			var variablesPublicas = registrarVariables(modulo.exporta_globales)
+			var variablesPublicas = registrarVariables(modulo.exporta_global)
 			for(declaracion: modulo.implementacion.global) {
 				if(declaracion instanceof DeclaracionVariable) {
 					var declaracionVariable = declaracion as DeclaracionVariable
@@ -642,6 +642,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	}
 	
 	def void complete_SentenciasAux_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos) {
+		var procedimiento_literal = new String();
 		for(modulo: modulos) {
 			for(subproceso: modulo.implementacion.funcion) {
 				if(subproceso instanceof Procedimiento) {
@@ -649,23 +650,27 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					for(cabeceraFuncion: modulo.exporta_funciones) {
 						if(cabeceraFuncion.nombre.equals(procedimiento.nombre) && cabeceraFuncion.parametrofuncion.size == procedimiento.parametrofuncion.size) {
 						var styledString = new StyledString(procedimiento.nombre + "(")
+						procedimiento_literal = procedimiento.nombre + "("
 						if(procedimiento.parametrofuncion.size == 0) {
 							styledString.append(")")
+							procedimiento_literal = procedimiento_literal + ")"
 						}
 						else {
 							for(ParametroFuncion p: procedimiento.parametrofuncion) {
 								if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
 									styledString.append(p.variable.nombre + ",")
+									procedimiento_literal = procedimiento_literal + p.variable.nombre + ","
 								}
 								else {
 									styledString.append(p.variable.nombre + ")")
+									procedimiento_literal = procedimiento_literal + p.variable.nombre + ")"
 								}
 							}
 						}
 						var styledStringAux = new StyledString(" - " + modulo.nombre)
 						styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 						styledString.append(styledStringAux)
-						var completionProposal = createCompletionProposal(styledString.toString, styledString, typesClassics, context)
+						var completionProposal = createCompletionProposal(procedimiento_literal, styledString, typesClassics, context)
 						acceptor.accept(completionProposal)
 					}
 				}
