@@ -9,11 +9,7 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
  org.eclipse.xtext.generator;resolution:=optional,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
- org.eclipse.emf.codegen.ecore;resolution:=optional,
- org.eclipse.emf.mwe.utils;resolution:=optional,
- org.eclipse.emf.mwe2.launch;resolution:=optional,
  PseudocodigoEMF,
- org.eclipse.xtext.util,
  org.antlr.runtime,
  org.eclipse.xtext.common.types
 Import-Package: org.apache.log4j,
@@ -35,5 +31,4 @@ Export-Package: vary.pseudocodigo.dsl.c.english,
  vary.pseudocodigo.dsl.c.english.parser.antlr.internal,
  vary.pseudocodigo.dsl.c.english.scoping,
  vary.pseudocodigo.dsl.c.english.services,
- vary.pseudocodigo.dsl.c.english.validation,
- vary.pseudocodigo.dsl.c.english.validation.messages
+ vary.pseudocodigo.dsl.c.english.validation
