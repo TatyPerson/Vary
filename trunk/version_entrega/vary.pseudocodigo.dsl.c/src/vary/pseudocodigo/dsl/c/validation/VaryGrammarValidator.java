@@ -131,7 +131,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	}
 	
 	public VaryGrammarValidator(String URL) {
-		readerMessages = new vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator();
+		readerMessages = new vary.pseudocodigo.dsl.c.validation.english.messages.ReadMessagesValidator();
 	}
 	
 
