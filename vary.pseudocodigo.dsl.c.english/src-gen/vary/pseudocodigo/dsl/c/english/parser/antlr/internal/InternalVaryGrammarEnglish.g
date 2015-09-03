@@ -555,16 +555,16 @@ ruleModulo returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuloAccess().getExporta_globalesDeclaracionParserRuleCall_8_1_0_0()); 
+	        newCompositeNode(grammarAccess.getModuloAccess().getExporta_globalDeclaracionParserRuleCall_8_1_0_0()); 
 	    }
-		lv_exporta_globales_14_0=ruleDeclaracion		{
+		lv_exporta_global_14_0=ruleDeclaracion		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuloRule());
 	        }
        		add(
        			$current, 
-       			"exporta_globales",
-        		lv_exporta_globales_14_0, 
+       			"exporta_global",
+        		lv_exporta_global_14_0, 
         		"Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -573,16 +573,16 @@ ruleModulo returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getModuloAccess().getExporta_globalesDeclaracionParserRuleCall_8_1_1_0()); 
+	        newCompositeNode(grammarAccess.getModuloAccess().getExporta_globalDeclaracionParserRuleCall_8_1_1_0()); 
 	    }
-		lv_exporta_globales_15_0=ruleDeclaracion		{
+		lv_exporta_global_15_0=ruleDeclaracion		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getModuloRule());
 	        }
        		add(
        			$current, 
-       			"exporta_globales",
-        		lv_exporta_globales_15_0, 
+       			"exporta_global",
+        		lv_exporta_global_15_0, 
         		"Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5216,9 +5216,9 @@ ruleVariablesComplejas returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getIndiceVariablesBasicasParserRuleCall_0_1_2_0()); 
+	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getIndiceOperacionParserRuleCall_0_1_2_0()); 
 	    }
-		lv_indice_3_0=ruleVariablesBasicas		{
+		lv_indice_3_0=ruleoperacion		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
@@ -5226,7 +5226,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"indice",
         		lv_indice_3_0, 
-        		"VariablesBasicas");
+        		"operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6236,24 +6236,24 @@ ruleTipoPaso returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
     }
     @after { leaveRule(); }:
 (
-	kw='E' 
+	kw='I' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getTipoPasoAccess().getEKeyword_0()); 
+        newLeafNode(kw, grammarAccess.getTipoPasoAccess().getIKeyword_0()); 
     }
 
     |
-	kw='E/S' 
+	kw='I/O' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getTipoPasoAccess().getESKeyword_1()); 
+        newLeafNode(kw, grammarAccess.getTipoPasoAccess().getIOKeyword_1()); 
     }
 
     |
-	kw='S' 
+	kw='O' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getTipoPasoAccess().getSKeyword_2()); 
+        newLeafNode(kw, grammarAccess.getTipoPasoAccess().getOKeyword_2()); 
     }
 )
     ;

@@ -19,17 +19,19 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.xtext.common.types,
  org.eclipse.emf.ecore,
  org.eclipse.xtend,
- org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0",
- vary.pseudocodigo.dsl.c.english;bundle-version="1.0.0"
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0"
 Import-Package: org.apache.log4j,
  org.eclipse.ui,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ vary.pseudocodigo.dsl.c.english.validation.messages
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: vary.pseudocodigo.dsl.c,
  vary.pseudocodigo.dsl.c.formatting,
- vary.pseudocodigo.dsl.c.generator,
+ vary.pseudocodigo.dsl.c.generator;x-friends:="vary.pseudocodigo.dsl.c.english",
+ vary.pseudocodigo.dsl.c.generator.c,
+ vary.pseudocodigo.dsl.c.generator.cpp,
  vary.pseudocodigo.dsl.c.generator.util,
- vary.pseudocodigo.dsl.c.keywords,
+ vary.pseudocodigo.dsl.c.keywords;x-friends:="vary.pseudocodigo.dsl.c.english",
  vary.pseudocodigo.dsl.c.parseTreeConstruction,
  vary.pseudocodigo.dsl.c.parser.antlr,
  vary.pseudocodigo.dsl.c.parser.antlr.internal,

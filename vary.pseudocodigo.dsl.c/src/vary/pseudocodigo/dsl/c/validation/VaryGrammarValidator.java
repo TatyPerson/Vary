@@ -292,25 +292,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	}
 	
 	@Check
-	protected void checkConstantesRepetidasExportadas(Modulo m) {
-		int repeticiones = 0;
-		System.out.println("Size: "+m.getExporta_constantes().size());
-		for(String nombreConstante: m.getExporta_constantes()) {
-			for(String nombreConstante2: m.getExporta_constantes()) {
-				System.out.println("NombreConstante: "+nombreConstante);
-				System.out.println("NombreConstante2: "+nombreConstante2);
-				if(nombreConstante.equals(nombreConstante2)) {
-					repeticiones++;
-				}
-			}
-			if(repeticiones > 1) {
-				error(readerMessages.getString("CONSTANTE_EXPORTADA_REPETIDA", nombreConstante), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES, m.getExporta_constantes().indexOf(nombreConstante));
-			}
-			repeticiones = 0;
-		}
-	}
-	
-	@Check
 	protected void checkTiposExportadosNoDefinidos(Modulo m) {
 		boolean tipoDefinido = false;
 		for(String nombreTipo: m.getExporta_tipos()) {
@@ -357,17 +338,17 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	@Check
 	protected void checkVariablesExportadas(Modulo m) {
 		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(m.getImplementacion().getGlobal());
-		for(Declaracion declaracion: m.getExporta_globales()) {
+		for(Declaracion declaracion: m.getExporta_global()) {
 			if(declaracion instanceof DeclaracionVariable) {
 				DeclaracionVariable declaracionVariable = (DeclaracionVariable) declaracion;
 				for(Variable v: declaracionVariable.getVariable()) {
 					if(variablesTipadas.containsKey(v.getNombre())) {
 						if(!variablesTipadas.get(v.getNombre()).equals(declaracionVariable.getTipo())) {
-							error(readerMessages.getString("EXPORTA_VARIABLE_TIPO_INCORRECTO", v.getNombre(), variablesTipadas.get(v.getNombre())), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionVariable));
+							error(readerMessages.getString("EXPORTA_VARIABLE_TIPO_INCORRECTO", v.getNombre(), variablesTipadas.get(v.getNombre())), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, m.getExporta_global().indexOf(declaracionVariable));
 						}
 					}
 					else {
-						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionVariable));
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, m.getExporta_global().indexOf(declaracionVariable));
 						
 					}
 				}
@@ -376,11 +357,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				for(Variable v: declaracionPropia.getVariable()) {
 					if(variablesTipadas.containsKey(v.getNombre())) {
 						if(!variablesTipadas.get(v.getNombre()).equals(declaracionPropia.getTipo())) {
-							error(readerMessages.getString("EXPORTA_VARIABLE_TIPO_INCORRECTO", v.getNombre(), variablesTipadas.get(v.getNombre())), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionPropia));
+							error(readerMessages.getString("EXPORTA_VARIABLE_TIPO_INCORRECTO", v.getNombre(), variablesTipadas.get(v.getNombre())), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, m.getExporta_global().indexOf(declaracionPropia));
 						}
 					}
 					else {
-						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, m.getExporta_globales().indexOf(declaracionPropia));
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), m, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, m.getExporta_global().indexOf(declaracionPropia));
 					}
 				}
 			}
@@ -438,7 +419,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> nombresVariablesModulos = new ArrayList<String>();
 		
 		for(Modulo m: a.getImportaciones()) {
-			nombresVariablesModulos = funciones.registrarVariables(m.getExporta_globales());
+			nombresVariablesModulos = funciones.registrarVariables(m.getExporta_global());
 			for(String nombreVariable: nombresVariablesModulos) {
 				if(variablesGlobalesAlgoritmo.containsKey(nombreVariable)) {
 					error(readerMessages.getString("VARIABLE_REPETIDA_MODULO", nombreVariable, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL, a.getGlobal().indexOf(variablesGlobalesAlgoritmo.get(nombreVariable)));
@@ -455,7 +436,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> nombresVariablesModulos = new ArrayList<String>();
 		
 		for(Modulo mAux: m.getImportaciones()) {
-			nombresVariablesModulos = funciones.registrarVariables(mAux.getExporta_globales());
+			nombresVariablesModulos = funciones.registrarVariables(mAux.getExporta_global());
 			for(String nombreVariable: nombresVariablesModulos) {
 				if(variablesGlobalesModuloPrincipal.containsKey(nombreVariable)) {
 					error(readerMessages.getString("VARIABLE_REPETIDA_MODULO", nombreVariable, m.getNombre()), m.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL, m.getImplementacion().getGlobal().indexOf(variablesGlobalesModuloPrincipal.get(nombreVariable)));
@@ -472,8 +453,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		for(Modulo m: a.getImportaciones()) {
 			for(Modulo m2: a.getImportaciones()) {
 				if(!m.getNombre().equals(m2.getNombre())) {
-					variablesModulo1 = funciones.registrarVariables(m.getExporta_globales());
-					variablesModulo2 = funciones.registrarVariables(m2.getExporta_globales());
+					variablesModulo1 = funciones.registrarVariables(m.getExporta_global());
+					variablesModulo2 = funciones.registrarVariables(m2.getExporta_global());
 					for(String nombreVariable: variablesModulo1) {
 						if(variablesModulo2.contains(nombreVariable)) {
 							error(readerMessages.getString("VARIABLE_REPETIDA_MODULO_IMPORTADA", nombreVariable, m.getNombre(), m2.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, a.getImportaciones().indexOf(m));
@@ -492,8 +473,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		for(Modulo mAux: m.getImportaciones()) {
 			for(Modulo mAux2: m.getImportaciones()) {
 				if(!mAux.getNombre().equals(mAux2.getNombre())) {
-					variablesModulo1 = funciones.registrarVariables(mAux.getExporta_globales());
-					variablesModulo2 = funciones.registrarVariables(mAux2.getExporta_globales());
+					variablesModulo1 = funciones.registrarVariables(mAux.getExporta_global());
+					variablesModulo2 = funciones.registrarVariables(mAux2.getExporta_global());
 					for(String nombreVariable: variablesModulo1) {
 						if(variablesModulo2.contains(nombreVariable)) {
 							error(readerMessages.getString("VARIABLE_REPETIDA_MODULO_IMPORTADA", nombreVariable, mAux.getNombre(), mAux2.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__IMPORTACIONES, m.getImportaciones().indexOf(mAux));
@@ -2148,15 +2129,80 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	@Check
 	//Función que comprueba que no existen dos constantes con el mismo nombre
 	protected void checkConstantesRepetidas(Algoritmo algoritmo) {
-		checkConstantesRepetidasAux(algoritmo.getConstantes(), 1);
+		List<String> nombresConstantes = new ArrayList<String>();
+		for(Constantes cons: algoritmo.getConstantes()) {
+			if(nombresConstantes.contains(cons.getVariable().getNombre())) {
+				//Si ya ha sido registrada lanzamos el error
+				error(readerMessages.getString("CONSTANTE_REPETIDA",  cons.getVariable().getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES, algoritmo.getConstantes().indexOf(cons));
+			}
+			else {
+				//Si no ha sido registrada la registramos
+				nombresConstantes.add(cons.getVariable().getNombre());
+			}
+		}
 	}
 	
 	@Check
 	//Función que comprueba que no existen dos constantes con el mismo nombre
 	protected void checkConstantesRepetidas(Modulo modulo) {
-		checkConstantesRepetidasAux(modulo.getImplementacion().getConstantes(), 2);
+		List<String> nombresConstantes = new ArrayList<String>();
+		for(Constantes cons: modulo.getImplementacion().getConstantes()) {
+			if(nombresConstantes.contains(cons.getVariable().getNombre())) {
+				//Si ya ha sido registrada lanzamos el error
+				error(readerMessages.getString("CONSTANTE_REPETIDA",  cons.getVariable().getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES, modulo.getImplementacion().getConstantes().indexOf(cons));
+			}
+			else {
+				//Si no ha sido registrada la registramos
+				nombresConstantes.add(cons.getVariable().getNombre());
+			}
+		}
 	}
 	
+	@Check
+	//Función que comprueba que no se exporte dos veces la misma constante
+	protected void checkConstanteExportadaRepetida(Modulo modulo) {
+		List<String> nombresConstantes = new ArrayList<String>();
+		//System.out.println("Numero de constantes: "+modulo.getExporta_constantes().size());
+		for(String constante: modulo.getExporta_constantes()) {
+			if(nombresConstantes.contains(constante)) {
+				error(readerMessages.getString("CONSTANTE_EXPORTADA_REPETIDA",  constante), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES, modulo.getExporta_constantes().indexOf(constante));
+			}
+			else {
+				nombresConstantes.add(constante);
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba que no se exporte dos veces el mismo tipo
+	protected void checkTipoExportadoRepetido(Modulo modulo) {
+		List<String> nombresTipos = new ArrayList<String>();
+		for(String tipo: modulo.getExporta_tipos()) {
+			if(nombresTipos.contains(tipo)) {
+				error(readerMessages.getString("TIPO_EXPORTADO_REPETIDO",  tipo), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_TIPOS, modulo.getExporta_tipos().indexOf(tipo));
+			}
+			else {
+				nombresTipos.add(tipo);
+			}
+		}
+	}
+	
+	@Check
+	//Función que comprueba que no se exporte dos veces la misma variable global
+	protected void checkGlobalExportadaRepetida(Modulo modulo) {
+		List<String> nombresGlobales = new ArrayList<String>();
+		List<String> variablesExportadas = funciones.registrarVariables(modulo.getExporta_global());
+		
+		for(String nombre: variablesExportadas) {
+			if(nombresGlobales.contains(nombre)) {
+				error(readerMessages.getString("VARIABLE_EXPORTADA_REPETIDA",  nombre), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, variablesExportadas.indexOf(nombre));
+			}
+			else {
+				nombresGlobales.add(nombre);
+			}
+		}
+	}
+
 	/*@Check
 	//Funcion que registra los nombres de todos los modulos
 	protected void checkNombreModulo(Modulo modulo) {
@@ -2196,6 +2242,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		//Registramos los nombres de todos los tipos complejos suponiendo que no estan repetidos ya que hay otra funci�n que lo comprueba
 		List<String >tipos = funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo());
 		
+		//Añadimos también las importaciones:
+		for(Modulo m: modulo.getImportaciones()) {
+			tipos.addAll(m.getExporta_tipos());
+		}
+		
 		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
 			for(Declaracion d: s.getDeclaracion()) {
 				if(d instanceof DeclaracionPropia) {
@@ -2224,7 +2275,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	//Función que comprueba que el tipo de una variable ha sido definido con anterioridad
 	protected void checkDeclaracionesTiposComplejos(Algoritmo algoritmo) {
 		//Registramos los nombres de todos los tipos complejos suponiendo que no estan repetidos ya que hay otra funci�n que lo comprueba
-		List<String >tipos = funciones.registrarTipos(algoritmo.getTipocomplejo());
+		List<String> tipos = funciones.registrarTipos(algoritmo.getTipocomplejo());
+		
+		//Añadimos también los tipos de las importaciones:
+		for(Modulo m: algoritmo.getImportaciones()) {
+			tipos.addAll(m.getExporta_tipos());
+		}
 		
 		//Comprobamos que todas las declaraciones de variables complejas en el programa principal y en los subprocesos son de tipos existentes
 		
@@ -2262,10 +2318,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 	}
 	
-	protected void checkTiposAux(List<TipoComplejo> complejos, int tipo) {
-List<String> tipos = new ArrayList<String>();
+	@Check
+	protected void checkTipos(Modulo modulo) {
 		
-		for(TipoComplejo com: complejos) {
+		List<String> tipos = new ArrayList<String>();
+		
+		for(TipoComplejo com: modulo.getImplementacion().getTipocomplejo()) {
 			if(com instanceof Vector) {
 				Vector v = (Vector) com;
 				if(!tipos.contains(v.getNombre())) {
@@ -2274,11 +2332,7 @@ List<String> tipos = new ArrayList<String>();
 				}
 				else {
 					//Si existe lanzamos el error
-					if(tipo == 1) {
-						error(readerMessages.getString("TIPO_REPETIDO", v.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
-					} else if(tipo == 2) {
-						error(readerMessages.getString("TIPO_REPETIDO", v.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
-					}
+					error(readerMessages.getString("TIPO_REPETIDO", v.getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, modulo.getImplementacion().getTipocomplejo().indexOf(com));
 				}
 			}
 			else if(com instanceof Matriz) {
@@ -2289,11 +2343,7 @@ List<String> tipos = new ArrayList<String>();
 				}
 				else {
 					//Si existe lanzamos el error
-					if(tipo == 1) {
-						error(readerMessages.getString("TIPO_REPETIDO", m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
-					} else if(tipo == 2) {
-						error(readerMessages.getString("TIPO_REPETIDO", m.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
-					}
+					error(readerMessages.getString("TIPO_REPETIDO", m.getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, modulo.getImplementacion().getTipocomplejo().indexOf(com));
 				}
 			}
 			else if(com instanceof Registro) {
@@ -2304,11 +2354,7 @@ List<String> tipos = new ArrayList<String>();
 				}
 				else {
 					//Si existe lanzamos el error
-					if(tipo == 1) {
-						error(readerMessages.getString("TIPO_REPETIDO", r.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
-					} else if(tipo == 2) {
-						error(readerMessages.getString("TIPO_REPETIDO", r.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
-					}
+					error(readerMessages.getString("TIPO_REPETIDO", r.getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, modulo.getImplementacion().getTipocomplejo().indexOf(com));
 				}
 			}
 			else if(com instanceof Enumerado) {
@@ -2319,11 +2365,7 @@ List<String> tipos = new ArrayList<String>();
 				}
 				else {
 					//Si existe lanzamos el error
-					if(tipo == 1) {
-						error(readerMessages.getString("TIPO_REPETIDO", e.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
-					} else if(tipo == 2) {
-						error(readerMessages.getString("TIPO_REPETIDO", e.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
-					}
+					error(readerMessages.getString("TIPO_REPETIDO", e.getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, modulo.getImplementacion().getTipocomplejo().indexOf(com));
 				}
 			}
 			else if(com instanceof Archivo) {
@@ -2334,11 +2376,7 @@ List<String> tipos = new ArrayList<String>();
 				}
 				else {
 					//Si existe lanzamos el error
-					if(tipo == 1) {
-						error(readerMessages.getString("TIPO_REPETIDO", a.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
-					} else if(tipo == 2) {
-						error(readerMessages.getString("TIPO_REPETIDO", a.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
-					}
+					error(readerMessages.getString("TIPO_REPETIDO", a.getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, modulo.getImplementacion().getTipocomplejo().indexOf(com));
 				}
 			}
 			else {
@@ -2349,25 +2387,86 @@ List<String> tipos = new ArrayList<String>();
 				}
 				else {
 					//Si existe lanzamos el error
-					if(tipo == 1) {
-						error(readerMessages.getString("TIPO_REPETIDO", s.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(com));
-					} else if(tipo == 2) {
-						error(readerMessages.getString("TIPO_REPETIDO", s.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(com));
-					}
+					error(readerMessages.getString("TIPO_REPETIDO", s.getNombre()), modulo.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, modulo.getImplementacion().getTipocomplejo().indexOf(com));
 				}
 			}
 		}
 	}
 	
 	@Check
-	protected void checkTipos(Modulo modulo) {
-		checkTiposAux(modulo.getImplementacion().getTipocomplejo(), 2);
-	}
-	
-	@Check
 	//Función que comprueba que no hay dos tipos complejos diferentes con el mismo nombre
 	protected void checkTipos(Algoritmo algoritmo) {
-		checkTiposAux(algoritmo.getTipocomplejo(), 1);
+		
+		List<String> tipos = new ArrayList<String>();
+		
+		for(TipoComplejo com: algoritmo.getTipocomplejo()) {
+			if(com instanceof Vector) {
+				Vector v = (Vector) com;
+				if(!tipos.contains(v.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(v.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					error(readerMessages.getString("TIPO_REPETIDO", v.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, algoritmo.getTipocomplejo().indexOf(com));
+				}
+			}
+			else if(com instanceof Matriz) {
+				Matriz m = (Matriz) com;
+				if(!tipos.contains(m.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(m.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					error(readerMessages.getString("TIPO_REPETIDO", m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, algoritmo.getTipocomplejo().indexOf(com));
+				}
+			}
+			else if(com instanceof Registro) {
+				Registro r = (Registro) com;
+				if(!tipos.contains(r.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(r.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					error(readerMessages.getString("TIPO_REPETIDO", r.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, algoritmo.getTipocomplejo().indexOf(com));
+				}
+			}
+			else if(com instanceof Enumerado) {
+				Enumerado e = (Enumerado) com;
+				if(!tipos.contains(e.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(e.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					error(readerMessages.getString("TIPO_REPETIDO", e.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, algoritmo.getTipocomplejo().indexOf(com));
+				}
+			}
+			else if(com instanceof Archivo) {
+				Archivo a = (Archivo) com;
+				if(!tipos.contains(a.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(a.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					error(readerMessages.getString("TIPO_REPETIDO", a.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, algoritmo.getTipocomplejo().indexOf(com));
+				}
+			}
+			else {
+				Subrango s = (Subrango) com;
+				if(!tipos.contains(s.getNombre())) {
+					//Si no existe lo registramos
+					tipos.add(s.getNombre());
+				}
+				else {
+					//Si existe lanzamos el error
+					error(readerMessages.getString("TIPO_REPETIDO", s.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, algoritmo.getTipocomplejo().indexOf(com));
+				}
+			}
+		}
 	}
 	
 	protected void checkFuncionesAux(List<Subproceso> subprocesos) {
@@ -2883,7 +2982,7 @@ List<String> tipos = new ArrayList<String>();
 		List<String> importadas = new ArrayList<String>();
 		
 		for(Modulo m: modulo.getImportaciones()) {
-			importadas.addAll(funciones.registrarVariables(m.getExporta_globales()));
+			importadas.addAll(funciones.registrarVariables(m.getExporta_global()));
 		}
 		
 		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
@@ -2900,7 +2999,7 @@ List<String> tipos = new ArrayList<String>();
 		List<String> constantes = funciones.registrarConstantes(algoritmo.getConstantes());
 		List<String> importadas = new ArrayList<String>();
 		for(Modulo m: algoritmo.getImportaciones()) {
-			importadas.addAll(funciones.registrarVariables(m.getExporta_globales()));
+			importadas.addAll(funciones.registrarVariables(m.getExporta_global()));
 		}
 		
 		List<String> totalVariables = variables;

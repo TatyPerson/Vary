@@ -379,7 +379,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 				return 'compare_field.gif'
 			}
 			var esPublica = new Boolean(false)
-			for(declaracion: modulo.exporta_globales) {
+			for(declaracion: modulo.exporta_global) {
 				if(declaracion instanceof DeclaracionPropia) {
 					var declaracionAux = declaracion as DeclaracionPropia
 					for(variableAux: declaracionAux.variable) {

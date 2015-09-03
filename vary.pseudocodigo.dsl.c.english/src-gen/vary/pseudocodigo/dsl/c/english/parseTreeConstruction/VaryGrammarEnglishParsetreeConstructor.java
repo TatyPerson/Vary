@@ -1258,7 +1258,7 @@ protected class Algoritmo_End_algorithmKeyword_11 extends KeywordToken  {
  * Modulo:
  * 	"Module" nombre=ID "import" (importaciones+=[Modulo] importaciones+=[Modulo]*)? "end_import" "export" ("const"
  * 	(exporta_constantes+=EString exporta_constantes+=EString*)?)? ("type" (exporta_tipos+=EString
- * 	exporta_tipos+=EString*)?)? ("var" (exporta_globales+=Declaracion exporta_globales+=Declaracion*)?)?
+ * 	exporta_tipos+=EString*)?)? ("var" (exporta_global+=Declaracion exporta_global+=Declaracion*)?)?
  * 	(exporta_funciones+=CabeceraSubproceso exporta_funciones+=CabeceraSubproceso*)? "end_export"
  * 	implementacion=Implementacion "end_module";
  *
@@ -1266,7 +1266,7 @@ protected class Algoritmo_End_algorithmKeyword_11 extends KeywordToken  {
 
 // "Module" nombre=ID "import" (importaciones+=[Modulo] importaciones+=[Modulo]*)? "end_import" "export" ("const"
 // (exporta_constantes+=EString exporta_constantes+=EString*)?)? ("type" (exporta_tipos+=EString
-// exporta_tipos+=EString*)?)? ("var" (exporta_globales+=Declaracion exporta_globales+=Declaracion*)?)?
+// exporta_tipos+=EString*)?)? ("var" (exporta_global+=Declaracion exporta_global+=Declaracion*)?)?
 // (exporta_funciones+=CabeceraSubproceso exporta_funciones+=CabeceraSubproceso*)? "end_export"
 // implementacion=Implementacion "end_module"
 protected class Modulo_Group extends GroupToken {
@@ -1795,7 +1795,7 @@ protected class Modulo_Exporta_tiposAssignment_7_1_1 extends AssignmentToken  {
 
 
 
-// ("var" (exporta_globales+=Declaracion exporta_globales+=Declaracion*)?)?
+// ("var" (exporta_global+=Declaracion exporta_global+=Declaracion*)?)?
 protected class Modulo_Group_8 extends GroupToken {
 	
 	public Modulo_Group_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1841,7 +1841,7 @@ protected class Modulo_VarKeyword_8_0 extends KeywordToken  {
 
 }
 
-// (exporta_globales+=Declaracion exporta_globales+=Declaracion*)?
+// (exporta_global+=Declaracion exporta_global+=Declaracion*)?
 protected class Modulo_Group_8_1 extends GroupToken {
 	
 	public Modulo_Group_8_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1856,24 +1856,24 @@ protected class Modulo_Group_8_1 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Modulo_Exporta_globalesAssignment_8_1_1(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Modulo_Exporta_globalesAssignment_8_1_0(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Modulo_Exporta_globalAssignment_8_1_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Modulo_Exporta_globalAssignment_8_1_0(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
 }
 
-// exporta_globales+=Declaracion
-protected class Modulo_Exporta_globalesAssignment_8_1_0 extends AssignmentToken  {
+// exporta_global+=Declaracion
+protected class Modulo_Exporta_globalAssignment_8_1_0 extends AssignmentToken  {
 	
-	public Modulo_Exporta_globalesAssignment_8_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Modulo_Exporta_globalAssignment_8_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getModuloAccess().getExporta_globalesAssignment_8_1_0();
+		return grammarAccess.getModuloAccess().getExporta_globalAssignment_8_1_0();
 	}
 
     @Override
@@ -1886,13 +1886,13 @@ protected class Modulo_Exporta_globalesAssignment_8_1_0 extends AssignmentToken 
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("exporta_globales",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("exporta_globales");
+		if((value = eObjectConsumer.getConsumable("exporta_global",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("exporta_global");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getDeclaracionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModuloAccess().getExporta_globalesDeclaracionParserRuleCall_8_1_0_0(); 
+				element = grammarAccess.getModuloAccess().getExporta_globalDeclaracionParserRuleCall_8_1_0_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1910,16 +1910,16 @@ protected class Modulo_Exporta_globalesAssignment_8_1_0 extends AssignmentToken 
 	}	
 }
 
-// exporta_globales+=Declaracion*
-protected class Modulo_Exporta_globalesAssignment_8_1_1 extends AssignmentToken  {
+// exporta_global+=Declaracion*
+protected class Modulo_Exporta_globalAssignment_8_1_1 extends AssignmentToken  {
 	
-	public Modulo_Exporta_globalesAssignment_8_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Modulo_Exporta_globalAssignment_8_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getModuloAccess().getExporta_globalesAssignment_8_1_1();
+		return grammarAccess.getModuloAccess().getExporta_globalAssignment_8_1_1();
 	}
 
     @Override
@@ -1932,13 +1932,13 @@ protected class Modulo_Exporta_globalesAssignment_8_1_1 extends AssignmentToken 
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("exporta_globales",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("exporta_globales");
+		if((value = eObjectConsumer.getConsumable("exporta_global",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("exporta_global");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getDeclaracionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getModuloAccess().getExporta_globalesDeclaracionParserRuleCall_8_1_1_0(); 
+				element = grammarAccess.getModuloAccess().getExporta_globalDeclaracionParserRuleCall_8_1_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -1950,8 +1950,8 @@ protected class Modulo_Exporta_globalesAssignment_8_1_1 extends AssignmentToken 
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Modulo_Exporta_globalesAssignment_8_1_1(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new Modulo_Exporta_globalesAssignment_8_1_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Modulo_Exporta_globalAssignment_8_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Modulo_Exporta_globalAssignment_8_1_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -14419,14 +14419,14 @@ protected class Funciones_RightParenthesisKeyword_1_4 extends KeywordToken  {
 /************ begin Rule VariablesComplejas ****************
  *
  * VariablesComplejas returns operacion:
- * 	{ValorVector} (nombre_vector=EString "[" indice=VariablesBasicas "]") ("." campo+=CampoRegistro)? | {ValorMatriz}
+ * 	{ValorVector} (nombre_vector=EString "[" indice=operacion "]") ("." campo+=CampoRegistro)? | {ValorMatriz}
  * 	(nombre_matriz=EString "[" primerIndice=VariablesBasicas "][" segundoIndice=VariablesBasicas "]") ("."
  * 	campo+=CampoRegistro)? | {ValorRegistro} nombre_registro=EString "." (campo+=CampoRegistro ("."
  * 	campo+=CampoRegistro)*);
  *
  **/
 
-// {ValorVector} (nombre_vector=EString "[" indice=VariablesBasicas "]") ("." campo+=CampoRegistro)? | {ValorMatriz}
+// {ValorVector} (nombre_vector=EString "[" indice=operacion "]") ("." campo+=CampoRegistro)? | {ValorMatriz}
 // (nombre_matriz=EString "[" primerIndice=VariablesBasicas "][" segundoIndice=VariablesBasicas "]") ("."
 // campo+=CampoRegistro)? | {ValorRegistro} nombre_registro=EString "." (campo+=CampoRegistro ("." campo+=CampoRegistro)*)
 protected class VariablesComplejas_Alternatives extends AlternativesToken {
@@ -14461,7 +14461,7 @@ protected class VariablesComplejas_Alternatives extends AlternativesToken {
 
 }
 
-// {ValorVector} (nombre_vector=EString "[" indice=VariablesBasicas "]") ("." campo+=CampoRegistro)?
+// {ValorVector} (nombre_vector=EString "[" indice=operacion "]") ("." campo+=CampoRegistro)?
 protected class VariablesComplejas_Group_0 extends GroupToken {
 	
 	public VariablesComplejas_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14517,7 +14517,7 @@ protected class VariablesComplejas_ValorVectorAction_0_0 extends ActionToken  {
 	}
 }
 
-// nombre_vector=EString "[" indice=VariablesBasicas "]"
+// nombre_vector=EString "[" indice=operacion "]"
 protected class VariablesComplejas_Group_0_1 extends GroupToken {
 	
 	public VariablesComplejas_Group_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14595,7 +14595,7 @@ protected class VariablesComplejas_LeftSquareBracketKeyword_0_1_1 extends Keywor
 
 }
 
-// indice=VariablesBasicas
+// indice=operacion
 protected class VariablesComplejas_IndiceAssignment_0_1_2 extends AssignmentToken  {
 	
 	public VariablesComplejas_IndiceAssignment_0_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14610,7 +14610,7 @@ protected class VariablesComplejas_IndiceAssignment_0_1_2 extends AssignmentToke
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new VariablesBasicas_Alternatives(this, this, 0, inst);
+			case 0: return new Operacion_OrParserRuleCall(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -14621,9 +14621,9 @@ protected class VariablesComplejas_IndiceAssignment_0_1_2 extends AssignmentToke
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("indice");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getVariablesBasicasRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getOperacionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getVariablesComplejasAccess().getIndiceVariablesBasicasParserRuleCall_0_1_2_0(); 
+				element = grammarAccess.getVariablesComplejasAccess().getIndiceOperacionParserRuleCall_0_1_2_0(); 
 				consumed = obj;
 				return param;
 			}

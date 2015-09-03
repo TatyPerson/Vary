@@ -3316,40 +3316,13 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int MODULO__NOMBRE = CODIGO_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Exporta funciones</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULO__EXPORTA_FUNCIONES = CODIGO_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Exporta constantes</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULO__EXPORTA_CONSTANTES = CODIGO_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Exporta tipos</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODULO__EXPORTA_TIPOS = CODIGO_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Implementacion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULO__IMPLEMENTACION = CODIGO_FEATURE_COUNT + 4;
+	int MODULO__IMPLEMENTACION = CODIGO_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Importaciones</b></em>' reference list.
@@ -3358,16 +3331,43 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODULO__IMPORTACIONES = CODIGO_FEATURE_COUNT + 5;
+	int MODULO__IMPORTACIONES = CODIGO_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Exporta globales</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Exporta global</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODULO__EXPORTA_GLOBALES = CODIGO_FEATURE_COUNT + 6;
+	int MODULO__EXPORTA_GLOBAL = CODIGO_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Exporta tipos</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULO__EXPORTA_TIPOS = CODIGO_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Exporta constantes</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULO__EXPORTA_CONSTANTES = CODIGO_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Exporta funciones</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODULO__EXPORTA_FUNCIONES = CODIGO_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of structural features of the '<em>Modulo</em>' class.
@@ -3782,26 +3782,26 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EReference getModulo_Importaciones();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link diagramapseudocodigo.Modulo#getExporta_globales <em>Exporta globales</em>}'.
+	 * Returns the meta object for the containment reference list '{@link diagramapseudocodigo.Modulo#getExporta_global <em>Exporta global</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exporta globales</em>'.
-	 * @see diagramapseudocodigo.Modulo#getExporta_globales()
+	 * @return the meta object for the containment reference list '<em>Exporta global</em>'.
+	 * @see diagramapseudocodigo.Modulo#getExporta_global()
 	 * @see #getModulo()
 	 * @generated
 	 */
-	EReference getModulo_Exporta_globales();
+	EReference getModulo_Exporta_global();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link diagramapseudocodigo.Modulo#getExporta_funciones <em>Exporta funciones</em>}'.
+	 * Returns the meta object for the attribute list '{@link diagramapseudocodigo.Modulo#getExporta_tipos <em>Exporta tipos</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Exporta funciones</em>'.
-	 * @see diagramapseudocodigo.Modulo#getExporta_funciones()
+	 * @return the meta object for the attribute list '<em>Exporta tipos</em>'.
+	 * @see diagramapseudocodigo.Modulo#getExporta_tipos()
 	 * @see #getModulo()
 	 * @generated
 	 */
-	EReference getModulo_Exporta_funciones();
+	EAttribute getModulo_Exporta_tipos();
 
 	/**
 	 * Returns the meta object for the attribute list '{@link diagramapseudocodigo.Modulo#getExporta_constantes <em>Exporta constantes</em>}'.
@@ -3815,15 +3815,15 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EAttribute getModulo_Exporta_constantes();
 
 	/**
-	 * Returns the meta object for the attribute list '{@link diagramapseudocodigo.Modulo#getExporta_tipos <em>Exporta tipos</em>}'.
+	 * Returns the meta object for the containment reference list '{@link diagramapseudocodigo.Modulo#getExporta_funciones <em>Exporta funciones</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute list '<em>Exporta tipos</em>'.
-	 * @see diagramapseudocodigo.Modulo#getExporta_tipos()
+	 * @return the meta object for the containment reference list '<em>Exporta funciones</em>'.
+	 * @see diagramapseudocodigo.Modulo#getExporta_funciones()
 	 * @see #getModulo()
 	 * @generated
 	 */
-	EAttribute getModulo_Exporta_tipos();
+	EReference getModulo_Exporta_funciones();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Modulo#getImplementacion <em>Implementacion</em>}'.
@@ -6058,20 +6058,20 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EReference MODULO__IMPORTACIONES = eINSTANCE.getModulo_Importaciones();
 
 		/**
-		 * The meta object literal for the '<em><b>Exporta globales</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Exporta global</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODULO__EXPORTA_GLOBALES = eINSTANCE.getModulo_Exporta_globales();
+		EReference MODULO__EXPORTA_GLOBAL = eINSTANCE.getModulo_Exporta_global();
 
 		/**
-		 * The meta object literal for the '<em><b>Exporta funciones</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Exporta tipos</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODULO__EXPORTA_FUNCIONES = eINSTANCE.getModulo_Exporta_funciones();
+		EAttribute MODULO__EXPORTA_TIPOS = eINSTANCE.getModulo_Exporta_tipos();
 
 		/**
 		 * The meta object literal for the '<em><b>Exporta constantes</b></em>' attribute list feature.
@@ -6082,12 +6082,12 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EAttribute MODULO__EXPORTA_CONSTANTES = eINSTANCE.getModulo_Exporta_constantes();
 
 		/**
-		 * The meta object literal for the '<em><b>Exporta tipos</b></em>' attribute list feature.
+		 * The meta object literal for the '<em><b>Exporta funciones</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MODULO__EXPORTA_TIPOS = eINSTANCE.getModulo_Exporta_tipos();
+		EReference MODULO__EXPORTA_FUNCIONES = eINSTANCE.getModulo_Exporta_funciones();
 
 		/**
 		 * The meta object literal for the '<em><b>Implementacion</b></em>' containment reference feature.

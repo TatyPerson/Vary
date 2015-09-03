@@ -13,12 +13,12 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link diagramapseudocodigo.Modulo#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.Modulo#getExporta_funciones <em>Exporta funciones</em>}</li>
- *   <li>{@link diagramapseudocodigo.Modulo#getExporta_constantes <em>Exporta constantes</em>}</li>
- *   <li>{@link diagramapseudocodigo.Modulo#getExporta_tipos <em>Exporta tipos</em>}</li>
  *   <li>{@link diagramapseudocodigo.Modulo#getImplementacion <em>Implementacion</em>}</li>
  *   <li>{@link diagramapseudocodigo.Modulo#getImportaciones <em>Importaciones</em>}</li>
- *   <li>{@link diagramapseudocodigo.Modulo#getExporta_globales <em>Exporta globales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Modulo#getExporta_global <em>Exporta global</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Modulo#getExporta_tipos <em>Exporta tipos</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Modulo#getExporta_constantes <em>Exporta constantes</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Modulo#getExporta_funciones <em>Exporta funciones</em>}</li>
  * </ul>
  * </p>
  *
@@ -71,20 +71,52 @@ public interface Modulo extends Codigo {
 	EList<Modulo> getImportaciones();
 
 	/**
-	 * Returns the value of the '<em><b>Exporta globales</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Exporta global</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Declaracion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Exporta globales</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Exporta global</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exporta globales</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo_Exporta_globales()
+	 * @return the value of the '<em>Exporta global</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo_Exporta_global()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Declaracion> getExporta_globales();
+	EList<Declaracion> getExporta_global();
+
+	/**
+	 * Returns the value of the '<em><b>Exporta tipos</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exporta tipos</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exporta tipos</em>' attribute list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo_Exporta_tipos()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<String> getExporta_tipos();
+
+	/**
+	 * Returns the value of the '<em><b>Exporta constantes</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Exporta constantes</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Exporta constantes</em>' attribute list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo_Exporta_constantes()
+	 * @model unique="false"
+	 * @generated
+	 */
+	EList<String> getExporta_constantes();
 
 	/**
 	 * Returns the value of the '<em><b>Exporta funciones</b></em>' containment reference list.
@@ -101,38 +133,6 @@ public interface Modulo extends Codigo {
 	 * @generated
 	 */
 	EList<CabeceraSubproceso> getExporta_funciones();
-
-	/**
-	 * Returns the value of the '<em><b>Exporta constantes</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Exporta constantes</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exporta constantes</em>' attribute list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo_Exporta_constantes()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getExporta_constantes();
-
-	/**
-	 * Returns the value of the '<em><b>Exporta tipos</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Exporta tipos</em>' attribute list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Exporta tipos</em>' attribute list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo_Exporta_tipos()
-	 * @model
-	 * @generated
-	 */
-	EList<String> getExporta_tipos();
 
 	/**
 	 * Returns the value of the '<em><b>Implementacion</b></em>' containment reference.

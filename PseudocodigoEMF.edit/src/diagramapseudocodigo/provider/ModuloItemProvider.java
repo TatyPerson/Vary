@@ -61,9 +61,9 @@ public class ModuloItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNombrePropertyDescriptor(object);
-			addExporta_constantesPropertyDescriptor(object);
-			addExporta_tiposPropertyDescriptor(object);
 			addImportacionesPropertyDescriptor(object);
+			addExporta_tiposPropertyDescriptor(object);
+			addExporta_constantesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -113,28 +113,6 @@ public class ModuloItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Exporta constantes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addExporta_constantesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Modulo_exporta_constantes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Modulo_exporta_constantes_feature", "_UI_Modulo_type"),
-				 DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Exporta tipos feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -157,6 +135,28 @@ public class ModuloItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Exporta constantes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addExporta_constantesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Modulo_exporta_constantes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Modulo_exporta_constantes_feature", "_UI_Modulo_type"),
+				 DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -168,9 +168,9 @@ public class ModuloItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__IMPLEMENTACION);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES);
 		}
 		return childrenFeatures;
 	}
@@ -226,13 +226,13 @@ public class ModuloItemProvider
 
 		switch (notification.getFeatureID(Modulo.class)) {
 			case DiagramapseudocodigoPackage.MODULO__NOMBRE:
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES:
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS:
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
 			case DiagramapseudocodigoPackage.MODULO__IMPLEMENTACION:
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -252,6 +252,26 @@ public class ModuloItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MODULO__IMPLEMENTACION,
+				 DiagramapseudocodigoFactory.eINSTANCE.createImplementacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCabeceraSubproceso()));
 
@@ -264,26 +284,6 @@ public class ModuloItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCabeceraFuncion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__IMPLEMENTACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createImplementacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
 	}
 
 }

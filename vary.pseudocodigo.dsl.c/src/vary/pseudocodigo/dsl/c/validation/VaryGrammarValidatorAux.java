@@ -11,6 +11,8 @@ import vary.pseudocodigo.dsl.c.generator.util.IdiomaProyecto;
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface;
 import diagramapseudocodigo.And;
 import diagramapseudocodigo.Archivo;
+import diagramapseudocodigo.CabeceraFuncion;
+import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.Caracter;
 import diagramapseudocodigo.Comparacion;
 import diagramapseudocodigo.ConstCadena;
@@ -34,6 +36,7 @@ import diagramapseudocodigo.NumeroEntero;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
 import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Procedimiento;
 import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Resta;
 import diagramapseudocodigo.Sentencias;
@@ -78,6 +81,38 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			}
 		}
 		return variablesDeclaradas;
+	}
+	
+	protected Map<String, List<String>> registrarTipoPasoParametros(List<Subproceso> subprocesos) {
+		Map<String, List<String>> funcionesParametros = new HashMap<String, List<String>>();
+		for(Subproceso s: subprocesos) {
+			if(s instanceof Funcion) {
+				Funcion funcion = (Funcion) s;
+				funcionesParametros.put(funcion.getNombre(), new ArrayList<String>());
+				for(ParametroFuncion parametro: funcion.getParametrofuncion()) {
+					funcionesParametros.get(funcion.getNombre()).add(parametro.getPaso().getLiteral());
+				}
+			}
+			else {
+				Procedimiento procedimiento = (Procedimiento) s;
+				funcionesParametros.put(procedimiento.getNombre(), new ArrayList<String>());
+				for(ParametroFuncion parametro: procedimiento.getParametrofuncion()) {
+					funcionesParametros.get(procedimiento.getNombre()).add(parametro.getPaso().getLiteral());
+				}
+			}
+		}
+		return funcionesParametros;
+	}
+	
+	protected Map<String, List<String>> registrarTipoPasoParametrosCabecera(List<CabeceraSubproceso> cabeceras) {
+		Map<String, List<String>> funcionesParametros = new HashMap<String, List<String>>();
+		for(CabeceraSubproceso cabecera: cabeceras) {
+			funcionesParametros.put(cabecera.getNombre(), new ArrayList<String>());
+			for(ParametroFuncion parametro: cabecera.getParametrofuncion()) {
+				funcionesParametros.get(cabecera.getNombre()).add(parametro.getPaso().getLiteral());
+			}
+		}
+		return funcionesParametros;
 	}
 	
 	protected Map<String,String> registrarGlobalesTipadas(List<Declaracion> globales, List<Declaracion> variables) {

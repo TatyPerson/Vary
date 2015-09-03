@@ -1481,17 +1481,17 @@
   <children xmi:type="notation:Node" xmi:id="_Aee1Kfy1EeS1g8BfuAAiGQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Aee1Kvy1EeS1g8BfuAAiGQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_Aee1K_y1EeS1g8BfuAAiGQ" type="5001">
-      <children xmi:type="notation:Node" xmi:id="_fUwCwPyuEeS1g8BfuAAiGQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//Modulo/exporta_tipos"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_fUwCwfyuEeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_cNFHMPyuEeS1g8BfuAAiGQ" type="2001">
-        <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//Modulo/exporta_constantes"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_cNFHMfyuEeS1g8BfuAAiGQ"/>
-      </children>
       <children xmi:type="notation:Node" xmi:id="_RYvs0PysEeS1g8BfuAAiGQ" type="2001">
         <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//Modulo/nombre"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_RYvs0fysEeS1g8BfuAAiGQ"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_1wR0MFAqEeW4RoPVY1NMyg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//Modulo/exporta_tipos"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_1wR0MVAqEeW4RoPVY1NMyg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_421VcFAqEeW4RoPVY1NMyg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="diagramaPseudocodigo.ecore#//Modulo/exporta_constantes"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_421VcVAqEeW4RoPVY1NMyg"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_AefcEPy1EeS1g8BfuAAiGQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_AefcEfy1EeS1g8BfuAAiGQ"/>
@@ -2685,20 +2685,6 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QtwkM_yuEeS1g8BfuAAiGQ" points="[-10, -12, 71, 61]$[-28, -69, 53, 4]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_QtzngPyuEeS1g8BfuAAiGQ" id="(0.11904761904761904,0.2)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_XjDoEPyuEeS1g8BfuAAiGQ" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_-afoMPytEeS1g8BfuAAiGQ">
-    <children xmi:type="notation:Node" xmi:id="_XjEPIPyuEeS1g8BfuAAiGQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPIfyuEeS1g8BfuAAiGQ" x="24" y="-16"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_XjEPIvyuEeS1g8BfuAAiGQ" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_XjEPI_yuEeS1g8BfuAAiGQ" x="10" y="10"/>
-    </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_XjDoEfyuEeS1g8BfuAAiGQ" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_XjDoEvyuEeS1g8BfuAAiGQ" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//Modulo/exporta_funciones"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XjDoE_yuEeS1g8BfuAAiGQ" points="[-1, 1, 505, -159]$[-504, 186, 2, 26]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XjGrYPyuEeS1g8BfuAAiGQ" id="(0.013793103448275862,0.6615384615384615)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XjGrYfyuEeS1g8BfuAAiGQ" id="(0.8968253968253969,0.6)"/>
-  </edges>
   <edges xmi:type="notation:Edge" xmi:id="_62AYUPyuEeS1g8BfuAAiGQ" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_2o5esPyuEeS1g8BfuAAiGQ">
     <children xmi:type="notation:Node" xmi:id="_62A_YPyuEeS1g8BfuAAiGQ" type="4011">
       <layoutConstraint xmi:type="notation:Location" xmi:id="_62A_YfyuEeS1g8BfuAAiGQ" x="-10" y="-10"/>
@@ -2797,18 +2783,32 @@
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_obB6UAPLEeW1g8BfuAAiGQ" id="(0.8928571428571429,0.22448979591836735)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_obB6UQPLEeW1g8BfuAAiGQ" id="(0.04093567251461988,0.2839506172839506)"/>
   </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_J0fJIAUbEeWYWc3QM4EyEQ" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_AeZ8w_y1EeS1g8BfuAAiGQ">
-    <children xmi:type="notation:Node" xmi:id="_J0kBoAUbEeWYWc3QM4EyEQ" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_J0kBoQUbEeWYWc3QM4EyEQ" x="-10" y="-10"/>
+  <edges xmi:type="notation:Edge" xmi:id="_XRevcFAqEeW4RoPVY1NMyg" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_AeZ8w_y1EeS1g8BfuAAiGQ">
+    <children xmi:type="notation:Node" xmi:id="_XRf9kFAqEeW4RoPVY1NMyg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XRf9kVAqEeW4RoPVY1NMyg" x="-10" y="-10"/>
     </children>
-    <children xmi:type="notation:Node" xmi:id="_J0md4AUbEeWYWc3QM4EyEQ" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_J0md4QUbEeWYWc3QM4EyEQ" x="10" y="10"/>
+    <children xmi:type="notation:Node" xmi:id="_XRgkoFAqEeW4RoPVY1NMyg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_XRgkoVAqEeW4RoPVY1NMyg" x="10" y="10"/>
     </children>
-    <styles xmi:type="notation:ConnectorStyle" xmi:id="_J0fJIQUbEeWYWc3QM4EyEQ" lineColor="4210752"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_J0fJIgUbEeWYWc3QM4EyEQ" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
-    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//Modulo/exporta_globales"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_J0fJIwUbEeWYWc3QM4EyEQ" points="[-5, 4, 355, -236]$[-358, 229, 2, -11]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J0rWYAUbEeWYWc3QM4EyEQ" id="(0.03508771929824561,0.3950617283950617)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_J0rWYQUbEeWYWc3QM4EyEQ" id="(0.8921568627450981,0.2857142857142857)"/>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_XRevcVAqEeW4RoPVY1NMyg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_XRevclAqEeW4RoPVY1NMyg" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//Modulo/exporta_global"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_XRevc1AqEeW4RoPVY1NMyg" points="[-19, 13, 361, -238]$[-378, 244, 2, -7]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XRjn8FAqEeW4RoPVY1NMyg" id="(0.17699115044247787,0.3469387755102041)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_XRjn8VAqEeW4RoPVY1NMyg" id="(0.8333333333333334,0.19047619047619047)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_HEmpcFAwEeW4RoPVY1NMyg" type="3002" source="_Aee1Kfy1EeS1g8BfuAAiGQ" target="_-afoMPytEeS1g8BfuAAiGQ">
+    <children xmi:type="notation:Node" xmi:id="_HEmpdFAwEeW4RoPVY1NMyg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_HEmpdVAwEeW4RoPVY1NMyg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_HEnQgFAwEeW4RoPVY1NMyg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_HEnQgVAwEeW4RoPVY1NMyg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_HEmpcVAwEeW4RoPVY1NMyg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_HEmpclAwEeW4RoPVY1NMyg" fontColor="4210752" fontName=".Helvetica Neue DeskInterface" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//Modulo/exporta_funciones"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_HEmpc1AwEeW4RoPVY1NMyg" points="[-33, 11, 532, -171]$[-563, 173, 2, -9]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HEqT0FAwEeW4RoPVY1NMyg" id="(0.19883040935672514,0.2962962962962963)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_HEqT0VAwEeW4RoPVY1NMyg" id="(0.6825396825396826,0.20408163265306123)"/>
   </edges>
 </notation:Diagram>
