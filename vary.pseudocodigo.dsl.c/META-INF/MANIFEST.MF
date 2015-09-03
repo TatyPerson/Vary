@@ -5,9 +5,7 @@ Bundle-Vendor: UCA
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: vary.pseudocodigo.dsl.c; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext;visibility:=reexport,
- org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
- org.eclipse.xtext.generator;resolution:=optional,
+Require-Bundle: org.eclipse.xtext.generator;resolution:=optional,
  org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
@@ -22,20 +20,20 @@ Require-Bundle: org.eclipse.xtext;visibility:=reexport,
  org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0"
 Import-Package: org.apache.log4j,
  org.eclipse.ui,
- org.eclipse.xtext.xbase.lib,
- vary.pseudocodigo.dsl.c.english.validation.messages
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: vary.pseudocodigo.dsl.c,
  vary.pseudocodigo.dsl.c.formatting,
- vary.pseudocodigo.dsl.c.generator;x-friends:="vary.pseudocodigo.dsl.c.english",
+ vary.pseudocodigo.dsl.c.generator,
  vary.pseudocodigo.dsl.c.generator.c,
  vary.pseudocodigo.dsl.c.generator.cpp,
  vary.pseudocodigo.dsl.c.generator.util,
- vary.pseudocodigo.dsl.c.keywords;x-friends:="vary.pseudocodigo.dsl.c.english",
+ vary.pseudocodigo.dsl.c.keywords,
  vary.pseudocodigo.dsl.c.parseTreeConstruction,
  vary.pseudocodigo.dsl.c.parser.antlr,
  vary.pseudocodigo.dsl.c.parser.antlr.internal,
  vary.pseudocodigo.dsl.c.scoping,
  vary.pseudocodigo.dsl.c.services,
  vary.pseudocodigo.dsl.c.validation,
+ vary.pseudocodigo.dsl.c.validation.english.messages,
  vary.pseudocodigo.dsl.c.validation.messages

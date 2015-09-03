@@ -32,7 +32,7 @@ class VaryGrammarGenerator implements IGenerator {
 	}
 	
 	new(String lenguaje) {
-		readerMessages = new vary.pseudocodigo.dsl.c.english.validation.messages.ReadMessagesValidator();
+		readerMessages = new vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator();
 	}
 
 	//EMap<String, TipoVariable> tablaSimbolos;
