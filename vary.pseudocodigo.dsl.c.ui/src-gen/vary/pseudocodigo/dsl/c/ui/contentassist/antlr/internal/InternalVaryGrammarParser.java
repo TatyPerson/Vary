@@ -7970,11 +7970,11 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             if ( (LA15_0==RULE_STRING) ) {
                 int LA15_1 = input.LA(2);
 
-                if ( (LA15_1==86) ) {
-                    alt15=1;
-                }
-                else if ( (LA15_1==68||LA15_1==71) ) {
+                if ( (LA15_1==68||LA15_1==71) ) {
                     alt15=2;
+                }
+                else if ( (LA15_1==86) ) {
+                    alt15=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -9021,6 +9021,11 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             case RULE_STRING:
                 {
                 switch ( input.LA(2) ) {
+                case 62:
+                    {
+                    alt26=6;
+                    }
+                    break;
                 case 68:
                 case 71:
                     {
@@ -9097,15 +9102,8 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
                 case 106:
                 case 107:
                 case 108:
-                case 109:
-                case 110:
                     {
                     alt26=1;
-                    }
-                    break;
-                case 62:
-                    {
-                    alt26=6;
                     }
                     break;
                 default:
@@ -9126,11 +9124,6 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
                     alt26=3;
                     }
                     break;
-                case 62:
-                    {
-                    alt26=6;
-                    }
-                    break;
                 case EOF:
                 case RULE_INT:
                 case RULE_STRING:
@@ -9201,10 +9194,13 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
                 case 106:
                 case 107:
                 case 108:
-                case 109:
-                case 110:
                     {
                     alt26=1;
+                    }
+                    break;
+                case 62:
+                    {
+                    alt26=6;
                     }
                     break;
                 default:
@@ -9609,11 +9605,11 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
                 {
                 int LA29_1 = input.LA(2);
 
-                if ( (LA29_1==EOF||(LA29_1>=RULE_INT && LA29_1<=RULE_ID)||(LA29_1>=RULE_CAD && LA29_1<=RULE_CAR)||(LA29_1>=14 && LA29_1<=19)||(LA29_1>=22 && LA29_1<=30)||(LA29_1>=33 && LA29_1<=45)||(LA29_1>=53 && LA29_1<=54)||(LA29_1>=60 && LA29_1<=61)||(LA29_1>=63 && LA29_1<=64)||(LA29_1>=66 && LA29_1<=67)||LA29_1==72||LA29_1==74||LA29_1==76||LA29_1==81||LA29_1==83||LA29_1==85||(LA29_1>=87 && LA29_1<=110)) ) {
-                    alt29=1;
-                }
-                else if ( (LA29_1==68) ) {
+                if ( (LA29_1==68) ) {
                     alt29=2;
+                }
+                else if ( (LA29_1==EOF||(LA29_1>=RULE_INT && LA29_1<=RULE_ID)||(LA29_1>=RULE_CAD && LA29_1<=RULE_CAR)||(LA29_1>=14 && LA29_1<=19)||(LA29_1>=22 && LA29_1<=30)||(LA29_1>=33 && LA29_1<=45)||(LA29_1>=53 && LA29_1<=54)||(LA29_1>=60 && LA29_1<=61)||(LA29_1>=63 && LA29_1<=64)||(LA29_1>=66 && LA29_1<=67)||LA29_1==72||LA29_1==74||LA29_1==76||LA29_1==81||LA29_1==83||LA29_1==85||(LA29_1>=87 && LA29_1<=108)) ) {
+                    alt29=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -46740,17 +46736,22 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group__13"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17197:1: rule__Funcion__Group__13 : rule__Funcion__Group__13__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17197:1: rule__Funcion__Group__13 : rule__Funcion__Group__13__Impl rule__Funcion__Group__14 ;
     public final void rule__Funcion__Group__13() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17201:1: ( rule__Funcion__Group__13__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17202:2: rule__Funcion__Group__13__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17201:1: ( rule__Funcion__Group__13__Impl rule__Funcion__Group__14 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17202:2: rule__Funcion__Group__13__Impl rule__Funcion__Group__14
             {
             pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group__13__Impl_in_rule__Funcion__Group__1334565);
             rule__Funcion__Group__13__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group__14_in_rule__Funcion__Group__1334568);
+            rule__Funcion__Group__14();
 
             state._fsp--;
 
@@ -46773,21 +46774,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group__13__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17208:1: rule__Funcion__Group__13__Impl : ( 'fin_funcion' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17209:1: rule__Funcion__Group__13__Impl : ( 'fin_inicio' ) ;
     public final void rule__Funcion__Group__13__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17212:1: ( ( 'fin_funcion' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17213:1: ( 'fin_funcion' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17213:1: ( ( 'fin_inicio' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17214:1: ( 'fin_inicio' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17213:1: ( 'fin_funcion' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17214:1: 'fin_funcion'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17214:1: ( 'fin_inicio' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17215:1: 'fin_inicio'
             {
-             before(grammarAccess.getFuncionAccess().getFin_funcionKeyword_13()); 
-            match(input,109,FollowSets001.FOLLOW_109_in_rule__Funcion__Group__13__Impl34593); 
-             after(grammarAccess.getFuncionAccess().getFin_funcionKeyword_13()); 
+             before(grammarAccess.getFuncionAccess().getFin_inicioKeyword_13()); 
+            match(input,85,FollowSets001.FOLLOW_85_in_rule__Funcion__Group__13__Impl34596); 
+             after(grammarAccess.getFuncionAccess().getFin_inicioKeyword_13()); 
 
             }
 
@@ -46809,22 +46810,92 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Funcion__Group__13__Impl"
 
 
+    // $ANTLR start "rule__Funcion__Group__14"
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17228:1: rule__Funcion__Group__14 : rule__Funcion__Group__14__Impl ;
+    public final void rule__Funcion__Group__14() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17232:1: ( rule__Funcion__Group__14__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17233:2: rule__Funcion__Group__14__Impl
+            {
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group__14__Impl_in_rule__Funcion__Group__1434627);
+            rule__Funcion__Group__14__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Funcion__Group__14"
+
+
+    // $ANTLR start "rule__Funcion__Group__14__Impl"
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17239:1: rule__Funcion__Group__14__Impl : ( 'fin_funcion' ) ;
+    public final void rule__Funcion__Group__14__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17243:1: ( ( 'fin_funcion' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17244:1: ( 'fin_funcion' )
+            {
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17244:1: ( 'fin_funcion' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17245:1: 'fin_funcion'
+            {
+             before(grammarAccess.getFuncionAccess().getFin_funcionKeyword_14()); 
+            match(input,109,FollowSets001.FOLLOW_109_in_rule__Funcion__Group__14__Impl34655); 
+             after(grammarAccess.getFuncionAccess().getFin_funcionKeyword_14()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Funcion__Group__14__Impl"
+
+
     // $ANTLR start "rule__Funcion__Group_4__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17255:1: rule__Funcion__Group_4__0 : rule__Funcion__Group_4__0__Impl rule__Funcion__Group_4__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17288:1: rule__Funcion__Group_4__0 : rule__Funcion__Group_4__0__Impl rule__Funcion__Group_4__1 ;
     public final void rule__Funcion__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17259:1: ( rule__Funcion__Group_4__0__Impl rule__Funcion__Group_4__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17260:2: rule__Funcion__Group_4__0__Impl rule__Funcion__Group_4__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17292:1: ( rule__Funcion__Group_4__0__Impl rule__Funcion__Group_4__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17293:2: rule__Funcion__Group_4__0__Impl rule__Funcion__Group_4__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4__0__Impl_in_rule__Funcion__Group_4__034652);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4__0__Impl_in_rule__Funcion__Group_4__034716);
             rule__Funcion__Group_4__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4__1_in_rule__Funcion__Group_4__034655);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4__1_in_rule__Funcion__Group_4__034719);
             rule__Funcion__Group_4__1();
 
             state._fsp--;
@@ -46848,23 +46919,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17267:1: rule__Funcion__Group_4__0__Impl : ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17300:1: rule__Funcion__Group_4__0__Impl : ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) ) ;
     public final void rule__Funcion__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17271:1: ( ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17272:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17304:1: ( ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17305:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17272:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17273:1: ( rule__Funcion__ParametrofuncionAssignment_4_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17305:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17306:1: ( rule__Funcion__ParametrofuncionAssignment_4_0 )
             {
              before(grammarAccess.getFuncionAccess().getParametrofuncionAssignment_4_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17274:1: ( rule__Funcion__ParametrofuncionAssignment_4_0 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17274:2: rule__Funcion__ParametrofuncionAssignment_4_0
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17307:1: ( rule__Funcion__ParametrofuncionAssignment_4_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17307:2: rule__Funcion__ParametrofuncionAssignment_4_0
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_0_in_rule__Funcion__Group_4__0__Impl34682);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_0_in_rule__Funcion__Group_4__0__Impl34746);
             rule__Funcion__ParametrofuncionAssignment_4_0();
 
             state._fsp--;
@@ -46895,16 +46966,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17284:1: rule__Funcion__Group_4__1 : rule__Funcion__Group_4__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17317:1: rule__Funcion__Group_4__1 : rule__Funcion__Group_4__1__Impl ;
     public final void rule__Funcion__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17288:1: ( rule__Funcion__Group_4__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17289:2: rule__Funcion__Group_4__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17321:1: ( rule__Funcion__Group_4__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17322:2: rule__Funcion__Group_4__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4__1__Impl_in_rule__Funcion__Group_4__134712);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4__1__Impl_in_rule__Funcion__Group_4__134776);
             rule__Funcion__Group_4__1__Impl();
 
             state._fsp--;
@@ -46928,20 +46999,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17295:1: rule__Funcion__Group_4__1__Impl : ( ( rule__Funcion__Group_4_1__0 )* ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17328:1: rule__Funcion__Group_4__1__Impl : ( ( rule__Funcion__Group_4_1__0 )* ) ;
     public final void rule__Funcion__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17299:1: ( ( ( rule__Funcion__Group_4_1__0 )* ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17300:1: ( ( rule__Funcion__Group_4_1__0 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17332:1: ( ( ( rule__Funcion__Group_4_1__0 )* ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17333:1: ( ( rule__Funcion__Group_4_1__0 )* )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17300:1: ( ( rule__Funcion__Group_4_1__0 )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17301:1: ( rule__Funcion__Group_4_1__0 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17333:1: ( ( rule__Funcion__Group_4_1__0 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17334:1: ( rule__Funcion__Group_4_1__0 )*
             {
              before(grammarAccess.getFuncionAccess().getGroup_4_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17302:1: ( rule__Funcion__Group_4_1__0 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17335:1: ( rule__Funcion__Group_4_1__0 )*
             loop131:
             do {
                 int alt131=2;
@@ -46954,9 +47025,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
                 switch (alt131) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17302:2: rule__Funcion__Group_4_1__0
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17335:2: rule__Funcion__Group_4_1__0
             	    {
-            	    pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__0_in_rule__Funcion__Group_4__1__Impl34739);
+            	    pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__0_in_rule__Funcion__Group_4__1__Impl34803);
             	    rule__Funcion__Group_4_1__0();
 
             	    state._fsp--;
@@ -46993,21 +47064,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4_1__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17316:1: rule__Funcion__Group_4_1__0 : rule__Funcion__Group_4_1__0__Impl rule__Funcion__Group_4_1__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17349:1: rule__Funcion__Group_4_1__0 : rule__Funcion__Group_4_1__0__Impl rule__Funcion__Group_4_1__1 ;
     public final void rule__Funcion__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17320:1: ( rule__Funcion__Group_4_1__0__Impl rule__Funcion__Group_4_1__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17321:2: rule__Funcion__Group_4_1__0__Impl rule__Funcion__Group_4_1__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17353:1: ( rule__Funcion__Group_4_1__0__Impl rule__Funcion__Group_4_1__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17354:2: rule__Funcion__Group_4_1__0__Impl rule__Funcion__Group_4_1__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__0__Impl_in_rule__Funcion__Group_4_1__034774);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__0__Impl_in_rule__Funcion__Group_4_1__034838);
             rule__Funcion__Group_4_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__1_in_rule__Funcion__Group_4_1__034777);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__1_in_rule__Funcion__Group_4_1__034841);
             rule__Funcion__Group_4_1__1();
 
             state._fsp--;
@@ -47031,20 +47102,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4_1__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17328:1: rule__Funcion__Group_4_1__0__Impl : ( ',' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17361:1: rule__Funcion__Group_4_1__0__Impl : ( ',' ) ;
     public final void rule__Funcion__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17332:1: ( ( ',' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17333:1: ( ',' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17365:1: ( ( ',' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17366:1: ( ',' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17333:1: ( ',' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17334:1: ','
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17366:1: ( ',' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17367:1: ','
             {
              before(grammarAccess.getFuncionAccess().getCommaKeyword_4_1_0()); 
-            match(input,64,FollowSets001.FOLLOW_64_in_rule__Funcion__Group_4_1__0__Impl34805); 
+            match(input,64,FollowSets001.FOLLOW_64_in_rule__Funcion__Group_4_1__0__Impl34869); 
              after(grammarAccess.getFuncionAccess().getCommaKeyword_4_1_0()); 
 
             }
@@ -47068,16 +47139,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4_1__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17347:1: rule__Funcion__Group_4_1__1 : rule__Funcion__Group_4_1__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17380:1: rule__Funcion__Group_4_1__1 : rule__Funcion__Group_4_1__1__Impl ;
     public final void rule__Funcion__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17351:1: ( rule__Funcion__Group_4_1__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17352:2: rule__Funcion__Group_4_1__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17384:1: ( rule__Funcion__Group_4_1__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17385:2: rule__Funcion__Group_4_1__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__1__Impl_in_rule__Funcion__Group_4_1__134836);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_4_1__1__Impl_in_rule__Funcion__Group_4_1__134900);
             rule__Funcion__Group_4_1__1__Impl();
 
             state._fsp--;
@@ -47101,23 +47172,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_4_1__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17358:1: rule__Funcion__Group_4_1__1__Impl : ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17391:1: rule__Funcion__Group_4_1__1__Impl : ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) ) ;
     public final void rule__Funcion__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17362:1: ( ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17363:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17395:1: ( ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17396:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17363:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17364:1: ( rule__Funcion__ParametrofuncionAssignment_4_1_1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17396:1: ( ( rule__Funcion__ParametrofuncionAssignment_4_1_1 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17397:1: ( rule__Funcion__ParametrofuncionAssignment_4_1_1 )
             {
              before(grammarAccess.getFuncionAccess().getParametrofuncionAssignment_4_1_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17365:1: ( rule__Funcion__ParametrofuncionAssignment_4_1_1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17365:2: rule__Funcion__ParametrofuncionAssignment_4_1_1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17398:1: ( rule__Funcion__ParametrofuncionAssignment_4_1_1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17398:2: rule__Funcion__ParametrofuncionAssignment_4_1_1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_1_1_in_rule__Funcion__Group_4_1__1__Impl34863);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_1_1_in_rule__Funcion__Group_4_1__1__Impl34927);
             rule__Funcion__ParametrofuncionAssignment_4_1_1();
 
             state._fsp--;
@@ -47148,21 +47219,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_9__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17379:1: rule__Funcion__Group_9__0 : rule__Funcion__Group_9__0__Impl rule__Funcion__Group_9__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17412:1: rule__Funcion__Group_9__0 : rule__Funcion__Group_9__0__Impl rule__Funcion__Group_9__1 ;
     public final void rule__Funcion__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17383:1: ( rule__Funcion__Group_9__0__Impl rule__Funcion__Group_9__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17384:2: rule__Funcion__Group_9__0__Impl rule__Funcion__Group_9__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17416:1: ( rule__Funcion__Group_9__0__Impl rule__Funcion__Group_9__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17417:2: rule__Funcion__Group_9__0__Impl rule__Funcion__Group_9__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_9__0__Impl_in_rule__Funcion__Group_9__034897);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_9__0__Impl_in_rule__Funcion__Group_9__034961);
             rule__Funcion__Group_9__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_9__1_in_rule__Funcion__Group_9__034900);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_9__1_in_rule__Funcion__Group_9__034964);
             rule__Funcion__Group_9__1();
 
             state._fsp--;
@@ -47186,23 +47257,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_9__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17391:1: rule__Funcion__Group_9__0__Impl : ( ( rule__Funcion__DeclaracionAssignment_9_0 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17424:1: rule__Funcion__Group_9__0__Impl : ( ( rule__Funcion__DeclaracionAssignment_9_0 ) ) ;
     public final void rule__Funcion__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17395:1: ( ( ( rule__Funcion__DeclaracionAssignment_9_0 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17396:1: ( ( rule__Funcion__DeclaracionAssignment_9_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17428:1: ( ( ( rule__Funcion__DeclaracionAssignment_9_0 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17429:1: ( ( rule__Funcion__DeclaracionAssignment_9_0 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17396:1: ( ( rule__Funcion__DeclaracionAssignment_9_0 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17397:1: ( rule__Funcion__DeclaracionAssignment_9_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17429:1: ( ( rule__Funcion__DeclaracionAssignment_9_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17430:1: ( rule__Funcion__DeclaracionAssignment_9_0 )
             {
              before(grammarAccess.getFuncionAccess().getDeclaracionAssignment_9_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17398:1: ( rule__Funcion__DeclaracionAssignment_9_0 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17398:2: rule__Funcion__DeclaracionAssignment_9_0
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17431:1: ( rule__Funcion__DeclaracionAssignment_9_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17431:2: rule__Funcion__DeclaracionAssignment_9_0
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__DeclaracionAssignment_9_0_in_rule__Funcion__Group_9__0__Impl34927);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__DeclaracionAssignment_9_0_in_rule__Funcion__Group_9__0__Impl34991);
             rule__Funcion__DeclaracionAssignment_9_0();
 
             state._fsp--;
@@ -47233,16 +47304,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_9__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17408:1: rule__Funcion__Group_9__1 : rule__Funcion__Group_9__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17441:1: rule__Funcion__Group_9__1 : rule__Funcion__Group_9__1__Impl ;
     public final void rule__Funcion__Group_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17412:1: ( rule__Funcion__Group_9__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17413:2: rule__Funcion__Group_9__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17445:1: ( rule__Funcion__Group_9__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17446:2: rule__Funcion__Group_9__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_9__1__Impl_in_rule__Funcion__Group_9__134957);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_9__1__Impl_in_rule__Funcion__Group_9__135021);
             rule__Funcion__Group_9__1__Impl();
 
             state._fsp--;
@@ -47266,20 +47337,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_9__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17419:1: rule__Funcion__Group_9__1__Impl : ( ( rule__Funcion__DeclaracionAssignment_9_1 )* ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17452:1: rule__Funcion__Group_9__1__Impl : ( ( rule__Funcion__DeclaracionAssignment_9_1 )* ) ;
     public final void rule__Funcion__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17423:1: ( ( ( rule__Funcion__DeclaracionAssignment_9_1 )* ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17424:1: ( ( rule__Funcion__DeclaracionAssignment_9_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17456:1: ( ( ( rule__Funcion__DeclaracionAssignment_9_1 )* ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17457:1: ( ( rule__Funcion__DeclaracionAssignment_9_1 )* )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17424:1: ( ( rule__Funcion__DeclaracionAssignment_9_1 )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17425:1: ( rule__Funcion__DeclaracionAssignment_9_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17457:1: ( ( rule__Funcion__DeclaracionAssignment_9_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17458:1: ( rule__Funcion__DeclaracionAssignment_9_1 )*
             {
              before(grammarAccess.getFuncionAccess().getDeclaracionAssignment_9_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17426:1: ( rule__Funcion__DeclaracionAssignment_9_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17459:1: ( rule__Funcion__DeclaracionAssignment_9_1 )*
             loop132:
             do {
                 int alt132=2;
@@ -47292,9 +47363,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
                 switch (alt132) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17426:2: rule__Funcion__DeclaracionAssignment_9_1
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17459:2: rule__Funcion__DeclaracionAssignment_9_1
             	    {
-            	    pushFollow(FollowSets001.FOLLOW_rule__Funcion__DeclaracionAssignment_9_1_in_rule__Funcion__Group_9__1__Impl34984);
+            	    pushFollow(FollowSets001.FOLLOW_rule__Funcion__DeclaracionAssignment_9_1_in_rule__Funcion__Group_9__1__Impl35048);
             	    rule__Funcion__DeclaracionAssignment_9_1();
 
             	    state._fsp--;
@@ -47331,21 +47402,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_11__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17440:1: rule__Funcion__Group_11__0 : rule__Funcion__Group_11__0__Impl rule__Funcion__Group_11__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17473:1: rule__Funcion__Group_11__0 : rule__Funcion__Group_11__0__Impl rule__Funcion__Group_11__1 ;
     public final void rule__Funcion__Group_11__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17444:1: ( rule__Funcion__Group_11__0__Impl rule__Funcion__Group_11__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17445:2: rule__Funcion__Group_11__0__Impl rule__Funcion__Group_11__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17477:1: ( rule__Funcion__Group_11__0__Impl rule__Funcion__Group_11__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17478:2: rule__Funcion__Group_11__0__Impl rule__Funcion__Group_11__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_11__0__Impl_in_rule__Funcion__Group_11__035019);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_11__0__Impl_in_rule__Funcion__Group_11__035083);
             rule__Funcion__Group_11__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_11__1_in_rule__Funcion__Group_11__035022);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_11__1_in_rule__Funcion__Group_11__035086);
             rule__Funcion__Group_11__1();
 
             state._fsp--;
@@ -47369,23 +47440,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_11__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17452:1: rule__Funcion__Group_11__0__Impl : ( ( rule__Funcion__SentenciasAssignment_11_0 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17485:1: rule__Funcion__Group_11__0__Impl : ( ( rule__Funcion__SentenciasAssignment_11_0 ) ) ;
     public final void rule__Funcion__Group_11__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17456:1: ( ( ( rule__Funcion__SentenciasAssignment_11_0 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17457:1: ( ( rule__Funcion__SentenciasAssignment_11_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17489:1: ( ( ( rule__Funcion__SentenciasAssignment_11_0 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17490:1: ( ( rule__Funcion__SentenciasAssignment_11_0 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17457:1: ( ( rule__Funcion__SentenciasAssignment_11_0 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17458:1: ( rule__Funcion__SentenciasAssignment_11_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17490:1: ( ( rule__Funcion__SentenciasAssignment_11_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17491:1: ( rule__Funcion__SentenciasAssignment_11_0 )
             {
              before(grammarAccess.getFuncionAccess().getSentenciasAssignment_11_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17459:1: ( rule__Funcion__SentenciasAssignment_11_0 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17459:2: rule__Funcion__SentenciasAssignment_11_0
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17492:1: ( rule__Funcion__SentenciasAssignment_11_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17492:2: rule__Funcion__SentenciasAssignment_11_0
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__SentenciasAssignment_11_0_in_rule__Funcion__Group_11__0__Impl35049);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__SentenciasAssignment_11_0_in_rule__Funcion__Group_11__0__Impl35113);
             rule__Funcion__SentenciasAssignment_11_0();
 
             state._fsp--;
@@ -47416,16 +47487,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_11__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17469:1: rule__Funcion__Group_11__1 : rule__Funcion__Group_11__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17502:1: rule__Funcion__Group_11__1 : rule__Funcion__Group_11__1__Impl ;
     public final void rule__Funcion__Group_11__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17473:1: ( rule__Funcion__Group_11__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17474:2: rule__Funcion__Group_11__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17506:1: ( rule__Funcion__Group_11__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17507:2: rule__Funcion__Group_11__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_11__1__Impl_in_rule__Funcion__Group_11__135079);
+            pushFollow(FollowSets001.FOLLOW_rule__Funcion__Group_11__1__Impl_in_rule__Funcion__Group_11__135143);
             rule__Funcion__Group_11__1__Impl();
 
             state._fsp--;
@@ -47449,20 +47520,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__Group_11__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17480:1: rule__Funcion__Group_11__1__Impl : ( ( rule__Funcion__SentenciasAssignment_11_1 )* ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17513:1: rule__Funcion__Group_11__1__Impl : ( ( rule__Funcion__SentenciasAssignment_11_1 )* ) ;
     public final void rule__Funcion__Group_11__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17484:1: ( ( ( rule__Funcion__SentenciasAssignment_11_1 )* ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17485:1: ( ( rule__Funcion__SentenciasAssignment_11_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17517:1: ( ( ( rule__Funcion__SentenciasAssignment_11_1 )* ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17518:1: ( ( rule__Funcion__SentenciasAssignment_11_1 )* )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17485:1: ( ( rule__Funcion__SentenciasAssignment_11_1 )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17486:1: ( rule__Funcion__SentenciasAssignment_11_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17518:1: ( ( rule__Funcion__SentenciasAssignment_11_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17519:1: ( rule__Funcion__SentenciasAssignment_11_1 )*
             {
              before(grammarAccess.getFuncionAccess().getSentenciasAssignment_11_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17487:1: ( rule__Funcion__SentenciasAssignment_11_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17520:1: ( rule__Funcion__SentenciasAssignment_11_1 )*
             loop133:
             do {
                 int alt133=2;
@@ -47475,9 +47546,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
                 switch (alt133) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17487:2: rule__Funcion__SentenciasAssignment_11_1
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17520:2: rule__Funcion__SentenciasAssignment_11_1
             	    {
-            	    pushFollow(FollowSets001.FOLLOW_rule__Funcion__SentenciasAssignment_11_1_in_rule__Funcion__Group_11__1__Impl35106);
+            	    pushFollow(FollowSets001.FOLLOW_rule__Funcion__SentenciasAssignment_11_1_in_rule__Funcion__Group_11__1__Impl35170);
             	    rule__Funcion__SentenciasAssignment_11_1();
 
             	    state._fsp--;
@@ -47514,21 +47585,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17501:1: rule__Procedimiento__Group__0 : rule__Procedimiento__Group__0__Impl rule__Procedimiento__Group__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17534:1: rule__Procedimiento__Group__0 : rule__Procedimiento__Group__0__Impl rule__Procedimiento__Group__1 ;
     public final void rule__Procedimiento__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17505:1: ( rule__Procedimiento__Group__0__Impl rule__Procedimiento__Group__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17506:2: rule__Procedimiento__Group__0__Impl rule__Procedimiento__Group__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17538:1: ( rule__Procedimiento__Group__0__Impl rule__Procedimiento__Group__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17539:2: rule__Procedimiento__Group__0__Impl rule__Procedimiento__Group__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__0__Impl_in_rule__Procedimiento__Group__035141);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__0__Impl_in_rule__Procedimiento__Group__035205);
             rule__Procedimiento__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__1_in_rule__Procedimiento__Group__035144);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__1_in_rule__Procedimiento__Group__035208);
             rule__Procedimiento__Group__1();
 
             state._fsp--;
@@ -47552,20 +47623,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17513:1: rule__Procedimiento__Group__0__Impl : ( 'procedimiento' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17546:1: rule__Procedimiento__Group__0__Impl : ( 'procedimiento' ) ;
     public final void rule__Procedimiento__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17517:1: ( ( 'procedimiento' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17518:1: ( 'procedimiento' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17550:1: ( ( 'procedimiento' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17551:1: ( 'procedimiento' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17518:1: ( 'procedimiento' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17519:1: 'procedimiento'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17551:1: ( 'procedimiento' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17552:1: 'procedimiento'
             {
              before(grammarAccess.getProcedimientoAccess().getProcedimientoKeyword_0()); 
-            match(input,61,FollowSets001.FOLLOW_61_in_rule__Procedimiento__Group__0__Impl35172); 
+            match(input,61,FollowSets001.FOLLOW_61_in_rule__Procedimiento__Group__0__Impl35236); 
              after(grammarAccess.getProcedimientoAccess().getProcedimientoKeyword_0()); 
 
             }
@@ -47589,21 +47660,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17532:1: rule__Procedimiento__Group__1 : rule__Procedimiento__Group__1__Impl rule__Procedimiento__Group__2 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17565:1: rule__Procedimiento__Group__1 : rule__Procedimiento__Group__1__Impl rule__Procedimiento__Group__2 ;
     public final void rule__Procedimiento__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17536:1: ( rule__Procedimiento__Group__1__Impl rule__Procedimiento__Group__2 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17537:2: rule__Procedimiento__Group__1__Impl rule__Procedimiento__Group__2
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17569:1: ( rule__Procedimiento__Group__1__Impl rule__Procedimiento__Group__2 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17570:2: rule__Procedimiento__Group__1__Impl rule__Procedimiento__Group__2
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__1__Impl_in_rule__Procedimiento__Group__135203);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__1__Impl_in_rule__Procedimiento__Group__135267);
             rule__Procedimiento__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__2_in_rule__Procedimiento__Group__135206);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__2_in_rule__Procedimiento__Group__135270);
             rule__Procedimiento__Group__2();
 
             state._fsp--;
@@ -47627,23 +47698,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17544:1: rule__Procedimiento__Group__1__Impl : ( ( rule__Procedimiento__NombreAssignment_1 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17577:1: rule__Procedimiento__Group__1__Impl : ( ( rule__Procedimiento__NombreAssignment_1 ) ) ;
     public final void rule__Procedimiento__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17548:1: ( ( ( rule__Procedimiento__NombreAssignment_1 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17549:1: ( ( rule__Procedimiento__NombreAssignment_1 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17581:1: ( ( ( rule__Procedimiento__NombreAssignment_1 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17582:1: ( ( rule__Procedimiento__NombreAssignment_1 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17549:1: ( ( rule__Procedimiento__NombreAssignment_1 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17550:1: ( rule__Procedimiento__NombreAssignment_1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17582:1: ( ( rule__Procedimiento__NombreAssignment_1 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17583:1: ( rule__Procedimiento__NombreAssignment_1 )
             {
              before(grammarAccess.getProcedimientoAccess().getNombreAssignment_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17551:1: ( rule__Procedimiento__NombreAssignment_1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17551:2: rule__Procedimiento__NombreAssignment_1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17584:1: ( rule__Procedimiento__NombreAssignment_1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17584:2: rule__Procedimiento__NombreAssignment_1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__NombreAssignment_1_in_rule__Procedimiento__Group__1__Impl35233);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__NombreAssignment_1_in_rule__Procedimiento__Group__1__Impl35297);
             rule__Procedimiento__NombreAssignment_1();
 
             state._fsp--;
@@ -47674,21 +47745,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17561:1: rule__Procedimiento__Group__2 : rule__Procedimiento__Group__2__Impl rule__Procedimiento__Group__3 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17594:1: rule__Procedimiento__Group__2 : rule__Procedimiento__Group__2__Impl rule__Procedimiento__Group__3 ;
     public final void rule__Procedimiento__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17565:1: ( rule__Procedimiento__Group__2__Impl rule__Procedimiento__Group__3 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17566:2: rule__Procedimiento__Group__2__Impl rule__Procedimiento__Group__3
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17598:1: ( rule__Procedimiento__Group__2__Impl rule__Procedimiento__Group__3 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17599:2: rule__Procedimiento__Group__2__Impl rule__Procedimiento__Group__3
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__2__Impl_in_rule__Procedimiento__Group__235263);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__2__Impl_in_rule__Procedimiento__Group__235327);
             rule__Procedimiento__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__3_in_rule__Procedimiento__Group__235266);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__3_in_rule__Procedimiento__Group__235330);
             rule__Procedimiento__Group__3();
 
             state._fsp--;
@@ -47712,20 +47783,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__2__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17573:1: rule__Procedimiento__Group__2__Impl : ( '(' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17606:1: rule__Procedimiento__Group__2__Impl : ( '(' ) ;
     public final void rule__Procedimiento__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17577:1: ( ( '(' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17578:1: ( '(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17610:1: ( ( '(' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17611:1: ( '(' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17578:1: ( '(' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17579:1: '('
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17611:1: ( '(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17612:1: '('
             {
              before(grammarAccess.getProcedimientoAccess().getLeftParenthesisKeyword_2()); 
-            match(input,62,FollowSets001.FOLLOW_62_in_rule__Procedimiento__Group__2__Impl35294); 
+            match(input,62,FollowSets001.FOLLOW_62_in_rule__Procedimiento__Group__2__Impl35358); 
              after(grammarAccess.getProcedimientoAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -47749,21 +47820,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17592:1: rule__Procedimiento__Group__3 : rule__Procedimiento__Group__3__Impl rule__Procedimiento__Group__4 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17625:1: rule__Procedimiento__Group__3 : rule__Procedimiento__Group__3__Impl rule__Procedimiento__Group__4 ;
     public final void rule__Procedimiento__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17596:1: ( rule__Procedimiento__Group__3__Impl rule__Procedimiento__Group__4 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17597:2: rule__Procedimiento__Group__3__Impl rule__Procedimiento__Group__4
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17629:1: ( rule__Procedimiento__Group__3__Impl rule__Procedimiento__Group__4 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17630:2: rule__Procedimiento__Group__3__Impl rule__Procedimiento__Group__4
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__3__Impl_in_rule__Procedimiento__Group__335325);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__3__Impl_in_rule__Procedimiento__Group__335389);
             rule__Procedimiento__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__4_in_rule__Procedimiento__Group__335328);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__4_in_rule__Procedimiento__Group__335392);
             rule__Procedimiento__Group__4();
 
             state._fsp--;
@@ -47787,20 +47858,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__3__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17604:1: rule__Procedimiento__Group__3__Impl : ( ( rule__Procedimiento__Group_3__0 )? ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17637:1: rule__Procedimiento__Group__3__Impl : ( ( rule__Procedimiento__Group_3__0 )? ) ;
     public final void rule__Procedimiento__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17608:1: ( ( ( rule__Procedimiento__Group_3__0 )? ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17609:1: ( ( rule__Procedimiento__Group_3__0 )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17641:1: ( ( ( rule__Procedimiento__Group_3__0 )? ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17642:1: ( ( rule__Procedimiento__Group_3__0 )? )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17609:1: ( ( rule__Procedimiento__Group_3__0 )? )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17610:1: ( rule__Procedimiento__Group_3__0 )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17642:1: ( ( rule__Procedimiento__Group_3__0 )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17643:1: ( rule__Procedimiento__Group_3__0 )?
             {
              before(grammarAccess.getProcedimientoAccess().getGroup_3()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17611:1: ( rule__Procedimiento__Group_3__0 )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17644:1: ( rule__Procedimiento__Group_3__0 )?
             int alt134=2;
             int LA134_0 = input.LA(1);
 
@@ -47809,9 +47880,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             }
             switch (alt134) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17611:2: rule__Procedimiento__Group_3__0
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17644:2: rule__Procedimiento__Group_3__0
                     {
-                    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__0_in_rule__Procedimiento__Group__3__Impl35355);
+                    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__0_in_rule__Procedimiento__Group__3__Impl35419);
                     rule__Procedimiento__Group_3__0();
 
                     state._fsp--;
@@ -47845,21 +47916,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__4"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17621:1: rule__Procedimiento__Group__4 : rule__Procedimiento__Group__4__Impl rule__Procedimiento__Group__5 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17654:1: rule__Procedimiento__Group__4 : rule__Procedimiento__Group__4__Impl rule__Procedimiento__Group__5 ;
     public final void rule__Procedimiento__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17625:1: ( rule__Procedimiento__Group__4__Impl rule__Procedimiento__Group__5 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17626:2: rule__Procedimiento__Group__4__Impl rule__Procedimiento__Group__5
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17658:1: ( rule__Procedimiento__Group__4__Impl rule__Procedimiento__Group__5 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17659:2: rule__Procedimiento__Group__4__Impl rule__Procedimiento__Group__5
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__4__Impl_in_rule__Procedimiento__Group__435386);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__4__Impl_in_rule__Procedimiento__Group__435450);
             rule__Procedimiento__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__5_in_rule__Procedimiento__Group__435389);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__5_in_rule__Procedimiento__Group__435453);
             rule__Procedimiento__Group__5();
 
             state._fsp--;
@@ -47883,20 +47954,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__4__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17633:1: rule__Procedimiento__Group__4__Impl : ( ')' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17666:1: rule__Procedimiento__Group__4__Impl : ( ')' ) ;
     public final void rule__Procedimiento__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17637:1: ( ( ')' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17638:1: ( ')' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17670:1: ( ( ')' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17671:1: ( ')' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17638:1: ( ')' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17639:1: ')'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17671:1: ( ')' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17672:1: ')'
             {
              before(grammarAccess.getProcedimientoAccess().getRightParenthesisKeyword_4()); 
-            match(input,63,FollowSets001.FOLLOW_63_in_rule__Procedimiento__Group__4__Impl35417); 
+            match(input,63,FollowSets001.FOLLOW_63_in_rule__Procedimiento__Group__4__Impl35481); 
              after(grammarAccess.getProcedimientoAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -47920,21 +47991,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__5"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17652:1: rule__Procedimiento__Group__5 : rule__Procedimiento__Group__5__Impl rule__Procedimiento__Group__6 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17685:1: rule__Procedimiento__Group__5 : rule__Procedimiento__Group__5__Impl rule__Procedimiento__Group__6 ;
     public final void rule__Procedimiento__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17656:1: ( rule__Procedimiento__Group__5__Impl rule__Procedimiento__Group__6 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17657:2: rule__Procedimiento__Group__5__Impl rule__Procedimiento__Group__6
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17689:1: ( rule__Procedimiento__Group__5__Impl rule__Procedimiento__Group__6 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17690:2: rule__Procedimiento__Group__5__Impl rule__Procedimiento__Group__6
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__5__Impl_in_rule__Procedimiento__Group__535448);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__5__Impl_in_rule__Procedimiento__Group__535512);
             rule__Procedimiento__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__6_in_rule__Procedimiento__Group__535451);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__6_in_rule__Procedimiento__Group__535515);
             rule__Procedimiento__Group__6();
 
             state._fsp--;
@@ -47958,20 +48029,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__5__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17664:1: rule__Procedimiento__Group__5__Impl : ( ( 'const' )? ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17697:1: rule__Procedimiento__Group__5__Impl : ( ( 'const' )? ) ;
     public final void rule__Procedimiento__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17668:1: ( ( ( 'const' )? ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17669:1: ( ( 'const' )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17701:1: ( ( ( 'const' )? ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17702:1: ( ( 'const' )? )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17669:1: ( ( 'const' )? )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17670:1: ( 'const' )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17702:1: ( ( 'const' )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17703:1: ( 'const' )?
             {
              before(grammarAccess.getProcedimientoAccess().getConstKeyword_5()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17671:1: ( 'const' )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17704:1: ( 'const' )?
             int alt135=2;
             int LA135_0 = input.LA(1);
 
@@ -47980,9 +48051,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             }
             switch (alt135) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17672:2: 'const'
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17705:2: 'const'
                     {
-                    match(input,52,FollowSets001.FOLLOW_52_in_rule__Procedimiento__Group__5__Impl35480); 
+                    match(input,52,FollowSets001.FOLLOW_52_in_rule__Procedimiento__Group__5__Impl35544); 
 
                     }
                     break;
@@ -48012,21 +48083,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__6"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17683:1: rule__Procedimiento__Group__6 : rule__Procedimiento__Group__6__Impl rule__Procedimiento__Group__7 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17716:1: rule__Procedimiento__Group__6 : rule__Procedimiento__Group__6__Impl rule__Procedimiento__Group__7 ;
     public final void rule__Procedimiento__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17687:1: ( rule__Procedimiento__Group__6__Impl rule__Procedimiento__Group__7 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17688:2: rule__Procedimiento__Group__6__Impl rule__Procedimiento__Group__7
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17720:1: ( rule__Procedimiento__Group__6__Impl rule__Procedimiento__Group__7 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17721:2: rule__Procedimiento__Group__6__Impl rule__Procedimiento__Group__7
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__6__Impl_in_rule__Procedimiento__Group__635513);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__6__Impl_in_rule__Procedimiento__Group__635577);
             rule__Procedimiento__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__7_in_rule__Procedimiento__Group__635516);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__7_in_rule__Procedimiento__Group__635580);
             rule__Procedimiento__Group__7();
 
             state._fsp--;
@@ -48050,20 +48121,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__6__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17695:1: rule__Procedimiento__Group__6__Impl : ( ( 'tipo' )? ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17728:1: rule__Procedimiento__Group__6__Impl : ( ( 'tipo' )? ) ;
     public final void rule__Procedimiento__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17699:1: ( ( ( 'tipo' )? ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17700:1: ( ( 'tipo' )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17732:1: ( ( ( 'tipo' )? ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17733:1: ( ( 'tipo' )? )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17700:1: ( ( 'tipo' )? )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17701:1: ( 'tipo' )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17733:1: ( ( 'tipo' )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17734:1: ( 'tipo' )?
             {
              before(grammarAccess.getProcedimientoAccess().getTipoKeyword_6()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17702:1: ( 'tipo' )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17735:1: ( 'tipo' )?
             int alt136=2;
             int LA136_0 = input.LA(1);
 
@@ -48072,9 +48143,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             }
             switch (alt136) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17703:2: 'tipo'
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17736:2: 'tipo'
                     {
-                    match(input,53,FollowSets001.FOLLOW_53_in_rule__Procedimiento__Group__6__Impl35545); 
+                    match(input,53,FollowSets001.FOLLOW_53_in_rule__Procedimiento__Group__6__Impl35609); 
 
                     }
                     break;
@@ -48104,21 +48175,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__7"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17714:1: rule__Procedimiento__Group__7 : rule__Procedimiento__Group__7__Impl rule__Procedimiento__Group__8 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17747:1: rule__Procedimiento__Group__7 : rule__Procedimiento__Group__7__Impl rule__Procedimiento__Group__8 ;
     public final void rule__Procedimiento__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17718:1: ( rule__Procedimiento__Group__7__Impl rule__Procedimiento__Group__8 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17719:2: rule__Procedimiento__Group__7__Impl rule__Procedimiento__Group__8
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17751:1: ( rule__Procedimiento__Group__7__Impl rule__Procedimiento__Group__8 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17752:2: rule__Procedimiento__Group__7__Impl rule__Procedimiento__Group__8
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__7__Impl_in_rule__Procedimiento__Group__735578);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__7__Impl_in_rule__Procedimiento__Group__735642);
             rule__Procedimiento__Group__7__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__8_in_rule__Procedimiento__Group__735581);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__8_in_rule__Procedimiento__Group__735645);
             rule__Procedimiento__Group__8();
 
             state._fsp--;
@@ -48142,20 +48213,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__7__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17726:1: rule__Procedimiento__Group__7__Impl : ( 'var' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17759:1: rule__Procedimiento__Group__7__Impl : ( 'var' ) ;
     public final void rule__Procedimiento__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17730:1: ( ( 'var' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17731:1: ( 'var' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17763:1: ( ( 'var' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17764:1: ( 'var' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17731:1: ( 'var' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17732:1: 'var'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17764:1: ( 'var' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17765:1: 'var'
             {
              before(grammarAccess.getProcedimientoAccess().getVarKeyword_7()); 
-            match(input,54,FollowSets001.FOLLOW_54_in_rule__Procedimiento__Group__7__Impl35609); 
+            match(input,54,FollowSets001.FOLLOW_54_in_rule__Procedimiento__Group__7__Impl35673); 
              after(grammarAccess.getProcedimientoAccess().getVarKeyword_7()); 
 
             }
@@ -48179,21 +48250,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__8"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17745:1: rule__Procedimiento__Group__8 : rule__Procedimiento__Group__8__Impl rule__Procedimiento__Group__9 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17778:1: rule__Procedimiento__Group__8 : rule__Procedimiento__Group__8__Impl rule__Procedimiento__Group__9 ;
     public final void rule__Procedimiento__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17749:1: ( rule__Procedimiento__Group__8__Impl rule__Procedimiento__Group__9 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17750:2: rule__Procedimiento__Group__8__Impl rule__Procedimiento__Group__9
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17782:1: ( rule__Procedimiento__Group__8__Impl rule__Procedimiento__Group__9 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17783:2: rule__Procedimiento__Group__8__Impl rule__Procedimiento__Group__9
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__8__Impl_in_rule__Procedimiento__Group__835640);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__8__Impl_in_rule__Procedimiento__Group__835704);
             rule__Procedimiento__Group__8__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__9_in_rule__Procedimiento__Group__835643);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__9_in_rule__Procedimiento__Group__835707);
             rule__Procedimiento__Group__9();
 
             state._fsp--;
@@ -48217,20 +48288,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__8__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17757:1: rule__Procedimiento__Group__8__Impl : ( ( rule__Procedimiento__Group_8__0 )? ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17790:1: rule__Procedimiento__Group__8__Impl : ( ( rule__Procedimiento__Group_8__0 )? ) ;
     public final void rule__Procedimiento__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17761:1: ( ( ( rule__Procedimiento__Group_8__0 )? ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17762:1: ( ( rule__Procedimiento__Group_8__0 )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17794:1: ( ( ( rule__Procedimiento__Group_8__0 )? ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17795:1: ( ( rule__Procedimiento__Group_8__0 )? )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17762:1: ( ( rule__Procedimiento__Group_8__0 )? )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17763:1: ( rule__Procedimiento__Group_8__0 )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17795:1: ( ( rule__Procedimiento__Group_8__0 )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17796:1: ( rule__Procedimiento__Group_8__0 )?
             {
              before(grammarAccess.getProcedimientoAccess().getGroup_8()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17764:1: ( rule__Procedimiento__Group_8__0 )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17797:1: ( rule__Procedimiento__Group_8__0 )?
             int alt137=2;
             int LA137_0 = input.LA(1);
 
@@ -48239,9 +48310,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             }
             switch (alt137) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17764:2: rule__Procedimiento__Group_8__0
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17797:2: rule__Procedimiento__Group_8__0
                     {
-                    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__0_in_rule__Procedimiento__Group__8__Impl35670);
+                    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__0_in_rule__Procedimiento__Group__8__Impl35734);
                     rule__Procedimiento__Group_8__0();
 
                     state._fsp--;
@@ -48275,21 +48346,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__9"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17774:1: rule__Procedimiento__Group__9 : rule__Procedimiento__Group__9__Impl rule__Procedimiento__Group__10 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17807:1: rule__Procedimiento__Group__9 : rule__Procedimiento__Group__9__Impl rule__Procedimiento__Group__10 ;
     public final void rule__Procedimiento__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17778:1: ( rule__Procedimiento__Group__9__Impl rule__Procedimiento__Group__10 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17779:2: rule__Procedimiento__Group__9__Impl rule__Procedimiento__Group__10
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17811:1: ( rule__Procedimiento__Group__9__Impl rule__Procedimiento__Group__10 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17812:2: rule__Procedimiento__Group__9__Impl rule__Procedimiento__Group__10
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__9__Impl_in_rule__Procedimiento__Group__935701);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__9__Impl_in_rule__Procedimiento__Group__935765);
             rule__Procedimiento__Group__9__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__10_in_rule__Procedimiento__Group__935704);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__10_in_rule__Procedimiento__Group__935768);
             rule__Procedimiento__Group__10();
 
             state._fsp--;
@@ -48313,20 +48384,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__9__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17786:1: rule__Procedimiento__Group__9__Impl : ( 'inicio' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17819:1: rule__Procedimiento__Group__9__Impl : ( 'inicio' ) ;
     public final void rule__Procedimiento__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17790:1: ( ( 'inicio' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17791:1: ( 'inicio' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17823:1: ( ( 'inicio' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17824:1: ( 'inicio' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17791:1: ( 'inicio' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17792:1: 'inicio'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17824:1: ( 'inicio' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17825:1: 'inicio'
             {
              before(grammarAccess.getProcedimientoAccess().getInicioKeyword_9()); 
-            match(input,84,FollowSets001.FOLLOW_84_in_rule__Procedimiento__Group__9__Impl35732); 
+            match(input,84,FollowSets001.FOLLOW_84_in_rule__Procedimiento__Group__9__Impl35796); 
              after(grammarAccess.getProcedimientoAccess().getInicioKeyword_9()); 
 
             }
@@ -48350,21 +48421,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__10"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17805:1: rule__Procedimiento__Group__10 : rule__Procedimiento__Group__10__Impl rule__Procedimiento__Group__11 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17838:1: rule__Procedimiento__Group__10 : rule__Procedimiento__Group__10__Impl rule__Procedimiento__Group__11 ;
     public final void rule__Procedimiento__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17809:1: ( rule__Procedimiento__Group__10__Impl rule__Procedimiento__Group__11 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17810:2: rule__Procedimiento__Group__10__Impl rule__Procedimiento__Group__11
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17842:1: ( rule__Procedimiento__Group__10__Impl rule__Procedimiento__Group__11 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17843:2: rule__Procedimiento__Group__10__Impl rule__Procedimiento__Group__11
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__10__Impl_in_rule__Procedimiento__Group__1035763);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__10__Impl_in_rule__Procedimiento__Group__1035827);
             rule__Procedimiento__Group__10__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__11_in_rule__Procedimiento__Group__1035766);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__11_in_rule__Procedimiento__Group__1035830);
             rule__Procedimiento__Group__11();
 
             state._fsp--;
@@ -48388,20 +48459,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__10__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17817:1: rule__Procedimiento__Group__10__Impl : ( ( rule__Procedimiento__Group_10__0 )? ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17850:1: rule__Procedimiento__Group__10__Impl : ( ( rule__Procedimiento__Group_10__0 )? ) ;
     public final void rule__Procedimiento__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17821:1: ( ( ( rule__Procedimiento__Group_10__0 )? ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17822:1: ( ( rule__Procedimiento__Group_10__0 )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17854:1: ( ( ( rule__Procedimiento__Group_10__0 )? ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17855:1: ( ( rule__Procedimiento__Group_10__0 )? )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17822:1: ( ( rule__Procedimiento__Group_10__0 )? )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17823:1: ( rule__Procedimiento__Group_10__0 )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17855:1: ( ( rule__Procedimiento__Group_10__0 )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17856:1: ( rule__Procedimiento__Group_10__0 )?
             {
              before(grammarAccess.getProcedimientoAccess().getGroup_10()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17824:1: ( rule__Procedimiento__Group_10__0 )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17857:1: ( rule__Procedimiento__Group_10__0 )?
             int alt138=2;
             int LA138_0 = input.LA(1);
 
@@ -48410,9 +48481,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
             }
             switch (alt138) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17824:2: rule__Procedimiento__Group_10__0
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17857:2: rule__Procedimiento__Group_10__0
                     {
-                    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__0_in_rule__Procedimiento__Group__10__Impl35793);
+                    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__0_in_rule__Procedimiento__Group__10__Impl35857);
                     rule__Procedimiento__Group_10__0();
 
                     state._fsp--;
@@ -48446,17 +48517,22 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__11"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17834:1: rule__Procedimiento__Group__11 : rule__Procedimiento__Group__11__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17867:1: rule__Procedimiento__Group__11 : rule__Procedimiento__Group__11__Impl rule__Procedimiento__Group__12 ;
     public final void rule__Procedimiento__Group__11() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17838:1: ( rule__Procedimiento__Group__11__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17839:2: rule__Procedimiento__Group__11__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17871:1: ( rule__Procedimiento__Group__11__Impl rule__Procedimiento__Group__12 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17872:2: rule__Procedimiento__Group__11__Impl rule__Procedimiento__Group__12
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__11__Impl_in_rule__Procedimiento__Group__1135824);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__11__Impl_in_rule__Procedimiento__Group__1135888);
             rule__Procedimiento__Group__11__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__12_in_rule__Procedimiento__Group__1135891);
+            rule__Procedimiento__Group__12();
 
             state._fsp--;
 
@@ -48479,21 +48555,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group__11__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17845:1: rule__Procedimiento__Group__11__Impl : ( 'fin_procedimiento' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17879:1: rule__Procedimiento__Group__11__Impl : ( 'fin_inicio' ) ;
     public final void rule__Procedimiento__Group__11__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17849:1: ( ( 'fin_procedimiento' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17850:1: ( 'fin_procedimiento' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17883:1: ( ( 'fin_inicio' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17884:1: ( 'fin_inicio' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17850:1: ( 'fin_procedimiento' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17851:1: 'fin_procedimiento'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17884:1: ( 'fin_inicio' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17885:1: 'fin_inicio'
             {
-             before(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_11()); 
-            match(input,110,FollowSets001.FOLLOW_110_in_rule__Procedimiento__Group__11__Impl35852); 
-             after(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_11()); 
+             before(grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_11()); 
+            match(input,85,FollowSets001.FOLLOW_85_in_rule__Procedimiento__Group__11__Impl35919); 
+             after(grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_11()); 
 
             }
 
@@ -48515,22 +48591,92 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
     // $ANTLR end "rule__Procedimiento__Group__11__Impl"
 
 
+    // $ANTLR start "rule__Procedimiento__Group__12"
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17898:1: rule__Procedimiento__Group__12 : rule__Procedimiento__Group__12__Impl ;
+    public final void rule__Procedimiento__Group__12() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17902:1: ( rule__Procedimiento__Group__12__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17903:2: rule__Procedimiento__Group__12__Impl
+            {
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group__12__Impl_in_rule__Procedimiento__Group__1235950);
+            rule__Procedimiento__Group__12__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Procedimiento__Group__12"
+
+
+    // $ANTLR start "rule__Procedimiento__Group__12__Impl"
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17909:1: rule__Procedimiento__Group__12__Impl : ( 'fin_procedimiento' ) ;
+    public final void rule__Procedimiento__Group__12__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17913:1: ( ( 'fin_procedimiento' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17914:1: ( 'fin_procedimiento' )
+            {
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17914:1: ( 'fin_procedimiento' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17915:1: 'fin_procedimiento'
+            {
+             before(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_12()); 
+            match(input,110,FollowSets001.FOLLOW_110_in_rule__Procedimiento__Group__12__Impl35978); 
+             after(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_12()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Procedimiento__Group__12__Impl"
+
+
     // $ANTLR start "rule__Procedimiento__Group_3__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17888:1: rule__Procedimiento__Group_3__0 : rule__Procedimiento__Group_3__0__Impl rule__Procedimiento__Group_3__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17954:1: rule__Procedimiento__Group_3__0 : rule__Procedimiento__Group_3__0__Impl rule__Procedimiento__Group_3__1 ;
     public final void rule__Procedimiento__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17892:1: ( rule__Procedimiento__Group_3__0__Impl rule__Procedimiento__Group_3__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17893:2: rule__Procedimiento__Group_3__0__Impl rule__Procedimiento__Group_3__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17958:1: ( rule__Procedimiento__Group_3__0__Impl rule__Procedimiento__Group_3__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17959:2: rule__Procedimiento__Group_3__0__Impl rule__Procedimiento__Group_3__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__0__Impl_in_rule__Procedimiento__Group_3__035907);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__0__Impl_in_rule__Procedimiento__Group_3__036035);
             rule__Procedimiento__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__1_in_rule__Procedimiento__Group_3__035910);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__1_in_rule__Procedimiento__Group_3__036038);
             rule__Procedimiento__Group_3__1();
 
             state._fsp--;
@@ -48554,23 +48700,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17900:1: rule__Procedimiento__Group_3__0__Impl : ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17966:1: rule__Procedimiento__Group_3__0__Impl : ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) ) ;
     public final void rule__Procedimiento__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17904:1: ( ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17905:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17970:1: ( ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17971:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17905:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17906:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17971:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17972:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_0 )
             {
              before(grammarAccess.getProcedimientoAccess().getParametrofuncionAssignment_3_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17907:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_0 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17907:2: rule__Procedimiento__ParametrofuncionAssignment_3_0
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17973:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17973:2: rule__Procedimiento__ParametrofuncionAssignment_3_0
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_0_in_rule__Procedimiento__Group_3__0__Impl35937);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_0_in_rule__Procedimiento__Group_3__0__Impl36065);
             rule__Procedimiento__ParametrofuncionAssignment_3_0();
 
             state._fsp--;
@@ -48601,16 +48747,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17917:1: rule__Procedimiento__Group_3__1 : rule__Procedimiento__Group_3__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17983:1: rule__Procedimiento__Group_3__1 : rule__Procedimiento__Group_3__1__Impl ;
     public final void rule__Procedimiento__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17921:1: ( rule__Procedimiento__Group_3__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17922:2: rule__Procedimiento__Group_3__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17987:1: ( rule__Procedimiento__Group_3__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17988:2: rule__Procedimiento__Group_3__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__1__Impl_in_rule__Procedimiento__Group_3__135967);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3__1__Impl_in_rule__Procedimiento__Group_3__136095);
             rule__Procedimiento__Group_3__1__Impl();
 
             state._fsp--;
@@ -48634,20 +48780,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17928:1: rule__Procedimiento__Group_3__1__Impl : ( ( rule__Procedimiento__Group_3_1__0 )* ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17994:1: rule__Procedimiento__Group_3__1__Impl : ( ( rule__Procedimiento__Group_3_1__0 )* ) ;
     public final void rule__Procedimiento__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17932:1: ( ( ( rule__Procedimiento__Group_3_1__0 )* ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17933:1: ( ( rule__Procedimiento__Group_3_1__0 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17998:1: ( ( ( rule__Procedimiento__Group_3_1__0 )* ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17999:1: ( ( rule__Procedimiento__Group_3_1__0 )* )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17933:1: ( ( rule__Procedimiento__Group_3_1__0 )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17934:1: ( rule__Procedimiento__Group_3_1__0 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17999:1: ( ( rule__Procedimiento__Group_3_1__0 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18000:1: ( rule__Procedimiento__Group_3_1__0 )*
             {
              before(grammarAccess.getProcedimientoAccess().getGroup_3_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17935:1: ( rule__Procedimiento__Group_3_1__0 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18001:1: ( rule__Procedimiento__Group_3_1__0 )*
             loop139:
             do {
                 int alt139=2;
@@ -48660,9 +48806,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
                 switch (alt139) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17935:2: rule__Procedimiento__Group_3_1__0
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18001:2: rule__Procedimiento__Group_3_1__0
             	    {
-            	    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__0_in_rule__Procedimiento__Group_3__1__Impl35994);
+            	    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__0_in_rule__Procedimiento__Group_3__1__Impl36122);
             	    rule__Procedimiento__Group_3_1__0();
 
             	    state._fsp--;
@@ -48699,21 +48845,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3_1__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17949:1: rule__Procedimiento__Group_3_1__0 : rule__Procedimiento__Group_3_1__0__Impl rule__Procedimiento__Group_3_1__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18015:1: rule__Procedimiento__Group_3_1__0 : rule__Procedimiento__Group_3_1__0__Impl rule__Procedimiento__Group_3_1__1 ;
     public final void rule__Procedimiento__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17953:1: ( rule__Procedimiento__Group_3_1__0__Impl rule__Procedimiento__Group_3_1__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17954:2: rule__Procedimiento__Group_3_1__0__Impl rule__Procedimiento__Group_3_1__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18019:1: ( rule__Procedimiento__Group_3_1__0__Impl rule__Procedimiento__Group_3_1__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18020:2: rule__Procedimiento__Group_3_1__0__Impl rule__Procedimiento__Group_3_1__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__0__Impl_in_rule__Procedimiento__Group_3_1__036029);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__0__Impl_in_rule__Procedimiento__Group_3_1__036157);
             rule__Procedimiento__Group_3_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__1_in_rule__Procedimiento__Group_3_1__036032);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__1_in_rule__Procedimiento__Group_3_1__036160);
             rule__Procedimiento__Group_3_1__1();
 
             state._fsp--;
@@ -48737,20 +48883,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3_1__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17961:1: rule__Procedimiento__Group_3_1__0__Impl : ( ',' ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18027:1: rule__Procedimiento__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__Procedimiento__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17965:1: ( ( ',' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17966:1: ( ',' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18031:1: ( ( ',' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18032:1: ( ',' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17966:1: ( ',' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17967:1: ','
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18032:1: ( ',' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18033:1: ','
             {
              before(grammarAccess.getProcedimientoAccess().getCommaKeyword_3_1_0()); 
-            match(input,64,FollowSets001.FOLLOW_64_in_rule__Procedimiento__Group_3_1__0__Impl36060); 
+            match(input,64,FollowSets001.FOLLOW_64_in_rule__Procedimiento__Group_3_1__0__Impl36188); 
              after(grammarAccess.getProcedimientoAccess().getCommaKeyword_3_1_0()); 
 
             }
@@ -48774,16 +48920,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3_1__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17980:1: rule__Procedimiento__Group_3_1__1 : rule__Procedimiento__Group_3_1__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18046:1: rule__Procedimiento__Group_3_1__1 : rule__Procedimiento__Group_3_1__1__Impl ;
     public final void rule__Procedimiento__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17984:1: ( rule__Procedimiento__Group_3_1__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17985:2: rule__Procedimiento__Group_3_1__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18050:1: ( rule__Procedimiento__Group_3_1__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18051:2: rule__Procedimiento__Group_3_1__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__1__Impl_in_rule__Procedimiento__Group_3_1__136091);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_3_1__1__Impl_in_rule__Procedimiento__Group_3_1__136219);
             rule__Procedimiento__Group_3_1__1__Impl();
 
             state._fsp--;
@@ -48807,23 +48953,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_3_1__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17991:1: rule__Procedimiento__Group_3_1__1__Impl : ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18057:1: rule__Procedimiento__Group_3_1__1__Impl : ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) ) ;
     public final void rule__Procedimiento__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17995:1: ( ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17996:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18061:1: ( ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18062:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17996:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17997:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18062:1: ( ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18063:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 )
             {
              before(grammarAccess.getProcedimientoAccess().getParametrofuncionAssignment_3_1_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17998:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17998:2: rule__Procedimiento__ParametrofuncionAssignment_3_1_1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18064:1: ( rule__Procedimiento__ParametrofuncionAssignment_3_1_1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18064:2: rule__Procedimiento__ParametrofuncionAssignment_3_1_1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_1_1_in_rule__Procedimiento__Group_3_1__1__Impl36118);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_1_1_in_rule__Procedimiento__Group_3_1__1__Impl36246);
             rule__Procedimiento__ParametrofuncionAssignment_3_1_1();
 
             state._fsp--;
@@ -48854,21 +49000,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_8__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18012:1: rule__Procedimiento__Group_8__0 : rule__Procedimiento__Group_8__0__Impl rule__Procedimiento__Group_8__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18078:1: rule__Procedimiento__Group_8__0 : rule__Procedimiento__Group_8__0__Impl rule__Procedimiento__Group_8__1 ;
     public final void rule__Procedimiento__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18016:1: ( rule__Procedimiento__Group_8__0__Impl rule__Procedimiento__Group_8__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18017:2: rule__Procedimiento__Group_8__0__Impl rule__Procedimiento__Group_8__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18082:1: ( rule__Procedimiento__Group_8__0__Impl rule__Procedimiento__Group_8__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18083:2: rule__Procedimiento__Group_8__0__Impl rule__Procedimiento__Group_8__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__0__Impl_in_rule__Procedimiento__Group_8__036152);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__0__Impl_in_rule__Procedimiento__Group_8__036280);
             rule__Procedimiento__Group_8__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__1_in_rule__Procedimiento__Group_8__036155);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__1_in_rule__Procedimiento__Group_8__036283);
             rule__Procedimiento__Group_8__1();
 
             state._fsp--;
@@ -48892,23 +49038,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_8__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18024:1: rule__Procedimiento__Group_8__0__Impl : ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18090:1: rule__Procedimiento__Group_8__0__Impl : ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) ) ;
     public final void rule__Procedimiento__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18028:1: ( ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18029:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18094:1: ( ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18095:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18029:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18030:1: ( rule__Procedimiento__DeclaracionAssignment_8_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18095:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18096:1: ( rule__Procedimiento__DeclaracionAssignment_8_0 )
             {
              before(grammarAccess.getProcedimientoAccess().getDeclaracionAssignment_8_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18031:1: ( rule__Procedimiento__DeclaracionAssignment_8_0 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18031:2: rule__Procedimiento__DeclaracionAssignment_8_0
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18097:1: ( rule__Procedimiento__DeclaracionAssignment_8_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18097:2: rule__Procedimiento__DeclaracionAssignment_8_0
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_0_in_rule__Procedimiento__Group_8__0__Impl36182);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_0_in_rule__Procedimiento__Group_8__0__Impl36310);
             rule__Procedimiento__DeclaracionAssignment_8_0();
 
             state._fsp--;
@@ -48939,16 +49085,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_8__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18041:1: rule__Procedimiento__Group_8__1 : rule__Procedimiento__Group_8__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18107:1: rule__Procedimiento__Group_8__1 : rule__Procedimiento__Group_8__1__Impl ;
     public final void rule__Procedimiento__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18045:1: ( rule__Procedimiento__Group_8__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18046:2: rule__Procedimiento__Group_8__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18111:1: ( rule__Procedimiento__Group_8__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18112:2: rule__Procedimiento__Group_8__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__1__Impl_in_rule__Procedimiento__Group_8__136212);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_8__1__Impl_in_rule__Procedimiento__Group_8__136340);
             rule__Procedimiento__Group_8__1__Impl();
 
             state._fsp--;
@@ -48972,20 +49118,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_8__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18052:1: rule__Procedimiento__Group_8__1__Impl : ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18118:1: rule__Procedimiento__Group_8__1__Impl : ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* ) ;
     public final void rule__Procedimiento__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18056:1: ( ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18057:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18122:1: ( ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18123:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18057:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18058:1: ( rule__Procedimiento__DeclaracionAssignment_8_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18123:1: ( ( rule__Procedimiento__DeclaracionAssignment_8_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18124:1: ( rule__Procedimiento__DeclaracionAssignment_8_1 )*
             {
              before(grammarAccess.getProcedimientoAccess().getDeclaracionAssignment_8_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18059:1: ( rule__Procedimiento__DeclaracionAssignment_8_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18125:1: ( rule__Procedimiento__DeclaracionAssignment_8_1 )*
             loop140:
             do {
                 int alt140=2;
@@ -48998,9 +49144,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
                 switch (alt140) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18059:2: rule__Procedimiento__DeclaracionAssignment_8_1
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18125:2: rule__Procedimiento__DeclaracionAssignment_8_1
             	    {
-            	    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_1_in_rule__Procedimiento__Group_8__1__Impl36239);
+            	    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_1_in_rule__Procedimiento__Group_8__1__Impl36367);
             	    rule__Procedimiento__DeclaracionAssignment_8_1();
 
             	    state._fsp--;
@@ -49037,21 +49183,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_10__0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18073:1: rule__Procedimiento__Group_10__0 : rule__Procedimiento__Group_10__0__Impl rule__Procedimiento__Group_10__1 ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18139:1: rule__Procedimiento__Group_10__0 : rule__Procedimiento__Group_10__0__Impl rule__Procedimiento__Group_10__1 ;
     public final void rule__Procedimiento__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18077:1: ( rule__Procedimiento__Group_10__0__Impl rule__Procedimiento__Group_10__1 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18078:2: rule__Procedimiento__Group_10__0__Impl rule__Procedimiento__Group_10__1
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18143:1: ( rule__Procedimiento__Group_10__0__Impl rule__Procedimiento__Group_10__1 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18144:2: rule__Procedimiento__Group_10__0__Impl rule__Procedimiento__Group_10__1
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__0__Impl_in_rule__Procedimiento__Group_10__036274);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__0__Impl_in_rule__Procedimiento__Group_10__036402);
             rule__Procedimiento__Group_10__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__1_in_rule__Procedimiento__Group_10__036277);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__1_in_rule__Procedimiento__Group_10__036405);
             rule__Procedimiento__Group_10__1();
 
             state._fsp--;
@@ -49075,23 +49221,23 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_10__0__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18085:1: rule__Procedimiento__Group_10__0__Impl : ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18151:1: rule__Procedimiento__Group_10__0__Impl : ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) ) ;
     public final void rule__Procedimiento__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18089:1: ( ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18090:1: ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18155:1: ( ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18156:1: ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18090:1: ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18091:1: ( rule__Procedimiento__SentenciasAssignment_10_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18156:1: ( ( rule__Procedimiento__SentenciasAssignment_10_0 ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18157:1: ( rule__Procedimiento__SentenciasAssignment_10_0 )
             {
              before(grammarAccess.getProcedimientoAccess().getSentenciasAssignment_10_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18092:1: ( rule__Procedimiento__SentenciasAssignment_10_0 )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18092:2: rule__Procedimiento__SentenciasAssignment_10_0
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18158:1: ( rule__Procedimiento__SentenciasAssignment_10_0 )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18158:2: rule__Procedimiento__SentenciasAssignment_10_0
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__SentenciasAssignment_10_0_in_rule__Procedimiento__Group_10__0__Impl36304);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__SentenciasAssignment_10_0_in_rule__Procedimiento__Group_10__0__Impl36432);
             rule__Procedimiento__SentenciasAssignment_10_0();
 
             state._fsp--;
@@ -49122,16 +49268,16 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_10__1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18102:1: rule__Procedimiento__Group_10__1 : rule__Procedimiento__Group_10__1__Impl ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18168:1: rule__Procedimiento__Group_10__1 : rule__Procedimiento__Group_10__1__Impl ;
     public final void rule__Procedimiento__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18106:1: ( rule__Procedimiento__Group_10__1__Impl )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18107:2: rule__Procedimiento__Group_10__1__Impl
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18172:1: ( rule__Procedimiento__Group_10__1__Impl )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18173:2: rule__Procedimiento__Group_10__1__Impl
             {
-            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__1__Impl_in_rule__Procedimiento__Group_10__136334);
+            pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__Group_10__1__Impl_in_rule__Procedimiento__Group_10__136462);
             rule__Procedimiento__Group_10__1__Impl();
 
             state._fsp--;
@@ -49155,20 +49301,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__Group_10__1__Impl"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18113:1: rule__Procedimiento__Group_10__1__Impl : ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18179:1: rule__Procedimiento__Group_10__1__Impl : ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* ) ;
     public final void rule__Procedimiento__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18117:1: ( ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18118:1: ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18183:1: ( ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18184:1: ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18118:1: ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18119:1: ( rule__Procedimiento__SentenciasAssignment_10_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18184:1: ( ( rule__Procedimiento__SentenciasAssignment_10_1 )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18185:1: ( rule__Procedimiento__SentenciasAssignment_10_1 )*
             {
              before(grammarAccess.getProcedimientoAccess().getSentenciasAssignment_10_1()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18120:1: ( rule__Procedimiento__SentenciasAssignment_10_1 )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18186:1: ( rule__Procedimiento__SentenciasAssignment_10_1 )*
             loop141:
             do {
                 int alt141=2;
@@ -49181,9 +49327,9 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
                 switch (alt141) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18120:2: rule__Procedimiento__SentenciasAssignment_10_1
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18186:2: rule__Procedimiento__SentenciasAssignment_10_1
             	    {
-            	    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__SentenciasAssignment_10_1_in_rule__Procedimiento__Group_10__1__Impl36361);
+            	    pushFollow(FollowSets001.FOLLOW_rule__Procedimiento__SentenciasAssignment_10_1_in_rule__Procedimiento__Group_10__1__Impl36489);
             	    rule__Procedimiento__SentenciasAssignment_10_1();
 
             	    state._fsp--;
@@ -49220,20 +49366,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__NombreAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18135:1: rule__Algoritmo__NombreAssignment_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18201:1: rule__Algoritmo__NombreAssignment_1 : ( ruleEString ) ;
     public final void rule__Algoritmo__NombreAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18139:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18140:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18205:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18206:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18140:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18141:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18206:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18207:1: ruleEString
             {
              before(grammarAccess.getAlgoritmoAccess().getNombreEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Algoritmo__NombreAssignment_136401);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Algoritmo__NombreAssignment_136529);
             ruleEString();
 
             state._fsp--;
@@ -49261,20 +49407,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__ComentariosAssignment_2_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18150:1: rule__Algoritmo__ComentariosAssignment_2_0 : ( ruleComentario ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18216:1: rule__Algoritmo__ComentariosAssignment_2_0 : ( ruleComentario ) ;
     public final void rule__Algoritmo__ComentariosAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18154:1: ( ( ruleComentario ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18155:1: ( ruleComentario )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18220:1: ( ( ruleComentario ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18221:1: ( ruleComentario )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18155:1: ( ruleComentario )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18156:1: ruleComentario
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18221:1: ( ruleComentario )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18222:1: ruleComentario
             {
              before(grammarAccess.getAlgoritmoAccess().getComentariosComentarioParserRuleCall_2_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_036432);
+            pushFollow(FollowSets001.FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_036560);
             ruleComentario();
 
             state._fsp--;
@@ -49302,20 +49448,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__ComentariosAssignment_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18165:1: rule__Algoritmo__ComentariosAssignment_2_1 : ( ruleComentario ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18231:1: rule__Algoritmo__ComentariosAssignment_2_1 : ( ruleComentario ) ;
     public final void rule__Algoritmo__ComentariosAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18169:1: ( ( ruleComentario ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18170:1: ( ruleComentario )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18235:1: ( ( ruleComentario ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18236:1: ( ruleComentario )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18170:1: ( ruleComentario )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18171:1: ruleComentario
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18236:1: ( ruleComentario )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18237:1: ruleComentario
             {
              before(grammarAccess.getAlgoritmoAccess().getComentariosComentarioParserRuleCall_2_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_136463);
+            pushFollow(FollowSets001.FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_136591);
             ruleComentario();
 
             state._fsp--;
@@ -49343,24 +49489,24 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__ImportacionesAssignment_4_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18180:1: rule__Algoritmo__ImportacionesAssignment_4_0 : ( ( RULE_ID ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18246:1: rule__Algoritmo__ImportacionesAssignment_4_0 : ( ( RULE_ID ) ) ;
     public final void rule__Algoritmo__ImportacionesAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18184:1: ( ( ( RULE_ID ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18185:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18250:1: ( ( ( RULE_ID ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18251:1: ( ( RULE_ID ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18185:1: ( ( RULE_ID ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18186:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18251:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18252:1: ( RULE_ID )
             {
              before(grammarAccess.getAlgoritmoAccess().getImportacionesModuloCrossReference_4_0_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18187:1: ( RULE_ID )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18188:1: RULE_ID
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18253:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18254:1: RULE_ID
             {
              before(grammarAccess.getAlgoritmoAccess().getImportacionesModuloIDTerminalRuleCall_4_0_0_1()); 
-            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_036498); 
+            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_036626); 
              after(grammarAccess.getAlgoritmoAccess().getImportacionesModuloIDTerminalRuleCall_4_0_0_1()); 
 
             }
@@ -49388,24 +49534,24 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__ImportacionesAssignment_4_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18199:1: rule__Algoritmo__ImportacionesAssignment_4_1 : ( ( RULE_ID ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18265:1: rule__Algoritmo__ImportacionesAssignment_4_1 : ( ( RULE_ID ) ) ;
     public final void rule__Algoritmo__ImportacionesAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18203:1: ( ( ( RULE_ID ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18204:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18269:1: ( ( ( RULE_ID ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18270:1: ( ( RULE_ID ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18204:1: ( ( RULE_ID ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18205:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18270:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18271:1: ( RULE_ID )
             {
              before(grammarAccess.getAlgoritmoAccess().getImportacionesModuloCrossReference_4_1_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18206:1: ( RULE_ID )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18207:1: RULE_ID
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18272:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18273:1: RULE_ID
             {
              before(grammarAccess.getAlgoritmoAccess().getImportacionesModuloIDTerminalRuleCall_4_1_0_1()); 
-            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_136537); 
+            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_136665); 
              after(grammarAccess.getAlgoritmoAccess().getImportacionesModuloIDTerminalRuleCall_4_1_0_1()); 
 
             }
@@ -49433,20 +49579,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__ConstantesAssignment_6_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18218:1: rule__Algoritmo__ConstantesAssignment_6_1_0 : ( ruleConstantes ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18284:1: rule__Algoritmo__ConstantesAssignment_6_1_0 : ( ruleConstantes ) ;
     public final void rule__Algoritmo__ConstantesAssignment_6_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18222:1: ( ( ruleConstantes ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18223:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18288:1: ( ( ruleConstantes ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18289:1: ( ruleConstantes )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18223:1: ( ruleConstantes )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18224:1: ruleConstantes
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18289:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18290:1: ruleConstantes
             {
              before(grammarAccess.getAlgoritmoAccess().getConstantesConstantesParserRuleCall_6_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_036572);
+            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_036700);
             ruleConstantes();
 
             state._fsp--;
@@ -49474,20 +49620,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__ConstantesAssignment_6_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18233:1: rule__Algoritmo__ConstantesAssignment_6_1_1 : ( ruleConstantes ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18299:1: rule__Algoritmo__ConstantesAssignment_6_1_1 : ( ruleConstantes ) ;
     public final void rule__Algoritmo__ConstantesAssignment_6_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18237:1: ( ( ruleConstantes ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18238:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18303:1: ( ( ruleConstantes ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18304:1: ( ruleConstantes )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18238:1: ( ruleConstantes )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18239:1: ruleConstantes
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18304:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18305:1: ruleConstantes
             {
              before(grammarAccess.getAlgoritmoAccess().getConstantesConstantesParserRuleCall_6_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_136603);
+            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_136731);
             ruleConstantes();
 
             state._fsp--;
@@ -49515,20 +49661,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__TipocomplejoAssignment_7_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18248:1: rule__Algoritmo__TipocomplejoAssignment_7_1_0 : ( ruleTipoComplejo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18314:1: rule__Algoritmo__TipocomplejoAssignment_7_1_0 : ( ruleTipoComplejo ) ;
     public final void rule__Algoritmo__TipocomplejoAssignment_7_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18252:1: ( ( ruleTipoComplejo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18253:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18318:1: ( ( ruleTipoComplejo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18319:1: ( ruleTipoComplejo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18253:1: ( ruleTipoComplejo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18254:1: ruleTipoComplejo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18319:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18320:1: ruleTipoComplejo
             {
              before(grammarAccess.getAlgoritmoAccess().getTipocomplejoTipoComplejoParserRuleCall_7_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_036634);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_036762);
             ruleTipoComplejo();
 
             state._fsp--;
@@ -49556,20 +49702,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__TipocomplejoAssignment_7_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18263:1: rule__Algoritmo__TipocomplejoAssignment_7_1_1 : ( ruleTipoComplejo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18329:1: rule__Algoritmo__TipocomplejoAssignment_7_1_1 : ( ruleTipoComplejo ) ;
     public final void rule__Algoritmo__TipocomplejoAssignment_7_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18267:1: ( ( ruleTipoComplejo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18268:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18333:1: ( ( ruleTipoComplejo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18334:1: ( ruleTipoComplejo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18268:1: ( ruleTipoComplejo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18269:1: ruleTipoComplejo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18334:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18335:1: ruleTipoComplejo
             {
              before(grammarAccess.getAlgoritmoAccess().getTipocomplejoTipoComplejoParserRuleCall_7_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_136665);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_136793);
             ruleTipoComplejo();
 
             state._fsp--;
@@ -49597,20 +49743,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__GlobalAssignment_8_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18278:1: rule__Algoritmo__GlobalAssignment_8_1_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18344:1: rule__Algoritmo__GlobalAssignment_8_1_0 : ( ruleDeclaracion ) ;
     public final void rule__Algoritmo__GlobalAssignment_8_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18282:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18283:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18348:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18349:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18283:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18284:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18349:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18350:1: ruleDeclaracion
             {
              before(grammarAccess.getAlgoritmoAccess().getGlobalDeclaracionParserRuleCall_8_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_036696);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_036824);
             ruleDeclaracion();
 
             state._fsp--;
@@ -49638,20 +49784,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__GlobalAssignment_8_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18293:1: rule__Algoritmo__GlobalAssignment_8_1_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18359:1: rule__Algoritmo__GlobalAssignment_8_1_1 : ( ruleDeclaracion ) ;
     public final void rule__Algoritmo__GlobalAssignment_8_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18297:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18298:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18363:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18364:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18298:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18299:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18364:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18365:1: ruleDeclaracion
             {
              before(grammarAccess.getAlgoritmoAccess().getGlobalDeclaracionParserRuleCall_8_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_136727);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_136855);
             ruleDeclaracion();
 
             state._fsp--;
@@ -49679,20 +49825,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__FuncionAssignment_9_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18308:1: rule__Algoritmo__FuncionAssignment_9_0 : ( ruleSubproceso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18374:1: rule__Algoritmo__FuncionAssignment_9_0 : ( ruleSubproceso ) ;
     public final void rule__Algoritmo__FuncionAssignment_9_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18312:1: ( ( ruleSubproceso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18313:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18378:1: ( ( ruleSubproceso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18379:1: ( ruleSubproceso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18313:1: ( ruleSubproceso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18314:1: ruleSubproceso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18379:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18380:1: ruleSubproceso
             {
              before(grammarAccess.getAlgoritmoAccess().getFuncionSubprocesoParserRuleCall_9_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_036758);
+            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_036886);
             ruleSubproceso();
 
             state._fsp--;
@@ -49720,20 +49866,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__FuncionAssignment_9_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18323:1: rule__Algoritmo__FuncionAssignment_9_1 : ( ruleSubproceso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18389:1: rule__Algoritmo__FuncionAssignment_9_1 : ( ruleSubproceso ) ;
     public final void rule__Algoritmo__FuncionAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18327:1: ( ( ruleSubproceso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18328:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18393:1: ( ( ruleSubproceso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18394:1: ( ruleSubproceso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18328:1: ( ruleSubproceso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18329:1: ruleSubproceso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18394:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18395:1: ruleSubproceso
             {
              before(grammarAccess.getAlgoritmoAccess().getFuncionSubprocesoParserRuleCall_9_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_136789);
+            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_136917);
             ruleSubproceso();
 
             state._fsp--;
@@ -49761,20 +49907,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Algoritmo__TieneAssignment_10"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18338:1: rule__Algoritmo__TieneAssignment_10 : ( ruleInicio ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18404:1: rule__Algoritmo__TieneAssignment_10 : ( ruleInicio ) ;
     public final void rule__Algoritmo__TieneAssignment_10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18342:1: ( ( ruleInicio ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18343:1: ( ruleInicio )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18408:1: ( ( ruleInicio ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18409:1: ( ruleInicio )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18343:1: ( ruleInicio )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18344:1: ruleInicio
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18409:1: ( ruleInicio )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18410:1: ruleInicio
             {
              before(grammarAccess.getAlgoritmoAccess().getTieneInicioParserRuleCall_10_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleInicio_in_rule__Algoritmo__TieneAssignment_1036820);
+            pushFollow(FollowSets001.FOLLOW_ruleInicio_in_rule__Algoritmo__TieneAssignment_1036948);
             ruleInicio();
 
             state._fsp--;
@@ -49802,20 +49948,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__NombreAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18353:1: rule__Modulo__NombreAssignment_1 : ( RULE_ID ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18419:1: rule__Modulo__NombreAssignment_1 : ( RULE_ID ) ;
     public final void rule__Modulo__NombreAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18357:1: ( ( RULE_ID ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18358:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18423:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18424:1: ( RULE_ID )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18358:1: ( RULE_ID )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18359:1: RULE_ID
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18424:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18425:1: RULE_ID
             {
              before(grammarAccess.getModuloAccess().getNombreIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Modulo__NombreAssignment_136851); 
+            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Modulo__NombreAssignment_136979); 
              after(grammarAccess.getModuloAccess().getNombreIDTerminalRuleCall_1_0()); 
 
             }
@@ -49839,24 +49985,24 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__ImportacionesAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18368:1: rule__Modulo__ImportacionesAssignment_3_0 : ( ( RULE_ID ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18434:1: rule__Modulo__ImportacionesAssignment_3_0 : ( ( RULE_ID ) ) ;
     public final void rule__Modulo__ImportacionesAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18372:1: ( ( ( RULE_ID ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18373:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18438:1: ( ( ( RULE_ID ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18439:1: ( ( RULE_ID ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18373:1: ( ( RULE_ID ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18374:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18439:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18440:1: ( RULE_ID )
             {
              before(grammarAccess.getModuloAccess().getImportacionesModuloCrossReference_3_0_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18375:1: ( RULE_ID )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18376:1: RULE_ID
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18441:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18442:1: RULE_ID
             {
              before(grammarAccess.getModuloAccess().getImportacionesModuloIDTerminalRuleCall_3_0_0_1()); 
-            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_036886); 
+            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_037014); 
              after(grammarAccess.getModuloAccess().getImportacionesModuloIDTerminalRuleCall_3_0_0_1()); 
 
             }
@@ -49884,24 +50030,24 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__ImportacionesAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18387:1: rule__Modulo__ImportacionesAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18453:1: rule__Modulo__ImportacionesAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__Modulo__ImportacionesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18391:1: ( ( ( RULE_ID ) ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18392:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18457:1: ( ( ( RULE_ID ) ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18458:1: ( ( RULE_ID ) )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18392:1: ( ( RULE_ID ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18393:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18458:1: ( ( RULE_ID ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18459:1: ( RULE_ID )
             {
              before(grammarAccess.getModuloAccess().getImportacionesModuloCrossReference_3_1_0()); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18394:1: ( RULE_ID )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18395:1: RULE_ID
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18460:1: ( RULE_ID )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18461:1: RULE_ID
             {
              before(grammarAccess.getModuloAccess().getImportacionesModuloIDTerminalRuleCall_3_1_0_1()); 
-            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_136925); 
+            match(input,RULE_ID,FollowSets001.FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_137053); 
              after(grammarAccess.getModuloAccess().getImportacionesModuloIDTerminalRuleCall_3_1_0_1()); 
 
             }
@@ -49929,20 +50075,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_constantesAssignment_5_1_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18406:1: rule__Modulo__Exporta_constantesAssignment_5_1_1_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18472:1: rule__Modulo__Exporta_constantesAssignment_5_1_1_0 : ( ruleEString ) ;
     public final void rule__Modulo__Exporta_constantesAssignment_5_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18410:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18411:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18476:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18477:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18411:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18412:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18477:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18478:1: ruleEString
             {
              before(grammarAccess.getModuloAccess().getExporta_constantesEStringParserRuleCall_5_1_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_036960);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_037088);
             ruleEString();
 
             state._fsp--;
@@ -49970,20 +50116,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_constantesAssignment_5_1_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18421:1: rule__Modulo__Exporta_constantesAssignment_5_1_1_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18487:1: rule__Modulo__Exporta_constantesAssignment_5_1_1_1 : ( ruleEString ) ;
     public final void rule__Modulo__Exporta_constantesAssignment_5_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18425:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18426:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18491:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18492:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18426:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18427:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18492:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18493:1: ruleEString
             {
              before(grammarAccess.getModuloAccess().getExporta_constantesEStringParserRuleCall_5_1_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_136991);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_137119);
             ruleEString();
 
             state._fsp--;
@@ -50011,20 +50157,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_tiposAssignment_5_2_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18436:1: rule__Modulo__Exporta_tiposAssignment_5_2_1_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18502:1: rule__Modulo__Exporta_tiposAssignment_5_2_1_0 : ( ruleEString ) ;
     public final void rule__Modulo__Exporta_tiposAssignment_5_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18440:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18441:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18506:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18507:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18441:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18442:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18507:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18508:1: ruleEString
             {
              before(grammarAccess.getModuloAccess().getExporta_tiposEStringParserRuleCall_5_2_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_037022);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_037150);
             ruleEString();
 
             state._fsp--;
@@ -50052,20 +50198,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_tiposAssignment_5_2_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18451:1: rule__Modulo__Exporta_tiposAssignment_5_2_1_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18517:1: rule__Modulo__Exporta_tiposAssignment_5_2_1_1 : ( ruleEString ) ;
     public final void rule__Modulo__Exporta_tiposAssignment_5_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18455:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18456:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18521:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18522:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18456:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18457:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18522:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18523:1: ruleEString
             {
              before(grammarAccess.getModuloAccess().getExporta_tiposEStringParserRuleCall_5_2_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_137053);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_137181);
             ruleEString();
 
             state._fsp--;
@@ -50093,20 +50239,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_globalAssignment_5_3_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18466:1: rule__Modulo__Exporta_globalAssignment_5_3_1_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18532:1: rule__Modulo__Exporta_globalAssignment_5_3_1_0 : ( ruleDeclaracion ) ;
     public final void rule__Modulo__Exporta_globalAssignment_5_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18470:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18471:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18536:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18537:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18471:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18472:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18537:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18538:1: ruleDeclaracion
             {
              before(grammarAccess.getModuloAccess().getExporta_globalDeclaracionParserRuleCall_5_3_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_037084);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_037212);
             ruleDeclaracion();
 
             state._fsp--;
@@ -50134,20 +50280,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_globalAssignment_5_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18481:1: rule__Modulo__Exporta_globalAssignment_5_3_1_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18547:1: rule__Modulo__Exporta_globalAssignment_5_3_1_1 : ( ruleDeclaracion ) ;
     public final void rule__Modulo__Exporta_globalAssignment_5_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18485:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18486:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18551:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18552:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18486:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18487:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18552:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18553:1: ruleDeclaracion
             {
              before(grammarAccess.getModuloAccess().getExporta_globalDeclaracionParserRuleCall_5_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_137115);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_137243);
             ruleDeclaracion();
 
             state._fsp--;
@@ -50175,20 +50321,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_funcionesAssignment_5_4_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18496:1: rule__Modulo__Exporta_funcionesAssignment_5_4_0 : ( ruleCabeceraSubproceso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18562:1: rule__Modulo__Exporta_funcionesAssignment_5_4_0 : ( ruleCabeceraSubproceso ) ;
     public final void rule__Modulo__Exporta_funcionesAssignment_5_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18500:1: ( ( ruleCabeceraSubproceso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18501:1: ( ruleCabeceraSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18566:1: ( ( ruleCabeceraSubproceso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18567:1: ( ruleCabeceraSubproceso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18501:1: ( ruleCabeceraSubproceso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18502:1: ruleCabeceraSubproceso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18567:1: ( ruleCabeceraSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18568:1: ruleCabeceraSubproceso
             {
              before(grammarAccess.getModuloAccess().getExporta_funcionesCabeceraSubprocesoParserRuleCall_5_4_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_037146);
+            pushFollow(FollowSets001.FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_037274);
             ruleCabeceraSubproceso();
 
             state._fsp--;
@@ -50216,20 +50362,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__Exporta_funcionesAssignment_5_4_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18511:1: rule__Modulo__Exporta_funcionesAssignment_5_4_1 : ( ruleCabeceraSubproceso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18577:1: rule__Modulo__Exporta_funcionesAssignment_5_4_1 : ( ruleCabeceraSubproceso ) ;
     public final void rule__Modulo__Exporta_funcionesAssignment_5_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18515:1: ( ( ruleCabeceraSubproceso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18516:1: ( ruleCabeceraSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18581:1: ( ( ruleCabeceraSubproceso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18582:1: ( ruleCabeceraSubproceso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18516:1: ( ruleCabeceraSubproceso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18517:1: ruleCabeceraSubproceso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18582:1: ( ruleCabeceraSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18583:1: ruleCabeceraSubproceso
             {
              before(grammarAccess.getModuloAccess().getExporta_funcionesCabeceraSubprocesoParserRuleCall_5_4_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_137177);
+            pushFollow(FollowSets001.FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_137305);
             ruleCabeceraSubproceso();
 
             state._fsp--;
@@ -50257,20 +50403,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Modulo__ImplementacionAssignment_6"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18526:1: rule__Modulo__ImplementacionAssignment_6 : ( ruleImplementacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18592:1: rule__Modulo__ImplementacionAssignment_6 : ( ruleImplementacion ) ;
     public final void rule__Modulo__ImplementacionAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18530:1: ( ( ruleImplementacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18531:1: ( ruleImplementacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18596:1: ( ( ruleImplementacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18597:1: ( ruleImplementacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18531:1: ( ruleImplementacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18532:1: ruleImplementacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18597:1: ( ruleImplementacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18598:1: ruleImplementacion
             {
              before(grammarAccess.getModuloAccess().getImplementacionImplementacionParserRuleCall_6_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleImplementacion_in_rule__Modulo__ImplementacionAssignment_637208);
+            pushFollow(FollowSets001.FOLLOW_ruleImplementacion_in_rule__Modulo__ImplementacionAssignment_637336);
             ruleImplementacion();
 
             state._fsp--;
@@ -50298,20 +50444,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__ConstantesAssignment_1_1_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18541:1: rule__Implementacion__ConstantesAssignment_1_1_1_0 : ( ruleConstantes ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18607:1: rule__Implementacion__ConstantesAssignment_1_1_1_0 : ( ruleConstantes ) ;
     public final void rule__Implementacion__ConstantesAssignment_1_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18545:1: ( ( ruleConstantes ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18546:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18611:1: ( ( ruleConstantes ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18612:1: ( ruleConstantes )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18546:1: ( ruleConstantes )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18547:1: ruleConstantes
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18612:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18613:1: ruleConstantes
             {
              before(grammarAccess.getImplementacionAccess().getConstantesConstantesParserRuleCall_1_1_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_037239);
+            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_037367);
             ruleConstantes();
 
             state._fsp--;
@@ -50339,20 +50485,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__ConstantesAssignment_1_1_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18556:1: rule__Implementacion__ConstantesAssignment_1_1_1_1 : ( ruleConstantes ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18622:1: rule__Implementacion__ConstantesAssignment_1_1_1_1 : ( ruleConstantes ) ;
     public final void rule__Implementacion__ConstantesAssignment_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18560:1: ( ( ruleConstantes ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18561:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18626:1: ( ( ruleConstantes ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18627:1: ( ruleConstantes )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18561:1: ( ruleConstantes )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18562:1: ruleConstantes
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18627:1: ( ruleConstantes )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18628:1: ruleConstantes
             {
              before(grammarAccess.getImplementacionAccess().getConstantesConstantesParserRuleCall_1_1_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_137270);
+            pushFollow(FollowSets001.FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_137398);
             ruleConstantes();
 
             state._fsp--;
@@ -50380,20 +50526,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__TipocomplejoAssignment_1_2_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18571:1: rule__Implementacion__TipocomplejoAssignment_1_2_1_0 : ( ruleTipoComplejo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18637:1: rule__Implementacion__TipocomplejoAssignment_1_2_1_0 : ( ruleTipoComplejo ) ;
     public final void rule__Implementacion__TipocomplejoAssignment_1_2_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18575:1: ( ( ruleTipoComplejo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18576:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18641:1: ( ( ruleTipoComplejo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18642:1: ( ruleTipoComplejo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18576:1: ( ruleTipoComplejo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18577:1: ruleTipoComplejo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18642:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18643:1: ruleTipoComplejo
             {
              before(grammarAccess.getImplementacionAccess().getTipocomplejoTipoComplejoParserRuleCall_1_2_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_037301);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_037429);
             ruleTipoComplejo();
 
             state._fsp--;
@@ -50421,20 +50567,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__TipocomplejoAssignment_1_2_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18586:1: rule__Implementacion__TipocomplejoAssignment_1_2_1_1 : ( ruleTipoComplejo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18652:1: rule__Implementacion__TipocomplejoAssignment_1_2_1_1 : ( ruleTipoComplejo ) ;
     public final void rule__Implementacion__TipocomplejoAssignment_1_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18590:1: ( ( ruleTipoComplejo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18591:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18656:1: ( ( ruleTipoComplejo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18657:1: ( ruleTipoComplejo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18591:1: ( ruleTipoComplejo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18592:1: ruleTipoComplejo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18657:1: ( ruleTipoComplejo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18658:1: ruleTipoComplejo
             {
              before(grammarAccess.getImplementacionAccess().getTipocomplejoTipoComplejoParserRuleCall_1_2_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_137332);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_137460);
             ruleTipoComplejo();
 
             state._fsp--;
@@ -50462,20 +50608,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__GlobalAssignment_1_3_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18601:1: rule__Implementacion__GlobalAssignment_1_3_1_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18667:1: rule__Implementacion__GlobalAssignment_1_3_1_0 : ( ruleDeclaracion ) ;
     public final void rule__Implementacion__GlobalAssignment_1_3_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18605:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18606:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18671:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18672:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18606:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18607:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18672:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18673:1: ruleDeclaracion
             {
              before(grammarAccess.getImplementacionAccess().getGlobalDeclaracionParserRuleCall_1_3_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_037363);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_037491);
             ruleDeclaracion();
 
             state._fsp--;
@@ -50503,20 +50649,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__GlobalAssignment_1_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18616:1: rule__Implementacion__GlobalAssignment_1_3_1_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18682:1: rule__Implementacion__GlobalAssignment_1_3_1_1 : ( ruleDeclaracion ) ;
     public final void rule__Implementacion__GlobalAssignment_1_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18620:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18621:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18686:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18687:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18621:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18622:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18687:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18688:1: ruleDeclaracion
             {
              before(grammarAccess.getImplementacionAccess().getGlobalDeclaracionParserRuleCall_1_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_137394);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_137522);
             ruleDeclaracion();
 
             state._fsp--;
@@ -50544,20 +50690,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__FuncionAssignment_1_4_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18631:1: rule__Implementacion__FuncionAssignment_1_4_0 : ( ruleSubproceso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18697:1: rule__Implementacion__FuncionAssignment_1_4_0 : ( ruleSubproceso ) ;
     public final void rule__Implementacion__FuncionAssignment_1_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18635:1: ( ( ruleSubproceso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18636:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18701:1: ( ( ruleSubproceso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18702:1: ( ruleSubproceso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18636:1: ( ruleSubproceso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18637:1: ruleSubproceso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18702:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18703:1: ruleSubproceso
             {
              before(grammarAccess.getImplementacionAccess().getFuncionSubprocesoParserRuleCall_1_4_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_037425);
+            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_037553);
             ruleSubproceso();
 
             state._fsp--;
@@ -50585,20 +50731,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Implementacion__FuncionAssignment_1_4_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18646:1: rule__Implementacion__FuncionAssignment_1_4_1 : ( ruleSubproceso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18712:1: rule__Implementacion__FuncionAssignment_1_4_1 : ( ruleSubproceso ) ;
     public final void rule__Implementacion__FuncionAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18650:1: ( ( ruleSubproceso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18651:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18716:1: ( ( ruleSubproceso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18717:1: ( ruleSubproceso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18651:1: ( ruleSubproceso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18652:1: ruleSubproceso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18717:1: ( ruleSubproceso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18718:1: ruleSubproceso
             {
              before(grammarAccess.getImplementacionAccess().getFuncionSubprocesoParserRuleCall_1_4_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_137456);
+            pushFollow(FollowSets001.FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_137584);
             ruleSubproceso();
 
             state._fsp--;
@@ -50626,20 +50772,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraProcedimiento__NombreAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18661:1: rule__CabeceraProcedimiento__NombreAssignment_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18727:1: rule__CabeceraProcedimiento__NombreAssignment_1 : ( ruleEString ) ;
     public final void rule__CabeceraProcedimiento__NombreAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18665:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18666:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18731:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18732:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18666:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18667:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18732:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18733:1: ruleEString
             {
              before(grammarAccess.getCabeceraProcedimientoAccess().getNombreEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__CabeceraProcedimiento__NombreAssignment_137487);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__CabeceraProcedimiento__NombreAssignment_137615);
             ruleEString();
 
             state._fsp--;
@@ -50667,20 +50813,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18676:1: rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_0 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18742:1: rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_0 : ( ruleParametroFuncion ) ;
     public final void rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18680:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18681:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18746:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18747:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18681:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18682:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18747:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18748:1: ruleParametroFuncion
             {
              before(grammarAccess.getCabeceraProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_037518);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_037646);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -50708,20 +50854,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18691:1: rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_1 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18757:1: rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_1 : ( ruleParametroFuncion ) ;
     public final void rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18695:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18696:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18761:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18762:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18696:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18697:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18762:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18763:1: ruleParametroFuncion
             {
              before(grammarAccess.getCabeceraProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_137549);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_137677);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -50749,20 +50895,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraFuncion__TipoAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18706:1: rule__CabeceraFuncion__TipoAssignment_0 : ( ruleTipoVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18772:1: rule__CabeceraFuncion__TipoAssignment_0 : ( ruleTipoVariable ) ;
     public final void rule__CabeceraFuncion__TipoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18710:1: ( ( ruleTipoVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18711:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18776:1: ( ( ruleTipoVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18777:1: ( ruleTipoVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18711:1: ( ruleTipoVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18712:1: ruleTipoVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18777:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18778:1: ruleTipoVariable
             {
              before(grammarAccess.getCabeceraFuncionAccess().getTipoTipoVariableParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__CabeceraFuncion__TipoAssignment_037580);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__CabeceraFuncion__TipoAssignment_037708);
             ruleTipoVariable();
 
             state._fsp--;
@@ -50790,20 +50936,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraFuncion__NombreAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18721:1: rule__CabeceraFuncion__NombreAssignment_2 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18787:1: rule__CabeceraFuncion__NombreAssignment_2 : ( ruleEString ) ;
     public final void rule__CabeceraFuncion__NombreAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18725:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18726:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18791:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18792:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18726:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18727:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18792:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18793:1: ruleEString
             {
              before(grammarAccess.getCabeceraFuncionAccess().getNombreEStringParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__CabeceraFuncion__NombreAssignment_237611);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__CabeceraFuncion__NombreAssignment_237739);
             ruleEString();
 
             state._fsp--;
@@ -50831,20 +50977,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraFuncion__ParametrofuncionAssignment_4_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18736:1: rule__CabeceraFuncion__ParametrofuncionAssignment_4_0 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18802:1: rule__CabeceraFuncion__ParametrofuncionAssignment_4_0 : ( ruleParametroFuncion ) ;
     public final void rule__CabeceraFuncion__ParametrofuncionAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18740:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18741:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18806:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18807:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18741:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18742:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18807:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18808:1: ruleParametroFuncion
             {
              before(grammarAccess.getCabeceraFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_4_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_037642);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_037770);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -50872,20 +51018,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18751:1: rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_1 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18817:1: rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_1 : ( ruleParametroFuncion ) ;
     public final void rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18755:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18756:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18821:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18822:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18756:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18757:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18822:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18823:1: ruleParametroFuncion
             {
              before(grammarAccess.getCabeceraFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_4_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_137673);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_137801);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -50913,20 +51059,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Comentario__MensajeAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18766:1: rule__Comentario__MensajeAssignment_2 : ( RULE_COMENT ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18832:1: rule__Comentario__MensajeAssignment_2 : ( RULE_COMENT ) ;
     public final void rule__Comentario__MensajeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18770:1: ( ( RULE_COMENT ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18771:1: ( RULE_COMENT )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18836:1: ( ( RULE_COMENT ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18837:1: ( RULE_COMENT )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18771:1: ( RULE_COMENT )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18772:1: RULE_COMENT
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18837:1: ( RULE_COMENT )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18838:1: RULE_COMENT
             {
              before(grammarAccess.getComentarioAccess().getMensajeCOMENTTerminalRuleCall_2_0()); 
-            match(input,RULE_COMENT,FollowSets001.FOLLOW_RULE_COMENT_in_rule__Comentario__MensajeAssignment_237704); 
+            match(input,RULE_COMENT,FollowSets001.FOLLOW_RULE_COMENT_in_rule__Comentario__MensajeAssignment_237832); 
              after(grammarAccess.getComentarioAccess().getMensajeCOMENTTerminalRuleCall_2_0()); 
 
             }
@@ -50950,20 +51096,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__FuncionFicheroAbrir__VariableAssignment_2_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18781:1: rule__FuncionFicheroAbrir__VariableAssignment_2_0 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18847:1: rule__FuncionFicheroAbrir__VariableAssignment_2_0 : ( rulePrimaria ) ;
     public final void rule__FuncionFicheroAbrir__VariableAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18785:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18786:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18851:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18852:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18786:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18787:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18852:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18853:1: rulePrimaria
             {
              before(grammarAccess.getFuncionFicheroAbrirAccess().getVariablePrimariaParserRuleCall_2_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_037735);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_037863);
             rulePrimaria();
 
             state._fsp--;
@@ -50991,20 +51137,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__FuncionFicheroAbrir__ModoAssignment_2_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18796:1: rule__FuncionFicheroAbrir__ModoAssignment_2_2 : ( ruleModoApertura ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18862:1: rule__FuncionFicheroAbrir__ModoAssignment_2_2 : ( ruleModoApertura ) ;
     public final void rule__FuncionFicheroAbrir__ModoAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18800:1: ( ( ruleModoApertura ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18801:1: ( ruleModoApertura )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18866:1: ( ( ruleModoApertura ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18867:1: ( ruleModoApertura )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18801:1: ( ruleModoApertura )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18802:1: ruleModoApertura
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18867:1: ( ruleModoApertura )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18868:1: ruleModoApertura
             {
              before(grammarAccess.getFuncionFicheroAbrirAccess().getModoModoAperturaParserRuleCall_2_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleModoApertura_in_rule__FuncionFicheroAbrir__ModoAssignment_2_237766);
+            pushFollow(FollowSets001.FOLLOW_ruleModoApertura_in_rule__FuncionFicheroAbrir__ModoAssignment_2_237894);
             ruleModoApertura();
 
             state._fsp--;
@@ -51032,20 +51178,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__FuncionFicheroAbrir__VariableAssignment_2_4"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18811:1: rule__FuncionFicheroAbrir__VariableAssignment_2_4 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18877:1: rule__FuncionFicheroAbrir__VariableAssignment_2_4 : ( rulePrimaria ) ;
     public final void rule__FuncionFicheroAbrir__VariableAssignment_2_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18815:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18816:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18881:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18882:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18816:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18817:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18882:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18883:1: rulePrimaria
             {
              before(grammarAccess.getFuncionFicheroAbrirAccess().getVariablePrimariaParserRuleCall_2_4_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_437797);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_437925);
             rulePrimaria();
 
             state._fsp--;
@@ -51073,20 +51219,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__FuncionFicheroCerrar__VariableAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18826:1: rule__FuncionFicheroCerrar__VariableAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18892:1: rule__FuncionFicheroCerrar__VariableAssignment_2 : ( rulePrimaria ) ;
     public final void rule__FuncionFicheroCerrar__VariableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18830:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18831:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18896:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18897:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18831:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18832:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18897:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18898:1: rulePrimaria
             {
              before(grammarAccess.getFuncionFicheroCerrarAccess().getVariablePrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__FuncionFicheroCerrar__VariableAssignment_237828);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__FuncionFicheroCerrar__VariableAssignment_237956);
             rulePrimaria();
 
             state._fsp--;
@@ -51114,20 +51260,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__CampoRegistro__Nombre_campoAssignment"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18841:1: rule__CampoRegistro__Nombre_campoAssignment : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18907:1: rule__CampoRegistro__Nombre_campoAssignment : ( ruleEString ) ;
     public final void rule__CampoRegistro__Nombre_campoAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18845:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18846:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18911:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18912:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18846:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18847:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18912:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18913:1: ruleEString
             {
              before(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__CampoRegistro__Nombre_campoAssignment37859);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__CampoRegistro__Nombre_campoAssignment37987);
             ruleEString();
 
             state._fsp--;
@@ -51155,20 +51301,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TipoDefinido__TipoAssignment"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18856:1: rule__TipoDefinido__TipoAssignment : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18922:1: rule__TipoDefinido__TipoAssignment : ( ruleEString ) ;
     public final void rule__TipoDefinido__TipoAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18860:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18861:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18926:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18927:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18861:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18862:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18927:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18928:1: ruleEString
             {
              before(grammarAccess.getTipoDefinidoAccess().getTipoEStringParserRuleCall_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__TipoDefinido__TipoAssignment37890);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__TipoDefinido__TipoAssignment38018);
             ruleEString();
 
             state._fsp--;
@@ -51196,20 +51342,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TipoExistente__TipoAssignment"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18871:1: rule__TipoExistente__TipoAssignment : ( ruleTipoVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18937:1: rule__TipoExistente__TipoAssignment : ( ruleTipoVariable ) ;
     public final void rule__TipoExistente__TipoAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18875:1: ( ( ruleTipoVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18876:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18941:1: ( ( ruleTipoVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18942:1: ( ruleTipoVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18876:1: ( ruleTipoVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18877:1: ruleTipoVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18942:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18943:1: ruleTipoVariable
             {
              before(grammarAccess.getTipoExistenteAccess().getTipoTipoVariableParserRuleCall_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__TipoExistente__TipoAssignment37921);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__TipoExistente__TipoAssignment38049);
             ruleTipoVariable();
 
             state._fsp--;
@@ -51237,20 +51383,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constantes__VariableAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18886:1: rule__Constantes__VariableAssignment_0 : ( ruleVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18952:1: rule__Constantes__VariableAssignment_0 : ( ruleVariable ) ;
     public final void rule__Constantes__VariableAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18890:1: ( ( ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18891:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18956:1: ( ( ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18957:1: ( ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18891:1: ( ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18892:1: ruleVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18957:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18958:1: ruleVariable
             {
              before(grammarAccess.getConstantesAccess().getVariableVariableParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__Constantes__VariableAssignment_037952);
+            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__Constantes__VariableAssignment_038080);
             ruleVariable();
 
             state._fsp--;
@@ -51278,20 +51424,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Constantes__ValorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18901:1: rule__Constantes__ValorAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18967:1: rule__Constantes__ValorAssignment_2 : ( rulePrimaria ) ;
     public final void rule__Constantes__ValorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18905:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18906:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18971:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18972:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18906:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18907:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18972:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18973:1: rulePrimaria
             {
              before(grammarAccess.getConstantesAccess().getValorPrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Constantes__ValorAssignment_237983);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Constantes__ValorAssignment_238111);
             rulePrimaria();
 
             state._fsp--;
@@ -51319,20 +51465,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Vector__ValorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18916:1: rule__Vector__ValorAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18982:1: rule__Vector__ValorAssignment_2 : ( rulePrimaria ) ;
     public final void rule__Vector__ValorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18920:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18921:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18986:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18987:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18921:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18922:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18987:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18988:1: rulePrimaria
             {
              before(grammarAccess.getVectorAccess().getValorPrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Vector__ValorAssignment_238014);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Vector__ValorAssignment_238142);
             rulePrimaria();
 
             state._fsp--;
@@ -51360,20 +51506,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Vector__TipoAssignment_5"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18931:1: rule__Vector__TipoAssignment_5 : ( ruleTipo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18997:1: rule__Vector__TipoAssignment_5 : ( ruleTipo ) ;
     public final void rule__Vector__TipoAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18935:1: ( ( ruleTipo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18936:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19001:1: ( ( ruleTipo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19002:1: ( ruleTipo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18936:1: ( ruleTipo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18937:1: ruleTipo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19002:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19003:1: ruleTipo
             {
              before(grammarAccess.getVectorAccess().getTipoTipoParserRuleCall_5_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__Vector__TipoAssignment_538045);
+            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__Vector__TipoAssignment_538173);
             ruleTipo();
 
             state._fsp--;
@@ -51401,20 +51547,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Vector__NombreAssignment_7"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18946:1: rule__Vector__NombreAssignment_7 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19012:1: rule__Vector__NombreAssignment_7 : ( ruleEString ) ;
     public final void rule__Vector__NombreAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18950:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18951:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19016:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19017:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18951:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18952:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19017:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19018:1: ruleEString
             {
              before(grammarAccess.getVectorAccess().getNombreEStringParserRuleCall_7_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Vector__NombreAssignment_738076);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Vector__NombreAssignment_738204);
             ruleEString();
 
             state._fsp--;
@@ -51442,20 +51588,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Matriz__ValorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18961:1: rule__Matriz__ValorAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19027:1: rule__Matriz__ValorAssignment_2 : ( rulePrimaria ) ;
     public final void rule__Matriz__ValorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18965:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18966:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19031:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19032:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18966:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18967:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19032:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19033:1: rulePrimaria
             {
              before(grammarAccess.getMatrizAccess().getValorPrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_238107);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_238235);
             rulePrimaria();
 
             state._fsp--;
@@ -51483,20 +51629,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Matriz__ValorAssignment_4"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18976:1: rule__Matriz__ValorAssignment_4 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19042:1: rule__Matriz__ValorAssignment_4 : ( rulePrimaria ) ;
     public final void rule__Matriz__ValorAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18980:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18981:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19046:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19047:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18981:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18982:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19047:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19048:1: rulePrimaria
             {
              before(grammarAccess.getMatrizAccess().getValorPrimariaParserRuleCall_4_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_438138);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_438266);
             rulePrimaria();
 
             state._fsp--;
@@ -51524,20 +51670,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Matriz__TipoAssignment_7"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18991:1: rule__Matriz__TipoAssignment_7 : ( ruleTipo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19057:1: rule__Matriz__TipoAssignment_7 : ( ruleTipo ) ;
     public final void rule__Matriz__TipoAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18995:1: ( ( ruleTipo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18996:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19061:1: ( ( ruleTipo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19062:1: ( ruleTipo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18996:1: ( ruleTipo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18997:1: ruleTipo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19062:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19063:1: ruleTipo
             {
              before(grammarAccess.getMatrizAccess().getTipoTipoParserRuleCall_7_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__Matriz__TipoAssignment_738169);
+            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__Matriz__TipoAssignment_738297);
             ruleTipo();
 
             state._fsp--;
@@ -51565,20 +51711,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Matriz__NombreAssignment_9"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19006:1: rule__Matriz__NombreAssignment_9 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19072:1: rule__Matriz__NombreAssignment_9 : ( ruleEString ) ;
     public final void rule__Matriz__NombreAssignment_9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19010:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19011:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19076:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19077:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19011:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19012:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19077:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19078:1: ruleEString
             {
              before(grammarAccess.getMatrizAccess().getNombreEStringParserRuleCall_9_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Matriz__NombreAssignment_938200);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Matriz__NombreAssignment_938328);
             ruleEString();
 
             state._fsp--;
@@ -51606,20 +51752,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Registro__NombreAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19021:1: rule__Registro__NombreAssignment_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19087:1: rule__Registro__NombreAssignment_1 : ( ruleEString ) ;
     public final void rule__Registro__NombreAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19025:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19026:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19091:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19092:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19026:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19027:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19092:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19093:1: ruleEString
             {
              before(grammarAccess.getRegistroAccess().getNombreEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Registro__NombreAssignment_138231);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Registro__NombreAssignment_138359);
             ruleEString();
 
             state._fsp--;
@@ -51647,20 +51793,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Registro__VariableAssignment_2_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19036:1: rule__Registro__VariableAssignment_2_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19102:1: rule__Registro__VariableAssignment_2_0 : ( ruleDeclaracion ) ;
     public final void rule__Registro__VariableAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19040:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19041:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19106:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19107:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19041:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19042:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19107:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19108:1: ruleDeclaracion
             {
              before(grammarAccess.getRegistroAccess().getVariableDeclaracionParserRuleCall_2_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_038262);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_038390);
             ruleDeclaracion();
 
             state._fsp--;
@@ -51688,20 +51834,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Registro__VariableAssignment_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19051:1: rule__Registro__VariableAssignment_2_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19117:1: rule__Registro__VariableAssignment_2_1 : ( ruleDeclaracion ) ;
     public final void rule__Registro__VariableAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19055:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19056:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19121:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19122:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19056:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19057:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19122:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19123:1: ruleDeclaracion
             {
              before(grammarAccess.getRegistroAccess().getVariableDeclaracionParserRuleCall_2_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_138293);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_138421);
             ruleDeclaracion();
 
             state._fsp--;
@@ -51729,20 +51875,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Archivo__TipoAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19066:1: rule__Archivo__TipoAssignment_1 : ( ruleTipo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19132:1: rule__Archivo__TipoAssignment_1 : ( ruleTipo ) ;
     public final void rule__Archivo__TipoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19070:1: ( ( ruleTipo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19071:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19136:1: ( ( ruleTipo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19137:1: ( ruleTipo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19071:1: ( ruleTipo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19072:1: ruleTipo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19137:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19138:1: ruleTipo
             {
              before(grammarAccess.getArchivoAccess().getTipoTipoParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__Archivo__TipoAssignment_138324);
+            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__Archivo__TipoAssignment_138452);
             ruleTipo();
 
             state._fsp--;
@@ -51770,20 +51916,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Archivo__NombreAssignment_3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19081:1: rule__Archivo__NombreAssignment_3 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19147:1: rule__Archivo__NombreAssignment_3 : ( ruleEString ) ;
     public final void rule__Archivo__NombreAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19085:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19086:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19151:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19152:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19086:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19087:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19152:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19153:1: ruleEString
             {
              before(grammarAccess.getArchivoAccess().getNombreEStringParserRuleCall_3_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Archivo__NombreAssignment_338355);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Archivo__NombreAssignment_338483);
             ruleEString();
 
             state._fsp--;
@@ -51811,20 +51957,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Enumerado__NombreAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19096:1: rule__Enumerado__NombreAssignment_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19162:1: rule__Enumerado__NombreAssignment_0 : ( ruleEString ) ;
     public final void rule__Enumerado__NombreAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19100:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19101:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19166:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19167:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19101:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19102:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19167:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19168:1: ruleEString
             {
              before(grammarAccess.getEnumeradoAccess().getNombreEStringParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Enumerado__NombreAssignment_038386);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Enumerado__NombreAssignment_038514);
             ruleEString();
 
             state._fsp--;
@@ -51852,20 +51998,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Enumerado__ValorAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19111:1: rule__Enumerado__ValorAssignment_3_0 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19177:1: rule__Enumerado__ValorAssignment_3_0 : ( rulePrimaria ) ;
     public final void rule__Enumerado__ValorAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19115:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19116:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19181:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19182:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19116:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19117:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19182:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19183:1: rulePrimaria
             {
              before(grammarAccess.getEnumeradoAccess().getValorPrimariaParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_038417);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_038545);
             rulePrimaria();
 
             state._fsp--;
@@ -51893,20 +52039,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Enumerado__ValorAssignment_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19126:1: rule__Enumerado__ValorAssignment_3_1_1 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19192:1: rule__Enumerado__ValorAssignment_3_1_1 : ( rulePrimaria ) ;
     public final void rule__Enumerado__ValorAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19130:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19131:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19196:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19197:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19131:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19132:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19197:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19198:1: rulePrimaria
             {
              before(grammarAccess.getEnumeradoAccess().getValorPrimariaParserRuleCall_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_1_138448);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_1_138576);
             rulePrimaria();
 
             state._fsp--;
@@ -51934,20 +52080,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SubrangoNumerico__NombreAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19141:1: rule__SubrangoNumerico__NombreAssignment_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19207:1: rule__SubrangoNumerico__NombreAssignment_0 : ( ruleEString ) ;
     public final void rule__SubrangoNumerico__NombreAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19145:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19146:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19211:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19212:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19146:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19147:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19212:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19213:1: ruleEString
             {
              before(grammarAccess.getSubrangoNumericoAccess().getNombreEStringParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoNumerico__NombreAssignment_038479);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoNumerico__NombreAssignment_038607);
             ruleEString();
 
             state._fsp--;
@@ -51975,20 +52121,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SubrangoNumerico__Limite_infAssignment_2_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19156:1: rule__SubrangoNumerico__Limite_infAssignment_2_0 : ( ruleEInt ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19222:1: rule__SubrangoNumerico__Limite_infAssignment_2_0 : ( ruleEInt ) ;
     public final void rule__SubrangoNumerico__Limite_infAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19160:1: ( ( ruleEInt ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19161:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19226:1: ( ( ruleEInt ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19227:1: ( ruleEInt )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19161:1: ( ruleEInt )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19162:1: ruleEInt
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19227:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19228:1: ruleEInt
             {
              before(grammarAccess.getSubrangoNumericoAccess().getLimite_infEIntParserRuleCall_2_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_infAssignment_2_038510);
+            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_infAssignment_2_038638);
             ruleEInt();
 
             state._fsp--;
@@ -52016,20 +52162,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SubrangoNumerico__Limite_supAssignment_2_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19171:1: rule__SubrangoNumerico__Limite_supAssignment_2_2 : ( ruleEInt ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19237:1: rule__SubrangoNumerico__Limite_supAssignment_2_2 : ( ruleEInt ) ;
     public final void rule__SubrangoNumerico__Limite_supAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19175:1: ( ( ruleEInt ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19176:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19241:1: ( ( ruleEInt ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19242:1: ( ruleEInt )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19176:1: ( ruleEInt )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19177:1: ruleEInt
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19242:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19243:1: ruleEInt
             {
              before(grammarAccess.getSubrangoNumericoAccess().getLimite_supEIntParserRuleCall_2_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_supAssignment_2_238541);
+            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_supAssignment_2_238669);
             ruleEInt();
 
             state._fsp--;
@@ -52057,20 +52203,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SubrangoEnumerado__NombreAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19186:1: rule__SubrangoEnumerado__NombreAssignment_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19252:1: rule__SubrangoEnumerado__NombreAssignment_0 : ( ruleEString ) ;
     public final void rule__SubrangoEnumerado__NombreAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19190:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19191:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19256:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19257:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19191:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19192:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19257:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19258:1: ruleEString
             {
              before(grammarAccess.getSubrangoEnumeradoAccess().getNombreEStringParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoEnumerado__NombreAssignment_038572);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoEnumerado__NombreAssignment_038700);
             ruleEString();
 
             state._fsp--;
@@ -52098,20 +52244,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SubrangoEnumerado__Limite_infAssignment_2_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19201:1: rule__SubrangoEnumerado__Limite_infAssignment_2_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19267:1: rule__SubrangoEnumerado__Limite_infAssignment_2_0 : ( ruleEString ) ;
     public final void rule__SubrangoEnumerado__Limite_infAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19205:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19206:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19271:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19272:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19206:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19207:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19272:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19273:1: ruleEString
             {
              before(grammarAccess.getSubrangoEnumeradoAccess().getLimite_infEStringParserRuleCall_2_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_infAssignment_2_038603);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_infAssignment_2_038731);
             ruleEString();
 
             state._fsp--;
@@ -52139,20 +52285,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SubrangoEnumerado__Limite_supAssignment_2_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19216:1: rule__SubrangoEnumerado__Limite_supAssignment_2_2 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19282:1: rule__SubrangoEnumerado__Limite_supAssignment_2_2 : ( ruleEString ) ;
     public final void rule__SubrangoEnumerado__Limite_supAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19220:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19221:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19286:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19287:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19221:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19222:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19287:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19288:1: ruleEString
             {
              before(grammarAccess.getSubrangoEnumeradoAccess().getLimite_supEStringParserRuleCall_2_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_supAssignment_2_238634);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_supAssignment_2_238762);
             ruleEString();
 
             state._fsp--;
@@ -52180,20 +52326,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Inicio__DeclaracionAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19231:1: rule__Inicio__DeclaracionAssignment_3_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19297:1: rule__Inicio__DeclaracionAssignment_3_0 : ( ruleDeclaracion ) ;
     public final void rule__Inicio__DeclaracionAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19235:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19236:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19301:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19302:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19236:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19237:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19302:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19303:1: ruleDeclaracion
             {
              before(grammarAccess.getInicioAccess().getDeclaracionDeclaracionParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_038665);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_038793);
             ruleDeclaracion();
 
             state._fsp--;
@@ -52221,20 +52367,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Inicio__DeclaracionAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19246:1: rule__Inicio__DeclaracionAssignment_3_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19312:1: rule__Inicio__DeclaracionAssignment_3_1 : ( ruleDeclaracion ) ;
     public final void rule__Inicio__DeclaracionAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19250:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19251:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19316:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19317:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19251:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19252:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19317:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19318:1: ruleDeclaracion
             {
              before(grammarAccess.getInicioAccess().getDeclaracionDeclaracionParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_138696);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_138824);
             ruleDeclaracion();
 
             state._fsp--;
@@ -52262,20 +52408,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Inicio__TieneAssignment_5_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19261:1: rule__Inicio__TieneAssignment_5_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19327:1: rule__Inicio__TieneAssignment_5_0 : ( ruleSentencias ) ;
     public final void rule__Inicio__TieneAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19265:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19266:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19331:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19332:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19266:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19267:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19332:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19333:1: ruleSentencias
             {
              before(grammarAccess.getInicioAccess().getTieneSentenciasParserRuleCall_5_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_038727);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_038855);
             ruleSentencias();
 
             state._fsp--;
@@ -52303,20 +52449,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Inicio__TieneAssignment_5_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19276:1: rule__Inicio__TieneAssignment_5_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19342:1: rule__Inicio__TieneAssignment_5_1 : ( ruleSentencias ) ;
     public final void rule__Inicio__TieneAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19280:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19281:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19346:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19347:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19281:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19282:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19347:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19348:1: ruleSentencias
             {
              before(grammarAccess.getInicioAccess().getTieneSentenciasParserRuleCall_5_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_138758);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_138886);
             ruleSentencias();
 
             state._fsp--;
@@ -52344,20 +52490,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DeclaracionVariable__TipoAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19291:1: rule__DeclaracionVariable__TipoAssignment_0 : ( ruleTipoVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19357:1: rule__DeclaracionVariable__TipoAssignment_0 : ( ruleTipoVariable ) ;
     public final void rule__DeclaracionVariable__TipoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19295:1: ( ( ruleTipoVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19296:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19361:1: ( ( ruleTipoVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19362:1: ( ruleTipoVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19296:1: ( ruleTipoVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19297:1: ruleTipoVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19362:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19363:1: ruleTipoVariable
             {
              before(grammarAccess.getDeclaracionVariableAccess().getTipoTipoVariableParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__DeclaracionVariable__TipoAssignment_038789);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__DeclaracionVariable__TipoAssignment_038917);
             ruleTipoVariable();
 
             state._fsp--;
@@ -52385,20 +52531,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DeclaracionVariable__VariableAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19306:1: rule__DeclaracionVariable__VariableAssignment_2 : ( ruleVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19372:1: rule__DeclaracionVariable__VariableAssignment_2 : ( ruleVariable ) ;
     public final void rule__DeclaracionVariable__VariableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19310:1: ( ( ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19311:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19376:1: ( ( ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19377:1: ( ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19311:1: ( ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19312:1: ruleVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19377:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19378:1: ruleVariable
             {
              before(grammarAccess.getDeclaracionVariableAccess().getVariableVariableParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_238820);
+            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_238948);
             ruleVariable();
 
             state._fsp--;
@@ -52426,20 +52572,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DeclaracionVariable__VariableAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19321:1: rule__DeclaracionVariable__VariableAssignment_3_1 : ( ruleVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19387:1: rule__DeclaracionVariable__VariableAssignment_3_1 : ( ruleVariable ) ;
     public final void rule__DeclaracionVariable__VariableAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19325:1: ( ( ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19326:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19391:1: ( ( ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19392:1: ( ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19326:1: ( ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19327:1: ruleVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19392:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19393:1: ruleVariable
             {
              before(grammarAccess.getDeclaracionVariableAccess().getVariableVariableParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_3_138851);
+            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_3_138979);
             ruleVariable();
 
             state._fsp--;
@@ -52467,20 +52613,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DeclaracionPropia__TipoAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19336:1: rule__DeclaracionPropia__TipoAssignment_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19402:1: rule__DeclaracionPropia__TipoAssignment_0 : ( ruleEString ) ;
     public final void rule__DeclaracionPropia__TipoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19340:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19341:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19406:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19407:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19341:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19342:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19407:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19408:1: ruleEString
             {
              before(grammarAccess.getDeclaracionPropiaAccess().getTipoEStringParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__DeclaracionPropia__TipoAssignment_038882);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__DeclaracionPropia__TipoAssignment_039010);
             ruleEString();
 
             state._fsp--;
@@ -52508,20 +52654,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DeclaracionPropia__VariableAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19351:1: rule__DeclaracionPropia__VariableAssignment_2 : ( ruleVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19417:1: rule__DeclaracionPropia__VariableAssignment_2 : ( ruleVariable ) ;
     public final void rule__DeclaracionPropia__VariableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19355:1: ( ( ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19356:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19421:1: ( ( ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19422:1: ( ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19356:1: ( ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19357:1: ruleVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19422:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19423:1: ruleVariable
             {
              before(grammarAccess.getDeclaracionPropiaAccess().getVariableVariableParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_238913);
+            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_239041);
             ruleVariable();
 
             state._fsp--;
@@ -52549,20 +52695,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DeclaracionPropia__VariableAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19366:1: rule__DeclaracionPropia__VariableAssignment_3_1 : ( ruleVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19432:1: rule__DeclaracionPropia__VariableAssignment_3_1 : ( ruleVariable ) ;
     public final void rule__DeclaracionPropia__VariableAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19370:1: ( ( ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19371:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19436:1: ( ( ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19437:1: ( ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19371:1: ( ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19372:1: ruleVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19437:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19438:1: ruleVariable
             {
              before(grammarAccess.getDeclaracionPropiaAccess().getVariableVariableParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_3_138944);
+            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_3_139072);
             ruleVariable();
 
             state._fsp--;
@@ -52590,20 +52736,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AsignacionNormal__Valor_asignacionAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19381:1: rule__AsignacionNormal__Valor_asignacionAssignment_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19447:1: rule__AsignacionNormal__Valor_asignacionAssignment_0 : ( ruleEString ) ;
     public final void rule__AsignacionNormal__Valor_asignacionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19385:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19386:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19451:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19452:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19386:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19387:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19452:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19453:1: ruleEString
             {
              before(grammarAccess.getAsignacionNormalAccess().getValor_asignacionEStringParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__AsignacionNormal__Valor_asignacionAssignment_038975);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__AsignacionNormal__Valor_asignacionAssignment_039103);
             ruleEString();
 
             state._fsp--;
@@ -52631,20 +52777,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AsignacionNormal__OperadorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19396:1: rule__AsignacionNormal__OperadorAssignment_2 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19462:1: rule__AsignacionNormal__OperadorAssignment_2 : ( ruleoperacion ) ;
     public final void rule__AsignacionNormal__OperadorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19400:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19401:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19466:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19467:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19401:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19402:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19467:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19468:1: ruleoperacion
             {
              before(grammarAccess.getAsignacionNormalAccess().getOperadorOperacionParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__AsignacionNormal__OperadorAssignment_239006);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__AsignacionNormal__OperadorAssignment_239134);
             ruleoperacion();
 
             state._fsp--;
@@ -52672,20 +52818,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AsignacionCompleja__Valor_asignacionAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19411:1: rule__AsignacionCompleja__Valor_asignacionAssignment_0 : ( ruleVariablesComplejas ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19477:1: rule__AsignacionCompleja__Valor_asignacionAssignment_0 : ( ruleVariablesComplejas ) ;
     public final void rule__AsignacionCompleja__Valor_asignacionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19415:1: ( ( ruleVariablesComplejas ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19416:1: ( ruleVariablesComplejas )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19481:1: ( ( ruleVariablesComplejas ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19482:1: ( ruleVariablesComplejas )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19416:1: ( ruleVariablesComplejas )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19417:1: ruleVariablesComplejas
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19482:1: ( ruleVariablesComplejas )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19483:1: ruleVariablesComplejas
             {
              before(grammarAccess.getAsignacionComplejaAccess().getValor_asignacionVariablesComplejasParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariablesComplejas_in_rule__AsignacionCompleja__Valor_asignacionAssignment_039037);
+            pushFollow(FollowSets001.FOLLOW_ruleVariablesComplejas_in_rule__AsignacionCompleja__Valor_asignacionAssignment_039165);
             ruleVariablesComplejas();
 
             state._fsp--;
@@ -52713,20 +52859,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AsignacionCompleja__OperadorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19426:1: rule__AsignacionCompleja__OperadorAssignment_2 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19492:1: rule__AsignacionCompleja__OperadorAssignment_2 : ( ruleoperacion ) ;
     public final void rule__AsignacionCompleja__OperadorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19430:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19431:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19496:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19497:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19431:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19432:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19497:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19498:1: ruleoperacion
             {
              before(grammarAccess.getAsignacionComplejaAccess().getOperadorOperacionParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__AsignacionCompleja__OperadorAssignment_239068);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__AsignacionCompleja__OperadorAssignment_239196);
             ruleoperacion();
 
             state._fsp--;
@@ -52754,20 +52900,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Escribir__OperadorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19441:1: rule__Escribir__OperadorAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19507:1: rule__Escribir__OperadorAssignment_2 : ( rulePrimaria ) ;
     public final void rule__Escribir__OperadorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19445:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19446:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19511:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19512:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19446:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19447:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19512:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19513:1: rulePrimaria
             {
              before(grammarAccess.getEscribirAccess().getOperadorPrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_239099);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_239227);
             rulePrimaria();
 
             state._fsp--;
@@ -52795,20 +52941,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Escribir__OperadorAssignment_3_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19456:1: rule__Escribir__OperadorAssignment_3_0_1 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19522:1: rule__Escribir__OperadorAssignment_3_0_1 : ( rulePrimaria ) ;
     public final void rule__Escribir__OperadorAssignment_3_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19460:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19461:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19526:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19527:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19461:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19462:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19527:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19528:1: rulePrimaria
             {
              before(grammarAccess.getEscribirAccess().getOperadorPrimariaParserRuleCall_3_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_3_0_139130);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_3_0_139258);
             rulePrimaria();
 
             state._fsp--;
@@ -52836,20 +52982,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Escribir__OperadorAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19471:1: rule__Escribir__OperadorAssignment_3_1 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19537:1: rule__Escribir__OperadorAssignment_3_1 : ( ruleoperacion ) ;
     public final void rule__Escribir__OperadorAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19475:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19476:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19541:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19542:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19476:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19477:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19542:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19543:1: ruleoperacion
             {
              before(grammarAccess.getEscribirAccess().getOperadorOperacionParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Escribir__OperadorAssignment_3_139161);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Escribir__OperadorAssignment_3_139289);
             ruleoperacion();
 
             state._fsp--;
@@ -52877,20 +53023,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Leer__VariableAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19486:1: rule__Leer__VariableAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19552:1: rule__Leer__VariableAssignment_2 : ( rulePrimaria ) ;
     public final void rule__Leer__VariableAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19490:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19491:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19556:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19557:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19491:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19492:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19557:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19558:1: rulePrimaria
             {
              before(grammarAccess.getLeerAccess().getVariablePrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Leer__VariableAssignment_239192);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Leer__VariableAssignment_239320);
             rulePrimaria();
 
             state._fsp--;
@@ -52918,20 +53064,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Si__ValorAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19501:1: rule__Si__ValorAssignment_1 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19567:1: rule__Si__ValorAssignment_1 : ( ruleoperacion ) ;
     public final void rule__Si__ValorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19505:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19506:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19571:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19572:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19506:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19507:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19572:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19573:1: ruleoperacion
             {
              before(grammarAccess.getSiAccess().getValorOperacionParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Si__ValorAssignment_139223);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Si__ValorAssignment_139351);
             ruleoperacion();
 
             state._fsp--;
@@ -52959,20 +53105,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Si__SentenciasAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19516:1: rule__Si__SentenciasAssignment_3_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19582:1: rule__Si__SentenciasAssignment_3_0 : ( ruleSentencias ) ;
     public final void rule__Si__SentenciasAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19520:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19521:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19586:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19587:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19521:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19522:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19587:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19588:1: ruleSentencias
             {
              before(grammarAccess.getSiAccess().getSentenciasSentenciasParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_039254);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_039382);
             ruleSentencias();
 
             state._fsp--;
@@ -53000,20 +53146,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Si__SentenciasAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19531:1: rule__Si__SentenciasAssignment_3_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19597:1: rule__Si__SentenciasAssignment_3_1 : ( ruleSentencias ) ;
     public final void rule__Si__SentenciasAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19535:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19536:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19601:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19602:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19536:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19537:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19602:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19603:1: ruleSentencias
             {
              before(grammarAccess.getSiAccess().getSentenciasSentenciasParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_139285);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_139413);
             ruleSentencias();
 
             state._fsp--;
@@ -53041,20 +53187,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Si__DevuelveAssignment_4"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19546:1: rule__Si__DevuelveAssignment_4 : ( ruleDevolver ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19612:1: rule__Si__DevuelveAssignment_4 : ( ruleDevolver ) ;
     public final void rule__Si__DevuelveAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19550:1: ( ( ruleDevolver ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19551:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19616:1: ( ( ruleDevolver ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19617:1: ( ruleDevolver )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19551:1: ( ruleDevolver )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19552:1: ruleDevolver
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19617:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19618:1: ruleDevolver
             {
              before(grammarAccess.getSiAccess().getDevuelveDevolverParserRuleCall_4_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Si__DevuelveAssignment_439316);
+            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Si__DevuelveAssignment_439444);
             ruleDevolver();
 
             state._fsp--;
@@ -53082,20 +53228,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Si__SinoAssignment_5"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19561:1: rule__Si__SinoAssignment_5 : ( ruleSino ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19627:1: rule__Si__SinoAssignment_5 : ( ruleSino ) ;
     public final void rule__Si__SinoAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19565:1: ( ( ruleSino ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19566:1: ( ruleSino )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19631:1: ( ( ruleSino ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19632:1: ( ruleSino )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19566:1: ( ruleSino )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19567:1: ruleSino
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19632:1: ( ruleSino )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19633:1: ruleSino
             {
              before(grammarAccess.getSiAccess().getSinoSinoParserRuleCall_5_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSino_in_rule__Si__SinoAssignment_539347);
+            pushFollow(FollowSets001.FOLLOW_ruleSino_in_rule__Si__SinoAssignment_539475);
             ruleSino();
 
             state._fsp--;
@@ -53123,20 +53269,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Mientras__ValorAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19576:1: rule__Mientras__ValorAssignment_1 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19642:1: rule__Mientras__ValorAssignment_1 : ( ruleoperacion ) ;
     public final void rule__Mientras__ValorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19580:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19581:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19646:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19647:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19581:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19582:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19647:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19648:1: ruleoperacion
             {
              before(grammarAccess.getMientrasAccess().getValorOperacionParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Mientras__ValorAssignment_139378);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Mientras__ValorAssignment_139506);
             ruleoperacion();
 
             state._fsp--;
@@ -53164,20 +53310,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Mientras__SentenciasAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19591:1: rule__Mientras__SentenciasAssignment_3_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19657:1: rule__Mientras__SentenciasAssignment_3_0 : ( ruleSentencias ) ;
     public final void rule__Mientras__SentenciasAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19595:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19596:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19661:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19662:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19596:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19597:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19662:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19663:1: ruleSentencias
             {
              before(grammarAccess.getMientrasAccess().getSentenciasSentenciasParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_039409);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_039537);
             ruleSentencias();
 
             state._fsp--;
@@ -53205,20 +53351,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Mientras__SentenciasAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19606:1: rule__Mientras__SentenciasAssignment_3_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19672:1: rule__Mientras__SentenciasAssignment_3_1 : ( ruleSentencias ) ;
     public final void rule__Mientras__SentenciasAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19610:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19611:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19676:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19677:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19611:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19612:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19677:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19678:1: ruleSentencias
             {
              before(grammarAccess.getMientrasAccess().getSentenciasSentenciasParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_139440);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_139568);
             ruleSentencias();
 
             state._fsp--;
@@ -53246,20 +53392,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Repetir__SentenciasAssignment_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19621:1: rule__Repetir__SentenciasAssignment_1_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19687:1: rule__Repetir__SentenciasAssignment_1_0 : ( ruleSentencias ) ;
     public final void rule__Repetir__SentenciasAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19625:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19626:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19691:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19692:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19626:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19627:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19692:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19693:1: ruleSentencias
             {
              before(grammarAccess.getRepetirAccess().getSentenciasSentenciasParserRuleCall_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_039471);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_039599);
             ruleSentencias();
 
             state._fsp--;
@@ -53287,20 +53433,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Repetir__SentenciasAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19636:1: rule__Repetir__SentenciasAssignment_1_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19702:1: rule__Repetir__SentenciasAssignment_1_1 : ( ruleSentencias ) ;
     public final void rule__Repetir__SentenciasAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19640:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19641:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19706:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19707:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19641:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19642:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19707:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19708:1: ruleSentencias
             {
              before(grammarAccess.getRepetirAccess().getSentenciasSentenciasParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_139502);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_139630);
             ruleSentencias();
 
             state._fsp--;
@@ -53328,20 +53474,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Repetir__ValorAssignment_3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19651:1: rule__Repetir__ValorAssignment_3 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19717:1: rule__Repetir__ValorAssignment_3 : ( ruleoperacion ) ;
     public final void rule__Repetir__ValorAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19655:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19656:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19721:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19722:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19656:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19657:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19722:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19723:1: ruleoperacion
             {
              before(grammarAccess.getRepetirAccess().getValorOperacionParserRuleCall_3_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Repetir__ValorAssignment_339533);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Repetir__ValorAssignment_339661);
             ruleoperacion();
 
             state._fsp--;
@@ -53369,20 +53515,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Desde__AsignacionAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19666:1: rule__Desde__AsignacionAssignment_1 : ( ruleAsignacionNormal ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19732:1: rule__Desde__AsignacionAssignment_1 : ( ruleAsignacionNormal ) ;
     public final void rule__Desde__AsignacionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19670:1: ( ( ruleAsignacionNormal ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19671:1: ( ruleAsignacionNormal )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19736:1: ( ( ruleAsignacionNormal ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19737:1: ( ruleAsignacionNormal )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19671:1: ( ruleAsignacionNormal )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19672:1: ruleAsignacionNormal
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19737:1: ( ruleAsignacionNormal )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19738:1: ruleAsignacionNormal
             {
              before(grammarAccess.getDesdeAccess().getAsignacionAsignacionNormalParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleAsignacionNormal_in_rule__Desde__AsignacionAssignment_139564);
+            pushFollow(FollowSets001.FOLLOW_ruleAsignacionNormal_in_rule__Desde__AsignacionAssignment_139692);
             ruleAsignacionNormal();
 
             state._fsp--;
@@ -53410,20 +53556,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Desde__ValorAssignment_3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19681:1: rule__Desde__ValorAssignment_3 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19747:1: rule__Desde__ValorAssignment_3 : ( ruleoperacion ) ;
     public final void rule__Desde__ValorAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19685:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19686:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19751:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19752:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19686:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19687:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19752:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19753:1: ruleoperacion
             {
              before(grammarAccess.getDesdeAccess().getValorOperacionParserRuleCall_3_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Desde__ValorAssignment_339595);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Desde__ValorAssignment_339723);
             ruleoperacion();
 
             state._fsp--;
@@ -53451,20 +53597,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Desde__SentenciasAssignment_5_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19696:1: rule__Desde__SentenciasAssignment_5_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19762:1: rule__Desde__SentenciasAssignment_5_0 : ( ruleSentencias ) ;
     public final void rule__Desde__SentenciasAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19700:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19701:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19766:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19767:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19701:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19702:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19767:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19768:1: ruleSentencias
             {
              before(grammarAccess.getDesdeAccess().getSentenciasSentenciasParserRuleCall_5_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_039626);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_039754);
             ruleSentencias();
 
             state._fsp--;
@@ -53492,20 +53638,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Desde__SentenciasAssignment_5_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19711:1: rule__Desde__SentenciasAssignment_5_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19777:1: rule__Desde__SentenciasAssignment_5_1 : ( ruleSentencias ) ;
     public final void rule__Desde__SentenciasAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19715:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19716:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19781:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19782:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19716:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19717:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19782:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19783:1: ruleSentencias
             {
              before(grammarAccess.getDesdeAccess().getSentenciasSentenciasParserRuleCall_5_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_139657);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_139785);
             ruleSentencias();
 
             state._fsp--;
@@ -53533,20 +53679,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Caso__OperadorAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19726:1: rule__Caso__OperadorAssignment_1 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19792:1: rule__Caso__OperadorAssignment_1 : ( rulePrimaria ) ;
     public final void rule__Caso__OperadorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19730:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19731:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19796:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19797:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19731:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19732:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19797:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19798:1: rulePrimaria
             {
              before(grammarAccess.getCasoAccess().getOperadorPrimariaParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Caso__OperadorAssignment_139688);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Caso__OperadorAssignment_139816);
             rulePrimaria();
 
             state._fsp--;
@@ -53574,20 +53720,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Caso__SentenciasAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19741:1: rule__Caso__SentenciasAssignment_3_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19807:1: rule__Caso__SentenciasAssignment_3_0 : ( ruleSentencias ) ;
     public final void rule__Caso__SentenciasAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19745:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19746:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19811:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19812:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19746:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19747:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19812:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19813:1: ruleSentencias
             {
              before(grammarAccess.getCasoAccess().getSentenciasSentenciasParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_039719);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_039847);
             ruleSentencias();
 
             state._fsp--;
@@ -53615,20 +53761,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Caso__SentenciasAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19756:1: rule__Caso__SentenciasAssignment_3_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19822:1: rule__Caso__SentenciasAssignment_3_1 : ( ruleSentencias ) ;
     public final void rule__Caso__SentenciasAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19760:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19761:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19826:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19827:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19761:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19762:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19827:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19828:1: ruleSentencias
             {
              before(grammarAccess.getCasoAccess().getSentenciasSentenciasParserRuleCall_3_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_139750);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_139878);
             ruleSentencias();
 
             state._fsp--;
@@ -53656,20 +53802,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Caso__DevuelveAssignment_4"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19771:1: rule__Caso__DevuelveAssignment_4 : ( ruleDevolver ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19837:1: rule__Caso__DevuelveAssignment_4 : ( ruleDevolver ) ;
     public final void rule__Caso__DevuelveAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19775:1: ( ( ruleDevolver ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19776:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19841:1: ( ( ruleDevolver ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19842:1: ( ruleDevolver )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19776:1: ( ruleDevolver )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19777:1: ruleDevolver
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19842:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19843:1: ruleDevolver
             {
              before(grammarAccess.getCasoAccess().getDevuelveDevolverParserRuleCall_4_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Caso__DevuelveAssignment_439781);
+            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Caso__DevuelveAssignment_439909);
             ruleDevolver();
 
             state._fsp--;
@@ -53697,20 +53843,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Segun__ValorAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19786:1: rule__Segun__ValorAssignment_2 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19852:1: rule__Segun__ValorAssignment_2 : ( rulePrimaria ) ;
     public final void rule__Segun__ValorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19790:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19791:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19856:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19857:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19791:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19792:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19857:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19858:1: rulePrimaria
             {
              before(grammarAccess.getSegunAccess().getValorPrimariaParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Segun__ValorAssignment_239812);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__Segun__ValorAssignment_239940);
             rulePrimaria();
 
             state._fsp--;
@@ -53738,20 +53884,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Segun__CasoAssignment_5_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19801:1: rule__Segun__CasoAssignment_5_0 : ( ruleCaso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19867:1: rule__Segun__CasoAssignment_5_0 : ( ruleCaso ) ;
     public final void rule__Segun__CasoAssignment_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19805:1: ( ( ruleCaso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19806:1: ( ruleCaso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19871:1: ( ( ruleCaso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19872:1: ( ruleCaso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19806:1: ( ruleCaso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19807:1: ruleCaso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19872:1: ( ruleCaso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19873:1: ruleCaso
             {
              before(grammarAccess.getSegunAccess().getCasoCasoParserRuleCall_5_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_039843);
+            pushFollow(FollowSets001.FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_039971);
             ruleCaso();
 
             state._fsp--;
@@ -53779,20 +53925,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Segun__CasoAssignment_5_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19816:1: rule__Segun__CasoAssignment_5_1 : ( ruleCaso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19882:1: rule__Segun__CasoAssignment_5_1 : ( ruleCaso ) ;
     public final void rule__Segun__CasoAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19820:1: ( ( ruleCaso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19821:1: ( ruleCaso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19886:1: ( ( ruleCaso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19887:1: ( ruleCaso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19821:1: ( ruleCaso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19822:1: ruleCaso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19887:1: ( ruleCaso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19888:1: ruleCaso
             {
              before(grammarAccess.getSegunAccess().getCasoCasoParserRuleCall_5_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_139874);
+            pushFollow(FollowSets001.FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_140002);
             ruleCaso();
 
             state._fsp--;
@@ -53820,20 +53966,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Segun__SentenciasAssignment_7_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19831:1: rule__Segun__SentenciasAssignment_7_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19897:1: rule__Segun__SentenciasAssignment_7_0 : ( ruleSentencias ) ;
     public final void rule__Segun__SentenciasAssignment_7_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19835:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19836:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19901:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19902:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19836:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19837:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19902:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19903:1: ruleSentencias
             {
              before(grammarAccess.getSegunAccess().getSentenciasSentenciasParserRuleCall_7_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_039905);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_040033);
             ruleSentencias();
 
             state._fsp--;
@@ -53861,20 +54007,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Segun__SentenciasAssignment_7_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19846:1: rule__Segun__SentenciasAssignment_7_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19912:1: rule__Segun__SentenciasAssignment_7_1 : ( ruleSentencias ) ;
     public final void rule__Segun__SentenciasAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19850:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19851:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19916:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19917:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19851:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19852:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19917:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19918:1: ruleSentencias
             {
              before(grammarAccess.getSegunAccess().getSentenciasSentenciasParserRuleCall_7_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_139936);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_140064);
             ruleSentencias();
 
             state._fsp--;
@@ -53902,20 +54048,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Segun__DevuelveAssignment_8"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19861:1: rule__Segun__DevuelveAssignment_8 : ( ruleDevolver ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19927:1: rule__Segun__DevuelveAssignment_8 : ( ruleDevolver ) ;
     public final void rule__Segun__DevuelveAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19865:1: ( ( ruleDevolver ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19866:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19931:1: ( ( ruleDevolver ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19932:1: ( ruleDevolver )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19866:1: ( ruleDevolver )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19867:1: ruleDevolver
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19932:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19933:1: ruleDevolver
             {
              before(grammarAccess.getSegunAccess().getDevuelveDevolverParserRuleCall_8_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Segun__DevuelveAssignment_839967);
+            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Segun__DevuelveAssignment_840095);
             ruleDevolver();
 
             state._fsp--;
@@ -53943,20 +54089,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Variable__NombreAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19876:1: rule__Variable__NombreAssignment_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19942:1: rule__Variable__NombreAssignment_1 : ( ruleEString ) ;
     public final void rule__Variable__NombreAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19880:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19881:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19946:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19947:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19881:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19882:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19947:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19948:1: ruleEString
             {
              before(grammarAccess.getVariableAccess().getNombreEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Variable__NombreAssignment_139998);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Variable__NombreAssignment_140126);
             ruleEString();
 
             state._fsp--;
@@ -53984,20 +54130,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Or__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19891:1: rule__Or__Signo_opAssignment_1_1 : ( rulesignoOr ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19957:1: rule__Or__Signo_opAssignment_1_1 : ( rulesignoOr ) ;
     public final void rule__Or__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19895:1: ( ( rulesignoOr ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19896:1: ( rulesignoOr )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19961:1: ( ( rulesignoOr ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19962:1: ( rulesignoOr )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19896:1: ( rulesignoOr )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19897:1: rulesignoOr
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19962:1: ( rulesignoOr )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19963:1: rulesignoOr
             {
              before(grammarAccess.getOrAccess().getSigno_opSignoOrParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoOr_in_rule__Or__Signo_opAssignment_1_140029);
+            pushFollow(FollowSets001.FOLLOW_rulesignoOr_in_rule__Or__Signo_opAssignment_1_140157);
             rulesignoOr();
 
             state._fsp--;
@@ -54025,20 +54171,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Or__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19906:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19972:1: rule__Or__RightAssignment_1_2 : ( ruleAnd ) ;
     public final void rule__Or__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19910:1: ( ( ruleAnd ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19911:1: ( ruleAnd )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19976:1: ( ( ruleAnd ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19977:1: ( ruleAnd )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19911:1: ( ruleAnd )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19912:1: ruleAnd
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19977:1: ( ruleAnd )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19978:1: ruleAnd
             {
              before(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleAnd_in_rule__Or__RightAssignment_1_240060);
+            pushFollow(FollowSets001.FOLLOW_ruleAnd_in_rule__Or__RightAssignment_1_240188);
             ruleAnd();
 
             state._fsp--;
@@ -54066,20 +54212,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__And__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19921:1: rule__And__Signo_opAssignment_1_1 : ( rulesignoAnd ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19987:1: rule__And__Signo_opAssignment_1_1 : ( rulesignoAnd ) ;
     public final void rule__And__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19925:1: ( ( rulesignoAnd ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19926:1: ( rulesignoAnd )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19991:1: ( ( rulesignoAnd ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19992:1: ( rulesignoAnd )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19926:1: ( rulesignoAnd )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19927:1: rulesignoAnd
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19992:1: ( rulesignoAnd )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19993:1: rulesignoAnd
             {
              before(grammarAccess.getAndAccess().getSigno_opSignoAndParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoAnd_in_rule__And__Signo_opAssignment_1_140091);
+            pushFollow(FollowSets001.FOLLOW_rulesignoAnd_in_rule__And__Signo_opAssignment_1_140219);
             rulesignoAnd();
 
             state._fsp--;
@@ -54107,20 +54253,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__And__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19936:1: rule__And__RightAssignment_1_2 : ( ruleIgualdad ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20002:1: rule__And__RightAssignment_1_2 : ( ruleIgualdad ) ;
     public final void rule__And__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19940:1: ( ( ruleIgualdad ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19941:1: ( ruleIgualdad )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20006:1: ( ( ruleIgualdad ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20007:1: ( ruleIgualdad )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19941:1: ( ruleIgualdad )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19942:1: ruleIgualdad
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20007:1: ( ruleIgualdad )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20008:1: ruleIgualdad
             {
              before(grammarAccess.getAndAccess().getRightIgualdadParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleIgualdad_in_rule__And__RightAssignment_1_240122);
+            pushFollow(FollowSets001.FOLLOW_ruleIgualdad_in_rule__And__RightAssignment_1_240250);
             ruleIgualdad();
 
             state._fsp--;
@@ -54148,20 +54294,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Igualdad__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19951:1: rule__Igualdad__Signo_opAssignment_1_1 : ( rulesignoIgualdad ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20017:1: rule__Igualdad__Signo_opAssignment_1_1 : ( rulesignoIgualdad ) ;
     public final void rule__Igualdad__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19955:1: ( ( rulesignoIgualdad ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19956:1: ( rulesignoIgualdad )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20021:1: ( ( rulesignoIgualdad ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20022:1: ( rulesignoIgualdad )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19956:1: ( rulesignoIgualdad )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19957:1: rulesignoIgualdad
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20022:1: ( rulesignoIgualdad )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20023:1: rulesignoIgualdad
             {
              before(grammarAccess.getIgualdadAccess().getSigno_opSignoIgualdadParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoIgualdad_in_rule__Igualdad__Signo_opAssignment_1_140153);
+            pushFollow(FollowSets001.FOLLOW_rulesignoIgualdad_in_rule__Igualdad__Signo_opAssignment_1_140281);
             rulesignoIgualdad();
 
             state._fsp--;
@@ -54189,20 +54335,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Igualdad__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19966:1: rule__Igualdad__RightAssignment_1_2 : ( ruleComparacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20032:1: rule__Igualdad__RightAssignment_1_2 : ( ruleComparacion ) ;
     public final void rule__Igualdad__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19970:1: ( ( ruleComparacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19971:1: ( ruleComparacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20036:1: ( ( ruleComparacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20037:1: ( ruleComparacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19971:1: ( ruleComparacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19972:1: ruleComparacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20037:1: ( ruleComparacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20038:1: ruleComparacion
             {
              before(grammarAccess.getIgualdadAccess().getRightComparacionParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleComparacion_in_rule__Igualdad__RightAssignment_1_240184);
+            pushFollow(FollowSets001.FOLLOW_ruleComparacion_in_rule__Igualdad__RightAssignment_1_240312);
             ruleComparacion();
 
             state._fsp--;
@@ -54230,20 +54376,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Comparacion__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19981:1: rule__Comparacion__Signo_opAssignment_1_1 : ( rulesignoComparacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20047:1: rule__Comparacion__Signo_opAssignment_1_1 : ( rulesignoComparacion ) ;
     public final void rule__Comparacion__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19985:1: ( ( rulesignoComparacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19986:1: ( rulesignoComparacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20051:1: ( ( rulesignoComparacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20052:1: ( rulesignoComparacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19986:1: ( rulesignoComparacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19987:1: rulesignoComparacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20052:1: ( rulesignoComparacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20053:1: rulesignoComparacion
             {
              before(grammarAccess.getComparacionAccess().getSigno_opSignoComparacionParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoComparacion_in_rule__Comparacion__Signo_opAssignment_1_140215);
+            pushFollow(FollowSets001.FOLLOW_rulesignoComparacion_in_rule__Comparacion__Signo_opAssignment_1_140343);
             rulesignoComparacion();
 
             state._fsp--;
@@ -54271,20 +54417,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Comparacion__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19996:1: rule__Comparacion__RightAssignment_1_2 : ( ruleSumaResta ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20062:1: rule__Comparacion__RightAssignment_1_2 : ( ruleSumaResta ) ;
     public final void rule__Comparacion__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20000:1: ( ( ruleSumaResta ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20001:1: ( ruleSumaResta )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20066:1: ( ( ruleSumaResta ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20067:1: ( ruleSumaResta )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20001:1: ( ruleSumaResta )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20002:1: ruleSumaResta
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20067:1: ( ruleSumaResta )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20068:1: ruleSumaResta
             {
              before(grammarAccess.getComparacionAccess().getRightSumaRestaParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSumaResta_in_rule__Comparacion__RightAssignment_1_240246);
+            pushFollow(FollowSets001.FOLLOW_ruleSumaResta_in_rule__Comparacion__RightAssignment_1_240374);
             ruleSumaResta();
 
             state._fsp--;
@@ -54312,20 +54458,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SumaResta__Signo_opAssignment_1_0_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20011:1: rule__SumaResta__Signo_opAssignment_1_0_0_1 : ( rulesignoSuma ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20077:1: rule__SumaResta__Signo_opAssignment_1_0_0_1 : ( rulesignoSuma ) ;
     public final void rule__SumaResta__Signo_opAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20015:1: ( ( rulesignoSuma ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20016:1: ( rulesignoSuma )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20081:1: ( ( rulesignoSuma ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20082:1: ( rulesignoSuma )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20016:1: ( rulesignoSuma )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20017:1: rulesignoSuma
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20082:1: ( rulesignoSuma )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20083:1: rulesignoSuma
             {
              before(grammarAccess.getSumaRestaAccess().getSigno_opSignoSumaParserRuleCall_1_0_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoSuma_in_rule__SumaResta__Signo_opAssignment_1_0_0_140277);
+            pushFollow(FollowSets001.FOLLOW_rulesignoSuma_in_rule__SumaResta__Signo_opAssignment_1_0_0_140405);
             rulesignoSuma();
 
             state._fsp--;
@@ -54353,20 +54499,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SumaResta__Signo_opAssignment_1_0_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20026:1: rule__SumaResta__Signo_opAssignment_1_0_1_1 : ( rulesignoResta ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20092:1: rule__SumaResta__Signo_opAssignment_1_0_1_1 : ( rulesignoResta ) ;
     public final void rule__SumaResta__Signo_opAssignment_1_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20030:1: ( ( rulesignoResta ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20031:1: ( rulesignoResta )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20096:1: ( ( rulesignoResta ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20097:1: ( rulesignoResta )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20031:1: ( rulesignoResta )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20032:1: rulesignoResta
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20097:1: ( rulesignoResta )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20098:1: rulesignoResta
             {
              before(grammarAccess.getSumaRestaAccess().getSigno_opSignoRestaParserRuleCall_1_0_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoResta_in_rule__SumaResta__Signo_opAssignment_1_0_1_140308);
+            pushFollow(FollowSets001.FOLLOW_rulesignoResta_in_rule__SumaResta__Signo_opAssignment_1_0_1_140436);
             rulesignoResta();
 
             state._fsp--;
@@ -54394,20 +54540,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SumaResta__RightAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20041:1: rule__SumaResta__RightAssignment_1_1 : ( ruleMultiplicacionDivision ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20107:1: rule__SumaResta__RightAssignment_1_1 : ( ruleMultiplicacionDivision ) ;
     public final void rule__SumaResta__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20045:1: ( ( ruleMultiplicacionDivision ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20046:1: ( ruleMultiplicacionDivision )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20111:1: ( ( ruleMultiplicacionDivision ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20112:1: ( ruleMultiplicacionDivision )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20046:1: ( ruleMultiplicacionDivision )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20047:1: ruleMultiplicacionDivision
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20112:1: ( ruleMultiplicacionDivision )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20113:1: ruleMultiplicacionDivision
             {
              before(grammarAccess.getSumaRestaAccess().getRightMultiplicacionDivisionParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleMultiplicacionDivision_in_rule__SumaResta__RightAssignment_1_140339);
+            pushFollow(FollowSets001.FOLLOW_ruleMultiplicacionDivision_in_rule__SumaResta__RightAssignment_1_140467);
             ruleMultiplicacionDivision();
 
             state._fsp--;
@@ -54435,20 +54581,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20056:1: rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_1 : ( rulesignoMultiplicacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20122:1: rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_1 : ( rulesignoMultiplicacion ) ;
     public final void rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20060:1: ( ( rulesignoMultiplicacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20061:1: ( rulesignoMultiplicacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20126:1: ( ( rulesignoMultiplicacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20127:1: ( rulesignoMultiplicacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20061:1: ( rulesignoMultiplicacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20062:1: rulesignoMultiplicacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20127:1: ( rulesignoMultiplicacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20128:1: rulesignoMultiplicacion
             {
              before(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoMultiplicacionParserRuleCall_1_0_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_140370);
+            pushFollow(FollowSets001.FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_140498);
             rulesignoMultiplicacion();
 
             state._fsp--;
@@ -54476,20 +54622,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20071:1: rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_1 : ( rulesignoDivision ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20137:1: rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_1 : ( rulesignoDivision ) ;
     public final void rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20075:1: ( ( rulesignoDivision ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20076:1: ( rulesignoDivision )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20141:1: ( ( rulesignoDivision ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20142:1: ( rulesignoDivision )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20076:1: ( rulesignoDivision )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20077:1: rulesignoDivision
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20142:1: ( rulesignoDivision )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20143:1: rulesignoDivision
             {
              before(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoDivisionParserRuleCall_1_0_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_140401);
+            pushFollow(FollowSets001.FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_140529);
             rulesignoDivision();
 
             state._fsp--;
@@ -54517,20 +54663,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultiplicacionDivision__RightAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20086:1: rule__MultiplicacionDivision__RightAssignment_1_1 : ( rulePrimaria ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20152:1: rule__MultiplicacionDivision__RightAssignment_1_1 : ( rulePrimaria ) ;
     public final void rule__MultiplicacionDivision__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20090:1: ( ( rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20091:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20156:1: ( ( rulePrimaria ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20157:1: ( rulePrimaria )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20091:1: ( rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20092:1: rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20157:1: ( rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20158:1: rulePrimaria
             {
              before(grammarAccess.getMultiplicacionDivisionAccess().getRightPrimariaParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__MultiplicacionDivision__RightAssignment_1_140432);
+            pushFollow(FollowSets001.FOLLOW_rulePrimaria_in_rule__MultiplicacionDivision__RightAssignment_1_140560);
             rulePrimaria();
 
             state._fsp--;
@@ -54558,20 +54704,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__OrIndice__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20101:1: rule__OrIndice__Signo_opAssignment_1_1 : ( rulesignoOr ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20167:1: rule__OrIndice__Signo_opAssignment_1_1 : ( rulesignoOr ) ;
     public final void rule__OrIndice__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20105:1: ( ( rulesignoOr ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20106:1: ( rulesignoOr )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20171:1: ( ( rulesignoOr ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20172:1: ( rulesignoOr )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20106:1: ( rulesignoOr )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20107:1: rulesignoOr
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20172:1: ( rulesignoOr )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20173:1: rulesignoOr
             {
              before(grammarAccess.getOrIndiceAccess().getSigno_opSignoOrParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoOr_in_rule__OrIndice__Signo_opAssignment_1_140463);
+            pushFollow(FollowSets001.FOLLOW_rulesignoOr_in_rule__OrIndice__Signo_opAssignment_1_140591);
             rulesignoOr();
 
             state._fsp--;
@@ -54599,20 +54745,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__OrIndice__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20116:1: rule__OrIndice__RightAssignment_1_2 : ( ruleAndIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20182:1: rule__OrIndice__RightAssignment_1_2 : ( ruleAndIndice ) ;
     public final void rule__OrIndice__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20120:1: ( ( ruleAndIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20121:1: ( ruleAndIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20186:1: ( ( ruleAndIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20187:1: ( ruleAndIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20121:1: ( ruleAndIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20122:1: ruleAndIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20187:1: ( ruleAndIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20188:1: ruleAndIndice
             {
              before(grammarAccess.getOrIndiceAccess().getRightAndIndiceParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleAndIndice_in_rule__OrIndice__RightAssignment_1_240494);
+            pushFollow(FollowSets001.FOLLOW_ruleAndIndice_in_rule__OrIndice__RightAssignment_1_240622);
             ruleAndIndice();
 
             state._fsp--;
@@ -54640,20 +54786,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AndIndice__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20131:1: rule__AndIndice__Signo_opAssignment_1_1 : ( rulesignoAnd ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20197:1: rule__AndIndice__Signo_opAssignment_1_1 : ( rulesignoAnd ) ;
     public final void rule__AndIndice__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20135:1: ( ( rulesignoAnd ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20136:1: ( rulesignoAnd )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20201:1: ( ( rulesignoAnd ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20202:1: ( rulesignoAnd )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20136:1: ( rulesignoAnd )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20137:1: rulesignoAnd
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20202:1: ( rulesignoAnd )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20203:1: rulesignoAnd
             {
              before(grammarAccess.getAndIndiceAccess().getSigno_opSignoAndParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoAnd_in_rule__AndIndice__Signo_opAssignment_1_140525);
+            pushFollow(FollowSets001.FOLLOW_rulesignoAnd_in_rule__AndIndice__Signo_opAssignment_1_140653);
             rulesignoAnd();
 
             state._fsp--;
@@ -54681,20 +54827,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__AndIndice__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20146:1: rule__AndIndice__RightAssignment_1_2 : ( ruleIgualdadIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20212:1: rule__AndIndice__RightAssignment_1_2 : ( ruleIgualdadIndice ) ;
     public final void rule__AndIndice__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20150:1: ( ( ruleIgualdadIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20151:1: ( ruleIgualdadIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20216:1: ( ( ruleIgualdadIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20217:1: ( ruleIgualdadIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20151:1: ( ruleIgualdadIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20152:1: ruleIgualdadIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20217:1: ( ruleIgualdadIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20218:1: ruleIgualdadIndice
             {
              before(grammarAccess.getAndIndiceAccess().getRightIgualdadIndiceParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleIgualdadIndice_in_rule__AndIndice__RightAssignment_1_240556);
+            pushFollow(FollowSets001.FOLLOW_ruleIgualdadIndice_in_rule__AndIndice__RightAssignment_1_240684);
             ruleIgualdadIndice();
 
             state._fsp--;
@@ -54722,20 +54868,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__IgualdadIndice__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20161:1: rule__IgualdadIndice__Signo_opAssignment_1_1 : ( rulesignoIgualdad ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20227:1: rule__IgualdadIndice__Signo_opAssignment_1_1 : ( rulesignoIgualdad ) ;
     public final void rule__IgualdadIndice__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20165:1: ( ( rulesignoIgualdad ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20166:1: ( rulesignoIgualdad )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20231:1: ( ( rulesignoIgualdad ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20232:1: ( rulesignoIgualdad )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20166:1: ( rulesignoIgualdad )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20167:1: rulesignoIgualdad
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20232:1: ( rulesignoIgualdad )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20233:1: rulesignoIgualdad
             {
              before(grammarAccess.getIgualdadIndiceAccess().getSigno_opSignoIgualdadParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoIgualdad_in_rule__IgualdadIndice__Signo_opAssignment_1_140587);
+            pushFollow(FollowSets001.FOLLOW_rulesignoIgualdad_in_rule__IgualdadIndice__Signo_opAssignment_1_140715);
             rulesignoIgualdad();
 
             state._fsp--;
@@ -54763,20 +54909,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__IgualdadIndice__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20176:1: rule__IgualdadIndice__RightAssignment_1_2 : ( ruleComparacionIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20242:1: rule__IgualdadIndice__RightAssignment_1_2 : ( ruleComparacionIndice ) ;
     public final void rule__IgualdadIndice__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20180:1: ( ( ruleComparacionIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20181:1: ( ruleComparacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20246:1: ( ( ruleComparacionIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20247:1: ( ruleComparacionIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20181:1: ( ruleComparacionIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20182:1: ruleComparacionIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20247:1: ( ruleComparacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20248:1: ruleComparacionIndice
             {
              before(grammarAccess.getIgualdadIndiceAccess().getRightComparacionIndiceParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleComparacionIndice_in_rule__IgualdadIndice__RightAssignment_1_240618);
+            pushFollow(FollowSets001.FOLLOW_ruleComparacionIndice_in_rule__IgualdadIndice__RightAssignment_1_240746);
             ruleComparacionIndice();
 
             state._fsp--;
@@ -54804,20 +54950,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ComparacionIndice__Signo_opAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20191:1: rule__ComparacionIndice__Signo_opAssignment_1_1 : ( rulesignoComparacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20257:1: rule__ComparacionIndice__Signo_opAssignment_1_1 : ( rulesignoComparacion ) ;
     public final void rule__ComparacionIndice__Signo_opAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20195:1: ( ( rulesignoComparacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20196:1: ( rulesignoComparacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20261:1: ( ( rulesignoComparacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20262:1: ( rulesignoComparacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20196:1: ( rulesignoComparacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20197:1: rulesignoComparacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20262:1: ( rulesignoComparacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20263:1: rulesignoComparacion
             {
              before(grammarAccess.getComparacionIndiceAccess().getSigno_opSignoComparacionParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoComparacion_in_rule__ComparacionIndice__Signo_opAssignment_1_140649);
+            pushFollow(FollowSets001.FOLLOW_rulesignoComparacion_in_rule__ComparacionIndice__Signo_opAssignment_1_140777);
             rulesignoComparacion();
 
             state._fsp--;
@@ -54845,20 +54991,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ComparacionIndice__RightAssignment_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20206:1: rule__ComparacionIndice__RightAssignment_1_2 : ( ruleSumaRestaIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20272:1: rule__ComparacionIndice__RightAssignment_1_2 : ( ruleSumaRestaIndice ) ;
     public final void rule__ComparacionIndice__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20210:1: ( ( ruleSumaRestaIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20211:1: ( ruleSumaRestaIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20276:1: ( ( ruleSumaRestaIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20277:1: ( ruleSumaRestaIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20211:1: ( ruleSumaRestaIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20212:1: ruleSumaRestaIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20277:1: ( ruleSumaRestaIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20278:1: ruleSumaRestaIndice
             {
              before(grammarAccess.getComparacionIndiceAccess().getRightSumaRestaIndiceParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSumaRestaIndice_in_rule__ComparacionIndice__RightAssignment_1_240680);
+            pushFollow(FollowSets001.FOLLOW_ruleSumaRestaIndice_in_rule__ComparacionIndice__RightAssignment_1_240808);
             ruleSumaRestaIndice();
 
             state._fsp--;
@@ -54886,20 +55032,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SumaRestaIndice__Signo_opAssignment_1_0_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20221:1: rule__SumaRestaIndice__Signo_opAssignment_1_0_0_1 : ( rulesignoSuma ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20287:1: rule__SumaRestaIndice__Signo_opAssignment_1_0_0_1 : ( rulesignoSuma ) ;
     public final void rule__SumaRestaIndice__Signo_opAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20225:1: ( ( rulesignoSuma ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20226:1: ( rulesignoSuma )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20291:1: ( ( rulesignoSuma ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20292:1: ( rulesignoSuma )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20226:1: ( rulesignoSuma )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20227:1: rulesignoSuma
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20292:1: ( rulesignoSuma )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20293:1: rulesignoSuma
             {
              before(grammarAccess.getSumaRestaIndiceAccess().getSigno_opSignoSumaParserRuleCall_1_0_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoSuma_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_0_140711);
+            pushFollow(FollowSets001.FOLLOW_rulesignoSuma_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_0_140839);
             rulesignoSuma();
 
             state._fsp--;
@@ -54927,20 +55073,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SumaRestaIndice__Signo_opAssignment_1_0_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20236:1: rule__SumaRestaIndice__Signo_opAssignment_1_0_1_1 : ( rulesignoResta ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20302:1: rule__SumaRestaIndice__Signo_opAssignment_1_0_1_1 : ( rulesignoResta ) ;
     public final void rule__SumaRestaIndice__Signo_opAssignment_1_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20240:1: ( ( rulesignoResta ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20241:1: ( rulesignoResta )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20306:1: ( ( rulesignoResta ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20307:1: ( rulesignoResta )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20241:1: ( rulesignoResta )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20242:1: rulesignoResta
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20307:1: ( rulesignoResta )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20308:1: rulesignoResta
             {
              before(grammarAccess.getSumaRestaIndiceAccess().getSigno_opSignoRestaParserRuleCall_1_0_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoResta_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_1_140742);
+            pushFollow(FollowSets001.FOLLOW_rulesignoResta_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_1_140870);
             rulesignoResta();
 
             state._fsp--;
@@ -54968,20 +55114,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__SumaRestaIndice__RightAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20251:1: rule__SumaRestaIndice__RightAssignment_1_1 : ( ruleMultiplicacionDivisionIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20317:1: rule__SumaRestaIndice__RightAssignment_1_1 : ( ruleMultiplicacionDivisionIndice ) ;
     public final void rule__SumaRestaIndice__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20255:1: ( ( ruleMultiplicacionDivisionIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20256:1: ( ruleMultiplicacionDivisionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20321:1: ( ( ruleMultiplicacionDivisionIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20322:1: ( ruleMultiplicacionDivisionIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20256:1: ( ruleMultiplicacionDivisionIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20257:1: ruleMultiplicacionDivisionIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20322:1: ( ruleMultiplicacionDivisionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20323:1: ruleMultiplicacionDivisionIndice
             {
              before(grammarAccess.getSumaRestaIndiceAccess().getRightMultiplicacionDivisionIndiceParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleMultiplicacionDivisionIndice_in_rule__SumaRestaIndice__RightAssignment_1_140773);
+            pushFollow(FollowSets001.FOLLOW_ruleMultiplicacionDivisionIndice_in_rule__SumaRestaIndice__RightAssignment_1_140901);
             ruleMultiplicacionDivisionIndice();
 
             state._fsp--;
@@ -55009,20 +55155,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20266:1: rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_1 : ( rulesignoMultiplicacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20332:1: rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_1 : ( rulesignoMultiplicacion ) ;
     public final void rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20270:1: ( ( rulesignoMultiplicacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20271:1: ( rulesignoMultiplicacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20336:1: ( ( rulesignoMultiplicacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20337:1: ( rulesignoMultiplicacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20271:1: ( rulesignoMultiplicacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20272:1: rulesignoMultiplicacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20337:1: ( rulesignoMultiplicacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20338:1: rulesignoMultiplicacion
             {
              before(grammarAccess.getMultiplicacionDivisionIndiceAccess().getSigno_opSignoMultiplicacionParserRuleCall_1_0_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_140804);
+            pushFollow(FollowSets001.FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_140932);
             rulesignoMultiplicacion();
 
             state._fsp--;
@@ -55050,20 +55196,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20281:1: rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_1 : ( rulesignoDivision ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20347:1: rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_1 : ( rulesignoDivision ) ;
     public final void rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20285:1: ( ( rulesignoDivision ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20286:1: ( rulesignoDivision )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20351:1: ( ( rulesignoDivision ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20352:1: ( rulesignoDivision )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20286:1: ( rulesignoDivision )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20287:1: rulesignoDivision
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20352:1: ( rulesignoDivision )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20353:1: rulesignoDivision
             {
              before(grammarAccess.getMultiplicacionDivisionIndiceAccess().getSigno_opSignoDivisionParserRuleCall_1_0_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_140835);
+            pushFollow(FollowSets001.FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_140963);
             rulesignoDivision();
 
             state._fsp--;
@@ -55091,20 +55237,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__MultiplicacionDivisionIndice__RightAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20296:1: rule__MultiplicacionDivisionIndice__RightAssignment_1_1 : ( rulePrimariaIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20362:1: rule__MultiplicacionDivisionIndice__RightAssignment_1_1 : ( rulePrimariaIndice ) ;
     public final void rule__MultiplicacionDivisionIndice__RightAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20300:1: ( ( rulePrimariaIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20301:1: ( rulePrimariaIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20366:1: ( ( rulePrimariaIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20367:1: ( rulePrimariaIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20301:1: ( rulePrimariaIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20302:1: rulePrimariaIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20367:1: ( rulePrimariaIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20368:1: rulePrimariaIndice
             {
              before(grammarAccess.getMultiplicacionDivisionIndiceAccess().getRightPrimariaIndiceParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulePrimariaIndice_in_rule__MultiplicacionDivisionIndice__RightAssignment_1_140866);
+            pushFollow(FollowSets001.FOLLOW_rulePrimariaIndice_in_rule__MultiplicacionDivisionIndice__RightAssignment_1_140994);
             rulePrimariaIndice();
 
             state._fsp--;
@@ -55132,20 +55278,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PrimariaIndice__ValorAssignment_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20311:1: rule__PrimariaIndice__ValorAssignment_0_1 : ( ruleEInt ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20377:1: rule__PrimariaIndice__ValorAssignment_0_1 : ( ruleEInt ) ;
     public final void rule__PrimariaIndice__ValorAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20315:1: ( ( ruleEInt ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20316:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20381:1: ( ( ruleEInt ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20382:1: ( ruleEInt )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20316:1: ( ruleEInt )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20317:1: ruleEInt
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20382:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20383:1: ruleEInt
             {
              before(grammarAccess.getPrimariaIndiceAccess().getValorEIntParserRuleCall_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__PrimariaIndice__ValorAssignment_0_140897);
+            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__PrimariaIndice__ValorAssignment_0_141025);
             ruleEInt();
 
             state._fsp--;
@@ -55173,20 +55319,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__PrimariaIndice__NombreAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20326:1: rule__PrimariaIndice__NombreAssignment_1_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20392:1: rule__PrimariaIndice__NombreAssignment_1_1 : ( ruleEString ) ;
     public final void rule__PrimariaIndice__NombreAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20330:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20331:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20396:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20397:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20331:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20332:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20397:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20398:1: ruleEString
             {
              before(grammarAccess.getPrimariaIndiceAccess().getNombreEStringParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__PrimariaIndice__NombreAssignment_1_140928);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__PrimariaIndice__NombreAssignment_1_141056);
             ruleEString();
 
             state._fsp--;
@@ -55214,20 +55360,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Primaria__Valor_operacionAssignment_3_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20341:1: rule__Primaria__Valor_operacionAssignment_3_2 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20407:1: rule__Primaria__Valor_operacionAssignment_3_2 : ( ruleoperacion ) ;
     public final void rule__Primaria__Valor_operacionAssignment_3_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20345:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20346:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20411:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20412:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20346:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20347:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20412:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20413:1: ruleoperacion
             {
              before(grammarAccess.getPrimariaAccess().getValor_operacionOperacionParserRuleCall_3_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_3_240959);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_3_241087);
             ruleoperacion();
 
             state._fsp--;
@@ -55255,20 +55401,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Primaria__Valor_operacionAssignment_4_3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20356:1: rule__Primaria__Valor_operacionAssignment_4_3 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20422:1: rule__Primaria__Valor_operacionAssignment_4_3 : ( ruleoperacion ) ;
     public final void rule__Primaria__Valor_operacionAssignment_4_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20360:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20361:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20426:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20427:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20361:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20362:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20427:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20428:1: ruleoperacion
             {
              before(grammarAccess.getPrimariaAccess().getValor_operacionOperacionParserRuleCall_4_3_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_4_340990);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_4_341118);
             ruleoperacion();
 
             state._fsp--;
@@ -55296,20 +55442,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funciones__NombreAssignment_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20371:1: rule__Funciones__NombreAssignment_0_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20437:1: rule__Funciones__NombreAssignment_0_1 : ( ruleEString ) ;
     public final void rule__Funciones__NombreAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20375:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20376:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20441:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20442:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20376:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20377:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20442:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20443:1: ruleEString
             {
              before(grammarAccess.getFuncionesAccess().getNombreEStringParserRuleCall_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Funciones__NombreAssignment_0_141021);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Funciones__NombreAssignment_0_141149);
             ruleEString();
 
             state._fsp--;
@@ -55337,20 +55483,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funciones__OperadoresAssignment_0_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20386:1: rule__Funciones__OperadoresAssignment_0_3_0 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20452:1: rule__Funciones__OperadoresAssignment_0_3_0 : ( ruleoperacion ) ;
     public final void rule__Funciones__OperadoresAssignment_0_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20390:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20391:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20456:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20457:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20391:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20392:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20457:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20458:1: ruleoperacion
             {
              before(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_0_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_041052);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_041180);
             ruleoperacion();
 
             state._fsp--;
@@ -55378,20 +55524,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funciones__OperadoresAssignment_0_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20401:1: rule__Funciones__OperadoresAssignment_0_3_1_1 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20467:1: rule__Funciones__OperadoresAssignment_0_3_1_1 : ( ruleoperacion ) ;
     public final void rule__Funciones__OperadoresAssignment_0_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20405:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20406:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20471:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20472:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20406:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20407:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20472:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20473:1: ruleoperacion
             {
              before(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_0_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_1_141083);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_1_141211);
             ruleoperacion();
 
             state._fsp--;
@@ -55419,20 +55565,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funciones__NombreAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20416:1: rule__Funciones__NombreAssignment_1_1 : ( ruleNombreInterna ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20482:1: rule__Funciones__NombreAssignment_1_1 : ( ruleNombreInterna ) ;
     public final void rule__Funciones__NombreAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20420:1: ( ( ruleNombreInterna ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20421:1: ( ruleNombreInterna )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20486:1: ( ( ruleNombreInterna ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20487:1: ( ruleNombreInterna )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20421:1: ( ruleNombreInterna )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20422:1: ruleNombreInterna
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20487:1: ( ruleNombreInterna )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20488:1: ruleNombreInterna
             {
              before(grammarAccess.getFuncionesAccess().getNombreNombreInternaParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleNombreInterna_in_rule__Funciones__NombreAssignment_1_141114);
+            pushFollow(FollowSets001.FOLLOW_ruleNombreInterna_in_rule__Funciones__NombreAssignment_1_141242);
             ruleNombreInterna();
 
             state._fsp--;
@@ -55460,20 +55606,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funciones__OperadoresAssignment_1_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20431:1: rule__Funciones__OperadoresAssignment_1_3_0 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20497:1: rule__Funciones__OperadoresAssignment_1_3_0 : ( ruleoperacion ) ;
     public final void rule__Funciones__OperadoresAssignment_1_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20435:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20436:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20501:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20502:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20436:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20437:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20502:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20503:1: ruleoperacion
             {
              before(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_1_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_041145);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_041273);
             ruleoperacion();
 
             state._fsp--;
@@ -55501,20 +55647,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funciones__OperadoresAssignment_1_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20446:1: rule__Funciones__OperadoresAssignment_1_3_1_1 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20512:1: rule__Funciones__OperadoresAssignment_1_3_1_1 : ( ruleoperacion ) ;
     public final void rule__Funciones__OperadoresAssignment_1_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20450:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20451:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20516:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20517:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20451:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20452:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20517:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20518:1: ruleoperacion
             {
              before(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_1_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_1_141176);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_1_141304);
             ruleoperacion();
 
             state._fsp--;
@@ -55542,20 +55688,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__Nombre_vectorAssignment_0_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20461:1: rule__VariablesComplejas__Nombre_vectorAssignment_0_1_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20527:1: rule__VariablesComplejas__Nombre_vectorAssignment_0_1_0 : ( ruleEString ) ;
     public final void rule__VariablesComplejas__Nombre_vectorAssignment_0_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20465:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20466:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20531:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20532:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20466:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20467:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20532:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20533:1: ruleEString
             {
              before(grammarAccess.getVariablesComplejasAccess().getNombre_vectorEStringParserRuleCall_0_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_vectorAssignment_0_1_041207);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_vectorAssignment_0_1_041335);
             ruleEString();
 
             state._fsp--;
@@ -55583,20 +55729,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__IndiceAssignment_0_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20476:1: rule__VariablesComplejas__IndiceAssignment_0_1_2 : ( ruleoperacionIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20542:1: rule__VariablesComplejas__IndiceAssignment_0_1_2 : ( ruleoperacionIndice ) ;
     public final void rule__VariablesComplejas__IndiceAssignment_0_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20480:1: ( ( ruleoperacionIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20481:1: ( ruleoperacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20546:1: ( ( ruleoperacionIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20547:1: ( ruleoperacionIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20481:1: ( ruleoperacionIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20482:1: ruleoperacionIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20547:1: ( ruleoperacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20548:1: ruleoperacionIndice
             {
              before(grammarAccess.getVariablesComplejasAccess().getIndiceOperacionIndiceParserRuleCall_0_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__IndiceAssignment_0_1_241238);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__IndiceAssignment_0_1_241366);
             ruleoperacionIndice();
 
             state._fsp--;
@@ -55624,20 +55770,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__CampoAssignment_0_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20491:1: rule__VariablesComplejas__CampoAssignment_0_2_1 : ( ruleCampoRegistro ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20557:1: rule__VariablesComplejas__CampoAssignment_0_2_1 : ( ruleCampoRegistro ) ;
     public final void rule__VariablesComplejas__CampoAssignment_0_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20495:1: ( ( ruleCampoRegistro ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20496:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20561:1: ( ( ruleCampoRegistro ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20562:1: ( ruleCampoRegistro )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20496:1: ( ruleCampoRegistro )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20497:1: ruleCampoRegistro
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20562:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20563:1: ruleCampoRegistro
             {
              before(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_0_2_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_0_2_141269);
+            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_0_2_141397);
             ruleCampoRegistro();
 
             state._fsp--;
@@ -55665,20 +55811,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__Nombre_matrizAssignment_1_1_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20506:1: rule__VariablesComplejas__Nombre_matrizAssignment_1_1_0 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20572:1: rule__VariablesComplejas__Nombre_matrizAssignment_1_1_0 : ( ruleEString ) ;
     public final void rule__VariablesComplejas__Nombre_matrizAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20510:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20511:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20576:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20577:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20511:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20512:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20577:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20578:1: ruleEString
             {
              before(grammarAccess.getVariablesComplejasAccess().getNombre_matrizEStringParserRuleCall_1_1_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_matrizAssignment_1_1_041300);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_matrizAssignment_1_1_041428);
             ruleEString();
 
             state._fsp--;
@@ -55706,20 +55852,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__PrimerIndiceAssignment_1_1_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20521:1: rule__VariablesComplejas__PrimerIndiceAssignment_1_1_2 : ( ruleoperacionIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20587:1: rule__VariablesComplejas__PrimerIndiceAssignment_1_1_2 : ( ruleoperacionIndice ) ;
     public final void rule__VariablesComplejas__PrimerIndiceAssignment_1_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20525:1: ( ( ruleoperacionIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20526:1: ( ruleoperacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20591:1: ( ( ruleoperacionIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20592:1: ( ruleoperacionIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20526:1: ( ruleoperacionIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20527:1: ruleoperacionIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20592:1: ( ruleoperacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20593:1: ruleoperacionIndice
             {
              before(grammarAccess.getVariablesComplejasAccess().getPrimerIndiceOperacionIndiceParserRuleCall_1_1_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__PrimerIndiceAssignment_1_1_241331);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__PrimerIndiceAssignment_1_1_241459);
             ruleoperacionIndice();
 
             state._fsp--;
@@ -55747,20 +55893,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__SegundoIndiceAssignment_1_1_4"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20536:1: rule__VariablesComplejas__SegundoIndiceAssignment_1_1_4 : ( ruleoperacionIndice ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20602:1: rule__VariablesComplejas__SegundoIndiceAssignment_1_1_4 : ( ruleoperacionIndice ) ;
     public final void rule__VariablesComplejas__SegundoIndiceAssignment_1_1_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20540:1: ( ( ruleoperacionIndice ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20541:1: ( ruleoperacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20606:1: ( ( ruleoperacionIndice ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20607:1: ( ruleoperacionIndice )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20541:1: ( ruleoperacionIndice )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20542:1: ruleoperacionIndice
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20607:1: ( ruleoperacionIndice )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20608:1: ruleoperacionIndice
             {
              before(grammarAccess.getVariablesComplejasAccess().getSegundoIndiceOperacionIndiceParserRuleCall_1_1_4_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__SegundoIndiceAssignment_1_1_441362);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__SegundoIndiceAssignment_1_1_441490);
             ruleoperacionIndice();
 
             state._fsp--;
@@ -55788,20 +55934,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__CampoAssignment_1_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20551:1: rule__VariablesComplejas__CampoAssignment_1_2_1 : ( ruleCampoRegistro ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20617:1: rule__VariablesComplejas__CampoAssignment_1_2_1 : ( ruleCampoRegistro ) ;
     public final void rule__VariablesComplejas__CampoAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20555:1: ( ( ruleCampoRegistro ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20556:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20621:1: ( ( ruleCampoRegistro ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20622:1: ( ruleCampoRegistro )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20556:1: ( ruleCampoRegistro )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20557:1: ruleCampoRegistro
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20622:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20623:1: ruleCampoRegistro
             {
              before(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_1_2_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_1_2_141393);
+            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_1_2_141521);
             ruleCampoRegistro();
 
             state._fsp--;
@@ -55829,20 +55975,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__Nombre_registroAssignment_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20566:1: rule__VariablesComplejas__Nombre_registroAssignment_2_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20632:1: rule__VariablesComplejas__Nombre_registroAssignment_2_1 : ( ruleEString ) ;
     public final void rule__VariablesComplejas__Nombre_registroAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20570:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20571:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20636:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20637:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20571:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20572:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20637:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20638:1: ruleEString
             {
              before(grammarAccess.getVariablesComplejasAccess().getNombre_registroEStringParserRuleCall_2_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_registroAssignment_2_141424);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_registroAssignment_2_141552);
             ruleEString();
 
             state._fsp--;
@@ -55870,20 +56016,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__CampoAssignment_2_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20581:1: rule__VariablesComplejas__CampoAssignment_2_3_0 : ( ruleCampoRegistro ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20647:1: rule__VariablesComplejas__CampoAssignment_2_3_0 : ( ruleCampoRegistro ) ;
     public final void rule__VariablesComplejas__CampoAssignment_2_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20585:1: ( ( ruleCampoRegistro ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20586:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20651:1: ( ( ruleCampoRegistro ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20652:1: ( ruleCampoRegistro )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20586:1: ( ruleCampoRegistro )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20587:1: ruleCampoRegistro
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20652:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20653:1: ruleCampoRegistro
             {
              before(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_041455);
+            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_041583);
             ruleCampoRegistro();
 
             state._fsp--;
@@ -55911,20 +56057,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesComplejas__CampoAssignment_2_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20596:1: rule__VariablesComplejas__CampoAssignment_2_3_1_1 : ( ruleCampoRegistro ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20662:1: rule__VariablesComplejas__CampoAssignment_2_3_1_1 : ( ruleCampoRegistro ) ;
     public final void rule__VariablesComplejas__CampoAssignment_2_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20600:1: ( ( ruleCampoRegistro ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20601:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20666:1: ( ( ruleCampoRegistro ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20667:1: ( ruleCampoRegistro )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20601:1: ( ruleCampoRegistro )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20602:1: ruleCampoRegistro
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20667:1: ( ruleCampoRegistro )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20668:1: ruleCampoRegistro
             {
              before(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_1_141486);
+            pushFollow(FollowSets001.FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_1_141614);
             ruleCampoRegistro();
 
             state._fsp--;
@@ -55952,20 +56098,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesBasicas__ValorAssignment_0_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20611:1: rule__VariablesBasicas__ValorAssignment_0_1 : ( ruleEInt ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20677:1: rule__VariablesBasicas__ValorAssignment_0_1 : ( ruleEInt ) ;
     public final void rule__VariablesBasicas__ValorAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20615:1: ( ( ruleEInt ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20616:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20681:1: ( ( ruleEInt ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20682:1: ( ruleEInt )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20616:1: ( ruleEInt )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20617:1: ruleEInt
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20682:1: ( ruleEInt )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20683:1: ruleEInt
             {
              before(grammarAccess.getVariablesBasicasAccess().getValorEIntParserRuleCall_0_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__VariablesBasicas__ValorAssignment_0_141517);
+            pushFollow(FollowSets001.FOLLOW_ruleEInt_in_rule__VariablesBasicas__ValorAssignment_0_141645);
             ruleEInt();
 
             state._fsp--;
@@ -55993,20 +56139,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesBasicas__ValorAssignment_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20626:1: rule__VariablesBasicas__ValorAssignment_1_1 : ( ruleEFloat ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20692:1: rule__VariablesBasicas__ValorAssignment_1_1 : ( ruleEFloat ) ;
     public final void rule__VariablesBasicas__ValorAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20630:1: ( ( ruleEFloat ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20631:1: ( ruleEFloat )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20696:1: ( ( ruleEFloat ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20697:1: ( ruleEFloat )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20631:1: ( ruleEFloat )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20632:1: ruleEFloat
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20697:1: ( ruleEFloat )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20698:1: ruleEFloat
             {
              before(grammarAccess.getVariablesBasicasAccess().getValorEFloatParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEFloat_in_rule__VariablesBasicas__ValorAssignment_1_141548);
+            pushFollow(FollowSets001.FOLLOW_ruleEFloat_in_rule__VariablesBasicas__ValorAssignment_1_141676);
             ruleEFloat();
 
             state._fsp--;
@@ -56034,20 +56180,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesBasicas__ContenidoAssignment_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20641:1: rule__VariablesBasicas__ContenidoAssignment_2_1 : ( RULE_CAD ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20707:1: rule__VariablesBasicas__ContenidoAssignment_2_1 : ( RULE_CAD ) ;
     public final void rule__VariablesBasicas__ContenidoAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20645:1: ( ( RULE_CAD ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20646:1: ( RULE_CAD )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20711:1: ( ( RULE_CAD ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20712:1: ( RULE_CAD )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20646:1: ( RULE_CAD )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20647:1: RULE_CAD
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20712:1: ( RULE_CAD )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20713:1: RULE_CAD
             {
              before(grammarAccess.getVariablesBasicasAccess().getContenidoCADTerminalRuleCall_2_1_0()); 
-            match(input,RULE_CAD,FollowSets001.FOLLOW_RULE_CAD_in_rule__VariablesBasicas__ContenidoAssignment_2_141579); 
+            match(input,RULE_CAD,FollowSets001.FOLLOW_RULE_CAD_in_rule__VariablesBasicas__ContenidoAssignment_2_141707); 
              after(grammarAccess.getVariablesBasicasAccess().getContenidoCADTerminalRuleCall_2_1_0()); 
 
             }
@@ -56071,20 +56217,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesBasicas__ContenidoAssignment_3_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20656:1: rule__VariablesBasicas__ContenidoAssignment_3_1 : ( RULE_CAR ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20722:1: rule__VariablesBasicas__ContenidoAssignment_3_1 : ( RULE_CAR ) ;
     public final void rule__VariablesBasicas__ContenidoAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20660:1: ( ( RULE_CAR ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20661:1: ( RULE_CAR )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20726:1: ( ( RULE_CAR ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20727:1: ( RULE_CAR )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20661:1: ( RULE_CAR )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20662:1: RULE_CAR
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20727:1: ( RULE_CAR )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20728:1: RULE_CAR
             {
              before(grammarAccess.getVariablesBasicasAccess().getContenidoCARTerminalRuleCall_3_1_0()); 
-            match(input,RULE_CAR,FollowSets001.FOLLOW_RULE_CAR_in_rule__VariablesBasicas__ContenidoAssignment_3_141610); 
+            match(input,RULE_CAR,FollowSets001.FOLLOW_RULE_CAR_in_rule__VariablesBasicas__ContenidoAssignment_3_141738); 
              after(grammarAccess.getVariablesBasicasAccess().getContenidoCARTerminalRuleCall_3_1_0()); 
 
             }
@@ -56108,20 +56254,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesBasicas__ValorAssignment_4_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20671:1: rule__VariablesBasicas__ValorAssignment_4_1 : ( rulebooleano ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20737:1: rule__VariablesBasicas__ValorAssignment_4_1 : ( rulebooleano ) ;
     public final void rule__VariablesBasicas__ValorAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20675:1: ( ( rulebooleano ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20676:1: ( rulebooleano )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20741:1: ( ( rulebooleano ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20742:1: ( rulebooleano )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20676:1: ( rulebooleano )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20677:1: rulebooleano
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20742:1: ( rulebooleano )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20743:1: rulebooleano
             {
              before(grammarAccess.getVariablesBasicasAccess().getValorBooleanoParserRuleCall_4_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_rulebooleano_in_rule__VariablesBasicas__ValorAssignment_4_141641);
+            pushFollow(FollowSets001.FOLLOW_rulebooleano_in_rule__VariablesBasicas__ValorAssignment_4_141769);
             rulebooleano();
 
             state._fsp--;
@@ -56149,20 +56295,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__VariablesBasicas__NombreAssignment_5_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20686:1: rule__VariablesBasicas__NombreAssignment_5_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20752:1: rule__VariablesBasicas__NombreAssignment_5_1 : ( ruleEString ) ;
     public final void rule__VariablesBasicas__NombreAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20690:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20691:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20756:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20757:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20691:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20692:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20757:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20758:1: ruleEString
             {
              before(grammarAccess.getVariablesBasicasAccess().getNombreEStringParserRuleCall_5_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesBasicas__NombreAssignment_5_141672);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__VariablesBasicas__NombreAssignment_5_141800);
             ruleEString();
 
             state._fsp--;
@@ -56190,20 +56336,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Sino__SentenciasAssignment_2_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20701:1: rule__Sino__SentenciasAssignment_2_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20767:1: rule__Sino__SentenciasAssignment_2_0 : ( ruleSentencias ) ;
     public final void rule__Sino__SentenciasAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20705:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20706:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20771:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20772:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20706:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20707:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20772:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20773:1: ruleSentencias
             {
              before(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_041703);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_041831);
             ruleSentencias();
 
             state._fsp--;
@@ -56231,20 +56377,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Sino__SentenciasAssignment_2_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20716:1: rule__Sino__SentenciasAssignment_2_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20782:1: rule__Sino__SentenciasAssignment_2_1 : ( ruleSentencias ) ;
     public final void rule__Sino__SentenciasAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20720:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20721:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20786:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20787:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20721:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20722:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20787:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20788:1: ruleSentencias
             {
              before(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_141734);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_141862);
             ruleSentencias();
 
             state._fsp--;
@@ -56272,20 +56418,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Sino__DevuelveAssignment_3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20731:1: rule__Sino__DevuelveAssignment_3 : ( ruleDevolver ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20797:1: rule__Sino__DevuelveAssignment_3 : ( ruleDevolver ) ;
     public final void rule__Sino__DevuelveAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20735:1: ( ( ruleDevolver ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20736:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20801:1: ( ( ruleDevolver ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20802:1: ( ruleDevolver )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20736:1: ( ruleDevolver )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20737:1: ruleDevolver
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20802:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20803:1: ruleDevolver
             {
              before(grammarAccess.getSinoAccess().getDevuelveDevolverParserRuleCall_3_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Sino__DevuelveAssignment_341765);
+            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Sino__DevuelveAssignment_341893);
             ruleDevolver();
 
             state._fsp--;
@@ -56313,20 +56459,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Devolver__DevuelveAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20746:1: rule__Devolver__DevuelveAssignment_2 : ( ruleoperacion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20812:1: rule__Devolver__DevuelveAssignment_2 : ( ruleoperacion ) ;
     public final void rule__Devolver__DevuelveAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20750:1: ( ( ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20751:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20816:1: ( ( ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20817:1: ( ruleoperacion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20751:1: ( ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20752:1: ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20817:1: ( ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20818:1: ruleoperacion
             {
              before(grammarAccess.getDevolverAccess().getDevuelveOperacionParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Devolver__DevuelveAssignment_241796);
+            pushFollow(FollowSets001.FOLLOW_ruleoperacion_in_rule__Devolver__DevuelveAssignment_241924);
             ruleoperacion();
 
             state._fsp--;
@@ -56354,20 +56500,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParametroFuncion__PasoAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20761:1: rule__ParametroFuncion__PasoAssignment_0 : ( ruleTipoPaso ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20827:1: rule__ParametroFuncion__PasoAssignment_0 : ( ruleTipoPaso ) ;
     public final void rule__ParametroFuncion__PasoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20765:1: ( ( ruleTipoPaso ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20766:1: ( ruleTipoPaso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20831:1: ( ( ruleTipoPaso ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20832:1: ( ruleTipoPaso )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20766:1: ( ruleTipoPaso )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20767:1: ruleTipoPaso
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20832:1: ( ruleTipoPaso )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20833:1: ruleTipoPaso
             {
              before(grammarAccess.getParametroFuncionAccess().getPasoTipoPasoParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoPaso_in_rule__ParametroFuncion__PasoAssignment_041827);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoPaso_in_rule__ParametroFuncion__PasoAssignment_041955);
             ruleTipoPaso();
 
             state._fsp--;
@@ -56395,20 +56541,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParametroFuncion__TipoAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20776:1: rule__ParametroFuncion__TipoAssignment_1 : ( ruleTipo ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20842:1: rule__ParametroFuncion__TipoAssignment_1 : ( ruleTipo ) ;
     public final void rule__ParametroFuncion__TipoAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20780:1: ( ( ruleTipo ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20781:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20846:1: ( ( ruleTipo ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20847:1: ( ruleTipo )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20781:1: ( ruleTipo )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20782:1: ruleTipo
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20847:1: ( ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20848:1: ruleTipo
             {
              before(grammarAccess.getParametroFuncionAccess().getTipoTipoParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__ParametroFuncion__TipoAssignment_141858);
+            pushFollow(FollowSets001.FOLLOW_ruleTipo_in_rule__ParametroFuncion__TipoAssignment_141986);
             ruleTipo();
 
             state._fsp--;
@@ -56436,20 +56582,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__ParametroFuncion__VariableAssignment_3"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20791:1: rule__ParametroFuncion__VariableAssignment_3 : ( ruleVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20857:1: rule__ParametroFuncion__VariableAssignment_3 : ( ruleVariable ) ;
     public final void rule__ParametroFuncion__VariableAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20795:1: ( ( ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20796:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20861:1: ( ( ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20862:1: ( ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20796:1: ( ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20797:1: ruleVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20862:1: ( ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20863:1: ruleVariable
             {
              before(grammarAccess.getParametroFuncionAccess().getVariableVariableParserRuleCall_3_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__ParametroFuncion__VariableAssignment_341889);
+            pushFollow(FollowSets001.FOLLOW_ruleVariable_in_rule__ParametroFuncion__VariableAssignment_342017);
             ruleVariable();
 
             state._fsp--;
@@ -56477,20 +56623,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__TipoAssignment_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20806:1: rule__Funcion__TipoAssignment_0 : ( ruleTipoVariable ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20872:1: rule__Funcion__TipoAssignment_0 : ( ruleTipoVariable ) ;
     public final void rule__Funcion__TipoAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20810:1: ( ( ruleTipoVariable ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20811:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20876:1: ( ( ruleTipoVariable ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20877:1: ( ruleTipoVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20811:1: ( ruleTipoVariable )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20812:1: ruleTipoVariable
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20877:1: ( ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20878:1: ruleTipoVariable
             {
              before(grammarAccess.getFuncionAccess().getTipoTipoVariableParserRuleCall_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__Funcion__TipoAssignment_041920);
+            pushFollow(FollowSets001.FOLLOW_ruleTipoVariable_in_rule__Funcion__TipoAssignment_042048);
             ruleTipoVariable();
 
             state._fsp--;
@@ -56518,20 +56664,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__NombreAssignment_2"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20821:1: rule__Funcion__NombreAssignment_2 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20887:1: rule__Funcion__NombreAssignment_2 : ( ruleEString ) ;
     public final void rule__Funcion__NombreAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20825:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20826:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20891:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20892:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20826:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20827:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20892:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20893:1: ruleEString
             {
              before(grammarAccess.getFuncionAccess().getNombreEStringParserRuleCall_2_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Funcion__NombreAssignment_241951);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Funcion__NombreAssignment_242079);
             ruleEString();
 
             state._fsp--;
@@ -56559,20 +56705,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__ParametrofuncionAssignment_4_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20836:1: rule__Funcion__ParametrofuncionAssignment_4_0 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20902:1: rule__Funcion__ParametrofuncionAssignment_4_0 : ( ruleParametroFuncion ) ;
     public final void rule__Funcion__ParametrofuncionAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20840:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20841:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20906:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20907:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20841:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20842:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20907:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20908:1: ruleParametroFuncion
             {
              before(grammarAccess.getFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_4_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_041982);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_042110);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -56600,20 +56746,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__ParametrofuncionAssignment_4_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20851:1: rule__Funcion__ParametrofuncionAssignment_4_1_1 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20917:1: rule__Funcion__ParametrofuncionAssignment_4_1_1 : ( ruleParametroFuncion ) ;
     public final void rule__Funcion__ParametrofuncionAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20855:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20856:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20921:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20922:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20856:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20857:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20922:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20923:1: ruleParametroFuncion
             {
              before(grammarAccess.getFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_4_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_1_142013);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_1_142141);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -56641,20 +56787,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__DeclaracionAssignment_9_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20866:1: rule__Funcion__DeclaracionAssignment_9_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20932:1: rule__Funcion__DeclaracionAssignment_9_0 : ( ruleDeclaracion ) ;
     public final void rule__Funcion__DeclaracionAssignment_9_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20870:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20871:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20936:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20937:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20871:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20872:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20937:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20938:1: ruleDeclaracion
             {
              before(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_9_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_042044);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_042172);
             ruleDeclaracion();
 
             state._fsp--;
@@ -56682,20 +56828,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__DeclaracionAssignment_9_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20881:1: rule__Funcion__DeclaracionAssignment_9_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20947:1: rule__Funcion__DeclaracionAssignment_9_1 : ( ruleDeclaracion ) ;
     public final void rule__Funcion__DeclaracionAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20885:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20886:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20951:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20952:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20886:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20887:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20952:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20953:1: ruleDeclaracion
             {
              before(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_9_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_142075);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_142203);
             ruleDeclaracion();
 
             state._fsp--;
@@ -56723,20 +56869,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__SentenciasAssignment_11_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20896:1: rule__Funcion__SentenciasAssignment_11_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20962:1: rule__Funcion__SentenciasAssignment_11_0 : ( ruleSentencias ) ;
     public final void rule__Funcion__SentenciasAssignment_11_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20900:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20901:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20966:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20967:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20901:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20902:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20967:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20968:1: ruleSentencias
             {
              before(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_11_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_042106);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_042234);
             ruleSentencias();
 
             state._fsp--;
@@ -56764,20 +56910,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__SentenciasAssignment_11_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20911:1: rule__Funcion__SentenciasAssignment_11_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20977:1: rule__Funcion__SentenciasAssignment_11_1 : ( ruleSentencias ) ;
     public final void rule__Funcion__SentenciasAssignment_11_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20915:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20916:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20981:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20982:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20916:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20917:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20982:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20983:1: ruleSentencias
             {
              before(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_11_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_142137);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_142265);
             ruleSentencias();
 
             state._fsp--;
@@ -56805,20 +56951,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Funcion__DevuelveAssignment_12"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20926:1: rule__Funcion__DevuelveAssignment_12 : ( ruleDevolver ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20992:1: rule__Funcion__DevuelveAssignment_12 : ( ruleDevolver ) ;
     public final void rule__Funcion__DevuelveAssignment_12() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20930:1: ( ( ruleDevolver ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20931:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20996:1: ( ( ruleDevolver ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20997:1: ( ruleDevolver )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20931:1: ( ruleDevolver )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20932:1: ruleDevolver
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20997:1: ( ruleDevolver )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20998:1: ruleDevolver
             {
              before(grammarAccess.getFuncionAccess().getDevuelveDevolverParserRuleCall_12_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Funcion__DevuelveAssignment_1242168);
+            pushFollow(FollowSets001.FOLLOW_ruleDevolver_in_rule__Funcion__DevuelveAssignment_1242296);
             ruleDevolver();
 
             state._fsp--;
@@ -56846,20 +56992,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__NombreAssignment_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20941:1: rule__Procedimiento__NombreAssignment_1 : ( ruleEString ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21007:1: rule__Procedimiento__NombreAssignment_1 : ( ruleEString ) ;
     public final void rule__Procedimiento__NombreAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20945:1: ( ( ruleEString ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20946:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21011:1: ( ( ruleEString ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21012:1: ( ruleEString )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20946:1: ( ruleEString )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20947:1: ruleEString
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21012:1: ( ruleEString )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21013:1: ruleEString
             {
              before(grammarAccess.getProcedimientoAccess().getNombreEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Procedimiento__NombreAssignment_142199);
+            pushFollow(FollowSets001.FOLLOW_ruleEString_in_rule__Procedimiento__NombreAssignment_142327);
             ruleEString();
 
             state._fsp--;
@@ -56887,20 +57033,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__ParametrofuncionAssignment_3_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20956:1: rule__Procedimiento__ParametrofuncionAssignment_3_0 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21022:1: rule__Procedimiento__ParametrofuncionAssignment_3_0 : ( ruleParametroFuncion ) ;
     public final void rule__Procedimiento__ParametrofuncionAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20960:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20961:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21026:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21027:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20961:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20962:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21027:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21028:1: ruleParametroFuncion
             {
              before(grammarAccess.getProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_3_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_042230);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_042358);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -56928,20 +57074,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__ParametrofuncionAssignment_3_1_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20971:1: rule__Procedimiento__ParametrofuncionAssignment_3_1_1 : ( ruleParametroFuncion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21037:1: rule__Procedimiento__ParametrofuncionAssignment_3_1_1 : ( ruleParametroFuncion ) ;
     public final void rule__Procedimiento__ParametrofuncionAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20975:1: ( ( ruleParametroFuncion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20976:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21041:1: ( ( ruleParametroFuncion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21042:1: ( ruleParametroFuncion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20976:1: ( ruleParametroFuncion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20977:1: ruleParametroFuncion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21042:1: ( ruleParametroFuncion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21043:1: ruleParametroFuncion
             {
              before(grammarAccess.getProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_3_1_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_1_142261);
+            pushFollow(FollowSets001.FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_1_142389);
             ruleParametroFuncion();
 
             state._fsp--;
@@ -56969,20 +57115,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__DeclaracionAssignment_8_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20986:1: rule__Procedimiento__DeclaracionAssignment_8_0 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21052:1: rule__Procedimiento__DeclaracionAssignment_8_0 : ( ruleDeclaracion ) ;
     public final void rule__Procedimiento__DeclaracionAssignment_8_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20990:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20991:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21056:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21057:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20991:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20992:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21057:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21058:1: ruleDeclaracion
             {
              before(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_8_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_042292);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_042420);
             ruleDeclaracion();
 
             state._fsp--;
@@ -57010,20 +57156,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__DeclaracionAssignment_8_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21001:1: rule__Procedimiento__DeclaracionAssignment_8_1 : ( ruleDeclaracion ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21067:1: rule__Procedimiento__DeclaracionAssignment_8_1 : ( ruleDeclaracion ) ;
     public final void rule__Procedimiento__DeclaracionAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21005:1: ( ( ruleDeclaracion ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21006:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21071:1: ( ( ruleDeclaracion ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21072:1: ( ruleDeclaracion )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21006:1: ( ruleDeclaracion )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21007:1: ruleDeclaracion
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21072:1: ( ruleDeclaracion )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21073:1: ruleDeclaracion
             {
              before(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_8_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_142323);
+            pushFollow(FollowSets001.FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_142451);
             ruleDeclaracion();
 
             state._fsp--;
@@ -57051,20 +57197,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__SentenciasAssignment_10_0"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21016:1: rule__Procedimiento__SentenciasAssignment_10_0 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21082:1: rule__Procedimiento__SentenciasAssignment_10_0 : ( ruleSentencias ) ;
     public final void rule__Procedimiento__SentenciasAssignment_10_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21020:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21021:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21086:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21087:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21021:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21022:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21087:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21088:1: ruleSentencias
             {
              before(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_10_0_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_042354);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_042482);
             ruleSentencias();
 
             state._fsp--;
@@ -57092,20 +57238,20 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Procedimiento__SentenciasAssignment_10_1"
-    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21031:1: rule__Procedimiento__SentenciasAssignment_10_1 : ( ruleSentencias ) ;
+    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21097:1: rule__Procedimiento__SentenciasAssignment_10_1 : ( ruleSentencias ) ;
     public final void rule__Procedimiento__SentenciasAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21035:1: ( ( ruleSentencias ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21036:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21101:1: ( ( ruleSentencias ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21102:1: ( ruleSentencias )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21036:1: ( ruleSentencias )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21037:1: ruleSentencias
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21102:1: ( ruleSentencias )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21103:1: ruleSentencias
             {
              before(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_10_1_0()); 
-            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_142385);
+            pushFollow(FollowSets001.FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_142513);
             ruleSentencias();
 
             state._fsp--;
@@ -57259,21 +57405,21 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
     static final String DFA28_eofS =
         "\u0152\uffff";
     static final String DFA28_minS =
-        "\1\5\2\104\1\uffff\1\4\3\16\14\4\2\uffff\22\16\43\4\55\16\56\4\74"+
+        "\1\5\2\104\1\4\1\uffff\3\16\14\4\2\uffff\22\16\43\4\55\16\56\4\74"+
         "\16\40\4\55\16\14\4\22\16\2\4\3\16";
     static final String DFA28_maxS =
-        "\1\6\2\107\1\uffff\1\6\3\114\14\6\2\uffff\22\114\43\6\55\114\56"+
+        "\1\6\2\107\1\6\1\uffff\3\114\14\6\2\uffff\22\114\43\6\55\114\56"+
         "\6\74\114\40\6\55\114\14\6\22\114\2\6\3\114";
     static final String DFA28_acceptS =
-        "\3\uffff\1\3\20\uffff\1\2\1\1\u013c\uffff";
+        "\4\uffff\1\3\17\uffff\1\2\1\1\u013c\uffff";
     static final String DFA28_specialS =
         "\u0152\uffff}>";
     static final String[] DFA28_transitionS = {
             "\1\1\1\2",
-            "\1\3\2\uffff\1\4",
-            "\1\3\2\uffff\1\4",
-            "",
+            "\1\4\2\uffff\1\3",
+            "\1\4\2\uffff\1\3",
             "\1\5\1\6\1\7",
+            "",
             "\1\23\1\22\1\12\1\13\1\10\1\11\24\uffff\1\20\1\21\1\14\1\15"+
             "\1\16\1\17\32\uffff\1\25\3\uffff\1\24",
             "\1\23\1\22\1\12\1\13\1\10\1\11\24\uffff\1\20\1\21\1\14\1\15"+
@@ -59418,285 +59564,291 @@ public class InternalVaryGrammarParser extends AbstractInternalContentAssistPars
         public static final BitSet FOLLOW_rule__Funcion__Group__9__Impl_in_rule__Funcion__Group__934320 = new BitSet(new long[]{0x0000003E00000060L,0x0000000000100000L});
         public static final BitSet FOLLOW_rule__Funcion__Group__10_in_rule__Funcion__Group__934323 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Funcion__Group_9__0_in_rule__Funcion__Group__9__Impl34350 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group__10__Impl_in_rule__Funcion__Group__1034381 = new BitSet(new long[]{0x000000C07FC00670L,0x000037229380000CL});
+        public static final BitSet FOLLOW_rule__Funcion__Group__10__Impl_in_rule__Funcion__Group__1034381 = new BitSet(new long[]{0x000000C07FC00670L,0x0000172293A0000CL});
         public static final BitSet FOLLOW_rule__Funcion__Group__11_in_rule__Funcion__Group__1034384 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_84_in_rule__Funcion__Group__10__Impl34412 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group__11__Impl_in_rule__Funcion__Group__1134443 = new BitSet(new long[]{0x000000C07FC00670L,0x000037229380000CL});
+        public static final BitSet FOLLOW_rule__Funcion__Group__11__Impl_in_rule__Funcion__Group__1134443 = new BitSet(new long[]{0x000000C07FC00670L,0x0000172293A0000CL});
         public static final BitSet FOLLOW_rule__Funcion__Group__12_in_rule__Funcion__Group__1134446 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Funcion__Group_11__0_in_rule__Funcion__Group__11__Impl34473 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group__12__Impl_in_rule__Funcion__Group__1234504 = new BitSet(new long[]{0x000000C07FC00670L,0x000037229380000CL});
+        public static final BitSet FOLLOW_rule__Funcion__Group__12__Impl_in_rule__Funcion__Group__1234504 = new BitSet(new long[]{0x000000C07FC00670L,0x0000172293A0000CL});
         public static final BitSet FOLLOW_rule__Funcion__Group__13_in_rule__Funcion__Group__1234507 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__Funcion__DevuelveAssignment_12_in_rule__Funcion__Group__12__Impl34534 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group__13__Impl_in_rule__Funcion__Group__1334565 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_109_in_rule__Funcion__Group__13__Impl34593 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4__0__Impl_in_rule__Funcion__Group_4__034652 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4__1_in_rule__Funcion__Group_4__034655 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_0_in_rule__Funcion__Group_4__0__Impl34682 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4__1__Impl_in_rule__Funcion__Group_4__134712 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__0_in_rule__Funcion__Group_4__1__Impl34739 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__0__Impl_in_rule__Funcion__Group_4_1__034774 = new BitSet(new long[]{0x0000C00080000000L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__1_in_rule__Funcion__Group_4_1__034777 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_64_in_rule__Funcion__Group_4_1__0__Impl34805 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__1__Impl_in_rule__Funcion__Group_4_1__134836 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_1_1_in_rule__Funcion__Group_4_1__1__Impl34863 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_9__0__Impl_in_rule__Funcion__Group_9__034897 = new BitSet(new long[]{0x0000003E00000060L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_9__1_in_rule__Funcion__Group_9__034900 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__DeclaracionAssignment_9_0_in_rule__Funcion__Group_9__0__Impl34927 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_9__1__Impl_in_rule__Funcion__Group_9__134957 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__DeclaracionAssignment_9_1_in_rule__Funcion__Group_9__1__Impl34984 = new BitSet(new long[]{0x0000003E00000062L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_11__0__Impl_in_rule__Funcion__Group_11__035019 = new BitSet(new long[]{0x000000C07FC00670L,0x000007229380000CL});
-        public static final BitSet FOLLOW_rule__Funcion__Group_11__1_in_rule__Funcion__Group_11__035022 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__SentenciasAssignment_11_0_in_rule__Funcion__Group_11__0__Impl35049 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__Group_11__1__Impl_in_rule__Funcion__Group_11__135079 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Funcion__SentenciasAssignment_11_1_in_rule__Funcion__Group_11__1__Impl35106 = new BitSet(new long[]{0x000000C07FC00672L,0x000007229380000CL});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__0__Impl_in_rule__Procedimiento__Group__035141 = new BitSet(new long[]{0x0000000000000060L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__1_in_rule__Procedimiento__Group__035144 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_61_in_rule__Procedimiento__Group__0__Impl35172 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__1__Impl_in_rule__Procedimiento__Group__135203 = new BitSet(new long[]{0x4000000000000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__2_in_rule__Procedimiento__Group__135206 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__NombreAssignment_1_in_rule__Procedimiento__Group__1__Impl35233 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__2__Impl_in_rule__Procedimiento__Group__235263 = new BitSet(new long[]{0x8000C00080000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__3_in_rule__Procedimiento__Group__235266 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_62_in_rule__Procedimiento__Group__2__Impl35294 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__3__Impl_in_rule__Procedimiento__Group__335325 = new BitSet(new long[]{0x8000C00080000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__4_in_rule__Procedimiento__Group__335328 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__0_in_rule__Procedimiento__Group__3__Impl35355 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__4__Impl_in_rule__Procedimiento__Group__435386 = new BitSet(new long[]{0x0070000000000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__5_in_rule__Procedimiento__Group__435389 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_63_in_rule__Procedimiento__Group__4__Impl35417 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__5__Impl_in_rule__Procedimiento__Group__535448 = new BitSet(new long[]{0x0070000000000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__6_in_rule__Procedimiento__Group__535451 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_52_in_rule__Procedimiento__Group__5__Impl35480 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__6__Impl_in_rule__Procedimiento__Group__635513 = new BitSet(new long[]{0x0070000000000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__7_in_rule__Procedimiento__Group__635516 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_53_in_rule__Procedimiento__Group__6__Impl35545 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__7__Impl_in_rule__Procedimiento__Group__735578 = new BitSet(new long[]{0x0000003E00000060L,0x0000000000100000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__8_in_rule__Procedimiento__Group__735581 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_54_in_rule__Procedimiento__Group__7__Impl35609 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__8__Impl_in_rule__Procedimiento__Group__835640 = new BitSet(new long[]{0x0000003E00000060L,0x0000000000100000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__9_in_rule__Procedimiento__Group__835643 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__0_in_rule__Procedimiento__Group__8__Impl35670 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__9__Impl_in_rule__Procedimiento__Group__935701 = new BitSet(new long[]{0x000000C07FC00670L,0x000047229380000CL});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__10_in_rule__Procedimiento__Group__935704 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_84_in_rule__Procedimiento__Group__9__Impl35732 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__10__Impl_in_rule__Procedimiento__Group__1035763 = new BitSet(new long[]{0x000000C07FC00670L,0x000047229380000CL});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__11_in_rule__Procedimiento__Group__1035766 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__0_in_rule__Procedimiento__Group__10__Impl35793 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group__11__Impl_in_rule__Procedimiento__Group__1135824 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_110_in_rule__Procedimiento__Group__11__Impl35852 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__0__Impl_in_rule__Procedimiento__Group_3__035907 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__1_in_rule__Procedimiento__Group_3__035910 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_0_in_rule__Procedimiento__Group_3__0__Impl35937 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__1__Impl_in_rule__Procedimiento__Group_3__135967 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__0_in_rule__Procedimiento__Group_3__1__Impl35994 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__0__Impl_in_rule__Procedimiento__Group_3_1__036029 = new BitSet(new long[]{0x0000C00080000000L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__1_in_rule__Procedimiento__Group_3_1__036032 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_64_in_rule__Procedimiento__Group_3_1__0__Impl36060 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__1__Impl_in_rule__Procedimiento__Group_3_1__136091 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_1_1_in_rule__Procedimiento__Group_3_1__1__Impl36118 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__0__Impl_in_rule__Procedimiento__Group_8__036152 = new BitSet(new long[]{0x0000003E00000060L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__1_in_rule__Procedimiento__Group_8__036155 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_0_in_rule__Procedimiento__Group_8__0__Impl36182 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__1__Impl_in_rule__Procedimiento__Group_8__136212 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_1_in_rule__Procedimiento__Group_8__1__Impl36239 = new BitSet(new long[]{0x0000003E00000062L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__0__Impl_in_rule__Procedimiento__Group_10__036274 = new BitSet(new long[]{0x000000C07FC00670L,0x000007229380000CL});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__1_in_rule__Procedimiento__Group_10__036277 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__SentenciasAssignment_10_0_in_rule__Procedimiento__Group_10__0__Impl36304 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__1__Impl_in_rule__Procedimiento__Group_10__136334 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Procedimiento__SentenciasAssignment_10_1_in_rule__Procedimiento__Group_10__1__Impl36361 = new BitSet(new long[]{0x000000C07FC00672L,0x000007229380000CL});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Algoritmo__NombreAssignment_136401 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_036432 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_136463 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_036498 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_136537 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_036572 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_136603 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_036634 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_136665 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_036696 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_136727 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_036758 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_136789 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleInicio_in_rule__Algoritmo__TieneAssignment_1036820 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__Modulo__NombreAssignment_136851 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_036886 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_136925 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_036960 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_136991 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_037022 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_137053 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_037084 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_137115 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_037146 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_137177 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleImplementacion_in_rule__Modulo__ImplementacionAssignment_637208 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_037239 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_137270 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_037301 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_137332 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_037363 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_137394 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_037425 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_137456 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__CabeceraProcedimiento__NombreAssignment_137487 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_037518 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_137549 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__CabeceraFuncion__TipoAssignment_037580 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__CabeceraFuncion__NombreAssignment_237611 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_037642 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_137673 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_COMENT_in_rule__Comentario__MensajeAssignment_237704 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_037735 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleModoApertura_in_rule__FuncionFicheroAbrir__ModoAssignment_2_237766 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_437797 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__FuncionFicheroCerrar__VariableAssignment_237828 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__CampoRegistro__Nombre_campoAssignment37859 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__TipoDefinido__TipoAssignment37890 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__TipoExistente__TipoAssignment37921 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariable_in_rule__Constantes__VariableAssignment_037952 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Constantes__ValorAssignment_237983 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Vector__ValorAssignment_238014 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipo_in_rule__Vector__TipoAssignment_538045 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Vector__NombreAssignment_738076 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_238107 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_438138 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipo_in_rule__Matriz__TipoAssignment_738169 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Matriz__NombreAssignment_938200 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Registro__NombreAssignment_138231 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_038262 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_138293 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipo_in_rule__Archivo__TipoAssignment_138324 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Archivo__NombreAssignment_338355 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Enumerado__NombreAssignment_038386 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_038417 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_1_138448 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoNumerico__NombreAssignment_038479 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_infAssignment_2_038510 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_supAssignment_2_238541 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoEnumerado__NombreAssignment_038572 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_infAssignment_2_038603 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_supAssignment_2_238634 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_038665 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_138696 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_038727 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_138758 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__DeclaracionVariable__TipoAssignment_038789 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_238820 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_3_138851 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__DeclaracionPropia__TipoAssignment_038882 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_238913 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_3_138944 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__AsignacionNormal__Valor_asignacionAssignment_038975 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__AsignacionNormal__OperadorAssignment_239006 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariablesComplejas_in_rule__AsignacionCompleja__Valor_asignacionAssignment_039037 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__AsignacionCompleja__OperadorAssignment_239068 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_239099 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_3_0_139130 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Escribir__OperadorAssignment_3_139161 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Leer__VariableAssignment_239192 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Si__ValorAssignment_139223 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_039254 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_139285 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDevolver_in_rule__Si__DevuelveAssignment_439316 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSino_in_rule__Si__SinoAssignment_539347 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Mientras__ValorAssignment_139378 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_039409 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_139440 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_039471 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_139502 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Repetir__ValorAssignment_339533 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAsignacionNormal_in_rule__Desde__AsignacionAssignment_139564 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Desde__ValorAssignment_339595 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_039626 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_139657 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Caso__OperadorAssignment_139688 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_039719 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_139750 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDevolver_in_rule__Caso__DevuelveAssignment_439781 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__Segun__ValorAssignment_239812 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_039843 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_139874 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_039905 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_139936 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDevolver_in_rule__Segun__DevuelveAssignment_839967 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Variable__NombreAssignment_139998 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoOr_in_rule__Or__Signo_opAssignment_1_140029 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAnd_in_rule__Or__RightAssignment_1_240060 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoAnd_in_rule__And__Signo_opAssignment_1_140091 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleIgualdad_in_rule__And__RightAssignment_1_240122 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoIgualdad_in_rule__Igualdad__Signo_opAssignment_1_140153 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComparacion_in_rule__Igualdad__RightAssignment_1_240184 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoComparacion_in_rule__Comparacion__Signo_opAssignment_1_140215 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSumaResta_in_rule__Comparacion__RightAssignment_1_240246 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoSuma_in_rule__SumaResta__Signo_opAssignment_1_0_0_140277 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoResta_in_rule__SumaResta__Signo_opAssignment_1_0_1_140308 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_rule__SumaResta__RightAssignment_1_140339 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_140370 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_140401 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rule__MultiplicacionDivision__RightAssignment_1_140432 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoOr_in_rule__OrIndice__Signo_opAssignment_1_140463 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAndIndice_in_rule__OrIndice__RightAssignment_1_240494 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoAnd_in_rule__AndIndice__Signo_opAssignment_1_140525 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleIgualdadIndice_in_rule__AndIndice__RightAssignment_1_240556 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoIgualdad_in_rule__IgualdadIndice__Signo_opAssignment_1_140587 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComparacionIndice_in_rule__IgualdadIndice__RightAssignment_1_240618 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoComparacion_in_rule__ComparacionIndice__Signo_opAssignment_1_140649 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_rule__ComparacionIndice__RightAssignment_1_240680 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoSuma_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_0_140711 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoResta_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_1_140742 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_rule__SumaRestaIndice__RightAssignment_1_140773 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_140804 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_140835 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimariaIndice_in_rule__MultiplicacionDivisionIndice__RightAssignment_1_140866 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__PrimariaIndice__ValorAssignment_0_140897 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__PrimariaIndice__NombreAssignment_1_140928 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_3_240959 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_4_340990 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Funciones__NombreAssignment_0_141021 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_041052 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_1_141083 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleNombreInterna_in_rule__Funciones__NombreAssignment_1_141114 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_041145 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_1_141176 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_vectorAssignment_0_1_041207 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__IndiceAssignment_0_1_241238 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_0_2_141269 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_matrizAssignment_1_1_041300 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__PrimerIndiceAssignment_1_1_241331 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__SegundoIndiceAssignment_1_1_441362 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_1_2_141393 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_registroAssignment_2_141424 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_041455 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_1_141486 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rule__VariablesBasicas__ValorAssignment_0_141517 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEFloat_in_rule__VariablesBasicas__ValorAssignment_1_141548 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_CAD_in_rule__VariablesBasicas__ContenidoAssignment_2_141579 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_CAR_in_rule__VariablesBasicas__ContenidoAssignment_3_141610 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulebooleano_in_rule__VariablesBasicas__ValorAssignment_4_141641 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesBasicas__NombreAssignment_5_141672 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_041703 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_141734 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDevolver_in_rule__Sino__DevuelveAssignment_341765 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rule__Devolver__DevuelveAssignment_241796 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoPaso_in_rule__ParametroFuncion__PasoAssignment_041827 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipo_in_rule__ParametroFuncion__TipoAssignment_141858 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariable_in_rule__ParametroFuncion__VariableAssignment_341889 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__Funcion__TipoAssignment_041920 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Funcion__NombreAssignment_241951 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_041982 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_1_142013 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_042044 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_142075 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_042106 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_142137 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDevolver_in_rule__Funcion__DevuelveAssignment_1242168 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Procedimiento__NombreAssignment_142199 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_042230 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_1_142261 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_042292 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_142323 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_042354 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_142385 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group__13__Impl_in_rule__Funcion__Group__1334565 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
+        public static final BitSet FOLLOW_rule__Funcion__Group__14_in_rule__Funcion__Group__1334568 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_85_in_rule__Funcion__Group__13__Impl34596 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group__14__Impl_in_rule__Funcion__Group__1434627 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_109_in_rule__Funcion__Group__14__Impl34655 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4__0__Impl_in_rule__Funcion__Group_4__034716 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4__1_in_rule__Funcion__Group_4__034719 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_0_in_rule__Funcion__Group_4__0__Impl34746 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4__1__Impl_in_rule__Funcion__Group_4__134776 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__0_in_rule__Funcion__Group_4__1__Impl34803 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__0__Impl_in_rule__Funcion__Group_4_1__034838 = new BitSet(new long[]{0x0000C00080000000L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__1_in_rule__Funcion__Group_4_1__034841 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_64_in_rule__Funcion__Group_4_1__0__Impl34869 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_4_1__1__Impl_in_rule__Funcion__Group_4_1__134900 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__ParametrofuncionAssignment_4_1_1_in_rule__Funcion__Group_4_1__1__Impl34927 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_9__0__Impl_in_rule__Funcion__Group_9__034961 = new BitSet(new long[]{0x0000003E00000060L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_9__1_in_rule__Funcion__Group_9__034964 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__DeclaracionAssignment_9_0_in_rule__Funcion__Group_9__0__Impl34991 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_9__1__Impl_in_rule__Funcion__Group_9__135021 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__DeclaracionAssignment_9_1_in_rule__Funcion__Group_9__1__Impl35048 = new BitSet(new long[]{0x0000003E00000062L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_11__0__Impl_in_rule__Funcion__Group_11__035083 = new BitSet(new long[]{0x000000C07FC00670L,0x000007229380000CL});
+        public static final BitSet FOLLOW_rule__Funcion__Group_11__1_in_rule__Funcion__Group_11__035086 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__SentenciasAssignment_11_0_in_rule__Funcion__Group_11__0__Impl35113 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__Group_11__1__Impl_in_rule__Funcion__Group_11__135143 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Funcion__SentenciasAssignment_11_1_in_rule__Funcion__Group_11__1__Impl35170 = new BitSet(new long[]{0x000000C07FC00672L,0x000007229380000CL});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__0__Impl_in_rule__Procedimiento__Group__035205 = new BitSet(new long[]{0x0000000000000060L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__1_in_rule__Procedimiento__Group__035208 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_61_in_rule__Procedimiento__Group__0__Impl35236 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__1__Impl_in_rule__Procedimiento__Group__135267 = new BitSet(new long[]{0x4000000000000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__2_in_rule__Procedimiento__Group__135270 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__NombreAssignment_1_in_rule__Procedimiento__Group__1__Impl35297 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__2__Impl_in_rule__Procedimiento__Group__235327 = new BitSet(new long[]{0x8000C00080000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__3_in_rule__Procedimiento__Group__235330 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_62_in_rule__Procedimiento__Group__2__Impl35358 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__3__Impl_in_rule__Procedimiento__Group__335389 = new BitSet(new long[]{0x8000C00080000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__4_in_rule__Procedimiento__Group__335392 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__0_in_rule__Procedimiento__Group__3__Impl35419 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__4__Impl_in_rule__Procedimiento__Group__435450 = new BitSet(new long[]{0x0070000000000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__5_in_rule__Procedimiento__Group__435453 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_63_in_rule__Procedimiento__Group__4__Impl35481 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__5__Impl_in_rule__Procedimiento__Group__535512 = new BitSet(new long[]{0x0070000000000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__6_in_rule__Procedimiento__Group__535515 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_52_in_rule__Procedimiento__Group__5__Impl35544 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__6__Impl_in_rule__Procedimiento__Group__635577 = new BitSet(new long[]{0x0070000000000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__7_in_rule__Procedimiento__Group__635580 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_53_in_rule__Procedimiento__Group__6__Impl35609 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__7__Impl_in_rule__Procedimiento__Group__735642 = new BitSet(new long[]{0x0000003E00000060L,0x0000000000100000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__8_in_rule__Procedimiento__Group__735645 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_54_in_rule__Procedimiento__Group__7__Impl35673 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__8__Impl_in_rule__Procedimiento__Group__835704 = new BitSet(new long[]{0x0000003E00000060L,0x0000000000100000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__9_in_rule__Procedimiento__Group__835707 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__0_in_rule__Procedimiento__Group__8__Impl35734 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__9__Impl_in_rule__Procedimiento__Group__935765 = new BitSet(new long[]{0x000000C07FC00670L,0x0000072293A0000CL});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__10_in_rule__Procedimiento__Group__935768 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_84_in_rule__Procedimiento__Group__9__Impl35796 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__10__Impl_in_rule__Procedimiento__Group__1035827 = new BitSet(new long[]{0x000000C07FC00670L,0x0000072293A0000CL});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__11_in_rule__Procedimiento__Group__1035830 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__0_in_rule__Procedimiento__Group__10__Impl35857 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__11__Impl_in_rule__Procedimiento__Group__1135888 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__12_in_rule__Procedimiento__Group__1135891 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_85_in_rule__Procedimiento__Group__11__Impl35919 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group__12__Impl_in_rule__Procedimiento__Group__1235950 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_110_in_rule__Procedimiento__Group__12__Impl35978 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__0__Impl_in_rule__Procedimiento__Group_3__036035 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000001L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__1_in_rule__Procedimiento__Group_3__036038 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_0_in_rule__Procedimiento__Group_3__0__Impl36065 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3__1__Impl_in_rule__Procedimiento__Group_3__136095 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__0_in_rule__Procedimiento__Group_3__1__Impl36122 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000001L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__0__Impl_in_rule__Procedimiento__Group_3_1__036157 = new BitSet(new long[]{0x0000C00080000000L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__1_in_rule__Procedimiento__Group_3_1__036160 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_64_in_rule__Procedimiento__Group_3_1__0__Impl36188 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_3_1__1__Impl_in_rule__Procedimiento__Group_3_1__136219 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__ParametrofuncionAssignment_3_1_1_in_rule__Procedimiento__Group_3_1__1__Impl36246 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__0__Impl_in_rule__Procedimiento__Group_8__036280 = new BitSet(new long[]{0x0000003E00000060L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__1_in_rule__Procedimiento__Group_8__036283 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_0_in_rule__Procedimiento__Group_8__0__Impl36310 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_8__1__Impl_in_rule__Procedimiento__Group_8__136340 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__DeclaracionAssignment_8_1_in_rule__Procedimiento__Group_8__1__Impl36367 = new BitSet(new long[]{0x0000003E00000062L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__0__Impl_in_rule__Procedimiento__Group_10__036402 = new BitSet(new long[]{0x000000C07FC00670L,0x000007229380000CL});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__1_in_rule__Procedimiento__Group_10__036405 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__SentenciasAssignment_10_0_in_rule__Procedimiento__Group_10__0__Impl36432 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__Group_10__1__Impl_in_rule__Procedimiento__Group_10__136462 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Procedimiento__SentenciasAssignment_10_1_in_rule__Procedimiento__Group_10__1__Impl36489 = new BitSet(new long[]{0x000000C07FC00672L,0x000007229380000CL});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Algoritmo__NombreAssignment_136529 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_036560 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComentario_in_rule__Algoritmo__ComentariosAssignment_2_136591 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_036626 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__Algoritmo__ImportacionesAssignment_4_136665 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_036700 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantes_in_rule__Algoritmo__ConstantesAssignment_6_1_136731 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_036762 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Algoritmo__TipocomplejoAssignment_7_1_136793 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_036824 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Algoritmo__GlobalAssignment_8_1_136855 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_036886 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Algoritmo__FuncionAssignment_9_136917 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInicio_in_rule__Algoritmo__TieneAssignment_1036948 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__Modulo__NombreAssignment_136979 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_037014 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_ID_in_rule__Modulo__ImportacionesAssignment_3_137053 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_037088 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_constantesAssignment_5_1_1_137119 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_037150 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Modulo__Exporta_tiposAssignment_5_2_1_137181 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_037212 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Modulo__Exporta_globalAssignment_5_3_1_137243 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_037274 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCabeceraSubproceso_in_rule__Modulo__Exporta_funcionesAssignment_5_4_137305 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleImplementacion_in_rule__Modulo__ImplementacionAssignment_637336 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_037367 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleConstantes_in_rule__Implementacion__ConstantesAssignment_1_1_1_137398 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_037429 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoComplejo_in_rule__Implementacion__TipocomplejoAssignment_1_2_1_137460 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_037491 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Implementacion__GlobalAssignment_1_3_1_137522 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_037553 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSubproceso_in_rule__Implementacion__FuncionAssignment_1_4_137584 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__CabeceraProcedimiento__NombreAssignment_137615 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_037646 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraProcedimiento__ParametrofuncionAssignment_3_1_137677 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__CabeceraFuncion__TipoAssignment_037708 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__CabeceraFuncion__NombreAssignment_237739 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_037770 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__CabeceraFuncion__ParametrofuncionAssignment_4_1_137801 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_COMENT_in_rule__Comentario__MensajeAssignment_237832 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_037863 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleModoApertura_in_rule__FuncionFicheroAbrir__ModoAssignment_2_237894 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__FuncionFicheroAbrir__VariableAssignment_2_437925 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__FuncionFicheroCerrar__VariableAssignment_237956 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__CampoRegistro__Nombre_campoAssignment37987 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__TipoDefinido__TipoAssignment38018 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__TipoExistente__TipoAssignment38049 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariable_in_rule__Constantes__VariableAssignment_038080 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Constantes__ValorAssignment_238111 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Vector__ValorAssignment_238142 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipo_in_rule__Vector__TipoAssignment_538173 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Vector__NombreAssignment_738204 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_238235 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Matriz__ValorAssignment_438266 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipo_in_rule__Matriz__TipoAssignment_738297 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Matriz__NombreAssignment_938328 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Registro__NombreAssignment_138359 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_038390 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Registro__VariableAssignment_2_138421 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipo_in_rule__Archivo__TipoAssignment_138452 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Archivo__NombreAssignment_338483 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Enumerado__NombreAssignment_038514 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_038545 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Enumerado__ValorAssignment_3_1_138576 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoNumerico__NombreAssignment_038607 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_infAssignment_2_038638 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__SubrangoNumerico__Limite_supAssignment_2_238669 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoEnumerado__NombreAssignment_038700 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_infAssignment_2_038731 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__SubrangoEnumerado__Limite_supAssignment_2_238762 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_038793 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Inicio__DeclaracionAssignment_3_138824 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_038855 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Inicio__TieneAssignment_5_138886 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__DeclaracionVariable__TipoAssignment_038917 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_238948 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionVariable__VariableAssignment_3_138979 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__DeclaracionPropia__TipoAssignment_039010 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_239041 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariable_in_rule__DeclaracionPropia__VariableAssignment_3_139072 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__AsignacionNormal__Valor_asignacionAssignment_039103 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__AsignacionNormal__OperadorAssignment_239134 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariablesComplejas_in_rule__AsignacionCompleja__Valor_asignacionAssignment_039165 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__AsignacionCompleja__OperadorAssignment_239196 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_239227 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Escribir__OperadorAssignment_3_0_139258 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Escribir__OperadorAssignment_3_139289 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Leer__VariableAssignment_239320 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Si__ValorAssignment_139351 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_039382 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Si__SentenciasAssignment_3_139413 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDevolver_in_rule__Si__DevuelveAssignment_439444 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSino_in_rule__Si__SinoAssignment_539475 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Mientras__ValorAssignment_139506 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_039537 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Mientras__SentenciasAssignment_3_139568 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_039599 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Repetir__SentenciasAssignment_1_139630 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Repetir__ValorAssignment_339661 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAsignacionNormal_in_rule__Desde__AsignacionAssignment_139692 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Desde__ValorAssignment_339723 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_039754 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Desde__SentenciasAssignment_5_139785 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Caso__OperadorAssignment_139816 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_039847 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Caso__SentenciasAssignment_3_139878 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDevolver_in_rule__Caso__DevuelveAssignment_439909 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__Segun__ValorAssignment_239940 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_039971 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCaso_in_rule__Segun__CasoAssignment_5_140002 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_040033 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Segun__SentenciasAssignment_7_140064 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDevolver_in_rule__Segun__DevuelveAssignment_840095 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Variable__NombreAssignment_140126 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoOr_in_rule__Or__Signo_opAssignment_1_140157 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAnd_in_rule__Or__RightAssignment_1_240188 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoAnd_in_rule__And__Signo_opAssignment_1_140219 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleIgualdad_in_rule__And__RightAssignment_1_240250 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoIgualdad_in_rule__Igualdad__Signo_opAssignment_1_140281 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComparacion_in_rule__Igualdad__RightAssignment_1_240312 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoComparacion_in_rule__Comparacion__Signo_opAssignment_1_140343 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSumaResta_in_rule__Comparacion__RightAssignment_1_240374 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoSuma_in_rule__SumaResta__Signo_opAssignment_1_0_0_140405 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoResta_in_rule__SumaResta__Signo_opAssignment_1_0_1_140436 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_rule__SumaResta__RightAssignment_1_140467 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_0_140498 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivision__Signo_opAssignment_1_0_1_140529 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_rule__MultiplicacionDivision__RightAssignment_1_140560 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoOr_in_rule__OrIndice__Signo_opAssignment_1_140591 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAndIndice_in_rule__OrIndice__RightAssignment_1_240622 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoAnd_in_rule__AndIndice__Signo_opAssignment_1_140653 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleIgualdadIndice_in_rule__AndIndice__RightAssignment_1_240684 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoIgualdad_in_rule__IgualdadIndice__Signo_opAssignment_1_140715 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComparacionIndice_in_rule__IgualdadIndice__RightAssignment_1_240746 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoComparacion_in_rule__ComparacionIndice__Signo_opAssignment_1_140777 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_rule__ComparacionIndice__RightAssignment_1_240808 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoSuma_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_0_140839 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoResta_in_rule__SumaRestaIndice__Signo_opAssignment_1_0_1_140870 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_rule__SumaRestaIndice__RightAssignment_1_140901 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_0_140932 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoDivision_in_rule__MultiplicacionDivisionIndice__Signo_opAssignment_1_0_1_140963 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimariaIndice_in_rule__MultiplicacionDivisionIndice__RightAssignment_1_140994 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__PrimariaIndice__ValorAssignment_0_141025 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__PrimariaIndice__NombreAssignment_1_141056 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_3_241087 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Primaria__Valor_operacionAssignment_4_341118 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Funciones__NombreAssignment_0_141149 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_041180 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_0_3_1_141211 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleNombreInterna_in_rule__Funciones__NombreAssignment_1_141242 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_041273 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Funciones__OperadoresAssignment_1_3_1_141304 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_vectorAssignment_0_1_041335 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__IndiceAssignment_0_1_241366 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_0_2_141397 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_matrizAssignment_1_1_041428 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__PrimerIndiceAssignment_1_1_241459 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_rule__VariablesComplejas__SegundoIndiceAssignment_1_1_441490 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_1_2_141521 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesComplejas__Nombre_registroAssignment_2_141552 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_041583 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_rule__VariablesComplejas__CampoAssignment_2_3_1_141614 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rule__VariablesBasicas__ValorAssignment_0_141645 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEFloat_in_rule__VariablesBasicas__ValorAssignment_1_141676 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_CAD_in_rule__VariablesBasicas__ContenidoAssignment_2_141707 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_CAR_in_rule__VariablesBasicas__ContenidoAssignment_3_141738 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulebooleano_in_rule__VariablesBasicas__ValorAssignment_4_141769 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__VariablesBasicas__NombreAssignment_5_141800 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_041831 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Sino__SentenciasAssignment_2_141862 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDevolver_in_rule__Sino__DevuelveAssignment_341893 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleoperacion_in_rule__Devolver__DevuelveAssignment_241924 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoPaso_in_rule__ParametroFuncion__PasoAssignment_041955 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipo_in_rule__ParametroFuncion__TipoAssignment_141986 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariable_in_rule__ParametroFuncion__VariableAssignment_342017 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoVariable_in_rule__Funcion__TipoAssignment_042048 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Funcion__NombreAssignment_242079 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_042110 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Funcion__ParametrofuncionAssignment_4_1_142141 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_042172 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Funcion__DeclaracionAssignment_9_142203 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_042234 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Funcion__SentenciasAssignment_11_142265 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDevolver_in_rule__Funcion__DevuelveAssignment_1242296 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Procedimiento__NombreAssignment_142327 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_042358 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_rule__Procedimiento__ParametrofuncionAssignment_3_1_142389 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_042420 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_rule__Procedimiento__DeclaracionAssignment_8_142451 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_042482 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rule__Procedimiento__SentenciasAssignment_10_142513 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 
