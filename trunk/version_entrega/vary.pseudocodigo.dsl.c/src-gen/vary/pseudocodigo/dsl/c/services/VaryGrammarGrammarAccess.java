@@ -3965,18 +3965,19 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSentenciasSentenciasParserRuleCall_11_1_0 = (RuleCall)cSentenciasAssignment_11_1.eContents().get(0);
 		private final Assignment cDevuelveAssignment_12 = (Assignment)cGroup.eContents().get(12);
 		private final RuleCall cDevuelveDevolverParserRuleCall_12_0 = (RuleCall)cDevuelveAssignment_12.eContents().get(0);
-		private final Keyword cFin_funcionKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cFin_inicioKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Keyword cFin_funcionKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Funcion:
 		//	tipo=TipoVariable "funcion" nombre=EString "(" (parametrofuncion+=ParametroFuncion (","
 		//	parametrofuncion+=ParametroFuncion)*)? ")" "const"? "tipo"? "var" (declaracion+=Declaracion
-		//	declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver?
+		//	declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver? "fin_inicio"
 		//	"fin_funcion";
 		public ParserRule getRule() { return rule; }
 
 		//tipo=TipoVariable "funcion" nombre=EString "(" (parametrofuncion+=ParametroFuncion (","
 		//parametrofuncion+=ParametroFuncion)*)? ")" "const"? "tipo"? "var" (declaracion+=Declaracion declaracion+=Declaracion*)?
-		//"inicio" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver? "fin_funcion"
+		//"inicio" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver? "fin_inicio" "fin_funcion"
 		public Group getGroup() { return cGroup; }
 
 		//tipo=TipoVariable
@@ -4069,8 +4070,11 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//Devolver
 		public RuleCall getDevuelveDevolverParserRuleCall_12_0() { return cDevuelveDevolverParserRuleCall_12_0; }
 
+		//"fin_inicio"
+		public Keyword getFin_inicioKeyword_13() { return cFin_inicioKeyword_13; }
+
 		//"fin_funcion"
-		public Keyword getFin_funcionKeyword_13() { return cFin_funcionKeyword_13; }
+		public Keyword getFin_funcionKeyword_14() { return cFin_funcionKeyword_14; }
 	}
 
 	public class ProcedimientoElements extends AbstractParserRuleElementFinder {
@@ -4102,17 +4106,18 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSentenciasSentenciasParserRuleCall_10_0_0 = (RuleCall)cSentenciasAssignment_10_0.eContents().get(0);
 		private final Assignment cSentenciasAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
 		private final RuleCall cSentenciasSentenciasParserRuleCall_10_1_0 = (RuleCall)cSentenciasAssignment_10_1.eContents().get(0);
-		private final Keyword cFin_procedimientoKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cFin_inicioKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Keyword cFin_procedimientoKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//Procedimiento:
 		//	"procedimiento" nombre=EString "(" (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")"
 		//	"const"? "tipo"? "var" (declaracion+=Declaracion declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias
-		//	sentencias+=Sentencias*)? "fin_procedimiento";
+		//	sentencias+=Sentencias*)? "fin_inicio" "fin_procedimiento";
 		public ParserRule getRule() { return rule; }
 
 		//"procedimiento" nombre=EString "(" (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")"
 		//"const"? "tipo"? "var" (declaracion+=Declaracion declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias
-		//sentencias+=Sentencias*)? "fin_procedimiento"
+		//sentencias+=Sentencias*)? "fin_inicio" "fin_procedimiento"
 		public Group getGroup() { return cGroup; }
 
 		//"procedimiento"
@@ -4193,8 +4198,11 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//Sentencias
 		public RuleCall getSentenciasSentenciasParserRuleCall_10_1_0() { return cSentenciasSentenciasParserRuleCall_10_1_0; }
 
+		//"fin_inicio"
+		public Keyword getFin_inicioKeyword_11() { return cFin_inicioKeyword_11; }
+
 		//"fin_procedimiento"
-		public Keyword getFin_procedimientoKeyword_11() { return cFin_procedimientoKeyword_11; }
+		public Keyword getFin_procedimientoKeyword_12() { return cFin_procedimientoKeyword_12; }
 	}
 
 	public class TipoPasoElements extends AbstractParserRuleElementFinder {
@@ -5250,7 +5258,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//Funcion:
 	//	tipo=TipoVariable "funcion" nombre=EString "(" (parametrofuncion+=ParametroFuncion (","
 	//	parametrofuncion+=ParametroFuncion)*)? ")" "const"? "tipo"? "var" (declaracion+=Declaracion
-	//	declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver?
+	//	declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver? "fin_inicio"
 	//	"fin_funcion";
 	public FuncionElements getFuncionAccess() {
 		return (pFuncion != null) ? pFuncion : (pFuncion = new FuncionElements());
@@ -5263,7 +5271,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	//Procedimiento:
 	//	"procedimiento" nombre=EString "(" (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")"
 	//	"const"? "tipo"? "var" (declaracion+=Declaracion declaracion+=Declaracion*)? "inicio" (sentencias+=Sentencias
-	//	sentencias+=Sentencias*)? "fin_procedimiento";
+	//	sentencias+=Sentencias*)? "fin_inicio" "fin_procedimiento";
 	public ProcedimientoElements getProcedimientoAccess() {
 		return (pProcedimiento != null) ? pProcedimiento : (pProcedimiento = new ProcedimientoElements());
 	}

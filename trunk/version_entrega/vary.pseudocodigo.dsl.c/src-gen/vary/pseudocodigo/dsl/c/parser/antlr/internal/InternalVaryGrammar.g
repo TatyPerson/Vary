@@ -6601,9 +6601,13 @@ ruleFuncion returns [EObject current=null]
 	    }
 
 )
-)?	otherlv_17='fin_funcion' 
+)?	otherlv_17='fin_inicio' 
     {
-    	newLeafNode(otherlv_17, grammarAccess.getFuncionAccess().getFin_funcionKeyword_13());
+    	newLeafNode(otherlv_17, grammarAccess.getFuncionAccess().getFin_inicioKeyword_13());
+    }
+	otherlv_18='fin_funcion' 
+    {
+    	newLeafNode(otherlv_18, grammarAccess.getFuncionAccess().getFin_funcionKeyword_14());
     }
 )
 ;
@@ -6784,9 +6788,13 @@ ruleProcedimiento returns [EObject current=null]
 	    }
 
 )
-)*)?	otherlv_15='fin_procedimiento' 
+)*)?	otherlv_15='fin_inicio' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_11());
+    	newLeafNode(otherlv_15, grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_11());
+    }
+	otherlv_16='fin_procedimiento' 
+    {
+    	newLeafNode(otherlv_16, grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_12());
     }
 )
 ;
