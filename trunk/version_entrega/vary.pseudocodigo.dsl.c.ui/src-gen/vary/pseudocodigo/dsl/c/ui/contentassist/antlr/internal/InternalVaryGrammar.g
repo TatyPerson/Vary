@@ -17200,6 +17200,7 @@ rule__Funcion__Group__13
     }
 :
 	rule__Funcion__Group__13__Impl
+	rule__Funcion__Group__14
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -17211,17 +17212,49 @@ rule__Funcion__Group__13__Impl
     }
 :
 (
-{ before(grammarAccess.getFuncionAccess().getFin_funcionKeyword_13()); }
+{ before(grammarAccess.getFuncionAccess().getFin_inicioKeyword_13()); }
 
-	'fin_funcion' 
+	'fin_inicio' 
 
-{ after(grammarAccess.getFuncionAccess().getFin_funcionKeyword_13()); }
+{ after(grammarAccess.getFuncionAccess().getFin_inicioKeyword_13()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Funcion__Group__14
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Funcion__Group__14__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Funcion__Group__14__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getFuncionAccess().getFin_funcionKeyword_14()); }
+
+	'fin_funcion' 
+
+{ after(grammarAccess.getFuncionAccess().getFin_funcionKeyword_14()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
@@ -17837,6 +17870,7 @@ rule__Procedimiento__Group__11
     }
 :
 	rule__Procedimiento__Group__11__Impl
+	rule__Procedimiento__Group__12
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -17848,17 +17882,49 @@ rule__Procedimiento__Group__11__Impl
     }
 :
 (
-{ before(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_11()); }
+{ before(grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_11()); }
 
-	'fin_procedimiento' 
+	'fin_inicio' 
 
-{ after(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_11()); }
+{ after(grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_11()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
+
+
+rule__Procedimiento__Group__12
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__Procedimiento__Group__12__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Procedimiento__Group__12__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_12()); }
+
+	'fin_procedimiento' 
+
+{ after(grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_12()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 
 
 
