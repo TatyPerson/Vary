@@ -432,6 +432,7 @@ Funcion returns Funcion:
 	'inicio'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
 	(devuelve=Devolver)?
+	'fin_inicio'
 	'fin_funcion';
 	
 Procedimiento returns Procedimiento:
@@ -444,6 +445,7 @@ Procedimiento returns Procedimiento:
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'inicio'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
+	'fin_inicio'
 	'fin_procedimiento';
 	
 TipoPaso returns ecore::EString:

@@ -17,7 +17,8 @@ Require-Bundle: org.eclipse.xtext.generator;resolution:=optional,
  org.eclipse.xtext.common.types,
  org.eclipse.emf.ecore,
  org.eclipse.xtend,
- org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0"
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0",
+ org.eclipse.xtext
 Import-Package: org.apache.log4j,
  org.eclipse.ui,
  org.eclipse.xtext.xbase.lib
@@ -38,3 +39,4 @@ Export-Package: vary.pseudocodigo.dsl.c,
  vary.pseudocodigo.dsl.c.validation,
  vary.pseudocodigo.dsl.c.validation.english.messages,
  vary.pseudocodigo.dsl.c.validation.messages
+
