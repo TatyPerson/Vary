@@ -484,6 +484,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INITIATION),
 						b.zeroOrMore(SENTENCIAS),
 						b.optional(DEVOLVER),
+						b.isOneOfThem(VaryKeyword.FIN_INICIO, VaryKeyword.END_INITIATION),
 						b.isOneOfThem(VaryKeyword.FIN_FUNCION, VaryKeyword.END_FUNCTION)));
 		
 		b.rule(PROCEDIMIENTO).is(
@@ -498,6 +499,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 						b.zeroOrMore(DECLARACION),
 						b.isOneOfThem(VaryKeyword.INICIO, VaryKeyword.INITIATION),
 						b.zeroOrMore(SENTENCIAS),
+						b.isOneOfThem(VaryKeyword.FIN_INICIO, VaryKeyword.END_INITIATION),
 						b.isOneOfThem(VaryKeyword.FIN_PROCEDIMIENTO, VaryKeyword.END_PROCEDURE)));
 		
 		b.rule(PARAMETRO_FUNCION).is(
