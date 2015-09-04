@@ -57,7 +57,7 @@ public enum VaryKeyword implements TokenType, GrammarRuleKey {
   VERDADERO("verdadero"),
   FALSO("falso"),
   NO("no"),
-  SINO("sino"),
+  SINO("si_no"),
   DEVOLVER("devolver"),
   FUNCION("funcion"),
   FIN_FUNCION("fin_funcion"),
