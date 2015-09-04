@@ -372,19 +372,15 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				«FOR mySubproceso:myModulo.implementacion.funcion»
 					«IF mySubproceso.eClass.name.equals("Procedimiento")»
 						«var procedimiento = mySubproceso as Procedimiento»
-						«FOR myProcedimiento:procedimientosUsados»
-							«IF myProcedimiento.nombre.equals(procedimiento) && myProcedimiento.parametrofuncion.size == procedimiento.parametrofuncion.size»
-								«mySubproceso.cabecerasFuncionStatic»
-							«ENDIF»
-						«ENDFOR»
+						«IF !procedimientosUsados.contains(procedimiento)»
+							«mySubproceso.cabecerasFuncionStatic»
+						«ENDIF»
 					«ENDIF»
 					«IF mySubproceso.eClass.name.equals("Funcion")»
 						«var funcion = mySubproceso as Funcion»
-						«FOR myFuncion:funcionesUsadas»
-							«IF myFuncion.nombre.equals(funcion) && myFuncion.parametrofuncion.size == funcion.parametrofuncion.size»
-								«mySubproceso.cabecerasFuncionStatic»
-							«ENDIF»
-						«ENDFOR»
+						«IF !funcionesUsadas.contains(funcion)»
+							«mySubproceso.cabecerasFuncionStatic»
+						«ENDIF»
 					«ENDIF»
 				«ENDFOR»
 		};
@@ -699,14 +695,14 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			«FOR mySubproceso:myModulo.implementacion.funcion»
 				«IF mySubproceso.eClass.name.equals("Procedimiento")»
 					«var procedimiento = mySubproceso as Procedimiento»
-					«IF (!myModulo.exporta_funciones.contains(procedimiento.nombre)) && procedimiento.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
+					«IF (myModulo.exporta_funciones.contains(procedimiento.nombre)) && procedimiento.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
 						«procedimiento.generate(modulo.nombre)»
 						«procedimiento.addProcedimiento(procedimientosUsados)»
 					«ENDIF»
 				«ENDIF»
 				«IF mySubproceso.eClass.name.equals("Funcion")»
 					«var funcion = mySubproceso as Funcion»
-					«IF (!myModulo.exporta_funciones.contains(funcion.nombre)) && funcion.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
+					«IF (myModulo.exporta_funciones.contains(funcion.nombre)) && funcion.parametrofuncion.size == exportaCabecera.parametrofuncion.size»
 						«funcion.generate(modulo.nombre)»
 						«funcion.addFuncion(funcionesUsadas)»
 					«ENDIF»
