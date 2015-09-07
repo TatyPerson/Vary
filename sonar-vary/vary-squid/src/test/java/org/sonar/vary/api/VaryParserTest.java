@@ -44,7 +44,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  //Probando tipos de variables nativos
 		  p.setRootRule(g.rule(VaryGrammarImpl.VARIABLES_BASICAS));
 		    assertThat(p).matches("verdadero");
-		    assertThat(p).matches("pepe");
+		    assertThat(p).matches("prueba");
 		    assertThat(p).matches("\"hola\"");
 		    assertThat(p).matches("\'a\'");
 		    assertThat(p).matches("5");
@@ -57,7 +57,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  //Probando la sintaxis de las declaraciones de tipos nativos:
 		  p.setRootRule(g.rule(VaryGrammarImpl.DECLARACION_VARIABLE));
 		  assertThat(p).matches("entero: a");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("miVariable: a");
 		  assertThat(p).matches("real: a");
 		  assertThat(p).matches("logico: a");
@@ -67,7 +67,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  //Probando la sintaxis de las declaraciones de tipos creados por el usuario:
 		  p.setRootRule(g.rule(VaryGrammarImpl.DECLARACION_PROPIA));
 		  assertThat(p).notMatches("entero: a");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).matches("miVariable: a");
 		  assertThat(p).notMatches("real: a");
 		  assertThat(p).notMatches("logico: a");
@@ -78,14 +78,14 @@ public class VaryParserTest extends ParserBaseTest {
 		  p.setRootRule(g.rule(VaryGrammarImpl.DECLARACION));
 		  assertThat(p).matches("miVariable: a");
 		  assertThat(p).matches("entero: a");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("5.5");
 		  
 		  //Probando las variables globales para la métrica:
 		  p.setRootRule(g.rule(VaryGrammarImpl.DECLARACION_GLOBAL));
 		  assertThat(p).matches("miVariable: a");
 		  assertThat(p).matches("entero: a");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("5.5");
 	  }
 	  
@@ -96,7 +96,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  p.setRootRule(g.rule(VaryGrammarImpl.OPERACION));
 		  assertThat(p).matches("a o b");
 		  assertThat(p).matches("a y b");
-		  assertThat(p).matches("pepita");
+		  assertThat(p).matches("prueba");
 		  assertThat(p).matches("5");
 		  assertThat(p).matches("a + b");
 		  assertThat(p).matches("a - b");
@@ -146,7 +146,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("a[i]");
 		  assertThat(p).matches("a[i].campo");
 		  assertThat(p).notMatches("4 + 5");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  
 		  //Comprobando el formato del valor de una matriz:
 		  p.setRootRule(g.rule(VaryGrammarImpl.VALOR_MATRIZ));
@@ -155,14 +155,14 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("a[i][0]");
 		  assertThat(p).matches("a[i][0].campo");
 		  assertThat(p).notMatches("4 + 5");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  
 		  //Comprobando el formato del valor de un registro:
 		  p.setRootRule(g.rule(VaryGrammarImpl.VALOR_REGISTRO));
 		  assertThat(p).matches("a.campo");
 		  assertThat(p).matches("a.campo.campo2");
 		  assertThat(p).notMatches("4 + 5");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  
 		  //Comprobando la herencia:
 		  p.setRootRule(g.rule(VaryGrammarImpl.VARIABLES_COMPLEJAS));
@@ -176,7 +176,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("a.campo");
 		  assertThat(p).matches("a.campo.campo2");
 		  assertThat(p).notMatches("4 + 5");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  
 	  }
 	  
@@ -192,7 +192,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  //assertThat(p).matches("funcion()");
 		  //assertThat(p).notMatches("5");
 		  //assertThat(p).notMatches("cuadrado(a)");
-		  //assertThat(p).notMatches("pepita");
+		  //assertThat(p).notMatches("prueba");
 	  }
 	  
 	  @Test
@@ -200,14 +200,14 @@ public class VaryParserTest extends ParserBaseTest {
 		  p.setRootRule(g.rule(VaryGrammarImpl.ASIGNACION_NORMAL));
 		  assertThat(p).matches("a <- b");
 		  assertThat(p).matches("a <- 0");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("5");
 		  assertThat(p).matches("a <- b + 5");
 		  
 		  p.setRootRule(g.rule(VaryGrammarImpl.ASIGNACION_COMPLEJA));
 		  assertThat(p).matches("a.campo <- b");
 		  assertThat(p).matches("a[0] <- 0");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("5");
 		  
 		  p.setRootRule(g.rule(VaryGrammarImpl.ASIGNACION));
@@ -221,7 +221,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("a <- fun(a,b)");
 		  assertThat(p).matches("a <- fun(a,b) + 2");
 		  assertThat(p).matches("variable <- w + reg.campoCadena");
-		  assertThat(p).notMatches("pepita");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("5");
 		  
 	  }
@@ -231,7 +231,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  p.setRootRule(g.rule(VaryGrammarImpl.REGISTRO));
 		  assertThat(p).matches("registro: persona" + '\n' + "cadena: dni" + '\n' + "entero: edad" + '\n' + "cadena: nombre" + '\n' + "fin_registro");
 		  assertThat(p).notMatches("5");
-		  assertThat(p).notMatches("pepe");
+		  assertThat(p).notMatches("prueba");
 		  assertThat(p).notMatches("entero: a");
 	  }
 	  
@@ -241,7 +241,7 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("Algoritmo prueba" + '\n' + "importa" + '\n' + "fin_importa" + '\n' + "const" + '\n' + "tipo" + '\n' + "var" + '\n' + "principal" + '\n' + "var" + '\n' + "inicio" + '\n' + "fin_inicio" + '\n' + "fin_algoritmo");
 		  assertThat(p).matches("Algoritmo prueba" + '\n' + "importa" + '\n' + "fin_importa" + '\n' + "const" + '\n' + "tipo" + '\n' + "var" + '\n' + "entero: a" + '\n' + "entero: b" + '\n' + "principal" + '\n' + "var" + '\n' + "inicio" + '\n' + "fin_inicio" + '\n' + "fin_algoritmo");
 		  assertThat(p).notMatches("5");
-		  assertThat(p).notMatches("pepito");
+		  assertThat(p).notMatches("prueba");
 	  }
 	  
 	  @Test
