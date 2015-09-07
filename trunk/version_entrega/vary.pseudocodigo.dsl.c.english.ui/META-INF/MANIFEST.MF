@@ -29,4 +29,7 @@ Import-Package: diagramapseudocodigo,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Bundle-Activator: vary.pseudocodigo.dsl.c.english.ui.internal.VaryGrammarEnglishActivator
-Export-Package: vary.pseudocodigo.dsl.c.english.ui.internal
+Export-Package: vary.pseudocodigo.dsl.c.english.ui.internal,
+ vary.pseudocodigo.dsl.c.english.ui.quickfix,
+ vary.pseudocodigo.dsl.c.english.ui.contentassist,
+ vary.pseudocodigo.dsl.c.english.ui.contentassist.antlr

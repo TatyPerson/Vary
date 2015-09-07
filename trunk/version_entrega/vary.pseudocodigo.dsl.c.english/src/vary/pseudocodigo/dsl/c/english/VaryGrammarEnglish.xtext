@@ -400,8 +400,6 @@ Funcion returns Funcion:
 	'function'
 	nombre=EString
 	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
-	'const'?
-	'type'?
 	'var'
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'initiation'
@@ -414,8 +412,6 @@ Procedimiento returns Procedimiento:
 	'procedure'
 	nombre=EString
 	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
-	'const'?
-	'type'?
 	'var'
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'initiation'
