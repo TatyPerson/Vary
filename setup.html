@@ -24,47 +24,107 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="complete-pseudocode-and-of-reference" class="anchor" href="#complete-pseudocode-and-of-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Complete pseudocode and of "reference"</strong>
 </h3>
 
-<p>Supports writing algorithms using the syntax described in the literature reference (Hurtado, 2002) of the subjects "Introducción a la programación" and "Metodología de la programación" in the UCA (Universidad de Cádiz).</p>
+<p>To download the JDK 8 you can access Oracle's official website:</p>
+
+<p><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
 
 <h3>
-<a id="multi-platform" class="anchor" href="#multi-platform" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Multi-platform</strong>
+<a id="user-content-2-download-and-install-a-cc-compiler" class="anchor" href="#2-download-and-install-a-cc-compiler" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2. Download and install a C/C++ compiler.</strong>
 </h3>
 
-<p>Based on the popular Eclipse environment and available to Windows, Linux and Mac OS.</p>
+<p>For the plugin works properly you must install a C/C++ compiler in your preferred operating system.</p>
+
+<h4>
+<a id="user-content-21-windows" class="anchor" href="#21-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.1. Windows</strong>
+</h4>
+
+<p>In this case, the application that you must install will be Cygwin 2.1.0: </p>
+
+<p>To perform the installation must follow the official installation guide of Cygwin:</p>
+
+<p><a href="https://cygwin.com/install.html">https://cygwin.com/install.html</a></p>
+
+<p>Furthermore, the packages to be installed are:</p>
+
+<p><code>gcc-core (Devel - gcc-core: GNU Compiler Collection)</code></p>
+
+<p><code>make (Devel - make: The GNU version of the 'make' utility)</code></p>
+
+<p>Finally, when the installation is complete you must be exported in the PATH system variable the following directory: </p>
+
+<p><code>C:\textbackslash cygwin64\textbackslash bin</code></p>
+
+<h4>
+<a id="user-content-22-linux" class="anchor" href="#22-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.2. Linux</strong>
+</h4>
+
+<p>In this case, tests were performed in a Ubuntu distribution, but the procedure for other distributions is the same or very similar.</p>
+
+<p>To install the GNU C/C++ compiler (GCC) 5.2 should perform the following commands in the terminal:</p>
+
+<p><code>sudo apt-get update</code></p>
+
+<p><code>sudo apt-get upgrade</code></p>
+
+<p><code>sudo apt-get install build-essential</code></p>
+
+<p><code>gcc -v (orden para verificar que se ha instalado correctamente)</code></p>
+
+<p><code>make -v (orden para verificar que se ha instalado correctamente)</code></p>
+
+<h4>
+<a id="user-content-23-mac-os" class="anchor" href="#23-mac-os" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.3. Mac OS</strong>
+</h4>
+
+<p>In Mac OS simply install Xcode 6.4.</p>
+
+<p>Xcode is a free development application that can be downloaded from the official Apple application store (App Store):</p>
+
+<p><a href="https://itunes.apple.com/es/app/xcode/id497799835?mt=12">https://itunes.apple.com/es/app/xcode/id497799835?mt=12</a></p>
+
+<p>This application includes a compiler of C/C++, among many other utilities.</p>
 
 <h3>
-<a id="friendly-environment" class="anchor" href="#friendly-environment" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Friendly environment</strong>
+<a id="user-content-3-download-and-install-eclipse-ide-for-cc-developers" class="anchor" href="#3-download-and-install-eclipse-ide-for-cc-developers" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>3. Download and install Eclipse IDE for C/C++ Developers.</strong>
 </h3>
 
-<p>Wizards, templates, autocomplete, formatting and automatic colored, quick fixes, outline view, etc.</p>
+<p>To download "Eclipse IDE for C/C++ Developers" can access the Eclipse official website:</p>
+
+<p><a href="https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/marsr">https://www.eclipse.org/downloads/packages/eclipse-ide-cc-developers/marsr</a></p>
 
 <h3>
-<a id="multi-language-syntax" class="anchor" href="#multi-language-syntax" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Multi-language syntax</strong>
+<a id="user-content-4-download-and-install-the-application-plugins-vary" class="anchor" href="#4-download-and-install-the-application-plugins-vary" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>4. Download and install the application plugins (Vary).</strong>
 </h3>
 
-<p>Algorithms can be programmed in Spanish and English, according to the user's preference when it begin to create a new project of code.</p>
+<p>First, install the Xtext plugin for Eclipse. For it is will be downloaded from the Install new software option (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/0b608a1f72f3e1113564dc9b73dc700aac327ce0/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f633063344c6d766d387235796b6761637771457367382f646f776e6c6f61642f633063344c6d766d387235796b676163777145736738" alt="Opción para instalar nuevas extensiones desde Eclipse" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/c0c4Lmvm8r5ykgacwqEsg8/download/c0c4Lmvm8r5ykgacwqEsg8"></p>
+
+<p>To download the Xtext plugin, All Available Sites will be chosen to work with all repositories (Work with) and Xtext will be introduced as search filter. After searching in the Modeling directory is selected Xtext Complete SDK (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/f903c40d0baf113dd6056ba2768981677d8b233d/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f616741524f45766e617235415f64616377716a5159772f646f776e6c6f61642f616741524f45766e617235415f64616377716a515977" alt="Instalación Xtext SDK" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/agAROEvnar5A_dacwqjQYw/download/agAROEvnar5A_dacwqjQYw"></p>
+
+<p>Finally, you must copy all .jar files related to the plugin Vary in the plugins directory. This directory is within Eclipse directory that is obtained after installation (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/9291c409efc542760344b86dc71902313c0e7ca8/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f615a48387857766e617235424874646d72366267376d2f646f776e6c6f61642f615a48387857766e617235424874646d72366267376d" alt="Directorio plugins para la instalación en Eclipse" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/aZH8xWvnar5BHtdmr6bg7m/download/aZH8xWvnar5BHtdmr6bg7m">      </p>
 
 <h3>
-<a id="compiling-and-running" class="anchor" href="#compiling-and-running" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Compiling and running</strong>
+<a id="user-content-5-configuration-to-measure-the-quality-of-the-algorithms-from-sonarqube" class="anchor" href="#5-configuration-to-measure-the-quality-of-the-algorithms-from-sonarqube" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>5. Configuration to measure the quality of the algorithms from SonarQube.</strong>
 </h3>
 
-<p>Validation and automatic C or C ++ code generation executable on the environment itself.</p>
+<p>First, you must perform configuration SonarQube server from which you will see the results of the measurements.</p>
 
-<h3>
-<a id="integrable" class="anchor" href="#integrable" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Integrable</strong>
-</h3>
+<p><a href="http://docs.sonarqube.org/display/SONAR/Installing">http://docs.sonarqube.org/display/SONAR/Installing</a></p>
 
-<p>Static code analysis of algorithms from the SonarQube environment.</p>
+<p>Subsequently, the "sonar-vary-plugin-1.0.0.jar" file must be copied in the SonarQube server plugins directory. In this case, the plugins directory is in:</p>
 
-<h3>
-<a id="extensible" class="anchor" href="#extensible" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Extensible</strong>
-</h3>
+<p><code>/usr/local/Cellar/sonar/5.1/libexec/extensions/plugins</code></p>
 
-<p>Design devised for adding new languages to the concrete syntax of language and new languages for code generation.</p>
+<p>In addition, for analysis from outside of Eclipse must be installed the SonarQube Runner application.</p>
+
+<p><a href="http://docs.sonarqube.org/display/SONAR/Installing+and+Configuring+SonarQube+Runner">http://docs.sonarqube.org/display/SONAR/Installing+and+Configuring+SonarQube+Runner</a></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/TatyPerson/Vary">Vary</a> is maintained by <a href="https://github.com/TatyPerson">TatyPerson</a>.</span>
