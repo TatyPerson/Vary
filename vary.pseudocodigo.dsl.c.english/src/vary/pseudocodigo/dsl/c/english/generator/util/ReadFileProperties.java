@@ -11,16 +11,18 @@ import java.nio.file.Paths;
 
 public class ReadFileProperties {
 	
-	public ReadFileProperties() {}
+	public ReadFileProperties() {
+		
+	}
 	
-	public String readFilePropertiesWindows(String URI) throws IOException {
+	public String readFilePropertiesWindows(String uri) throws IOException {
 		
 		String fileContent = new String();
 		String inputLine;
-		BufferedReader buffer = new BufferedReader(new FileReader(URI));
+		BufferedReader buffer = new BufferedReader(new FileReader(uri));
 		//Los tengo que quitar solo son para hacer las pruebas
 		ProjectLocationFolder.getLogger().error("BufferedReader con:");
-		ProjectLocationFolder.getLogger().error(URI);
+		ProjectLocationFolder.getLogger().error(uri);
 
 		while ((inputLine = buffer.readLine()) != null) {
 			fileContent = fileContent + inputLine;
@@ -31,11 +33,11 @@ public class ReadFileProperties {
 		return fileContent;
 	}
 	
-	public String readFilePropertiesUnix(String URI) throws IOException {
+	public String readFilePropertiesUnix(String uri) throws IOException {
 		
 		String fileContent = new String();
 		String inputLine;
-		Path path = Paths.get(URI, ".varyproject");
+		Path path = Paths.get(uri, ".varyproject");
 		//Los tengo que quitar solo para hacer las pruebas
 		ProjectLocationFolder.getLogger().error("Estoy aqui!");
 		ProjectLocationFolder.getLogger().error(path);

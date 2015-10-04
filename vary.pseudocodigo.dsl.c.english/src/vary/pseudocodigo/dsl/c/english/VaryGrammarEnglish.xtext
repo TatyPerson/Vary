@@ -350,23 +350,49 @@ SumaResta returns operacion:
 
 MultiplicacionDivision returns operacion:
 	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision) right=Primaria)*;
+	
+	
+operacionIndice returns operacion:
+	OrIndice;
 
+OrIndice returns operacion:
+	AndIndice ({Or.left=current} signo_op=signoOr right=AndIndice)*;
+
+AndIndice returns operacion:
+	IgualdadIndice ({And.left=current} signo_op=signoAnd right=IgualdadIndice)*;
+
+IgualdadIndice returns operacion:
+	ComparacionIndice ({Igualdad.left=current} signo_op=signoIgualdad right=ComparacionIndice)*;
+
+ComparacionIndice returns operacion:
+	SumaRestaIndice ({Comparacion.left=current} signo_op=signoComparacion right=SumaRestaIndice)*;
+
+SumaRestaIndice returns operacion:
+	MultiplicacionDivisionIndice (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivisionIndice)*;
+
+MultiplicacionDivisionIndice returns operacion:
+	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision) right=PrimariaIndice)*;
+
+PrimariaIndice returns operacion:
+	{NumeroEntero} valor=EInt
+	| {VariableID} nombre=EString;
 
 Primaria returns operacion:
-	'|' operacion '|'
-	| VariablesBasicas
+	VariablesBasicas |
+	('|' operacion  '|')
+	| VariablesComplejas
 	| {Negativa} '-(' valor_operacion=operacion ')'
 	| {Negacion} 'not''(' valor_operacion=operacion ')'
-	| Funciones
-	| VariablesComplejas;
+	| Funciones;
+	
 	
 Funciones returns operacion:
 	{LlamadaFuncion} nombre=EString '(' (operadores+=operacion ( ',' operadores+=operacion)* )? ')'
 	| {Internas} nombre=NombreInterna '(' (operadores+=operacion ( ',' operadores+=operacion)* )? ')';
 	
 VariablesComplejas returns operacion:
-	{ValorVector} ((nombre_vector=EString)'['(indice=operacion)']') ('.' (campo+=CampoRegistro) )?
-	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=VariablesBasicas)']['(segundoIndice=VariablesBasicas)']') ('.' (campo+=CampoRegistro) )?
+	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
+	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
 	| {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
 	
 VariablesBasicas returns operacion:
@@ -385,7 +411,7 @@ Sino returns Sino:
 
 Devolver returns Devolver:
 	{Devolver}
-	'return' devuelve=Primaria;
+	'return' devuelve=operacion;
 
 //neg returns neg:
 //	"no" /* TODO: implement this rule and an appropriate IValueConverter */;
@@ -404,7 +430,7 @@ Funcion returns Funcion:
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'initiation'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
-	devuelve=Devolver
+	(devuelve=Devolver)?
 	'end_initiation'
 	'end_function';
 	

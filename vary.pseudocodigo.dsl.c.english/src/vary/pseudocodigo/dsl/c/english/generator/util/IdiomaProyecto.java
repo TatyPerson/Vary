@@ -6,9 +6,9 @@ import java.util.ResourceBundle;
 public class IdiomaProyecto {
 
 	private static String idioma;
-	public static ResourceBundle bundle;
+	private static ResourceBundle bundle;
 	
-	public IdiomaProyecto() {
+	private IdiomaProyecto() {
 		idioma = "English";
 		Locale englishLocale = new Locale("en", "US");
 		bundle = ResourceBundle.getBundle("Language", englishLocale);

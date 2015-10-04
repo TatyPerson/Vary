@@ -4,7 +4,7 @@ public class ProjectEmpty {
 	
 	private static boolean empty;
 	
-	public ProjectEmpty() {
+	private ProjectEmpty() {
 		empty = false;
 	}
 	

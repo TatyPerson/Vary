@@ -3,9 +3,13 @@ package vary.pseudocodigo.dsl.c.english.generator.util;
 import org.apache.log4j.Logger;
 
 public class ProjectLocationFolder {
-	static String path;
-	static String OS;
-	static final Logger logger = Logger.getLogger(ProjectLocationFolder.class);
+	private static String path;
+	private static String OS;
+	private static final Logger LOGGER = Logger.getLogger(ProjectLocationFolder.class);
+	
+	private ProjectLocationFolder() {
+		
+	}
 	
 	public static void setPath(String path) {
 		ProjectLocationFolder.path = path;
@@ -15,8 +19,8 @@ public class ProjectLocationFolder {
 		return path;
 	}
 	
-	public static void setOS(String OS) {
-		ProjectLocationFolder.OS = OS;
+	public static void setOS(String osAux) {
+		ProjectLocationFolder.OS = osAux;
 	}
 	
 	public static String getOS() {
@@ -24,7 +28,7 @@ public class ProjectLocationFolder {
 	}
 	
 	public static Logger getLogger() {
-		return logger;
+		return LOGGER;
 	}
 	
 }
