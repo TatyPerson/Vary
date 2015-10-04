@@ -18,7 +18,7 @@ import org.sonar.vary.plugin.VaryLanguage;
 public abstract class VaryAbstractRuleRepository implements RulesDefinition {
 
   private final ServerFileSystem fileSystem;
-  public final Settings settings;
+  private final Settings settings;
   private final RulesDefinitionXmlLoader xmlRuleLoader;
   protected final String repositoryKey;
   protected final String repositoryName;
@@ -59,8 +59,6 @@ public abstract class VaryAbstractRuleRepository implements RulesDefinition {
     if (StringUtils.isNotBlank(customRules)) {
       xmlRuleLoader.load(repository, new StringReader(customRules));
     }
-
-    //i18nLoader.load(repository); //@todo?
     repository.done();
   }
 

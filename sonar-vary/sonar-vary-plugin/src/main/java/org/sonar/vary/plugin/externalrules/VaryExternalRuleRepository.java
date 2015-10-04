@@ -16,7 +16,7 @@ public class VaryExternalRuleRepository implements RulesDefinition {
 
   public static final String KEY = "vary other";
   public static final String RULES_KEY = "sonar.vary.other.rules";
-  public final Settings settings;
+  private final Settings settings;
   private final RulesDefinitionXmlLoader xmlRuleLoader;
   private static final String NAME = "Vary Other";
 

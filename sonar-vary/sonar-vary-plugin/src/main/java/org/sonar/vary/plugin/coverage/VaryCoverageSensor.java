@@ -130,6 +130,7 @@ public class VaryCoverageSensor extends VaryReportSensor {
             case OVERALL_COVERAGE:
               measure = convertForOverall(measure);
               break;
+            default:
           }
           context.saveMeasure(cxxfile, measure);
         }
@@ -191,6 +192,7 @@ public class VaryCoverageSensor extends VaryReportSensor {
         hitsDataMetric = CoreMetrics.OVERALL_COVERAGE_LINE_HITS_DATA;
         linesToCoverMetric = CoreMetrics.OVERALL_LINES_TO_COVER;
         uncoveredLinesMetric = CoreMetrics.OVERALL_UNCOVERED_LINES;
+        break;
       default:
       }
 

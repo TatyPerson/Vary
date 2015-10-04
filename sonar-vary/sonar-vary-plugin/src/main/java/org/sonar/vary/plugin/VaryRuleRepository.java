@@ -1,28 +1,11 @@
 package org.sonar.vary.plugin;
 
-import java.io.StringReader;
 import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
-import org.sonar.api.config.Settings;
 import org.sonar.api.server.rule.RulesDefinition;
-import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
-import org.sonar.api.server.rule.RulesDefinition.Context;
-import org.sonar.api.server.rule.RulesDefinition.NewRepository;
 import org.sonar.vary.checks.CheckList;
-import org.sonar.vary.plugin.utils.VaryUtils;
 import org.sonar.squidbridge.annotations.AnnotationBasedRulesDefinition;
 
 public class VaryRuleRepository implements RulesDefinition {
-  /*public final Settings settings;
-  private final RulesDefinitionXmlLoader xmlRuleLoader;
-  public static final String RULES_KEY = "sonar.vary.rules";
-	
-  public VaryRuleRepository(RulesDefinitionXmlLoader xmlRuleLoader, Settings settings) {	
-	 this.xmlRuleLoader = xmlRuleLoader;
-	 this.settings = settings;
-  }*/
-
   @Override
   public void define(Context context) {
 	  final String languageKey = VaryLanguage.KEY;

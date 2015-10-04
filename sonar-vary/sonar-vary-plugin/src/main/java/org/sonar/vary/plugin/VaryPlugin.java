@@ -74,7 +74,6 @@ public final class VaryPlugin extends SonarPlugin {
   }
 
 	  private static List<PropertyDefinition> compilerWarningsProperties() {
-	    String subcateg = "(4) Compiler warnings";
 	    return ImmutableList.of();
 	  }
 
@@ -115,38 +114,21 @@ public final class VaryPlugin extends SonarPlugin {
   /**
    * {@inheritDoc}
    */
-  public List getExtensions() {
+  public List<Object> getExtensions() {
     List<Object> l = new ArrayList<Object>();
     l.add(VaryLanguage.class);
     l.add(VaryMetrics.class);
     l.add(VarySquidSensor.class);
     l.add(VaryCpdMapping.class);
-    //l.add(CxxRatsRuleRepository.class);
-    //l.add(CxxRatsSensor.class);
     l.add(VaryXunitSensor.class);
     l.add(VaryCoverageSensor.class);
-    //l.add(CxxCppCheckRuleRepository.class);
-    //l.add(CxxCppCheckSensor.class);
-    //l.add(CxxPCLintRuleRepository.class);
-    //l.add(CxxPCLintSensor.class);
-    //l.add(CxxCompilerVcRuleRepository.class);
-    //l.add(CxxCompilerGccRuleRepository.class);
-    //l.add(CxxCompilerSensor.class);
-    //l.add(CxxVeraxxRuleRepository.class);
-    //l.add(CxxVeraxxSensor.class);
-    //l.add(CxxValgrindRuleRepository.class);
-    //l.add(CxxValgrindSensor.class);
     l.add(VaryDefaultProfile.class);
     l.add(VaryCommonRulesEngine.class);
     l.add(VaryCommonRulesDecorator.class);
     l.add(VaryRuleRepository.class);
     l.add(VaryExternalRulesSensor.class);
     l.add(VaryExternalRuleRepository.class);
-    //l.add(MSTestResultsAggregator.class);
-    //l.add(MSTestResultsImportSensor.class);
-
     l.addAll(generalProperties());
-    //l.addAll(codeAnalysisProperties());
     l.addAll(testingAndCoverageProperties());
     l.addAll(compilerWarningsProperties());
 

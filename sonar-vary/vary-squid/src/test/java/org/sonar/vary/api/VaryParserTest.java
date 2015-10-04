@@ -3,34 +3,9 @@ package org.sonar.vary.api;
 import org.junit.Test;
 import org.sonar.vary.parser.VaryGrammarImpl;
 import static org.sonar.sslr.tests.Assertions.assertThat;
-import static com.sonar.sslr.api.GenericTokenType.COMMENT;
 
 public class VaryParserTest extends ParserBaseTest {
-	  @Test
-	  public void statement() {
-	    /*p.setRootRule(g.rule(VaryGrammarImpl.SENTENCIAS));
-
-	    g.rule(VaryGrammarImpl.BLOQUE).mock();
-	    g.rule(VaryGrammarImpl.SI).mock();
-	    g.rule(VaryGrammarImpl.SINO).mock();
-	    g.rule(VaryGrammarImpl.MIENTRAS).mock();
-	    g.rule(VaryGrammarImpl.DESDE).mock();
-	    g.rule(VaryGrammarImpl.REPETIR).mock();
-	    g.rule(VaryGrammarImpl.SEGUN).mock();
-	    g.rule(VaryGrammarImpl.ASIGNACION).mock();
-	    g.rule(VaryGrammarImpl.DECLARACION).mock();*/
-
-	    /*assertThat(p).matches("BLOQUE");
-	    assertThat(p).matches("SI");
-	    assertThat(p).matches("SINO");
-	    assertThat(p).matches("MIENTRAS");
-	    assertThat(p).matches("DESDE");
-	    assertThat(p).matches("REPETIR");
-	    assertThat(p).matches("SEGUN");
-	    assertThat(p).matches("ASIGNACION");
-	    assertThat(p).matches("DECLARACION");*/
-	  }
-
+	
 	  @Test
 	  public void tipos_reallife() {
 	    p.setRootRule(g.rule(VaryGrammarImpl.LOGICO));
@@ -110,12 +85,10 @@ public class VaryParserTest extends ParserBaseTest {
 		  //Comprobando el formato de las operaciones OR:
 		  p.setRootRule(g.rule(VaryGrammarImpl.OR));
 		  assertThat(p).matches("a o b");
-		  //assertThat(p).notMatches("a y b");
 		  
 		//Comprobando el formato de las operaciones OR:
 		  p.setRootRule(g.rule(VaryGrammarImpl.AND));
 		  assertThat(p).matches("a y b");
-		  //assertThat(p).notMatches("a o b");
 		  
 		  //Comprobando el formato de las operaciones Suma:
 		  p.setRootRule(g.rule(VaryGrammarImpl.SUMA));
@@ -189,10 +162,6 @@ public class VaryParserTest extends ParserBaseTest {
 		  assertThat(p).matches("fun(a)");
 		  assertThat(p).matches("fun(a,b)");
 		  assertThat(p).notMatches("fun");
-		  //assertThat(p).matches("funcion()");
-		  //assertThat(p).notMatches("5");
-		  //assertThat(p).notMatches("cuadrado(a)");
-		  //assertThat(p).notMatches("prueba");
 	  }
 	  
 	  @Test
@@ -248,9 +217,6 @@ public class VaryParserTest extends ParserBaseTest {
 	  public void constantes_reallife() {
 		  p.setRootRule(g.rule(VaryGrammarImpl.CONSTANTES));
 		  assertThat(p).matches("DIM = 10");
-		  //assertThat(p).matches("DIM2 = 20");
-		  //assertThat(p).notMatches("a[0]");
-		  //assertThat(p).notMatches("pepito");
 	  }
 	  
 	  @Test

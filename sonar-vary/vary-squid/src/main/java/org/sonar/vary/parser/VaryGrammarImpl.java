@@ -119,8 +119,6 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 	}
 	 
 	 private static void toplevel(LexerfulGrammarBuilder b, VaryConfiguration conf) {
-		 /*if(conf.getErrorRecoveryEnabled() == true) {*/
-			 
 			 b.rule(CODIGO).is(
 						b.firstOf(ALGORITMO, MODULO)).skipIfOneChild();
 			 
@@ -258,7 +256,7 @@ public enum VaryGrammarImpl implements GrammarRuleKey {
 	 private static void expressions(LexerfulGrammarBuilder b) {
 						 
 		 b.rule(PRIMARIA).is(
-				 b.firstOf(//b.sequence(b.isOneOfThem(VaryPunctuator.PARENTESIS_DER, VaryPunctuator.PARENTESIS_DER), OPERACION, b.isOneOfThem(VaryPunctuator.PARENTESIS_IZQ, VaryPunctuator.PARENTESIS_IZQ)),
+				 b.firstOf(
 						 FUNCIONES,
 						 VARIABLES_COMPLEJAS,
 						 VARIABLES_BASICAS,

@@ -62,46 +62,6 @@ public class DependencyAnalyzer {
     directoryFiles.put(sonarDir, sonarFile);
 
     //Build the dependency graph
-    Map<String, Integer> firstIncludeLine = new HashMap<String, Integer>();
-    /*for (CxxPreprocessor.Include include : includedFiles) {
-      File includedFile = File.fromIOFile(new java.io.File(include.getPath()), project);
-      String includedFilePath = includedFile != null ? includedFile.getPath() : include.getPath();
-      Integer prevIncludeLine = firstIncludeLine.put(includedFilePath, include.getLine());
-      if (prevIncludeLine != null) {
-        Issuable issuable = perspectives.as(Issuable.class, sonarFile);
-        if ((issuable != null) && (duplicateIncludeRule != null)) {
-          Issue issue = issuable.newIssueBuilder()
-              .ruleKey(duplicateIncludeRule.ruleKey())
-              .line(include.getLine())
-              .message("Remove duplicated include, \"" + includedFilePath + "\" is already included at line " + prevIncludeLine + ".")
-              .build();
-          if (issuable.addIssue(issue))
-            violationsCount++;
-        } else {
-          VaryUtils.LOG.warn("Already created edge from '" + sonarFile.getKey() + "' (line " + include.getLine() + ") to '" + includedFilePath + "'" +
-              ", previous edge from line " + prevIncludeLine);
-        }
-      } else if (includedFile == null) {
-        VaryUtils.LOG.warn("Unable to find resource '" + include.getPath() + "' to create a dependency with '" + sonarFile.getKey() + "'");
-      } else if (context.isIndexed(includedFile, false)) {
-        //Add the dependency in the files graph
-        FileEdge fileEdge = new FileEdge(sonarFile, includedFile, include.getLine());
-        filesGraph.addEdge(fileEdge);
-
-        //Add the dependency in the packages graph, if the directories are different
-        Directory includedDir = includedFile.getParent();
-        if (!sonarDir.equals(includedDir)) {
-          DirectoryEdge edge = packagesGraph.getEdge(sonarDir, includedDir);
-          if (edge == null) {
-            edge = new DirectoryEdge(sonarDir, includedDir);
-            packagesGraph.addEdge(edge);
-          }
-          edge.addRootEdge(fileEdge);
-        }
-      }  else {
-        VaryUtils.LOG.debug("Skipping dependency to file '{}', because it is'nt part of this project", includedFile.getName());
-      }
-    }*/
   }
 
   /** Perform the analysis and save the results.

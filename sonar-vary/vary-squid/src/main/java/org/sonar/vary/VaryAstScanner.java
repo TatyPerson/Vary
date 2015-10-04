@@ -62,18 +62,6 @@ public final class VaryAstScanner {
     builder.setFilesMetric(VaryMetric.FILES);
 
     /* Functions */
-    /*builder.withSquidAstVisitor(new SourceCodeBuilderVisitor<Grammar>(new SourceCodeBuilderCallback() {
-      @Override
-      public SourceCode createSourceCode(SourceCode parentSourceCode, AstNode astNode) {
-        AstNode identifier = astNode.getFirstChild(VaryKeyword.FUNCION, IDENTIFIER);
-        final String functionName = identifier.getTokenValue();
-        final String fileKey = parentSourceCode.isType(SourceFile.class) ? parentSourceCode.getKey() : parentSourceCode.getParent(SourceFile.class).getKey();
-        SourceFunction function = new SourceFunction(fileKey + ":" + functionName + ":" + astNode.getToken().getLine() + ":" + astNode.getToken().getColumn());
-        function.setStartAtLine(astNode.getTokenLine());
-        return function;
-      }
-    }, FUNCTION_NODES)); */
-    
     builder.withSquidAstVisitor(CounterVisitor.<Grammar> builder()
             .setMetricDef(VaryMetric.FUNCTIONS)
             .subscribeTo(VaryGrammarImpl.FUNCION,
@@ -83,8 +71,6 @@ public final class VaryAstScanner {
     /* Metrics */
     builder.withSquidAstVisitor(new LinesVisitor<Grammar>(VaryMetric.LINES));
     builder.withSquidAstVisitor(new LinesOfCodeVisitor<Grammar>(VaryMetric.LINES_OF_CODE));
-    //builder.withSquidAstVisitor(new VaryLinesOfCodeVisitor<Grammar>(VaryMetric.LINES_OF_CODE));
-    //builder.withSquidAstVisitor(new VaryCommentLinesVisitor<Grammar>(VaryMetric.COMMENT_LINES));
     builder.withSquidAstVisitor(CommentsVisitor.<Grammar>builder().withCommentMetric(
     	      VaryMetric.COMMENT_LINES)
     	      .withNoSonar(true)

@@ -3,7 +3,6 @@ package org.sonar.vary.plugin.squid;
 import com.google.common.collect.Lists;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
@@ -35,7 +34,6 @@ import org.sonar.vary.VaryConfiguration;
 import org.sonar.vary.api.VaryMetric;
 import org.sonar.vary.checks.CheckList;
 import org.sonar.vary.checks.CompileIncludePathNotFoundOrInvalid;
-import org.sonar.vary.parser.VaryParser;
 import org.sonar.vary.plugin.VaryLanguage;
 import org.sonar.vary.plugin.VaryPlugin;
 import org.sonar.vary.plugin.highlighter.VaryHighlighter;
@@ -129,25 +127,7 @@ public final class VarySquidSensor implements Sensor {
   private VaryConfiguration createConfiguration(FileSystem fs, Settings conf) {
     VaryConfiguration varyConf = new VaryConfiguration(fs, resourcePerspectives, CompileIncludePathNotFoundOrInvalid.getActiveRule(rules));
     varyConf.setBaseDir(fs.baseDir().getAbsolutePath());
-    String[] lines = conf.getStringLines(VaryPlugin.DEFINES_KEY);
-    //if(lines.length > 0){
-    //  varyConf.setDefines(Arrays.asList(lines));
-    //}
-    //varyConf.setIncludeDirectories(conf.getStringArray(VaryPlugin.INCLUDE_DIRECTORIES_KEY));
     varyConf.setErrorRecoveryEnabled(conf.getBoolean(VaryPlugin.ERROR_RECOVERY_KEY));
-    //varyConf.setForceIncludeFiles(conf.getStringArray(VaryPlugin.FORCE_INCLUDE_FILES_KEY));
-    //varyConf.setCFilesPatterns(conf.getStringArray(VaryPlugin.FILE_SUFFIXES_DEFVALUE));
-    //varyConf.setHeaderFileSuffixes(conf.getStringArray(VaryPlugin.HEADER_FILE_SUFFIXES_KEY));
-    //varyConf.setMissingIncludeWarningsEnabled(conf.getBoolean(VaryPlugin.MISSING_INCLUDE_WARN));
-    
-    /*String filePaths = conf.getString(VaryCompilerSensor.REPORT_PATH_KEY);    
-    if (filePaths != null && !"".equals(filePaths)) {
-      List<File> reports = VaryReportSensor.getReports(conf, fs.baseDir().getPath(), VaryCompilerSensor.REPORT_PATH_KEY, "");
-      cxxConf.setCompilationPropertiesWithBuildLog(reports,
-                                                   conf.getString(VaryCompilerSensor.PARSER_KEY_DEF),
-                                                   conf.getString(VaryCompilerSensor.REPORT_CHARSET_DEF));
-    }*/
-
     return varyConf;
   }
 

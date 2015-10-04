@@ -3,7 +3,6 @@ package org.sonar.vary.plugin.xunit;
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -343,13 +342,6 @@ public class VaryXunitSensor extends VaryReportSensor {
 
     VaryConfiguration cxxConf = new VaryConfiguration(fs.encoding());
     cxxConf.setBaseDir(fs.baseDir().getAbsolutePath());
-    String[] lines = conf.getStringLines(VaryPlugin.DEFINES_KEY);
-   /* if (lines.length > 0) {
-      cxxConf.setDefines(Arrays.asList(lines));
-    }
-    cxxConf.setIncludeDirectories(conf.getStringArray(VaryPlugin.INCLUDE_DIRECTORIES_KEY));
-    cxxConf.setMissingIncludeWarningsEnabled(conf.getBoolean(VaryPlugin.MISSING_INCLUDE_WARN));*/
-
     for (File file : files) {
       @SuppressWarnings("unchecked")
       SourceFile source = VaryAstScanner.scanSingleFileConfig(file, cxxConf);
