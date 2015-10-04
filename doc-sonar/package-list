@@ -1,0 +1,16 @@
+org.sonar.vary
+org.sonar.vary.api
+org.sonar.vary.channels
+org.sonar.vary.checks
+org.sonar.vary.lexer
+org.sonar.vary.parser
+org.sonar.vary.plugin
+org.sonar.vary.plugin.coverage
+org.sonar.vary.plugin.externalrules
+org.sonar.vary.plugin.highlighter
+org.sonar.vary.plugin.squid
+org.sonar.vary.plugin.utils
+org.sonar.vary.plugin.xunit
+org.sonar.vary.visitors
+org.sslr.vary.toolkit
+org.vary.checks
