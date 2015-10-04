@@ -160,6 +160,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + "inicio //Cuerpo de la funcion" + '\n' +
 					'\t' + '\t' + "resultado <- a + b" + '\n' +
 					'\t' + '\t' + "devolver resultado" + '\n' +
+					'\t' + "fin_inicio" + '\n' +
 					"fin_funcion" + '\n' + '\n' +
 
 					"//Ejemplo de procedimiento para realizar la suma de dos numeros" + '\n' + '\n' +
@@ -170,6 +171,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + "var" + '\n' +
 					'\t' + "inicio //Cuerpo del procedimiento" + '\n' +
 					'\t' + '\t' + "res <- a + b" + '\n' +
+					'\t' + "fin_inicio" + '\n' +
 					"fin_procedimiento" + '\n' + '\n' +
 
 					"//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero." + '\n' +
@@ -182,6 +184,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + "desde i <- 1 hasta n hacer" + '\n' +
 				    '\t' + '\t' + '\t' + "leer(v[i])" + '\n' +
 				   	'\t' + '\t' + "fin_desde" + '\n' +
+				   	'\t' + "fin_inicio" + '\n' +
 				   	"fin_procedimiento" + '\n' + '\n' +
 
 				   	"//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero." + '\n' +
@@ -198,6 +201,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + "res <- res + v[i]" + '\n' +
 				    '\t' + '\t' + "fin_mientras" + '\n' +
 				    '\t' + '\t' + "devolver res" + '\n' +
+				    '\t' + "fin_inicio" + '\n' +
 				    "fin_funcion" + '\n' + '\n' +
 
 				    "//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero." + '\n' +
@@ -210,6 +214,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + "desde i <- 1 hasta n hacer" + '\n' +
 				    '\t' + '\t' + '\t' + "escribir(v[i])" + '\n' +
 				    '\t' + '\t' + "fin_desde" + '\n' +
+				    '\t' + "fin_inicio" + '\n' +
 				    "fin_procedimiento" + '\n' + '\n' +
 
 
@@ -224,6 +229,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + '\t' + "escribir(\"El producto escalar del vector: \")" + '\n' +
 					'\t' + '\t' + "escribirVector(v, DIM)" + '\n' +
 				    '\t' + '\t' + "escribir(\"es: \", productoEscalar(v,DIM))" + '\n' +
+				    '\t' + "fin_inicio" + '\n' +
 				    "fin_procedimiento" + '\n' + '\n' +
 
 
@@ -240,6 +246,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + "escribir(\"3: Calcular el producto escalar de un vector.\")" + '\n' +
 				    '\t' + '\t' + "hasta_que valor>0 y valor<=3" + '\n' +
 				    '\t' + '\t' + "devolver valor" + '\n' +
+				    '\t' + "fin_inicio" + '\n' +
 				    "fin_funcion" + '\n' + '\n' +
 					
 				    "procedimiento operacion(E entero: opcion)" + '\n' +
@@ -259,6 +266,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + '\t' + "calculo_productoEscalar()" + '\n' +
 				    '\t' + '\t' + '\t' + "en_otro_caso: escribir(\"Opcion no valida.\")" + '\n' +
 					'\t' + '\t' + "fin_segun" + '\n' +
+					'\t' + "fin_inicio" + '\n' +
 					"fin_procedimiento" + '\n' + '\n' +
 
 

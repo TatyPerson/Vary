@@ -162,12 +162,14 @@ public class ModuloExampleWizard extends Wizard implements INewWizard {
 				   			'\t' + '\t' + "desde i <- 1 hasta n hacer" + '\n' +
 				      		'\t' + '\t' + '\t' + "leerElemento(v,i)" + '\n' +
 				   			'\t' + '\t' + "fin_desde" + '\n' +
+				   		'\t' + "fin_inicio" + '\n' +
 				   	"fin_procedimiento" + '\n' + '\n' +
 				   	
 				   	"procedimiento leerElemento(E tVect: v, E entero: i)" + '\n' +
 				   	'\t' + "var" + '\n' +
 				   	'\t' + "inicio" + '\n' +
 				   	'\t' + '\t' + "leer(v[i])" + '\n' +
+				   	'\t' + "fin_inicio" + '\n' +
 				   	"fin_procedimiento" + '\n' +
 				   	"fin_implementacion" + '\n' + '\n' +
 				   	"fin_modulo";

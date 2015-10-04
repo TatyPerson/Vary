@@ -78,17 +78,21 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
         IXtextDocument _xtextDocument = context.getXtextDocument();
         Integer _offset = issue.getOffset();
         Integer _length = issue.getLength();
-        String _get = _xtextDocument.get((_offset).intValue(), (_length).intValue());
-        String indice = VaryGrammarQuickfixProviderUtil.buscarIndiceVector(_get);
-        if ((element instanceof Algoritmo)) {
-          Constantes _containerOfType = EcoreUtil2.<Constantes>getContainerOfType(element, Constantes.class);
-          VaryGrammarModelUtil.addConstante(
-            ((Algoritmo) element), _containerOfType, indice);
+        String indice = _xtextDocument.get((_offset).intValue(), (_length).intValue());
+        System.out.println(("El indice es: " + indice));
+        Algoritmo _containerOfType = EcoreUtil2.<Algoritmo>getContainerOfType(element, Algoritmo.class);
+        boolean _notEquals = (!Objects.equal(_containerOfType, null));
+        if (_notEquals) {
+          Algoritmo _containerOfType_1 = EcoreUtil2.<Algoritmo>getContainerOfType(element, Algoritmo.class);
+          Constantes _containerOfType_2 = EcoreUtil2.<Constantes>getContainerOfType(element, Constantes.class);
+          VaryGrammarModelUtil.addConstante(_containerOfType_1, _containerOfType_2, indice);
         } else {
-          if ((element instanceof Implementacion)) {
-            Constantes _containerOfType_1 = EcoreUtil2.<Constantes>getContainerOfType(element, Constantes.class);
-            VaryGrammarModelUtil.addConstante(
-              ((Implementacion) element), _containerOfType_1, indice);
+          Implementacion _containerOfType_3 = EcoreUtil2.<Implementacion>getContainerOfType(element, Implementacion.class);
+          boolean _notEquals_1 = (!Objects.equal(_containerOfType_3, null));
+          if (_notEquals_1) {
+            Implementacion _containerOfType_4 = EcoreUtil2.<Implementacion>getContainerOfType(element, Implementacion.class);
+            Constantes _containerOfType_5 = EcoreUtil2.<Constantes>getContainerOfType(element, Constantes.class);
+            VaryGrammarModelUtil.addConstante(_containerOfType_4, _containerOfType_5, indice);
           }
         }
       }

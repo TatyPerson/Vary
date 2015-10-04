@@ -71,7 +71,7 @@ public class VaryGrammarQuickfixProviderUtil {
 	}
 	
 	public static String buscarTipoVariableSubproceso(Asignacion asignacion, String cadenaError, ReadKeywordsInterface readerKeywords, List<Declaracion> declaraciones, List<ParametroFuncion> parametros, List<Declaracion> globales, List<TipoComplejo> complejos, List<Subproceso> subprocesos) {
-		String tipo = new String();
+		String tipo = "";
 		if(asignacion instanceof AsignacionNormal) {
 			AsignacionNormal asignacionNormal = (AsignacionNormal) asignacion;
 			if(asignacionNormal.getValor_asignacion().equals(cadenaError)) {
@@ -146,7 +146,7 @@ public class VaryGrammarQuickfixProviderUtil {
 	}
 	
 	public static String buscarTipoVariable(Asignacion asignacion, String cadenaError, ReadKeywordsInterface readerKeywords, List<Declaracion> declaraciones, List<Declaracion> globales, List<TipoComplejo> complejos, List<Subproceso> subprocesos) {
-		String tipo = new String();
+		String tipo = "";
 		System.out.println("Estoy en la funcion");
 		if(asignacion instanceof AsignacionNormal) {
 			System.out.println("Estoy en el if de la función");

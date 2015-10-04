@@ -61,17 +61,18 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 	def ofrecerConstante(Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, readerMessages.getBundle().getString("QUICKFIX_CONSTANTE_NO_DEFINIDA"), readerMessages.getBundle().getString("QUICKFIX_CONSTANTE_NO_DEFINIDA"), "compare_field_private.gif",
 		[ EObject element, IModificationContext context |
-				var indice = VaryGrammarQuickfixProviderUtil.buscarIndiceVector(context.xtextDocument.get(issue.offset, issue.length))
-				if(element instanceof Algoritmo) {
+				var indice = context.xtextDocument.get(issue.offset, issue.length)
+				System.out.println("El indice es: "+indice)
+				if(element.getContainerOfType(typeof(Algoritmo)) != null) {
 					VaryGrammarModelUtil::addConstante(
-					element as Algoritmo,
+					element.getContainerOfType(typeof(Algoritmo)),
 					element.getContainerOfType(typeof(Constantes)),
 					indice
 					)
 				}
-				else if(element instanceof Implementacion) {
+				else if(element.getContainerOfType(typeof(Implementacion)) != null) {
 					VaryGrammarModelUtil::addConstante(
-					element as Implementacion,
+					element.getContainerOfType(typeof(Implementacion)),
 					element.getContainerOfType(typeof(Constantes)),
 					indice
 					)

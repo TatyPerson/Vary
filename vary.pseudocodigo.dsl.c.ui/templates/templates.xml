@@ -38,12 +38,11 @@ fin_algoritmo</template>
 fin_desde</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Devolver" context="vary.pseudocodigo.dsl.c.VaryGrammar.Devolver" deleted="false" description="Plantilla para añadir devolver" enabled="true" name="Devolver">devolver ${nombre_variable}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Enumerado" context="vary.pseudocodigo.dsl.c.VaryGrammar.Enumerado" deleted="false" description="Plantilla para crear un enumerado" enabled="true" name="Enumerado">${nombreEnumerado} = {${valorEnumerado1}, ${valorEnumerado2}, ${valorEnumerado3}}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" deleted="false" description="Plantilla para crear una función" enabled="true" name="Función">${entero} funcion ${nombre_funcion}(${public:Enum('TipoPaso')} ${entero}: ${a}) 
-const
-tipo
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Funcion" deleted="false" description="Plantilla para crear una función" enabled="true" name="Función">${entero} funcion ${nombre_funcion}(${E} ${entero}: ${a}) 
 var
 inicio
 devolver ${a}
+fin_inicio
 fin_funcion
 </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" context="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" deleted="false" description="Plantilla para crear una matriz" enabled="true" name="Matriz">matriz [${dimension1}][${dimension2}] de ${tipoMatriz}: ${nombreMatriz}</template>
@@ -78,11 +77,10 @@ fin_implementacion
 
 fin_modulo</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion" context="vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion" deleted="false" description="Plantilla para crear la entrada de un parámetro de un subproceso" enabled="true" name="Parámetro">${public:Enum('TipoPaso')} ${entero}: ${nombre_parametro}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" context="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" deleted="false" description="Plantilla para crear un procedimiento" enabled="true" name="Procedimiento">procedimiento ${nombre_procedimiento}(${public:Enum('TipoPaso')} ${entero}: a)
-const
-tipo
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" context="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" deleted="false" description="Plantilla para crear un procedimiento" enabled="true" name="Procedimiento">procedimiento ${nombre_procedimiento}(${E} ${entero}: a)
 var
 inicio
+fin_inicio
 fin_procedimiento</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" context="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" deleted="false" description="Plantilla para definir un registro" enabled="true" name="Registro">registro: ${NombreRegistro}
 	${tipoCampo}: ${nombreCampo}
