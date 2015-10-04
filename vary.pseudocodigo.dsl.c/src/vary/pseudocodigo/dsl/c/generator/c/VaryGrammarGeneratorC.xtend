@@ -238,6 +238,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		#ifndef «myModulo.nombre.toUpperCase»_H
 		#define «myModulo.nombre.toUpperCase»_H
 		
+		«FOR myRefModulo:myModulo.importaciones»
+			#include "«myRefModulo.nombre».h"
+		«ENDFOR»
+		
 		«FOR myConstante:myModulo.implementacion.constantes»
 			«IF myModulo.exporta_constantes.contains(myConstante.variable.nombre)»
 				«myConstante.generate»
@@ -309,6 +313,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		#ifndef «algoritmo.nombre.toUpperCase»_H
 		#define «algoritmo.nombre.toUpperCase»_H
 		
+		«FOR myRefModulo:myAlgoritmo.importaciones»
+			#include "«myRefModulo.nombre».h"
+		«ENDFOR»
+		
 		«FOR myConstante:myAlgoritmo.constantes»
 			«myConstante.generate»
 		«ENDFOR»
@@ -345,8 +353,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA"))) {
 				total = total + "const " + p.tipo.generate;
-			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA"))) {
-				total = total + p.tipo.generate + " ";
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
+				total = total + p.tipo.generate + "*";
 			} else {
 				total = total + p.tipo.generate + " ";
 			}
@@ -407,7 +415,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -420,7 +428,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(procedimiento.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -504,9 +512,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		#include <stdlib.h>
 		#include <string.h>
 		#include "«myModulo.nombre».h"
-		«FOR myRefModulo:myModulo.importaciones»
-			#include "«myRefModulo.nombre».h"
-		«ENDFOR»
 		
 		«FOR myConstante:myModulo.implementacion.constantes»
 			«IF !myModulo.exporta_constantes.contains(myConstante.variable.nombre)»
@@ -594,7 +599,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -607,7 +612,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(procedimiento.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -707,9 +712,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		«IF cabeceras»
 		#include "«algoritmo.nombre».h"
 		«ENDIF»
+		
+		«IF !cabeceras»
 		«FOR myRefModulo:myAlgoritmo.importaciones»
 			#include "«myRefModulo.nombre».h"
 		«ENDFOR»
+		«ENDIF»
 
 		«FOR myComentario:algoritmo.comentarios»
 			«myComentario.generate»
@@ -908,8 +916,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA"))) {
 				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
-			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA"))) {
-				total = total + p.tipo.generate + " " + p.variable.nombre;
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
+				total = total + p.tipo.generate + "* " + p.variable.nombre;
 			} else {
 				total = total + p.tipo.generate + " " + p.variable.nombre;
 			}
@@ -922,7 +930,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var funcionDeclarada = myFun.tipo.tipoVariableC + " " + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -950,7 +958,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1026,11 +1034,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			if(modulo != null) {
 				var Escribir prueba = new EscribirImpl
 				prueba = mySent as Escribir
-				prueba.generateModulo
+				prueba.generateModuloPunteros(punteros)
 			} else {
 				var Escribir prueba = new EscribirImpl
 				prueba = mySent as Escribir
-				prueba.generate
+				prueba.generateEscribirPunteros(punteros)
 			}
 		} else if (mySent.eClass.name.equals("FuncionFicheroAbrir")) {
 			var FuncionFicheroAbrir prueba = new FuncionFicheroAbrirImpl
@@ -1041,6 +1049,263 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = mySent as FuncionFicheroCerrar
 			prueba.generate
 		}
+	}
+	
+	def generateEscribirPunteros(Escribir a, List<String> punteros) {
+				var perteneceInicio = false;
+		if(!algoritmo.tiene.tiene.contains(a)) {
+			for(Sentencias s: algoritmo.tiene.tiene) {
+				if(s.eClass.name.equals("mientras") && perteneceInicio == false) {
+					var mientras = s as mientras;
+					perteneceInicio = contienenExpresionEscribir(mientras.sentencias, a);
+				}
+				else if(s.eClass.name.equals("repetir") && perteneceInicio == false) {
+					var repetir = s as repetir;
+					perteneceInicio = contienenExpresionEscribir(repetir.sentencias, a);
+				}
+				else if(s.eClass.name.equals("desde") && perteneceInicio == false) {
+					var desde = s as desde;
+					perteneceInicio = contienenExpresionEscribir(desde.sentencias, a);
+				}
+				else if(s.eClass.name.equals("Si") && perteneceInicio == false) {
+					var si = s as Si;
+					perteneceInicio = contienenExpresionEscribir(si.sentencias, a);
+					if(si.sino != null) {
+						perteneceInicio = contienenExpresionEscribir(si.sino.sentencias, a);
+					}
+				}	
+				else if(s.eClass.name.equals("segun") && perteneceInicio == false) {
+					var segun = s as segun;
+					for(Caso c: segun.caso) {
+						if(perteneceInicio == false) {
+							perteneceInicio = contienenExpresionEscribir(c.sentencias, a);
+						}
+					}
+				}
+		 	}
+		}
+		if(algoritmo.tiene.tiene.contains(a) || (perteneceInicio && a.operador.size() > 0)) {
+			var iterador = 0;
+			var cadena = new String();
+			if(a.operador.get(0).eClass.name.equals("ConstCadena")) {
+				//En este caso el usuario ha introducido un texto
+				var primero = a.operador.get(0) as ConstCadena;
+				cadena = primero.contenido;
+				cadena = cadena.substring(0, cadena.length()-1);
+			}
+			
+			if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
+				cadena = cadena + "\"";
+			}
+			
+			if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
+				cadena = cadena + " \\n\"";
+			}
+			
+			for(o: a.operador) {
+				if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") || a.operador.indexOf(o) != 0) {
+					var tipo = "";
+					if(o.eClass.name.equals("VariableID")) {
+						var varID = o as VariableID;
+						tipo = variablesInicio.get(varID.nombre);
+						System.out.println("tipo es:" +tipo)
+					}
+					else if(o.eClass.name.equals("ValorVector")) {
+						var vector = o as ValorVector;
+						if(vector.campo.size() == 0) {
+							tipo = vectoresMatrices.get(variablesInicio.get(vector.nombre_vector));
+						}
+						else {
+							tipo = registros.get(vectoresMatrices.get(variablesInicio.get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
+						}	
+					}
+					else if(o.eClass.name.equals("ValorMatriz")) {
+						var matriz = o as ValorMatriz;
+						if(matriz.campo.size() == 0) {
+							tipo = vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz));
+						}
+						else {
+							tipo = registros.get(vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
+						}
+					}
+					else if(o.eClass.name.equals("ValorRegistro")) {
+						var registro = o as ValorRegistro;
+						tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					}
+					else if(o.eClass.name.equals("LlamadaFuncion")) {
+						var llamadaFuncion = o as LlamadaFuncion;
+						tipo = funciones.get(llamadaFuncion.nombre);
+					}
+					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %i \\n \"";
+						}
+						else {
+							cadena = cadena + " %i";
+						}
+					}
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) || o.eClass.name.equals("Caracter")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %c \\n \"";
+						}
+						else {
+							cadena = cadena + " %c";
+						}
+					}
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || o.eClass.name.equals("ConstCadena")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %s \\n \"";
+						}
+						else {
+							cadena = cadena + " %s";
+						}
+					}
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) || o.eClass.name.equals("NumeroDecimal")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %r \\n \"";
+						}
+						else {
+							cadena = cadena + " %r";
+						}
+					}
+				}
+			}
+			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
+				cadena = cadena + ", " + a.operador.coutOperadoresCPunteros(punteros);
+				return '''printf(«cadena»);'''	
+			}
+			else {
+				return '''printf(«cadena»);'''
+			}
+		}
+		else {
+			for(Subproceso s: algoritmo.funcion) {
+				var perteneceSubproceso = false;
+				if(!s.sentencias.contains(a) && a.operador.size() > 0) {
+					for(Sentencias sent: s.sentencias) {
+						if(sent.eClass.name.equals("mientras") && perteneceSubproceso == false) {
+						var mientras = sent as mientras;
+						perteneceSubproceso = contienenExpresionEscribir(mientras.sentencias, a);
+					}
+					else if(sent.eClass.name.equals("repetir") && perteneceSubproceso == false) {
+						var repetir = sent as repetir;
+						perteneceSubproceso = contienenExpresionEscribir(repetir.sentencias, a);
+					}
+					else if(sent.eClass.name.equals("desde") && perteneceSubproceso == false) {
+						var desde = sent as desde;
+						perteneceSubproceso = contienenExpresionEscribir(desde.sentencias, a);
+					}
+					else if(sent.eClass.name.equals("Si") && perteneceSubproceso == false) {
+						var si = sent as Si;
+						perteneceSubproceso = contienenExpresionEscribir(si.sentencias, a);
+						if(si.sino != null) {
+							perteneceSubproceso = contienenExpresionEscribir(si.sino.sentencias, a);
+						}
+					}	
+					else if(sent.eClass.name.equals("segun") && perteneceSubproceso == false) {
+						var segun = sent as segun;
+						for(Caso c: segun.caso) {
+							if(perteneceSubproceso == false) {
+								perteneceSubproceso = contienenExpresionEscribir(c.sentencias, a);
+							}
+						}
+					}
+		 		}
+		 	}
+			if(s.sentencias.contains(a) || (perteneceSubproceso && a.operador.size() > 0)) {
+				var cadena = new String();
+				if(a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					//En este caso el usuario ha introducido un texto
+					var primero = a.operador.get(0) as ConstCadena;
+					cadena = primero.contenido;
+					cadena = cadena.substring(0, cadena.length()-1);
+				}
+				
+				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					cadena = cadena + "\"";
+				}
+				
+				if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					cadena = cadena + " \\n\"";
+				}
+				for(o: a.operador) {
+					//Si es el primer elemento y es distinto a una cadena si, sino se lo salta
+					if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") || a.operador.indexOf(o) != 0) {
+						var tipo = "";
+						if(o.eClass.name.equals("VariableID")) {
+							var varID = o as VariableID;
+							tipo = variablesSubprocesos.get(s.nombre).get(varID.nombre);
+						}
+						else if(o.eClass.name.equals("ValorVector")) {
+							var vector = o as ValorVector;
+							if(vector.campo.size() == 0) {
+								tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector));
+							}
+							else {
+								tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
+							}
+						}
+						else if(o.eClass.name.equals("ValorMatriz")) {
+							var matriz = o as ValorMatriz;
+							if(matriz.campo.size() == 0) {
+								tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz));
+							}
+							else {
+								tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
+							}
+						}	
+						else if(o.eClass.name.equals("ValorRegistro")) {
+							var registro = o as ValorRegistro;
+							tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+						}
+						else if(o.eClass.name.equals("LlamadaFuncion")) {
+							var llamadaFuncion = o as LlamadaFuncion;
+							tipo = funciones.get(llamadaFuncion.nombre);
+						}
+						if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %i \\n \"";
+							}
+							else {
+								cadena = cadena + " %i";
+							}
+						}
+						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %c \\n \"";
+							}
+							else {
+								cadena = cadena + " %c";
+							}
+						}
+						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %s \\n \"";
+							}
+							else {
+								cadena = cadena + " %s";
+							}
+						}
+						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %r \\n \"";
+							}	
+							else {
+								cadena = cadena + " %r";
+							}
+						}
+					}
+			}
+			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
+				cadena = cadena + ", " + a.operador.coutOperadoresCPunteros(punteros);
+				return '''printf(«cadena»);'''	
+			}
+			else {
+				return '''printf(«cadena»);'''
+			}
+		}	
+	}
+	}
 	}
 	
 	override generate(Sentencias mySent) {
@@ -1314,6 +1579,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 
 	override generate(VariableID variable) '''
 	«variable.nombre»«FOR matri:variable.mat»«matri.toString»«ENDFOR»'''
+	
+	def generatePuntero(VariableID variable) '''
+	*«variable.nombre»«FOR matri:variable.mat»«matri.toString»«ENDFOR»'''
 
 	override generate(unaria myUnaria) {
 		return "!" + myUnaria.variable.generate;
@@ -1663,6 +1931,21 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return resultado;
 	}
 	
+	def coutOperadoresCPunteros(EList<operacion> operaciones, List<String> punteros) {
+		var resultado = "";
+		var numero = 1;
+		for (op : operaciones) {
+			if(operaciones.size() > 1 && numero < operaciones.size && numero != 1) {
+				resultado = resultado + op.generatePunteros(punteros) + " , ";
+			}
+			else if(numero != 1 || operaciones.size() == 1) {
+				resultado = resultado + op.generatePunteros(punteros);
+			}
+			numero = numero + 1;
+		}
+		return resultado;
+	}
+	
 	def contienenExpresionEscribir(EList<Sentencias> sentencias, Escribir e) {
 		if(sentencias.contains(e)) {
 			return true;
@@ -1739,6 +2022,135 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return false;
 	}
 	
+	def generateModuloPunteros(Escribir a, List<String> punteros) {
+		   for(Subproceso s: modulo.implementacion.funcion) {
+			var perteneceSubproceso = false;
+			if(!s.sentencias.contains(a) && a.operador.size() > 0) {
+				for(Sentencias sent: s.sentencias) {
+					if(sent.eClass.name.equals("mientras") && perteneceSubproceso == false) {
+						var mientras = sent as mientras;
+						perteneceSubproceso = contienenExpresionEscribir(mientras.sentencias, a);
+					}
+					else if(sent.eClass.name.equals("repetir") && perteneceSubproceso == false) {
+						var repetir = sent as repetir;
+						perteneceSubproceso = contienenExpresionEscribir(repetir.sentencias, a);
+					}
+					else if(sent.eClass.name.equals("desde") && perteneceSubproceso == false) {
+						var desde = sent as desde;
+						perteneceSubproceso = contienenExpresionEscribir(desde.sentencias, a);
+					}
+					else if(sent.eClass.name.equals("Si") && perteneceSubproceso == false) {
+						var si = sent as Si;
+						perteneceSubproceso = contienenExpresionEscribir(si.sentencias, a);
+						if(si.sino != null) {
+							perteneceSubproceso = contienenExpresionEscribir(si.sino.sentencias, a);
+						}
+					}	
+					else if(sent.eClass.name.equals("segun") && perteneceSubproceso == false) {
+						var segun = sent as segun;
+						for(Caso c: segun.caso) {
+							if(perteneceSubproceso == false) {
+								perteneceSubproceso = contienenExpresionEscribir(c.sentencias, a);
+							}
+						}
+					}
+		 		}
+		 	}
+			if(s.sentencias.contains(a) || (perteneceSubproceso && a.operador.size() > 0)) {
+				var cadena = new String();
+				if(a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					//En este caso el usuario ha introducido un texto
+					var primero = a.operador.get(0) as ConstCadena;
+					cadena = primero.contenido;
+					cadena = cadena.substring(0, cadena.length()-1);
+				}
+				
+				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					cadena = cadena + "\"";
+				}
+				
+				if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					cadena = cadena + " \\n\"";
+				}
+				for(o: a.operador) {
+					//Si es el primer elemento y es distinto a una cadena si, sino se lo salta
+					if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") || a.operador.indexOf(o) != 0) {
+						var tipo = "";
+						if(o.eClass.name.equals("VariableID")) {
+							var varID = o as VariableID;
+							tipo = variablesSubprocesos.get(s.nombre).get(varID.nombre);
+						}
+						else if(o.eClass.name.equals("ValorVector")) {
+							var vector = o as ValorVector;
+							if(vector.campo.size() == 0) {
+								tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector));
+							}
+							else {
+								tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
+							}
+						}
+						else if(o.eClass.name.equals("ValorMatriz")) {
+							var matriz = o as ValorMatriz;
+							if(matriz.campo.size() == 0) {
+								tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz));
+							}
+							else {
+								tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
+							}
+						}	
+						else if(o.eClass.name.equals("ValorRegistro")) {
+							var registro = o as ValorRegistro;
+							tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+						}
+						else if(o.eClass.name.equals("LlamadaFuncion")) {
+							var llamadaFuncion = o as LlamadaFuncion;
+							tipo = funciones.get(llamadaFuncion.nombre);
+						}
+						if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %i \\n \"";
+							}
+							else {
+								cadena = cadena + " %i";
+							}
+						}
+						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %c \\n \"";
+							}
+							else {
+								cadena = cadena + " %c";
+							}
+						}
+						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %s \\n \"";
+							}
+							else {
+								cadena = cadena + " %s";
+							}
+						}
+						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+							if(a.operador.indexOf(o) == a.operador.size - 1) {
+								cadena = cadena + " %r \\n \"";
+							}	
+							else {
+								cadena = cadena + " %r";
+							}
+						}
+					}
+			}
+			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
+				cadena = cadena + ", " + a.operador.coutOperadoresCPunteros(punteros);
+				return '''printf(«cadena»);'''	
+			}
+			else {
+				return '''printf(«cadena»);'''
+			}
+		}	
+	}
+	}
+	
 	def generateModulo(Escribir a) {	
 		for(Subproceso s: modulo.implementacion.funcion) {
 			var perteneceSubproceso = false;
@@ -1781,8 +2193,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
 				}
-				if(a.operador.size() == 1) {
+				
+				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
 					cadena = cadena + "\"";
+				}
+				
+				if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					cadena = cadena + " \\n\"";
 				}
 				for(o: a.operador) {
 					//Si es el primer elemento y es distinto a una cadena si, sino se lo salta
@@ -1820,7 +2237,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %i\"";
+								cadena = cadena + " %i \\n \"";
 							}
 							else {
 								cadena = cadena + " %i";
@@ -1828,7 +2245,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %c\"";
+								cadena = cadena + " %c \\n \"";
 							}
 							else {
 								cadena = cadena + " %c";
@@ -1836,7 +2253,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %s\"";
+								cadena = cadena + " %s \\n \"";
 							}
 							else {
 								cadena = cadena + " %s";
@@ -1844,7 +2261,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %r\"";
+								cadena = cadena + " %r \\n \"";
 							}	
 							else {
 								cadena = cadena + " %r";
@@ -1906,8 +2323,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				cadena = primero.contenido;
 				cadena = cadena.substring(0, cadena.length()-1);
 			}
-			if(a.operador.size() == 1) {
+			
+			if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
 				cadena = cadena + "\"";
+			}
+			
+			if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
+				cadena = cadena + " \\n\"";
 			}
 			for(o: a.operador) {
 				if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") || a.operador.indexOf(o) != 0) {
@@ -1945,7 +2367,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
-							cadena = cadena + " %i\"";
+							cadena = cadena + " %i \\n \"";
 						}
 						else {
 							cadena = cadena + " %i";
@@ -1953,7 +2375,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) || o.eClass.name.equals("Caracter")) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
-							cadena = cadena + " %c\"";
+							cadena = cadena + " %c \\n \"";
 						}
 						else {
 							cadena = cadena + " %c";
@@ -1961,7 +2383,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || o.eClass.name.equals("ConstCadena")) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
-							cadena = cadena + " %s\"";
+							cadena = cadena + " %s \\n \"";
 						}
 						else {
 							cadena = cadena + " %s";
@@ -1969,7 +2391,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) || o.eClass.name.equals("NumeroDecimal")) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
-							cadena = cadena + " %r\"";
+							cadena = cadena + " %r \\n \"";
 						}
 						else {
 							cadena = cadena + " %r";
@@ -2027,8 +2449,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
 				}
-				if(a.operador.size() == 1) {
+				
+				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
 					cadena = cadena + "\"";
+				}
+				
+				if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
+					cadena = cadena + " \\n\"";
 				}
 				for(o: a.operador) {
 					//Si es el primer elemento y es distinto a una cadena si, sino se lo salta
@@ -2066,7 +2493,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %i\"";
+								cadena = cadena + " %i \\n \"";
 							}
 							else {
 								cadena = cadena + " %i";
@@ -2074,7 +2501,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %c\"";
+								cadena = cadena + " %c \\n \"";
 							}
 							else {
 								cadena = cadena + " %c";
@@ -2082,7 +2509,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %s\"";
+								cadena = cadena + " %s \\n \"";
 							}
 							else {
 								cadena = cadena + " %s";
@@ -2090,7 +2517,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %r\"";
+								cadena = cadena + " %r \\n \"";
 							}	
 							else {
 								cadena = cadena + " %r";
@@ -2131,7 +2558,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			}
 			if(subprocesosConPunteros.get(nombreSubproceso).contains(actual)) {
-					total = total + " " + op.generate;
+					total = total + " &" + op.generate;
 					actual = actual + 1;
 			}
 			else {
@@ -2183,6 +2610,160 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
 			prueba = op as ValorMatriz
+			prueba.generate
+		}
+	}
+	
+	def generatePunteros(Operador op, List<String> punteros) {
+		if (op.eClass.name.equals("NumeroEntero")) {
+			var NumeroEntero prueba = new NumeroEnteroImpl
+			prueba = op as NumeroEntero
+			prueba.generate
+		} else if (op.eClass.name.equals("NumeroDecimal")) {
+			var NumeroDecimal prueba = new NumeroDecimalImpl
+			prueba = op as NumeroDecimal
+			prueba.generate
+		} else if (op.eClass.name.equals("ValorBooleano")) {
+			var ValorBooleano prueba = new ValorBooleanoImpl
+			prueba = op as ValorBooleano
+			prueba.generate
+		} else if (op.eClass.name.equals("ConstCadena")) {
+			var ConstCadena prueba = new ConstCadenaImpl
+			prueba = op as ConstCadena
+			prueba.generate
+		} else if (op.eClass.name.equals("Caracter")) {
+			var Caracter prueba = new CaracterImpl
+			prueba = op as Caracter
+			prueba.generate
+		} else if (op.eClass.name.equals("VariableID")) {
+			var VariableID prueba = new VariableIDImpl
+			prueba = op as VariableID
+			if(punteros.contains(prueba.nombre)) {
+				prueba.generatePuntero
+			} else {
+				prueba.generate
+			}
+		}
+		else if (op.eClass.name.equals("ValorRegistro")) {
+			var ValorRegistro prueba = new ValorRegistroImpl
+			prueba = op as ValorRegistro
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorVector")) {
+			var ValorVector prueba = new ValorVectorImpl
+			prueba = op as ValorVector
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorMatriz")) {
+			var ValorMatriz prueba = new ValorMatrizImpl
+			prueba = op as ValorMatriz
+			prueba.generate
+		}
+	}
+	
+		def generatePunteros(operacion op, List<String> punteros) {
+		if (op.eClass.name.equals("NumeroEntero")) {
+			var NumeroEntero prueba = new NumeroEnteroImpl
+			prueba = op as NumeroEntero
+			prueba.generate	
+		} else if (op.eClass.name.equals("NumeroDecimal")) {
+			var NumeroDecimal prueba = new NumeroDecimalImpl
+			prueba = op as NumeroDecimal
+			prueba.generate
+		} else if (op.eClass.name.equals("ValorBooleano")) {
+			var ValorBooleano prueba = new ValorBooleanoImpl
+			prueba = op as ValorBooleano
+			prueba.generate
+		} else if (op.eClass.name.equals("ConstCadena")) {
+			var ConstCadena prueba = new ConstCadenaImpl
+			prueba = op as ConstCadena
+			prueba.generate
+		} else if (op.eClass.name.equals("Caracter")) {
+			var Caracter prueba = new CaracterImpl
+			prueba = op as Caracter
+			prueba.generate
+		} else if (op.eClass.name.equals("VariableID")) {
+			var VariableID prueba = new VariableIDImpl
+			prueba = op as VariableID
+			if(punteros.contains(prueba.nombre)) {
+				prueba.generatePuntero
+			} else {
+				prueba.generate
+			}
+		}
+		else if (op.eClass.name.equals("ValorRegistro")) {
+			var ValorRegistro prueba = new ValorRegistroImpl
+			prueba = op as ValorRegistro
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorVector")) {
+			var ValorVector prueba = new ValorVectorImpl
+			prueba = op as ValorVector
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorMatriz")) {
+			var ValorMatriz prueba = new ValorMatrizImpl
+			prueba = op as ValorMatriz
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("LlamadaFuncion")) {
+			var LlamadaFuncion prueba = new LlamadaFuncionImpl
+			prueba = op as LlamadaFuncion
+			prueba.generate(false)
+		}
+		else if (op.eClass.name.equals("Internas")) {
+			var Internas prueba = new InternasImpl
+			prueba = op as Internas
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Suma")) {
+			var Suma prueba = new SumaImpl
+			prueba = op as Suma
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Resta")) {
+			var Resta prueba = new RestaImpl
+			prueba = op as Resta
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Multiplicacion")) {
+			var Multiplicacion prueba = new MultiplicacionImpl
+			prueba = op as Multiplicacion
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Division")) {
+			var Division prueba = new DivisionImpl
+			prueba = op as Division
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Or")) {
+			var Or prueba = new OrImpl
+			prueba = op as Or
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("And")) {
+			var And prueba = new AndImpl
+			prueba = op as And
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Comparacion")) {
+			var Comparacion prueba = new ComparacionImpl
+			prueba = op as Comparacion
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Igualdad")) {
+			var Igualdad prueba = new IgualdadImpl
+			prueba = op as Igualdad
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Negativa")) {
+			var Negativa prueba = new NegativaImpl
+			prueba = op as Negativa
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Negacion")) {
+			var Negacion prueba = new NegacionImpl
+			prueba = op as Negacion
 			prueba.generate
 		}
 	}

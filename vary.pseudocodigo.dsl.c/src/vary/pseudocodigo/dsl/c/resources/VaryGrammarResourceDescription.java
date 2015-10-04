@@ -65,21 +65,14 @@ public class VaryGrammarResourceDescription extends DefaultResourceDescription i
         if (resource != null && PlatformUI.isWorkbenchRunning() && PlatformUI.getWorkbench().getActiveWorkbenchWindow() != null
                 && PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage() != null) {
             final IEditorPart part = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-            if (part != null) {
-                if (part instanceof DiagramEditor) {
-                    final Resource activeResource = ((DiagramEditor) part).getDiagramEditPart().resolveSemanticElement().eResource();
-                    if (activeResource != null && resource.getURI().equals(activeResource.getURI())) {
-                        resource = activeResource;
-                    }
-                }
+            if (part != null && part instanceof DiagramEditor) {
+               final Resource activeResource = ((DiagramEditor) part).getDiagramEditPart().resolveSemanticElement().eResource();
+               if (activeResource != null && resource.getURI().equals(activeResource.getURI())) {
+                  resource = activeResource;
+               }
             }
         }
         return resource;
     }
-	
-	/*public VaryGrammarResourceDescription(Resource resource,
-			VaryGrammarResourceDescriptionStrategy strategy) {
-		super(resource, strategy);
-	}*/
 	
 }

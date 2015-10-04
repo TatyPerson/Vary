@@ -4,7 +4,7 @@ public class LenguajeProyecto {
 	
 private static String lenguaje;
 	
-	public LenguajeProyecto() {
+	private LenguajeProyecto() {
 		lenguaje = "C";
 	}
 	

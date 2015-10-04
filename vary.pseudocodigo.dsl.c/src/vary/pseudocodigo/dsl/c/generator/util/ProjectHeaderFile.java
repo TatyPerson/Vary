@@ -4,7 +4,7 @@ public class ProjectHeaderFile {
 	
 	private static boolean headerFile;
 	
-	public ProjectHeaderFile() {
+	private ProjectHeaderFile() {
 		headerFile = false;
 	}
 	

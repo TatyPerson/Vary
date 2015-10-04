@@ -3,20 +3,7 @@
  */
 package vary.pseudocodigo.dsl.c;
 
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
-import org.eclipse.xtext.resource.IContainer.Manager;
 import org.eclipse.xtext.resource.IDefaultResourceDescriptionStrategy;
-import org.eclipse.xtext.resource.IResourceDescription;
-import org.eclipse.xtext.resource.generic.GenericResourceServiceProvider;
-import org.eclipse.xtext.resource.impl.SimpleResourceDescriptionsBasedContainerManager;
-import org.eclipse.xtext.scoping.IGlobalScopeProvider;
-import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
-import org.eclipse.xtext.scoping.impl.ResourceSetGlobalScopeProvider;
-
-import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescriptionManager;
-import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceServiceProvider;
-import vary.pseudocodigo.dsl.c.resources.VaryGrammarQualifiedNameProvider;
-import vary.pseudocodigo.dsl.c.scoping.VaryGrammarGlobalScopeProvider;
 import vary.pseudocodigo.dsl.c.scoping.VaryGrammarResourceDescriptionsStrategy;
 
 /**
@@ -24,52 +11,7 @@ import vary.pseudocodigo.dsl.c.scoping.VaryGrammarResourceDescriptionsStrategy;
  */
 public class VaryGrammarRuntimeModule extends vary.pseudocodigo.dsl.c.AbstractVaryGrammarRuntimeModule {
 	
-	/*@Override
-    public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
-        return VaryGrammarQualifiedNameProvider.class;
-    }*/
-	
-	/*@Override
-	public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
-		return ResourceSetGlobalScopeProvider.class;
-	}*/
-	
 	public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
 		return VaryGrammarResourceDescriptionsStrategy.class;
 	}
-	
-	/*public Class<? extends GenericResourceServiceProvider> bindGenericResourceServiceProvider() {
-		return VaryGrammarResourceServiceProvider.class;
-	}*/
-	
-	/*public Class<? extends IResourceDescription.Manager> bindIResourceDescriptionsManager() {
-		return VaryGrammarResourceDescriptionManager.class;
-	}*/
-	
-	/*public Class<? extends IDefaultResourceDescriptionStrategy> bindIDefaultResourceDescriptionStrategy() {
-		return VaryGrammarResourceDescriptionsStrategy.class;
-	}*/
-	
-	/*@Override
-	public void configureIScopeProviderDelegate(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.scoping.IScopeProvider.class)
-				.annotatedWith(
-						com.google.inject.name.Names
-								.named(AbstractDeclarativeScopeProvider.NAMED_DELEGATE))
-				.to(SmallJavaImportedNamespaceAwareLocalScopeProvider.class);
-	*/
-	
-	/*
-	
-	@Override
-	public Class<? extends org.eclipse.xtext.scoping.IGlobalScopeProvider> bindIGlobalScopeProvider() {
-		return VaryGrammarGlobalScopeProvider.class;
-	}
-	
-	/*
-	
-	@Override
-	public Class<? extends Manager> bindIContainer$Manager() {
-		return SimpleResourceDescriptionsBasedContainerManager.class;
-	}*/
 }

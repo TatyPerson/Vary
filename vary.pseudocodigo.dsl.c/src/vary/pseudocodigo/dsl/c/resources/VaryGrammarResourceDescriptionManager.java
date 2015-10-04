@@ -10,11 +10,6 @@ import com.google.inject.Provider;
 
 public class VaryGrammarResourceDescriptionManager extends DefaultResourceDescriptionManager {
 	
-	/*protected IResourceDescription internalGetResourceDescription(Resource resource,
-			VaryGrammarResourceDescriptionStrategy strategy) {
-		return new VaryGrammarResourceDescription(resource, strategy);
-	}*/
-	
 	private static final String CACHE_KEY = VaryGrammarResourceDescriptionManager.class.getName() + "#getResourceDescription";
 	private IDefaultResourceDescriptionStrategy localStrategy;
 	

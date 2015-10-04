@@ -4,7 +4,7 @@ public class TipoProyecto {
 	
 	private static String tipo;
 	
-	public TipoProyecto() {
+	private TipoProyecto() {
 		tipo = "No";
 	}
 	

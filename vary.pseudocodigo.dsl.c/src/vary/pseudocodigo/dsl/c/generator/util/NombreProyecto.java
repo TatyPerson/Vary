@@ -4,7 +4,7 @@ public class NombreProyecto {
 	
 	private static String nombre;
 	
-	public NombreProyecto() {
+	private NombreProyecto() {
 		nombre = "";
 	}
 	

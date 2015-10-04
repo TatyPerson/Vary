@@ -320,9 +320,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 			salida = tipo2;
 		}
-		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			salida = tipo2;
-		}
 		return salida;
 	}
 	
@@ -583,7 +580,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 */
 	
 	protected boolean esOperacion(operacion op) {
-		if(op instanceof Suma | op instanceof Resta | op instanceof Multiplicacion | op instanceof Division | op instanceof Or | op instanceof And | op instanceof Comparacion | op instanceof Igualdad | op instanceof Negativa | op instanceof Negacion) {
+		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion) {
 			return true;
 		}
 		else {
@@ -592,7 +589,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	}
 	
 	protected boolean esOperacion(valor v) {
-		if(v instanceof Suma | v instanceof Resta | v instanceof Multiplicacion | v instanceof Division | v instanceof Or | v instanceof And | v instanceof Comparacion | v instanceof Igualdad | v instanceof Negativa | v instanceof Negacion) {
+		if(v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof Division || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof Negativa || v instanceof Negacion) {
 			return true;
 		}
 		else {

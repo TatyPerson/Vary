@@ -1,19 +1,11 @@
 package vary.pseudocodigo.dsl.c.validation;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IContainer;
@@ -23,13 +15,8 @@ import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
-
 import com.google.inject.Inject;
-
-import vary.pseudocodigo.dsl.c.generator.util.IdiomaProyecto;
 import vary.pseudocodigo.dsl.c.resources.VaryGrammarIndex;
-import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescription;
-import vary.pseudocodigo.dsl.c.resources.VaryGrammarResourceDescriptionStrategy;
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator;
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface;
 import diagramapseudocodigo.Algoritmo;
@@ -45,7 +32,6 @@ import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.Caracter;
 import diagramapseudocodigo.Caso;
-import diagramapseudocodigo.Codigo;
 import diagramapseudocodigo.Comparacion;
 import diagramapseudocodigo.ConstCadena;
 import diagramapseudocodigo.Constantes;
@@ -86,7 +72,6 @@ import diagramapseudocodigo.SubrangoNumerico;
 import diagramapseudocodigo.Suma;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.TipoVariable;
 import diagramapseudocodigo.ValorBooleano;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
@@ -101,17 +86,15 @@ import diagramapseudocodigo.repetir;
 import diagramapseudocodigo.segun;
 import diagramapseudocodigo.unaria;
 import diagramapseudocodigo.valor;
-import diagramapseudocodigo.impl.ModuloImpl;
 
 public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	public static final String INVALID_VAR_NAME = "xtext.workshop.advanced.quickfix.InvalidTypeName";
 	public static final String CONSTANTE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.ConstanteNoDefinida";
-	public static String DUPLICATE_MODULE = "vary.pseudocodigo.dsl.c.VaryGrammar.DuplicateModule";
+	public static final String DUPLICATE_MODULE = "vary.pseudocodigo.dsl.c.VaryGrammar.DuplicateModule";
 	public static final String VARIABLE_NO_DEFINIDA = "vary.pseudocodigo.dsl.c.VaryGrammar.VariableNoDefinida";
 	public static final String NOMBRE_MODULO_REPETIDO = "vary.pseudocodigo.dsl.c.VaryGrammar.NombreModuloRepetido";
 	protected final ReadMessagesValidatorInterface readerMessages;
-	
-	private ResourceSet resourceSet;
+
 	@Inject
 	ResourceDescriptionsProvider resourceDescriptionsProvider;
 	@Inject VaryGrammarIndex index;
@@ -123,14 +106,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	private static VaryGrammarValidatorAux funciones = new VaryGrammarValidatorAux();
 	
 	@Inject
-	IResourceDescriptions resourceDescriptions;
+	IResourceDescriptions resDescriptions;
 	
 	@Inject
 	public VaryGrammarValidator() {
 		readerMessages = new ReadMessagesValidator();
 	}
 	
-	public VaryGrammarValidator(String URL) {
+	public VaryGrammarValidator(String url) {
 		readerMessages = new vary.pseudocodigo.dsl.c.validation.english.messages.ReadMessagesValidator();
 	}
 	
@@ -142,7 +125,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		IResourceDescription resourceDescription = resourceDescriptions.getResourceDescription(modulo.eResource().getURI());
 		for (IContainer c : containerManager.getVisibleContainers(resourceDescription, resourceDescriptions)) {
 			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.MODULO)) {
-				System.out.println("Estoy entrando en el bucle interior pero no en el if");
 				if (!names.add(od.getQualifiedName())) {
 					error(readerMessages.getString("MODULO_NOMBRE_REPETIDO", modulo.getNombre()), DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE, NOMBRE_MODULO_REPETIDO);
 				}
@@ -157,7 +139,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		IResourceDescription resourceDescription = resourceDescriptions.getResourceDescription(algoritmo.eResource().getURI());
 		for (IContainer c : containerManager.getVisibleContainers(resourceDescription, resourceDescriptions)) {
 			for (IEObjectDescription od : c.getExportedObjectsByType(DiagramapseudocodigoPackage.Literals.ALGORITMO)) {
-				System.out.println("Estoy entrando en el bucle interior pero no en el if");
 				if (!names.add(od.getQualifiedName()) || names.size() > 1) {
 					error(readerMessages.getBundle().getString("ALGORITMO_REPETIDO"), DiagramapseudocodigoPackage.Literals.ALGORITMO__NOMBRE);
 				}
@@ -168,7 +149,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	@Check
 	//Función que se encarga de que no existan funciones repetidas definidas en los módulos que importa
 	protected void checkFuncionesModulosImportados(Algoritmo a) {
-		System.out.println("Estoy entrando en el check nuevo");
 		//Primero se comprueba las que están definidas en el algoritmo con las que estan definidas en los módulos que importa
 		for(Modulo m: a.getImportaciones()) {
 			for(Subproceso s: a.getFuncion()) {
@@ -631,7 +611,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						if(d instanceof DeclaracionVariable) {
 							DeclaracionVariable dec = (DeclaracionVariable) d;
 							for(Variable v: dec.getVariable()) {
-								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
 								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 								}
@@ -662,7 +641,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					if(d instanceof DeclaracionVariable) {
 						DeclaracionVariable dec = (DeclaracionVariable) d;
 						for(Variable v: dec.getVariable()) {
-							System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
 							if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 								ok = true;
 							}
@@ -687,7 +665,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						if(d instanceof DeclaracionVariable) {
 							DeclaracionVariable dec = (DeclaracionVariable) d;
 							for(Variable v: dec.getVariable()) {
-								System.out.println("El valor del for es:"+desdeAux.getAsignacion().getValor_asignacion());
 								if(v.getNombre().equals(desdeAux.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 									ok = true;
 								}
@@ -1154,400 +1131,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 	}
 	
-	/*
-	
-	@Check
-	//Función que se encarga de comprobar si un vector al que se accede a un campo es un vector de registro
-	protected void checkValorVectorMatriz(Codigo c) {
-		//Registramos todos los nombres de los registros existentes y registramos los vectores con sus respectivos tipos declarados
-		List<String> nombresRegistros = new ArrayList<String>();
-		Map<String,String> vectoresTipados = new HashMap<String,String>();
-		List<String> nombresVectores = new ArrayList<String>();
-		Map<String,String> matricesTipadas = new HashMap<String,String>();
-		List<String> nombresMatrices = new ArrayList<String>();
-		for(TipoComplejo t: c.getTipocomplejo()) {
-			if(t instanceof Registro) {
-				Registro r = (Registro) t;
-				nombresRegistros.add(r.getNombre());
-			}
-			else if(t instanceof Vector) {
-				Vector v = (Vector) t;
-				vectoresTipados.put(v.getNombre(), funciones.getTipoComplejo(v.getTipo()));
-				nombresVectores.add(v.getNombre());
-			}
-			else if(t instanceof Matriz) {
-				Matriz m = (Matriz) t;
-				matricesTipadas.put(m.getNombre(), funciones.getTipoComplejo(m.getTipo()));
-				nombresMatrices.add(m.getNombre());
-				
-			}
-		}
-		
-		//Despues comprobamos si todos los vectores que utilicen campos son de un tipo de registro
-		//En el programa de inicio:
-		
-		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(c.getTiene().getDeclaracion());
-		
-		checkValorVectorAux(nombresRegistros,c.getTiene().getTiene(), variablesTipadas, vectoresTipados, nombresVectores);
-		checkValorMatrizAux(nombresRegistros,c.getTiene().getTiene(), variablesTipadas, matricesTipadas, nombresMatrices);
-		
-		for(Sentencias s: c.getTiene().getTiene()) {
-			if(s instanceof Bloque) {
-				Bloque bloque = (Bloque) s;
-				if(bloque instanceof segun) {
-					segun seg = (segun) bloque;
-					for(Caso caso: seg.getCaso()) {
-						checkValorVectorAux(nombresRegistros,caso.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-						checkValorMatrizAux(nombresRegistros,caso.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-						
-						for(Sentencias sentencias: caso.getSentencias()) {
-							if(sentencias instanceof Bloque) {
-								Bloque bloqueAux = (Bloque) sentencias;
-								checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-								checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-							}
-						}
-					}
-				}
-				else {
-					checkValorVectorAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-					checkValorMatrizAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-					
-					for(Sentencias sentencias: bloque.getSentencias()) {
-						if(sentencias instanceof Bloque) {
-							Bloque bloqueAux = (Bloque) sentencias;
-							checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-							checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-						}
-					}
-				}
-			}
-		}
-		
-		//En los subprocesos:
-		
-		for(Subproceso sub: c.getFuncion()) {
-			variablesTipadas = funciones.registrarVariablesTipadas(sub.getDeclaracion());
-			checkValorVectorAux(nombresRegistros, sub.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-			checkValorMatrizAux(nombresRegistros, sub.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-			
-			for(Sentencias s: sub.getSentencias()) {
-				if(s instanceof Bloque) {
-					Bloque bloque = (Bloque) s;
-					if(bloque instanceof segun) {
-						segun seg = (segun) bloque;
-						for(Caso caso: seg.getCaso()) {
-							checkValorVectorAux(nombresRegistros,caso.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-							checkValorMatrizAux(nombresRegistros,caso.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-							
-							for(Sentencias sentencias: caso.getSentencias()) {
-								if(sentencias instanceof Bloque) {
-									Bloque bloqueAux = (Bloque) sentencias;
-									checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-									checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-								}
-							}
-						}
-					}
-					else {
-						checkValorVectorAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-						checkValorMatrizAux(nombresRegistros,bloque.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-						
-						for(Sentencias sentencias: bloque.getSentencias()) {
-							if(sentencias instanceof Bloque) {
-								Bloque bloqueAux = (Bloque) sentencias;
-								checkValorVectorAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, vectoresTipados, nombresVectores);
-								checkValorMatrizAux(nombresRegistros,bloqueAux.getSentencias(), variablesTipadas, matricesTipadas, nombresMatrices);
-
-							}
-						}
-					}
-				}
-			}
-			
-		}	
-	}
-	
-	private void checkValorVectorAux(List<String> nombresRegistros, List<Sentencias> sentencias, Map<String,String> variablesTipadas, Map<String,String> vectoresTipados, List<String> nombresVectores) {
-		for(Sentencias s: sentencias) {
-			if(s instanceof Asignacion) {
-				Asignacion a = (Asignacion) s;
-				if(a.getOperadores() instanceof ValorVector) {
-					ValorVector v = (ValorVector) a.getOperadores();
-					if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-						error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-					}
-					else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-						error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-					}
-				}
-				else if(a.getOperadores() instanceof operacion) {
-					operacion o = (operacion) a.getOperadores();
-					List<valor> valores = funciones.registrarValoresOperacion(o);
-					for(valor val: valores) {
-						if(val instanceof ValorVector) {
-							ValorVector v = (ValorVector) val;
-							if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-								error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-							}
-							else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-								error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-							}
-						}
-						else if(val instanceof LlamadaFuncion) {
-							LlamadaFuncion l = (LlamadaFuncion) val;
-							for(valor valAux: l.getOperadores()) {
-								if(valAux instanceof Operador) {
-									Operador op = (Operador) valAux;
-									if(op instanceof ValorVector) {
-										ValorVector v = (ValorVector) op;
-										if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-											error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-										}
-										else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-											error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				else if(a.getOperadores() instanceof LlamadaFuncion) {
-					LlamadaFuncion l = (LlamadaFuncion) a.getOperadores();
-					for(valor valAux: l.getOperadores()) {
-						if(valAux instanceof Operador) {
-							Operador op = (Operador) valAux;
-							if(op instanceof ValorVector) {
-								ValorVector v = (ValorVector) op;
-								if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-									error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-								}
-								else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-									error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-								}
-							}
-						}
-					}
-				}
-			}
-			else if(s instanceof AsignacionCompleja) {
-				AsignacionCompleja a = (AsignacionCompleja) s;
-				if(a.getComplejo() instanceof ValorVector) {
-					ValorVector v = (ValorVector) a.getComplejo();
-					if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-						error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-					}
-					else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-						error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-					}
-				}
-				if(a.getOperador() instanceof ValorVector) {
-					ValorVector v = (ValorVector) a.getOperador();
-					if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-						error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-					}
-					else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-						error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-					}
-				}
-				else if(a.getOperador() instanceof operacion) {
-					operacion o = (operacion) a.getOperador();
-					List<valor> valores = funciones.registrarValoresOperacion(o);
-					for(valor val: valores) {
-						if(val instanceof ValorVector) {
-							ValorVector v = (ValorVector) val;
-							if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-								error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-							}
-							else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-								error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-							}
-						}
-						else if(val instanceof LlamadaFuncion) {
-							LlamadaFuncion l = (LlamadaFuncion) val;
-							for(valor valAux: l.getOperador()) {
-								if(valAux instanceof Operador) {
-									Operador op = (Operador) valAux;
-									if(op instanceof ValorVector) {
-										ValorVector v = (ValorVector) op;
-										if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-											error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-										}
-										else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-											error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				else if(a.getOperador() instanceof LlamadaFuncion) {
-					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
-					for(valor valAux: l.getOperador()) {
-						if(valAux instanceof Operador) {
-							Operador op = (Operador) valAux;
-							if(op instanceof ValorVector) {
-								ValorVector v = (ValorVector) op;
-								if(!nombresVectores.contains(variablesTipadas.get(v.getNombre_vector()))) {
-									error("La variable no pertenece al tipo vector", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-								}
-								else if(v.getCampo().size() != 0 && !nombresRegistros.contains(vectoresTipados.get(variablesTipadas.get(v.getNombre_vector())))) {
-									error("El vector no pertenece al tipo registro", v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	
-	private void checkValorMatrizAux(List<String> nombresRegistros, List<Sentencias> sentencias, Map<String,String> variablesTipadas, Map<String,String> matricesTipadas, List<String> nombresMatrices) {
-		for(Sentencias s: sentencias) {
-			if(s instanceof AsignacionNormal) {
-				AsignacionNormal a = (AsignacionNormal) s;
-				if(a.getOperador() instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) a.getOperador();
-					if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-						error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-					}
-					else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-						error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-					}
-				}
-				else if(a.getOperador() instanceof operacion) {
-					operacion o = (operacion) a.getOperador();
-					List<valor> valores = funciones.registrarValoresOperacion(o);
-					for(valor val: valores) {
-						if(val instanceof ValorMatriz) {
-							ValorMatriz m = (ValorMatriz) val;
-							if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-								error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-							}
-							else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-								error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-							}
-						}
-						else if(val instanceof LlamadaFuncion) {
-							LlamadaFuncion l = (LlamadaFuncion) val;
-							for(valor valAux: l.getOperador()) {
-								if(valAux instanceof Operador) {
-									Operador op = (Operador) valAux;
-									if(op instanceof ValorMatriz) {
-										ValorMatriz m = (ValorMatriz) op;
-										if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-											error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-										}
-										else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-											error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				else if(a.getOperador() instanceof LlamadaFuncion) {
-					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
-					for(valor valAux: l.getOperador()) {
-						if(valAux instanceof Operador) {
-							Operador op = (Operador) valAux;
-							if(op instanceof ValorMatriz) {
-								ValorMatriz m = (ValorMatriz) op;
-								if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-									error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-								}
-								else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-									error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-								}
-							}
-						}
-					}
-				}
-			}
-			else if(s instanceof AsignacionCompleja) {
-				AsignacionCompleja a = (AsignacionCompleja) s;
-				if(a.getComplejo() instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) a.getComplejo();
-					if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-						error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-					}
-					else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-						error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-					}
-				}
-				if(a.getOperador() instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) a.getOperador();
-					if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-						error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-					}
-					else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-						error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-					}
-				}
-				else if(a.getOperador() instanceof operacion) {
-					operacion o = (operacion) a.getOperador();
-					List<valor> valores = funciones.registrarValoresOperacion(o);
-					for(valor val: valores) {
-						if(val instanceof ValorMatriz) {
-							ValorMatriz m = (ValorMatriz) val;
-							if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-								error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-							}
-							else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-								error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-							}
-						}
-						else if(val instanceof LlamadaFuncion) {
-							LlamadaFuncion l = (LlamadaFuncion) val;
-							for(valor valAux: l.getOperador()) {
-								if(valAux instanceof Operador) {
-									Operador op = (Operador) valAux;
-									if(op instanceof ValorMatriz) {
-										ValorMatriz m = (ValorMatriz) op;
-										if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-											error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-										}
-										else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-											error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				else if(a.getOperador() instanceof LlamadaFuncion) {
-					LlamadaFuncion l = (LlamadaFuncion) a.getOperador();
-					for(valor valAux: l.getOperador()) {
-						if(valAux instanceof Operador) {
-							Operador op = (Operador) valAux;
-							if(op instanceof ValorMatriz) {
-								ValorMatriz m = (ValorMatriz) op;
-								if(!nombresMatrices.contains(variablesTipadas.get(m.getNombre_matriz()))) {
-									error("La variable no pertenece al tipo matriz", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-								}
-								else if(m.getCampo().size() != 0 && !nombresRegistros.contains(matricesTipadas.get(variablesTipadas.get(m.getNombre_matriz())))) {
-									error("La matriz no pertenece al tipo registro", m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	*/
 	
 	@Check
 	//Función que se encarga de comprobar que no existan dos variables declaradas en un registro con el mismo nombre
@@ -2049,23 +1632,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		
 	}
 	
-	protected void checkConstantesAux(List<Constantes> constantes, List<TipoComplejo> complejos, int tipo) {
-		List<String> nombresConstantes = new ArrayList<String>();
-		for(Constantes cons: constantes) {
-			nombresConstantes.add(cons.getVariable().getNombre());
-		}
+	protected void checkConstantesAux(List<String> nombresConstantes, List<TipoComplejo> complejos) {
 		for(TipoComplejo t: complejos) {
 			if(t instanceof Vector) {
 				Vector v = (Vector) t;
 				if(v.getValor() instanceof VariableID) {
 					VariableID var = (VariableID) v.getValor();
 					if(!nombresConstantes.contains(var.getNombre())) {
-						if(tipo == 1) {
-							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
-						}
-						else if(tipo == 2) {
-							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
-						}
+						error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), v, DiagramapseudocodigoPackage.Literals.VECTOR__VALOR, CONSTANTE_NO_DEFINIDA);
 					}
 				}
 			}
@@ -2074,23 +1648,13 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(m.getValor().get(0) instanceof VariableID) {
 					VariableID var = (VariableID) m.getValor().get(0);
 					if(!nombresConstantes.contains(var.getNombre())) {
-						if(tipo == 1) {
-							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
-						}
-						else if(tipo == 2) {
-							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
-						}
+						error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), m, DiagramapseudocodigoPackage.Literals.MATRIZ__VALOR, 0, CONSTANTE_NO_DEFINIDA);
 					}
 				}
 				if(m.getValor().size() > 1 && m.getValor().get(1) instanceof VariableID) {
 					VariableID var = (VariableID) m.getValor().get(1);
 					if(!nombresConstantes.contains(var.getNombre())) {
-						if(tipo == 1) {
-							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
-						}
-						else if(tipo == 2) {
-							error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, complejos.indexOf(t), CONSTANTE_NO_DEFINIDA);
-						}
+						error(readerMessages.getString("CONSTANTE_NO_DECLARADA",  var.getNombre()), m, DiagramapseudocodigoPackage.Literals.MATRIZ__VALOR, 1, CONSTANTE_NO_DEFINIDA);
 					}
 				}
 			}
@@ -2098,14 +1662,36 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	}
 	
 	@Check
-	protected void checkConstantes(Implementacion implementacion) {
-		checkConstantesAux(implementacion.getConstantes(), implementacion.getTipocomplejo(), 2);
+	protected void checkConstantes(Modulo modulo) {
+		//Se añaden las constantes de los módulos importados:
+		Implementacion implementacion = modulo.getImplementacion();
+		List<String> nombresConstantes = new ArrayList<String>();
+		
+		for(Constantes cons: implementacion.getConstantes()) {
+			nombresConstantes.add(cons.getVariable().getNombre());
+		}
+		
+		for(Modulo m: modulo.getImportaciones()) {
+			nombresConstantes.addAll(m.getExporta_constantes());
+		}
+		
+		checkConstantesAux(nombresConstantes, implementacion.getTipocomplejo());
 	}
 	
 	@Check
 	//Función que compueba que las constantes utilizadas para definir los tamaños de los vectores y matrices han sido declaradas con anterioridad
 	protected void checkConstantes(Algoritmo algoritmo) {
-		checkConstantesAux(algoritmo.getConstantes(), algoritmo.getTipocomplejo(), 1);
+		List<String> nombresConstantes = new ArrayList<String>();
+		
+		for(Constantes cons: algoritmo.getConstantes()) {
+			nombresConstantes.add(cons.getVariable().getNombre());
+		}
+		
+		for(Modulo m: algoritmo.getImportaciones()) {
+			nombresConstantes.addAll(m.getExporta_constantes());
+		}
+		
+		checkConstantesAux(nombresConstantes, algoritmo.getTipocomplejo());
 	}
 	
 	protected void checkConstantesRepetidasAux(List<Constantes> constantes, int tipo) {
@@ -2162,7 +1748,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	//Función que comprueba que no se exporte dos veces la misma constante
 	protected void checkConstanteExportadaRepetida(Modulo modulo) {
 		List<String> nombresConstantes = new ArrayList<String>();
-		//System.out.println("Numero de constantes: "+modulo.getExporta_constantes().size());
 		for(String constante: modulo.getExporta_constantes()) {
 			if(nombresConstantes.contains(constante)) {
 				error(readerMessages.getString("CONSTANTE_EXPORTADA_REPETIDA",  constante), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_CONSTANTES, modulo.getExporta_constantes().indexOf(constante));
@@ -2201,40 +1786,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				nombresGlobales.add(nombre);
 			}
 		}
-	}
-
-	/*@Check
-	//Funcion que registra los nombres de todos los modulos
-	protected void checkNombreModulo(Modulo modulo) {
-		int count = 0;
-		System.out.println("El numero de modulos es: "+getAllModulesNames().size());
-		for (Modulo m : getAllModulesNames()) {
-			if (modulo.getNombre().equals(m.getNombre())) {
-				count++;
-				System.out.println("Estoy incrementando el contador!");
-			}
-			System.out.println("No estoy incrementando el contador!");
-		}
-		if ( count >1 ) {
-			error("Ya existe un módulo con este nombre", DiagramapseudocodigoPackage.Literals.MODULO__NOMBRE, modulo.getNombre());
-		}
-	}*/
-	
-	@Check
-	//Funcion que comprueba que el módulo importado existe
-	protected void checkModuloImportado(Algoritmo algoritmo) {
-		/*System.out.println("El numero de modulos importado es:"+algoritmo.getImportaciones().size());
-		for(String nombreModulo: algoritmo.getImportaciones()) {
-			System.out.println("Vueltesita");
-			System.out.println("El numero de modulos guardados es:"+RecursosCompartidos.modulos.size());
-			if(!RecursosCompartidos.modulos.containsValue(nombreModulo)) {
-				System.out.println("No existe "+nombreModulo);
-				error("El módulo importado no existe", DiagramapseudocodigoPackage.Literals.ALGORITMO__IMPORTACIONES, algoritmo.getImportaciones().indexOf(nombreModulo));
-			}
-			else {
-				System.out.println("Si existe "+nombreModulo);
-			}
-		}*/
 	}
 	
 	@Check
@@ -3000,16 +2551,13 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> importadas = new ArrayList<String>();
 		for(Modulo m: algoritmo.getImportaciones()) {
 			importadas.addAll(funciones.registrarVariables(m.getExporta_global()));
+			constantes.addAll(m.getExporta_constantes());
 		}
 		
 		List<String> totalVariables = variables;
 		totalVariables.addAll(variablesGlobales);
 		totalVariables.addAll(constantes);
 		totalVariables.addAll(importadas);
-		
-		for(String variable: importadas) {
-			System.out.println("Variable importada: "+variable);
-		}
 		
 		for(Subproceso s: algoritmo.getFuncion()) {
 			checkVariablesUsadas(s, variablesGlobales, constantes, importadas);
@@ -3449,7 +2997,43 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		//Registramos las variables globales y las constantes también
 		Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion());
 		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
+		
+		//Añadimos las variables de los módulos importados:
+		List<Constantes> constantesModulos = new ArrayList<Constantes>();
+		Map<String, String> declaracionesModulos = new HashMap<String,String>();
+		
+		for(Modulo m: algoritmo.getImportaciones()) {
+			for(Declaracion dec: m.getImplementacion().getGlobal()) {
+				if(dec instanceof DeclaracionPropia) {
+					DeclaracionPropia decAux = (DeclaracionPropia) dec;
+					for(Variable v: decAux.getVariable()) {
+						if(m.getExporta_global().contains(v.getNombre())) {
+							declaracionesModulos.put(v.getNombre(), decAux.getTipo());
+						}
+					}
+				}
+				else {
+					DeclaracionVariable decAux = (DeclaracionVariable) dec;
+					for(Variable v: decAux.getVariable()) {
+						if(m.getExporta_global().contains(v.getNombre())) {
+							declaracionesModulos.put(v.getNombre(), decAux.getTipo());
+						}
+					}
+				}
+			}
+		}
+		
+		for(Modulo m: algoritmo.getImportaciones()) {
+			for(Constantes c: m.getImplementacion().getConstantes()) {
+				if(m.getExporta_constantes().contains(c.getVariable().getNombre())) {
+					constantesModulos.add(c);
+				}
+			}
+		}
+		
 		//Unimos todas en el Map que se utilizará
+		constantes.putAll(funciones.registrarConstantesTipadas(constantesModulos, readerMessages));
+		variablesDeclaradas.putAll(declaracionesModulos);
 		variablesDeclaradas.putAll(variablesGlobales);
 		variablesDeclaradas.putAll(constantes);
 		
@@ -3500,6 +3084,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		//Recogemos los tipos nativos de los registros	
 		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(modulo.getImplementacion().getTipocomplejo());
 		Map<String,String> constantes = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes(), readerMessages);
+		
+		List<Constantes> constantesModulos = new ArrayList<Constantes>();
+		
+		for(Modulo m: modulo.getImportaciones()) {
+			for(Constantes c: m.getImplementacion().getConstantes()) {
+				if(m.getExporta_constantes().contains(c.getVariable().getNombre())) {
+					constantesModulos.add(c);
+				}
+			}
+		}
+		
+		constantes.putAll(funciones.registrarConstantesTipadas(constantesModulos, readerMessages));
 				
 		//Registramos los tipos de parámetros necesarios para todos los subprocesos
 		for(Subproceso sub: modulo.getImplementacion().getFuncion()) {
@@ -3511,6 +3107,32 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				//Registramos todas las variables que hay declaradas con sus respectivos tipos para buscar luego las necesarias (no hay repetidas)
 				Map<String,String> variablesDeclaradas = funciones.registrarVariablesTipadas(sub2.getDeclaracion());
 				Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobal(), sub2.getDeclaracion());
+				
+				List<Declaracion> declaracionesModulos = new ArrayList<Declaracion>();
+				
+				for(Modulo m: modulo.getImportaciones()) {
+					for(Declaracion dec: m.getImplementacion().getGlobal()) {
+						if(dec instanceof DeclaracionPropia) {
+							DeclaracionPropia decAux = (DeclaracionPropia) dec;
+							for(Variable v: decAux.getVariable()) {
+								if(m.getExporta_global().contains(v.getNombre())) {
+									declaracionesModulos.add(dec);
+								}
+							}
+						}
+						else {
+							DeclaracionVariable decAux = (DeclaracionVariable) dec;
+							for(Variable v: decAux.getVariable()) {
+								if(m.getExporta_global().contains(v.getNombre())) {
+									declaracionesModulos.add(dec);
+								}
+							}
+						}
+					}
+				}
+				
+				variablesGlobales.putAll(funciones.registrarGlobalesTipadas(declaracionesModulos, sub2.getDeclaracion()));
+				
 				//Como estamos en el caso de los subprocesos debemos registrar los parámetros también
 				funciones.getTiposCabecera(sub2.getParametrofuncion(), variablesDeclaradas);
 				//Añadimos las constrantes y las variables globales
@@ -3565,6 +3187,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getTipocomplejo());
 		Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 		
+		List<Constantes> constantesModulos = new ArrayList<Constantes>();
+		
+		for(Modulo m: algoritmo.getImportaciones()) {
+			for(Constantes c: m.getImplementacion().getConstantes()) {
+				if(m.getExporta_constantes().contains(c.getVariable().getNombre())) {
+					constantesModulos.add(c);
+				}
+			}
+		}
+		
+		constantes.putAll(funciones.registrarConstantesTipadas(constantesModulos, readerMessages));
+		
 		//Registramos los tipos de parámetros necesarios para todos los subprocesos
 		for(Subproceso sub: algoritmo.getFuncion()) {
 			List<String> tipos = funciones.getTiposCabecera(sub.getParametrofuncion());
@@ -3577,6 +3211,32 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				Map<String,String> variablesGlobales = funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), sub2.getDeclaracion());
 				//Como estamos en el caso de los subprocesos debemos registrar los parámetros también
 				funciones.getTiposCabecera(sub2.getParametrofuncion(), variablesDeclaradas);
+				
+				List<Declaracion> declaracionesModulos = new ArrayList<Declaracion>();
+				
+				for(Modulo m: algoritmo.getImportaciones()) {
+					for(Declaracion dec: m.getImplementacion().getGlobal()) {
+						if(dec instanceof DeclaracionPropia) {
+							DeclaracionPropia decAux = (DeclaracionPropia) dec;
+							for(Variable v: decAux.getVariable()) {
+								if(m.getExporta_global().contains(v.getNombre())) {
+									declaracionesModulos.add(dec);
+								}
+							}
+						}
+						else {
+							DeclaracionVariable decAux = (DeclaracionVariable) dec;
+							for(Variable v: decAux.getVariable()) {
+								if(m.getExporta_global().contains(v.getNombre())) {
+									declaracionesModulos.add(dec);
+								}
+							}
+						}
+					}
+				}
+				
+				variablesGlobales.putAll(funciones.registrarGlobalesTipadas(declaracionesModulos, sub2.getDeclaracion()));
+				
 				//Añadimos las constrantes y las variables globales
 				variablesDeclaradas.putAll(variablesGlobales);
 				variablesDeclaradas.putAll(constantes);
@@ -3639,8 +3299,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 				}
 				else if(!variables.get(nombreVar).equals(tipoDevuelve)) {
-					System.out.println("Tipo Variable: "+variables.get(nombreVar));
-					System.out.println("Tipo función: "+tipoDevuelve);
 					if(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						warning(readerMessages.getBundle().getString("PERDIDA_PRECISION"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 					}
@@ -4097,7 +3755,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							//Buscamos el registro del que proviene esa variable
 							for(String nombre: nombresRegistros) {
 								if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-									if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()) != readerMessages.getBundle().getString("TIPO_CADENA")) {
+									if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
 										errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 									}
 								}

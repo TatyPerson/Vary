@@ -199,6 +199,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       {
         this.algoritmo = null;
         this.modulo = null;
+        ProjectLocationFolder.setResource(resource);
         String _path = ProjectLocationFolder.getPath();
         String _plus = ("La uri cogida es:" + _path);
         System.out.println(_plus);
@@ -369,6 +370,17 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       _builder.append("_H");
       _builder.newLineIfNotEmpty();
       _builder.newLine();
+      {
+        EList<Modulo> _importaciones = myModulo.getImportaciones();
+        for(final Modulo myRefModulo : _importaciones) {
+          _builder.append("#include \"");
+          String _nombre_2 = myRefModulo.getNombre();
+          _builder.append(_nombre_2, "");
+          _builder.append(".h\"");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+      _builder.newLine();
       _builder.append("using namespace std;");
       _builder.newLine();
       _builder.newLine();
@@ -379,8 +391,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EList<String> _exporta_constantes = myModulo.getExporta_constantes();
             Variable _variable = myConstante.getVariable();
-            String _nombre_2 = _variable.getNombre();
-            boolean _contains = _exporta_constantes.contains(_nombre_2);
+            String _nombre_3 = _variable.getNombre();
+            boolean _contains = _exporta_constantes.contains(_nombre_3);
             if (_contains) {
               CharSequence _generate = this.generate(myConstante);
               _builder.append(_generate, "");
@@ -402,8 +414,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos = myModulo.getExporta_tipos();
-                String _nombre_3 = vector.getNombre();
-                boolean _contains_1 = _exporta_tipos.contains(_nombre_3);
+                String _nombre_4 = vector.getNombre();
+                boolean _contains_1 = _exporta_tipos.contains(_nombre_4);
                 if (_contains_1) {
                   CharSequence _generate_1 = this.generate(vector);
                   _builder.append(_generate_1, "");
@@ -421,8 +433,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_1 = myModulo.getExporta_tipos();
-                String _nombre_4 = matriz.getNombre();
-                boolean _contains_2 = _exporta_tipos_1.contains(_nombre_4);
+                String _nombre_5 = matriz.getNombre();
+                boolean _contains_2 = _exporta_tipos_1.contains(_nombre_5);
                 if (_contains_2) {
                   CharSequence _generate_2 = this.generate(matriz);
                   _builder.append(_generate_2, "");
@@ -440,8 +452,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_2 = myModulo.getExporta_tipos();
-                String _nombre_5 = registro.getNombre();
-                boolean _contains_3 = _exporta_tipos_2.contains(_nombre_5);
+                String _nombre_6 = registro.getNombre();
+                boolean _contains_3 = _exporta_tipos_2.contains(_nombre_6);
                 if (_contains_3) {
                   CharSequence _generate_3 = this.generate(registro);
                   _builder.append(_generate_3, "");
@@ -459,8 +471,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_3 = myModulo.getExporta_tipos();
-                String _nombre_6 = archivo.getNombre();
-                boolean _contains_4 = _exporta_tipos_3.contains(_nombre_6);
+                String _nombre_7 = archivo.getNombre();
+                boolean _contains_4 = _exporta_tipos_3.contains(_nombre_7);
                 if (_contains_4) {
                   CharSequence _generate_4 = this.generate(archivo);
                   _builder.append(_generate_4, "");
@@ -478,8 +490,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_4 = myModulo.getExporta_tipos();
-                String _nombre_7 = enumerado.getNombre();
-                boolean _contains_5 = _exporta_tipos_4.contains(_nombre_7);
+                String _nombre_8 = enumerado.getNombre();
+                boolean _contains_5 = _exporta_tipos_4.contains(_nombre_8);
                 if (_contains_5) {
                   CharSequence _generate_5 = this.generate(enumerado);
                   _builder.append(_generate_5, "");
@@ -497,8 +509,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_5 = myModulo.getExporta_tipos();
-                String _nombre_8 = subrango.getNombre();
-                boolean _contains_6 = _exporta_tipos_5.contains(_nombre_8);
+                String _nombre_9 = subrango.getNombre();
+                boolean _contains_6 = _exporta_tipos_5.contains(_nombre_9);
                 if (_contains_6) {
                   CharSequence _generate_6 = this.generate(subrango);
                   _builder.append(_generate_6, "");
@@ -512,8 +524,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       ArrayList<String> variablesPublicas = new ArrayList<String>();
       _builder.newLineIfNotEmpty();
       _builder.append("class  ");
-      String _nombre_9 = myModulo.getNombre();
-      _builder.append(_nombre_9, "");
+      String _nombre_10 = myModulo.getNombre();
+      _builder.append(_nombre_10, "");
       _builder.append(" {");
       _builder.newLineIfNotEmpty();
       _builder.append("\t");
@@ -566,9 +578,9 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                       _builder.newLineIfNotEmpty();
                       {
                         boolean _and = false;
-                        String _nombre_10 = cabecera.getNombre();
-                        String _nombre_11 = procedimiento.getNombre();
-                        boolean _equals_8 = _nombre_10.equals(_nombre_11);
+                        String _nombre_11 = cabecera.getNombre();
+                        String _nombre_12 = procedimiento.getNombre();
+                        boolean _equals_8 = _nombre_11.equals(_nombre_12);
                         if (!_equals_8) {
                           _and = false;
                         } else {
@@ -617,9 +629,9 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                       _builder.newLineIfNotEmpty();
                       {
                         boolean _and_1 = false;
-                        String _nombre_12 = cabecera_1.getNombre();
-                        String _nombre_13 = funcion.getNombre();
-                        boolean _equals_12 = _nombre_12.equals(_nombre_13);
+                        String _nombre_13 = cabecera_1.getNombre();
+                        String _nombre_14 = funcion.getNombre();
+                        boolean _equals_12 = _nombre_13.equals(_nombre_14);
                         if (!_equals_12) {
                           _and_1 = false;
                         } else {
@@ -723,8 +735,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       _builder.newLine();
       _builder.newLine();
       _builder.append("#endif /* ");
-      String _nombre_14 = myModulo.getNombre();
-      String _upperCase_2 = _nombre_14.toUpperCase();
+      String _nombre_15 = myModulo.getNombre();
+      String _upperCase_2 = _nombre_15.toUpperCase();
       _builder.append(_upperCase_2, "");
       _builder.append("_H */");
       _builder.newLineIfNotEmpty();
@@ -740,6 +752,20 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     _builder.newLine();
     _builder.append("#define CABECERAS_H");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("using namespace std;");
+    _builder.newLine();
+    _builder.newLine();
+    {
+      EList<Modulo> _importaciones = this.algoritmo.getImportaciones();
+      for(final Modulo myRefModulo : _importaciones) {
+        _builder.append("#include \"");
+        String _nombre = myRefModulo.getNombre();
+        _builder.append(_nombre, "");
+        _builder.append(".h\"");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     {
       EList<Constantes> _constantes = myAlgoritmo.getConstantes();
@@ -854,20 +880,28 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           String _plus = ((total + "const ") + _generate);
           total = _plus;
         } else {
+          boolean _and = false;
           String _paso_1 = p.getPaso();
           ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-          String _string_1 = _bundle_1.getString("TIPO_PASO_ENTRADA_SALIDA");
+          String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
           boolean _equals_1 = _paso_1.equals(_string_1);
-          if (_equals_1) {
-            Tipo _tipo_1 = p.getTipo();
-            CharSequence _generate_1 = this.generate(_tipo_1);
-            String _plus_1 = (total + _generate_1);
-            total = _plus_1;
+          if (!_equals_1) {
+            _and = false;
           } else {
+            Tipo _tipo_1 = p.getTipo();
+            _and = (_tipo_1 instanceof TipoExistente);
+          }
+          if (_and) {
             Tipo _tipo_2 = p.getTipo();
-            CharSequence _generate_2 = this.generate(_tipo_2);
-            String _plus_2 = (total + _generate_2);
+            CharSequence _generate_1 = this.generate(_tipo_2);
+            String _plus_1 = (total + _generate_1);
+            String _plus_2 = (_plus_1 + "*");
             total = _plus_2;
+          } else {
+            Tipo _tipo_3 = p.getTipo();
+            CharSequence _generate_2 = this.generate(_tipo_3);
+            String _plus_3 = (total + _generate_2);
+            total = _plus_3;
           }
         }
         actual = (actual + 1);
@@ -959,11 +993,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
           for (final ParametroFuncion parametro : _parametrofuncion) {
             {
+              boolean _and = false;
               String _paso = parametro.getPaso();
               ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
               String _string = _bundle.getString("TIPO_PASO_SALIDA");
               boolean _equals_1 = _paso.equals(_string);
-              if (_equals_1) {
+              if (!_equals_1) {
+                _and = false;
+              } else {
+                Tipo _tipo_1 = parametro.getTipo();
+                _and = (_tipo_1 instanceof TipoExistente);
+              }
+              if (_and) {
                 String _nombre_6 = funcion.getNombre();
                 ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_6);
                 _get_1.add(Integer.valueOf(numParametro));
@@ -987,11 +1028,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
             for (final ParametroFuncion parametro_1 : _parametrofuncion_1) {
               {
+                boolean _and = false;
                 String _paso = parametro_1.getPaso();
                 ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
                 String _string = _bundle.getString("TIPO_PASO_SALIDA");
                 boolean _equals_2 = _paso.equals(_string);
-                if (_equals_2) {
+                if (!_equals_2) {
+                  _and = false;
+                } else {
+                  Tipo _tipo_1 = parametro_1.getTipo();
+                  _and = (_tipo_1 instanceof TipoExistente);
+                }
+                if (_and) {
                   String _nombre_8 = procedimiento.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_8);
                   _get_1.add(Integer.valueOf(numParametro_1));
@@ -1022,11 +1070,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_2 = cabeceraFuncion.getParametrofuncion();
             for (final ParametroFuncion parametro_2 : _parametrofuncion_2) {
               {
+                boolean _and = false;
                 String _paso = parametro_2.getPaso();
                 ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
                 String _string = _bundle.getString("TIPO_PASO_SALIDA");
                 boolean _equals_3 = _paso.equals(_string);
-                if (_equals_3) {
+                if (!_equals_3) {
+                  _and = false;
+                } else {
+                  Tipo _tipo_2 = parametro_2.getTipo();
+                  _and = (_tipo_2 instanceof TipoExistente);
+                }
+                if (_and) {
                   String _nombre_10 = cabeceraFuncion.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_10);
                   _get_1.add(Integer.valueOf(numParametro_2));
@@ -1050,11 +1105,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               EList<ParametroFuncion> _parametrofuncion_3 = cabeceraProcedimiento.getParametrofuncion();
               for (final ParametroFuncion parametro_3 : _parametrofuncion_3) {
                 {
+                  boolean _and = false;
                   String _paso = parametro_3.getPaso();
                   ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
                   String _string = _bundle.getString("TIPO_PASO_SALIDA");
                   boolean _equals_4 = _paso.equals(_string);
-                  if (_equals_4) {
+                  if (!_equals_4) {
+                    _and = false;
+                  } else {
+                    Tipo _tipo_2 = parametro_3.getTipo();
+                    _and = (_tipo_2 instanceof TipoExistente);
+                  }
+                  if (_and) {
                     String _nombre_12 = cabeceraProcedimiento.getNombre();
                     ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_12);
                     _get_1.add(Integer.valueOf(numParametro_3));
@@ -1246,32 +1308,23 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       _builder.append(_nombre_21, "");
       _builder.append(".h\"");
       _builder.newLineIfNotEmpty();
-      {
-        EList<Modulo> _importaciones_1 = myModulo.getImportaciones();
-        for(final Modulo myRefModulo : _importaciones_1) {
-          _builder.append("#include \"");
-          String _nombre_22 = myRefModulo.getNombre();
-          _builder.append(_nombre_22, "");
-          _builder.append(".h\"");
-          _builder.newLineIfNotEmpty();
-        }
-      }
+      _builder.newLine();
       _builder.append("using namespace std;");
       _builder.newLine();
       _builder.newLine();
       _builder.append("//Instanciamos los modulos que vamos a usar");
       _builder.newLine();
       {
-        EList<Modulo> _importaciones_2 = myModulo.getImportaciones();
-        for(final Modulo myRefModulo_1 : _importaciones_2) {
-          String _nombre_23 = myRefModulo_1.getNombre();
-          _builder.append(_nombre_23, "");
+        EList<Modulo> _importaciones_1 = myModulo.getImportaciones();
+        for(final Modulo myRefModulo : _importaciones_1) {
+          String _nombre_22 = myRefModulo.getNombre();
+          _builder.append(_nombre_22, "");
           _builder.append(" ref");
-          String _nombre_24 = myRefModulo_1.getNombre();
-          _builder.append(_nombre_24, "");
+          String _nombre_23 = myRefModulo.getNombre();
+          _builder.append(_nombre_23, "");
           _builder.append(" = ");
-          String _nombre_25 = myRefModulo_1.getNombre();
-          _builder.append(_nombre_25, "");
+          String _nombre_24 = myRefModulo.getNombre();
+          _builder.append(_nombre_24, "");
           _builder.append("();");
           _builder.newLineIfNotEmpty();
         }
@@ -1284,8 +1337,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EList<String> _exporta_constantes = myModulo.getExporta_constantes();
             Variable _variable_3 = myConstante.getVariable();
-            String _nombre_26 = _variable_3.getNombre();
-            boolean _contains = _exporta_constantes.contains(_nombre_26);
+            String _nombre_25 = _variable_3.getNombre();
+            boolean _contains = _exporta_constantes.contains(_nombre_25);
             boolean _not = (!_contains);
             if (_not) {
               CharSequence _generate = this.generate(myConstante);
@@ -1309,8 +1362,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos = myModulo.getExporta_tipos();
-                String _nombre_27 = vector.getNombre();
-                boolean _contains_1 = _exporta_tipos.contains(_nombre_27);
+                String _nombre_26 = vector.getNombre();
+                boolean _contains_1 = _exporta_tipos.contains(_nombre_26);
                 boolean _not_1 = (!_contains_1);
                 if (_not_1) {
                   CharSequence _generate_1 = this.generate(vector);
@@ -1329,8 +1382,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_1 = myModulo.getExporta_tipos();
-                String _nombre_28 = matriz.getNombre();
-                boolean _contains_2 = _exporta_tipos_1.contains(_nombre_28);
+                String _nombre_27 = matriz.getNombre();
+                boolean _contains_2 = _exporta_tipos_1.contains(_nombre_27);
                 boolean _not_2 = (!_contains_2);
                 if (_not_2) {
                   CharSequence _generate_2 = this.generate(matriz);
@@ -1349,8 +1402,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_2 = myModulo.getExporta_tipos();
-                String _nombre_29 = registro.getNombre();
-                boolean _contains_3 = _exporta_tipos_2.contains(_nombre_29);
+                String _nombre_28 = registro.getNombre();
+                boolean _contains_3 = _exporta_tipos_2.contains(_nombre_28);
                 boolean _not_3 = (!_contains_3);
                 if (_not_3) {
                   CharSequence _generate_3 = this.generate(registro);
@@ -1369,8 +1422,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_3 = myModulo.getExporta_tipos();
-                String _nombre_30 = archivo.getNombre();
-                boolean _contains_4 = _exporta_tipos_3.contains(_nombre_30);
+                String _nombre_29 = archivo.getNombre();
+                boolean _contains_4 = _exporta_tipos_3.contains(_nombre_29);
                 boolean _not_4 = (!_contains_4);
                 if (_not_4) {
                   CharSequence _generate_4 = this.generate(archivo);
@@ -1389,8 +1442,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_4 = myModulo.getExporta_tipos();
-                String _nombre_31 = enumerado_1.getNombre();
-                boolean _contains_5 = _exporta_tipos_4.contains(_nombre_31);
+                String _nombre_30 = enumerado_1.getNombre();
+                boolean _contains_5 = _exporta_tipos_4.contains(_nombre_30);
                 boolean _not_5 = (!_contains_5);
                 if (_not_5) {
                   CharSequence _generate_5 = this.generate(enumerado_1);
@@ -1409,8 +1462,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_5 = myModulo.getExporta_tipos();
-                String _nombre_32 = subrango.getNombre();
-                boolean _contains_6 = _exporta_tipos_5.contains(_nombre_32);
+                String _nombre_31 = subrango.getNombre();
+                boolean _contains_6 = _exporta_tipos_5.contains(_nombre_31);
                 boolean _not_6 = (!_contains_6);
                 if (_not_6) {
                   CharSequence _generate_6 = this.generate(subrango);
@@ -1443,8 +1496,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   {
                     boolean _and = false;
                     EList<CabeceraSubproceso> _exporta_funciones_2 = myModulo.getExporta_funciones();
-                    String _nombre_33 = procedimiento_1.getNombre();
-                    boolean _contains_7 = _exporta_funciones_2.contains(_nombre_33);
+                    String _nombre_32 = procedimiento_1.getNombre();
+                    boolean _contains_7 = _exporta_funciones_2.contains(_nombre_32);
                     if (!_contains_7) {
                       _and = false;
                     } else {
@@ -1456,8 +1509,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                       _and = _equals_18;
                     }
                     if (_and) {
-                      String _nombre_34 = this.modulo.getNombre();
-                      String _generate_7 = this.generate(procedimiento_1, _nombre_34);
+                      String _nombre_33 = this.modulo.getNombre();
+                      String _generate_7 = this.generate(procedimiento_1, _nombre_33);
                       _builder.append(_generate_7, "");
                       _builder.newLineIfNotEmpty();
                       this.addProcedimiento(procedimiento_1, procedimientosUsados);
@@ -1476,8 +1529,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   {
                     boolean _and_1 = false;
                     EList<CabeceraSubproceso> _exporta_funciones_3 = myModulo.getExporta_funciones();
-                    String _nombre_35 = funcion_1.getNombre();
-                    boolean _contains_8 = _exporta_funciones_3.contains(_nombre_35);
+                    String _nombre_34 = funcion_1.getNombre();
+                    boolean _contains_8 = _exporta_funciones_3.contains(_nombre_34);
                     if (!_contains_8) {
                       _and_1 = false;
                     } else {
@@ -1489,8 +1542,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                       _and_1 = _equals_20;
                     }
                     if (_and_1) {
-                      String _nombre_36 = this.modulo.getNombre();
-                      String _generate_8 = this.generate(funcion_1, _nombre_36);
+                      String _nombre_35 = this.modulo.getNombre();
+                      String _generate_8 = this.generate(funcion_1, _nombre_35);
                       _builder.append(_generate_8, "");
                       _builder.newLineIfNotEmpty();
                       this.addFuncion(funcion_1, funcionesUsadas);
@@ -1522,8 +1575,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                 boolean _contains_9 = procedimientosUsados.contains(procedimiento_2);
                 boolean _not_7 = (!_contains_9);
                 if (_not_7) {
-                  String _nombre_37 = this.modulo.getNombre();
-                  String _generateStatic = this.generateStatic(procedimiento_2, _nombre_37);
+                  String _nombre_36 = this.modulo.getNombre();
+                  String _generateStatic = this.generateStatic(procedimiento_2, _nombre_36);
                   _builder.append(_generateStatic, "");
                   _builder.newLineIfNotEmpty();
                 }
@@ -1541,8 +1594,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                 boolean _contains_10 = funcionesUsadas.contains(funcion_2);
                 boolean _not_8 = (!_contains_10);
                 if (_not_8) {
-                  String _nombre_38 = this.modulo.getNombre();
-                  String _generateStatic_1 = this.generateStatic(funcion_2, _nombre_38);
+                  String _nombre_37 = this.modulo.getNombre();
+                  String _generateStatic_1 = this.generateStatic(funcion_2, _nombre_37);
                   _builder.append(_generateStatic_1, "");
                   _builder.newLineIfNotEmpty();
                 }
@@ -1604,11 +1657,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
           for (final ParametroFuncion parametro : _parametrofuncion) {
             {
+              boolean _and = false;
               String _paso = parametro.getPaso();
               ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
               String _string = _bundle.getString("TIPO_PASO_SALIDA");
               boolean _equals_1 = _paso.equals(_string);
-              if (_equals_1) {
+              if (!_equals_1) {
+                _and = false;
+              } else {
+                Tipo _tipo_1 = parametro.getTipo();
+                _and = (_tipo_1 instanceof TipoExistente);
+              }
+              if (_and) {
                 String _nombre_6 = funcion.getNombre();
                 ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_6);
                 _get_1.add(Integer.valueOf(numParametro));
@@ -1632,11 +1692,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
             for (final ParametroFuncion parametro_1 : _parametrofuncion_1) {
               {
+                boolean _and = false;
                 String _paso = parametro_1.getPaso();
                 ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
                 String _string = _bundle.getString("TIPO_PASO_SALIDA");
                 boolean _equals_2 = _paso.equals(_string);
-                if (_equals_2) {
+                if (!_equals_2) {
+                  _and = false;
+                } else {
+                  Tipo _tipo_1 = parametro_1.getTipo();
+                  _and = (_tipo_1 instanceof TipoExistente);
+                }
+                if (_and) {
                   String _nombre_8 = procedimiento.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_8);
                   _get_1.add(Integer.valueOf(numParametro_1));
@@ -1667,11 +1734,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_2 = cabeceraFuncion.getParametrofuncion();
             for (final ParametroFuncion parametro_2 : _parametrofuncion_2) {
               {
+                boolean _and = false;
                 String _paso = parametro_2.getPaso();
                 ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
                 String _string = _bundle.getString("TIPO_PASO_SALIDA");
                 boolean _equals_3 = _paso.equals(_string);
-                if (_equals_3) {
+                if (!_equals_3) {
+                  _and = false;
+                } else {
+                  Tipo _tipo_2 = parametro_2.getTipo();
+                  _and = (_tipo_2 instanceof TipoExistente);
+                }
+                if (_and) {
                   String _nombre_10 = cabeceraFuncion.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_10);
                   _get_1.add(Integer.valueOf(numParametro_2));
@@ -1695,11 +1769,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               EList<ParametroFuncion> _parametrofuncion_3 = cabeceraProcedimiento.getParametrofuncion();
               for (final ParametroFuncion parametro_3 : _parametrofuncion_3) {
                 {
+                  boolean _and = false;
                   String _paso = parametro_3.getPaso();
                   ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
                   String _string = _bundle.getString("TIPO_PASO_SALIDA");
                   boolean _equals_4 = _paso.equals(_string);
-                  if (_equals_4) {
+                  if (!_equals_4) {
+                    _and = false;
+                  } else {
+                    Tipo _tipo_2 = parametro_3.getTipo();
+                    _and = (_tipo_2 instanceof TipoExistente);
+                  }
+                  if (_and) {
                     String _nombre_12 = cabeceraProcedimiento.getNombre();
                     ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_12);
                     _get_1.add(Integer.valueOf(numParametro_3));
@@ -1910,23 +1991,27 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           _builder.append("#include \"");
           String _nombre_23 = this.algoritmo.getNombre();
           _builder.append(_nombre_23, "");
-          _builder.append(".h\"");
+          _builder.append(".h\"\t\t");
           _builder.newLineIfNotEmpty();
         }
       }
+      _builder.newLine();
       {
-        EList<Modulo> _importaciones_1 = this.algoritmo.getImportaciones();
-        for(final Modulo myRefModulo : _importaciones_1) {
-          _builder.append("#include \"");
-          String _nombre_24 = myRefModulo.getNombre();
-          _builder.append(_nombre_24, "");
-          _builder.append(".h\"");
-          _builder.newLineIfNotEmpty();
+        if ((!VaryGrammarGeneratorCPP.cabeceras)) {
+          {
+            EList<Modulo> _importaciones_1 = this.algoritmo.getImportaciones();
+            for(final Modulo myRefModulo : _importaciones_1) {
+              _builder.append("#include \"");
+              String _nombre_24 = myRefModulo.getNombre();
+              _builder.append(_nombre_24, "");
+              _builder.append(".h\"");
+              _builder.newLineIfNotEmpty();
+            }
+          }
+          _builder.append("using namespace std;");
+          _builder.newLine();
         }
       }
-      _builder.newLine();
-      _builder.append("using namespace std;");
-      _builder.newLine();
       _builder.newLine();
       _builder.append("//Instanciamos los modulos que vamos a usar");
       _builder.newLine();
@@ -2526,22 +2611,29 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           String _plus_2 = (_plus_1 + _nombre);
           total = _plus_2;
         } else {
+          boolean _and = false;
           String _paso_1 = p.getPaso();
           ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-          String _string_1 = _bundle_1.getString("TIPO_PASO_ENTRADA_SALIDA");
+          String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
           boolean _equals_1 = _paso_1.equals(_string_1);
-          if (_equals_1) {
+          if (!_equals_1) {
+            _and = false;
+          } else {
             Tipo _tipo_1 = p.getTipo();
-            CharSequence _generate_1 = this.generate(_tipo_1);
+            _and = (_tipo_1 instanceof TipoExistente);
+          }
+          if (_and) {
+            Tipo _tipo_2 = p.getTipo();
+            CharSequence _generate_1 = this.generate(_tipo_2);
             String _plus_3 = (total + _generate_1);
-            String _plus_4 = (_plus_3 + " ");
+            String _plus_4 = (_plus_3 + " *");
             Variable _variable_1 = p.getVariable();
             String _nombre_1 = _variable_1.getNombre();
             String _plus_5 = (_plus_4 + _nombre_1);
             total = _plus_5;
           } else {
-            Tipo _tipo_2 = p.getTipo();
-            CharSequence _generate_2 = this.generate(_tipo_2);
+            Tipo _tipo_3 = p.getTipo();
+            CharSequence _generate_2 = this.generate(_tipo_3);
             String _plus_6 = (total + _generate_2);
             String _plus_7 = (_plus_6 + " ");
             Variable _variable_2 = p.getVariable();
@@ -2572,11 +2664,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     ArrayList<String> punteros = new ArrayList<String>();
     EList<ParametroFuncion> _parametrofuncion_1 = myFun.getParametrofuncion();
     for (final ParametroFuncion parametroFuncion : _parametrofuncion_1) {
+      boolean _and = false;
       String _paso = parametroFuncion.getPaso();
       ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
       String _string = _bundle.getString("TIPO_PASO_SALIDA");
       boolean _equals = _paso.equals(_string);
-      if (_equals) {
+      if (!_equals) {
+        _and = false;
+      } else {
+        Tipo _tipo_1 = parametroFuncion.getTipo();
+        _and = (_tipo_1 instanceof TipoExistente);
+      }
+      if (_and) {
         Variable _variable = parametroFuncion.getVariable();
         String _nombre_1 = _variable.getNombre();
         punteros.add(_nombre_1);
@@ -2638,11 +2737,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     ArrayList<String> punteros = new ArrayList<String>();
     EList<ParametroFuncion> _parametrofuncion_1 = myFun.getParametrofuncion();
     for (final ParametroFuncion parametroFuncion : _parametrofuncion_1) {
+      boolean _and = false;
       String _paso = parametroFuncion.getPaso();
       ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
       String _string = _bundle.getString("TIPO_PASO_SALIDA");
       boolean _equals = _paso.equals(_string);
-      if (_equals) {
+      if (!_equals) {
+        _and = false;
+      } else {
+        Tipo _tipo_1 = parametroFuncion.getTipo();
+        _and = (_tipo_1 instanceof TipoExistente);
+      }
+      if (_and) {
         Variable _variable = parametroFuncion.getVariable();
         String _nombre_1 = _variable.getNombre();
         punteros.add(_nombre_1);
@@ -3063,7 +3169,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                             {
                               Escribir prueba = new EscribirImpl();
                               prueba = ((Escribir) mySent);
-                              _xblockexpression_11 = this.generate(prueba);
+                              _xblockexpression_11 = this.generateEscribirPunteros(prueba, punteros);
                             }
                             _xifexpression_11 = _xblockexpression_11;
                           } else {
@@ -3471,8 +3577,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     boolean _contains = punteros.contains(_valor_asignacion);
     if (_contains) {
       String _valor_asignacion_1 = asig.getValor_asignacion();
-      String _plus = ("*(" + _valor_asignacion_1);
-      String _plus_1 = (_plus + ")");
+      String _plus = ("*" + _valor_asignacion_1);
+      String _plus_1 = (_plus + "");
       asignacion = _plus_1;
     } else {
       String _valor_asignacion_2 = asig.getValor_asignacion();
@@ -3920,11 +4026,47 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     return _builder;
   }
   
+  public CharSequence generatePunteros(final VariableID variable) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("*");
+    String _nombre = variable.getNombre();
+    _builder.append(_nombre, "");
+    {
+      EList<String> _mat = variable.getMat();
+      for(final String matri : _mat) {
+        String _string = matri.toString();
+        _builder.append(_string, "");
+      }
+    }
+    return _builder;
+  }
+  
   @Override
   public CharSequence generate(final unaria myUnaria) {
     valor _variable = myUnaria.getVariable();
     CharSequence _generate = this.generate(_variable);
     return ("!" + _generate);
+  }
+  
+  public CharSequence generateEscribirPunteros(final Escribir a, final List<String> punteros) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("cout");
+    EList<operacion> _operador = a.getOperador();
+    String _coutOperadoresPunteros = this.coutOperadoresPunteros(_operador, punteros);
+    _builder.append(_coutOperadoresPunteros, "");
+    _builder.append(" << endl;");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public String coutOperadoresPunteros(final EList<operacion> operaciones, final List<String> punteros) {
+    String resultado = "";
+    for (final operacion op : operaciones) {
+      CharSequence _generatePunteros = this.generatePunteros(op, punteros);
+      String _plus = ((resultado + " << ") + _generatePunteros);
+      resultado = _plus;
+    }
+    return resultado;
   }
   
   public String generateLeerPunteros(final Leer l, final List<String> punteros) {
@@ -3942,8 +4084,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       boolean _contains = punteros.contains(_nombre);
       if (_contains) {
         CharSequence _generate = this.generate(prueba);
-        String _plus = ((leer + "*(") + _generate);
-        String _plus_1 = (_plus + ");");
+        String _plus = ((leer + "*") + _generate);
+        String _plus_1 = (_plus + ";");
         leer = _plus_1;
       }
     } else {
@@ -3959,8 +4101,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
         boolean _contains_1 = punteros.contains(_nombre_vector);
         if (_contains_1) {
           CharSequence _generate_1 = this.generate(prueba_1);
-          String _plus_2 = ((leer + "*(") + _generate_1);
-          String _plus_3 = (_plus_2 + ");");
+          String _plus_2 = ((leer + "*") + _generate_1);
+          String _plus_3 = (_plus_2 + ";");
           leer = _plus_3;
         }
       } else {
@@ -3976,8 +4118,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           boolean _contains_2 = punteros.contains(_nombre_matriz);
           if (_contains_2) {
             CharSequence _generate_2 = this.generate(prueba_2);
-            String _plus_4 = ((leer + "*(") + _generate_2);
-            String _plus_5 = (_plus_4 + ");");
+            String _plus_4 = ((leer + "*") + _generate_2);
+            String _plus_5 = (_plus_4 + ";");
             leer = _plus_5;
           }
         } else {
@@ -4452,7 +4594,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
         boolean _contains = _get.contains(Integer.valueOf(actual));
         if (_contains) {
           CharSequence _generate = this.generate(op);
-          String _plus = (total + _generate);
+          String _plus = ((total + "&") + _generate);
           total = _plus;
           actual = (actual + 1);
         } else {
@@ -4783,6 +4925,151 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     return _xifexpression;
   }
   
+  public CharSequence generatePunteros(final Operador op, final List<String> punteros) {
+    CharSequence _xifexpression = null;
+    EClass _eClass = op.eClass();
+    String _name = _eClass.getName();
+    boolean _equals = _name.equals("NumeroEntero");
+    if (_equals) {
+      CharSequence _xblockexpression = null;
+      {
+        NumeroEntero prueba = new NumeroEnteroImpl();
+        prueba = ((NumeroEntero) op);
+        _xblockexpression = this.generate(prueba);
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      CharSequence _xifexpression_1 = null;
+      EClass _eClass_1 = op.eClass();
+      String _name_1 = _eClass_1.getName();
+      boolean _equals_1 = _name_1.equals("NumeroDecimal");
+      if (_equals_1) {
+        CharSequence _xblockexpression_1 = null;
+        {
+          NumeroDecimal prueba = new NumeroDecimalImpl();
+          prueba = ((NumeroDecimal) op);
+          _xblockexpression_1 = this.generate(prueba);
+        }
+        _xifexpression_1 = _xblockexpression_1;
+      } else {
+        CharSequence _xifexpression_2 = null;
+        EClass _eClass_2 = op.eClass();
+        String _name_2 = _eClass_2.getName();
+        boolean _equals_2 = _name_2.equals("ValorBooleano");
+        if (_equals_2) {
+          CharSequence _xblockexpression_2 = null;
+          {
+            ValorBooleano prueba = new ValorBooleanoImpl();
+            prueba = ((ValorBooleano) op);
+            _xblockexpression_2 = this.generate(prueba);
+          }
+          _xifexpression_2 = _xblockexpression_2;
+        } else {
+          CharSequence _xifexpression_3 = null;
+          EClass _eClass_3 = op.eClass();
+          String _name_3 = _eClass_3.getName();
+          boolean _equals_3 = _name_3.equals("ConstCadena");
+          if (_equals_3) {
+            CharSequence _xblockexpression_3 = null;
+            {
+              ConstCadena prueba = new ConstCadenaImpl();
+              prueba = ((ConstCadena) op);
+              _xblockexpression_3 = this.generate(prueba);
+            }
+            _xifexpression_3 = _xblockexpression_3;
+          } else {
+            CharSequence _xifexpression_4 = null;
+            EClass _eClass_4 = op.eClass();
+            String _name_4 = _eClass_4.getName();
+            boolean _equals_4 = _name_4.equals("Caracter");
+            if (_equals_4) {
+              CharSequence _xblockexpression_4 = null;
+              {
+                Caracter prueba = new CaracterImpl();
+                prueba = ((Caracter) op);
+                _xblockexpression_4 = this.generate(prueba);
+              }
+              _xifexpression_4 = _xblockexpression_4;
+            } else {
+              CharSequence _xifexpression_5 = null;
+              EClass _eClass_5 = op.eClass();
+              String _name_5 = _eClass_5.getName();
+              boolean _equals_5 = _name_5.equals("VariableID");
+              if (_equals_5) {
+                CharSequence _xblockexpression_5 = null;
+                {
+                  VariableID prueba = new VariableIDImpl();
+                  prueba = ((VariableID) op);
+                  CharSequence _xifexpression_6 = null;
+                  String _nombre = prueba.getNombre();
+                  boolean _contains = punteros.contains(_nombre);
+                  if (_contains) {
+                    _xifexpression_6 = this.generatePunteros(prueba);
+                  } else {
+                    _xifexpression_6 = this.generate(prueba);
+                  }
+                  _xblockexpression_5 = _xifexpression_6;
+                }
+                _xifexpression_5 = _xblockexpression_5;
+              } else {
+                CharSequence _xifexpression_6 = null;
+                EClass _eClass_6 = op.eClass();
+                String _name_6 = _eClass_6.getName();
+                boolean _equals_6 = _name_6.equals("ValorRegistro");
+                if (_equals_6) {
+                  CharSequence _xblockexpression_6 = null;
+                  {
+                    ValorRegistro prueba = new ValorRegistroImpl();
+                    prueba = ((ValorRegistro) op);
+                    _xblockexpression_6 = this.generate(prueba);
+                  }
+                  _xifexpression_6 = _xblockexpression_6;
+                } else {
+                  CharSequence _xifexpression_7 = null;
+                  EClass _eClass_7 = op.eClass();
+                  String _name_7 = _eClass_7.getName();
+                  boolean _equals_7 = _name_7.equals("ValorVector");
+                  if (_equals_7) {
+                    CharSequence _xblockexpression_7 = null;
+                    {
+                      ValorVector prueba = new ValorVectorImpl();
+                      prueba = ((ValorVector) op);
+                      _xblockexpression_7 = this.generate(prueba);
+                    }
+                    _xifexpression_7 = _xblockexpression_7;
+                  } else {
+                    CharSequence _xifexpression_8 = null;
+                    EClass _eClass_8 = op.eClass();
+                    String _name_8 = _eClass_8.getName();
+                    boolean _equals_8 = _name_8.equals("ValorMatriz");
+                    if (_equals_8) {
+                      CharSequence _xblockexpression_8 = null;
+                      {
+                        ValorMatriz prueba = new ValorMatrizImpl();
+                        prueba = ((ValorMatriz) op);
+                        _xblockexpression_8 = this.generate(prueba);
+                      }
+                      _xifexpression_8 = _xblockexpression_8;
+                    }
+                    _xifexpression_7 = _xifexpression_8;
+                  }
+                  _xifexpression_6 = _xifexpression_7;
+                }
+                _xifexpression_5 = _xifexpression_6;
+              }
+              _xifexpression_4 = _xifexpression_5;
+            }
+            _xifexpression_3 = _xifexpression_4;
+          }
+          _xifexpression_2 = _xifexpression_3;
+        }
+        _xifexpression_1 = _xifexpression_2;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
   @Override
   public CharSequence generate(final operacion op) {
     CharSequence _xifexpression = null;
@@ -4860,6 +5147,331 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   VariableID prueba = new VariableIDImpl();
                   prueba = ((VariableID) op);
                   _xblockexpression_5 = this.generate(prueba);
+                }
+                _xifexpression_5 = _xblockexpression_5;
+              } else {
+                CharSequence _xifexpression_6 = null;
+                EClass _eClass_6 = op.eClass();
+                String _name_6 = _eClass_6.getName();
+                boolean _equals_6 = _name_6.equals("ValorRegistro");
+                if (_equals_6) {
+                  CharSequence _xblockexpression_6 = null;
+                  {
+                    ValorRegistro prueba = new ValorRegistroImpl();
+                    prueba = ((ValorRegistro) op);
+                    _xblockexpression_6 = this.generate(prueba);
+                  }
+                  _xifexpression_6 = _xblockexpression_6;
+                } else {
+                  CharSequence _xifexpression_7 = null;
+                  EClass _eClass_7 = op.eClass();
+                  String _name_7 = _eClass_7.getName();
+                  boolean _equals_7 = _name_7.equals("ValorVector");
+                  if (_equals_7) {
+                    CharSequence _xblockexpression_7 = null;
+                    {
+                      ValorVector prueba = new ValorVectorImpl();
+                      prueba = ((ValorVector) op);
+                      _xblockexpression_7 = this.generate(prueba);
+                    }
+                    _xifexpression_7 = _xblockexpression_7;
+                  } else {
+                    CharSequence _xifexpression_8 = null;
+                    EClass _eClass_8 = op.eClass();
+                    String _name_8 = _eClass_8.getName();
+                    boolean _equals_8 = _name_8.equals("ValorMatriz");
+                    if (_equals_8) {
+                      CharSequence _xblockexpression_8 = null;
+                      {
+                        ValorMatriz prueba = new ValorMatrizImpl();
+                        prueba = ((ValorMatriz) op);
+                        _xblockexpression_8 = this.generate(prueba);
+                      }
+                      _xifexpression_8 = _xblockexpression_8;
+                    } else {
+                      CharSequence _xifexpression_9 = null;
+                      EClass _eClass_9 = op.eClass();
+                      String _name_9 = _eClass_9.getName();
+                      boolean _equals_9 = _name_9.equals("LlamadaFuncion");
+                      if (_equals_9) {
+                        CharSequence _xblockexpression_9 = null;
+                        {
+                          LlamadaFuncion prueba = new LlamadaFuncionImpl();
+                          prueba = ((LlamadaFuncion) op);
+                          _xblockexpression_9 = this.generate(prueba, false);
+                        }
+                        _xifexpression_9 = _xblockexpression_9;
+                      } else {
+                        CharSequence _xifexpression_10 = null;
+                        EClass _eClass_10 = op.eClass();
+                        String _name_10 = _eClass_10.getName();
+                        boolean _equals_10 = _name_10.equals("Internas");
+                        if (_equals_10) {
+                          CharSequence _xblockexpression_10 = null;
+                          {
+                            Internas prueba = new InternasImpl();
+                            prueba = ((Internas) op);
+                            _xblockexpression_10 = this.generate(prueba);
+                          }
+                          _xifexpression_10 = _xblockexpression_10;
+                        } else {
+                          CharSequence _xifexpression_11 = null;
+                          EClass _eClass_11 = op.eClass();
+                          String _name_11 = _eClass_11.getName();
+                          boolean _equals_11 = _name_11.equals("Suma");
+                          if (_equals_11) {
+                            CharSequence _xblockexpression_11 = null;
+                            {
+                              Suma prueba = new SumaImpl();
+                              prueba = ((Suma) op);
+                              _xblockexpression_11 = this.generate(prueba);
+                            }
+                            _xifexpression_11 = _xblockexpression_11;
+                          } else {
+                            CharSequence _xifexpression_12 = null;
+                            EClass _eClass_12 = op.eClass();
+                            String _name_12 = _eClass_12.getName();
+                            boolean _equals_12 = _name_12.equals("Resta");
+                            if (_equals_12) {
+                              CharSequence _xblockexpression_12 = null;
+                              {
+                                Resta prueba = new RestaImpl();
+                                prueba = ((Resta) op);
+                                _xblockexpression_12 = this.generate(prueba);
+                              }
+                              _xifexpression_12 = _xblockexpression_12;
+                            } else {
+                              CharSequence _xifexpression_13 = null;
+                              EClass _eClass_13 = op.eClass();
+                              String _name_13 = _eClass_13.getName();
+                              boolean _equals_13 = _name_13.equals("Multiplicacion");
+                              if (_equals_13) {
+                                CharSequence _xblockexpression_13 = null;
+                                {
+                                  Multiplicacion prueba = new MultiplicacionImpl();
+                                  prueba = ((Multiplicacion) op);
+                                  _xblockexpression_13 = this.generate(prueba);
+                                }
+                                _xifexpression_13 = _xblockexpression_13;
+                              } else {
+                                CharSequence _xifexpression_14 = null;
+                                EClass _eClass_14 = op.eClass();
+                                String _name_14 = _eClass_14.getName();
+                                boolean _equals_14 = _name_14.equals("Division");
+                                if (_equals_14) {
+                                  CharSequence _xblockexpression_14 = null;
+                                  {
+                                    Division prueba = new DivisionImpl();
+                                    prueba = ((Division) op);
+                                    _xblockexpression_14 = this.generate(prueba);
+                                  }
+                                  _xifexpression_14 = _xblockexpression_14;
+                                } else {
+                                  CharSequence _xifexpression_15 = null;
+                                  EClass _eClass_15 = op.eClass();
+                                  String _name_15 = _eClass_15.getName();
+                                  boolean _equals_15 = _name_15.equals("Or");
+                                  if (_equals_15) {
+                                    CharSequence _xblockexpression_15 = null;
+                                    {
+                                      Or prueba = new OrImpl();
+                                      prueba = ((Or) op);
+                                      _xblockexpression_15 = this.generate(prueba);
+                                    }
+                                    _xifexpression_15 = _xblockexpression_15;
+                                  } else {
+                                    CharSequence _xifexpression_16 = null;
+                                    EClass _eClass_16 = op.eClass();
+                                    String _name_16 = _eClass_16.getName();
+                                    boolean _equals_16 = _name_16.equals("And");
+                                    if (_equals_16) {
+                                      CharSequence _xblockexpression_16 = null;
+                                      {
+                                        And prueba = new AndImpl();
+                                        prueba = ((And) op);
+                                        _xblockexpression_16 = this.generate(prueba);
+                                      }
+                                      _xifexpression_16 = _xblockexpression_16;
+                                    } else {
+                                      CharSequence _xifexpression_17 = null;
+                                      EClass _eClass_17 = op.eClass();
+                                      String _name_17 = _eClass_17.getName();
+                                      boolean _equals_17 = _name_17.equals("Comparacion");
+                                      if (_equals_17) {
+                                        CharSequence _xblockexpression_17 = null;
+                                        {
+                                          Comparacion prueba = new ComparacionImpl();
+                                          prueba = ((Comparacion) op);
+                                          _xblockexpression_17 = this.generate(prueba);
+                                        }
+                                        _xifexpression_17 = _xblockexpression_17;
+                                      } else {
+                                        CharSequence _xifexpression_18 = null;
+                                        EClass _eClass_18 = op.eClass();
+                                        String _name_18 = _eClass_18.getName();
+                                        boolean _equals_18 = _name_18.equals("Igualdad");
+                                        if (_equals_18) {
+                                          CharSequence _xblockexpression_18 = null;
+                                          {
+                                            Igualdad prueba = new IgualdadImpl();
+                                            prueba = ((Igualdad) op);
+                                            _xblockexpression_18 = this.generate(prueba);
+                                          }
+                                          _xifexpression_18 = _xblockexpression_18;
+                                        } else {
+                                          CharSequence _xifexpression_19 = null;
+                                          EClass _eClass_19 = op.eClass();
+                                          String _name_19 = _eClass_19.getName();
+                                          boolean _equals_19 = _name_19.equals("Negativa");
+                                          if (_equals_19) {
+                                            CharSequence _xblockexpression_19 = null;
+                                            {
+                                              Negativa prueba = new NegativaImpl();
+                                              prueba = ((Negativa) op);
+                                              _xblockexpression_19 = this.generate(prueba);
+                                            }
+                                            _xifexpression_19 = _xblockexpression_19;
+                                          } else {
+                                            CharSequence _xifexpression_20 = null;
+                                            EClass _eClass_20 = op.eClass();
+                                            String _name_20 = _eClass_20.getName();
+                                            boolean _equals_20 = _name_20.equals("Negacion");
+                                            if (_equals_20) {
+                                              CharSequence _xblockexpression_20 = null;
+                                              {
+                                                Negacion prueba = new NegacionImpl();
+                                                prueba = ((Negacion) op);
+                                                _xblockexpression_20 = this.generate(prueba);
+                                              }
+                                              _xifexpression_20 = _xblockexpression_20;
+                                            }
+                                            _xifexpression_19 = _xifexpression_20;
+                                          }
+                                          _xifexpression_18 = _xifexpression_19;
+                                        }
+                                        _xifexpression_17 = _xifexpression_18;
+                                      }
+                                      _xifexpression_16 = _xifexpression_17;
+                                    }
+                                    _xifexpression_15 = _xifexpression_16;
+                                  }
+                                  _xifexpression_14 = _xifexpression_15;
+                                }
+                                _xifexpression_13 = _xifexpression_14;
+                              }
+                              _xifexpression_12 = _xifexpression_13;
+                            }
+                            _xifexpression_11 = _xifexpression_12;
+                          }
+                          _xifexpression_10 = _xifexpression_11;
+                        }
+                        _xifexpression_9 = _xifexpression_10;
+                      }
+                      _xifexpression_8 = _xifexpression_9;
+                    }
+                    _xifexpression_7 = _xifexpression_8;
+                  }
+                  _xifexpression_6 = _xifexpression_7;
+                }
+                _xifexpression_5 = _xifexpression_6;
+              }
+              _xifexpression_4 = _xifexpression_5;
+            }
+            _xifexpression_3 = _xifexpression_4;
+          }
+          _xifexpression_2 = _xifexpression_3;
+        }
+        _xifexpression_1 = _xifexpression_2;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  public CharSequence generatePunteros(final operacion op, final List<String> punteros) {
+    CharSequence _xifexpression = null;
+    EClass _eClass = op.eClass();
+    String _name = _eClass.getName();
+    boolean _equals = _name.equals("NumeroEntero");
+    if (_equals) {
+      CharSequence _xblockexpression = null;
+      {
+        NumeroEntero prueba = new NumeroEnteroImpl();
+        prueba = ((NumeroEntero) op);
+        _xblockexpression = this.generate(prueba);
+      }
+      _xifexpression = _xblockexpression;
+    } else {
+      CharSequence _xifexpression_1 = null;
+      EClass _eClass_1 = op.eClass();
+      String _name_1 = _eClass_1.getName();
+      boolean _equals_1 = _name_1.equals("NumeroDecimal");
+      if (_equals_1) {
+        CharSequence _xblockexpression_1 = null;
+        {
+          NumeroDecimal prueba = new NumeroDecimalImpl();
+          prueba = ((NumeroDecimal) op);
+          _xblockexpression_1 = this.generate(prueba);
+        }
+        _xifexpression_1 = _xblockexpression_1;
+      } else {
+        CharSequence _xifexpression_2 = null;
+        EClass _eClass_2 = op.eClass();
+        String _name_2 = _eClass_2.getName();
+        boolean _equals_2 = _name_2.equals("ValorBooleano");
+        if (_equals_2) {
+          CharSequence _xblockexpression_2 = null;
+          {
+            ValorBooleano prueba = new ValorBooleanoImpl();
+            prueba = ((ValorBooleano) op);
+            _xblockexpression_2 = this.generate(prueba);
+          }
+          _xifexpression_2 = _xblockexpression_2;
+        } else {
+          CharSequence _xifexpression_3 = null;
+          EClass _eClass_3 = op.eClass();
+          String _name_3 = _eClass_3.getName();
+          boolean _equals_3 = _name_3.equals("ConstCadena");
+          if (_equals_3) {
+            CharSequence _xblockexpression_3 = null;
+            {
+              ConstCadena prueba = new ConstCadenaImpl();
+              prueba = ((ConstCadena) op);
+              _xblockexpression_3 = this.generate(prueba);
+            }
+            _xifexpression_3 = _xblockexpression_3;
+          } else {
+            CharSequence _xifexpression_4 = null;
+            EClass _eClass_4 = op.eClass();
+            String _name_4 = _eClass_4.getName();
+            boolean _equals_4 = _name_4.equals("Caracter");
+            if (_equals_4) {
+              CharSequence _xblockexpression_4 = null;
+              {
+                Caracter prueba = new CaracterImpl();
+                prueba = ((Caracter) op);
+                _xblockexpression_4 = this.generate(prueba);
+              }
+              _xifexpression_4 = _xblockexpression_4;
+            } else {
+              CharSequence _xifexpression_5 = null;
+              EClass _eClass_5 = op.eClass();
+              String _name_5 = _eClass_5.getName();
+              boolean _equals_5 = _name_5.equals("VariableID");
+              if (_equals_5) {
+                CharSequence _xblockexpression_5 = null;
+                {
+                  VariableID prueba = new VariableIDImpl();
+                  prueba = ((VariableID) op);
+                  CharSequence _xifexpression_6 = null;
+                  String _nombre = prueba.getNombre();
+                  boolean _contains = punteros.contains(_nombre);
+                  if (_contains) {
+                    _xifexpression_6 = this.generatePunteros(prueba);
+                  } else {
+                    _xifexpression_6 = this.generate(prueba);
+                  }
+                  _xblockexpression_5 = _xifexpression_6;
                 }
                 _xifexpression_5 = _xblockexpression_5;
               } else {

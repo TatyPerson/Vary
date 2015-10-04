@@ -3,8 +3,6 @@
 */
 package vary.pseudocodigo.dsl.c;
 
-//import org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher;
-
 /**
  * Initialization support for running Xtext languages 
  * without equinox extension registry
@@ -12,7 +10,6 @@ package vary.pseudocodigo.dsl.c;
 public class VaryGrammarStandaloneSetup extends VaryGrammarStandaloneSetupGenerated{
 
 	public static void doSetup() {
-		//Mwe2Launcher.main(new String[]{"GenerateVaryGrammarEnglish.mwe2"});
 		new VaryGrammarStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 }
