@@ -115,9 +115,6 @@ public class PluginProjectFactory extends CProjectFactory {
 	}
 
 	private String getBreeToUse() {
-		if (breeToUse == null) {
-			//return JREContainerProvider.getDefaultBREE();
-		}
 		return breeToUse;
 	}
 

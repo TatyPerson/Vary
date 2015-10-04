@@ -28,7 +28,7 @@ public class VaryGrammarEnglishUiModule extends vary.pseudocodigo.dsl.c.english.
     	super.configure(binder);
     		binder.bind(String.class)
     			.annotatedWith(com.google.inject.name.Names.named(
-    				(XtextContentAssistProcessor.COMPLETION_AUTO_ACTIVATION_CHARS)))
+    				XtextContentAssistProcessor.COMPLETION_AUTO_ACTIVATION_CHARS))
     					.toInstance(".\t");
 	}
 

@@ -3,7 +3,6 @@ package vary.pseudocodigo.dsl.c.english.ui.wizard.creator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.eclipse.cdt.core.CProjectNature;
 import org.eclipse.cdt.core.model.CModelException;
@@ -32,7 +31,6 @@ import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.jdt.core.IClasspathEntry;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkingSet;
-
 import vary.pseudocodigo.dsl.c.generator.util.LenguajeProyecto;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectHeaderFile;
 import vary.pseudocodigo.dsl.c.generator.util.ProjectLocationFolder;
@@ -40,15 +38,13 @@ import vary.pseudocodigo.dsl.c.generator.util.ProjectLocationFolder;
 @SuppressWarnings("restriction")
 public class CProjectFactory extends ProjectFactory {
 
-	protected static final Logger logger = Logger.getLogger(CProjectFactory.class);
+	private static final Logger LOGGER = Logger.getLogger(CProjectFactory.class);
 	
 	@Override
 	protected void enhanceProject(IProject project, SubMonitor monitor, Shell shell) throws CoreException, CModelException {
 		super.enhanceProject(project, monitor, shell);
 		if(builderIds.contains(MakeBuilder.BUILDER_ID)) {
-			//Contruimos un proyecto C++
-			
-			System.out.println("La FullPath del proyecto es:"+project.getLocation());
+			LOGGER.info("La FullPath del proyecto es:"+project.getLocation());
 			ProjectLocationFolder.setPath(project.getLocation().toString());
 			
 			CProjectNature.addCNature(project, monitor);
@@ -88,8 +84,8 @@ public class CProjectFactory extends ProjectFactory {
 				}
 				pathAux = pathAux + "\\\\";
 				ProjectLocationFolder.setPath(pathAux);
-				logger.error("Es un Windows!");
-				logger.error(ProjectLocationFolder.getPath());
+				LOGGER.error("Es un Windows!");
+				LOGGER.error(ProjectLocationFolder.getPath());
 			}
 			else if(Platform.getOS().equals(Platform.OS_LINUX)) {
 				projType =
@@ -99,7 +95,7 @@ public class CProjectFactory extends ProjectFactory {
 				ProjectLocationFolder.setOS("LINUX");
 			}
 			else {
-				System.out.println("Otro SO");
+				LOGGER.error("Otro SO");
 			}
 			
 
@@ -124,7 +120,9 @@ public class CProjectFactory extends ProjectFactory {
 			    config.exportArtifactInfo();
 
 			    IBuilder bld = config.getEditableBuilder();
-			    if (bld != null) { bld.setManagedBuildOn(true); }
+			    if (bld != null) { 
+			    	bld.setManagedBuildOn(true); 
+			    }
 
 			    config.setName(toolChain.getName());
 			    config.setArtifactName(project.getName());
@@ -157,7 +155,9 @@ public class CProjectFactory extends ProjectFactory {
 				"sonar.language=vary", monitor);
 	}
 	
-	protected void addMoreClasspathEntriesTo(List<IClasspathEntry> classpathEntries) {}
+	protected void addMoreClasspathEntriesTo(List<IClasspathEntry> classpathEntries) {
+		
+	}
 
 	@Override
 	public CProjectFactory addBuilderIds(String... builderIds) {

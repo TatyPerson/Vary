@@ -41,15 +41,14 @@ end_algorithm</template>
 end_for</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Devolver" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Devolver" deleted="false" description="Template to add return" enabled="true" name="Return">return ${nameVariable}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Enumerado" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Enumerado" deleted="false" description="Template to create a enumerate" enabled="true" name="Enumerate">${nameEnumerate} = {${valueEnumerate1}, ${valueEnumerate2}, ${valueEnumerate3}}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Funcion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Funcion" deleted="false" description="Template for creating a function" enabled="true" name="Function">${integer} function ${nameFunction}(${public:Enum('TipoPaso')} ${integer}: ${a}) 
-const
-type
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Funcion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Funcion" deleted="false" description="Template for creating a function" enabled="true" name="Function">${integer} function ${nameFunction}(${I} ${integer}: ${a}) 
 var
 initiation
 return ${a}
+end_initiation
 end_function
 </template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Matriz" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Matriz" deleted="false" description="Template to create a matrix" enabled="true" name="Matrix">matrix [${dimension1}][${dimension2}] de ${typeMatrix}: ${nameMatriz}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Matriz" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Matriz" deleted="false" description="Template to create a matrix" enabled="true" name="Matrix">matrix [${dimension1}][${dimension2}] of ${typeMatrix}: ${nameMatriz}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.mientras" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.mientras" deleted="false" description="Template to define a while loop" enabled="true" name="While">while ${iterator} ${public:Enum('signo')} ${top} do
 end_while</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Modulo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Modulo" deleted="false" description="Template to create the basic structure of a Module" enabled="true" name="Module">Module ${nameModule}
@@ -80,12 +79,11 @@ var
 end_implementation
 
 end_module</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.ParametroFuncion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.ParametroFuncion" deleted="false" description="Template to create a parameter of subprocess" enabled="true" name="Parameter">${public:Enum('TipoPaso')} ${integer}: ${nameParameter}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Procedimiento" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Procedimiento" deleted="false" description="Template to create a procedure" enabled="true" name="Procedure">procedure ${nameProcedure}(${public:Enum('TipoPaso')} ${integer}: a)
-const
-type
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.ParametroFuncion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.ParametroFuncion" deleted="false" description="Template to create a parameter of subprocess" enabled="true" name="Parameter">${I} ${integer}: ${nameParameter}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Procedimiento" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Procedimiento" deleted="false" description="Template to create a procedure" enabled="true" name="Procedure">procedure ${nameProcedure}(${I} ${integer}: a)
 var
 initiation
+end_initiation
 end_procedure</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Registro" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Registro" deleted="false" description="Template to define a registry" enabled="true" name="Registry">registry: ${nameRegistry}
 	${typeField}: ${nameField}

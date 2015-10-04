@@ -86,18 +86,18 @@ public abstract class AbstractProjectCreator extends WorkspaceModifyOperation im
 	protected IFile getModelFile(IProject project) throws CoreException {
 		IFolder srcFolder = project.getFolder(getModelFolderName());
 		final String expectedExtension = getPrimaryModelFileExtension();
-		final IFile[] result = new IFile[1];
+		final IFile[] resultAux = new IFile[1];
 		srcFolder.accept(new IResourceVisitor() {
 			@Override
 			public boolean visit(IResource resource) throws CoreException {
 				if (IResource.FILE == resource.getType() && expectedExtension.equals(resource.getFileExtension())) {
-					result[0] = (IFile) resource;
+					resultAux[0] = (IFile) resource;
 					return false;
 				}
 				return IResource.FOLDER == resource.getType();
 			}
 		});
-		return result[0];
+		return resultAux[0];
 	}
 	
 	protected IProject createProject(IProgressMonitor monitor) {
@@ -129,12 +129,12 @@ public abstract class AbstractProjectCreator extends WorkspaceModifyOperation im
 	}
 
 	protected String getPrimaryModelFileExtension() {
-		String result = fileExtension;
-		int idx = result.indexOf(',');
+		String resultAux = fileExtension;
+		int idx = resultAux.indexOf(',');
 		if (idx > 0) {
-			return result.substring(0, idx).trim();
+			return resultAux.substring(0, idx).trim();
 		}
-		return result;
+		return resultAux;
 	}
 	
 	protected abstract String getModelFolderName();

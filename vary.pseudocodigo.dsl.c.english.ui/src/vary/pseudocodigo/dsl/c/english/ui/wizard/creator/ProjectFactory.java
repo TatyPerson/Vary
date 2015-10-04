@@ -34,7 +34,7 @@ import com.google.inject.Inject;
 
 @SuppressWarnings("restriction")
 public class ProjectFactory {
-	private static final Logger logger = Logger.getLogger(ProjectFactory.class);
+	private static final Logger LOGGER = Logger.getLogger(ProjectFactory.class);
 
 	@Inject(optional = true)
 	protected IWorkbench workbench;
@@ -149,7 +149,7 @@ public class ProjectFactory {
 			}
 			return project;
 		} catch (final CoreException exception) {
-			logger.error(exception.getMessage(), exception);
+			LOGGER.error(exception.getMessage(), exception);
 			return null;
 		} finally {
 			subMonitor.done();
@@ -210,7 +210,7 @@ public class ProjectFactory {
 			projectDescription.setLocation(location);
 		}
 
-		if (referencedProjects != null && referencedProjects.size() != 0) {
+		if (referencedProjects != null && !referencedProjects.isEmpty()) {
 			projectDescription
 					.setReferencedProjects(referencedProjects.toArray(new IProject[referencedProjects.size()]));
 		}
@@ -239,14 +239,14 @@ public class ProjectFactory {
 		try {
 			final InputStream stream = new ByteArrayInputStream(content.getBytes(file.getCharset()));
 			if (file.exists()) {
-				logger.debug("Overwriting content of '" + file.getFullPath() + "'");
+				LOGGER.debug("Overwriting content of '" + file.getFullPath() + "'");
 				file.setContents(stream, true, true, subMonitor.newChild(1));
 			} else {
 				file.create(stream, true, subMonitor.newChild(1));
 			}
 			stream.close();
 		} catch (final Exception e) {
-			logger.error(e.getMessage(), e);
+			LOGGER.error(e.getMessage(), e);
 		} finally {
 			subMonitor.done();
 		}
@@ -272,7 +272,7 @@ public class ProjectFactory {
 				try {
 					((IFolder) resource).create(false, true, new NullProgressMonitor());
 				} catch (CoreException e) {
-					logger.error(e.getMessage(), e);
+					LOGGER.error(e.getMessage(), e);
 				}
 			}
 		}
