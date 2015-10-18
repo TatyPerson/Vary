@@ -6495,14 +6495,14 @@ ruleFuncion returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getFuncionAccess().getRightParenthesisKeyword_5());
     }
-	otherlv_8='var' 
+(	otherlv_8='var' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getFuncionAccess().getVarKeyword_6());
+    	newLeafNode(otherlv_8, grammarAccess.getFuncionAccess().getVarKeyword_6_0());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_7_0_0()); 
+	        newCompositeNode(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_6_1_0_0()); 
 	    }
 		lv_declaracion_9_0=ruleDeclaracion		{
 	        if ($current==null) {
@@ -6520,7 +6520,7 @@ ruleFuncion returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_7_1_0()); 
+	        newCompositeNode(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_6_1_1_0()); 
 	    }
 		lv_declaracion_10_0=ruleDeclaracion		{
 	        if ($current==null) {
@@ -6535,14 +6535,14 @@ ruleFuncion returns [EObject current=null]
 	    }
 
 )
-)*)?	otherlv_11='inicio' 
+)*)?)?	otherlv_11='inicio' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getFuncionAccess().getInicioKeyword_8());
+    	newLeafNode(otherlv_11, grammarAccess.getFuncionAccess().getInicioKeyword_7());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_9_0_0()); 
+	        newCompositeNode(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_8_0_0()); 
 	    }
 		lv_sentencias_12_0=ruleSentencias		{
 	        if ($current==null) {
@@ -6560,7 +6560,7 @@ ruleFuncion returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_9_1_0()); 
+	        newCompositeNode(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_8_1_0()); 
 	    }
 		lv_sentencias_13_0=ruleSentencias		{
 	        if ($current==null) {
@@ -6578,7 +6578,7 @@ ruleFuncion returns [EObject current=null]
 )*)?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionAccess().getDevuelveDevolverParserRuleCall_10_0()); 
+	        newCompositeNode(grammarAccess.getFuncionAccess().getDevuelveDevolverParserRuleCall_9_0()); 
 	    }
 		lv_devuelve_14_0=ruleDevolver		{
 	        if ($current==null) {
@@ -6595,11 +6595,11 @@ ruleFuncion returns [EObject current=null]
 )
 )?	otherlv_15='fin_inicio' 
     {
-    	newLeafNode(otherlv_15, grammarAccess.getFuncionAccess().getFin_inicioKeyword_11());
+    	newLeafNode(otherlv_15, grammarAccess.getFuncionAccess().getFin_inicioKeyword_10());
     }
 	otherlv_16='fin_funcion' 
     {
-    	newLeafNode(otherlv_16, grammarAccess.getFuncionAccess().getFin_funcionKeyword_12());
+    	newLeafNode(otherlv_16, grammarAccess.getFuncionAccess().getFin_funcionKeyword_11());
     }
 )
 ;
@@ -6692,14 +6692,14 @@ ruleProcedimiento returns [EObject current=null]
     {
     	newLeafNode(otherlv_6, grammarAccess.getProcedimientoAccess().getRightParenthesisKeyword_4());
     }
-	otherlv_7='var' 
+(	otherlv_7='var' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getProcedimientoAccess().getVarKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getProcedimientoAccess().getVarKeyword_5_0());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_6_0_0()); 
+	        newCompositeNode(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_5_1_0_0()); 
 	    }
 		lv_declaracion_8_0=ruleDeclaracion		{
 	        if ($current==null) {
@@ -6717,7 +6717,7 @@ ruleProcedimiento returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_6_1_0()); 
+	        newCompositeNode(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_5_1_1_0()); 
 	    }
 		lv_declaracion_9_0=ruleDeclaracion		{
 	        if ($current==null) {
@@ -6732,14 +6732,14 @@ ruleProcedimiento returns [EObject current=null]
 	    }
 
 )
-)*)?	otherlv_10='inicio' 
+)*)?)?	otherlv_10='inicio' 
     {
-    	newLeafNode(otherlv_10, grammarAccess.getProcedimientoAccess().getInicioKeyword_7());
+    	newLeafNode(otherlv_10, grammarAccess.getProcedimientoAccess().getInicioKeyword_6());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_8_0_0()); 
+	        newCompositeNode(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_7_0_0()); 
 	    }
 		lv_sentencias_11_0=ruleSentencias		{
 	        if ($current==null) {
@@ -6757,7 +6757,7 @@ ruleProcedimiento returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_8_1_0()); 
+	        newCompositeNode(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_7_1_0()); 
 	    }
 		lv_sentencias_12_0=ruleSentencias		{
 	        if ($current==null) {
@@ -6774,11 +6774,11 @@ ruleProcedimiento returns [EObject current=null]
 )
 )*)?	otherlv_13='fin_inicio' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_9());
+    	newLeafNode(otherlv_13, grammarAccess.getProcedimientoAccess().getFin_inicioKeyword_8());
     }
 	otherlv_14='fin_procedimiento' 
     {
-    	newLeafNode(otherlv_14, grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_10());
+    	newLeafNode(otherlv_14, grammarAccess.getProcedimientoAccess().getFin_procedimientoKeyword_9());
     }
 )
 ;

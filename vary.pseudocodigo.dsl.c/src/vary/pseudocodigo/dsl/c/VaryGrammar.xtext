@@ -425,8 +425,8 @@ Funcion returns Funcion:
 	'funcion'
 	nombre=EString
 	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
-	'var'
-	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
+	('var'
+	( declaracion+=Declaracion ( declaracion+=Declaracion)* )? )?
 	'inicio'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
 	(devuelve=Devolver)?
@@ -437,8 +437,8 @@ Procedimiento returns Procedimiento:
 	'procedimiento'
 	nombre=EString
 	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
-	'var'
-	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
+	('var'
+	( declaracion+=Declaracion ( declaracion+=Declaracion)* )? )?
 	'inicio'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
 	'fin_inicio'

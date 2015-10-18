@@ -353,7 +353,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA"))) {
 				total = total + "const " + p.tipo.generate;
-			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && p.tipo instanceof TipoExistente) {
 				total = total + p.tipo.generate + "*";
 			} else {
 				total = total + p.tipo.generate + " ";
@@ -415,7 +415,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -428,7 +428,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(procedimiento.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -599,7 +599,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -612,7 +612,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(procedimiento.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -916,7 +916,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA"))) {
 				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
-			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && p.tipo instanceof TipoExistente) {
 				total = total + p.tipo.generate + "* " + p.variable.nombre;
 			} else {
 				total = total + p.tipo.generate + " " + p.variable.nombre;
@@ -930,7 +930,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var funcionDeclarada = myFun.tipo.tipoVariableC + " " + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -958,7 +958,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
