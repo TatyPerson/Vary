@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IContainer;
@@ -15,7 +16,9 @@ import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
+
 import com.google.inject.Inject;
+
 import vary.pseudocodigo.dsl.c.resources.VaryGrammarIndex;
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidator;
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface;
@@ -38,6 +41,7 @@ import diagramapseudocodigo.Constantes;
 import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DeclaracionPropia;
 import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Division;
 import diagramapseudocodigo.Enumerado;
@@ -144,6 +148,221 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 		}
+	}
+	
+	protected void checkUsoParametroSAux(operacion op, List<String> parametrosTipoS) {
+		if(op instanceof Suma) {
+			Suma suma = (Suma) op;
+			if(suma.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) suma.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(suma.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) suma.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof Resta) {
+			Resta resta = (Resta) op;
+			if(resta.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) resta.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(resta.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) resta.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof Multiplicacion) {
+			Multiplicacion multiplicacion = (Multiplicacion) op;
+			if(multiplicacion.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) multiplicacion.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(multiplicacion.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) multiplicacion.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof Division) {
+			Division division = (Division) op;
+			if(division.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) division.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(division.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) division.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof Igualdad) {
+			Igualdad igualdad = (Igualdad) op;
+			if(igualdad.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) igualdad.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(igualdad.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) igualdad.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof Comparacion) {
+			Comparacion comparacion = (Comparacion) op;
+			if(comparacion.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) comparacion.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(comparacion.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) comparacion.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof And) {
+			And and = (And) op;
+			if(and.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) and.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(and.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) and.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof Or) {
+			Or or = (Or) op;
+			if(or.getRight() instanceof VariableID) {
+				VariableID variable = (VariableID) or.getRight();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+			else if(or.getLeft() instanceof VariableID) {
+				VariableID variable = (VariableID) or.getLeft();
+				if(parametrosTipoS.contains(variable.getNombre())) {
+					error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+				}
+			}
+		}
+		else if(op instanceof VariableID) {
+			VariableID variable = (VariableID) op;
+			if(parametrosTipoS.contains(variable.getNombre())) {
+				error(readerMessages.getString("USO_VARIABLE_TIPO_S", variable.getNombre()), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+			}
+		}
+	}
+	
+	protected void checkUsoParametroSRec(List<Sentencias> sentencias, List<String> parametrosTipoS) {
+		for(Sentencias sen: sentencias) {
+			if(sen instanceof AsignacionNormal) {
+				AsignacionNormal asignacion = (AsignacionNormal) sen;
+				if(asignacion.getOperador() instanceof operacion) {
+					operacion op = (operacion) asignacion.getOperador();
+					checkUsoParametroSAux(op, parametrosTipoS);
+				}
+			}
+			else if(sen instanceof AsignacionCompleja) {
+				AsignacionCompleja asignacion = (AsignacionCompleja) sen;
+				if(asignacion.getOperador() instanceof operacion) {
+					operacion op = (operacion) asignacion.getOperador();
+					checkUsoParametroSAux(op, parametrosTipoS);
+				}
+			}
+			else if(sen instanceof LlamadaFuncion) {
+				LlamadaFuncion llamadaFuncion = (LlamadaFuncion) sen;
+				for(operacion op: llamadaFuncion.getOperadores()) {
+					checkUsoParametroSAux(op, parametrosTipoS);
+				}
+			}
+			else if(sen instanceof Bloque) {
+				Bloque bloque = (Bloque) sen;
+				if(bloque instanceof Si) {
+					Si si = (Si) bloque;
+					checkUsoParametroSRec(si.getSentencias(), parametrosTipoS);
+					checkUsoParametroSAux(si.getDevuelve().getDevuelve(), parametrosTipoS);
+					checkUsoParametroSAux(si.getValor(), parametrosTipoS);
+					checkUsoParametroSRec(si.getSino().getSentencias(), parametrosTipoS);
+					checkUsoParametroSAux(si.getSino().getDevuelve().getDevuelve(), parametrosTipoS);
+				}
+				else if(bloque instanceof segun) {
+					segun seg = (segun) bloque;
+					for(Caso caso: seg.getCaso()) {
+						checkUsoParametroSRec(caso.getSentencias(), parametrosTipoS);
+						checkUsoParametroSAux(caso.getDevuelve().getDevuelve(), parametrosTipoS);
+					}
+					checkUsoParametroSRec(seg.getSentencias(), parametrosTipoS);
+					checkUsoParametroSAux(seg.getDevuelve().getDevuelve(), parametrosTipoS);
+				}
+				else if(bloque instanceof mientras) {
+					mientras m = (mientras) bloque;
+					checkUsoParametroSRec(m.getSentencias(), parametrosTipoS);
+					checkUsoParametroSAux(m.getValor(), parametrosTipoS);
+				}
+				else if(bloque instanceof repetir) {
+					repetir r = (repetir) bloque;
+					checkUsoParametroSRec(r.getSentencias(), parametrosTipoS);
+					checkUsoParametroSAux(r.getValor(), parametrosTipoS);
+				}
+				else if(bloque instanceof desde) {
+					desde d = (desde) bloque;
+					checkUsoParametroSRec(d.getSentencias(), parametrosTipoS);
+					checkUsoParametroSAux(d.getValor(), parametrosTipoS);
+					checkUsoParametroSAux(d.getAsignacion().getOperador(), parametrosTipoS);
+				}
+			}
+			else if(sen instanceof Devolver) {
+				Devolver devolver = (Devolver) sen;
+				checkUsoParametroSAux(devolver.getDevuelve(), parametrosTipoS);
+			}
+			else if(sen instanceof Escribir) {
+				Escribir escribir = (Escribir) sen;
+				for(operacion opAux: escribir.getOperador()) {
+					checkUsoParametroSAux(opAux, parametrosTipoS);
+				}
+			}
+		}
+	}
+	
+	@Check
+	//Función que comproba que dentro de un subproceso no se use un parámetro S de forma incorrecta
+	protected void checkUsoParametroS(Subproceso s) {
+		//Primero registramos todos los parametros de tipo S (si los hay)
+		List<String> parametrosTipoS = new ArrayList<String>();
+		for(ParametroFuncion p: s.getParametrofuncion()) {
+			if(p.getPaso().equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+				parametrosTipoS.add(p.getVariable().getNombre());
+			}
+		}
+		
+		//Posteriormente comprobamos el valor de esos parámetros no sea usado
+		checkUsoParametroSRec(s.getSentencias(), parametrosTipoS);
 	}
 	
 	@Check

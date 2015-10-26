@@ -317,6 +317,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			#include "«myRefModulo.nombre».h"
 		«ENDFOR»
 		
+		typedef int bool;
+		#define true 1
+		#define false 0
+		
 		«FOR myConstante:myAlgoritmo.constantes»
 			«myConstante.generate»
 		«ENDFOR»
@@ -355,7 +359,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + "const " + p.tipo.generate;
 			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && p.tipo instanceof TipoExistente) {
 				total = total + p.tipo.generate + "*";
-			} else {
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
+				total = total + p.tipo.generate + "*";
+			}
+			else {
 				total = total + p.tipo.generate + " ";
 			}
 			actual = actual + 1;
@@ -418,6 +425,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
+				}
 				numParametro = numParametro + 1;
 			}
 			
@@ -429,6 +439,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
 				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
+				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -602,6 +615,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
+				}
 				numParametro = numParametro + 1;
 			}
 			
@@ -613,6 +629,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
 				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
+				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -714,6 +733,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		«ENDIF»
 		
 		«IF !cabeceras»
+		typedef int bool;
+		#define true 1
+		#define false 0
+		
 		«FOR myRefModulo:myAlgoritmo.importaciones»
 			#include "«myRefModulo.nombre».h"
 		«ENDFOR»
@@ -918,7 +941,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
 			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && p.tipo instanceof TipoExistente) {
 				total = total + p.tipo.generate + "* " + p.variable.nombre;
-			} else {
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
+				total = total + p.tipo.generate + "* " + p.variable.nombre;
+			}
+			else {
 				total = total + p.tipo.generate + " " + p.variable.nombre;
 			}
 			actual = actual + 1;
@@ -931,6 +957,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -959,6 +988,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1422,16 +1454,20 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	
 	def generateAsignacionPunteros(AsignacionNormal asig, List<String> punteros) {
 		var asignacion = new String();
+		
+		//lado izquierdo de la asignación
 		if(punteros.contains(asig.valor_asignacion)) {
 			asignacion = "*(" + asig.valor_asignacion + ")";
 		}
 		else {
 			asignacion = asig.valor_asignacion;
 		}
+		
+		//lado derecho de la asignación
 		for(matri:asig.mat) {
 			asignacion = asignacion + matri.toString;
 		}
-		asignacion = asignacion + " = " + asig.operador.generate + ";";
+		asignacion = asignacion + " = " + asig.operador.generate(punteros) + ";";
 		return asignacion;
 	}
 	
@@ -2767,6 +2803,114 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba.generate
 		}
 	}
+	
+	def generate(operacion op, List<String> punteros) {
+		if (op.eClass.name.equals("NumeroEntero")) {
+			var NumeroEntero prueba = new NumeroEnteroImpl
+			prueba = op as NumeroEntero
+			prueba.generate	
+		} else if (op.eClass.name.equals("NumeroDecimal")) {
+			var NumeroDecimal prueba = new NumeroDecimalImpl
+			prueba = op as NumeroDecimal
+			prueba.generate
+		} else if (op.eClass.name.equals("ValorBooleano")) {
+			var ValorBooleano prueba = new ValorBooleanoImpl
+			prueba = op as ValorBooleano
+			prueba.generate
+		} else if (op.eClass.name.equals("ConstCadena")) {
+			var ConstCadena prueba = new ConstCadenaImpl
+			prueba = op as ConstCadena
+			prueba.generate
+		} else if (op.eClass.name.equals("Caracter")) {
+			var Caracter prueba = new CaracterImpl
+			prueba = op as Caracter
+			prueba.generate
+		} else if (op.eClass.name.equals("VariableID")) {
+			var VariableID prueba = new VariableIDImpl
+			prueba = op as VariableID
+			if(punteros.contains(prueba.nombre)) {
+				return '*('+ prueba.generate + ')';
+			}
+			else {
+				prueba.generate
+			}
+		}
+		else if (op.eClass.name.equals("ValorRegistro")) {
+			var ValorRegistro prueba = new ValorRegistroImpl
+			prueba = op as ValorRegistro
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorVector")) {
+			var ValorVector prueba = new ValorVectorImpl
+			prueba = op as ValorVector
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorMatriz")) {
+			var ValorMatriz prueba = new ValorMatrizImpl
+			prueba = op as ValorMatriz
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("LlamadaFuncion")) {
+			var LlamadaFuncion prueba = new LlamadaFuncionImpl
+			prueba = op as LlamadaFuncion
+			prueba.generate(false)
+		}
+		else if (op.eClass.name.equals("Internas")) {
+			var Internas prueba = new InternasImpl
+			prueba = op as Internas
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Suma")) {
+			var Suma prueba = new SumaImpl
+			prueba = op as Suma
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Resta")) {
+			var Resta prueba = new RestaImpl
+			prueba = op as Resta
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Multiplicacion")) {
+			var Multiplicacion prueba = new MultiplicacionImpl
+			prueba = op as Multiplicacion
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Division")) {
+			var Division prueba = new DivisionImpl
+			prueba = op as Division
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Or")) {
+			var Or prueba = new OrImpl
+			prueba = op as Or
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("And")) {
+			var And prueba = new AndImpl
+			prueba = op as And
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Comparacion")) {
+			var Comparacion prueba = new ComparacionImpl
+			prueba = op as Comparacion
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Igualdad")) {
+			var Igualdad prueba = new IgualdadImpl
+			prueba = op as Igualdad
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Negativa")) {
+			var Negativa prueba = new NegativaImpl
+			prueba = op as Negativa
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Negacion")) {
+			var Negacion prueba = new NegacionImpl
+			prueba = op as Negacion
+			prueba.generate(punteros)
+		}
+	}
 
 	override generate(operacion op) {
 		if (op.eClass.name.equals("NumeroEntero")) {
@@ -2875,40 +3019,80 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return mySuma.left.generate + " " + mySuma.signo_op + " " + mySuma.right.generate;
 	}
 	
+	def generate(Suma mySuma, List<String> punteros) {
+		return mySuma.left.generate(punteros) + " " + mySuma.signo_op + " " + mySuma.right.generate(punteros);
+	}
+	
 	override generate(Resta myResta) {
 		return myResta.left.generate + " " + myResta.signo_op + " " + myResta.right.generate;
+	}
+	
+	def generate(Resta myResta, List<String> punteros) {
+		return myResta.left.generate(punteros) + " " + myResta.signo_op + " " + myResta.right.generate(punteros);
 	}
 	
 	override generate(Multiplicacion myMulti) {
 		return myMulti.left.generate + " " + myMulti.signo_op + " " + myMulti.right.generate;
 	}
 	
+	def generate(Multiplicacion myMulti, List<String> punteros) {
+		return myMulti.left.generate(punteros) + " " + myMulti.signo_op + " " + myMulti.right.generate(punteros);
+	}
+	
 	override generate(Division myDivi) {
 		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
+	}
+	
+	def generate(Division myDivi, List<String> punteros) {
+		return myDivi.left.generate(punteros) + " " + myDivi.signo_op + " " + myDivi.right.generate(punteros);
 	}
 	
 	override generate(Or myOr) {
 		return myOr.left.generate + " " + "||" + " " + myOr.right.generate;
 	}
 	
+	def generate(Or myOr, List<String> punteros) {
+		return myOr.left.generate(punteros) + " " + "||" + " " + myOr.right.generate(punteros);
+	}
+	
 	override generate(And myAnd) {
 		return myAnd.left.generate + " " + "&&" + " " + myAnd.right.generate;
+	}
+	
+	def generate(And myAnd, List<String> punteros) {
+		return myAnd.left.generate(punteros) + " " + "&&" + " " + myAnd.right.generate(punteros);
 	}
 	
 	override generate(Comparacion myComparacion) {
 		return myComparacion.left.generate + " " + myComparacion.signo_op + " " + myComparacion.right.generate;
 	}
 	
+	def generate(Comparacion myComparacion, List<String> punteros) {
+		return myComparacion.left.generate(punteros) + " " + myComparacion.signo_op + " " + myComparacion.right.generate(punteros);
+	}
+	
 	override generate(Igualdad myIgualdad) {
 		return myIgualdad.left.generate + " " + myIgualdad.signo_op + " " + myIgualdad.right.generate;
+	}
+	
+	def generate(Igualdad myIgualdad, List<String> punteros) {
+		return myIgualdad.left.generate(punteros) + " " + myIgualdad.signo_op + " " + myIgualdad.right.generate(punteros);
 	}
 	
 	override generate(Negativa myNegativa) {
 		return "( - " + myNegativa.valor_operacion.generate + ")";
 	}
 	
+	def generate(Negativa myNegativa, List<String> punteros) {
+		return "( - " + myNegativa.valor_operacion.generate(punteros) + ")";
+	}
+	
 	override generate(Negacion myNegacion) {
 		return "!" + myNegacion.valor_operacion.generate;
+	}
+	
+	def generate(Negacion myNegacion, List<String> punteros) {
+		return "!" + myNegacion.valor_operacion.generate(punteros);
 	}
 	
 	def generateSiPunteros(Si mySi, List<String> punteros) '''
