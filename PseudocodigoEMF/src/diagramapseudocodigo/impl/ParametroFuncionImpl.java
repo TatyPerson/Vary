@@ -19,12 +19,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ParametroFuncionImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ParametroFuncionImpl#getPaso <em>Paso</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ParametroFuncionImpl#getTipo <em>Tipo</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

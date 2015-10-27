@@ -11,6 +11,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getTiene <em>Tiene</em>}</li>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getFuncion <em>Funcion</em>}</li>
@@ -21,7 +22,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link diagramapseudocodigo.Algoritmo#getGlobal <em>Global</em>}</li>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getImportaciones <em>Importaciones</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo()
  * @model

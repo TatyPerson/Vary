@@ -37,7 +37,6 @@ import diagramapseudocodigo.ValorBooleano;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.booleano;
 import diagramapseudocodigo.operacion;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -343,9 +342,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
             if ((_valor_10 instanceof ValorBooleano)) {
               operacion _valor_11 = constantes.getValor();
               ValorBooleano logico = ((ValorBooleano) _valor_11);
-              booleano _valor_12 = logico.getValor();
-              String _literal = _valor_12.getLiteral();
-              valor = _literal;
+              String _valor_12 = logico.getValor();
+              valor = _valor_12;
             } else {
               operacion _valor_13 = constantes.getValor();
               if ((_valor_13 instanceof VariableID)) {

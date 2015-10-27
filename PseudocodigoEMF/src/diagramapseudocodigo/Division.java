@@ -10,12 +10,12 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Division#getLeft <em>Left</em>}</li>
  *   <li>{@link diagramapseudocodigo.Division#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.Division#getSigno_op <em>Signo op</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getDivision()
  * @model

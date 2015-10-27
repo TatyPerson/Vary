@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Enumerado#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Enumerado#getValor <em>Valor</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getEnumerado()
  * @model

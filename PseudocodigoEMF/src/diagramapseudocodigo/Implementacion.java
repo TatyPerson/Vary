@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Implementacion#getFuncion <em>Funcion</em>}</li>
  *   <li>{@link diagramapseudocodigo.Implementacion#getGlobal <em>Global</em>}</li>
  *   <li>{@link diagramapseudocodigo.Implementacion#getConstantes <em>Constantes</em>}</li>
  *   <li>{@link diagramapseudocodigo.Implementacion#getTipocomplejo <em>Tipocomplejo</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion()
  * @model

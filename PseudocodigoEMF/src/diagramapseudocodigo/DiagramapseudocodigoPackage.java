@@ -3589,16 +3589,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int SIGNO = 75;
 
 	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.booleano <em>booleano</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.booleano
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getbooleano()
-	 * @generated
-	 */
-	int BOOLEANO = 76;
-
-	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3606,7 +3596,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
 	 * @generated
 	 */
-	int NEG = 77;
+	int NEG = 76;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
@@ -3616,7 +3606,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 78;
+	int NOMBRE_INTERNA = 77;
 
 
 	/**
@@ -3627,7 +3617,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 79;
+	int MODO_APERTURA = 78;
 
 
 	/**
@@ -5865,16 +5855,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EEnum getsigno();
 
 	/**
-	 * Returns the meta object for enum '{@link diagramapseudocodigo.booleano <em>booleano</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>booleano</em>'.
-	 * @see diagramapseudocodigo.booleano
-	 * @generated
-	 */
-	EEnum getbooleano();
-
-	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.neg <em>neg</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -7757,16 +7737,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SIGNO = eINSTANCE.getsigno();
-
-		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.booleano <em>booleano</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.booleano
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getbooleano()
-		 * @generated
-		 */
-		EEnum BOOLEANO = eINSTANCE.getbooleano();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.

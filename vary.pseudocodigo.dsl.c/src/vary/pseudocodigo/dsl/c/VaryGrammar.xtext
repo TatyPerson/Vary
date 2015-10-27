@@ -298,9 +298,6 @@ terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='
 //ValorBooleano returns ValorBooleano:
 //	 {ValorBooleano} valor=booleano;
 
-booleano returns booleano:
-	'verdadero' | 'falso';
-
 signo returns signo:
 	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=')
  /* TODO: implement this rule and an appropriate IValueConverter */;
@@ -399,7 +396,7 @@ VariablesBasicas returns operacion:
 	| {NumeroDecimal} valor=EFloat
 	| {ConstCadena} contenido=CAD
 	| {Caracter} contenido=CAR
-	| {ValorBooleano} valor=booleano
+	| {ValorBooleano} valor=Booleano
 	| {VariableID} nombre=EString;
 
 Sino returns Sino:
@@ -446,3 +443,6 @@ Procedimiento returns Procedimiento:
 	
 TipoPaso returns ecore::EString:
 	'E' | 'E/S' | 'S';
+	
+Booleano returns ecore::EString:
+	'verdadero' | 'falso';

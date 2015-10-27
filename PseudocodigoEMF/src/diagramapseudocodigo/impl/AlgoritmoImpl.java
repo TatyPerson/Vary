@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getTiene <em>Tiene</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getFuncion <em>Funcion</em>}</li>
@@ -38,7 +39,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getGlobal <em>Global</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getImportaciones <em>Importaciones</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

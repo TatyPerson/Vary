@@ -142,8 +142,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eDataType.getClassifierID()) {
 			case DiagramapseudocodigoPackage.SIGNO:
 				return createsignoFromString(eDataType, initialValue);
-			case DiagramapseudocodigoPackage.BOOLEANO:
-				return createbooleanoFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.NEG:
 				return createnegFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.NOMBRE_INTERNA:
@@ -165,8 +163,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eDataType.getClassifierID()) {
 			case DiagramapseudocodigoPackage.SIGNO:
 				return convertsignoToString(eDataType, instanceValue);
-			case DiagramapseudocodigoPackage.BOOLEANO:
-				return convertbooleanoToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.NEG:
 				return convertnegToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.NOMBRE_INTERNA:
@@ -895,26 +891,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * @generated
 	 */
 	public String convertsignoToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public booleano createbooleanoFromString(EDataType eDataType, String initialValue) {
-		booleano result = booleano.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertbooleanoToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

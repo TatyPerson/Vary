@@ -11408,7 +11408,6 @@ protected class Variable_NombreAssignment_1 extends AssignmentToken  {
 
 
 
-
 /************ begin Rule operacion ****************
  *
  * operacion:
@@ -17361,12 +17360,12 @@ protected class VariablesComplejas_CampoAssignment_2_3_1_1 extends AssignmentTok
  *
  * VariablesBasicas returns operacion:
  * 	{NumeroEntero} valor=EInt | {NumeroDecimal} valor=EFloat | {ConstCadena} contenido=CAD | {Caracter} contenido=CAR |
- * 	{ValorBooleano} valor=booleano | {VariableID} nombre=EString;
+ * 	{ValorBooleano} valor=Booleano | {VariableID} nombre=EString;
  *
  **/
 
 // {NumeroEntero} valor=EInt | {NumeroDecimal} valor=EFloat | {ConstCadena} contenido=CAD | {Caracter} contenido=CAR |
-// {ValorBooleano} valor=booleano | {VariableID} nombre=EString
+// {ValorBooleano} valor=Booleano | {VariableID} nombre=EString
 protected class VariablesBasicas_Alternatives extends AlternativesToken {
 
 	public VariablesBasicas_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17765,7 +17764,7 @@ protected class VariablesBasicas_ContenidoAssignment_3_1 extends AssignmentToken
 }
 
 
-// {ValorBooleano} valor=booleano
+// {ValorBooleano} valor=Booleano
 protected class VariablesBasicas_Group_4 extends GroupToken {
 	
 	public VariablesBasicas_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17820,7 +17819,7 @@ protected class VariablesBasicas_ValorBooleanoAction_4_0 extends ActionToken  {
 	}
 }
 
-// valor=booleano
+// valor=Booleano
 protected class VariablesBasicas_ValorAssignment_4_1 extends AssignmentToken  {
 	
 	public VariablesBasicas_ValorAssignment_4_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19912,6 +19911,7 @@ protected class Procedimiento_End_procedureKeyword_9 extends KeywordToken  {
 
 
 /************ end Rule Procedimiento ****************/
+
 
 
 }

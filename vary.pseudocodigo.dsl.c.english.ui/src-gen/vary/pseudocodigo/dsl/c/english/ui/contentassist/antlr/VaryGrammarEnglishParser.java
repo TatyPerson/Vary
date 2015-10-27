@@ -54,7 +54,6 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAsignacionAccess().getAlternatives(), "rule__Asignacion__Alternatives");
 					put(grammarAccess.getEscribirAccess().getAlternatives_3(), "rule__Escribir__Alternatives_3");
 					put(grammarAccess.getTipoVariableAccess().getAlternatives(), "rule__TipoVariable__Alternatives");
-					put(grammarAccess.getBooleanoAccess().getAlternatives(), "rule__Booleano__Alternatives");
 					put(grammarAccess.getSignoAccess().getAlternatives(), "rule__Signo__Alternatives");
 					put(grammarAccess.getSignoIgualdadAccess().getAlternatives(), "rule__SignoIgualdad__Alternatives");
 					put(grammarAccess.getSignoComparacionAccess().getAlternatives(), "rule__SignoComparacion__Alternatives");
@@ -68,6 +67,7 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariablesComplejasAccess().getAlternatives(), "rule__VariablesComplejas__Alternatives");
 					put(grammarAccess.getVariablesBasicasAccess().getAlternatives(), "rule__VariablesBasicas__Alternatives");
 					put(grammarAccess.getTipoPasoAccess().getAlternatives(), "rule__TipoPaso__Alternatives");
+					put(grammarAccess.getBooleanoAccess().getAlternatives(), "rule__Booleano__Alternatives");
 					put(grammarAccess.getAlgoritmoAccess().getGroup(), "rule__Algoritmo__Group__0");
 					put(grammarAccess.getAlgoritmoAccess().getGroup_2(), "rule__Algoritmo__Group_2__0");
 					put(grammarAccess.getAlgoritmoAccess().getGroup_4(), "rule__Algoritmo__Group_4__0");

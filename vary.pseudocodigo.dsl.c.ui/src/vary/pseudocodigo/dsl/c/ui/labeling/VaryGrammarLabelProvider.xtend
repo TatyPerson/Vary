@@ -214,7 +214,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		}
 		else if(constantes.valor instanceof ValorBooleano) {
 			var logico = constantes.valor as ValorBooleano
-			valor = logico.valor.literal
+			valor = logico.valor
 		}
 		else if(constantes.valor instanceof VariableID) {
 			var variable = constantes.valor as VariableID

@@ -4,7 +4,6 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ValorBooleano;
-import diagramapseudocodigo.booleano;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -15,10 +14,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ValorBooleanoImpl#getValor <em>Valor</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
@@ -31,7 +30,7 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final booleano VALOR_EDEFAULT = booleano.VERDADERO;
+	protected static final String VALOR_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
@@ -41,7 +40,7 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	 * @generated
 	 * @ordered
 	 */
-	protected booleano valor = VALOR_EDEFAULT;
+	protected String valor = VALOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -67,7 +66,7 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public booleano getValor() {
+	public String getValor() {
 		return valor;
 	}
 
@@ -76,9 +75,9 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValor(booleano newValor) {
-		booleano oldValor = valor;
-		valor = newValor == null ? VALOR_EDEFAULT : newValor;
+	public void setValor(String newValor) {
+		String oldValor = valor;
+		valor = newValor;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_BOOLEANO__VALOR, oldValor, valor));
 	}
@@ -106,7 +105,7 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_BOOLEANO__VALOR:
-				setValor((booleano)newValue);
+				setValor((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -136,7 +135,7 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_BOOLEANO__VALOR:
-				return valor != VALOR_EDEFAULT;
+				return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
 		}
 		return super.eIsSet(featureID);
 	}

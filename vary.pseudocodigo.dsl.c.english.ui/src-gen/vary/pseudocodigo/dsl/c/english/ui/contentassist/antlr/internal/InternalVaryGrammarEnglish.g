@@ -1428,34 +1428,6 @@ finally {
 
 
 
-// Entry rule entryRulebooleano
-entryRulebooleano 
-:
-{ before(grammarAccess.getBooleanoRule()); }
-	 rulebooleano
-{ after(grammarAccess.getBooleanoRule()); } 
-	 EOF 
-;
-
-// Rule booleano
-rulebooleano
-    @init {
-		int stackSize = keepStackSize();
-    }
-	:
-(
-{ before(grammarAccess.getBooleanoAccess().getAlternatives()); }
-(rule__Booleano__Alternatives)
-{ after(grammarAccess.getBooleanoAccess().getAlternatives()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 
 
 // Entry rule entryRulesignoOr
@@ -2394,6 +2366,34 @@ finally {
 
 
 
+// Entry rule entryRuleBooleano
+entryRuleBooleano 
+:
+{ before(grammarAccess.getBooleanoRule()); }
+	 ruleBooleano
+{ after(grammarAccess.getBooleanoRule()); } 
+	 EOF 
+;
+
+// Rule Booleano
+ruleBooleano
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getBooleanoAccess().getAlternatives()); }
+(rule__Booleano__Alternatives)
+{ after(grammarAccess.getBooleanoAccess().getAlternatives()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 
 rule__Codigo__Alternatives
     @init {
@@ -2941,32 +2941,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Booleano__Alternatives
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getBooleanoAccess().getTrueKeyword_0()); }
-
-	'true' 
-
-{ after(grammarAccess.getBooleanoAccess().getTrueKeyword_0()); }
-)
-
-    |(
-{ before(grammarAccess.getBooleanoAccess().getFalseKeyword_1()); }
-
-	'false' 
-
-{ after(grammarAccess.getBooleanoAccess().getFalseKeyword_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 
 rule__SignoIgualdad__Alternatives
     @init {
@@ -3315,6 +3289,32 @@ rule__TipoPaso__Alternatives
 	'O' 
 
 { after(grammarAccess.getTipoPasoAccess().getOKeyword_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Booleano__Alternatives
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getBooleanoAccess().getTrueKeyword_0()); }
+
+	'true' 
+
+{ after(grammarAccess.getBooleanoAccess().getTrueKeyword_0()); }
+)
+
+    |(
+{ before(grammarAccess.getBooleanoAccess().getFalseKeyword_1()); }
+
+	'false' 
+
+{ after(grammarAccess.getBooleanoAccess().getFalseKeyword_1()); }
 )
 
 ;
@@ -20609,7 +20609,7 @@ rule__VariablesBasicas__ValorAssignment_4_1
 :
 (
 { before(grammarAccess.getVariablesBasicasAccess().getValorBooleanoParserRuleCall_4_1_0()); }
-	rulebooleano{ after(grammarAccess.getVariablesBasicasAccess().getValorBooleanoParserRuleCall_4_1_0()); }
+	ruleBooleano{ after(grammarAccess.getVariablesBasicasAccess().getValorBooleanoParserRuleCall_4_1_0()); }
 )
 
 ;

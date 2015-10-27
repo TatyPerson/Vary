@@ -4075,40 +4075,6 @@ ruleVariable returns [EObject current=null]
 
 
 
-// Entry rule entryRulebooleano
-entryRulebooleano returns [String current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getBooleanoRule()); } 
-	 iv_rulebooleano=rulebooleano 
-	 { $current=$iv_rulebooleano.current.getText(); }  
-	 EOF 
-;
-
-// Rule booleano
-rulebooleano returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(
-	kw='true' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getBooleanoAccess().getTrueKeyword_0()); 
-    }
-
-    |
-	kw='false' 
-    {
-        $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getBooleanoAccess().getFalseKeyword_1()); 
-    }
-)
-    ;
-
-
-
-
-
 
 
 // Entry rule entryRulesignoOr
@@ -6135,7 +6101,7 @@ ruleVariablesBasicas returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getVariablesBasicasAccess().getValorBooleanoParserRuleCall_4_1_0()); 
 	    }
-		lv_valor_9_0=rulebooleano		{
+		lv_valor_9_0=ruleBooleano		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesBasicasRule());
 	        }
@@ -6143,7 +6109,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_9_0, 
-        		"booleano");
+        		"Booleano");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6820,6 +6786,40 @@ ruleTipoPaso returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
     {
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getTipoPasoAccess().getOKeyword_2()); 
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleBooleano
+entryRuleBooleano returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getBooleanoRule()); } 
+	 iv_ruleBooleano=ruleBooleano 
+	 { $current=$iv_ruleBooleano.current.getText(); }  
+	 EOF 
+;
+
+// Rule Booleano
+ruleBooleano returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+	kw='true' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getBooleanoAccess().getTrueKeyword_0()); 
+    }
+
+    |
+	kw='false' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getBooleanoAccess().getFalseKeyword_1()); 
     }
 )
     ;

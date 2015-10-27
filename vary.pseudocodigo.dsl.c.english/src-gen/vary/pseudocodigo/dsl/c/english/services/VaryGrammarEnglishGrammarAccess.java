@@ -2430,36 +2430,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		public RuleCall getNombreEStringParserRuleCall_1_0() { return cNombreEStringParserRuleCall_1_0; }
 	}
 
-	public class BooleanoElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "booleano");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		////terminal MAT: 
-		////'[' ('a'..'z'|'A'..'Z'|'0'..'9')*('--'|'++')? ']' ;
-		////ConstCadena returns ConstCadena:
-		////	{ConstCadena} contenido=CAD;
-		////NumeroEntero returns NumeroEntero:
-		////	 {NumeroEntero} valor=INTEGER;
-		////NumeroDecimal returns NumeroDecimal:
-		////	 {NumeroDecimal} valor=FLOAT;
-		////ValorBooleano returns ValorBooleano:
-		////	 {ValorBooleano} valor=booleano;
-		//booleano:
-		//	"true" | "false";
-		public ParserRule getRule() { return rule; }
-
-		//"true" | "false"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"true"
-		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
-
-		//"false"
-		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
-	}
-
 	public class SignoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "signo");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -2476,6 +2446,16 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cEqualsSignEqualsSignKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
 		private final Keyword cExclamationMarkEqualsSignKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
 		
+		////terminal MAT: 
+		////'[' ('a'..'z'|'A'..'Z'|'0'..'9')*('--'|'++')? ']' ;
+		////ConstCadena returns ConstCadena:
+		////	{ConstCadena} contenido=CAD;
+		////NumeroEntero returns NumeroEntero:
+		////	 {NumeroEntero} valor=INTEGER;
+		////NumeroDecimal returns NumeroDecimal:
+		////	 {NumeroDecimal} valor=FLOAT;
+		////ValorBooleano returns ValorBooleano:
+		////	 {ValorBooleano} valor=booleano;
 		/// * TODO: implement this rule and an appropriate IValueConverter * / signo:
 		//	"+" | "-" | "*" | "/" | "<" | ">" | ">=" | "<=" | "y" | "o" | "==" | "!=";
 		public ParserRule getRule() { return rule; }
@@ -3719,11 +3699,11 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		
 		//VariablesBasicas returns operacion:
 		//	{NumeroEntero} valor=EInt | {NumeroDecimal} valor=EFloat | {ConstCadena} contenido=CAD | {Caracter} contenido=CAR |
-		//	{ValorBooleano} valor=booleano | {VariableID} nombre=EString;
+		//	{ValorBooleano} valor=Booleano | {VariableID} nombre=EString;
 		public ParserRule getRule() { return rule; }
 
 		//{NumeroEntero} valor=EInt | {NumeroDecimal} valor=EFloat | {ConstCadena} contenido=CAD | {Caracter} contenido=CAR |
-		//{ValorBooleano} valor=booleano | {VariableID} nombre=EString
+		//{ValorBooleano} valor=Booleano | {VariableID} nombre=EString
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{NumeroEntero} valor=EInt
@@ -3774,16 +3754,16 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		//CAR
 		public RuleCall getContenidoCARTerminalRuleCall_3_1_0() { return cContenidoCARTerminalRuleCall_3_1_0; }
 
-		//{ValorBooleano} valor=booleano
+		//{ValorBooleano} valor=Booleano
 		public Group getGroup_4() { return cGroup_4; }
 
 		//{ValorBooleano}
 		public Action getValorBooleanoAction_4_0() { return cValorBooleanoAction_4_0; }
 
-		//valor=booleano
+		//valor=Booleano
 		public Assignment getValorAssignment_4_1() { return cValorAssignment_4_1; }
 
-		//booleano
+		//Booleano
 		public RuleCall getValorBooleanoParserRuleCall_4_1_0() { return cValorBooleanoParserRuleCall_4_1_0; }
 
 		//{VariableID} nombre=EString
@@ -4204,6 +4184,26 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		//"O"
 		public Keyword getOKeyword_2() { return cOKeyword_2; }
 	}
+
+	public class BooleanoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Booleano");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cTrueKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cFalseKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//Booleano returns ecore::EString:
+		//	"true" | "false";
+		public ParserRule getRule() { return rule; }
+
+		//"true" | "false"
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//"true"
+		public Keyword getTrueKeyword_0() { return cTrueKeyword_0; }
+
+		//"false"
+		public Keyword getFalseKeyword_1() { return cFalseKeyword_1; }
+	}
 	
 	
 	private CodigoElements pCodigo;
@@ -4259,7 +4259,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private TerminalRule tCAD;
 	private TerminalRule tCAR;
 	private TerminalRule tCOMENT;
-	private BooleanoElements pBooleano;
 	private SignoElements pSigno;
 	private SignoOrElements pSignoOr;
 	private SignoAndElements pSignoAnd;
@@ -4294,6 +4293,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private FuncionElements pFuncion;
 	private ProcedimientoElements pProcedimiento;
 	private TipoPasoElements pTipoPaso;
+	private BooleanoElements pBooleano;
 	
 	private final Grammar grammar;
 
@@ -4897,16 +4897,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	////	 {NumeroDecimal} valor=FLOAT;
 	////ValorBooleano returns ValorBooleano:
 	////	 {ValorBooleano} valor=booleano;
-	//booleano:
-	//	"true" | "false";
-	public BooleanoElements getBooleanoAccess() {
-		return (pBooleano != null) ? pBooleano : (pBooleano = new BooleanoElements());
-	}
-	
-	public ParserRule getBooleanoRule() {
-		return getBooleanoAccess().getRule();
-	}
-
 	/// * TODO: implement this rule and an appropriate IValueConverter * / signo:
 	//	"+" | "-" | "*" | "/" | "<" | ">" | ">=" | "<=" | "y" | "o" | "==" | "!=";
 	public SignoElements getSignoAccess() {
@@ -5188,7 +5178,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 
 	//VariablesBasicas returns operacion:
 	//	{NumeroEntero} valor=EInt | {NumeroDecimal} valor=EFloat | {ConstCadena} contenido=CAD | {Caracter} contenido=CAR |
-	//	{ValorBooleano} valor=booleano | {VariableID} nombre=EString;
+	//	{ValorBooleano} valor=Booleano | {VariableID} nombre=EString;
 	public VariablesBasicasElements getVariablesBasicasAccess() {
 		return (pVariablesBasicas != null) ? pVariablesBasicas : (pVariablesBasicas = new VariablesBasicasElements());
 	}
@@ -5261,6 +5251,16 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	
 	public ParserRule getTipoPasoRule() {
 		return getTipoPasoAccess().getRule();
+	}
+
+	//Booleano returns ecore::EString:
+	//	"true" | "false";
+	public BooleanoElements getBooleanoAccess() {
+		return (pBooleano != null) ? pBooleano : (pBooleano = new BooleanoElements());
+	}
+	
+	public ParserRule getBooleanoRule() {
+		return getBooleanoAccess().getRule();
 	}
 
 	//terminal ID:

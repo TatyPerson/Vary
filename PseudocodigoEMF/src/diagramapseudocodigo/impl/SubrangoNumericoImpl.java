@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.SubrangoNumericoImpl#getLimite_inf <em>Limite inf</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.SubrangoNumericoImpl#getLimite_sup <em>Limite sup</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -69,7 +69,6 @@ import diagramapseudocodigo.ValorVector;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.booleano;
 import diagramapseudocodigo.desde;
 import diagramapseudocodigo.impl.AlgoritmoImpl;
 import diagramapseudocodigo.impl.AndImpl;
@@ -3990,8 +3989,10 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   @Override
   public CharSequence generate(final ValorBooleano valBool) {
-    booleano _valor = valBool.getValor();
-    boolean _equals = Objects.equal(_valor, booleano.VERDADERO);
+    String _valor = valBool.getValor();
+    ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+    String _string = _bundle.getString("VERDADERO");
+    boolean _equals = _valor.equals(_string);
     if (_equals) {
       return "true";
     } else {

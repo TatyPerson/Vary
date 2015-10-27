@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ValorRegistro#getNombre_registro <em>Nombre registro</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorRegistro#getCampo <em>Campo</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorRegistro()
  * @model

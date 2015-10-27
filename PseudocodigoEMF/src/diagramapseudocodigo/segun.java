@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.segun#getCaso <em>Caso</em>}</li>
  *   <li>{@link diagramapseudocodigo.segun#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getsegun()
  * @model

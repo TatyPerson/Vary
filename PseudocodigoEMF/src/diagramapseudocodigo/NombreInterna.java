@@ -268,6 +268,8 @@ public enum NombreInterna implements Enumerator {
 	 * Returns the '<em><b>Nombre Interna</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param literal the literal.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NombreInterna get(String literal) {
@@ -284,6 +286,8 @@ public enum NombreInterna implements Enumerator {
 	 * Returns the '<em><b>Nombre Interna</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param name the name.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NombreInterna getByName(String name) {
@@ -300,6 +304,8 @@ public enum NombreInterna implements Enumerator {
 	 * Returns the '<em><b>Nombre Interna</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @param value the integer value.
+	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static NombreInterna get(int value) {

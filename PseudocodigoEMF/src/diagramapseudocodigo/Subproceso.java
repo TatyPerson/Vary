@@ -13,13 +13,13 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Subproceso#getParametrofuncion <em>Parametrofuncion</em>}</li>
  *   <li>{@link diagramapseudocodigo.Subproceso#getSentencias <em>Sentencias</em>}</li>
  *   <li>{@link diagramapseudocodigo.Subproceso#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Subproceso#getDeclaracion <em>Declaracion</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubproceso()
  * @model abstract="true"

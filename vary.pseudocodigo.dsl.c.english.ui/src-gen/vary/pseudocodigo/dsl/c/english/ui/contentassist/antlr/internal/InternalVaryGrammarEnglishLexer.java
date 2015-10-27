@@ -638,10 +638,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:7: ( 'true' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:9: 'true'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:7: ( '==' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:9: '=='
             {
-            match("true"); 
+            match("=="); 
 
 
             }
@@ -659,10 +659,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:7: ( 'false' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:9: 'false'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:7: ( '!=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:9: '!='
             {
-            match("false"); 
+            match("!="); 
 
 
             }
@@ -680,11 +680,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:7: ( '==' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:9: '=='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:7: ( '<' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:9: '<'
             {
-            match("=="); 
-
+            match('<'); 
 
             }
 
@@ -701,11 +700,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:7: ( '!=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:9: '!='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:7: ( '>' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:9: '>'
             {
-            match("!="); 
-
+            match('>'); 
 
             }
 
@@ -722,10 +720,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:7: ( '<' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:9: '<'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:7: ( '>=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:9: '>='
             {
-            match('<'); 
+            match(">="); 
+
 
             }
 
@@ -742,10 +741,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:7: ( '>' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:9: '>'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:7: ( '<=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:9: '<='
             {
-            match('>'); 
+            match("<="); 
+
 
             }
 
@@ -762,11 +762,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:7: ( '>=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:9: '>='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:7: ( 'I' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:9: 'I'
             {
-            match(">="); 
-
+            match('I'); 
 
             }
 
@@ -783,10 +782,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:7: ( '<=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:9: '<='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:7: ( 'I/O' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:9: 'I/O'
             {
-            match("<="); 
+            match("I/O"); 
 
 
             }
@@ -804,10 +803,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:7: ( 'I' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:9: 'I'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:7: ( 'O' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:9: 'O'
             {
-            match('I'); 
+            match('O'); 
 
             }
 
@@ -824,10 +823,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:7: ( 'I/O' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:9: 'I/O'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:7: ( 'true' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:9: 'true'
             {
-            match("I/O"); 
+            match("true"); 
 
 
             }
@@ -845,10 +844,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:7: ( 'O' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:9: 'O'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:7: ( 'false' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:9: 'false'
             {
-            match('O'); 
+            match("false"); 
+
 
             }
 
@@ -3596,11 +3596,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\2\65\1\uffff\1\73\1\uffff\1\77\4\65\1\115\1\65\1\121\4"+
-        "\65\1\136\1\60\1\142\1\144\1\146\1\147\4\65\3\uffff\1\161\1\uffff"+
+        "\1\uffff\2\65\1\uffff\1\73\1\uffff\1\77\4\65\1\115\1\65\1\121\2"+
+        "\65\1\127\1\60\1\133\1\135\1\137\1\140\6\65\3\uffff\1\161\1\uffff"+
         "\1\164\1\60\1\65\2\uffff\2\65\1\uffff\1\65\3\60\4\uffff\1\u0085"+
         "\1\65\1\u0087\1\65\1\uffff\3\65\7\uffff\15\65\1\uffff\1\u00a1\2"+
-        "\65\1\uffff\2\65\1\u00a7\4\65\1\u00ac\3\65\13\uffff\5\65\11\uffff"+
+        "\65\1\uffff\2\65\1\u00a7\1\65\13\uffff\3\65\1\u00ac\10\65\11\uffff"+
         "\1\65\2\uffff\1\u00b7\1\65\1\uffff\1\65\11\uffff\1\65\1\uffff\1"+
         "\65\1\u00c1\2\65\3\uffff\6\65\1\u00cc\6\65\1\u00d4\1\65\1\u00d7"+
         "\2\65\1\uffff\1\u00da\4\65\1\uffff\4\65\1\uffff\2\65\1\u00e6\1\65"+
@@ -3627,17 +3627,17 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         "\u01e5\uffff";
     static final String DFA14_minS =
         "\1\0\1\146\1\143\1\uffff\1\50\1\uffff\1\52\1\150\1\145\1\141\1\145"+
-        "\1\60\1\145\1\60\1\146\1\157\1\150\1\141\2\75\1\55\1\75\1\57\1\60"+
+        "\1\60\1\145\1\60\1\146\1\157\2\75\1\55\1\75\1\57\1\60\1\150\1\141"+
         "\1\154\1\141\1\157\1\162\3\uffff\1\56\1\uffff\1\133\1\40\1\141\2"+
         "\uffff\1\157\1\156\1\uffff\1\157\2\0\1\101\4\uffff\1\60\1\145\1"+
         "\60\1\150\1\uffff\1\144\2\143\5\uffff\1\0\1\uffff\2\151\1\141\1"+
         "\156\1\141\1\157\1\163\1\162\1\156\1\162\1\160\1\144\1\163\1\uffff"+
-        "\1\60\1\147\1\156\1\uffff\1\151\1\160\1\60\1\157\1\165\1\160\1\145"+
-        "\1\60\1\154\1\156\1\162\13\uffff\1\147\1\162\1\143\1\144\1\157\11"+
-        "\uffff\1\151\2\uffff\1\60\1\164\1\uffff\1\164\1\40\1\uffff\1\0\1"+
-        "\uffff\1\42\1\0\3\uffff\1\156\1\uffff\1\145\1\60\1\150\1\157\2\0"+
-        "\1\uffff\1\164\1\154\1\144\1\151\1\145\1\165\1\60\1\143\1\162\1"+
-        "\163\1\145\1\141\1\164\1\60\1\151\1\60\1\137\1\145\1\uffff\1\60"+
+        "\1\60\1\147\1\156\1\uffff\1\151\1\160\1\60\1\157\13\uffff\1\165"+
+        "\1\160\1\145\1\60\1\154\1\156\1\162\1\147\1\162\1\143\1\144\1\157"+
+        "\11\uffff\1\151\2\uffff\1\60\1\164\1\uffff\1\164\1\40\1\uffff\1"+
+        "\0\1\uffff\1\42\1\0\3\uffff\1\156\1\uffff\1\145\1\60\1\150\1\157"+
+        "\2\0\1\uffff\1\164\1\154\1\144\1\151\1\145\1\165\1\60\1\143\1\162"+
+        "\1\163\1\145\1\141\1\164\1\60\1\151\1\60\1\137\1\145\1\uffff\1\60"+
         "\1\147\1\145\1\164\1\154\1\uffff\1\154\2\145\1\156\1\uffff\1\163"+
         "\1\143\1\60\1\157\1\60\1\164\1\165\1\143\1\162\1\156\1\uffff\1\151"+
         "\1\60\2\0\1\uffff\1\0\1\uffff\1\60\1\162\1\uffff\1\151\1\162\1\0"+
@@ -3668,14 +3668,14 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         "\1\uffff";
     static final String DFA14_maxS =
         "\1\uffff\1\164\1\162\1\uffff\1\50\1\uffff\1\57\1\162\1\145\1\157"+
-        "\1\164\1\172\1\157\1\172\1\156\1\157\1\171\1\165\4\75\2\172\1\154"+
+        "\1\164\1\172\1\157\1\172\1\156\1\157\4\75\2\172\1\171\1\165\1\154"+
         "\1\145\1\157\1\162\3\uffff\1\56\1\uffff\1\133\1\40\1\141\2\uffff"+
         "\1\157\1\156\1\uffff\1\157\2\uffff\1\172\4\uffff\1\172\1\145\1\172"+
         "\1\150\1\uffff\1\144\2\143\5\uffff\1\uffff\1\uffff\2\151\1\164\1"+
         "\163\1\141\1\157\1\163\1\165\1\156\1\162\1\160\1\144\1\163\1\uffff"+
-        "\1\172\1\147\1\156\1\uffff\1\164\1\160\1\172\1\157\1\165\1\160\1"+
-        "\145\1\172\1\154\1\156\1\162\13\uffff\1\147\1\162\1\143\1\144\1"+
-        "\157\11\uffff\1\164\2\uffff\1\172\1\164\1\uffff\1\164\1\172\1\uffff"+
+        "\1\172\1\147\1\156\1\uffff\1\164\1\160\1\172\1\157\13\uffff\1\165"+
+        "\1\160\1\145\1\172\1\154\1\156\1\162\1\147\1\162\1\143\1\144\1\157"+
+        "\11\uffff\1\164\2\uffff\1\172\1\164\1\uffff\1\164\1\172\1\uffff"+
         "\1\uffff\1\uffff\1\165\1\uffff\3\uffff\1\156\1\uffff\1\145\1\172"+
         "\1\150\1\157\2\uffff\1\uffff\1\164\2\154\1\151\1\145\1\165\1\172"+
         "\1\163\1\162\1\163\1\145\1\141\1\164\1\172\1\151\1\172\1\137\1\145"+
@@ -3712,16 +3712,16 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         "\3\uffff\1\3\1\uffff\1\5\26\uffff\1\62\1\63\1\64\1\uffff\1\73\3"+
         "\uffff\1\104\1\105\2\uffff\1\134\4\uffff\1\147\1\150\1\153\1\154"+
         "\4\uffff\1\147\3\uffff\1\3\1\135\1\4\1\5\1\143\1\uffff\1\6\15\uffff"+
-        "\1\23\3\uffff\1\22\13\uffff\1\33\1\71\1\34\1\40\1\112\1\35\1\37"+
-        "\1\36\1\42\1\41\1\43\5\uffff\1\62\1\63\1\64\1\106\1\70\1\73\1\100"+
+        "\1\23\3\uffff\1\22\4\uffff\1\31\1\71\1\32\1\36\1\112\1\33\1\35\1"+
+        "\34\1\40\1\37\1\41\14\uffff\1\62\1\63\1\64\1\106\1\70\1\73\1\100"+
         "\1\74\1\76\1\uffff\1\104\1\105\2\uffff\1\134\2\uffff\1\144\1\uffff"+
         "\1\151\2\uffff\1\150\1\153\1\1\1\uffff\1\75\6\uffff\1\152\22\uffff"+
         "\1\14\5\uffff\1\115\4\uffff\1\126\12\uffff\1\121\4\uffff\1\144\1"+
         "\uffff\1\145\2\uffff\1\2\12\uffff\1\11\7\uffff\1\16\2\uffff\1\13"+
         "\2\uffff\1\15\13\uffff\1\125\1\uffff\1\52\6\uffff\1\136\1\145\1"+
         "\66\3\uffff\1\146\4\uffff\1\114\1\26\7\uffff\1\130\1\uffff\1\17"+
-        "\12\uffff\1\137\6\uffff\1\31\1\51\1\116\7\uffff\1\107\5\uffff\1"+
-        "\113\1\120\5\uffff\1\50\1\uffff\1\67\25\uffff\1\32\6\uffff\1\124"+
+        "\12\uffff\1\137\6\uffff\1\42\1\51\1\116\7\uffff\1\107\5\uffff\1"+
+        "\113\1\120\5\uffff\1\50\1\uffff\1\67\25\uffff\1\43\6\uffff\1\124"+
         "\6\uffff\1\123\1\140\2\uffff\1\12\1\30\1\54\2\uffff\1\117\11\uffff"+
         "\1\20\2\uffff\1\45\4\uffff\1\72\1\53\1\uffff\1\77\1\uffff\1\103"+
         "\1\uffff\1\7\1\10\14\uffff\1\127\2\uffff\1\24\2\uffff\1\27\5\uffff"+
@@ -3730,15 +3730,15 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         "\110\12\uffff\1\131\4\uffff\1\102\1\141\4\uffff\1\47\1\uffff\1\142"+
         "\2\uffff\1\111\1\uffff\1\57\3\uffff\1\133\1\uffff\1\60";
     static final String DFA14_specialS =
-        "\1\10\51\uffff\1\0\1\11\22\uffff\1\3\100\uffff\1\4\2\uffff\1\2\11"+
-        "\uffff\1\1\1\13\54\uffff\1\7\1\5\1\uffff\1\6\6\uffff\1\12\u0120"+
+        "\1\7\51\uffff\1\0\1\11\22\uffff\1\3\100\uffff\1\4\2\uffff\1\2\11"+
+        "\uffff\1\1\1\13\54\uffff\1\10\1\5\1\uffff\1\6\6\uffff\1\12\u0120"+
         "\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\11\60\2\57\2\60\1\57\22\60\1\57\1\23\1\52\4\60\1\53\1\34\1"+
-            "\35\1\5\1\3\1\36\1\4\1\37\1\6\12\56\1\42\1\60\1\24\1\22\1\25"+
-            "\2\60\1\30\3\55\1\15\3\55\1\26\3\55\1\32\1\55\1\27\13\55\1\40"+
-            "\1\60\1\41\1\54\1\55\1\60\1\2\1\17\1\11\1\46\1\13\1\21\2\55"+
-            "\1\16\2\55\1\14\1\43\1\51\1\1\1\33\1\55\1\10\1\12\1\20\1\47"+
+            "\11\60\2\57\2\60\1\57\22\60\1\57\1\21\1\52\4\60\1\53\1\34\1"+
+            "\35\1\5\1\3\1\36\1\4\1\37\1\6\12\56\1\42\1\60\1\22\1\20\1\23"+
+            "\2\60\1\30\3\55\1\15\3\55\1\24\3\55\1\32\1\55\1\25\13\55\1\40"+
+            "\1\60\1\41\1\54\1\55\1\60\1\2\1\17\1\11\1\46\1\13\1\27\2\55"+
+            "\1\16\2\55\1\14\1\43\1\51\1\1\1\33\1\55\1\10\1\12\1\26\1\47"+
             "\1\31\1\7\3\55\1\44\1\50\1\45\uff82\60",
             "\1\63\11\uffff\1\62\1\uffff\1\61\1\uffff\1\64",
             "\1\70\12\uffff\1\66\3\uffff\1\67",
@@ -3756,14 +3756,14 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\124\6\uffff\1\123\1\122",
             "\1\125",
-            "\1\130\6\uffff\1\131\2\uffff\1\126\6\uffff\1\127",
-            "\1\132\15\uffff\1\134\5\uffff\1\133",
-            "\1\135",
-            "\1\137",
-            "\1\141\17\uffff\1\140",
-            "\1\143",
-            "\1\145\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\126",
+            "\1\130",
+            "\1\132\17\uffff\1\131",
+            "\1\134",
+            "\1\136\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\143\6\uffff\1\144\2\uffff\1\141\6\uffff\1\142",
+            "\1\145\15\uffff\1\147\5\uffff\1\146",
             "\1\150",
             "\1\151\3\uffff\1\152",
             "\1\153",
@@ -3832,6 +3832,17 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\1\u00a6",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00a8",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u00a9",
             "\1\u00aa",
             "\1\u00ab",
@@ -3839,17 +3850,6 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\u00b0",
             "\1\u00b1",
             "\1\u00b2",
@@ -4371,16 +4371,6 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA14_186 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_186>='\u0000' && LA14_186<='\uFFFF')) ) {s = 128;}
-
-                        else s = 188;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
                         int LA14_0 = input.LA(1);
 
                         s = -1;
@@ -4414,21 +4404,21 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         else if ( (LA14_0=='b') ) {s = 15;}
 
-                        else if ( (LA14_0=='t') ) {s = 16;}
+                        else if ( (LA14_0=='=') ) {s = 16;}
 
-                        else if ( (LA14_0=='f') ) {s = 17;}
+                        else if ( (LA14_0=='!') ) {s = 17;}
 
-                        else if ( (LA14_0=='=') ) {s = 18;}
+                        else if ( (LA14_0=='<') ) {s = 18;}
 
-                        else if ( (LA14_0=='!') ) {s = 19;}
+                        else if ( (LA14_0=='>') ) {s = 19;}
 
-                        else if ( (LA14_0=='<') ) {s = 20;}
+                        else if ( (LA14_0=='I') ) {s = 20;}
 
-                        else if ( (LA14_0=='>') ) {s = 21;}
+                        else if ( (LA14_0=='O') ) {s = 21;}
 
-                        else if ( (LA14_0=='I') ) {s = 22;}
+                        else if ( (LA14_0=='t') ) {s = 22;}
 
-                        else if ( (LA14_0=='O') ) {s = 23;}
+                        else if ( (LA14_0=='f') ) {s = 23;}
 
                         else if ( (LA14_0=='A') ) {s = 24;}
 
@@ -4479,6 +4469,16 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                         else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 47;}
 
                         else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||(LA14_0>='#' && LA14_0<='&')||LA14_0==';'||(LA14_0>='?' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 48;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA14_186 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_186>='\u0000' && LA14_186<='\uFFFF')) ) {s = 128;}
+
+                        else s = 188;
 
                         if ( s>=0 ) return s;
                         break;

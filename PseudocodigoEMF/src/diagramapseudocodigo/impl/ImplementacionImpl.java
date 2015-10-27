@@ -29,13 +29,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getFuncion <em>Funcion</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getGlobal <em>Global</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getConstantes <em>Constantes</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getTipocomplejo <em>Tipocomplejo</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

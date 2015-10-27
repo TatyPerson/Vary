@@ -98,11 +98,7 @@
     <eLiterals name="or" value="13"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValorBooleano" eSuperTypes="#//Operador #//operacion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="#//booleano"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="booleano">
-    <eLiterals name="verdadero"/>
-    <eLiterals name="falso" value="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Si" eSuperTypes="#//Bloque">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sino" eType="#//Sino" containment="true"/>

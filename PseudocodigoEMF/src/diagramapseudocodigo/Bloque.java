@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Bloque#getValor <em>Valor</em>}</li>
  *   <li>{@link diagramapseudocodigo.Bloque#getSentencias <em>Sentencias</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getBloque()
  * @model abstract="true"

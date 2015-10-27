@@ -10,11 +10,11 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.SubrangoNumerico#getLimite_inf <em>Limite inf</em>}</li>
  *   <li>{@link diagramapseudocodigo.SubrangoNumerico#getLimite_sup <em>Limite sup</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubrangoNumerico()
  * @model

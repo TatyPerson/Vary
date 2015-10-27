@@ -101,7 +101,6 @@ import diagramapseudocodigo.Internas
 import diagramapseudocodigo.impl.InternasImpl
 import diagramapseudocodigo.impl.unariaImpl
 import diagramapseudocodigo.unaria
-import diagramapseudocodigo.booleano
 import diagramapseudocodigo.NombreInterna
 import diagramapseudocodigo.Suma
 import diagramapseudocodigo.impl.SumaImpl
@@ -1599,7 +1598,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(ValorBooleano valBool) {
-		if (valBool.valor == booleano::VERDADERO)
+		if (valBool.valor.equals(readerMessages.getBundle().getString("VERDADERO")))
 			return "true"
 		else
 			return "false"

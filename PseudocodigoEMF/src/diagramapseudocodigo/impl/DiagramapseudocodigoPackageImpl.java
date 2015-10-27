@@ -73,7 +73,6 @@ import diagramapseudocodigo.ValorVector;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.booleano;
 import diagramapseudocodigo.cadena;
 import diagramapseudocodigo.desde;
 import diagramapseudocodigo.mientras;
@@ -629,13 +628,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EEnum signoEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum booleanoEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2614,15 +2606,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getbooleano() {
-		return booleanoEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getneg() {
 		return negEEnum;
 	}
@@ -2959,7 +2942,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		// Create enums
 		signoEEnum = createEEnum(SIGNO);
-		booleanoEEnum = createEEnum(BOOLEANO);
 		negEEnum = createEEnum(NEG);
 		nombreInternaEEnum = createEEnum(NOMBRE_INTERNA);
 		modoAperturaEEnum = createEEnum(MODO_APERTURA);
@@ -3129,7 +3111,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(operacionEClass, operacion.class, "operacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(valorBooleanoEClass, ValorBooleano.class, "ValorBooleano", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getValorBooleano_Valor(), this.getbooleano(), "valor", null, 1, 1, ValorBooleano.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValorBooleano_Valor(), ecorePackage.getEString(), "valor", null, 1, 1, ValorBooleano.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(siEClass, Si.class, "Si", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSi_Sino(), this.getSino(), null, "sino", null, 0, 1, Si.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3362,10 +3344,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		addEEnumLiteral(signoEEnum, signo.DISTINTO);
 		addEEnumLiteral(signoEEnum, signo.AND);
 		addEEnumLiteral(signoEEnum, signo.OR);
-
-		initEEnum(booleanoEEnum, booleano.class, "booleano");
-		addEEnumLiteral(booleanoEEnum, booleano.VERDADERO);
-		addEEnumLiteral(booleanoEEnum, booleano.FALSO);
 
 		initEEnum(negEEnum, neg.class, "neg");
 		addEEnumLiteral(negEEnum, neg.NO);
