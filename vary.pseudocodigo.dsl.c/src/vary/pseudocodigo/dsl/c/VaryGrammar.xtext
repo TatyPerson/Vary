@@ -10,9 +10,9 @@ Codigo returns Codigo:
 Algoritmo returns Algoritmo:
 	'Algoritmo' nombre=EString
 	(comentarios+=Comentario (comentarios+=Comentario)* )?
-	'importa'
+	('importa'
 	(importaciones+=[Modulo] (importaciones+=[Modulo])* )?
-	'fin_importa'
+	'fin_importa')?
 	('const'
 		( constantes+=Constantes (constantes+=Constantes)* )? )?
 	('tipo'
@@ -299,7 +299,7 @@ terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='
 //	 {ValorBooleano} valor=booleano;
 
 signo returns signo:
-	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=')
+	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod')
  /* TODO: implement this rule and an appropriate IValueConverter */;
  
 signoOr returns signo:
@@ -325,6 +325,9 @@ signoMultiplicacion returns signo:
 	
 signoDivision returns signo:
 	'/';
+	
+signoModulo returns signo:
+	'mod';
 
 operacion returns operacion:
 	Or;
@@ -333,7 +336,10 @@ Or returns operacion:
 	And ({Or.left=current} signo_op=signoOr right=And)*;
 
 And returns operacion:
-	Igualdad ({And.left=current} signo_op=signoAnd right=Igualdad)*;
+	Mod ({And.left=current} signo_op=signoAnd right=Mod)*;
+	
+Mod returns operacion:
+	Igualdad ({Mod.left=current} signo_op=signoModulo right=Igualdad)*;
 
 Igualdad returns operacion:
 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad right=Comparacion)*;

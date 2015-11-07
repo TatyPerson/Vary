@@ -96,6 +96,7 @@
     <eLiterals name="distinto" value="11" literal="!="/>
     <eLiterals name="and" value="12"/>
     <eLiterals name="or" value="13"/>
+    <eLiterals name="mod" value="14" literal="mod"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValorBooleano" eSuperTypes="#//Operador #//operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -336,6 +337,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Igualdad" eSuperTypes="#//operacion">
+    <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
@@ -412,5 +414,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraProcedimiento" eSuperTypes="#//CabeceraSubproceso"/>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraFuncion" eSuperTypes="#//CabeceraSubproceso">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mod" eSuperTypes="#//operacion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

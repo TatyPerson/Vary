@@ -3579,6 +3579,61 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CABECERA_FUNCION_OPERATION_COUNT = CABECERA_SUBPROCESO_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.ModImpl <em>Mod</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.ModImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getMod()
+	 * @generated
+	 */
+	int MOD = 75;
+
+	/**
+	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__SIGNO_OP = OPERACION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__RIGHT = OPERACION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__LEFT = OPERACION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Mod</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Mod</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3586,7 +3641,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 75;
+	int SIGNO = 76;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
@@ -3596,7 +3651,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
 	 * @generated
 	 */
-	int NEG = 76;
+	int NEG = 77;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
@@ -3606,7 +3661,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 77;
+	int NOMBRE_INTERNA = 78;
 
 
 	/**
@@ -3617,7 +3672,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 78;
+	int MODO_APERTURA = 79;
 
 
 	/**
@@ -3931,6 +3986,49 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getCabeceraFuncion_Tipo();
+
+	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.Mod <em>Mod</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Mod</em>'.
+	 * @see diagramapseudocodigo.Mod
+	 * @generated
+	 */
+	EClass getMod();
+
+	/**
+	 * Returns the meta object for the attribute '{@link diagramapseudocodigo.Mod#getSigno_op <em>Signo op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Signo op</em>'.
+	 * @see diagramapseudocodigo.Mod#getSigno_op()
+	 * @see #getMod()
+	 * @generated
+	 */
+	EAttribute getMod_Signo_op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Mod#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see diagramapseudocodigo.Mod#getRight()
+	 * @see #getMod()
+	 * @generated
+	 */
+	EReference getMod_Right();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Mod#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see diagramapseudocodigo.Mod#getLeft()
+	 * @see #getMod()
+	 * @generated
+	 */
+	EReference getMod_Left();
 
 	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.Inicio <em>Inicio</em>}'.
@@ -6151,6 +6249,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CABECERA_FUNCION__TIPO = eINSTANCE.getCabeceraFuncion_Tipo();
+
+		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.ModImpl <em>Mod</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.ModImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getMod()
+		 * @generated
+		 */
+		EClass MOD = eINSTANCE.getMod();
+
+		/**
+		 * The meta object literal for the '<em><b>Signo op</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MOD__SIGNO_OP = eINSTANCE.getMod_Signo_op();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MOD__RIGHT = eINSTANCE.getMod_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MOD__LEFT = eINSTANCE.getMod_Left();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.InicioImpl <em>Inicio</em>}' class.

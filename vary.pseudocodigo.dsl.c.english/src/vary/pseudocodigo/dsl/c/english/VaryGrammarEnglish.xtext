@@ -10,9 +10,9 @@ Codigo returns Codigo:
 Algoritmo returns Algoritmo:
 	'Algorithm' nombre=EString
 	(comentarios+=Comentario (comentarios+=Comentario)* )?
-	'import'
+	('import'
 	(importaciones+=[Modulo] (importaciones+=[Modulo])* )?
-	'end_import'
+	'end_import')?
 	('const'
 		( constantes+=Constantes (constantes+=Constantes)* )? )?
 	('type'
@@ -326,6 +326,9 @@ signoMultiplicacion returns signo:
 	
 signoDivision returns signo:
 	'/';
+	
+signoModulo returns signo:
+	'mod';
 
 operacion returns operacion:
 	Or;
@@ -334,7 +337,10 @@ Or returns operacion:
 	And ({Or.left=current} signo_op=signoOr right=And)*;
 
 And returns operacion:
-	Igualdad ({And.left=current} signo_op=signoAnd right=Igualdad)*;
+	Mod ({And.left=current} signo_op=signoAnd right=Mod)*;
+	
+Mod returns operacion:
+	Igualdad ({Mod.left=current} signo_op=signoModulo right=Igualdad)*;
 
 Igualdad returns operacion:
 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad right=Comparacion)*;

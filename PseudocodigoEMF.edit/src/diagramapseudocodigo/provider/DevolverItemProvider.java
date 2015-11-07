@@ -284,6 +284,11 @@ public class DevolverItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 	}
 
 	/**

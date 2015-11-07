@@ -39,6 +39,7 @@ import diagramapseudocodigo.Internas;
 import diagramapseudocodigo.Leer;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
+import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.ModoApertura;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
@@ -145,6 +146,13 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EClass cabeceraFuncionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass modEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -970,6 +978,42 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 */
 	public EAttribute getCabeceraFuncion_Tipo() {
 		return (EAttribute)cabeceraFuncionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getMod() {
+		return modEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getMod_Signo_op() {
+		return (EAttribute)modEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMod_Right() {
+		return (EReference)modEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMod_Left() {
+		return (EReference)modEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2940,6 +2984,11 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		cabeceraFuncionEClass = createEClass(CABECERA_FUNCION);
 		createEAttribute(cabeceraFuncionEClass, CABECERA_FUNCION__TIPO);
 
+		modEClass = createEClass(MOD);
+		createEAttribute(modEClass, MOD__SIGNO_OP);
+		createEReference(modEClass, MOD__RIGHT);
+		createEReference(modEClass, MOD__LEFT);
+
 		// Create enums
 		signoEEnum = createEEnum(SIGNO);
 		negEEnum = createEEnum(NEG);
@@ -3042,6 +3091,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		moduloEClass.getESuperTypes().add(this.getCodigo());
 		cabeceraProcedimientoEClass.getESuperTypes().add(this.getCabeceraSubproceso());
 		cabeceraFuncionEClass.getESuperTypes().add(this.getCabeceraSubproceso());
+		modEClass.getESuperTypes().add(this.getoperacion());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(algoritmoEClass, Algoritmo.class, "Algoritmo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3328,6 +3378,11 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(cabeceraFuncionEClass, CabeceraFuncion.class, "CabeceraFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCabeceraFuncion_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, CabeceraFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(modEClass, Mod.class, "Mod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getMod_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMod_Right(), this.getoperacion(), null, "right", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMod_Left(), this.getoperacion(), null, "left", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(signoEEnum, signo.class, "signo");
 		addEEnumLiteral(signoEEnum, signo.SUM);
@@ -3344,6 +3399,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		addEEnumLiteral(signoEEnum, signo.DISTINTO);
 		addEEnumLiteral(signoEEnum, signo.AND);
 		addEEnumLiteral(signoEEnum, signo.OR);
+		addEEnumLiteral(signoEEnum, signo.MOD);
 
 		initEEnum(negEEnum, neg.class, "neg");
 		addEEnumLiteral(negEEnum, neg.NO);
@@ -3365,6 +3421,25 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http:///org/eclipse/emf/ecore/util/ExtendedMetaData
+		createExtendedMetaDataAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:///org/eclipse/emf/ecore/util/ExtendedMetaData</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createExtendedMetaDataAnnotations() {
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		addAnnotation
+		  (igualdadEClass, 
+		   source, 
+		   new String[] {
+		   });
 	}
 
 } //DiagramapseudocodigoPackageImpl

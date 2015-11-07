@@ -23,7 +23,8 @@ Require-Bundle: vary.pseudocodigo.dsl.c.english;visibility:=reexport,
  org.eclipse.cdt.managedbuilder.core;bundle-version="8.3.0",
  org.eclipse.cdt.core;bundle-version="5.6.0",
  org.eclipse.cdt.ui;bundle-version="5.7.0",
- vary.pseudocodigo.dsl.c.ui
+ vary.pseudocodigo.dsl.c.ui,
+ org.eclipse.xtext.xbase.lib
 Import-Package: diagramapseudocodigo,
  org.apache.log4j,
  org.eclipse.xtext.xbase.lib

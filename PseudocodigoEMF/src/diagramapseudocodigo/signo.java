@@ -152,7 +152,15 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OR(13, "or", "or");
+	OR(13, "or", "or"), /**
+	 * The '<em><b>Mod</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #MOD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	MOD(14, "mod", "mod");
 
 	/**
 	 * The '<em><b>Sum</b></em>' literal value.
@@ -365,6 +373,21 @@ public enum signo implements Enumerator {
 	public static final int OR_VALUE = 13;
 
 	/**
+	 * The '<em><b>Mod</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Mod</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #MOD
+	 * @model name="mod"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int MOD_VALUE = 14;
+
+	/**
 	 * An array of all the '<em><b>signo</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -386,6 +409,7 @@ public enum signo implements Enumerator {
 			DISTINTO,
 			AND,
 			OR,
+			MOD,
 		};
 
 	/**
@@ -400,8 +424,6 @@ public enum signo implements Enumerator {
 	 * Returns the '<em><b>signo</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param literal the literal.
-	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static signo get(String literal) {
@@ -418,8 +440,6 @@ public enum signo implements Enumerator {
 	 * Returns the '<em><b>signo</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param name the name.
-	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static signo getByName(String name) {
@@ -436,8 +456,6 @@ public enum signo implements Enumerator {
 	 * Returns the '<em><b>signo</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the integer value.
-	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
 	public static signo get(int value) {
@@ -456,6 +474,7 @@ public enum signo implements Enumerator {
 			case DISTINTO_VALUE: return DISTINTO;
 			case AND_VALUE: return AND;
 			case OR_VALUE: return OR;
+			case MOD_VALUE: return MOD;
 		}
 		return null;
 	}

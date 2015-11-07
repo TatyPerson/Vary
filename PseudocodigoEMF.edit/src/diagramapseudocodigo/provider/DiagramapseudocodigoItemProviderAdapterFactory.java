@@ -233,6 +233,29 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Mod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModItemProvider modItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Mod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModAdapter() {
+		if (modItemProvider == null) {
+			modItemProvider = new ModItemProvider(this);
+		}
+
+		return modItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1850,6 +1873,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (implementacionItemProvider != null) implementacionItemProvider.dispose();
 		if (cabeceraProcedimientoItemProvider != null) cabeceraProcedimientoItemProvider.dispose();
 		if (cabeceraFuncionItemProvider != null) cabeceraFuncionItemProvider.dispose();
+		if (modItemProvider != null) modItemProvider.dispose();
 	}
 
 }

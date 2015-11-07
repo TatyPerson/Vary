@@ -85,6 +85,15 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	CabeceraFuncion createCabeceraFuncion();
 
 	/**
+	 * Returns a new object of class '<em>Mod</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mod</em>'.
+	 * @generated
+	 */
+	Mod createMod();
+
+	/**
 	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
