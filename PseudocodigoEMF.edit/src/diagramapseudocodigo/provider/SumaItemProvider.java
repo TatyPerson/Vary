@@ -297,6 +297,11 @@ public class SumaItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.SUMA__LEFT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUMA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
@@ -414,6 +419,11 @@ public class SumaItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUMA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.SUMA__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 	/**

@@ -256,6 +256,29 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Div} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DivItemProvider divItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Div}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDivAdapter() {
+		if (divItemProvider == null) {
+			divItemProvider = new DivItemProvider(this);
+		}
+
+		return divItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1874,6 +1897,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (cabeceraProcedimientoItemProvider != null) cabeceraProcedimientoItemProvider.dispose();
 		if (cabeceraFuncionItemProvider != null) cabeceraFuncionItemProvider.dispose();
 		if (modItemProvider != null) modItemProvider.dispose();
+		if (divItemProvider != null) divItemProvider.dispose();
 	}
 
 }

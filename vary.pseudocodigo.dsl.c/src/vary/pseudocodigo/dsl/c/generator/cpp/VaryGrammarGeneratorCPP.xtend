@@ -138,6 +138,10 @@ import vary.pseudocodigo.dsl.c.generator.VaryGeneratorInterface
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface
 import diagramapseudocodigo.impl.CabeceraFuncionImpl
 import diagramapseudocodigo.impl.CabeceraProcedimientoImpl
+import diagramapseudocodigo.Mod
+import diagramapseudocodigo.impl.ModImpl
+import diagramapseudocodigo.Div
+import diagramapseudocodigo.impl.DivImpl
 
 /**
  * Generates code from your model files on save.
@@ -1639,37 +1643,47 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	def generateLeerPunteros(Leer l, List<String> punteros) {
-		var leer = new String();
-		leer = "cin >> ";
-		if (l.variable.eClass.name.equals("VariableID")) {
+      var leer = new String();
+	  for(operacion op: l.variable) {
+		if(leer == "") {
+			leer = "cin >> ";
+		}
+		else {
+			leer = leer + "\n";
+			leer = leer + "cin >> ";
+		}
+		if (op.eClass.name.equals("VariableID")) {
 			var VariableID prueba = new VariableIDImpl
-			prueba = l.variable as VariableID
+			prueba = op as VariableID
 			if(punteros.contains(prueba.nombre)) {
 				leer = leer + "*" + prueba.generate + ";"
 			}
 		}
-		else if (l.variable.eClass.name.equals("ValorVector")) {
+		else if (op.eClass.name.equals("ValorVector")) {
 			var ValorVector prueba = new ValorVectorImpl
-			prueba = l.variable as ValorVector
+			prueba = op as ValorVector
 			if(punteros.contains(prueba.nombre_vector)) {
 				leer = leer + "*" + prueba.generate + ";"
 			}
 		}
-		else if (l.variable.eClass.name.equals("ValorMatriz")) {
+		else if (op.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
-			prueba = l.variable as ValorMatriz
+			prueba = op as ValorMatriz
 			if(punteros.contains(prueba.nombre_matriz)) {
 				leer = leer + "*" + prueba.generate + ";"
 			}
 		}
 		else {
-			leer = leer + l.variable.generate + ";";
+			leer = leer + op.generate + ";";
+		}
 		}
 		return leer;
 	}
 
 	override generate(Leer l) '''
-		cin >> «l.variable.generate»;
+		«FOR op:l.variable»
+			cin >> «op.generate»;
+		«ENDFOR»
 	'''
 	
 	def contienenExpresionLeer(EList<Sentencias> sentencias, Leer l) {
@@ -2097,6 +2111,16 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Division
 			prueba.generate
 		}
+		else if (op.eClass.name.equals("Div")) {
+			var Div prueba = new DivImpl
+			prueba = op as Div
+			prueba.generate
+		}
+		else if(op.eClass.name.equals("Mod")) {
+			var Mod prueba = new ModImpl
+			prueba = op as Mod
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -2204,6 +2228,16 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Division
 			prueba.generate
 		}
+		else if (op.eClass.name.equals("Div")) {
+			var Div prueba = new DivImpl
+			prueba = op as Div
+			prueba.generate
+		}
+		else if(op.eClass.name.equals("Mod")) {
+			var Mod prueba = new ModImpl
+			prueba = op as Mod
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -2252,6 +2286,14 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
 	}
 	
+	def generate(Div myDivi) {
+		return myDivi.left.generate + " " + "/" + " " + myDivi.right.generate;
+	}
+	
+	def generate(Mod myMod) {
+		return myMod.left.generate + " " + "%" + " " + myMod.right.generate;
+	}
+	
 	override generate(Or myOr) {
 		return myOr.left.generate + " " + "||" + " " + myOr.right.generate;
 	}
@@ -2265,7 +2307,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Igualdad myIgualdad) {
-		return myIgualdad.left.generate + " " + myIgualdad.signo_op + " " + myIgualdad.right.generate;
+		return myIgualdad.left.generate + " " + "==" + " " + myIgualdad.right.generate;
 	}
 	
 	override generate(Negativa myNegativa) {

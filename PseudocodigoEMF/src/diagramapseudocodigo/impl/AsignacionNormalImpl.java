@@ -26,12 +26,12 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.AsignacionNormalImpl#getMat <em>Mat</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AsignacionNormalImpl#getValor_asignacion <em>Valor asignacion</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AsignacionNormalImpl#getOperador <em>Operador</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

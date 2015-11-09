@@ -263,6 +263,11 @@ public class NegacionItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

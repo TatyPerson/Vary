@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.DevolverImpl#getEReference0 <em>EReference0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.DevolverImpl#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

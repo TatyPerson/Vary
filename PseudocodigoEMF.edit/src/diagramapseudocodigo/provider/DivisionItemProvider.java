@@ -297,6 +297,11 @@ public class DivisionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.DIVISION__LEFT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.DIVISION__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
@@ -414,6 +419,11 @@ public class DivisionItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.DIVISION__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.DIVISION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 	/**

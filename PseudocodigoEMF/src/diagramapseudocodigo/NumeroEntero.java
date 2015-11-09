@@ -10,10 +10,10 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.NumeroEntero#getValor <em>Valor</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getNumeroEntero()
  * @model

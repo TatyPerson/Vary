@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.DeclaracionPropiaImpl#getTipo <em>Tipo</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.DeclaracionPropiaImpl#getVariable <em>Variable</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

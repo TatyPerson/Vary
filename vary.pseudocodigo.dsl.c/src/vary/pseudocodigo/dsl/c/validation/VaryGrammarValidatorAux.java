@@ -21,6 +21,7 @@ import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DeclaracionPropia;
 import diagramapseudocodigo.DeclaracionVariable;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Div;
 import diagramapseudocodigo.Division;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Funcion;
@@ -28,6 +29,7 @@ import diagramapseudocodigo.Igualdad;
 import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
+import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.Multiplicacion;
 import diagramapseudocodigo.Negacion;
 import diagramapseudocodigo.Negativa;
@@ -580,7 +582,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 */
 	
 	protected boolean esOperacion(operacion op) {
-		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion) {
+		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion || op instanceof Mod || op instanceof Div) {
 			return true;
 		}
 		else {

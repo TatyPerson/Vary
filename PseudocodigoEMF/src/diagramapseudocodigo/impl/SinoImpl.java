@@ -23,11 +23,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.SinoImpl#getSentencias <em>Sentencias</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.SinoImpl#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

@@ -10,10 +10,10 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ConstCadena#getContenido <em>Contenido</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getConstCadena()
  * @model

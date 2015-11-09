@@ -12,13 +12,13 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getNombre_matriz <em>Nombre matriz</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getCampo <em>Campo</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getPrimerIndice <em>Primer Indice</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getSegundoIndice <em>Segundo Indice</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorMatriz()
  * @model

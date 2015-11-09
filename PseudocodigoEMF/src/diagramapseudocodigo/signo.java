@@ -126,7 +126,7 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	IGUALIGUAL(10, "igualigual", "=="),
+	IGUALIGUAL(10, "igualigual", "="),
 
 	/**
 	 * The '<em><b>Distinto</b></em>' literal object.
@@ -160,7 +160,15 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MOD(14, "mod", "mod");
+	MOD(14, "mod", "mod"), /**
+	 * The '<em><b>Div real</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DIV_REAL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DIV_REAL(15, "div_real", "div");
 
 	/**
 	 * The '<em><b>Sum</b></em>' literal value.
@@ -321,7 +329,7 @@ public enum signo implements Enumerator {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #IGUALIGUAL
-	 * @model name="igualigual" literal="=="
+	 * @model name="igualigual" literal="="
 	 * @generated
 	 * @ordered
 	 */
@@ -388,6 +396,21 @@ public enum signo implements Enumerator {
 	public static final int MOD_VALUE = 14;
 
 	/**
+	 * The '<em><b>Div real</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Div real</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DIV_REAL
+	 * @model name="div_real" literal="div"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DIV_REAL_VALUE = 15;
+
+	/**
 	 * An array of all the '<em><b>signo</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -410,6 +433,7 @@ public enum signo implements Enumerator {
 			AND,
 			OR,
 			MOD,
+			DIV_REAL,
 		};
 
 	/**
@@ -475,6 +499,7 @@ public enum signo implements Enumerator {
 			case AND_VALUE: return AND;
 			case OR_VALUE: return OR;
 			case MOD_VALUE: return MOD;
+			case DIV_REAL_VALUE: return DIV_REAL;
 		}
 		return null;
 	}

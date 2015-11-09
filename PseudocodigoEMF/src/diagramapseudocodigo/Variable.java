@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Variable#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Variable#getMat <em>Mat</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVariable()
  * @model

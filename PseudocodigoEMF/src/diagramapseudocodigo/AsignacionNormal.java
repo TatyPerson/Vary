@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.AsignacionNormal#getMat <em>Mat</em>}</li>
  *   <li>{@link diagramapseudocodigo.AsignacionNormal#getValor_asignacion <em>Valor asignacion</em>}</li>
  *   <li>{@link diagramapseudocodigo.AsignacionNormal#getOperador <em>Operador</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAsignacionNormal()
  * @model

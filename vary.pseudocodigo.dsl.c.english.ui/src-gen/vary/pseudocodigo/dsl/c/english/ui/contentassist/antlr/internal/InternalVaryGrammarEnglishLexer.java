@@ -94,6 +94,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
     public static final int T__111=111;
     public static final int T__110=110;
     public static final int RULE_INT=4;
+    public static final int T__113=113;
     public static final int RULE_COMENT=8;
     public static final int T__112=112;
     public static final int T__50=50;
@@ -284,10 +285,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:18:7: ( 'writing' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:18:9: 'writing'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:18:7: ( 'div' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:18:9: 'div'
             {
-            match("writing"); 
+            match("div"); 
 
 
             }
@@ -305,10 +306,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19:7: ( 'reading' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19:9: 'reading'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19:7: ( 'writing' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19:9: 'writing'
             {
-            match("reading"); 
+            match("writing"); 
 
 
             }
@@ -326,10 +327,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:20:7: ( 'cos' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:20:9: 'cos'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:20:7: ( 'reading' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:20:9: 'reading'
             {
-            match("cos"); 
+            match("reading"); 
 
 
             }
@@ -347,10 +348,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21:7: ( 'square' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21:9: 'square'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21:7: ( 'cos' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21:9: 'cos'
             {
-            match("square"); 
+            match("cos"); 
 
 
             }
@@ -368,10 +369,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:22:7: ( 'exp' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:22:9: 'exp'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:22:7: ( 'square' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:22:9: 'square'
             {
-            match("exp"); 
+            match("square"); 
 
 
             }
@@ -389,10 +390,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:23:7: ( 'ln' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:23:9: 'ln'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:23:7: ( 'exp' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:23:9: 'exp'
             {
-            match("ln"); 
+            match("exp"); 
 
 
             }
@@ -410,10 +411,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:24:7: ( 'log' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:24:9: 'log'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:24:7: ( 'ln' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:24:9: 'ln'
             {
-            match("log"); 
+            match("ln"); 
 
 
             }
@@ -431,10 +432,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:25:7: ( 'sen' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:25:9: 'sen'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:25:7: ( 'log' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:25:9: 'log'
             {
-            match("sen"); 
+            match("log"); 
 
 
             }
@@ -452,10 +453,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:26:7: ( 'sqrt' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:26:9: 'sqrt'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:26:7: ( 'sen' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:26:9: 'sen'
             {
-            match("sqrt"); 
+            match("sen"); 
 
 
             }
@@ -473,10 +474,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:27:7: ( 'length' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:27:9: 'length'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:27:7: ( 'sqrt' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:27:9: 'sqrt'
             {
-            match("length"); 
+            match("sqrt"); 
 
 
             }
@@ -494,10 +495,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:28:7: ( 'concatena' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:28:9: 'concatena'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:28:7: ( 'length' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:28:9: 'length'
             {
-            match("concatena"); 
+            match("length"); 
 
 
             }
@@ -515,10 +516,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:29:7: ( 'E' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:29:9: 'E'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:29:7: ( 'concatena' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:29:9: 'concatena'
             {
-            match('E'); 
+            match("concatena"); 
+
 
             }
 
@@ -535,10 +537,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:30:7: ( 'e' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:30:9: 'e'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:30:7: ( 'E' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:30:9: 'E'
             {
-            match('e'); 
+            match('E'); 
 
             }
 
@@ -555,11 +557,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:31:7: ( 'integer' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:31:9: 'integer'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:31:7: ( 'e' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:31:9: 'e'
             {
-            match("integer"); 
-
+            match('e'); 
 
             }
 
@@ -576,10 +577,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:32:7: ( 'character' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:32:9: 'character'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:32:7: ( 'integer' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:32:9: 'integer'
             {
-            match("character"); 
+            match("integer"); 
 
 
             }
@@ -597,10 +598,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:33:7: ( 'real' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:33:9: 'real'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:33:7: ( 'character' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:33:9: 'character'
             {
-            match("real"); 
+            match("character"); 
 
 
             }
@@ -618,10 +619,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:34:7: ( 'boolean' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:34:9: 'boolean'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:34:7: ( 'real' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:34:9: 'real'
             {
-            match("boolean"); 
+            match("real"); 
 
 
             }
@@ -639,10 +640,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:7: ( 'string' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:9: 'string'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:7: ( 'boolean' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:35:9: 'boolean'
             {
-            match("string"); 
+            match("boolean"); 
 
 
             }
@@ -660,10 +661,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:7: ( '==' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:9: '=='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:7: ( 'string' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:36:9: 'string'
             {
-            match("=="); 
+            match("string"); 
 
 
             }
@@ -681,11 +682,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:7: ( '!=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:9: '!='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:7: ( '=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:37:9: '='
             {
-            match("!="); 
-
+            match('='); 
 
             }
 
@@ -702,10 +702,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:7: ( '<' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:9: '<'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:7: ( '!=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:38:9: '!='
             {
-            match('<'); 
+            match("!="); 
+
 
             }
 
@@ -722,10 +723,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:7: ( '>' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:9: '>'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:7: ( '<' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:39:9: '<'
             {
-            match('>'); 
+            match('<'); 
 
             }
 
@@ -742,11 +743,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:7: ( '>=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:9: '>='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:7: ( '>' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:40:9: '>'
             {
-            match(">="); 
-
+            match('>'); 
 
             }
 
@@ -763,10 +763,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:7: ( '<=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:9: '<='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:7: ( '>=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:41:9: '>='
             {
-            match("<="); 
+            match(">="); 
 
 
             }
@@ -784,10 +784,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:7: ( 'I' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:9: 'I'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:7: ( '<=' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:42:9: '<='
             {
-            match('I'); 
+            match("<="); 
+
 
             }
 
@@ -804,11 +805,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:7: ( 'I/O' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:9: 'I/O'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:7: ( 'I' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:43:9: 'I'
             {
-            match("I/O"); 
-
+            match('I'); 
 
             }
 
@@ -825,10 +825,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:7: ( 'O' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:9: 'O'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:7: ( 'I/O' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:44:9: 'I/O'
             {
-            match('O'); 
+            match("I/O"); 
+
 
             }
 
@@ -845,11 +846,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:7: ( 'true' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:9: 'true'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:7: ( 'O' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:45:9: 'O'
             {
-            match("true"); 
-
+            match('O'); 
 
             }
 
@@ -866,10 +866,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:46:7: ( 'false' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:46:9: 'false'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:46:7: ( 'true' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:46:9: 'true'
             {
-            match("false"); 
+            match("true"); 
 
 
             }
@@ -887,10 +887,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:47:7: ( 'Algorithm' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:47:9: 'Algorithm'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:47:7: ( 'false' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:47:9: 'false'
             {
-            match("Algorithm"); 
+            match("false"); 
 
 
             }
@@ -908,10 +908,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:48:7: ( 'end_algorithm' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:48:9: 'end_algorithm'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:48:7: ( 'Algorithm' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:48:9: 'Algorithm'
             {
-            match("end_algorithm"); 
+            match("Algorithm"); 
 
 
             }
@@ -929,10 +929,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:49:7: ( 'import' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:49:9: 'import'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:49:7: ( 'end_algorithm' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:49:9: 'end_algorithm'
             {
-            match("import"); 
+            match("end_algorithm"); 
 
 
             }
@@ -950,10 +950,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:50:7: ( 'end_import' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:50:9: 'end_import'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:50:7: ( 'import' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:50:9: 'import'
             {
-            match("end_import"); 
+            match("import"); 
 
 
             }
@@ -971,10 +971,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:51:7: ( 'const' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:51:9: 'const'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:51:7: ( 'end_import' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:51:9: 'end_import'
             {
-            match("const"); 
+            match("end_import"); 
 
 
             }
@@ -992,10 +992,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:52:7: ( 'type' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:52:9: 'type'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:52:7: ( 'const' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:52:9: 'const'
             {
-            match("type"); 
+            match("const"); 
 
 
             }
@@ -1013,10 +1013,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:53:7: ( 'var' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:53:9: 'var'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:53:7: ( 'type' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:53:9: 'type'
             {
-            match("var"); 
+            match("type"); 
 
 
             }
@@ -1034,10 +1034,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:54:7: ( 'Module' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:54:9: 'Module'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:54:7: ( 'var' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:54:9: 'var'
             {
-            match("Module"); 
+            match("var"); 
 
 
             }
@@ -1055,10 +1055,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:55:7: ( 'export' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:55:9: 'export'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:55:7: ( 'Module' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:55:9: 'Module'
             {
-            match("export"); 
+            match("Module"); 
 
 
             }
@@ -1076,10 +1076,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:56:7: ( 'end_export' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:56:9: 'end_export'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:56:7: ( 'export' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:56:9: 'export'
             {
-            match("end_export"); 
+            match("export"); 
 
 
             }
@@ -1097,10 +1097,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:57:7: ( 'end_module' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:57:9: 'end_module'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:57:7: ( 'end_export' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:57:9: 'end_export'
             {
-            match("end_module"); 
+            match("end_export"); 
 
 
             }
@@ -1118,10 +1118,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:58:7: ( 'implementation' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:58:9: 'implementation'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:58:7: ( 'end_module' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:58:9: 'end_module'
             {
-            match("implementation"); 
+            match("end_module"); 
 
 
             }
@@ -1139,10 +1139,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:59:7: ( 'end_implementation' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:59:9: 'end_implementation'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:59:7: ( 'implementation' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:59:9: 'implementation'
             {
-            match("end_implementation"); 
+            match("implementation"); 
 
 
             }
@@ -1160,10 +1160,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:60:7: ( 'procedure' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:60:9: 'procedure'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:60:7: ( 'end_implementation' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:60:9: 'end_implementation'
             {
-            match("procedure"); 
+            match("end_implementation"); 
 
 
             }
@@ -1181,10 +1181,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:61:7: ( '(' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:61:9: '('
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:61:7: ( 'procedure' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:61:9: 'procedure'
             {
-            match('('); 
+            match("procedure"); 
+
 
             }
 
@@ -1201,10 +1202,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:62:7: ( ')' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:62:9: ')'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:62:7: ( '(' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:62:9: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -1221,10 +1222,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:63:7: ( ',' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:63:9: ','
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:63:7: ( ')' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:63:9: ')'
             {
-            match(','); 
+            match(')'); 
 
             }
 
@@ -1241,11 +1242,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:64:7: ( 'function' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:64:9: 'function'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:64:7: ( ',' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:64:9: ','
             {
-            match("function"); 
-
+            match(','); 
 
             }
 
@@ -1262,10 +1262,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:65:7: ( 'open' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:65:9: 'open'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:65:7: ( 'function' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:65:9: 'function'
             {
-            match("open"); 
+            match("function"); 
 
 
             }
@@ -1283,10 +1283,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:66:7: ( 'close' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:66:9: 'close'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:66:7: ( 'open' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:66:9: 'open'
             {
-            match("close"); 
+            match("open"); 
 
 
             }
@@ -1304,10 +1304,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:67:7: ( '.' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:67:9: '.'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:67:7: ( 'close' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:67:9: 'close'
             {
-            match('.'); 
+            match("close"); 
+
 
             }
 
@@ -1324,10 +1325,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:68:7: ( '=' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:68:9: '='
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:68:7: ( '.' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:68:9: '.'
             {
-            match('='); 
+            match('.'); 
 
             }
 
@@ -1676,10 +1677,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:85:7: ( '<-' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:85:9: '<-'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:85:7: ( 'end_main' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:85:9: 'end_main'
             {
-            match("<-"); 
+            match("end_main"); 
 
 
             }
@@ -1697,10 +1698,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:86:7: ( 'write' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:86:9: 'write'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:86:7: ( '<-' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:86:9: '<-'
             {
-            match("write"); 
+            match("<-"); 
 
 
             }
@@ -1718,10 +1719,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:87:7: ( 'read' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:87:9: 'read'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:87:7: ( 'write' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:87:9: 'write'
             {
-            match("read"); 
+            match("write"); 
 
 
             }
@@ -1739,10 +1740,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:88:7: ( 'if' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:88:9: 'if'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:88:7: ( 'read' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:88:9: 'read'
             {
-            match("if"); 
+            match("read"); 
 
 
             }
@@ -1760,10 +1761,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:89:7: ( 'then' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:89:9: 'then'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:89:7: ( 'if' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:89:9: 'if'
             {
-            match("then"); 
+            match("if"); 
 
 
             }
@@ -1781,10 +1782,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:90:7: ( 'end_if' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:90:9: 'end_if'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:90:7: ( 'then' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:90:9: 'then'
             {
-            match("end_if"); 
+            match("then"); 
 
 
             }
@@ -1802,10 +1803,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:91:7: ( 'while' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:91:9: 'while'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:91:7: ( 'end_if' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:91:9: 'end_if'
             {
-            match("while"); 
+            match("end_if"); 
 
 
             }
@@ -1823,10 +1824,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:92:7: ( 'do' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:92:9: 'do'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:92:7: ( 'while' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:92:9: 'while'
             {
-            match("do"); 
+            match("while"); 
 
 
             }
@@ -1844,10 +1845,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:93:7: ( 'end_while' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:93:9: 'end_while'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:93:7: ( 'do' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:93:9: 'do'
             {
-            match("end_while"); 
+            match("do"); 
 
 
             }
@@ -1865,10 +1866,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:94:7: ( 'repeat' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:94:9: 'repeat'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:94:7: ( 'end_while' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:94:9: 'end_while'
             {
-            match("repeat"); 
+            match("end_while"); 
 
 
             }
@@ -1886,10 +1887,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:95:7: ( 'until' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:95:9: 'until'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:95:7: ( 'repeat' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:95:9: 'repeat'
             {
-            match("until"); 
+            match("repeat"); 
 
 
             }
@@ -1907,10 +1908,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:96:7: ( 'for' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:96:9: 'for'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:96:7: ( 'until' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:96:9: 'until'
             {
-            match("for"); 
+            match("until"); 
 
 
             }
@@ -1928,10 +1929,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:97:8: ( 'to' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:97:10: 'to'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:97:8: ( 'for' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:97:10: 'for'
             {
-            match("to"); 
+            match("for"); 
 
 
             }
@@ -1949,10 +1950,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:98:8: ( 'end_for' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:98:10: 'end_for'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:98:8: ( 'to' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:98:10: 'to'
             {
-            match("end_for"); 
+            match("to"); 
 
 
             }
@@ -1970,10 +1971,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:99:8: ( 'case' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:99:10: 'case'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:99:8: ( 'end_for' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:99:10: 'end_for'
             {
-            match("case"); 
+            match("end_for"); 
 
 
             }
@@ -1991,10 +1992,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:100:8: ( 'according_to' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:100:10: 'according_to'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:100:8: ( 'case' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:100:10: 'case'
             {
-            match("according_to"); 
+            match("case"); 
 
 
             }
@@ -2012,10 +2013,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:101:8: ( 'otherwise:' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:101:10: 'otherwise:'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:101:8: ( 'according_to' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:101:10: 'according_to'
             {
-            match("otherwise:"); 
+            match("according_to"); 
 
 
             }
@@ -2033,10 +2034,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:102:8: ( 'end_according_to' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:102:10: 'end_according_to'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:102:8: ( 'otherwise:' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:102:10: 'otherwise:'
             {
-            match("end_according_to"); 
+            match("otherwise:"); 
 
 
             }
@@ -2054,10 +2055,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:103:8: ( '|' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:103:10: '|'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:103:8: ( 'end_according_to' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:103:10: 'end_according_to'
             {
-            match('|'); 
+            match("end_according_to"); 
+
 
             }
 
@@ -2074,11 +2076,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:104:8: ( '-(' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:104:10: '-('
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:104:8: ( '|' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:104:10: '|'
             {
-            match("-("); 
-
+            match('|'); 
 
             }
 
@@ -2095,10 +2096,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:105:8: ( 'not' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:105:10: 'not'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:105:8: ( '-(' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:105:10: '-('
             {
-            match("not"); 
+            match("-("); 
 
 
             }
@@ -2116,10 +2117,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:106:8: ( 'else' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:106:10: 'else'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:106:8: ( 'not' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:106:10: 'not'
             {
-            match("else"); 
+            match("not"); 
 
 
             }
@@ -2137,10 +2138,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:107:8: ( 'return' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:107:10: 'return'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:107:8: ( 'else' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:107:10: 'else'
             {
-            match("return"); 
+            match("else"); 
 
 
             }
@@ -2158,10 +2159,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:108:8: ( 'end_function' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:108:10: 'end_function'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:108:8: ( 'return' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:108:10: 'return'
             {
-            match("end_function"); 
+            match("return"); 
 
 
             }
@@ -2179,10 +2180,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:109:8: ( 'end_procedure' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:109:10: 'end_procedure'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:109:8: ( 'end_function' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:109:10: 'end_function'
             {
-            match("end_procedure"); 
+            match("end_function"); 
 
 
             }
@@ -2195,17 +2196,38 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
     }
     // $ANTLR end "T__112"
 
+    // $ANTLR start "T__113"
+    public final void mT__113() throws RecognitionException {
+        try {
+            int _type = T__113;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:110:8: ( 'end_procedure' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:110:10: 'end_procedure'
+            {
+            match("end_procedure"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__113"
+
     // $ANTLR start "RULE_SL_COMMENT"
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -2218,7 +2240,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2238,7 +2260,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 }
             } while (true);
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:40: ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:40: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2247,9 +2269,9 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:41: ( '\\r' )? '\\n'
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:41: ( '\\r' )? '\\n'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:41: ( '\\r' )?
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:41: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2258,7 +2280,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21254:41: '\\r'
+                            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21792:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2290,11 +2312,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_CAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21256:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21256:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21794:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21794:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
             {
             match('\"'); 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21256:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21794:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
             loop4:
             do {
                 int alt4=2;
@@ -2344,8 +2366,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_CAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21258:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21258:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21796:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21796:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
             {
             match('\''); 
             if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2374,12 +2396,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_COMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21260:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21260:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21798:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21798:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21260:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21798:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -2430,10 +2452,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21262:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21262:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21800:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21800:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21262:11: ( '^' )?
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21800:11: ( '^' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2442,7 +2464,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21262:11: '^'
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21800:11: '^'
                     {
                     match('^'); 
 
@@ -2460,7 +2482,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21262:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21800:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop7:
             do {
                 int alt7=2;
@@ -2509,10 +2531,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21264:10: ( ( '0' .. '9' )+ )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21264:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21802:10: ( ( '0' .. '9' )+ )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21802:12: ( '0' .. '9' )+
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21264:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21802:12: ( '0' .. '9' )+
             int cnt8=0;
             loop8:
             do {
@@ -2526,7 +2548,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21264:13: '0' .. '9'
+            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21802:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2558,10 +2580,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2579,10 +2601,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -2598,7 +2620,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:21: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2606,7 +2628,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2631,10 +2653,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2650,7 +2672,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:54: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2658,7 +2680,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21266:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21804:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2701,12 +2723,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21268:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21268:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21806:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21806:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21268:24: ( options {greedy=false; } : . )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21806:24: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -2731,7 +2753,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21268:52: .
+            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21806:52: .
             	    {
             	    matchAny(); 
 
@@ -2761,10 +2783,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21270:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21270:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21808:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21808:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21270:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21808:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2818,8 +2840,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21272:16: ( . )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21272:18: .
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21810:16: ( . )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21810:18: .
             {
             matchAny(); 
 
@@ -2834,8 +2856,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=109;
+        // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=110;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -3532,70 +3554,77 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 }
                 break;
             case 100 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:617: RULE_SL_COMMENT
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:617: T__113
+                {
+                mT__113(); 
+
+                }
+                break;
+            case 101 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:624: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 101 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:633: RULE_CAD
+            case 102 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:640: RULE_CAD
                 {
                 mRULE_CAD(); 
 
                 }
                 break;
-            case 102 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:642: RULE_CAR
+            case 103 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:649: RULE_CAR
                 {
                 mRULE_CAR(); 
 
                 }
                 break;
-            case 103 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:651: RULE_COMENT
+            case 104 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:658: RULE_COMENT
                 {
                 mRULE_COMENT(); 
 
                 }
                 break;
-            case 104 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:663: RULE_ID
+            case 105 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:670: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 105 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:671: RULE_INT
+            case 106 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:678: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 106 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:680: RULE_STRING
+            case 107 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:687: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 107 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:692: RULE_ML_COMMENT
+            case 108 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:699: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 108 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:708: RULE_WS
+            case 109 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:715: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 109 :
-                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:716: RULE_ANY_OTHER
+            case 110 :
+                // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:1:723: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3609,19 +3638,19 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\2\65\1\uffff\1\73\1\uffff\1\77\5\65\1\117\1\65\1\123\2\65\1\131\1\60\1\135\1\137\1\141\1\142\6\65\3\uffff\1\163\1\uffff\1\166\1\60\2\uffff\2\65\1\uffff\1\65\3\60\4\uffff\1\u0086\1\65\1\u0088\1\65\1\uffff\3\65\7\uffff\17\65\1\uffff\1\u00a5\2\65\1\uffff\2\65\1\u00ab\1\65\13\uffff\3\65\1\u00b0\10\65\13\uffff\1\u00b9\1\65\1\uffff\1\65\11\uffff\1\65\1\uffff\1\65\1\u00c3\2\65\3\uffff\1\u00c7\10\65\1\u00d1\6\65\1\u00d9\1\65\1\u00dc\2\65\1\uffff\1\u00df\4\65\1\uffff\4\65\1\uffff\2\65\1\u00eb\1\65\1\u00ed\3\65\1\uffff\1\65\1\u00f2\1\u00be\2\uffff\1\u00f3\1\uffff\1\u00f4\1\65\1\uffff\2\65\1\u00f8\1\uffff\1\65\1\u00fa\2\65\1\u00ff\1\u0100\3\65\1\uffff\4\65\1\u0108\1\65\1\u010a\1\uffff\2\65\1\uffff\1\65\1\u0115\1\uffff\6\65\1\u011c\1\u011d\1\u011e\2\65\1\uffff\1\65\1\uffff\4\65\3\uffff\3\65\1\uffff\1\65\1\uffff\1\65\1\u012b\1\u012c\1\65\2\uffff\4\65\1\u0132\1\65\1\u0134\1\uffff\1\65\1\uffff\12\65\1\uffff\6\65\3\uffff\1\u014a\5\65\1\u0150\3\65\1\u0154\1\65\2\uffff\2\65\1\u0158\1\u0159\1\65\1\uffff\1\65\1\uffff\1\u015c\1\u015d\1\u015e\4\65\1\u0163\7\65\1\u016b\2\65\1\u016e\2\65\1\uffff\2\65\1\u0173\1\u0174\1\65\1\uffff\3\65\1\uffff\1\u0179\1\u017a\1\65\2\uffff\2\65\3\uffff\4\65\1\uffff\4\65\1\u0187\2\65\1\uffff\1\u018a\1\65\1\uffff\1\65\1\u018d\2\65\2\uffff\2\65\1\uffff\1\65\2\uffff\14\65\1\uffff\2\65\1\uffff\2\65\1\uffff\1\u01a3\4\65\1\uffff\1\u01a8\1\u01a9\10\65\1\u01b2\4\65\1\uffff\1\u01b7\1\u01b8\1\uffff\1\65\2\uffff\2\65\1\u01bc\2\65\1\u01bf\1\u01c0\1\65\1\uffff\2\65\1\u01c4\1\65\2\uffff\3\65\1\uffff\2\65\2\uffff\3\65\1\uffff\1\65\1\u01cf\4\65\1\u01d4\1\u01d5\2\65\1\uffff\1\u01d8\3\65\2\uffff\1\u01dc\1\65\1\uffff\2\65\1\u01e0\1\uffff\1\u01e1\2\65\2\uffff\1\u01e4\1\65\1\uffff\1\65\1\u01e7\1\uffff";
+        "\1\uffff\2\65\1\uffff\1\73\1\uffff\1\77\6\65\1\121\1\65\1\125\2\65\1\uffff\1\60\1\136\1\140\1\142\1\143\6\65\3\uffff\1\164\1\uffff\1\167\1\60\2\uffff\1\65\1\uffff\1\65\3\60\4\uffff\1\u0086\1\65\1\u0088\1\65\1\uffff\3\65\7\uffff\3\65\1\u0094\15\65\1\uffff\1\u00a7\2\65\1\uffff\2\65\1\u00ad\1\65\12\uffff\3\65\1\u00b2\10\65\13\uffff\1\65\1\uffff\1\65\11\uffff\1\65\1\uffff\1\65\1\u00c4\2\65\3\uffff\1\u00c8\2\65\1\u00cb\1\uffff\6\65\1\u00d3\6\65\1\u00db\1\65\1\u00de\2\65\1\uffff\1\u00e1\4\65\1\uffff\4\65\1\uffff\2\65\1\u00ed\1\65\1\u00ef\4\65\1\u00f4\1\u00bf\2\uffff\1\u00f5\1\uffff\1\u00f6\1\65\1\uffff\2\65\1\u00fa\1\uffff\1\65\1\u00fc\1\uffff\2\65\1\u0101\1\u0102\3\65\1\uffff\4\65\1\u010a\1\65\1\u010c\1\uffff\2\65\1\uffff\1\65\1\u0117\1\uffff\6\65\1\u011e\1\u011f\1\u0120\2\65\1\uffff\1\65\1\uffff\4\65\3\uffff\3\65\1\uffff\1\65\1\uffff\1\65\1\u012d\1\u012e\1\65\2\uffff\4\65\1\u0134\1\65\1\u0136\1\uffff\1\65\1\uffff\12\65\1\uffff\6\65\3\uffff\1\u014d\5\65\1\u0153\3\65\1\u0157\1\65\2\uffff\2\65\1\u015b\1\u015c\1\65\1\uffff\1\65\1\uffff\1\u015f\1\u0160\1\u0161\4\65\1\u0166\10\65\1\u016f\2\65\1\u0172\2\65\1\uffff\2\65\1\u0177\1\u0178\1\65\1\uffff\3\65\1\uffff\1\u017d\1\u017e\1\65\2\uffff\2\65\3\uffff\4\65\1\uffff\5\65\1\u018c\2\65\1\uffff\1\u018f\1\65\1\uffff\1\65\1\u0192\2\65\2\uffff\2\65\1\uffff\1\65\2\uffff\12\65\1\u01a2\2\65\1\uffff\2\65\1\uffff\2\65\1\uffff\1\u01a9\4\65\1\uffff\1\u01ae\1\u01af\7\65\1\uffff\1\65\1\u01b8\4\65\1\uffff\1\u01bd\1\u01be\1\uffff\1\65\2\uffff\2\65\1\u01c2\2\65\1\u01c5\1\u01c6\1\65\1\uffff\2\65\1\u01ca\1\65\2\uffff\3\65\1\uffff\2\65\2\uffff\3\65\1\uffff\1\65\1\u01d5\4\65\1\u01da\1\u01db\2\65\1\uffff\1\u01de\3\65\2\uffff\1\u01e2\1\65\1\uffff\2\65\1\u01e6\1\uffff\1\u01e7\2\65\2\uffff\1\u01ea\1\65\1\uffff\1\65\1\u01ed\1\uffff";
     static final String DFA14_eofS =
-        "\u01e8\uffff";
+        "\u01ee\uffff";
     static final String DFA14_minS =
-        "\1\0\1\146\1\143\1\uffff\1\50\1\uffff\1\52\1\141\1\150\1\145\1\141\1\145\1\60\1\145\1\60\1\146\1\157\2\75\1\55\1\75\1\57\1\60\1\150\1\141\1\154\1\141\1\157\1\162\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\1\157\1\156\1\uffff\1\157\2\0\1\101\4\uffff\1\60\1\145\1\60\1\150\1\uffff\1\144\2\143\5\uffff\1\0\1\uffff\1\144\3\151\1\141\1\156\1\141\1\157\1\163\1\162\1\156\1\162\1\160\1\144\1\163\1\uffff\1\60\1\147\1\156\1\uffff\1\151\1\160\1\60\1\157\13\uffff\1\165\1\160\1\145\1\60\1\154\1\156\1\162\1\147\1\162\1\143\1\144\1\157\13\uffff\1\60\1\164\1\uffff\1\164\1\0\1\uffff\1\0\1\uffff\2\0\3\uffff\1\156\1\uffff\1\145\1\60\1\150\1\157\2\0\1\uffff\1\60\1\162\1\156\1\164\1\154\1\144\1\151\1\145\1\165\1\60\1\143\1\162\1\163\1\145\1\141\1\164\1\60\1\151\1\60\1\137\1\145\1\uffff\1\60\1\147\1\145\1\164\1\154\1\uffff\1\154\2\145\1\156\1\uffff\1\163\1\143\1\60\1\157\1\60\1\164\1\165\1\143\1\uffff\1\151\1\60\2\0\1\uffff\1\0\1\uffff\1\60\1\162\1\uffff\1\151\1\162\1\0\1\uffff\1\151\1\60\2\145\2\60\1\163\1\141\1\162\1\uffff\1\141\1\164\1\141\1\145\1\60\1\162\1\60\1\uffff\1\156\1\162\1\uffff\1\141\1\60\1\uffff\1\164\1\147\1\151\1\162\2\145\3\60\1\145\1\164\1\uffff\1\162\1\uffff\1\157\1\154\1\145\1\154\3\uffff\1\167\1\166\1\144\1\uffff\1\170\1\uffff\1\156\2\60\1\156\2\uffff\2\164\1\156\1\164\1\60\1\143\1\60\1\uffff\1\145\1\uffff\1\147\1\164\1\143\1\146\1\170\1\157\1\145\1\150\1\157\1\162\1\uffff\1\150\1\145\1\141\1\164\1\155\1\141\3\uffff\1\60\2\151\1\162\1\145\1\144\1\60\1\151\1\145\1\151\1\60\1\147\2\uffff\1\147\1\162\2\60\1\145\1\uffff\1\164\1\uffff\3\60\1\147\1\143\1\160\1\151\1\60\1\160\1\144\1\147\1\151\1\162\1\156\1\157\1\60\1\162\1\164\1\60\1\145\1\156\1\uffff\1\157\1\164\2\60\1\165\1\uffff\1\163\1\40\1\156\1\uffff\2\60\1\171\2\uffff\1\156\1\145\3\uffff\2\157\1\154\1\164\1\uffff\1\157\1\165\1\151\1\154\1\60\2\143\1\uffff\1\60\1\151\1\uffff\1\156\1\60\1\156\1\150\2\uffff\1\162\1\145\1\uffff\1\147\2\uffff\1\72\1\141\4\162\1\145\1\151\1\162\1\154\1\163\1\145\1\uffff\1\164\1\145\1\uffff\1\157\1\164\1\uffff\1\60\1\155\1\145\1\72\1\137\1\uffff\2\60\1\151\1\144\1\164\1\155\1\141\1\164\1\145\1\164\1\60\1\151\1\144\1\156\1\141\1\uffff\2\60\1\uffff\1\164\2\uffff\1\164\1\151\1\60\1\145\1\164\2\60\1\162\1\uffff\1\157\1\165\1\60\1\164\2\uffff\1\157\1\150\1\156\1\uffff\1\156\1\151\2\uffff\1\171\1\156\1\162\1\uffff\1\151\1\60\1\155\1\147\1\164\1\157\2\60\1\145\1\157\1\uffff\1\60\1\137\1\141\1\156\2\uffff\1\60\1\156\1\uffff\2\164\1\60\1\uffff\1\60\1\157\1\151\2\uffff\1\60\1\157\1\uffff\1\156\1\60\1\uffff";
+        "\1\0\1\146\1\143\1\uffff\1\50\1\uffff\1\52\1\141\1\151\1\150\1\145\1\141\1\145\1\60\1\145\1\60\1\146\1\157\1\uffff\1\75\1\55\1\75\1\57\1\60\1\150\1\141\1\154\1\141\1\157\1\162\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\1\156\1\uffff\1\157\2\0\1\101\4\uffff\1\60\1\145\1\60\1\150\1\uffff\1\144\2\143\5\uffff\1\0\1\uffff\1\144\1\151\1\166\1\60\2\151\1\141\1\156\1\141\1\157\1\163\1\162\1\156\1\162\1\160\1\144\1\163\1\uffff\1\60\1\147\1\156\1\uffff\1\151\1\160\1\60\1\157\12\uffff\1\165\1\160\1\145\1\60\1\154\1\156\1\162\1\147\1\162\1\143\1\144\1\157\13\uffff\1\164\1\uffff\1\164\1\0\1\uffff\1\0\1\uffff\2\0\3\uffff\1\156\1\uffff\1\145\1\60\1\150\1\157\2\0\1\uffff\1\60\1\162\1\156\1\60\1\uffff\1\164\1\154\1\144\1\151\1\145\1\165\1\60\1\143\1\162\1\163\1\145\1\141\1\164\1\60\1\151\1\60\1\137\1\145\1\uffff\1\60\1\147\1\145\1\164\1\154\1\uffff\1\154\2\145\1\156\1\uffff\1\163\1\143\1\60\1\157\1\60\1\164\1\165\1\143\1\151\1\60\2\0\1\uffff\1\0\1\uffff\1\60\1\162\1\uffff\1\151\1\162\1\0\1\uffff\1\151\1\60\1\uffff\2\145\2\60\1\163\1\141\1\162\1\uffff\1\141\1\164\1\141\1\145\1\60\1\162\1\60\1\uffff\1\156\1\162\1\uffff\1\141\1\60\1\uffff\1\164\1\147\1\151\1\162\2\145\3\60\1\145\1\164\1\uffff\1\162\1\uffff\1\157\1\154\1\145\1\154\3\uffff\1\167\1\166\1\144\1\uffff\1\170\1\uffff\1\156\2\60\1\156\2\uffff\2\164\1\156\1\164\1\60\1\143\1\60\1\uffff\1\145\1\uffff\1\147\1\164\1\143\1\146\1\170\1\141\1\145\1\150\1\157\1\162\1\uffff\1\150\1\145\1\141\1\164\1\155\1\141\3\uffff\1\60\2\151\1\162\1\145\1\144\1\60\1\151\1\145\1\151\1\60\1\147\2\uffff\1\147\1\162\2\60\1\145\1\uffff\1\164\1\uffff\3\60\1\147\1\143\1\160\1\151\1\60\1\160\1\144\1\151\1\147\1\151\1\162\1\156\1\157\1\60\1\162\1\164\1\60\1\145\1\156\1\uffff\1\157\1\164\2\60\1\165\1\uffff\1\163\1\40\1\156\1\uffff\2\60\1\171\2\uffff\1\156\1\145\3\uffff\2\157\1\154\1\164\1\uffff\1\157\1\165\1\156\1\151\1\154\1\60\2\143\1\uffff\1\60\1\151\1\uffff\1\156\1\60\1\156\1\150\2\uffff\1\162\1\145\1\uffff\1\147\2\uffff\1\72\1\141\4\162\1\145\1\151\1\162\1\154\1\60\1\163\1\145\1\uffff\1\164\1\145\1\uffff\1\157\1\164\1\uffff\1\60\1\155\1\145\1\72\1\137\1\uffff\2\60\1\151\1\144\1\164\1\155\1\141\1\164\1\145\1\uffff\1\164\1\60\1\151\1\144\1\156\1\141\1\uffff\2\60\1\uffff\1\164\2\uffff\1\164\1\151\1\60\1\145\1\164\2\60\1\162\1\uffff\1\157\1\165\1\60\1\164\2\uffff\1\157\1\150\1\156\1\uffff\1\156\1\151\2\uffff\1\171\1\156\1\162\1\uffff\1\151\1\60\1\155\1\147\1\164\1\157\2\60\1\145\1\157\1\uffff\1\60\1\137\1\141\1\156\2\uffff\1\60\1\156\1\uffff\2\164\1\60\1\uffff\1\60\1\157\1\151\2\uffff\1\60\1\157\1\uffff\1\156\1\60\1\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\164\1\162\1\uffff\1\50\1\uffff\1\57\1\157\1\162\1\145\1\157\1\164\1\172\1\157\1\172\1\156\1\157\4\75\2\172\1\171\1\165\1\154\1\145\1\157\1\162\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\1\157\1\156\1\uffff\1\157\2\uffff\1\172\4\uffff\1\172\1\145\1\172\1\150\1\uffff\1\144\2\143\5\uffff\1\uffff\1\uffff\1\144\1\164\2\151\1\164\1\163\1\141\1\157\1\163\1\165\1\156\1\162\1\160\1\144\1\163\1\uffff\1\172\1\147\1\156\1\uffff\1\164\1\160\1\172\1\157\13\uffff\1\165\1\160\1\145\1\172\1\154\1\156\1\162\1\147\1\162\1\143\1\144\1\157\13\uffff\1\172\1\164\1\uffff\1\164\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff\3\uffff\1\156\1\uffff\1\145\1\172\1\150\1\157\2\uffff\1\uffff\1\172\1\162\1\156\1\164\2\154\1\151\1\145\1\165\1\172\1\163\1\162\1\163\1\145\1\141\1\164\1\172\1\151\1\172\1\137\1\145\1\uffff\1\172\1\147\1\145\1\164\1\157\1\uffff\1\154\2\145\1\156\1\uffff\1\163\1\143\1\172\1\157\1\172\1\164\1\165\1\143\1\uffff\1\151\1\172\2\uffff\1\uffff\1\uffff\1\uffff\1\172\1\162\1\uffff\1\151\1\162\1\uffff\1\uffff\1\151\1\172\1\151\1\145\2\172\1\163\1\141\1\162\1\uffff\1\141\1\164\1\141\1\145\1\172\1\162\1\172\1\uffff\1\156\1\162\1\uffff\1\167\1\172\1\uffff\1\164\1\147\1\151\1\162\2\145\3\172\1\145\1\164\1\uffff\1\162\1\uffff\1\157\1\154\1\145\1\154\3\uffff\1\167\1\166\1\144\1\uffff\1\170\1\uffff\1\156\2\172\1\156\2\uffff\2\164\1\156\1\164\1\172\1\143\1\172\1\uffff\1\145\1\uffff\1\147\1\164\1\154\1\156\1\170\1\157\1\145\1\150\1\165\1\162\1\uffff\1\150\1\145\1\141\1\164\1\155\1\141\3\uffff\1\172\2\151\1\162\1\145\1\144\1\172\1\151\1\145\1\151\1\172\1\147\2\uffff\1\147\1\162\2\172\1\145\1\uffff\1\164\1\uffff\3\172\1\147\1\143\1\160\1\151\1\172\1\160\1\144\1\147\1\151\1\162\1\156\1\157\1\172\1\162\1\164\1\172\1\145\1\156\1\uffff\1\157\1\164\2\172\1\165\1\uffff\1\163\1\40\1\156\1\uffff\2\172\1\171\2\uffff\1\156\1\145\3\uffff\3\157\1\164\1\uffff\1\157\1\165\1\151\1\154\1\172\2\143\1\uffff\1\172\1\151\1\uffff\1\156\1\172\1\156\1\150\2\uffff\1\162\1\145\1\uffff\1\147\2\uffff\1\72\1\141\4\162\1\145\1\151\1\162\1\154\1\163\1\145\1\uffff\1\164\1\145\1\uffff\1\157\1\164\1\uffff\1\172\1\155\1\145\1\72\1\137\1\uffff\2\172\1\151\1\144\1\164\1\155\1\141\1\164\1\145\1\164\1\172\1\151\1\144\1\156\1\141\1\uffff\2\172\1\uffff\1\164\2\uffff\1\164\1\151\1\172\1\145\1\164\2\172\1\162\1\uffff\1\157\1\165\1\172\1\164\2\uffff\1\157\1\150\1\156\1\uffff\1\156\1\151\2\uffff\1\171\1\156\1\162\1\uffff\1\151\1\172\1\155\1\147\1\164\1\157\2\172\1\145\1\157\1\uffff\1\172\1\137\1\141\1\156\2\uffff\1\172\1\156\1\uffff\2\164\1\172\1\uffff\1\172\1\157\1\151\2\uffff\1\172\1\157\1\uffff\1\156\1\172\1\uffff";
+        "\1\uffff\1\164\1\162\1\uffff\1\50\1\uffff\1\57\2\157\1\162\1\145\1\157\1\164\1\172\1\157\1\172\1\156\1\157\1\uffff\3\75\2\172\1\171\1\165\1\154\1\145\1\157\1\162\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\1\156\1\uffff\1\157\2\uffff\1\172\4\uffff\1\172\1\145\1\172\1\150\1\uffff\1\144\2\143\5\uffff\1\uffff\1\uffff\1\144\1\164\1\166\1\172\2\151\1\164\1\163\1\141\1\157\1\163\1\165\1\156\1\162\1\160\1\144\1\163\1\uffff\1\172\1\147\1\156\1\uffff\1\164\1\160\1\172\1\157\12\uffff\1\165\1\160\1\145\1\172\1\154\1\156\1\162\1\147\1\162\1\143\1\144\1\157\13\uffff\1\164\1\uffff\1\164\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff\3\uffff\1\156\1\uffff\1\145\1\172\1\150\1\157\2\uffff\1\uffff\1\172\1\162\1\156\1\172\1\uffff\1\164\2\154\1\151\1\145\1\165\1\172\1\163\1\162\1\163\1\145\1\141\1\164\1\172\1\151\1\172\1\137\1\145\1\uffff\1\172\1\147\1\145\1\164\1\157\1\uffff\1\154\2\145\1\156\1\uffff\1\163\1\143\1\172\1\157\1\172\1\164\1\165\1\143\1\151\1\172\2\uffff\1\uffff\1\uffff\1\uffff\1\172\1\162\1\uffff\1\151\1\162\1\uffff\1\uffff\1\151\1\172\1\uffff\1\151\1\145\2\172\1\163\1\141\1\162\1\uffff\1\141\1\164\1\141\1\145\1\172\1\162\1\172\1\uffff\1\156\1\162\1\uffff\1\167\1\172\1\uffff\1\164\1\147\1\151\1\162\2\145\3\172\1\145\1\164\1\uffff\1\162\1\uffff\1\157\1\154\1\145\1\154\3\uffff\1\167\1\166\1\144\1\uffff\1\170\1\uffff\1\156\2\172\1\156\2\uffff\2\164\1\156\1\164\1\172\1\143\1\172\1\uffff\1\145\1\uffff\1\147\1\164\1\154\1\156\1\170\1\157\1\145\1\150\1\165\1\162\1\uffff\1\150\1\145\1\141\1\164\1\155\1\141\3\uffff\1\172\2\151\1\162\1\145\1\144\1\172\1\151\1\145\1\151\1\172\1\147\2\uffff\1\147\1\162\2\172\1\145\1\uffff\1\164\1\uffff\3\172\1\147\1\143\1\160\1\151\1\172\1\160\1\144\1\151\1\147\1\151\1\162\1\156\1\157\1\172\1\162\1\164\1\172\1\145\1\156\1\uffff\1\157\1\164\2\172\1\165\1\uffff\1\163\1\40\1\156\1\uffff\2\172\1\171\2\uffff\1\156\1\145\3\uffff\3\157\1\164\1\uffff\1\157\1\165\1\156\1\151\1\154\1\172\2\143\1\uffff\1\172\1\151\1\uffff\1\156\1\172\1\156\1\150\2\uffff\1\162\1\145\1\uffff\1\147\2\uffff\1\72\1\141\4\162\1\145\1\151\1\162\1\154\1\172\1\163\1\145\1\uffff\1\164\1\145\1\uffff\1\157\1\164\1\uffff\1\172\1\155\1\145\1\72\1\137\1\uffff\2\172\1\151\1\144\1\164\1\155\1\141\1\164\1\145\1\uffff\1\164\1\172\1\151\1\144\1\156\1\141\1\uffff\2\172\1\uffff\1\164\2\uffff\1\164\1\151\1\172\1\145\1\164\2\172\1\162\1\uffff\1\157\1\165\1\172\1\164\2\uffff\1\157\1\150\1\156\1\uffff\1\156\1\151\2\uffff\1\171\1\156\1\162\1\uffff\1\151\1\172\1\155\1\147\1\164\1\157\2\172\1\145\1\157\1\uffff\1\172\1\137\1\141\1\156\2\uffff\1\172\1\156\1\uffff\2\164\1\172\1\uffff\1\172\1\157\1\151\2\uffff\1\172\1\157\1\uffff\1\156\1\172\1\uffff";
     static final String DFA14_acceptS =
-        "\3\uffff\1\3\1\uffff\1\5\27\uffff\1\63\1\64\1\65\1\uffff\1\74\2\uffff\1\105\1\106\2\uffff\1\135\4\uffff\1\150\1\151\1\154\1\155\4\uffff\1\150\3\uffff\1\3\1\136\1\4\1\5\1\144\1\uffff\1\6\17\uffff\1\24\3\uffff\1\23\4\uffff\1\32\1\72\1\33\1\37\1\113\1\34\1\36\1\35\1\41\1\40\1\42\14\uffff\1\63\1\64\1\65\1\107\1\71\1\74\1\101\1\75\1\77\1\105\1\106\2\uffff\1\135\2\uffff\1\145\1\uffff\1\152\2\uffff\1\151\1\154\1\1\1\uffff\1\76\6\uffff\1\153\25\uffff\1\15\5\uffff\1\116\4\uffff\1\127\10\uffff\1\122\4\uffff\1\145\1\uffff\1\146\2\uffff\1\2\3\uffff\1\7\11\uffff\1\12\7\uffff\1\17\2\uffff\1\14\2\uffff\1\16\13\uffff\1\126\1\uffff\1\53\4\uffff\1\137\1\146\1\67\3\uffff\1\147\1\uffff\1\110\4\uffff\1\115\1\27\7\uffff\1\131\1\uffff\1\20\12\uffff\1\140\6\uffff\1\43\1\52\1\117\14\uffff\1\114\1\121\5\uffff\1\51\1\uffff\1\70\25\uffff\1\44\5\uffff\1\125\3\uffff\1\100\3\uffff\1\124\1\141\2\uffff\1\13\1\31\1\55\4\uffff\1\120\7\uffff\1\21\2\uffff\1\47\4\uffff\1\73\1\54\2\uffff\1\104\1\uffff\1\10\1\11\14\uffff\1\130\2\uffff\1\25\2\uffff\1\30\5\uffff\1\102\17\uffff\1\66\2\uffff\1\133\1\uffff\1\22\1\26\10\uffff\1\123\4\uffff\1\45\1\62\3\uffff\1\50\2\uffff\1\56\1\57\3\uffff\1\111\12\uffff\1\132\4\uffff\1\103\1\142\2\uffff\1\46\3\uffff\1\143\3\uffff\1\112\1\60\2\uffff\1\134\2\uffff\1\61";
+        "\3\uffff\1\3\1\uffff\1\5\14\uffff\1\33\13\uffff\1\64\1\65\1\66\1\uffff\1\74\2\uffff\1\105\1\106\1\uffff\1\136\4\uffff\1\151\1\152\1\155\1\156\4\uffff\1\151\3\uffff\1\3\1\137\1\4\1\5\1\145\1\uffff\1\6\21\uffff\1\25\3\uffff\1\24\4\uffff\1\33\1\34\1\40\1\114\1\35\1\37\1\36\1\42\1\41\1\43\14\uffff\1\64\1\65\1\66\1\107\1\72\1\74\1\101\1\75\1\77\1\105\1\106\1\uffff\1\136\2\uffff\1\146\1\uffff\1\153\2\uffff\1\152\1\155\1\1\1\uffff\1\76\6\uffff\1\154\4\uffff\1\123\22\uffff\1\16\5\uffff\1\117\4\uffff\1\130\14\uffff\1\146\1\uffff\1\147\2\uffff\1\2\3\uffff\1\7\2\uffff\1\10\7\uffff\1\13\7\uffff\1\20\2\uffff\1\15\2\uffff\1\17\13\uffff\1\127\1\uffff\1\54\4\uffff\1\140\1\147\1\70\3\uffff\1\150\1\uffff\1\110\4\uffff\1\116\1\30\7\uffff\1\132\1\uffff\1\21\12\uffff\1\141\6\uffff\1\44\1\53\1\120\14\uffff\1\115\1\122\5\uffff\1\52\1\uffff\1\71\26\uffff\1\45\5\uffff\1\126\3\uffff\1\100\3\uffff\1\125\1\142\2\uffff\1\14\1\32\1\56\4\uffff\1\121\10\uffff\1\22\2\uffff\1\50\4\uffff\1\73\1\55\2\uffff\1\104\1\uffff\1\11\1\12\15\uffff\1\131\2\uffff\1\26\2\uffff\1\31\5\uffff\1\102\11\uffff\1\113\6\uffff\1\67\2\uffff\1\134\1\uffff\1\23\1\27\10\uffff\1\124\4\uffff\1\46\1\63\3\uffff\1\51\2\uffff\1\57\1\60\3\uffff\1\111\12\uffff\1\133\4\uffff\1\103\1\143\2\uffff\1\47\3\uffff\1\144\3\uffff\1\112\1\61\2\uffff\1\135\2\uffff\1\62";
     static final String DFA14_specialS =
-        "\1\13\51\uffff\1\6\1\12\22\uffff\1\4\77\uffff\1\7\1\uffff\1\0\1\uffff\1\1\1\3\11\uffff\1\5\1\14\55\uffff\1\10\1\2\1\uffff\1\15\6\uffff\1\11\u0121\uffff}>";
+        "\1\7\51\uffff\1\10\1\6\22\uffff\1\14\77\uffff\1\3\1\uffff\1\4\1\uffff\1\0\1\1\11\uffff\1\2\1\12\56\uffff\1\13\1\5\1\uffff\1\15\6\uffff\1\11\u0126\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\11\60\2\57\2\60\1\57\22\60\1\57\1\22\1\52\4\60\1\53\1\35\1\36\1\5\1\3\1\37\1\4\1\40\1\6\12\56\1\43\1\60\1\23\1\21\1\24\2\60\1\31\3\55\1\16\3\55\1\25\3\55\1\33\1\55\1\26\13\55\1\41\1\60\1\42\1\54\1\55\1\60\1\2\1\20\1\12\1\46\1\14\1\30\2\55\1\17\2\55\1\15\1\7\1\51\1\1\1\34\1\55\1\11\1\13\1\27\1\47\1\32\1\10\3\55\1\44\1\50\1\45\uff82\60",
+            "\11\60\2\57\2\60\1\57\22\60\1\57\1\23\1\52\4\60\1\53\1\36\1\37\1\5\1\3\1\40\1\4\1\41\1\6\12\56\1\44\1\60\1\24\1\22\1\25\2\60\1\32\3\55\1\17\3\55\1\26\3\55\1\34\1\55\1\27\13\55\1\42\1\60\1\43\1\54\1\55\1\60\1\2\1\21\1\13\1\10\1\15\1\31\2\55\1\20\2\55\1\16\1\7\1\51\1\1\1\35\1\55\1\12\1\14\1\30\1\47\1\33\1\11\3\55\1\45\1\50\1\46\uff82\60",
             "\1\63\11\uffff\1\62\1\uffff\1\61\1\uffff\1\64",
             "\1\70\12\uffff\1\66\3\uffff\1\67",
             "",
@@ -3629,37 +3658,37 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "",
             "\1\76\4\uffff\1\75",
             "\1\101\15\uffff\1\100",
-            "\1\103\11\uffff\1\102",
-            "\1\104",
-            "\1\110\6\uffff\1\106\3\uffff\1\107\2\uffff\1\105",
-            "\1\112\13\uffff\1\111\2\uffff\1\113",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\13\65\1\116\1\65\1\115\11\65\1\114\2\65",
-            "\1\122\10\uffff\1\120\1\121",
+            "\1\102\5\uffff\1\103",
+            "\1\105\11\uffff\1\104",
+            "\1\106",
+            "\1\112\6\uffff\1\110\3\uffff\1\111\2\uffff\1\107",
+            "\1\114\13\uffff\1\113\2\uffff\1\115",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\13\65\1\120\1\65\1\117\11\65\1\116\2\65",
+            "\1\124\10\uffff\1\122\1\123",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\126\6\uffff\1\125\1\124",
-            "\1\127",
-            "\1\130",
-            "\1\132",
-            "\1\134\17\uffff\1\133",
-            "\1\136",
-            "\1\140\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\130\6\uffff\1\127\1\126",
+            "\1\131",
+            "",
+            "\1\133",
+            "\1\135\17\uffff\1\134",
+            "\1\137",
+            "\1\141\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\145\6\uffff\1\146\2\uffff\1\143\6\uffff\1\144",
-            "\1\147\15\uffff\1\151\5\uffff\1\150",
-            "\1\152",
-            "\1\153\3\uffff\1\154",
-            "\1\155",
+            "\1\146\6\uffff\1\147\2\uffff\1\144\6\uffff\1\145",
+            "\1\150\15\uffff\1\152\5\uffff\1\151",
+            "\1\153",
+            "\1\154\3\uffff\1\155",
             "\1\156",
+            "\1\157",
             "",
             "",
             "",
-            "\1\162",
+            "\1\163",
             "",
-            "\1\165",
-            "\1\167",
+            "\1\166",
+            "\1\170",
             "",
             "",
-            "\1\172",
             "\1\173",
             "",
             "\1\175",
@@ -3688,126 +3717,127 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\1\u0090",
             "\1\u0092\12\uffff\1\u0091",
             "\1\u0093",
-            "\1\u0094",
-            "\1\u0095\5\uffff\1\u0096\10\uffff\1\u0097\3\uffff\1\u0098",
-            "\1\u009a\4\uffff\1\u0099",
-            "\1\u009b",
-            "\1\u009c",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0095",
+            "\1\u0096",
+            "\1\u0097\5\uffff\1\u0098\10\uffff\1\u0099\3\uffff\1\u009a",
+            "\1\u009c\4\uffff\1\u009b",
             "\1\u009d",
-            "\1\u009f\2\uffff\1\u009e",
-            "\1\u00a0",
-            "\1\u00a1",
+            "\1\u009e",
+            "\1\u009f",
+            "\1\u00a1\2\uffff\1\u00a0",
             "\1\u00a2",
             "\1\u00a3",
             "\1\u00a4",
-            "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00a5",
             "\1\u00a6",
-            "\1\u00a7",
             "",
-            "\1\u00a9\12\uffff\1\u00a8",
-            "\1\u00aa",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00a8",
+            "\1\u00a9",
+            "",
+            "\1\u00ab\12\uffff\1\u00aa",
             "\1\u00ac",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u00ad",
-            "\1\u00ae",
-            "\1\u00af",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00ae",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\u00af",
+            "\1\u00b0",
             "\1\u00b1",
-            "\1\u00b2",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00b3",
             "\1\u00b4",
             "\1\u00b5",
             "\1\u00b6",
             "\1\u00b7",
             "\1\u00b8",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00b9",
             "\1\u00ba",
             "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\u00bb",
-            "\40\u0081\2\u00bd\1\u00bc\1\u00bd\1\u0081\2\u00bd\1\u0081\2\u00bd\2\u0081\3\u00bd\1\u0081\13\u00bd\2\u0081\1\u00bd\1\u0081\34\u00bd\1\u0081\1\u00bd\2\u0081\1\u00bd\1\u0081\32\u00bd\uff85\u0081",
+            "",
+            "\1\u00bc",
+            "\40\u0081\2\u00be\1\u00bd\1\u00be\1\u0081\2\u00be\1\u0081\2\u00be\2\u0081\3\u00be\1\u0081\13\u00be\2\u0081\1\u00be\1\u0081\34\u00be\1\u0081\1\u00be\2\u0081\1\u00be\1\u0081\32\u00be\uff85\u0081",
             "",
             "\40\u0081\2\u0080\1\177\1\u0080\1\u0081\2\u0080\1\u0081\2\u0080\2\u0081\3\u0080\1\u0081\13\u0080\2\u0081\1\u0080\1\u0081\34\u0080\1\u0081\1\176\2\u0081\1\u0080\1\u0081\32\u0080\uff85\u0081",
             "",
-            "\47\u0081\1\u00bf\uffd8\u0081",
             "\47\u0081\1\u00c0\uffd8\u0081",
+            "\47\u0081\1\u00c1\uffd8\u0081",
             "",
             "",
-            "",
-            "\1\u00c1",
             "",
             "\1\u00c2",
+            "",
+            "\1\u00c3",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u00c4",
             "\1\u00c5",
+            "\1\u00c6",
             "\40\u008f\2\u008d\1\u008f\1\u008d\1\u008f\2\u008d\1\u008f\2\u008d\1\u008e\5\u008f\12\u008d\3\u008f\1\u008d\1\u008f\34\u008d\1\u008f\1\u008d\2\u008f\1\u008d\1\u008f\32\u008d\uff85\u008f",
-            "\57\u008f\1\u00c6\uffd0\u008f",
+            "\57\u008f\1\u00c7\uffd0\u008f",
             "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u00c8",
             "\1\u00c9",
             "\1\u00ca",
-            "\1\u00cb",
-            "\1\u00cc\7\uffff\1\u00cd",
-            "\1\u00ce",
-            "\1\u00cf",
-            "\1\u00d0",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u00d2\17\uffff\1\u00d3",
-            "\1\u00d4",
-            "\1\u00d5",
+            "",
+            "\1\u00cc",
+            "\1\u00cd",
+            "\1\u00ce\7\uffff\1\u00cf",
+            "\1\u00d0",
+            "\1\u00d1",
+            "\1\u00d2",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00d4\17\uffff\1\u00d5",
             "\1\u00d6",
             "\1\u00d7",
             "\1\u00d8",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00d9",
             "\1\u00da",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\16\65\1\u00db\13\65",
-            "\1\u00dd",
-            "\1\u00de",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u00dc",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\16\65\1\u00dd\13\65",
+            "\1\u00df",
+            "\1\u00e0",
             "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u00e0",
-            "\1\u00e1",
             "\1\u00e2",
-            "\1\u00e4\2\uffff\1\u00e3",
+            "\1\u00e3",
+            "\1\u00e4",
+            "\1\u00e6\2\uffff\1\u00e5",
             "",
-            "\1\u00e5",
-            "\1\u00e6",
             "\1\u00e7",
             "\1\u00e8",
-            "",
             "\1\u00e9",
             "\1\u00ea",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "\1\u00eb",
             "\1\u00ec",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00ee",
-            "\1\u00ef",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u00f0",
-            "",
             "\1\u00f1",
+            "\1\u00f2",
+            "\1\u00f3",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\0\u0081",
             "\40\u0081\2\u0080\1\177\1\u0080\1\u0081\2\u0080\1\u0081\2\u0080\2\u0081\3\u0080\1\u0081\13\u0080\2\u0081\1\u0080\1\u0081\34\u0080\1\u0081\1\176\2\u0081\1\u0080\1\u0081\32\u0080\uff85\u0081",
@@ -3815,196 +3845,194 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\0\u0081",
             "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u00f5",
-            "",
-            "\1\u00f6",
             "\1\u00f7",
+            "",
+            "\1\u00f8",
+            "\1\u00f9",
             "\0\u008f",
             "",
-            "\1\u00f9",
+            "\1\u00fb",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u00fc\3\uffff\1\u00fb",
-            "\1\u00fd",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\10\65\1\u00fe\21\65",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u0101",
-            "\1\u0102",
-            "\1\u0103",
             "",
+            "\1\u00fe\3\uffff\1\u00fd",
+            "\1\u00ff",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\10\65\1\u0100\21\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0103",
             "\1\u0104",
             "\1\u0105",
+            "",
             "\1\u0106",
             "\1\u0107",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0108",
             "\1\u0109",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "",
             "\1\u010b",
-            "\1\u010c",
-            "",
-            "\1\u010d\3\uffff\1\u010f\1\u0113\2\uffff\1\u010e\3\uffff\1\u0110\2\uffff\1\u0114\1\uffff\1\u0111\4\uffff\1\u0112",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\1\u0116",
-            "\1\u0117",
+            "\1\u010d",
+            "\1\u010e",
+            "",
+            "\1\u010f\3\uffff\1\u0111\1\u0115\2\uffff\1\u0110\3\uffff\1\u0112\2\uffff\1\u0116\1\uffff\1\u0113\4\uffff\1\u0114",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
             "\1\u0118",
             "\1\u0119",
             "\1\u011a",
             "\1\u011b",
+            "\1\u011c",
+            "\1\u011d",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u011f",
-            "\1\u0120",
-            "",
             "\1\u0121",
-            "",
             "\1\u0122",
+            "",
             "\1\u0123",
+            "",
             "\1\u0124",
             "\1\u0125",
-            "",
-            "",
-            "",
             "\1\u0126",
             "\1\u0127",
+            "",
+            "",
+            "",
             "\1\u0128",
-            "",
             "\1\u0129",
-            "",
             "\1\u012a",
+            "",
+            "\1\u012b",
+            "",
+            "\1\u012c",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u012d",
-            "",
-            "",
-            "\1\u012e",
             "\1\u012f",
+            "",
+            "",
             "\1\u0130",
             "\1\u0131",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0132",
             "\1\u0133",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "",
             "\1\u0135",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
-            "\1\u0136",
             "\1\u0137",
-            "\1\u0139\10\uffff\1\u0138",
-            "\1\u013c\6\uffff\1\u013a\1\u013b",
-            "\1\u013d",
-            "\1\u013e",
-            "\1\u013f",
-            "\1\u0140",
-            "\1\u0141\5\uffff\1\u0142",
-            "\1\u0143",
             "",
-            "\1\u0144",
-            "\1\u0145",
+            "\1\u0138",
+            "\1\u0139",
+            "\1\u013b\10\uffff\1\u013a",
+            "\1\u013e\6\uffff\1\u013c\1\u013d",
+            "\1\u013f",
+            "\1\u0141\15\uffff\1\u0140",
+            "\1\u0142",
+            "\1\u0143",
+            "\1\u0144\5\uffff\1\u0145",
             "\1\u0146",
+            "",
             "\1\u0147",
             "\1\u0148",
             "\1\u0149",
-            "",
-            "",
-            "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u014a",
             "\1\u014b",
             "\1\u014c",
-            "\1\u014d",
+            "",
+            "",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u014e",
             "\1\u014f",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0150",
             "\1\u0151",
             "\1\u0152",
-            "\1\u0153",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0154",
             "\1\u0155",
-            "",
-            "",
             "\1\u0156",
-            "\1\u0157",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0158",
+            "",
+            "",
+            "\1\u0159",
             "\1\u015a",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u015d",
             "",
-            "\1\u015b",
+            "\1\u015e",
             "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u015f",
-            "\1\u0160",
-            "\1\u0161",
             "\1\u0162",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0163",
             "\1\u0164",
             "\1\u0165",
-            "\1\u0166",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0167",
             "\1\u0168",
             "\1\u0169",
             "\1\u016a",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u016b",
             "\1\u016c",
             "\1\u016d",
+            "\1\u016e",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u016f",
             "\1\u0170",
-            "",
             "\1\u0171",
-            "\1\u0172",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0173",
+            "\1\u0174",
+            "",
             "\1\u0175",
-            "",
             "\1\u0176",
-            "\1\u0177",
-            "\1\u0178",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u0179",
             "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u017a",
             "\1\u017b",
-            "",
-            "",
             "\1\u017c",
-            "\1\u017d",
             "",
-            "",
-            "",
-            "\1\u017e",
-            "\1\u017f",
-            "\1\u0181\2\uffff\1\u0180",
-            "\1\u0182",
-            "",
-            "\1\u0183",
-            "\1\u0184",
-            "\1\u0185",
-            "\1\u0186",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u017f",
+            "",
+            "",
+            "\1\u0180",
+            "\1\u0181",
+            "",
+            "",
+            "",
+            "\1\u0182",
+            "\1\u0183",
+            "\1\u0185\2\uffff\1\u0184",
+            "\1\u0186",
+            "",
+            "\1\u0187",
             "\1\u0188",
             "\1\u0189",
-            "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u018a",
             "\1\u018b",
-            "",
-            "\1\u018c",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u018d",
             "\1\u018e",
-            "\1\u018f",
             "",
-            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0190",
+            "",
             "\1\u0191",
-            "",
-            "\1\u0192",
-            "",
-            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u0193",
             "\1\u0194",
+            "",
+            "",
             "\1\u0195",
             "\1\u0196",
+            "",
             "\1\u0197",
+            "",
+            "",
             "\1\u0198",
             "\1\u0199",
             "\1\u019a",
@@ -4012,101 +4040,108 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\1\u019c",
             "\1\u019d",
             "\1\u019e",
-            "",
             "\1\u019f",
             "\1\u01a0",
-            "",
             "\1\u01a1",
-            "\1\u01a2",
-            "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01a3",
             "\1\u01a4",
+            "",
             "\1\u01a5",
             "\1\u01a6",
-            "\1\u01a7",
             "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01a7",
+            "\1\u01a8",
+            "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u01aa",
             "\1\u01ab",
             "\1\u01ac",
             "\1\u01ad",
-            "\1\u01ae",
-            "\1\u01af",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u01b0",
             "\1\u01b1",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01b2",
             "\1\u01b3",
             "\1\u01b4",
             "\1\u01b5",
             "\1\u01b6",
             "",
+            "\1\u01b7",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "",
             "\1\u01b9",
-            "",
-            "",
             "\1\u01ba",
             "\1\u01bb",
+            "\1\u01bc",
+            "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u01bd",
-            "\1\u01be",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "\1\u01bf",
+            "",
+            "",
+            "\1\u01c0",
             "\1\u01c1",
-            "",
-            "\1\u01c2",
-            "\1\u01c3",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u01c5",
-            "",
-            "",
-            "\1\u01c6",
+            "\1\u01c3",
+            "\1\u01c4",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u01c7",
+            "",
             "\1\u01c8",
-            "",
             "\1\u01c9",
-            "\1\u01ca",
-            "",
-            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u01cb",
+            "",
+            "",
             "\1\u01cc",
             "\1\u01cd",
-            "",
             "\1\u01ce",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "\1\u01cf",
             "\1\u01d0",
+            "",
+            "",
             "\1\u01d1",
             "\1\u01d2",
             "\1\u01d3",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "",
+            "\1\u01d4",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\u01d6",
             "\1\u01d7",
-            "",
-            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01d8",
             "\1\u01d9",
-            "\1\u01da",
-            "\1\u01db",
-            "",
-            "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01dc",
             "\1\u01dd",
             "",
-            "\1\u01de",
-            "\1\u01df",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01df",
+            "\1\u01e0",
+            "\1\u01e1",
+            "",
             "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u01e2",
             "\1\u01e3",
             "",
+            "\1\u01e4",
+            "\1\u01e5",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\1\u01e5",
+            "\1\u01e8",
+            "\1\u01e9",
             "",
-            "\1\u01e6",
+            "",
+            "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
+            "\1\u01eb",
+            "",
+            "\1\u01ec",
             "\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             ""
     };
@@ -4141,13 +4176,57 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA14_130 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_130=='\'') ) {s = 192;}
+
+                        else if ( ((LA14_130>='\u0000' && LA14_130<='&')||(LA14_130>='(' && LA14_130<='\uFFFF')) ) {s = 129;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA14_131 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_131=='\'') ) {s = 193;}
+
+                        else if ( ((LA14_131>='\u0000' && LA14_131<='&')||(LA14_131>='(' && LA14_131<='\uFFFF')) ) {s = 129;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA14_141 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_141=='*') ) {s = 142;}
+
+                        else if ( ((LA14_141>=' ' && LA14_141<='!')||LA14_141=='#'||(LA14_141>='%' && LA14_141<='&')||(LA14_141>='(' && LA14_141<=')')||(LA14_141>='0' && LA14_141<='9')||LA14_141=='='||(LA14_141>='?' && LA14_141<='Z')||LA14_141=='\\'||LA14_141=='_'||(LA14_141>='a' && LA14_141<='z')) ) {s = 141;}
+
+                        else if ( ((LA14_141>='\u0000' && LA14_141<='\u001F')||LA14_141=='\"'||LA14_141=='$'||LA14_141=='\''||(LA14_141>='+' && LA14_141<='/')||(LA14_141>=':' && LA14_141<='<')||LA14_141=='>'||LA14_141=='['||(LA14_141>=']' && LA14_141<='^')||LA14_141=='`'||(LA14_141>='{' && LA14_141<='\uFFFF')) ) {s = 143;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA14_126 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_126=='\"') ) {s = 189;}
+
+                        else if ( ((LA14_126>=' ' && LA14_126<='!')||LA14_126=='#'||(LA14_126>='%' && LA14_126<='&')||(LA14_126>='(' && LA14_126<=')')||(LA14_126>=',' && LA14_126<='.')||(LA14_126>='0' && LA14_126<=':')||LA14_126=='='||(LA14_126>='?' && LA14_126<='Z')||LA14_126=='\\'||LA14_126=='_'||(LA14_126>='a' && LA14_126<='z')) ) {s = 190;}
+
+                        else if ( ((LA14_126>='\u0000' && LA14_126<='\u001F')||LA14_126=='$'||LA14_126=='\''||(LA14_126>='*' && LA14_126<='+')||LA14_126=='/'||(LA14_126>=';' && LA14_126<='<')||LA14_126=='>'||LA14_126=='['||(LA14_126>=']' && LA14_126<='^')||LA14_126=='`'||(LA14_126>='{' && LA14_126<='\uFFFF')) ) {s = 129;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
                         int LA14_128 = input.LA(1);
 
                         s = -1;
@@ -4161,113 +4240,21 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
-                        int LA14_130 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_130=='\'') ) {s = 191;}
-
-                        else if ( ((LA14_130>='\u0000' && LA14_130<='&')||(LA14_130>='(' && LA14_130<='\uFFFF')) ) {s = 129;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA14_189 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_189=='\"') ) {s = 127;}
-
-                        else if ( (LA14_189=='\\') ) {s = 126;}
-
-                        else if ( ((LA14_189>=' ' && LA14_189<='!')||LA14_189=='#'||(LA14_189>='%' && LA14_189<='&')||(LA14_189>='(' && LA14_189<=')')||(LA14_189>=',' && LA14_189<='.')||(LA14_189>='0' && LA14_189<=':')||LA14_189=='='||(LA14_189>='?' && LA14_189<='Z')||LA14_189=='_'||(LA14_189>='a' && LA14_189<='z')) ) {s = 128;}
-
-                        else if ( ((LA14_189>='\u0000' && LA14_189<='\u001F')||LA14_189=='$'||LA14_189=='\''||(LA14_189>='*' && LA14_189<='+')||LA14_189=='/'||(LA14_189>=';' && LA14_189<='<')||LA14_189=='>'||LA14_189=='['||(LA14_189>=']' && LA14_189<='^')||LA14_189=='`'||(LA14_189>='{' && LA14_189<='\uFFFF')) ) {s = 129;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA14_131 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_131=='\'') ) {s = 192;}
-
-                        else if ( ((LA14_131>='\u0000' && LA14_131<='&')||(LA14_131>='(' && LA14_131<='\uFFFF')) ) {s = 129;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA14_62 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_62>=' ' && LA14_62<='!')||LA14_62=='#'||(LA14_62>='%' && LA14_62<='&')||(LA14_62>='(' && LA14_62<=')')||(LA14_62>='0' && LA14_62<='9')||LA14_62=='='||(LA14_62>='?' && LA14_62<='Z')||LA14_62=='\\'||LA14_62=='_'||(LA14_62>='a' && LA14_62<='z')) ) {s = 141;}
-
-                        else if ( (LA14_62=='*') ) {s = 142;}
-
-                        else if ( ((LA14_62>='\u0000' && LA14_62<='\u001F')||LA14_62=='\"'||LA14_62=='$'||LA14_62=='\''||(LA14_62>='+' && LA14_62<='/')||(LA14_62>=':' && LA14_62<='<')||LA14_62=='>'||LA14_62=='['||(LA14_62>=']' && LA14_62<='^')||LA14_62=='`'||(LA14_62>='{' && LA14_62<='\uFFFF')) ) {s = 143;}
-
-                        if ( s>=0 ) return s;
-                        break;
                     case 5 : 
-                        int LA14_141 = input.LA(1);
+                        int LA14_190 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_141=='*') ) {s = 142;}
+                        if ( (LA14_190=='\"') ) {s = 127;}
 
-                        else if ( ((LA14_141>=' ' && LA14_141<='!')||LA14_141=='#'||(LA14_141>='%' && LA14_141<='&')||(LA14_141>='(' && LA14_141<=')')||(LA14_141>='0' && LA14_141<='9')||LA14_141=='='||(LA14_141>='?' && LA14_141<='Z')||LA14_141=='\\'||LA14_141=='_'||(LA14_141>='a' && LA14_141<='z')) ) {s = 141;}
+                        else if ( (LA14_190=='\\') ) {s = 126;}
 
-                        else if ( ((LA14_141>='\u0000' && LA14_141<='\u001F')||LA14_141=='\"'||LA14_141=='$'||LA14_141=='\''||(LA14_141>='+' && LA14_141<='/')||(LA14_141>=':' && LA14_141<='<')||LA14_141=='>'||LA14_141=='['||(LA14_141>=']' && LA14_141<='^')||LA14_141=='`'||(LA14_141>='{' && LA14_141<='\uFFFF')) ) {s = 143;}
+                        else if ( ((LA14_190>=' ' && LA14_190<='!')||LA14_190=='#'||(LA14_190>='%' && LA14_190<='&')||(LA14_190>='(' && LA14_190<=')')||(LA14_190>=',' && LA14_190<='.')||(LA14_190>='0' && LA14_190<=':')||LA14_190=='='||(LA14_190>='?' && LA14_190<='Z')||LA14_190=='_'||(LA14_190>='a' && LA14_190<='z')) ) {s = 128;}
+
+                        else if ( ((LA14_190>='\u0000' && LA14_190<='\u001F')||LA14_190=='$'||LA14_190=='\''||(LA14_190>='*' && LA14_190<='+')||LA14_190=='/'||(LA14_190>=';' && LA14_190<='<')||LA14_190=='>'||LA14_190=='['||(LA14_190>=']' && LA14_190<='^')||LA14_190=='`'||(LA14_190>='{' && LA14_190<='\uFFFF')) ) {s = 129;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA14_42 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_42=='\\') ) {s = 126;}
-
-                        else if ( (LA14_42=='\"') ) {s = 127;}
-
-                        else if ( ((LA14_42>=' ' && LA14_42<='!')||LA14_42=='#'||(LA14_42>='%' && LA14_42<='&')||(LA14_42>='(' && LA14_42<=')')||(LA14_42>=',' && LA14_42<='.')||(LA14_42>='0' && LA14_42<=':')||LA14_42=='='||(LA14_42>='?' && LA14_42<='Z')||LA14_42=='_'||(LA14_42>='a' && LA14_42<='z')) ) {s = 128;}
-
-                        else if ( ((LA14_42>='\u0000' && LA14_42<='\u001F')||LA14_42=='$'||LA14_42=='\''||(LA14_42>='*' && LA14_42<='+')||LA14_42=='/'||(LA14_42>=';' && LA14_42<='<')||LA14_42=='>'||LA14_42=='['||(LA14_42>=']' && LA14_42<='^')||LA14_42=='`'||(LA14_42>='{' && LA14_42<='\uFFFF')) ) {s = 129;}
-
-                        else s = 48;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA14_126 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_126=='\"') ) {s = 188;}
-
-                        else if ( ((LA14_126>=' ' && LA14_126<='!')||LA14_126=='#'||(LA14_126>='%' && LA14_126<='&')||(LA14_126>='(' && LA14_126<=')')||(LA14_126>=',' && LA14_126<='.')||(LA14_126>='0' && LA14_126<=':')||LA14_126=='='||(LA14_126>='?' && LA14_126<='Z')||LA14_126=='\\'||LA14_126=='_'||(LA14_126>='a' && LA14_126<='z')) ) {s = 189;}
-
-                        else if ( ((LA14_126>='\u0000' && LA14_126<='\u001F')||LA14_126=='$'||LA14_126=='\''||(LA14_126>='*' && LA14_126<='+')||LA14_126=='/'||(LA14_126>=';' && LA14_126<='<')||LA14_126=='>'||LA14_126=='['||(LA14_126>=']' && LA14_126<='^')||LA14_126=='`'||(LA14_126>='{' && LA14_126<='\uFFFF')) ) {s = 129;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA14_188 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_188>='\u0000' && LA14_188<='\uFFFF')) ) {s = 129;}
-
-                        else s = 190;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA14_198 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_198>='\u0000' && LA14_198<='\uFFFF')) ) {s = 143;}
-
-                        else s = 248;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
                         int LA14_43 = input.LA(1);
 
                         s = -1;
@@ -4281,7 +4268,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 11 : 
+                    case 7 : 
                         int LA14_0 = input.LA(1);
 
                         s = -1;
@@ -4299,67 +4286,67 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         else if ( (LA14_0=='m') ) {s = 7;}
 
-                        else if ( (LA14_0=='w') ) {s = 8;}
+                        else if ( (LA14_0=='d') ) {s = 8;}
 
-                        else if ( (LA14_0=='r') ) {s = 9;}
+                        else if ( (LA14_0=='w') ) {s = 9;}
 
-                        else if ( (LA14_0=='c') ) {s = 10;}
+                        else if ( (LA14_0=='r') ) {s = 10;}
 
-                        else if ( (LA14_0=='s') ) {s = 11;}
+                        else if ( (LA14_0=='c') ) {s = 11;}
 
-                        else if ( (LA14_0=='e') ) {s = 12;}
+                        else if ( (LA14_0=='s') ) {s = 12;}
 
-                        else if ( (LA14_0=='l') ) {s = 13;}
+                        else if ( (LA14_0=='e') ) {s = 13;}
 
-                        else if ( (LA14_0=='E') ) {s = 14;}
+                        else if ( (LA14_0=='l') ) {s = 14;}
 
-                        else if ( (LA14_0=='i') ) {s = 15;}
+                        else if ( (LA14_0=='E') ) {s = 15;}
 
-                        else if ( (LA14_0=='b') ) {s = 16;}
+                        else if ( (LA14_0=='i') ) {s = 16;}
 
-                        else if ( (LA14_0=='=') ) {s = 17;}
+                        else if ( (LA14_0=='b') ) {s = 17;}
 
-                        else if ( (LA14_0=='!') ) {s = 18;}
+                        else if ( (LA14_0=='=') ) {s = 18;}
 
-                        else if ( (LA14_0=='<') ) {s = 19;}
+                        else if ( (LA14_0=='!') ) {s = 19;}
 
-                        else if ( (LA14_0=='>') ) {s = 20;}
+                        else if ( (LA14_0=='<') ) {s = 20;}
 
-                        else if ( (LA14_0=='I') ) {s = 21;}
+                        else if ( (LA14_0=='>') ) {s = 21;}
 
-                        else if ( (LA14_0=='O') ) {s = 22;}
+                        else if ( (LA14_0=='I') ) {s = 22;}
 
-                        else if ( (LA14_0=='t') ) {s = 23;}
+                        else if ( (LA14_0=='O') ) {s = 23;}
 
-                        else if ( (LA14_0=='f') ) {s = 24;}
+                        else if ( (LA14_0=='t') ) {s = 24;}
 
-                        else if ( (LA14_0=='A') ) {s = 25;}
+                        else if ( (LA14_0=='f') ) {s = 25;}
 
-                        else if ( (LA14_0=='v') ) {s = 26;}
+                        else if ( (LA14_0=='A') ) {s = 26;}
 
-                        else if ( (LA14_0=='M') ) {s = 27;}
+                        else if ( (LA14_0=='v') ) {s = 27;}
 
-                        else if ( (LA14_0=='p') ) {s = 28;}
+                        else if ( (LA14_0=='M') ) {s = 28;}
 
-                        else if ( (LA14_0=='(') ) {s = 29;}
+                        else if ( (LA14_0=='p') ) {s = 29;}
 
-                        else if ( (LA14_0==')') ) {s = 30;}
+                        else if ( (LA14_0=='(') ) {s = 30;}
 
-                        else if ( (LA14_0==',') ) {s = 31;}
+                        else if ( (LA14_0==')') ) {s = 31;}
 
-                        else if ( (LA14_0=='.') ) {s = 32;}
+                        else if ( (LA14_0==',') ) {s = 32;}
 
-                        else if ( (LA14_0=='[') ) {s = 33;}
+                        else if ( (LA14_0=='.') ) {s = 33;}
 
-                        else if ( (LA14_0==']') ) {s = 34;}
+                        else if ( (LA14_0=='[') ) {s = 34;}
 
-                        else if ( (LA14_0==':') ) {s = 35;}
+                        else if ( (LA14_0==']') ) {s = 35;}
 
-                        else if ( (LA14_0=='{') ) {s = 36;}
+                        else if ( (LA14_0==':') ) {s = 36;}
 
-                        else if ( (LA14_0=='}') ) {s = 37;}
+                        else if ( (LA14_0=='{') ) {s = 37;}
 
-                        else if ( (LA14_0=='d') ) {s = 38;}
+                        else if ( (LA14_0=='}') ) {s = 38;}
 
                         else if ( (LA14_0=='u') ) {s = 39;}
 
@@ -4383,23 +4370,71 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 12 : 
+                    case 8 : 
+                        int LA14_42 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_42=='\\') ) {s = 126;}
+
+                        else if ( (LA14_42=='\"') ) {s = 127;}
+
+                        else if ( ((LA14_42>=' ' && LA14_42<='!')||LA14_42=='#'||(LA14_42>='%' && LA14_42<='&')||(LA14_42>='(' && LA14_42<=')')||(LA14_42>=',' && LA14_42<='.')||(LA14_42>='0' && LA14_42<=':')||LA14_42=='='||(LA14_42>='?' && LA14_42<='Z')||LA14_42=='_'||(LA14_42>='a' && LA14_42<='z')) ) {s = 128;}
+
+                        else if ( ((LA14_42>='\u0000' && LA14_42<='\u001F')||LA14_42=='$'||LA14_42=='\''||(LA14_42>='*' && LA14_42<='+')||LA14_42=='/'||(LA14_42>=';' && LA14_42<='<')||LA14_42=='>'||LA14_42=='['||(LA14_42>=']' && LA14_42<='^')||LA14_42=='`'||(LA14_42>='{' && LA14_42<='\uFFFF')) ) {s = 129;}
+
+                        else s = 48;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA14_199 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_199>='\u0000' && LA14_199<='\uFFFF')) ) {s = 143;}
+
+                        else s = 250;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
                         int LA14_142 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_142=='/') ) {s = 198;}
+                        if ( (LA14_142=='/') ) {s = 199;}
 
                         else if ( ((LA14_142>='\u0000' && LA14_142<='.')||(LA14_142>='0' && LA14_142<='\uFFFF')) ) {s = 143;}
 
                         if ( s>=0 ) return s;
                         break;
-                    case 13 : 
-                        int LA14_191 = input.LA(1);
+                    case 11 : 
+                        int LA14_189 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_191>='\u0000' && LA14_191<='\uFFFF')) ) {s = 129;}
+                        if ( ((LA14_189>='\u0000' && LA14_189<='\uFFFF')) ) {s = 129;}
 
-                        else s = 243;
+                        else s = 191;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA14_62 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_62>=' ' && LA14_62<='!')||LA14_62=='#'||(LA14_62>='%' && LA14_62<='&')||(LA14_62>='(' && LA14_62<=')')||(LA14_62>='0' && LA14_62<='9')||LA14_62=='='||(LA14_62>='?' && LA14_62<='Z')||LA14_62=='\\'||LA14_62=='_'||(LA14_62>='a' && LA14_62<='z')) ) {s = 141;}
+
+                        else if ( (LA14_62=='*') ) {s = 142;}
+
+                        else if ( ((LA14_62>='\u0000' && LA14_62<='\u001F')||LA14_62=='\"'||LA14_62=='$'||LA14_62=='\''||(LA14_62>='+' && LA14_62<='/')||(LA14_62>=':' && LA14_62<='<')||LA14_62=='>'||LA14_62=='['||(LA14_62>=']' && LA14_62<='^')||LA14_62=='`'||(LA14_62>='{' && LA14_62<='\uFFFF')) ) {s = 143;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA14_192 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_192>='\u0000' && LA14_192<='\uFFFF')) ) {s = 129;}
+
+                        else s = 245;
 
                         if ( s>=0 ) return s;
                         break;

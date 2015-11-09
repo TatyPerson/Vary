@@ -263,6 +263,11 @@ public class FuncionFicheroCerrarItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

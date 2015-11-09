@@ -1435,7 +1435,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int PARAMETRO_FUNCION_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference.
+	 * The feature id for the '<em><b>Variable</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -3634,6 +3634,61 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int MOD_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.DivImpl <em>Div</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.DivImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getDiv()
+	 * @generated
+	 */
+	int DIV = 76;
+
+	/**
+	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__SIGNO_OP = OPERACION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__LEFT = OPERACION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__RIGHT = OPERACION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Div</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of operations of the '<em>Div</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3641,7 +3696,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 76;
+	int SIGNO = 77;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
@@ -3651,7 +3706,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
 	 * @generated
 	 */
-	int NEG = 77;
+	int NEG = 78;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
@@ -3661,7 +3716,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 78;
+	int NOMBRE_INTERNA = 79;
 
 
 	/**
@@ -3672,7 +3727,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 79;
+	int MODO_APERTURA = 80;
 
 
 	/**
@@ -4031,6 +4086,49 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EReference getMod_Left();
 
 	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.Div <em>Div</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Div</em>'.
+	 * @see diagramapseudocodigo.Div
+	 * @generated
+	 */
+	EClass getDiv();
+
+	/**
+	 * Returns the meta object for the attribute '{@link diagramapseudocodigo.Div#getSigno_op <em>Signo op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Signo op</em>'.
+	 * @see diagramapseudocodigo.Div#getSigno_op()
+	 * @see #getDiv()
+	 * @generated
+	 */
+	EAttribute getDiv_Signo_op();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Div#getLeft <em>Left</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Left</em>'.
+	 * @see diagramapseudocodigo.Div#getLeft()
+	 * @see #getDiv()
+	 * @generated
+	 */
+	EReference getDiv_Left();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Div#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see diagramapseudocodigo.Div#getRight()
+	 * @see #getDiv()
+	 * @generated
+	 */
+	EReference getDiv_Right();
+
+	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.Inicio <em>Inicio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4379,10 +4477,10 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EClass getLeer();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Leer#getVariable <em>Variable</em>}'.
+	 * Returns the meta object for the containment reference list '{@link diagramapseudocodigo.Leer#getVariable <em>Variable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variable</em>'.
+	 * @return the meta object for the containment reference list '<em>Variable</em>'.
 	 * @see diagramapseudocodigo.Leer#getVariable()
 	 * @see #getLeer()
 	 * @generated
@@ -6285,6 +6383,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EReference MOD__LEFT = eINSTANCE.getMod_Left();
 
 		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.DivImpl <em>Div</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.DivImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getDiv()
+		 * @generated
+		 */
+		EClass DIV = eINSTANCE.getDiv();
+
+		/**
+		 * The meta object literal for the '<em><b>Signo op</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DIV__SIGNO_OP = eINSTANCE.getDiv_Signo_op();
+
+		/**
+		 * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DIV__LEFT = eINSTANCE.getDiv_Left();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DIV__RIGHT = eINSTANCE.getDiv_Right();
+
+		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.InicioImpl <em>Inicio</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6579,7 +6711,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EClass LEER = eINSTANCE.getLeer();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Variable</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

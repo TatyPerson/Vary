@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getMat <em>Mat</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getNombre <em>Nombre</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

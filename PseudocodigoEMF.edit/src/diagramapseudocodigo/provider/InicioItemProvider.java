@@ -331,6 +331,11 @@ public class InicioItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 

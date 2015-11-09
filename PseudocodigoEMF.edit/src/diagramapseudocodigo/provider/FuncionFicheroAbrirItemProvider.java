@@ -296,6 +296,11 @@ public class FuncionFicheroAbrirItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

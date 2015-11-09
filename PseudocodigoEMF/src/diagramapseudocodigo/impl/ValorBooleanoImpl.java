@@ -14,10 +14,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ValorBooleanoImpl#getValor <em>Valor</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
@@ -31,7 +31,6 @@ public class ValorBooleanoImpl extends OperadorImpl implements ValorBooleano {
 	 * @ordered
 	 */
 	protected static final String VALOR_EDEFAULT = null;
-
 	/**
 	 * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
 	 * <!-- begin-user-doc -->

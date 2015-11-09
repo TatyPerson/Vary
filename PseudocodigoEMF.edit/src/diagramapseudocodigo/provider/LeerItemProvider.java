@@ -263,6 +263,11 @@ public class LeerItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.LEER__VARIABLE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.LEER__VARIABLE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

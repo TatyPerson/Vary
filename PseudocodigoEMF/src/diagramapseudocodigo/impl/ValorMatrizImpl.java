@@ -22,13 +22,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getNombre_matriz <em>Nombre matriz</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getCampo <em>Campo</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getPrimerIndice <em>Primer Indice</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getSegundoIndice <em>Segundo Indice</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

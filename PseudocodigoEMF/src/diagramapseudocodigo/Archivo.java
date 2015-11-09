@@ -10,11 +10,11 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Archivo#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Archivo#getTipo <em>Tipo</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getArchivo()
  * @model

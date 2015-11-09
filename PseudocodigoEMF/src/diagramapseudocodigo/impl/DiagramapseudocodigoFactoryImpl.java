@@ -128,6 +128,7 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.CABECERA_PROCEDIMIENTO: return createCabeceraProcedimiento();
 			case DiagramapseudocodigoPackage.CABECERA_FUNCION: return createCabeceraFuncion();
 			case DiagramapseudocodigoPackage.MOD: return createMod();
+			case DiagramapseudocodigoPackage.DIV: return createDiv();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -253,6 +254,16 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public Mod createMod() {
 		ModImpl mod = new ModImpl();
 		return mod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Div createDiv() {
+		DivImpl div = new DivImpl();
+		return div;
 	}
 
 	/**

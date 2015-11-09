@@ -10,11 +10,11 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.unaria#getSsigno <em>Ssigno</em>}</li>
  *   <li>{@link diagramapseudocodigo.unaria#getVariable <em>Variable</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getunaria()
  * @model

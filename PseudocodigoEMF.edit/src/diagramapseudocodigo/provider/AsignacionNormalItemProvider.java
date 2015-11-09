@@ -318,6 +318,11 @@ public class AsignacionNormalItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

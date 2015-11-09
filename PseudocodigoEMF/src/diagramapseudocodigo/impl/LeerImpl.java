@@ -5,11 +5,13 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Leer;
 import diagramapseudocodigo.operacion;
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,23 +19,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.LeerImpl#getVariable <em>Variable</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */
 public class LeerImpl extends SentenciasImpl implements Leer {
 	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
+	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getVariable()
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion variable;
+	protected EList<operacion> variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,42 +61,11 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getVariable() {
+	public EList<operacion> getVariable() {
+		if (variable == null) {
+			variable = new EObjectContainmentEList<operacion>(operacion.class, this, DiagramapseudocodigoPackage.LEER__VARIABLE);
+		}
 		return variable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetVariable(operacion newVariable, NotificationChain msgs) {
-		operacion oldVariable = variable;
-		variable = newVariable;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LEER__VARIABLE, oldVariable, newVariable);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setVariable(operacion newVariable) {
-		if (newVariable != variable) {
-			NotificationChain msgs = null;
-			if (variable != null)
-				msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LEER__VARIABLE, null, msgs);
-			if (newVariable != null)
-				msgs = ((InternalEObject)newVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LEER__VARIABLE, null, msgs);
-			msgs = basicSetVariable(newVariable, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LEER__VARIABLE, newVariable, newVariable));
 	}
 
 	/**
@@ -106,7 +77,7 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.LEER__VARIABLE:
-				return basicSetVariable(null, msgs);
+				return ((InternalEList<?>)getVariable()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -130,11 +101,13 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.LEER__VARIABLE:
-				setVariable((operacion)newValue);
+				getVariable().clear();
+				getVariable().addAll((Collection<? extends operacion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,7 +122,7 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.LEER__VARIABLE:
-				setVariable((operacion)null);
+				getVariable().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -164,7 +137,7 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.LEER__VARIABLE:
-				return variable != null;
+				return variable != null && !variable.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

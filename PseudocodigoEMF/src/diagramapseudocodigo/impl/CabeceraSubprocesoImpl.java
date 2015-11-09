@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.CabeceraSubprocesoImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CabeceraSubprocesoImpl#getParametrofuncion <em>Parametrofuncion</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

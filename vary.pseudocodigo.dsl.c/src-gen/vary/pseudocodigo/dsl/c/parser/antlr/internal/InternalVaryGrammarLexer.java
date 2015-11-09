@@ -95,6 +95,7 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__110=110;
     public static final int RULE_INT=7;
     public static final int RULE_COMENT=6;
+    public static final int T__112=112;
     public static final int T__50=50;
     public static final int T__42=42;
     public static final int T__43=43;
@@ -1240,10 +1241,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:64:7: ( '<-' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:64:9: '<-'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:64:7: ( 'fin_principal' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:64:9: 'fin_principal'
             {
-            match("<-"); 
+            match("fin_principal"); 
 
 
             }
@@ -1261,10 +1262,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:65:7: ( 'escribir' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:65:9: 'escribir'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:65:7: ( '<-' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:65:9: '<-'
             {
-            match("escribir"); 
+            match("<-"); 
 
 
             }
@@ -1282,10 +1283,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:66:7: ( 'leer' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:66:9: 'leer'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:66:7: ( 'escribir' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:66:9: 'escribir'
             {
-            match("leer"); 
+            match("escribir"); 
 
 
             }
@@ -1303,10 +1304,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:67:7: ( 'si' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:67:9: 'si'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:67:7: ( 'leer' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:67:9: 'leer'
             {
-            match("si"); 
+            match("leer"); 
 
 
             }
@@ -1324,10 +1325,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:68:7: ( 'entonces' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:68:9: 'entonces'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:68:7: ( 'si' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:68:9: 'si'
             {
-            match("entonces"); 
+            match("si"); 
 
 
             }
@@ -1345,10 +1346,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:69:7: ( 'fin_si' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:69:9: 'fin_si'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:69:7: ( 'entonces' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:69:9: 'entonces'
             {
-            match("fin_si"); 
+            match("entonces"); 
 
 
             }
@@ -1366,10 +1367,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:70:7: ( 'mientras' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:70:9: 'mientras'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:70:7: ( 'fin_si' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:70:9: 'fin_si'
             {
-            match("mientras"); 
+            match("fin_si"); 
 
 
             }
@@ -1387,10 +1388,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:71:7: ( 'hacer' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:71:9: 'hacer'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:71:7: ( 'mientras' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:71:9: 'mientras'
             {
-            match("hacer"); 
+            match("mientras"); 
 
 
             }
@@ -1408,10 +1409,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:72:7: ( 'fin_mientras' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:72:9: 'fin_mientras'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:72:7: ( 'hacer' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:72:9: 'hacer'
             {
-            match("fin_mientras"); 
+            match("hacer"); 
 
 
             }
@@ -1429,10 +1430,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:73:7: ( 'repetir' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:73:9: 'repetir'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:73:7: ( 'fin_mientras' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:73:9: 'fin_mientras'
             {
-            match("repetir"); 
+            match("fin_mientras"); 
 
 
             }
@@ -1450,10 +1451,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:74:7: ( 'hasta_que' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:74:9: 'hasta_que'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:74:7: ( 'repetir' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:74:9: 'repetir'
             {
-            match("hasta_que"); 
+            match("repetir"); 
 
 
             }
@@ -1471,10 +1472,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:75:7: ( 'desde' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:75:9: 'desde'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:75:7: ( 'hasta_que' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:75:9: 'hasta_que'
             {
-            match("desde"); 
+            match("hasta_que"); 
 
 
             }
@@ -1492,10 +1493,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:76:7: ( 'hasta' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:76:9: 'hasta'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:76:7: ( 'desde' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:76:9: 'desde'
             {
-            match("hasta"); 
+            match("desde"); 
 
 
             }
@@ -1513,10 +1514,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:77:7: ( 'fin_desde' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:77:9: 'fin_desde'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:77:7: ( 'hasta' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:77:9: 'hasta'
             {
-            match("fin_desde"); 
+            match("hasta"); 
 
 
             }
@@ -1534,10 +1535,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:78:7: ( 'caso' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:78:9: 'caso'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:78:7: ( 'fin_desde' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:78:9: 'fin_desde'
             {
-            match("caso"); 
+            match("fin_desde"); 
 
 
             }
@@ -1555,10 +1556,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:79:7: ( 'segun_sea' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:79:9: 'segun_sea'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:79:7: ( 'caso' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:79:9: 'caso'
             {
-            match("segun_sea"); 
+            match("caso"); 
 
 
             }
@@ -1576,10 +1577,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:80:7: ( 'en_otro_caso:' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:80:9: 'en_otro_caso:'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:80:7: ( 'segun_sea' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:80:9: 'segun_sea'
             {
-            match("en_otro_caso:"); 
+            match("segun_sea"); 
 
 
             }
@@ -1597,10 +1598,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:81:7: ( 'fin_segun' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:81:9: 'fin_segun'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:81:7: ( 'en_otro_caso:' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:81:9: 'en_otro_caso:'
             {
-            match("fin_segun"); 
+            match("en_otro_caso:"); 
 
 
             }
@@ -1618,10 +1619,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:82:7: ( 'entero' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:82:9: 'entero'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:82:7: ( 'fin_segun' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:82:9: 'fin_segun'
             {
-            match("entero"); 
+            match("fin_segun"); 
 
 
             }
@@ -1639,10 +1640,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:83:7: ( 'caracter' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:83:9: 'caracter'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:83:7: ( 'entero' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:83:9: 'entero'
             {
-            match("caracter"); 
+            match("entero"); 
 
 
             }
@@ -1660,10 +1661,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:84:7: ( 'real' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:84:9: 'real'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:84:7: ( 'caracter' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:84:9: 'caracter'
             {
-            match("real"); 
+            match("caracter"); 
 
 
             }
@@ -1681,10 +1682,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:85:7: ( 'logico' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:85:9: 'logico'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:85:7: ( 'real' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:85:9: 'real'
             {
-            match("logico"); 
+            match("real"); 
 
 
             }
@@ -1702,10 +1703,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:86:7: ( 'cadena' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:86:9: 'cadena'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:86:7: ( 'logico' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:86:9: 'logico'
             {
-            match("cadena"); 
+            match("logico"); 
 
 
             }
@@ -1723,10 +1724,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:87:7: ( 'o' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:87:9: 'o'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:87:7: ( 'cadena' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:87:9: 'cadena'
             {
-            match('o'); 
+            match("cadena"); 
+
 
             }
 
@@ -1743,10 +1745,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:88:7: ( 'y' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:88:9: 'y'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:88:7: ( 'o' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:88:9: 'o'
             {
-            match('y'); 
+            match('o'); 
 
             }
 
@@ -1763,11 +1765,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:89:7: ( '==' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:89:9: '=='
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:89:7: ( 'y' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:89:9: 'y'
             {
-            match("=="); 
-
+            match('y'); 
 
             }
 
@@ -1948,10 +1949,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:98:8: ( '|' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:98:10: '|'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:98:8: ( 'div' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:98:10: 'div'
             {
-            match('|'); 
+            match("div"); 
+
 
             }
 
@@ -1968,11 +1970,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:99:8: ( '-(' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:99:10: '-('
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:99:8: ( '|' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:99:10: '|'
             {
-            match("-("); 
-
+            match('|'); 
 
             }
 
@@ -1989,10 +1990,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:100:8: ( 'no' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:100:10: 'no'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:100:8: ( '-(' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:100:10: '-('
             {
-            match("no"); 
+            match("-("); 
 
 
             }
@@ -2010,10 +2011,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:101:8: ( 'si_no' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:101:10: 'si_no'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:101:8: ( 'no' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:101:10: 'no'
             {
-            match("si_no"); 
+            match("no"); 
 
 
             }
@@ -2031,10 +2032,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:102:8: ( 'devolver' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:102:10: 'devolver'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:102:8: ( 'si_no' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:102:10: 'si_no'
             {
-            match("devolver"); 
+            match("si_no"); 
 
 
             }
@@ -2052,10 +2053,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:103:8: ( 'fin_funcion' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:103:10: 'fin_funcion'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:103:8: ( 'devolver' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:103:10: 'devolver'
             {
-            match("fin_funcion"); 
+            match("devolver"); 
 
 
             }
@@ -2073,10 +2074,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:104:8: ( 'fin_procedimiento' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:104:10: 'fin_procedimiento'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:104:8: ( 'fin_funcion' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:104:10: 'fin_funcion'
             {
-            match("fin_procedimiento"); 
+            match("fin_funcion"); 
 
 
             }
@@ -2094,10 +2095,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:105:8: ( 'E/S' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:105:10: 'E/S'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:105:8: ( 'fin_procedimiento' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:105:10: 'fin_procedimiento'
             {
-            match("E/S"); 
+            match("fin_procedimiento"); 
 
 
             }
@@ -2115,10 +2116,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:106:8: ( 'S' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:106:10: 'S'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:106:8: ( 'E/S' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:106:10: 'E/S'
             {
-            match('S'); 
+            match("E/S"); 
+
 
             }
 
@@ -2135,11 +2137,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:107:8: ( 'verdadero' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:107:10: 'verdadero'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:107:8: ( 'S' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:107:10: 'S'
             {
-            match("verdadero"); 
-
+            match('S'); 
 
             }
 
@@ -2156,10 +2157,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:108:8: ( 'falso' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:108:10: 'falso'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:108:8: ( 'verdadero' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:108:10: 'verdadero'
             {
-            match("falso"); 
+            match("verdadero"); 
 
 
             }
@@ -2172,17 +2173,38 @@ public class InternalVaryGrammarLexer extends Lexer {
     }
     // $ANTLR end "T__111"
 
+    // $ANTLR start "T__112"
+    public final void mT__112() throws RecognitionException {
+        try {
+            int _type = T__112;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:109:8: ( 'falso' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:109:10: 'falso'
+            {
+            match("falso"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__112"
+
     // $ANTLR start "RULE_SL_COMMENT"
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -2195,7 +2217,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2215,7 +2237,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                 }
             } while (true);
 
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:40: ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:40: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2224,9 +2246,9 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:41: ( '\\r' )? '\\n'
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:41: ( '\\r' )? '\\n'
                     {
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:41: ( '\\r' )?
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:41: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2235,7 +2257,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6930:41: '\\r'
+                            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7057:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2267,17 +2289,17 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_CAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6932:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6932:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7059:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7059:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"'
             {
             match('\"'); 
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6932:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7059:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( ((LA4_0>=' ' && LA4_0<='!')||LA4_0=='#'||(LA4_0>='%' && LA4_0<='&')||(LA4_0>='(' && LA4_0<=')')||(LA4_0>=',' && LA4_0<='.')||(LA4_0>='0' && LA4_0<=':')||LA4_0=='='||(LA4_0>='?' && LA4_0<='Z')||LA4_0=='\\'||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')) ) {
+                if ( ((LA4_0>=' ' && LA4_0<='!')||LA4_0=='#'||(LA4_0>='%' && LA4_0<='&')||(LA4_0>='(' && LA4_0<=')')||(LA4_0>=',' && LA4_0<='.')||(LA4_0>='0' && LA4_0<=':')||LA4_0=='='||(LA4_0>='?' && LA4_0<='Z')||LA4_0=='\\'||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')||LA4_0=='\u00C1'||LA4_0=='\u00C9'||LA4_0=='\u00CD'||LA4_0=='\u00D1'||LA4_0=='\u00D3'||LA4_0=='\u00DA'||LA4_0=='\u00E1'||LA4_0=='\u00E9'||LA4_0=='\u00ED'||LA4_0=='\u00F1'||LA4_0=='\u00F3'||LA4_0=='\u00FA') ) {
                     alt4=1;
                 }
 
@@ -2286,7 +2308,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             	case 1 :
             	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:
             	    {
-            	    if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>=',' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<=':')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	    if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>=',' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<=':')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||input.LA(1)=='\u00C1'||input.LA(1)=='\u00C9'||input.LA(1)=='\u00CD'||input.LA(1)=='\u00D1'||input.LA(1)=='\u00D3'||input.LA(1)=='\u00DA'||input.LA(1)=='\u00E1'||input.LA(1)=='\u00E9'||input.LA(1)=='\u00ED'||input.LA(1)=='\u00F1'||input.LA(1)=='\u00F3'||input.LA(1)=='\u00FA' ) {
             	        input.consume();
 
             	    }
@@ -2321,8 +2343,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_CAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6934:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6934:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7061:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7061:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
             {
             match('\''); 
             if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2351,12 +2373,12 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_COMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6936:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6936:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7063:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7063:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6936:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7063:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
             loop5:
             do {
                 int alt5=2;
@@ -2407,10 +2429,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6938:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6938:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7065:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7065:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6938:11: ( '^' )?
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7065:11: ( '^' )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2419,7 +2441,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6938:11: '^'
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7065:11: '^'
                     {
                     match('^'); 
 
@@ -2437,7 +2459,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6938:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7065:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop7:
             do {
                 int alt7=2;
@@ -2486,10 +2508,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6940:10: ( ( '0' .. '9' )+ )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6940:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7067:10: ( ( '0' .. '9' )+ )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7067:12: ( '0' .. '9' )+
             {
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6940:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7067:12: ( '0' .. '9' )+
             int cnt8=0;
             loop8:
             do {
@@ -2503,7 +2525,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6940:13: '0' .. '9'
+            	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7067:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2535,10 +2557,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2556,10 +2578,10 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop9:
                     do {
                         int alt9=3;
@@ -2575,7 +2597,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:21: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2583,7 +2605,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2608,10 +2630,10 @@ public class InternalVaryGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2627,7 +2649,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:54: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2635,7 +2657,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6942:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7069:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2678,12 +2700,12 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6944:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6944:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7071:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7071:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6944:24: ( options {greedy=false; } : . )*
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7071:24: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -2708,7 +2730,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6944:52: .
+            	    // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7071:52: .
             	    {
             	    matchAny(); 
 
@@ -2738,10 +2760,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6946:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6946:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7073:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7073:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6946:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7073:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -2795,8 +2817,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6948:16: ( . )
-            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:6948:18: .
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7075:16: ( . )
+            // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:7075:18: .
             {
             matchAny(); 
 
@@ -2811,8 +2833,8 @@ public class InternalVaryGrammarLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=108;
+        // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=109;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -3502,70 +3524,77 @@ public class InternalVaryGrammarLexer extends Lexer {
                 }
                 break;
             case 99 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:610: RULE_SL_COMMENT
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:610: T__112
+                {
+                mT__112(); 
+
+                }
+                break;
+            case 100 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:617: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 100 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:626: RULE_CAD
+            case 101 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:633: RULE_CAD
                 {
                 mRULE_CAD(); 
 
                 }
                 break;
-            case 101 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:635: RULE_CAR
+            case 102 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:642: RULE_CAR
                 {
                 mRULE_CAR(); 
 
                 }
                 break;
-            case 102 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:644: RULE_COMENT
+            case 103 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:651: RULE_COMENT
                 {
                 mRULE_COMENT(); 
 
                 }
                 break;
-            case 103 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:656: RULE_ID
+            case 104 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:663: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 104 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:664: RULE_INT
+            case 105 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:671: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 105 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:673: RULE_STRING
+            case 106 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:680: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 106 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:685: RULE_ML_COMMENT
+            case 107 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:692: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 107 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:701: RULE_WS
+            case 108 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:708: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 108 :
-                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:709: RULE_ANY_OTHER
+            case 109 :
+                // ../vary.pseudocodigo.dsl.c/src-gen/vary/pseudocodigo/dsl/c/parser/antlr/internal/InternalVaryGrammar.g:1:716: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3579,17 +3608,17 @@ public class InternalVaryGrammarLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\7\60\1\101\1\60\3\uffff\3\60\1\117\1\121\1\uffff\1\124\1\126\1\uffff\1\131\1\60\1\56\2\60\2\uffff\1\144\1\60\1\146\1\147\1\56\1\152\1\uffff\1\156\1\uffff\1\60\1\161\3\56\4\uffff\1\60\1\uffff\20\60\1\uffff\1\60\3\uffff\3\60\1\u0096\3\60\1\u009d\14\uffff\1\u00a0\1\uffff\4\60\5\uffff\1\60\12\uffff\1\u00ac\11\uffff\7\60\1\u00bb\6\60\1\u00c2\3\60\1\u00c7\11\60\1\uffff\1\u00d3\1\60\1\u00d5\3\60\1\uffff\2\60\1\uffff\2\60\1\u00dd\5\60\4\uffff\1\u00af\2\uffff\1\u00e4\1\uffff\11\60\1\uffff\2\60\1\u00f8\2\60\1\u00fb\1\uffff\4\60\1\uffff\11\60\1\u0109\1\60\1\uffff\1\60\1\uffff\1\60\1\u010d\5\60\1\uffff\2\60\1\u0115\2\60\1\u0118\1\uffff\16\60\1\u012a\1\u012b\3\60\1\uffff\2\60\1\uffff\12\60\1\u013c\2\60\1\uffff\3\60\1\uffff\1\u0142\1\u0143\5\60\1\uffff\1\u0149\1\u014b\1\uffff\3\60\1\u014f\7\60\1\u0157\5\60\2\uffff\1\60\1\u015e\2\60\1\u0161\1\u0162\1\60\1\u0164\4\60\1\u0169\3\60\1\uffff\2\60\1\u016f\2\60\2\uffff\1\60\1\u0173\3\60\1\uffff\1\60\1\uffff\1\60\1\u0179\1\60\1\uffff\7\60\1\uffff\4\60\1\u0187\1\60\1\uffff\2\60\2\uffff\1\60\1\uffff\1\u018c\3\60\1\uffff\4\60\1\u0194\1\uffff\3\60\1\uffff\2\60\1\u019a\2\60\1\uffff\15\60\1\uffff\1\60\1\u01ab\1\u01ac\1\60\1\uffff\1\60\1\u01af\1\u01b0\3\60\2\uffff\1\u01b4\1\60\1\u01b6\1\u01b7\1\60\1\uffff\1\60\1\u01ba\11\60\1\u01c4\1\u01c5\2\60\1\u01c8\2\uffff\1\u01c9\1\u01ca\2\uffff\2\60\1\u01cd\1\uffff\1\u01ce\3\uffff\1\u01cf\1\uffff\3\60\1\u01d3\2\60\1\u01d6\2\60\2\uffff\2\60\3\uffff\2\60\3\uffff\1\60\1\u01de\1\60\1\uffff\1\60\1\u01e1\1\uffff\2\60\1\u01e4\4\60\1\uffff\2\60\1\uffff\1\u01eb\1\u01ec\1\uffff\5\60\1\u01f2\2\uffff\1\60\1\uffff\1\u01f4\1\u01f5\1\60\1\uffff\1\60\2\uffff\5\60\1\u01fd\1\u01fe\2\uffff";
+        "\1\uffff\7\60\1\101\1\60\3\uffff\3\60\1\117\1\121\1\uffff\1\124\2\uffff\1\130\1\60\1\56\2\60\2\uffff\1\144\1\60\1\146\1\147\1\56\1\152\1\uffff\1\156\1\uffff\1\60\1\161\3\56\4\uffff\1\60\1\uffff\20\60\1\uffff\1\60\3\uffff\3\60\1\u0096\3\60\1\u009d\13\uffff\1\u00a0\1\60\1\uffff\4\60\5\uffff\1\60\12\uffff\1\u00ad\11\uffff\7\60\1\u00bc\6\60\1\u00c3\3\60\1\u00c8\11\60\1\uffff\1\u00d4\1\60\1\u00d6\3\60\1\uffff\2\60\1\uffff\1\u00dc\2\60\1\u00df\5\60\4\uffff\1\u00b0\2\uffff\1\u00e6\1\uffff\11\60\1\uffff\2\60\1\u00fa\2\60\1\u00fd\1\uffff\4\60\1\uffff\11\60\1\u010b\1\60\1\uffff\1\60\1\uffff\1\60\1\u010f\3\60\1\uffff\2\60\1\uffff\2\60\1\u0117\2\60\1\u011a\1\uffff\16\60\1\u012c\1\u012d\3\60\1\uffff\2\60\1\uffff\12\60\1\u013e\2\60\1\uffff\3\60\1\uffff\1\u0144\1\u0145\5\60\1\uffff\1\u014b\1\u014d\1\uffff\3\60\1\u0151\10\60\1\u015b\4\60\2\uffff\1\60\1\u0161\2\60\1\u0164\1\u0165\1\60\1\u0167\4\60\1\u016c\3\60\1\uffff\2\60\1\u0172\2\60\2\uffff\1\60\1\u0176\3\60\1\uffff\1\60\1\uffff\1\60\1\u017c\1\60\1\uffff\11\60\1\uffff\3\60\1\u018b\1\60\1\uffff\2\60\2\uffff\1\60\1\uffff\1\u0190\3\60\1\uffff\4\60\1\u0198\1\uffff\3\60\1\uffff\2\60\1\u019e\2\60\1\uffff\16\60\1\uffff\1\60\1\u01b0\1\u01b1\1\60\1\uffff\1\60\1\u01b4\1\u01b5\3\60\2\uffff\1\u01b9\1\60\1\u01bb\1\u01bc\1\60\1\uffff\1\60\1\u01bf\13\60\1\u01cb\1\u01cc\1\60\1\u01ce\2\uffff\1\u01cf\1\u01d0\2\uffff\2\60\1\u01d3\1\uffff\1\u01d4\3\uffff\1\u01d5\1\uffff\3\60\1\u01d9\2\60\1\u01dc\4\60\2\uffff\1\60\3\uffff\2\60\3\uffff\1\60\1\u01e5\1\60\1\uffff\1\60\1\u01e8\1\uffff\4\60\1\u01ed\3\60\1\uffff\2\60\1\uffff\1\u01f3\1\u01f4\2\60\1\uffff\4\60\1\u01fb\2\uffff\1\u01fc\1\60\1\uffff\1\u01fe\1\u01ff\1\60\2\uffff\1\60\2\uffff\5\60\1\u0207\1\u0208\2\uffff";
     static final String DFA14_eofS =
-        "\u01ff\uffff";
+        "\u0209\uffff";
     static final String DFA14_minS =
-        "\1\0\1\154\1\155\2\141\1\151\1\141\1\157\1\60\1\162\3\uffff\1\142\2\145\1\56\1\57\1\uffff\1\50\1\75\1\uffff\1\133\1\145\1\40\1\141\1\145\2\uffff\1\55\1\141\2\60\2\75\1\uffff\1\52\1\uffff\1\157\1\60\2\0\1\101\4\uffff\1\147\1\uffff\1\160\1\151\2\156\1\154\1\156\1\162\1\141\1\144\1\160\1\162\1\143\1\144\1\160\1\143\1\137\1\uffff\1\151\3\uffff\1\162\2\143\1\60\2\147\1\162\1\60\14\uffff\1\60\1\uffff\1\164\1\145\1\144\1\141\5\uffff\1\143\7\uffff\1\0\2\uffff\1\60\1\uffff\1\0\1\uffff\1\0\1\uffff\2\0\2\uffff\1\157\1\154\1\143\1\137\1\143\1\163\1\143\1\60\1\162\1\144\1\157\1\141\1\145\1\157\1\60\1\164\1\144\1\165\1\60\1\162\1\145\1\157\1\143\1\156\1\151\1\150\1\164\1\162\1\uffff\1\60\1\147\1\60\1\165\1\164\1\156\1\uffff\1\144\1\157\1\uffff\1\162\1\156\1\60\1\151\1\145\1\154\1\145\1\164\2\0\2\uffff\2\0\1\uffff\1\0\1\uffff\2\162\1\145\1\151\1\141\1\151\1\157\1\164\1\141\1\uffff\1\141\1\162\1\60\1\143\1\156\1\60\1\uffff\1\157\1\141\1\154\1\162\1\uffff\1\151\1\156\1\162\1\164\1\145\1\143\1\162\1\151\1\165\1\60\1\143\1\uffff\1\151\1\uffff\1\156\1\60\1\157\1\145\1\154\1\151\1\164\1\uffff\1\163\1\164\1\60\1\162\1\141\1\0\1\uffff\1\151\1\164\1\155\1\157\1\155\1\154\1\170\1\151\3\145\1\165\1\162\1\157\2\60\1\164\1\162\1\141\1\uffff\1\164\1\141\1\uffff\1\162\1\144\1\157\1\164\1\142\1\143\1\157\1\162\1\144\1\151\1\60\1\166\1\162\1\uffff\1\157\1\164\1\137\1\uffff\2\60\1\166\1\172\1\162\1\164\1\151\1\uffff\2\60\1\uffff\1\164\1\141\1\145\1\60\1\160\1\151\1\147\1\160\1\144\1\145\1\147\1\60\1\147\1\163\1\156\1\157\1\156\2\uffff\1\145\1\60\1\144\1\145\2\60\1\145\1\60\1\141\1\165\1\151\1\145\1\60\1\157\1\151\1\160\1\uffff\1\157\1\141\1\60\1\165\1\163\2\uffff\1\145\1\60\1\141\2\162\1\uffff\1\161\1\uffff\1\155\1\60\1\156\1\uffff\1\154\1\143\2\157\1\165\1\156\1\151\1\uffff\1\165\1\144\2\143\1\60\1\156\1\uffff\1\157\1\162\2\uffff\1\162\1\uffff\1\60\2\162\1\163\1\uffff\1\137\1\155\1\141\1\40\1\60\1\uffff\1\144\1\145\1\162\1\uffff\1\163\1\157\1\60\1\165\1\157\1\uffff\1\164\1\162\1\145\1\151\2\162\1\154\1\164\1\163\1\156\1\145\1\151\1\145\1\uffff\1\141\2\60\1\157\1\uffff\1\141\2\60\1\143\1\151\1\154\2\uffff\1\60\1\141\2\60\1\72\1\uffff\1\145\1\60\1\141\1\164\1\155\1\157\1\151\1\164\1\157\1\162\1\164\2\60\1\157\1\144\1\60\2\uffff\2\60\2\uffff\1\141\1\145\1\60\1\uffff\1\60\3\uffff\1\60\1\uffff\1\143\1\141\1\145\1\60\1\164\1\141\1\60\1\141\1\162\2\uffff\1\156\1\151\3\uffff\1\163\1\156\3\uffff\1\151\1\60\1\156\1\uffff\1\155\1\60\1\uffff\1\163\1\157\1\60\1\155\1\157\1\164\1\157\1\uffff\1\164\1\157\1\uffff\2\60\1\uffff\1\151\1\72\1\157\1\156\1\141\1\60\2\uffff\1\145\1\uffff\2\60\1\143\1\uffff\1\156\2\uffff\1\151\1\164\2\157\1\156\2\60\2\uffff";
+        "\1\0\1\154\1\155\2\141\1\151\1\141\1\157\1\60\1\162\3\uffff\1\142\2\145\1\56\1\57\1\uffff\1\50\2\uffff\1\133\1\145\1\40\1\141\1\145\2\uffff\1\55\1\141\2\60\2\75\1\uffff\1\52\1\uffff\1\157\1\60\2\0\1\101\4\uffff\1\147\1\uffff\1\160\1\151\2\156\1\154\1\156\1\162\1\141\1\144\1\160\1\162\1\143\1\144\1\160\1\143\1\137\1\uffff\1\151\3\uffff\1\162\2\143\1\60\2\147\1\162\1\60\13\uffff\1\60\1\166\1\uffff\1\164\1\145\1\144\1\141\5\uffff\1\143\7\uffff\1\0\2\uffff\1\60\1\uffff\2\0\2\uffff\2\0\2\uffff\1\157\1\154\1\143\1\137\1\143\1\163\1\143\1\60\1\162\1\144\1\157\1\141\1\145\1\157\1\60\1\164\1\144\1\165\1\60\1\162\1\145\1\157\1\143\1\156\1\151\1\150\1\164\1\162\1\uffff\1\60\1\147\1\60\1\165\1\164\1\156\1\uffff\1\144\1\157\1\uffff\1\60\1\162\1\156\1\60\1\151\1\145\1\154\1\145\1\164\2\0\2\uffff\2\0\1\uffff\1\0\1\uffff\2\162\1\145\1\151\1\141\1\151\1\157\1\164\1\141\1\uffff\1\141\1\162\1\60\1\143\1\156\1\60\1\uffff\1\157\1\141\1\154\1\162\1\uffff\1\151\1\156\1\162\1\164\1\145\1\143\1\162\1\151\1\165\1\60\1\143\1\uffff\1\151\1\uffff\1\156\1\60\1\157\1\145\1\154\1\uffff\1\151\1\164\1\uffff\1\163\1\164\1\60\1\162\1\141\1\0\1\uffff\1\151\1\164\1\155\1\157\1\155\1\154\1\170\1\151\1\145\1\162\2\145\1\165\1\157\2\60\1\164\1\162\1\141\1\uffff\1\164\1\141\1\uffff\1\162\1\144\1\157\1\164\1\142\1\143\1\157\1\162\1\144\1\151\1\60\1\166\1\162\1\uffff\1\157\1\164\1\137\1\uffff\2\60\1\166\1\172\1\162\1\164\1\151\1\uffff\2\60\1\uffff\1\164\1\141\1\145\1\60\1\160\1\151\1\147\1\160\1\144\1\145\1\147\1\151\1\60\1\147\1\163\2\156\2\uffff\1\145\1\60\1\144\1\145\2\60\1\145\1\60\1\141\1\165\1\151\1\145\1\60\1\157\1\151\1\160\1\uffff\1\157\1\141\1\60\1\165\1\163\2\uffff\1\145\1\60\1\141\2\162\1\uffff\1\161\1\uffff\1\155\1\60\1\156\1\uffff\1\154\1\143\2\157\1\165\1\156\1\151\1\156\1\143\1\uffff\1\165\1\144\1\143\1\60\1\156\1\uffff\1\157\1\162\2\uffff\1\162\1\uffff\1\60\2\162\1\163\1\uffff\1\137\1\155\1\141\1\40\1\60\1\uffff\1\144\1\145\1\162\1\uffff\1\163\1\157\1\60\1\165\1\157\1\uffff\1\164\1\162\1\145\1\151\2\162\1\154\1\164\1\163\1\143\1\145\1\156\1\145\1\151\1\uffff\1\141\2\60\1\157\1\uffff\1\141\2\60\1\143\1\151\1\154\2\uffff\1\60\1\141\2\60\1\72\1\uffff\1\145\1\60\1\141\1\164\1\155\1\157\1\151\1\164\1\157\1\162\1\164\1\151\1\144\2\60\1\157\1\60\2\uffff\2\60\2\uffff\1\141\1\145\1\60\1\uffff\1\60\3\uffff\1\60\1\uffff\1\143\1\141\1\145\1\60\1\164\1\141\1\60\1\141\1\162\1\160\1\151\2\uffff\1\156\3\uffff\1\163\1\156\3\uffff\1\151\1\60\1\156\1\uffff\1\155\1\60\1\uffff\1\163\1\157\1\141\1\155\1\60\1\157\1\164\1\157\1\uffff\1\164\1\157\1\uffff\2\60\1\154\1\151\1\uffff\1\72\1\157\1\156\1\141\1\60\2\uffff\1\60\1\145\1\uffff\2\60\1\143\2\uffff\1\156\2\uffff\1\151\1\164\2\157\1\156\2\60\2\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\154\1\156\2\165\1\151\1\145\1\157\1\172\1\162\3\uffff\1\162\1\157\1\161\1\56\1\172\1\uffff\1\50\1\75\1\uffff\1\133\1\145\1\40\1\157\1\145\2\uffff\1\75\1\141\2\172\2\75\1\uffff\1\57\1\uffff\1\157\1\172\2\uffff\1\172\4\uffff\1\147\1\uffff\1\160\1\151\2\156\1\154\1\163\1\162\1\141\1\163\1\160\2\162\1\144\1\160\1\143\1\164\1\uffff\1\157\3\uffff\1\162\1\143\1\145\1\172\2\156\1\162\1\172\14\uffff\1\172\1\uffff\1\164\1\145\1\144\1\160\5\uffff\1\163\7\uffff\1\uffff\2\uffff\1\172\1\uffff\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff\2\uffff\2\157\1\143\1\137\1\143\2\163\1\172\1\162\1\144\1\157\1\141\1\145\1\157\1\172\1\164\1\144\1\165\1\172\1\162\2\157\1\143\1\156\1\151\1\150\1\164\1\162\1\uffff\1\172\1\147\1\172\1\165\1\164\1\156\1\uffff\1\144\1\157\1\uffff\1\162\1\156\1\172\1\151\1\145\1\154\1\145\1\164\2\uffff\2\uffff\2\uffff\1\uffff\1\uffff\1\uffff\2\162\1\145\1\151\1\163\1\151\1\157\1\164\1\141\1\uffff\1\141\1\162\1\172\1\143\1\156\1\172\1\uffff\1\157\1\141\1\154\1\162\1\uffff\1\151\1\156\1\162\1\164\1\145\1\143\1\162\1\151\1\165\1\172\1\143\1\uffff\1\151\1\uffff\1\156\1\172\1\157\1\145\1\154\1\151\1\164\1\uffff\1\163\1\164\1\172\1\162\1\141\1\uffff\1\uffff\1\151\1\164\1\155\1\157\1\156\1\154\1\170\1\157\1\145\1\151\1\145\1\165\1\162\1\157\2\172\1\164\1\162\1\141\1\uffff\1\164\1\141\1\uffff\1\162\1\144\1\157\2\164\1\143\1\157\1\162\1\144\1\151\1\172\1\166\1\162\1\uffff\1\157\1\164\1\137\1\uffff\2\172\1\166\1\172\1\162\1\164\1\151\1\uffff\2\172\1\uffff\1\164\1\141\1\145\1\172\1\160\1\151\1\147\1\160\1\144\1\145\1\147\1\172\1\147\1\163\1\156\1\157\1\156\2\uffff\1\145\1\172\1\144\1\145\2\172\1\145\1\172\1\141\1\165\1\151\1\145\1\172\1\157\1\151\1\160\1\uffff\1\157\1\141\1\172\1\165\1\163\2\uffff\1\145\1\172\1\141\2\162\1\uffff\1\161\1\uffff\1\155\1\172\1\156\1\uffff\1\157\1\143\2\157\1\165\1\156\1\151\1\uffff\1\165\1\144\2\143\1\172\1\156\1\uffff\1\157\1\162\2\uffff\1\162\1\uffff\1\172\2\162\1\163\1\uffff\1\137\1\155\1\141\1\40\1\172\1\uffff\1\144\1\145\1\162\1\uffff\1\163\1\157\1\172\1\165\1\157\1\uffff\1\164\1\162\1\145\1\151\2\162\1\154\1\164\1\163\1\156\1\145\1\151\1\145\1\uffff\1\141\2\172\1\157\1\uffff\1\141\2\172\1\143\1\151\1\154\2\uffff\1\172\1\141\2\172\1\72\1\uffff\1\145\1\172\1\141\1\164\1\155\1\157\1\151\1\164\1\157\1\162\1\164\2\172\1\157\1\144\1\172\2\uffff\2\172\2\uffff\1\141\1\145\1\172\1\uffff\1\172\3\uffff\1\172\1\uffff\1\143\1\141\1\145\1\172\1\164\1\141\1\172\1\141\1\162\2\uffff\1\156\1\151\3\uffff\1\163\1\156\3\uffff\1\151\1\172\1\156\1\uffff\1\155\1\172\1\uffff\1\163\1\157\1\172\1\155\1\157\1\164\1\157\1\uffff\1\164\1\157\1\uffff\2\172\1\uffff\1\151\1\72\1\157\1\156\1\141\1\172\2\uffff\1\145\1\uffff\2\172\1\143\1\uffff\1\156\2\uffff\1\151\1\164\2\157\1\156\2\172\2\uffff";
+        "\1\uffff\1\154\1\156\2\165\1\151\1\145\1\157\1\172\1\162\3\uffff\1\162\1\157\1\161\1\56\1\172\1\uffff\1\50\2\uffff\1\133\1\151\1\40\1\157\1\145\2\uffff\1\75\1\141\2\172\2\75\1\uffff\1\57\1\uffff\1\157\1\172\2\uffff\1\172\4\uffff\1\147\1\uffff\1\160\1\151\2\156\1\154\1\163\1\162\1\141\1\163\1\160\2\162\1\144\1\160\1\143\1\164\1\uffff\1\157\3\uffff\1\162\1\143\1\145\1\172\2\156\1\162\1\172\13\uffff\1\172\1\166\1\uffff\1\164\1\145\1\144\1\160\5\uffff\1\163\7\uffff\1\uffff\2\uffff\1\172\1\uffff\2\uffff\2\uffff\2\uffff\2\uffff\2\157\1\143\1\137\1\143\2\163\1\172\1\162\1\144\1\157\1\141\1\145\1\157\1\172\1\164\1\144\1\165\1\172\1\162\2\157\1\143\1\156\1\151\1\150\1\164\1\162\1\uffff\1\172\1\147\1\172\1\165\1\164\1\156\1\uffff\1\144\1\157\1\uffff\1\172\1\162\1\156\1\172\1\151\1\145\1\154\1\145\1\164\2\uffff\2\uffff\2\uffff\1\uffff\1\uffff\1\uffff\2\162\1\145\1\151\1\163\1\151\1\157\1\164\1\141\1\uffff\1\141\1\162\1\172\1\143\1\156\1\172\1\uffff\1\157\1\141\1\154\1\162\1\uffff\1\151\1\156\1\162\1\164\1\145\1\143\1\162\1\151\1\165\1\172\1\143\1\uffff\1\151\1\uffff\1\156\1\172\1\157\1\145\1\154\1\uffff\1\151\1\164\1\uffff\1\163\1\164\1\172\1\162\1\141\1\uffff\1\uffff\1\151\1\164\1\155\1\157\1\156\1\154\1\170\1\157\1\145\1\162\1\151\1\145\1\165\1\157\2\172\1\164\1\162\1\141\1\uffff\1\164\1\141\1\uffff\1\162\1\144\1\157\2\164\1\143\1\157\1\162\1\144\1\151\1\172\1\166\1\162\1\uffff\1\157\1\164\1\137\1\uffff\2\172\1\166\1\172\1\162\1\164\1\151\1\uffff\2\172\1\uffff\1\164\1\141\1\145\1\172\1\160\1\151\1\147\1\160\1\144\1\145\1\147\1\157\1\172\1\147\1\163\2\156\2\uffff\1\145\1\172\1\144\1\145\2\172\1\145\1\172\1\141\1\165\1\151\1\145\1\172\1\157\1\151\1\160\1\uffff\1\157\1\141\1\172\1\165\1\163\2\uffff\1\145\1\172\1\141\2\162\1\uffff\1\161\1\uffff\1\155\1\172\1\156\1\uffff\1\157\1\143\2\157\1\165\1\156\1\151\1\156\1\143\1\uffff\1\165\1\144\1\143\1\172\1\156\1\uffff\1\157\1\162\2\uffff\1\162\1\uffff\1\172\2\162\1\163\1\uffff\1\137\1\155\1\141\1\40\1\172\1\uffff\1\144\1\145\1\162\1\uffff\1\163\1\157\1\172\1\165\1\157\1\uffff\1\164\1\162\1\145\1\151\2\162\1\154\1\164\1\163\1\143\1\145\1\156\1\145\1\151\1\uffff\1\141\2\172\1\157\1\uffff\1\141\2\172\1\143\1\151\1\154\2\uffff\1\172\1\141\2\172\1\72\1\uffff\1\145\1\172\1\141\1\164\1\155\1\157\1\151\1\164\1\157\1\162\1\164\1\151\1\144\2\172\1\157\1\172\2\uffff\2\172\2\uffff\1\141\1\145\1\172\1\uffff\1\172\3\uffff\1\172\1\uffff\1\143\1\141\1\145\1\172\1\164\1\141\1\172\1\141\1\162\1\160\1\151\2\uffff\1\156\3\uffff\1\163\1\156\3\uffff\1\151\1\172\1\156\1\uffff\1\155\1\172\1\uffff\1\163\1\157\1\141\1\155\1\172\1\157\1\164\1\157\1\uffff\1\164\1\157\1\uffff\2\172\1\154\1\151\1\uffff\1\72\1\157\1\156\1\141\1\172\2\uffff\1\172\1\145\1\uffff\2\172\1\143\2\uffff\1\156\2\uffff\1\151\1\164\2\157\1\156\2\172\2\uffff";
     static final String DFA14_acceptS =
-        "\12\uffff\1\17\1\20\1\21\5\uffff\1\43\2\uffff\1\47\5\uffff\1\60\1\61\6\uffff\1\125\1\uffff\1\130\5\uffff\1\147\1\150\1\153\1\154\1\uffff\1\147\20\uffff\1\42\1\uffff\1\17\1\20\1\21\10\uffff\1\62\1\40\1\137\1\41\1\43\1\131\1\44\1\117\1\45\1\47\1\54\1\50\1\uffff\1\52\4\uffff\1\60\1\61\1\66\1\124\1\121\1\uffff\1\115\1\116\1\120\1\123\1\122\1\125\1\143\1\uffff\1\126\1\130\1\uffff\1\140\1\uffff\1\144\1\uffff\1\151\2\uffff\1\150\1\153\34\uffff\1\32\6\uffff\1\71\2\uffff\1\51\12\uffff\1\152\1\132\2\uffff\1\144\1\uffff\1\145\11\uffff\1\27\6\uffff\1\6\4\uffff\1\31\13\uffff\1\33\1\uffff\1\34\7\uffff\1\127\6\uffff\1\145\23\uffff\1\104\2\uffff\1\5\15\uffff\1\70\3\uffff\1\35\7\uffff\1\112\2\uffff\1\146\21\uffff\1\142\1\4\20\uffff\1\23\5\uffff\1\133\1\101\5\uffff\1\75\1\uffff\1\102\3\uffff\1\64\7\uffff\1\73\6\uffff\1\24\2\uffff\1\114\1\46\1\uffff\1\10\4\uffff\1\110\5\uffff\1\113\3\uffff\1\53\5\uffff\1\2\15\uffff\1\22\4\uffff\1\11\6\uffff\1\57\1\26\5\uffff\1\77\20\uffff\1\30\1\111\2\uffff\1\67\1\72\3\uffff\1\36\1\uffff\1\134\1\74\1\55\1\uffff\1\1\11\uffff\1\107\1\103\2\uffff\1\37\1\141\1\25\2\uffff\1\63\1\105\1\100\3\uffff\1\65\2\uffff\1\13\7\uffff\1\3\2\uffff\1\12\2\uffff\1\135\6\uffff\1\76\1\56\1\uffff\1\106\3\uffff\1\7\1\uffff\1\16\1\14\7\uffff\1\136\1\15";
+        "\12\uffff\1\17\1\20\1\21\5\uffff\1\43\1\uffff\1\45\1\47\5\uffff\1\60\1\61\6\uffff\1\125\1\uffff\1\131\5\uffff\1\150\1\151\1\154\1\155\1\uffff\1\150\20\uffff\1\42\1\uffff\1\17\1\20\1\21\10\uffff\1\62\1\40\1\140\1\41\1\43\1\132\1\44\1\45\1\47\1\54\1\50\2\uffff\1\52\4\uffff\1\60\1\61\1\67\1\124\1\121\1\uffff\1\116\1\117\1\120\1\123\1\122\1\125\1\144\1\uffff\1\126\1\131\1\uffff\1\141\2\uffff\1\145\1\152\2\uffff\1\151\1\154\34\uffff\1\32\6\uffff\1\72\2\uffff\1\51\13\uffff\1\153\1\133\2\uffff\1\145\1\uffff\1\146\11\uffff\1\27\6\uffff\1\6\4\uffff\1\31\13\uffff\1\33\1\uffff\1\34\5\uffff\1\130\2\uffff\1\127\6\uffff\1\146\23\uffff\1\105\2\uffff\1\5\15\uffff\1\71\3\uffff\1\35\7\uffff\1\113\2\uffff\1\147\21\uffff\1\143\1\4\20\uffff\1\23\5\uffff\1\134\1\102\5\uffff\1\76\1\uffff\1\103\3\uffff\1\64\11\uffff\1\74\5\uffff\1\24\2\uffff\1\115\1\46\1\uffff\1\10\4\uffff\1\111\5\uffff\1\114\3\uffff\1\53\5\uffff\1\2\16\uffff\1\22\4\uffff\1\11\6\uffff\1\57\1\26\5\uffff\1\100\21\uffff\1\30\1\112\2\uffff\1\70\1\73\3\uffff\1\36\1\uffff\1\135\1\75\1\55\1\uffff\1\1\13\uffff\1\110\1\104\1\uffff\1\37\1\142\1\25\2\uffff\1\63\1\106\1\101\3\uffff\1\65\2\uffff\1\13\10\uffff\1\3\2\uffff\1\12\4\uffff\1\136\5\uffff\1\77\1\56\2\uffff\1\107\3\uffff\1\7\1\66\1\uffff\1\16\1\14\7\uffff\1\137\1\15";
     static final String DFA14_specialS =
-        "\1\15\47\uffff\1\13\1\5\103\uffff\1\11\4\uffff\1\1\1\uffff\1\4\1\uffff\1\0\1\6\61\uffff\1\12\1\7\2\uffff\1\14\1\3\1\uffff\1\10\62\uffff\1\2\u011b\uffff}>";
+        "\1\1\47\uffff\1\7\1\2\103\uffff\1\5\4\uffff\1\4\1\14\2\uffff\1\3\1\13\62\uffff\1\11\1\12\2\uffff\1\10\1\15\1\uffff\1\6\63\uffff\1\0\u0123\uffff}>";
     static final String[] DFA14_transitionS = {
             "\11\56\2\55\2\56\1\55\22\56\1\55\1\41\1\50\4\56\1\51\1\12\1\14\1\43\1\22\1\13\1\23\1\20\1\44\12\54\1\30\1\56\1\35\1\24\1\42\2\56\1\1\3\53\1\21\7\53\1\7\5\53\1\47\7\53\1\25\1\56\1\26\1\52\1\53\1\56\1\15\1\53\1\4\1\27\1\10\1\3\1\53\1\36\1\2\2\53\1\16\1\31\1\46\1\37\1\11\1\53\1\32\1\17\1\5\1\53\1\6\2\53\1\40\1\53\1\33\1\45\1\34\uff82\56",
             "\1\57",
@@ -3611,10 +3640,10 @@ public class InternalVaryGrammarLexer extends Lexer {
             "\1\120\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             "\1\123",
-            "\1\125",
             "",
-            "\1\130",
-            "\1\132",
+            "",
+            "\1\127",
+            "\1\131\3\uffff\1\132",
             "\1\133",
             "\1\134\7\uffff\1\135\5\uffff\1\136",
             "\1\137",
@@ -3631,7 +3660,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             "",
             "\1\160",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\40\165\2\164\1\163\1\164\1\165\2\164\1\165\2\164\2\165\3\164\1\165\13\164\2\165\1\164\1\165\34\164\1\165\1\162\2\165\1\164\1\165\32\164\uff85\165",
+            "\40\165\2\163\1\164\1\163\1\165\2\163\1\165\2\163\2\165\3\163\1\165\13\163\2\165\1\163\1\165\34\163\1\165\1\162\2\165\1\163\1\165\32\163\106\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\6\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\uff05\165",
             "\40\165\2\167\1\165\1\167\1\165\2\167\1\165\2\167\6\165\12\167\3\165\1\167\1\165\34\167\1\165\1\166\2\165\1\167\1\165\32\167\uff85\165",
             "\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
@@ -3680,19 +3709,19 @@ public class InternalVaryGrammarLexer extends Lexer {
             "",
             "",
             "",
-            "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u009e\2\60\1\u009f\4\60",
-            "",
             "\1\u00a1",
+            "",
             "\1\u00a2",
             "\1\u00a3",
-            "\1\u00a6\5\uffff\1\u00a4\10\uffff\1\u00a5",
+            "\1\u00a4",
+            "\1\u00a7\5\uffff\1\u00a5\10\uffff\1\u00a6",
             "",
             "",
             "",
             "",
             "",
-            "\1\u00a7\17\uffff\1\u00a8",
+            "\1\u00a8\17\uffff\1\u00a9",
             "",
             "",
             "",
@@ -3700,99 +3729,98 @@ public class InternalVaryGrammarLexer extends Lexer {
             "",
             "",
             "",
-            "\40\u00ab\2\u00aa\1\u00ab\1\u00aa\1\u00ab\2\u00aa\1\u00ab\2\u00aa\1\u00a9\5\u00ab\12\u00aa\3\u00ab\1\u00aa\1\u00ab\34\u00aa\1\u00ab\1\u00aa\2\u00ab\1\u00aa\1\u00ab\32\u00aa\uff85\u00ab",
+            "\40\u00ac\2\u00aa\1\u00ac\1\u00aa\1\u00ac\2\u00aa\1\u00ac\2\u00aa\1\u00ab\5\u00ac\12\u00aa\3\u00ac\1\u00aa\1\u00ac\34\u00aa\1\u00ac\1\u00aa\2\u00ac\1\u00aa\1\u00ac\32\u00aa\uff85\u00ac",
             "",
             "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
-            "\40\165\2\u00ae\1\u00ad\1\u00ae\1\165\2\u00ae\1\165\2\u00ae\2\165\3\u00ae\1\165\13\u00ae\2\165\1\u00ae\1\165\34\u00ae\1\165\1\u00ae\2\165\1\u00ae\1\165\32\u00ae\uff85\165",
+            "\40\165\2\u00af\1\u00ae\1\u00af\1\165\2\u00af\1\165\2\u00af\2\165\3\u00af\1\165\13\u00af\2\165\1\u00af\1\165\34\u00af\1\165\1\u00af\2\165\1\u00af\1\165\32\u00af\106\165\1\u00af\7\165\1\u00af\3\165\1\u00af\3\165\1\u00af\1\165\1\u00af\6\165\1\u00af\6\165\1\u00af\7\165\1\u00af\3\165\1\u00af\3\165\1\u00af\1\165\1\u00af\6\165\1\u00af\uff05\165",
+            "\40\165\2\163\1\164\1\163\1\165\2\163\1\165\2\163\2\165\3\163\1\165\13\163\2\165\1\163\1\165\34\163\1\165\1\162\2\165\1\163\1\165\32\163\106\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\6\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\uff05\165",
             "",
-            "\40\165\2\164\1\163\1\164\1\165\2\164\1\165\2\164\2\165\3\164\1\165\13\164\2\165\1\164\1\165\34\164\1\165\1\162\2\165\1\164\1\165\32\164\uff85\165",
             "",
-            "\47\165\1\u00b0\uffd8\165",
             "\47\165\1\u00b1\uffd8\165",
+            "\47\165\1\u00b2\uffd8\165",
             "",
             "",
-            "\1\u00b2",
-            "\1\u00b4\2\uffff\1\u00b3",
-            "\1\u00b5",
+            "\1\u00b3",
+            "\1\u00b5\2\uffff\1\u00b4",
             "\1\u00b6",
             "\1\u00b7",
             "\1\u00b8",
-            "\1\u00ba\17\uffff\1\u00b9",
+            "\1\u00b9",
+            "\1\u00bb\17\uffff\1\u00ba",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
             "\1\u00bf",
             "\1\u00c0",
             "\1\u00c1",
+            "\1\u00c2",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00c3",
             "\1\u00c4",
             "\1\u00c5",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00c6\13\60",
-            "\1\u00c8",
-            "\1\u00ca\11\uffff\1\u00c9",
-            "\1\u00cb",
+            "\1\u00c6",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00c7\13\60",
+            "\1\u00c9",
+            "\1\u00cb\11\uffff\1\u00ca",
             "\1\u00cc",
             "\1\u00cd",
             "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
             "\1\u00d1",
+            "\1\u00d2",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00d2\21\60",
-            "\1\u00d4",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00d3\21\60",
+            "\1\u00d5",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00d6",
             "\1\u00d7",
             "\1\u00d8",
-            "",
             "\1\u00d9",
-            "\1\u00da",
             "",
+            "\1\u00da",
             "\1\u00db",
-            "\1\u00dc",
+            "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00dd",
             "\1\u00de",
-            "\1\u00df",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u00e0",
             "\1\u00e1",
             "\1\u00e2",
-            "\57\u00ab\1\u00e3\uffd0\u00ab",
-            "\40\u00ab\2\u00aa\1\u00ab\1\u00aa\1\u00ab\2\u00aa\1\u00ab\2\u00aa\1\u00a9\5\u00ab\12\u00aa\3\u00ab\1\u00aa\1\u00ab\34\u00aa\1\u00ab\1\u00aa\2\u00ab\1\u00aa\1\u00ab\32\u00aa\uff85\u00ab",
+            "\1\u00e3",
+            "\1\u00e4",
+            "\40\u00ac\2\u00aa\1\u00ac\1\u00aa\1\u00ac\2\u00aa\1\u00ac\2\u00aa\1\u00ab\5\u00ac\12\u00aa\3\u00ac\1\u00aa\1\u00ac\34\u00aa\1\u00ac\1\u00aa\2\u00ac\1\u00aa\1\u00ac\32\u00aa\uff85\u00ac",
+            "\57\u00ac\1\u00e5\uffd0\u00ac",
             "",
             "",
             "\0\165",
-            "\40\165\2\164\1\163\1\164\1\165\2\164\1\165\2\164\2\165\3\164\1\165\13\164\2\165\1\164\1\165\34\164\1\165\1\162\2\165\1\164\1\165\32\164\uff85\165",
+            "\40\165\2\163\1\164\1\163\1\165\2\163\1\165\2\163\2\165\3\163\1\165\13\163\2\165\1\163\1\165\34\163\1\165\1\162\2\165\1\163\1\165\32\163\106\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\6\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\uff05\165",
             "",
             "\0\165",
             "",
-            "\1\u00e5",
-            "\1\u00e6",
             "\1\u00e7",
             "\1\u00e8",
-            "\1\u00ea\2\uffff\1\u00ef\1\u00eb\1\u00f0\2\uffff\1\u00e9\3\uffff\1\u00ec\2\uffff\1\u00f1\1\uffff\1\u00ed\1\u00ee",
-            "\1\u00f2",
-            "\1\u00f3",
+            "\1\u00e9",
+            "\1\u00ea",
+            "\1\u00ec\2\uffff\1\u00f2\1\u00ed\1\u00f3\2\uffff\1\u00eb\3\uffff\1\u00ee\2\uffff\1\u00f0\1\uffff\1\u00ef\1\u00f1",
             "\1\u00f4",
             "\1\u00f5",
-            "",
             "\1\u00f6",
             "\1\u00f7",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\u00f8",
             "\1\u00f9",
-            "\1\u00fa",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u00fb",
+            "\1\u00fc",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
-            "\1\u00fc",
-            "\1\u00fd",
             "\1\u00fe",
             "\1\u00ff",
-            "",
             "\1\u0100",
             "\1\u0101",
+            "",
             "\1\u0102",
             "\1\u0103",
             "\1\u0104",
@@ -3800,179 +3828,179 @@ public class InternalVaryGrammarLexer extends Lexer {
             "\1\u0106",
             "\1\u0107",
             "\1\u0108",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0109",
             "\1\u010a",
-            "",
-            "\1\u010b",
-            "",
-            "\1\u010c",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u010c",
+            "",
+            "\1\u010d",
+            "",
             "\1\u010e",
-            "\1\u010f",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u0110",
             "\1\u0111",
             "\1\u0112",
             "",
             "\1\u0113",
             "\1\u0114",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0116",
-            "\1\u0117",
-            "\0\u00ab",
             "",
+            "\1\u0115",
+            "\1\u0116",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0118",
             "\1\u0119",
-            "\1\u011a",
+            "\0\u00ac",
+            "",
             "\1\u011b",
             "\1\u011c",
-            "\1\u011d\1\u011e",
-            "\1\u011f",
-            "\1\u0120",
-            "\1\u0122\5\uffff\1\u0121",
-            "\1\u0123",
-            "\1\u0125\3\uffff\1\u0124",
+            "\1\u011d",
+            "\1\u011e",
+            "\1\u011f\1\u0120",
+            "\1\u0121",
+            "\1\u0122",
+            "\1\u0124\5\uffff\1\u0123",
+            "\1\u0125",
             "\1\u0126",
-            "\1\u0127",
-            "\1\u0128",
+            "\1\u0128\3\uffff\1\u0127",
             "\1\u0129",
+            "\1\u012a",
+            "\1\u012b",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u012c",
-            "\1\u012d",
             "\1\u012e",
-            "",
             "\1\u012f",
             "\1\u0130",
             "",
             "\1\u0131",
             "\1\u0132",
+            "",
             "\1\u0133",
             "\1\u0134",
-            "\1\u0136\21\uffff\1\u0135",
-            "\1\u0137",
-            "\1\u0138",
+            "\1\u0135",
+            "\1\u0136",
+            "\1\u0138\21\uffff\1\u0137",
             "\1\u0139",
             "\1\u013a",
             "\1\u013b",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u013c",
             "\1\u013d",
-            "\1\u013e",
-            "",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u013f",
             "\1\u0140",
+            "",
             "\1\u0141",
+            "\1\u0142",
+            "\1\u0143",
             "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0144",
-            "\1\u0145",
             "\1\u0146",
             "\1\u0147",
             "\1\u0148",
+            "\1\u0149",
+            "\1\u014a",
             "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\u014a\1\uffff\32\60",
+            "\12\60\7\uffff\32\60\4\uffff\1\u014c\1\uffff\32\60",
             "",
-            "\1\u014c",
-            "\1\u014d",
             "\1\u014e",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u014f",
             "\1\u0150",
-            "\1\u0151",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u0152",
             "\1\u0153",
             "\1\u0154",
             "\1\u0155",
             "\1\u0156",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0157",
             "\1\u0158",
-            "\1\u0159",
-            "\1\u015a",
-            "\1\u015b",
-            "\1\u015c",
-            "",
-            "",
-            "\1\u015d",
+            "\1\u0159\5\uffff\1\u015a",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u015c",
+            "\1\u015d",
+            "\1\u015e",
             "\1\u015f",
+            "",
+            "",
             "\1\u0160",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0162",
             "\1\u0163",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0165",
-            "\1\u0166",
-            "\1\u0167",
-            "\1\u0168",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0166",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0168",
+            "\1\u0169",
             "\1\u016a",
             "\1\u016b",
-            "\1\u016c",
-            "",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u016d",
             "\1\u016e",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u016f",
+            "",
             "\1\u0170",
             "\1\u0171",
-            "",
-            "",
-            "\1\u0172",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0173",
             "\1\u0174",
+            "",
+            "",
             "\1\u0175",
-            "\1\u0176",
-            "",
-            "\1\u0177",
-            "",
-            "\1\u0178",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0177",
+            "\1\u0178",
+            "\1\u0179",
+            "",
             "\1\u017a",
             "",
-            "\1\u017c\2\uffff\1\u017b",
+            "\1\u017b",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u017d",
-            "\1\u017e",
-            "\1\u017f",
+            "",
+            "\1\u017f\2\uffff\1\u017e",
             "\1\u0180",
             "\1\u0181",
             "\1\u0182",
-            "",
             "\1\u0183",
             "\1\u0184",
             "\1\u0185",
             "\1\u0186",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0188",
+            "\1\u0187",
             "",
+            "\1\u0188",
             "\1\u0189",
             "\1\u018a",
-            "",
-            "",
-            "\1\u018b",
-            "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u018c",
+            "",
             "\1\u018d",
             "\1\u018e",
+            "",
+            "",
             "\1\u018f",
             "",
-            "\1\u0190",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u0191",
             "\1\u0192",
             "\1\u0193",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
+            "\1\u0194",
             "\1\u0195",
             "\1\u0196",
             "\1\u0197",
-            "",
-            "\1\u0198",
-            "\1\u0199",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u019b",
-            "\1\u019c",
             "",
+            "\1\u0199",
+            "\1\u019a",
+            "\1\u019b",
+            "",
+            "\1\u019c",
             "\1\u019d",
-            "\1\u019e",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u019f",
             "\1\u01a0",
+            "",
             "\1\u01a1",
             "\1\u01a2",
             "\1\u01a3",
@@ -3982,41 +4010,47 @@ public class InternalVaryGrammarLexer extends Lexer {
             "\1\u01a7",
             "\1\u01a8",
             "\1\u01a9",
-            "",
             "\1\u01aa",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01ab",
+            "\1\u01ac",
             "\1\u01ad",
-            "",
             "\1\u01ae",
+            "",
+            "\1\u01af",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01b1",
             "\1\u01b2",
+            "",
             "\1\u01b3",
-            "",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01b5",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01b6",
+            "\1\u01b7",
             "\1\u01b8",
             "",
-            "\1\u01b9",
+            "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01bb",
-            "\1\u01bc",
+            "\1\u01ba",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u01bd",
+            "",
             "\1\u01be",
-            "\1\u01bf",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u01c0",
             "\1\u01c1",
             "\1\u01c2",
             "\1\u01c3",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01c4",
+            "\1\u01c5",
             "\1\u01c6",
             "\1\u01c7",
+            "\1\u01c8",
+            "\1\u01c9",
+            "\1\u01ca",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01cd",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             "",
@@ -4024,80 +4058,85 @@ public class InternalVaryGrammarLexer extends Lexer {
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             "",
-            "\1\u01cb",
-            "\1\u01cc",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u01d0",
             "\1\u01d1",
             "\1\u01d2",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01d4",
-            "\1\u01d5",
+            "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\u01d6",
             "\1\u01d7",
             "\1\u01d8",
-            "",
-            "",
-            "\1\u01d9",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u01da",
-            "",
-            "",
-            "",
             "\1\u01db",
-            "\1\u01dc",
-            "",
-            "",
-            "",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\1\u01dd",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01de",
             "\1\u01df",
-            "",
             "\1\u01e0",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "\1\u01e1",
+            "",
+            "",
             "",
             "\1\u01e2",
             "\1\u01e3",
+            "",
+            "",
+            "",
+            "\1\u01e4",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01e5",
             "\1\u01e6",
+            "",
             "\1\u01e7",
-            "\1\u01e8",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             "\1\u01e9",
             "\1\u01ea",
-            "",
+            "\1\u01eb",
+            "\1\u01ec",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u01ed",
             "\1\u01ee",
             "\1\u01ef",
             "\1\u01f0",
+            "",
             "\1\u01f1",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "",
-            "\1\u01f3",
+            "\1\u01f2",
             "",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01f5",
             "\1\u01f6",
             "",
             "\1\u01f7",
-            "",
-            "",
             "\1\u01f8",
             "\1\u01f9",
             "\1\u01fa",
-            "\1\u01fb",
-            "\1\u01fc",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u01fd",
+            "",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\u0200",
+            "",
+            "",
+            "\1\u0201",
+            "",
+            "",
+            "\1\u0202",
+            "\1\u0203",
+            "\1\u0204",
+            "\1\u0205",
+            "\1\u0206",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
@@ -4134,167 +4173,23 @@ public class InternalVaryGrammarLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA14_118 = input.LA(1);
+                        int LA14_229 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_118=='\'') ) {s = 176;}
+                        if ( ((LA14_229>='\u0000' && LA14_229<='\uFFFF')) ) {s = 172;}
 
-                        else if ( ((LA14_118>='\u0000' && LA14_118<='&')||(LA14_118>='(' && LA14_118<='\uFFFF')) ) {s = 117;}
+                        else s = 282;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA14_114 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_114=='\"') ) {s = 173;}
-
-                        else if ( ((LA14_114>=' ' && LA14_114<='!')||LA14_114=='#'||(LA14_114>='%' && LA14_114<='&')||(LA14_114>='(' && LA14_114<=')')||(LA14_114>=',' && LA14_114<='.')||(LA14_114>='0' && LA14_114<=':')||LA14_114=='='||(LA14_114>='?' && LA14_114<='Z')||LA14_114=='\\'||LA14_114=='_'||(LA14_114>='a' && LA14_114<='z')) ) {s = 174;}
-
-                        else if ( ((LA14_114>='\u0000' && LA14_114<='\u001F')||LA14_114=='$'||LA14_114=='\''||(LA14_114>='*' && LA14_114<='+')||LA14_114=='/'||(LA14_114>=';' && LA14_114<='<')||LA14_114=='>'||LA14_114=='['||(LA14_114>=']' && LA14_114<='^')||LA14_114=='`'||(LA14_114>='{' && LA14_114<='\uFFFF')) ) {s = 117;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA14_227 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_227>='\u0000' && LA14_227<='\uFFFF')) ) {s = 171;}
-
-                        else s = 280;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA14_174 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_174=='\"') ) {s = 115;}
-
-                        else if ( (LA14_174=='\\') ) {s = 114;}
-
-                        else if ( ((LA14_174>=' ' && LA14_174<='!')||LA14_174=='#'||(LA14_174>='%' && LA14_174<='&')||(LA14_174>='(' && LA14_174<=')')||(LA14_174>=',' && LA14_174<='.')||(LA14_174>='0' && LA14_174<=':')||LA14_174=='='||(LA14_174>='?' && LA14_174<='Z')||LA14_174=='_'||(LA14_174>='a' && LA14_174<='z')) ) {s = 116;}
-
-                        else if ( ((LA14_174>='\u0000' && LA14_174<='\u001F')||LA14_174=='$'||LA14_174=='\''||(LA14_174>='*' && LA14_174<='+')||LA14_174=='/'||(LA14_174>=';' && LA14_174<='<')||LA14_174=='>'||LA14_174=='['||(LA14_174>=']' && LA14_174<='^')||LA14_174=='`'||(LA14_174>='{' && LA14_174<='\uFFFF')) ) {s = 117;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA14_116 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_116=='\"') ) {s = 115;}
-
-                        else if ( (LA14_116=='\\') ) {s = 114;}
-
-                        else if ( ((LA14_116>=' ' && LA14_116<='!')||LA14_116=='#'||(LA14_116>='%' && LA14_116<='&')||(LA14_116>='(' && LA14_116<=')')||(LA14_116>=',' && LA14_116<='.')||(LA14_116>='0' && LA14_116<=':')||LA14_116=='='||(LA14_116>='?' && LA14_116<='Z')||LA14_116=='_'||(LA14_116>='a' && LA14_116<='z')) ) {s = 116;}
-
-                        else if ( ((LA14_116>='\u0000' && LA14_116<='\u001F')||LA14_116=='$'||LA14_116=='\''||(LA14_116>='*' && LA14_116<='+')||LA14_116=='/'||(LA14_116>=';' && LA14_116<='<')||LA14_116=='>'||LA14_116=='['||(LA14_116>=']' && LA14_116<='^')||LA14_116=='`'||(LA14_116>='{' && LA14_116<='\uFFFF')) ) {s = 117;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA14_41 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_41=='\\') ) {s = 118;}
-
-                        else if ( ((LA14_41>=' ' && LA14_41<='!')||LA14_41=='#'||(LA14_41>='%' && LA14_41<='&')||(LA14_41>='(' && LA14_41<=')')||(LA14_41>='0' && LA14_41<='9')||LA14_41=='='||(LA14_41>='?' && LA14_41<='Z')||LA14_41=='_'||(LA14_41>='a' && LA14_41<='z')) ) {s = 119;}
-
-                        else if ( ((LA14_41>='\u0000' && LA14_41<='\u001F')||LA14_41=='\"'||LA14_41=='$'||LA14_41=='\''||(LA14_41>='*' && LA14_41<='/')||(LA14_41>=':' && LA14_41<='<')||LA14_41=='>'||LA14_41=='['||(LA14_41>=']' && LA14_41<='^')||LA14_41=='`'||(LA14_41>='{' && LA14_41<='\uFFFF')) ) {s = 117;}
-
-                        else s = 46;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA14_119 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_119=='\'') ) {s = 177;}
-
-                        else if ( ((LA14_119>='\u0000' && LA14_119<='&')||(LA14_119>='(' && LA14_119<='\uFFFF')) ) {s = 117;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA14_170 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_170=='*') ) {s = 169;}
-
-                        else if ( ((LA14_170>=' ' && LA14_170<='!')||LA14_170=='#'||(LA14_170>='%' && LA14_170<='&')||(LA14_170>='(' && LA14_170<=')')||(LA14_170>='0' && LA14_170<='9')||LA14_170=='='||(LA14_170>='?' && LA14_170<='Z')||LA14_170=='\\'||LA14_170=='_'||(LA14_170>='a' && LA14_170<='z')) ) {s = 170;}
-
-                        else if ( ((LA14_170>='\u0000' && LA14_170<='\u001F')||LA14_170=='\"'||LA14_170=='$'||LA14_170=='\''||(LA14_170>='+' && LA14_170<='/')||(LA14_170>=':' && LA14_170<='<')||LA14_170=='>'||LA14_170=='['||(LA14_170>=']' && LA14_170<='^')||LA14_170=='`'||(LA14_170>='{' && LA14_170<='\uFFFF')) ) {s = 171;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA14_176 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_176>='\u0000' && LA14_176<='\uFFFF')) ) {s = 117;}
-
-                        else s = 228;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA14_109 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_109=='*') ) {s = 169;}
-
-                        else if ( ((LA14_109>=' ' && LA14_109<='!')||LA14_109=='#'||(LA14_109>='%' && LA14_109<='&')||(LA14_109>='(' && LA14_109<=')')||(LA14_109>='0' && LA14_109<='9')||LA14_109=='='||(LA14_109>='?' && LA14_109<='Z')||LA14_109=='\\'||LA14_109=='_'||(LA14_109>='a' && LA14_109<='z')) ) {s = 170;}
-
-                        else if ( ((LA14_109>='\u0000' && LA14_109<='\u001F')||LA14_109=='\"'||LA14_109=='$'||LA14_109=='\''||(LA14_109>='+' && LA14_109<='/')||(LA14_109>=':' && LA14_109<='<')||LA14_109=='>'||LA14_109=='['||(LA14_109>=']' && LA14_109<='^')||LA14_109=='`'||(LA14_109>='{' && LA14_109<='\uFFFF')) ) {s = 171;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA14_169 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_169=='/') ) {s = 227;}
-
-                        else if ( ((LA14_169>='\u0000' && LA14_169<='.')||(LA14_169>='0' && LA14_169<='\uFFFF')) ) {s = 171;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA14_40 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA14_40=='\\') ) {s = 114;}
-
-                        else if ( (LA14_40=='\"') ) {s = 115;}
-
-                        else if ( ((LA14_40>=' ' && LA14_40<='!')||LA14_40=='#'||(LA14_40>='%' && LA14_40<='&')||(LA14_40>='(' && LA14_40<=')')||(LA14_40>=',' && LA14_40<='.')||(LA14_40>='0' && LA14_40<=':')||LA14_40=='='||(LA14_40>='?' && LA14_40<='Z')||LA14_40=='_'||(LA14_40>='a' && LA14_40<='z')) ) {s = 116;}
-
-                        else if ( ((LA14_40>='\u0000' && LA14_40<='\u001F')||LA14_40=='$'||LA14_40=='\''||(LA14_40>='*' && LA14_40<='+')||LA14_40=='/'||(LA14_40>=';' && LA14_40<='<')||LA14_40=='>'||LA14_40=='['||(LA14_40>=']' && LA14_40<='^')||LA14_40=='`'||(LA14_40>='{' && LA14_40<='\uFFFF')) ) {s = 117;}
-
-                        else s = 46;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA14_173 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA14_173>='\u0000' && LA14_173<='\uFFFF')) ) {s = 117;}
-
-                        else s = 175;
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
                         int LA14_0 = input.LA(1);
 
                         s = -1;
@@ -4389,6 +4284,150 @@ public class InternalVaryGrammarLexer extends Lexer {
                         else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 45;}
 
                         else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||(LA14_0>='#' && LA14_0<='&')||LA14_0==';'||(LA14_0>='?' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 46;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA14_41 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_41=='\\') ) {s = 118;}
+
+                        else if ( ((LA14_41>=' ' && LA14_41<='!')||LA14_41=='#'||(LA14_41>='%' && LA14_41<='&')||(LA14_41>='(' && LA14_41<=')')||(LA14_41>='0' && LA14_41<='9')||LA14_41=='='||(LA14_41>='?' && LA14_41<='Z')||LA14_41=='_'||(LA14_41>='a' && LA14_41<='z')) ) {s = 119;}
+
+                        else if ( ((LA14_41>='\u0000' && LA14_41<='\u001F')||LA14_41=='\"'||LA14_41=='$'||LA14_41=='\''||(LA14_41>='*' && LA14_41<='/')||(LA14_41>=':' && LA14_41<='<')||LA14_41=='>'||LA14_41=='['||(LA14_41>=']' && LA14_41<='^')||LA14_41=='`'||(LA14_41>='{' && LA14_41<='\uFFFF')) ) {s = 117;}
+
+                        else s = 46;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA14_118 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_118=='\'') ) {s = 177;}
+
+                        else if ( ((LA14_118>='\u0000' && LA14_118<='&')||(LA14_118>='(' && LA14_118<='\uFFFF')) ) {s = 117;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA14_114 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_114=='\"') ) {s = 174;}
+
+                        else if ( ((LA14_114>=' ' && LA14_114<='!')||LA14_114=='#'||(LA14_114>='%' && LA14_114<='&')||(LA14_114>='(' && LA14_114<=')')||(LA14_114>=',' && LA14_114<='.')||(LA14_114>='0' && LA14_114<=':')||LA14_114=='='||(LA14_114>='?' && LA14_114<='Z')||LA14_114=='\\'||LA14_114=='_'||(LA14_114>='a' && LA14_114<='z')||LA14_114=='\u00C1'||LA14_114=='\u00C9'||LA14_114=='\u00CD'||LA14_114=='\u00D1'||LA14_114=='\u00D3'||LA14_114=='\u00DA'||LA14_114=='\u00E1'||LA14_114=='\u00E9'||LA14_114=='\u00ED'||LA14_114=='\u00F1'||LA14_114=='\u00F3'||LA14_114=='\u00FA') ) {s = 175;}
+
+                        else if ( ((LA14_114>='\u0000' && LA14_114<='\u001F')||LA14_114=='$'||LA14_114=='\''||(LA14_114>='*' && LA14_114<='+')||LA14_114=='/'||(LA14_114>=';' && LA14_114<='<')||LA14_114=='>'||LA14_114=='['||(LA14_114>=']' && LA14_114<='^')||LA14_114=='`'||(LA14_114>='{' && LA14_114<='\u00C0')||(LA14_114>='\u00C2' && LA14_114<='\u00C8')||(LA14_114>='\u00CA' && LA14_114<='\u00CC')||(LA14_114>='\u00CE' && LA14_114<='\u00D0')||LA14_114=='\u00D2'||(LA14_114>='\u00D4' && LA14_114<='\u00D9')||(LA14_114>='\u00DB' && LA14_114<='\u00E0')||(LA14_114>='\u00E2' && LA14_114<='\u00E8')||(LA14_114>='\u00EA' && LA14_114<='\u00EC')||(LA14_114>='\u00EE' && LA14_114<='\u00F0')||LA14_114=='\u00F2'||(LA14_114>='\u00F4' && LA14_114<='\u00F9')||(LA14_114>='\u00FB' && LA14_114<='\uFFFF')) ) {s = 117;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA14_109 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_109>=' ' && LA14_109<='!')||LA14_109=='#'||(LA14_109>='%' && LA14_109<='&')||(LA14_109>='(' && LA14_109<=')')||(LA14_109>='0' && LA14_109<='9')||LA14_109=='='||(LA14_109>='?' && LA14_109<='Z')||LA14_109=='\\'||LA14_109=='_'||(LA14_109>='a' && LA14_109<='z')) ) {s = 170;}
+
+                        else if ( (LA14_109=='*') ) {s = 171;}
+
+                        else if ( ((LA14_109>='\u0000' && LA14_109<='\u001F')||LA14_109=='\"'||LA14_109=='$'||LA14_109=='\''||(LA14_109>='+' && LA14_109<='/')||(LA14_109>=':' && LA14_109<='<')||LA14_109=='>'||LA14_109=='['||(LA14_109>=']' && LA14_109<='^')||LA14_109=='`'||(LA14_109>='{' && LA14_109<='\uFFFF')) ) {s = 172;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA14_177 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_177>='\u0000' && LA14_177<='\uFFFF')) ) {s = 117;}
+
+                        else s = 230;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA14_40 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_40=='\\') ) {s = 114;}
+
+                        else if ( ((LA14_40>=' ' && LA14_40<='!')||LA14_40=='#'||(LA14_40>='%' && LA14_40<='&')||(LA14_40>='(' && LA14_40<=')')||(LA14_40>=',' && LA14_40<='.')||(LA14_40>='0' && LA14_40<=':')||LA14_40=='='||(LA14_40>='?' && LA14_40<='Z')||LA14_40=='_'||(LA14_40>='a' && LA14_40<='z')||LA14_40=='\u00C1'||LA14_40=='\u00C9'||LA14_40=='\u00CD'||LA14_40=='\u00D1'||LA14_40=='\u00D3'||LA14_40=='\u00DA'||LA14_40=='\u00E1'||LA14_40=='\u00E9'||LA14_40=='\u00ED'||LA14_40=='\u00F1'||LA14_40=='\u00F3'||LA14_40=='\u00FA') ) {s = 115;}
+
+                        else if ( (LA14_40=='\"') ) {s = 116;}
+
+                        else if ( ((LA14_40>='\u0000' && LA14_40<='\u001F')||LA14_40=='$'||LA14_40=='\''||(LA14_40>='*' && LA14_40<='+')||LA14_40=='/'||(LA14_40>=';' && LA14_40<='<')||LA14_40=='>'||LA14_40=='['||(LA14_40>=']' && LA14_40<='^')||LA14_40=='`'||(LA14_40>='{' && LA14_40<='\u00C0')||(LA14_40>='\u00C2' && LA14_40<='\u00C8')||(LA14_40>='\u00CA' && LA14_40<='\u00CC')||(LA14_40>='\u00CE' && LA14_40<='\u00D0')||LA14_40=='\u00D2'||(LA14_40>='\u00D4' && LA14_40<='\u00D9')||(LA14_40>='\u00DB' && LA14_40<='\u00E0')||(LA14_40>='\u00E2' && LA14_40<='\u00E8')||(LA14_40>='\u00EA' && LA14_40<='\u00EC')||(LA14_40>='\u00EE' && LA14_40<='\u00F0')||LA14_40=='\u00F2'||(LA14_40>='\u00F4' && LA14_40<='\u00F9')||(LA14_40>='\u00FB' && LA14_40<='\uFFFF')) ) {s = 117;}
+
+                        else s = 46;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA14_174 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA14_174>='\u0000' && LA14_174<='\uFFFF')) ) {s = 117;}
+
+                        else s = 176;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA14_170 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_170=='*') ) {s = 171;}
+
+                        else if ( ((LA14_170>=' ' && LA14_170<='!')||LA14_170=='#'||(LA14_170>='%' && LA14_170<='&')||(LA14_170>='(' && LA14_170<=')')||(LA14_170>='0' && LA14_170<='9')||LA14_170=='='||(LA14_170>='?' && LA14_170<='Z')||LA14_170=='\\'||LA14_170=='_'||(LA14_170>='a' && LA14_170<='z')) ) {s = 170;}
+
+                        else if ( ((LA14_170>='\u0000' && LA14_170<='\u001F')||LA14_170=='\"'||LA14_170=='$'||LA14_170=='\''||(LA14_170>='+' && LA14_170<='/')||(LA14_170>=':' && LA14_170<='<')||LA14_170=='>'||LA14_170=='['||(LA14_170>=']' && LA14_170<='^')||LA14_170=='`'||(LA14_170>='{' && LA14_170<='\uFFFF')) ) {s = 172;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA14_171 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_171=='/') ) {s = 229;}
+
+                        else if ( ((LA14_171>='\u0000' && LA14_171<='.')||(LA14_171>='0' && LA14_171<='\uFFFF')) ) {s = 172;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA14_119 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_119=='\'') ) {s = 178;}
+
+                        else if ( ((LA14_119>='\u0000' && LA14_119<='&')||(LA14_119>='(' && LA14_119<='\uFFFF')) ) {s = 117;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA14_115 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_115=='\"') ) {s = 116;}
+
+                        else if ( (LA14_115=='\\') ) {s = 114;}
+
+                        else if ( ((LA14_115>=' ' && LA14_115<='!')||LA14_115=='#'||(LA14_115>='%' && LA14_115<='&')||(LA14_115>='(' && LA14_115<=')')||(LA14_115>=',' && LA14_115<='.')||(LA14_115>='0' && LA14_115<=':')||LA14_115=='='||(LA14_115>='?' && LA14_115<='Z')||LA14_115=='_'||(LA14_115>='a' && LA14_115<='z')||LA14_115=='\u00C1'||LA14_115=='\u00C9'||LA14_115=='\u00CD'||LA14_115=='\u00D1'||LA14_115=='\u00D3'||LA14_115=='\u00DA'||LA14_115=='\u00E1'||LA14_115=='\u00E9'||LA14_115=='\u00ED'||LA14_115=='\u00F1'||LA14_115=='\u00F3'||LA14_115=='\u00FA') ) {s = 115;}
+
+                        else if ( ((LA14_115>='\u0000' && LA14_115<='\u001F')||LA14_115=='$'||LA14_115=='\''||(LA14_115>='*' && LA14_115<='+')||LA14_115=='/'||(LA14_115>=';' && LA14_115<='<')||LA14_115=='>'||LA14_115=='['||(LA14_115>=']' && LA14_115<='^')||LA14_115=='`'||(LA14_115>='{' && LA14_115<='\u00C0')||(LA14_115>='\u00C2' && LA14_115<='\u00C8')||(LA14_115>='\u00CA' && LA14_115<='\u00CC')||(LA14_115>='\u00CE' && LA14_115<='\u00D0')||LA14_115=='\u00D2'||(LA14_115>='\u00D4' && LA14_115<='\u00D9')||(LA14_115>='\u00DB' && LA14_115<='\u00E0')||(LA14_115>='\u00E2' && LA14_115<='\u00E8')||(LA14_115>='\u00EA' && LA14_115<='\u00EC')||(LA14_115>='\u00EE' && LA14_115<='\u00F0')||LA14_115=='\u00F2'||(LA14_115>='\u00F4' && LA14_115<='\u00F9')||(LA14_115>='\u00FB' && LA14_115<='\uFFFF')) ) {s = 117;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA14_175 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA14_175=='\"') ) {s = 116;}
+
+                        else if ( (LA14_175=='\\') ) {s = 114;}
+
+                        else if ( ((LA14_175>=' ' && LA14_175<='!')||LA14_175=='#'||(LA14_175>='%' && LA14_175<='&')||(LA14_175>='(' && LA14_175<=')')||(LA14_175>=',' && LA14_175<='.')||(LA14_175>='0' && LA14_175<=':')||LA14_175=='='||(LA14_175>='?' && LA14_175<='Z')||LA14_175=='_'||(LA14_175>='a' && LA14_175<='z')||LA14_175=='\u00C1'||LA14_175=='\u00C9'||LA14_175=='\u00CD'||LA14_175=='\u00D1'||LA14_175=='\u00D3'||LA14_175=='\u00DA'||LA14_175=='\u00E1'||LA14_175=='\u00E9'||LA14_175=='\u00ED'||LA14_175=='\u00F1'||LA14_175=='\u00F3'||LA14_175=='\u00FA') ) {s = 115;}
+
+                        else if ( ((LA14_175>='\u0000' && LA14_175<='\u001F')||LA14_175=='$'||LA14_175=='\''||(LA14_175>='*' && LA14_175<='+')||LA14_175=='/'||(LA14_175>=';' && LA14_175<='<')||LA14_175=='>'||LA14_175=='['||(LA14_175>=']' && LA14_175<='^')||LA14_175=='`'||(LA14_175>='{' && LA14_175<='\u00C0')||(LA14_175>='\u00C2' && LA14_175<='\u00C8')||(LA14_175>='\u00CA' && LA14_175<='\u00CC')||(LA14_175>='\u00CE' && LA14_175<='\u00D0')||LA14_175=='\u00D2'||(LA14_175>='\u00D4' && LA14_175<='\u00D9')||(LA14_175>='\u00DB' && LA14_175<='\u00E0')||(LA14_175>='\u00E2' && LA14_175<='\u00E8')||(LA14_175>='\u00EA' && LA14_175<='\u00EC')||(LA14_175>='\u00EE' && LA14_175<='\u00F0')||LA14_175=='\u00F2'||(LA14_175>='\u00F4' && LA14_175<='\u00F9')||(LA14_175>='\u00FB' && LA14_175<='\uFFFF')) ) {s = 117;}
 
                         if ( s>=0 ) return s;
                         break;

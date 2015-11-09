@@ -648,6 +648,15 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case DiagramapseudocodigoPackage.DIV: {
+				Div div = (Div)theEObject;
+				T result = caseDiv(div);
+				if (result == null) result = caseoperacion(div);
+				if (result == null) result = casevalor(div);
+				if (result == null) result = caseSentencias(div);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -769,6 +778,21 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseMod(Mod object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Div</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Div</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDiv(Div object) {
 		return null;
 	}
 

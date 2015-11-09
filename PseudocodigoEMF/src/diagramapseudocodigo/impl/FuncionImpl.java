@@ -17,11 +17,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.FuncionImpl#getTipo <em>Tipo</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.FuncionImpl#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

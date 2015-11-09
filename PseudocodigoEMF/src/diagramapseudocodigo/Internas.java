@@ -14,11 +14,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Internas#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Internas#getOperadores <em>Operadores</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInternas()
  * @model

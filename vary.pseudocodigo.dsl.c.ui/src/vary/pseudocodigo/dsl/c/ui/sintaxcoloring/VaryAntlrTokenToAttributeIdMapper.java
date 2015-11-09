@@ -38,7 +38,8 @@ public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttrib
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_EXPORTA") + "'").equals(tokenName) || 
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_EXPORTA") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_IMPLEMENTACION") + "'").equals(tokenName) || 
-				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_IMPLEMENTACION") + "'").equals(tokenName)) {
+				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_IMPLEMENTACION") + "'").equals(tokenName) ||
+				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_PRINCIPAL") + "'").equals(tokenName)) {
 			return VaryHighLightingConfiguration.PRINCIPALES_ID;
 		} else if(("'"+ readerKeywords.getBundle().getString("KEYWORD_VECTOR") + "'").equals(tokenName) || 
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_MATRIZ") + "'").equals(tokenName) ||

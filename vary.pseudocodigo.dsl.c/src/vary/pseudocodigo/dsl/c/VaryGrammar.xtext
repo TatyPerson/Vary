@@ -178,7 +178,8 @@ Inicio returns Inicio:
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'inicio'
 		(tiene+=Sentencias (  tiene+=Sentencias)*  )?
-	'fin_inicio';
+	'fin_inicio'
+	'fin_principal';
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -220,11 +221,13 @@ Escribir returns Escribir:
 Leer returns Leer:
 	'leer'
 	'('
-		variable=Primaria
+		variable+=Primaria ( "," variable+=Primaria)*
 	')';
 
 Si returns Si:
-	'si'valor=operacion 'entonces'
+	'si' 
+	'(' valor=operacion
+	')' 'entonces'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
 		(devuelve=Devolver)?
 	(sino=Sino)?
@@ -232,14 +235,18 @@ Si returns Si:
 
 mientras returns mientras:
 	'mientras'
-	valor=operacion 'hacer'
+	'('
+	valor=operacion
+	')' 'hacer'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)*  )?
 	'fin_mientras';
 
 repetir returns repetir:
 	'repetir'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)*)?
-	 'hasta_que' valor=operacion;
+	 'hasta_que' '('
+	 valor=operacion
+	 ')';
 
 desde returns desde:
 	'desde' asignacion=AsignacionNormal 'hasta' valor=operacion 'hacer'
@@ -278,7 +285,7 @@ Variable returns Variable:
 //	{VariableID} nombre=EString;
 	//Mat+=MAT*;
 
-terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.')* '"';
+terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ')* '"';
 terminal CAR: "'" ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9') "'";
 terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9')* '*/';
 
@@ -299,7 +306,7 @@ terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='
 //	 {ValorBooleano} valor=booleano;
 
 signo returns signo:
-	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod')
+	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod' | 'div')
  /* TODO: implement this rule and an appropriate IValueConverter */;
  
 signoOr returns signo:
@@ -309,7 +316,7 @@ signoAnd returns signo:
 	'y';
 	
 signoIgualdad returns signo:
-	'==' | '!=';
+	'=' | '!=';
 	
 signoComparacion returns signo:
 	'<' | '>' | '>=' | '<=';
@@ -328,6 +335,9 @@ signoDivision returns signo:
 	
 signoModulo returns signo:
 	'mod';
+	
+signoDiv returns signo:
+	'div';
 
 operacion returns operacion:
 	Or;
@@ -351,7 +361,7 @@ SumaResta returns operacion:
 	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivision)*;
 
 MultiplicacionDivision returns operacion:
-	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision) right=Primaria)*;
+	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=Primaria)*;
 	
 	
 operacionIndice returns operacion:
@@ -373,7 +383,7 @@ SumaRestaIndice returns operacion:
 	MultiplicacionDivisionIndice (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivisionIndice)*;
 
 MultiplicacionDivisionIndice returns operacion:
-	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision) right=PrimariaIndice)*;
+	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=PrimariaIndice)*;
 
 PrimariaIndice returns operacion:
 	{NumeroEntero} valor=EInt

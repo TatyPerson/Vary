@@ -297,6 +297,11 @@ public class MultiplicacionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MULTIPLICACION__LEFT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MULTIPLICACION__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
@@ -414,6 +419,11 @@ public class MultiplicacionItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MULTIPLICACION__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MULTIPLICACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 	/**

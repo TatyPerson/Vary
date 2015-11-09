@@ -2,6 +2,8 @@
  */
 package diagramapseudocodigo;
 
+import org.eclipse.emf.common.util.EList;
+
 
 /**
  * <!-- begin-user-doc -->
@@ -10,10 +12,10 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Leer#getVariable <em>Variable</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getLeer()
  * @model
@@ -21,29 +23,19 @@ package diagramapseudocodigo;
  */
 public interface Leer extends Sentencias {
 	/**
-	 * Returns the value of the '<em><b>Variable</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Variable</b></em>' containment reference list.
+	 * The list contents are of type {@link diagramapseudocodigo.operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable</em>' containment reference.
-	 * @see #setVariable(operacion)
+	 * @return the value of the '<em>Variable</em>' containment reference list.
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getLeer_Variable()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getVariable();
-
-	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Leer#getVariable <em>Variable</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variable</em>' containment reference.
-	 * @see #getVariable()
-	 * @generated
-	 */
-	void setVariable(operacion value);
+	EList<operacion> getVariable();
 
 } // Leer

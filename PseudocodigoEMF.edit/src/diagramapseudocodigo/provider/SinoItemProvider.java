@@ -331,6 +331,11 @@ public class SinoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__DEVUELVE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDevolver()));
 	}

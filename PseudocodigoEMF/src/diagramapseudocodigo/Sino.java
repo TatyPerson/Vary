@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Sino#getSentencias <em>Sentencias</em>}</li>
  *   <li>{@link diagramapseudocodigo.Sino#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSino()
  * @model

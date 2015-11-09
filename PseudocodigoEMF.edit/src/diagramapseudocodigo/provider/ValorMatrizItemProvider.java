@@ -302,6 +302,11 @@ public class ValorMatrizItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
@@ -419,6 +424,11 @@ public class ValorMatrizItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 	/**

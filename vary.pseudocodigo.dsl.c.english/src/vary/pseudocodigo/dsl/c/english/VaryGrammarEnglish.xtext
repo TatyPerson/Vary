@@ -179,7 +179,8 @@ Inicio returns Inicio:
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'initiation'
 		(tiene+=Sentencias (  tiene+=Sentencias)*  )?
-	'end_initiation';
+	'end_initiation'
+	'end_main';
 
 EString returns ecore::EString:
 	STRING | ID;
@@ -221,11 +222,14 @@ Escribir returns Escribir:
 Leer returns Leer:
 	'read'
 	'('
-		variable=Primaria
+		variable+=Primaria ( "," variable+=Primaria)*
 	')';
 
 Si returns Si:
-	'if'valor=operacion 'then'
+	'if' 
+	'(' 
+	valor=operacion
+	')' 'then'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
 		(devuelve=Devolver)?
 	(sino=Sino)?
@@ -233,14 +237,18 @@ Si returns Si:
 
 mientras returns mientras:
 	'while'
-	valor=operacion 'do'
+	'('
+	valor=operacion
+	')' 'do'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)*  )?
 	'end_while';
 
 repetir returns repetir:
 	'repeat'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)*)?
-	 'until' valor=operacion;
+	 'until' 
+	 '('
+	 valor=operacion ')';
 
 desde returns desde:
 	'for' asignacion=AsignacionNormal 'to' valor=operacion 'do'
@@ -300,7 +308,7 @@ terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='
 //	 {ValorBooleano} valor=booleano;
 
 signo returns signo:
-	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '==' | '!=')
+	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod' | 'div')
  /* TODO: implement this rule and an appropriate IValueConverter */;
  
 signoOr returns signo:
@@ -310,7 +318,7 @@ signoAnd returns signo:
 	'and';
 	
 signoIgualdad returns signo:
-	'==' | '!=';
+	'=' | '!=';
 	
 signoComparacion returns signo:
 	'<' | '>' | '>=' | '<=';
@@ -329,6 +337,9 @@ signoDivision returns signo:
 	
 signoModulo returns signo:
 	'mod';
+	
+signoDiv returns signo:
+	'div';
 
 operacion returns operacion:
 	Or;
@@ -352,7 +363,7 @@ SumaResta returns operacion:
 	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivision)*;
 
 MultiplicacionDivision returns operacion:
-	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision) right=Primaria)*;
+	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=Primaria)*;
 	
 	
 operacionIndice returns operacion:
@@ -374,7 +385,7 @@ SumaRestaIndice returns operacion:
 	MultiplicacionDivisionIndice (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivisionIndice)*;
 
 MultiplicacionDivisionIndice returns operacion:
-	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision) right=PrimariaIndice)*;
+	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=PrimariaIndice)*;
 
 PrimariaIndice returns operacion:
 	{NumeroEntero} valor=EInt

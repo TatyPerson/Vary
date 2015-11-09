@@ -74,7 +74,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Leer" eSuperTypes="#//Sentencias">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        upperBound="-1" eType="#//operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NumeroDecimal" eSuperTypes="#//Operador #//operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -92,11 +92,12 @@
     <eLiterals name="menorigual" value="7" literal="&lt;="/>
     <eLiterals name="y" value="8"/>
     <eLiterals name="o" value="9"/>
-    <eLiterals name="igualigual" value="10" literal="=="/>
+    <eLiterals name="igualigual" value="10" literal="="/>
     <eLiterals name="distinto" value="11" literal="!="/>
     <eLiterals name="and" value="12"/>
     <eLiterals name="or" value="13"/>
     <eLiterals name="mod" value="14" literal="mod"/>
+    <eLiterals name="div_real" value="15" literal="div"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValorBooleano" eSuperTypes="#//Operador #//operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -420,6 +421,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//operacion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

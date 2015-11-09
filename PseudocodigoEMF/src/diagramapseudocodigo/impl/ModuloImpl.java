@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getImplementacion <em>Implementacion</em>}</li>
@@ -35,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_constantes <em>Exporta constantes</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_funciones <em>Exporta funciones</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

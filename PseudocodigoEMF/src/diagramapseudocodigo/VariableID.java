@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.VariableID#getMat <em>Mat</em>}</li>
  *   <li>{@link diagramapseudocodigo.VariableID#getNombre <em>Nombre</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVariableID()
  * @model

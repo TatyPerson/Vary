@@ -11,12 +11,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ValorVector#getNombre_vector <em>Nombre vector</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorVector#getCampo <em>Campo</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorVector#getIndice <em>Indice</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorVector()
  * @model

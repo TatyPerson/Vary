@@ -133,6 +133,10 @@ import diagramapseudocodigo.impl.ModuloImpl
 import diagramapseudocodigo.Subrango
 import vary.pseudocodigo.dsl.c.generator.VaryGeneratorInterface
 import vary.pseudocodigo.dsl.c.validation.messages.ReadMessagesValidatorInterface
+import diagramapseudocodigo.Mod
+import diagramapseudocodigo.impl.ModImpl
+import diagramapseudocodigo.Div
+import diagramapseudocodigo.impl.DivImpl
 
 /**
  * Generates code from your model files on save.
@@ -315,10 +319,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		«FOR myRefModulo:myAlgoritmo.importaciones»
 			#include "«myRefModulo.nombre».h"
 		«ENDFOR»
-		
-		typedef int bool;
-		#define true 1
-		#define false 0
 		
 		«FOR myConstante:myAlgoritmo.constantes»
 			«myConstante.generate»
@@ -732,9 +732,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		«ENDIF»
 		
 		«IF !cabeceras»
-		typedef int bool;
-		#define true 1
-		#define false 0
 		
 		«FOR myRefModulo:myAlgoritmo.importaciones»
 			#include "«myRefModulo.nombre».h"
@@ -926,7 +923,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) return "int";
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) return "char";
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) return "float";
-		if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) return "bool";
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) return "int";
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) return "char *";
 	}
 
@@ -1599,9 +1596,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 
 	override generate(ValorBooleano valBool) {
 		if (valBool.valor.equals(readerMessages.getBundle().getString("VERDADERO")))
-			return "true"
+			return "1"
 		else
-			return "false"
+			return "0"
 	}
 
 	override generate(ConstCadena cadena) {
@@ -1734,12 +1731,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		 	}
 		 	if(s.sentencias.contains(l) || perteneceSubproceso) {
 		 		var tipo = "";
-				if(l.variable.eClass.name.equals("VariableID")) {
-						var varID = l.variable as VariableID;
+		 		var resultado = "";
+		 		for(operacion op: l.variable) {
+		 			if(op.eClass.name.equals("VariableID")) {
+						var varID = op as VariableID;
 						tipo = variablesSubprocesos.get(s.nombre).get(varID.nombre);
 				}
-				else if(l.variable.eClass.name.equals("ValorVector")) {
-					var vector = l.variable as ValorVector;
+				else if(op.eClass.name.equals("ValorVector")) {
+					var vector = op as ValorVector;
 					if(vector.campo.size() == 0) {
 						tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector));
 					}
@@ -1747,8 +1746,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
 					}
 				}
-				else if(l.variable.eClass.name.equals("ValorMatriz")) {
-					var matriz = l.variable as ValorMatriz;
+				else if(op.eClass.name.equals("ValorMatriz")) {
+					var matriz = op as ValorMatriz;
 					if(matriz.campo.size() == 0) {
 						tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz));
 					}
@@ -1756,22 +1755,48 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
 					}
 				}	
-				else if(l.variable.eClass.name.equals("ValorRegistro")) {
-					var registro = l.variable as ValorRegistro;
+				else if(op.eClass.name.equals("ValorRegistro")) {
+					var registro = op as ValorRegistro;
 					tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-					return '''scanf("%i", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%i", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%i", &«op.generate»);'''
+					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-					return '''scanf("%c", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%c", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%c", &«op.generate»);'''
+					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-					return '''scanf("%s", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%s", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%s", &«op.generate»);'''
+					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					return '''scanf("%r", &«l.variable.generate»);'''
-				}
+					if(resultado == "") {
+						resultado = '''scanf("%r", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%r", &«op.generate»);'''
+					}
+		 		}
+		 		}
+		 		return resultado;
 			}	
 		}	
 	}
@@ -1811,12 +1836,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 		if(algoritmo.tiene.tiene.contains(l) || perteneceInicio) {
 			var tipo = "";
-			if(l.variable.eClass.name.equals("VariableID")) {
-				var varID = l.variable as VariableID;
+			var resultado = "";
+			for(operacion op: l.variable) {
+				if(op.eClass.name.equals("VariableID")) {
+				var varID = op as VariableID;
 				tipo = variablesInicio.get(varID.nombre);
 			}
-			else if(l.variable.eClass.name.equals("ValorVector")) {
-				var vector = l.variable as ValorVector;
+			else if(op.eClass.name.equals("ValorVector")) {
+				var vector = op as ValorVector;
 				if(vector.campo.size() == 0) {
 					tipo = vectoresMatrices.get(variablesInicio.get(vector.nombre_vector));
 				}
@@ -1824,8 +1851,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					tipo = registros.get(vectoresMatrices.get(variablesInicio.get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
 				}
 			}
-			else if(l.variable.eClass.name.equals("ValorMatriz")) {
-				var matriz = l.variable as ValorMatriz;
+			else if(op.eClass.name.equals("ValorMatriz")) {
+				var matriz = op as ValorMatriz;
 				if(matriz.campo.size() == 0) {
 					tipo = vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz));
 				}
@@ -1833,22 +1860,48 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					tipo = registros.get(vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
 				}
 			}
-			else if(l.variable.eClass.name.equals("ValorRegistro")) {
-				var registro = l.variable as ValorRegistro;
+			else if(op.eClass.name.equals("ValorRegistro")) {
+				var registro = op as ValorRegistro;
 				tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 			}
 			if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-				'''scanf("%i", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%i", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%i", &«op.generate»);'''
+					}
+				}
+				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+					if(resultado == "") {
+						resultado = '''scanf("%c", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%c", &«op.generate»);'''
+					}
+				}
+				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+					if(resultado == "") {
+						resultado = '''scanf("%s", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%s", &«op.generate»);'''
+					}
+				}
+				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(resultado == "") {
+						resultado = '''scanf("%r", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%r", &«op.generate»);'''
+					}
+		 		}
 			}
-			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-				'''scanf("%c", &«l.variable.generate»);'''
-			}
-			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-				'''scanf("%s", &«l.variable.generate»);'''
-			}
-			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-				'''scanf("%r", &«l.variable.generate»);'''
-			}
+			return resultado;
 		}
 		else {
 			for(Subproceso s: algoritmo.funcion) {
@@ -1886,12 +1939,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		 	}
 		 	if(s.sentencias.contains(l) || perteneceSubproceso) {
 		 		var tipo = "";
-				if(l.variable.eClass.name.equals("VariableID")) {
-						var varID = l.variable as VariableID;
+		 		var resultado = "";
+		 		for(operacion op: l.variable) {
+		 			if(op.eClass.name.equals("VariableID")) {
+						var varID = op as VariableID;
 						tipo = variablesSubprocesos.get(s.nombre).get(varID.nombre);
 				}
-				else if(l.variable.eClass.name.equals("ValorVector")) {
-					var vector = l.variable as ValorVector;
+				else if(op.eClass.name.equals("ValorVector")) {
+					var vector = op as ValorVector;
 					if(vector.campo.size() == 0) {
 						tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector));
 					}
@@ -1899,8 +1954,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
 					}
 				}
-				else if(l.variable.eClass.name.equals("ValorMatriz")) {
-					var matriz = l.variable as ValorMatriz;
+				else if(op.eClass.name.equals("ValorMatriz")) {
+					var matriz = op as ValorMatriz;
 					if(matriz.campo.size() == 0) {
 						tipo = vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz));
 					}
@@ -1908,22 +1963,48 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						tipo = registros.get(vectoresMatrices.get(variablesSubprocesos.get(s.nombre).get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
 					}
 				}	
-				else if(l.variable.eClass.name.equals("ValorRegistro")) {
-					var registro = l.variable as ValorRegistro;
+				else if(op.eClass.name.equals("ValorRegistro")) {
+					var registro = op as ValorRegistro;
 					tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-					return '''scanf("%i", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%i", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%i", &«op.generate»);'''
+					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-					return '''scanf("%c", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%c", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%c", &«op.generate»);'''
+					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-					return '''scanf("%s", &«l.variable.generate»);'''
+					if(resultado == "") {
+						resultado = '''scanf("%s", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%s", &«op.generate»);'''
+					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					return '''scanf("%r", &«l.variable.generate»);'''
-				}
+					if(resultado == "") {
+						resultado = '''scanf("%r", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = resultado + '''scanf("%r", &«op.generate»);'''
+					}
+		 		}
+			}
+			return resultado;
 			}
 		}
 		}
@@ -2771,6 +2852,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Division
 			prueba.generate
 		}
+		else if (op.eClass.name.equals("Div")) {
+			var Div prueba = new DivImpl
+			prueba = op as Div
+			prueba.generate
+		}
+		else if(op.eClass.name.equals("Mod")) {
+			var Mod prueba = new ModImpl
+			prueba = op as Mod
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -2879,6 +2970,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Division
 			prueba.generate(punteros)
 		}
+		else if (op.eClass.name.equals("Div")) {
+			var Div prueba = new DivImpl
+			prueba = op as Div
+			prueba.generate
+		}
+		else if(op.eClass.name.equals("Mod")) {
+			var Mod prueba = new ModImpl
+			prueba = op as Mod
+			prueba.generate(punteros)
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -2982,6 +3083,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Division
 			prueba.generate
 		}
+		else if (op.eClass.name.equals("Div")) {
+			var Div prueba = new DivImpl
+			prueba = op as Div
+			prueba.generate
+		}
+		else if(op.eClass.name.equals("Mod")) {
+			var Mod prueba = new ModImpl
+			prueba = op as Mod
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -3042,6 +3153,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
 	}
 	
+	def generate(Div myDivi) {
+		return myDivi.left.generate + " " + "/" + " " + myDivi.right.generate;
+	}
+	
+	def generate(Mod myMod) {
+		return myMod.left.generate + " " + "%" + " " + myMod.right.generate;
+	}
+	
 	def generate(Division myDivi, List<String> punteros) {
 		return myDivi.left.generate(punteros) + " " + myDivi.signo_op + " " + myDivi.right.generate(punteros);
 	}
@@ -3071,7 +3190,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Igualdad myIgualdad) {
-		return myIgualdad.left.generate + " " + myIgualdad.signo_op + " " + myIgualdad.right.generate;
+		return myIgualdad.left.generate + " " + "==" + " " + myIgualdad.right.generate;
 	}
 	
 	def generate(Igualdad myIgualdad, List<String> punteros) {

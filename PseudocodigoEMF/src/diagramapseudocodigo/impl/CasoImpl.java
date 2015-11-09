@@ -24,12 +24,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.CasoImpl#getDevuelve <em>Devuelve</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CasoImpl#getSentencias <em>Sentencias</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CasoImpl#getOperador <em>Operador</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

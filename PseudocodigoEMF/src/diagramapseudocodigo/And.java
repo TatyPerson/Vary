@@ -10,12 +10,12 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.And#getLeft <em>Left</em>}</li>
  *   <li>{@link diagramapseudocodigo.And#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.And#getSigno_op <em>Signo op</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAnd()
  * @model

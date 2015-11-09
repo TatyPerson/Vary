@@ -43,6 +43,7 @@ import diagramapseudocodigo.DeclaracionPropia;
 import diagramapseudocodigo.DeclaracionVariable;
 import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Div;
 import diagramapseudocodigo.Division;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Escribir;
@@ -432,6 +433,357 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			}
 		}
 	}
+	
+	protected void checkDivRealAux(List<Sentencias> sentencias, Map<String, String> variablesTipadas) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof AsignacionNormal) {
+				AsignacionNormal a = (AsignacionNormal) s;
+				if(a.getOperador() instanceof Div) {
+					Div d = (Div) a.getOperador();
+					if(d.getLeft() instanceof NumeroEntero && d.getRight() instanceof NumeroEntero) {
+						error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof VariableID) {
+						VariableID left = (VariableID) d.getLeft();
+						VariableID right = (VariableID) d.getRight();
+						if(variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")) && variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof NumeroEntero) {
+						VariableID left = (VariableID) d.getLeft();
+						if(variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof NumeroEntero && d.getRight() instanceof VariableID) {
+						VariableID right = (VariableID) d.getRight();
+						if(variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof Suma || d.getLeft() instanceof Resta || d.getLeft() instanceof Multiplicacion || d.getLeft() instanceof Division || d.getLeft() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getLeft(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales == 0) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getRight() instanceof Suma || d.getRight() instanceof Resta || d.getRight() instanceof Multiplicacion || d.getRight() instanceof Division || d.getRight() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getRight(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales == 0) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+				}
+			}
+			else if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getOperador() instanceof Div) {
+					Div d = (Div) a.getOperador();
+					if(d.getLeft() instanceof NumeroEntero && d.getRight() instanceof NumeroEntero) {
+						error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof VariableID) {
+						VariableID left = (VariableID) d.getLeft();
+						VariableID right = (VariableID) d.getRight();
+						if(variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")) && variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof NumeroEntero) {
+						VariableID left = (VariableID) d.getLeft();
+						if(variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof NumeroEntero && d.getRight() instanceof VariableID) {
+						VariableID right = (VariableID) d.getRight();
+						if(variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof Suma || d.getLeft() instanceof Resta || d.getLeft() instanceof Multiplicacion || d.getLeft() instanceof Division || d.getLeft() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getLeft(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales == 0) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+					else if(d.getRight() instanceof Suma || d.getRight() instanceof Resta || d.getRight() instanceof Multiplicacion || d.getRight() instanceof Division || d.getRight() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getRight(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales == 0) {
+							error(readerMessages.getString("DIV_REAL"), d, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkDivReal(Algoritmo algoritmo) {
+		Map<String, String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+		variablesTipadas.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
+		
+		checkDivRealAux(algoritmo.getTiene().getTiene(), variablesTipadas);
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			variablesTipadas.clear();
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(s.getDeclaracion()));
+			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
+			
+			checkDivRealAux(s.getSentencias(), variablesTipadas);	
+		}
+		
+	}
+	
+	@Check void checkDivReal(Modulo modulo) {
+		Map<String, String> variablesTipadas = new HashMap<String, String>();
+		
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			variablesTipadas.clear();
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal()));
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(s.getDeclaracion()));
+			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
+			
+			checkDivRealAux(s.getSentencias(), variablesTipadas);
+		}
+	}
+	
+	protected void checkDivEnteraAux(List<Sentencias> sentencias, Map<String, String> variablesTipadas) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof AsignacionNormal) {
+				AsignacionNormal a = (AsignacionNormal) s;
+				if(a.getOperador() instanceof Division) {
+					Division d = (Division) a.getOperador();
+					if((!(d.getLeft() instanceof NumeroEntero) || !(d.getRight() instanceof NumeroEntero)) && (!(d.getLeft() instanceof VariableID) && !(d.getRight() instanceof VariableID))) {
+						error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+					}
+					else if(d.getLeft() instanceof NumeroDecimal || d.getRight() instanceof NumeroDecimal) {
+						error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof VariableID) {
+						VariableID left = (VariableID) d.getLeft();
+						VariableID right = (VariableID) d.getRight();
+						if(!(variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) || !(variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")))) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof NumeroEntero) {
+						VariableID left = (VariableID) d.getLeft();
+						if(!variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof NumeroEntero && d.getRight() instanceof VariableID) {
+						VariableID right = (VariableID) d.getRight();
+						if(!variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof Suma || d.getLeft() instanceof Resta || d.getLeft() instanceof Multiplicacion || d.getLeft() instanceof Division || d.getLeft() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getLeft(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getRight() instanceof Suma || d.getRight() instanceof Resta || d.getRight() instanceof Multiplicacion || d.getRight() instanceof Division || d.getRight() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getRight(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+				}
+			}
+			else if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getOperador() instanceof Division) {
+					Division d = (Division) a.getOperador();
+					if((!(d.getLeft() instanceof NumeroEntero) || !(d.getRight() instanceof NumeroEntero)) && (!(d.getLeft() instanceof VariableID) && !(d.getRight() instanceof VariableID))) {
+						error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+					}
+					else if(d.getLeft() instanceof NumeroDecimal || d.getRight() instanceof NumeroDecimal) {
+						error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof VariableID) {
+						VariableID left = (VariableID) d.getLeft();
+						VariableID right = (VariableID) d.getRight();
+						if(!variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")) || !variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof VariableID && d.getRight() instanceof NumeroEntero) {
+						VariableID left = (VariableID) d.getLeft();
+						if(!variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof NumeroEntero && d.getRight() instanceof VariableID) {
+						VariableID right = (VariableID) d.getRight();
+						if(!variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getLeft() instanceof Suma || d.getLeft() instanceof Resta || d.getLeft() instanceof Multiplicacion || d.getLeft() instanceof Division || d.getLeft() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getLeft(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+					else if(d.getRight() instanceof Suma || d.getRight() instanceof Resta || d.getRight() instanceof Multiplicacion || d.getRight() instanceof Division || d.getRight() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(d.getRight(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("DIV_ENTERA"), d, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkDivEntera(Algoritmo algoritmo) {
+		Map<String, String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+		variablesTipadas.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
+		
+		checkDivEnteraAux(algoritmo.getTiene().getTiene(), variablesTipadas);
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			variablesTipadas.clear();
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(s.getDeclaracion()));
+			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
+			
+			checkDivEnteraAux(s.getSentencias(), variablesTipadas);	
+		}
+	}
+	
+	
+	@Check void checkDivEntera(Modulo modulo) {
+		Map<String, String> variablesTipadas = new HashMap<String, String>();
+		
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			variablesTipadas.clear();
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal()));
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(s.getDeclaracion()));
+			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
+			
+			checkDivEnteraAux(s.getSentencias(), variablesTipadas);
+		}
+	}
+	
 	
 	@Check
 	protected void checkCabeceraSubprocesoExistente(Modulo m) {

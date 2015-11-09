@@ -13,11 +13,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Inicio#getTiene <em>Tiene</em>}</li>
  *   <li>{@link diagramapseudocodigo.Inicio#getDeclaracion <em>Declaracion</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInicio()
  * @model

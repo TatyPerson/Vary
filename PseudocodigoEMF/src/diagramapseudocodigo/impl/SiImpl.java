@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.SiImpl#getSino <em>Sino</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.SiImpl#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

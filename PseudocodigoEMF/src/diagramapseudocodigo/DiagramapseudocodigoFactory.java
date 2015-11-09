@@ -94,6 +94,15 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Mod createMod();
 
 	/**
+	 * Returns a new object of class '<em>Div</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Div</em>'.
+	 * @generated
+	 */
+	Div createDiv();
+
+	/**
 	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

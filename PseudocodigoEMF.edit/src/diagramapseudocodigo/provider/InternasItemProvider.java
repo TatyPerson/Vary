@@ -292,6 +292,11 @@ public class InternasItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.INTERNAS__OPERADORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.INTERNAS__OPERADORES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

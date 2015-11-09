@@ -46,7 +46,7 @@ fin_inicio
 fin_funcion
 </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" context="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" deleted="false" description="Plantilla para crear una matriz" enabled="true" name="Matriz">matriz [${dimension1}][${dimension2}] de ${tipoMatriz}: ${nombreMatriz}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" context="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" deleted="false" description="Plantilla para definir un bucle mientras" enabled="true" name="Mientras">mientras ${iterador} ${public:Enum('signo')} ${tope} hacer
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" context="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" deleted="false" description="Plantilla para definir un bucle mientras" enabled="true" name="Mientras">mientras (${iterador} ${public:Enum('signo')} ${tope}) hacer
 fin_mientras</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Modulo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Modulo" deleted="false" description="Plantilla para crear la estructura básica de un Módulo" enabled="true" name="Módulo">Modulo ${nombre_modulo}
 
@@ -86,17 +86,17 @@ fin_procedimiento</template>
 	${tipoCampo}: ${nombreCampo}
 fin_registro</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" context="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" deleted="false" description="Plantilla para definir un bucle repetir" enabled="true" name="Repetir">repetir
-hasta_que ${variableCondicion} ${public:Enum('signo')} ${valorCondicion}</template>
+hasta_que (${variableCondicion} ${public:Enum('signo')} ${valorCondicion})</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.segun" context="vary.pseudocodigo.dsl.c.VaryGrammar.segun" deleted="false" description="Plantilla para definir una estructura segun_sea" enabled="true" name="Segun_sea">segun_sea(${variable}) hacer
 	caso 1: escribir("caso 1")
 	caso 2: escribir("caso 2")
 	caso ${n}: escribir("caso n")
 	en_otro_caso: escribir("otro caso")
 fin_segun</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.SiCompuesto" context="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted="false" description="Plantilla para la definición de la estructura selectiva si con sino" enabled="true" name="Si Compuesto">si ${variableCondicion} ${public:Enum('signo')} ${variableCondicion2} entonces
-sino
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.SiCompuesto" context="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted="false" description="Plantilla para la definición de la estructura selectiva si con sino" enabled="true" name="Si Compuesto">si (${variableCondicion} ${public:Enum('signo')} ${variableCondicion2}) entonces
+si_no
 fin_si</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.SiSimple" context="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted="false" description="Plantilla para definir la estructura selectiva si" enabled="true" name="Si Simple">si ${variableCondicion} ${public:Enum('signo')} ${variableCondicion2} entonces
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.SiSimple" context="vary.pseudocodigo.dsl.c.VaryGrammar.Si" deleted="false" description="Plantilla para definir la estructura selectiva si" enabled="true" name="Si Simple">si (${variableCondicion} ${public:Enum('signo')} ${variableCondicion2}) entonces
 fin_si</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Subrango" context="vary.pseudocodigo.dsl.c.VaryGrammar.Subrango" deleted="false" description="Plantilla para crear un subrango" enabled="true" name="Subrango">${nombreSubrango} = ${limiteInf}..${limiteSup}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" context="vary.pseudocodigo.dsl.c.VaryGrammar.Vector" deleted="false" description="Plantilla para crear un vector" enabled="true" name="Vector">vector [${dimension}] de ${tipoVector}: ${nombreVector}</template>

@@ -10,12 +10,12 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Suma#getLeft <em>Left</em>}</li>
  *   <li>{@link diagramapseudocodigo.Suma#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.Suma#getSigno_op <em>Signo op</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSuma()
  * @model

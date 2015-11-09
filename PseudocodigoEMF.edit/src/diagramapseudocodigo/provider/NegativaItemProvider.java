@@ -263,6 +263,11 @@ public class NegativaItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

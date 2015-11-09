@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.RegistroImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.RegistroImpl#getNombre <em>Nombre</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

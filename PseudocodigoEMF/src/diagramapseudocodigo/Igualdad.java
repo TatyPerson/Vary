@@ -10,12 +10,12 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Igualdad#getLeft <em>Left</em>}</li>
  *   <li>{@link diagramapseudocodigo.Igualdad#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.Igualdad#getSigno_op <em>Signo op</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getIgualdad()
  * @model

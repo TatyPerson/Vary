@@ -22,6 +22,7 @@ import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DeclaracionPropia;
 import diagramapseudocodigo.DeclaracionVariable;
 import diagramapseudocodigo.Devolver;
+import diagramapseudocodigo.Div;
 import diagramapseudocodigo.Division;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Escribir;
@@ -35,6 +36,7 @@ import diagramapseudocodigo.Internas;
 import diagramapseudocodigo.Leer;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
+import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.ModoApertura;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
@@ -83,6 +85,7 @@ import diagramapseudocodigo.impl.ComparacionImpl;
 import diagramapseudocodigo.impl.ConstCadenaImpl;
 import diagramapseudocodigo.impl.DeclaracionPropiaImpl;
 import diagramapseudocodigo.impl.DeclaracionVariableImpl;
+import diagramapseudocodigo.impl.DivImpl;
 import diagramapseudocodigo.impl.DivisionImpl;
 import diagramapseudocodigo.impl.EnumeradoImpl;
 import diagramapseudocodigo.impl.EscribirImpl;
@@ -94,6 +97,7 @@ import diagramapseudocodigo.impl.InternasImpl;
 import diagramapseudocodigo.impl.LeerImpl;
 import diagramapseudocodigo.impl.LlamadaFuncionImpl;
 import diagramapseudocodigo.impl.MatrizImpl;
+import diagramapseudocodigo.impl.ModImpl;
 import diagramapseudocodigo.impl.ModuloImpl;
 import diagramapseudocodigo.impl.MultiplicacionImpl;
 import diagramapseudocodigo.impl.NegacionImpl;
@@ -4072,63 +4076,67 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   public String generateLeerPunteros(final Leer l, final List<String> punteros) {
     String leer = new String();
-    leer = "cin >> ";
-    operacion _variable = l.getVariable();
-    EClass _eClass = _variable.eClass();
-    String _name = _eClass.getName();
-    boolean _equals = _name.equals("VariableID");
-    if (_equals) {
-      VariableID prueba = new VariableIDImpl();
-      operacion _variable_1 = l.getVariable();
-      prueba = ((VariableID) _variable_1);
-      String _nombre = prueba.getNombre();
-      boolean _contains = punteros.contains(_nombre);
-      if (_contains) {
-        CharSequence _generate = this.generate(prueba);
-        String _plus = ((leer + "*") + _generate);
-        String _plus_1 = (_plus + ";");
-        leer = _plus_1;
-      }
-    } else {
-      operacion _variable_2 = l.getVariable();
-      EClass _eClass_1 = _variable_2.eClass();
-      String _name_1 = _eClass_1.getName();
-      boolean _equals_1 = _name_1.equals("ValorVector");
-      if (_equals_1) {
-        ValorVector prueba_1 = new ValorVectorImpl();
-        operacion _variable_3 = l.getVariable();
-        prueba_1 = ((ValorVector) _variable_3);
-        String _nombre_vector = prueba_1.getNombre_vector();
-        boolean _contains_1 = punteros.contains(_nombre_vector);
-        if (_contains_1) {
-          CharSequence _generate_1 = this.generate(prueba_1);
-          String _plus_2 = ((leer + "*") + _generate_1);
-          String _plus_3 = (_plus_2 + ";");
-          leer = _plus_3;
+    EList<operacion> _variable = l.getVariable();
+    for (final operacion op : _variable) {
+      {
+        boolean _equals = Objects.equal(leer, "");
+        if (_equals) {
+          leer = "cin >> ";
+        } else {
+          leer = (leer + "\n");
+          leer = (leer + "cin >> ");
         }
-      } else {
-        operacion _variable_4 = l.getVariable();
-        EClass _eClass_2 = _variable_4.eClass();
-        String _name_2 = _eClass_2.getName();
-        boolean _equals_2 = _name_2.equals("ValorMatriz");
-        if (_equals_2) {
-          ValorMatriz prueba_2 = new ValorMatrizImpl();
-          operacion _variable_5 = l.getVariable();
-          prueba_2 = ((ValorMatriz) _variable_5);
-          String _nombre_matriz = prueba_2.getNombre_matriz();
-          boolean _contains_2 = punteros.contains(_nombre_matriz);
-          if (_contains_2) {
-            CharSequence _generate_2 = this.generate(prueba_2);
-            String _plus_4 = ((leer + "*") + _generate_2);
-            String _plus_5 = (_plus_4 + ";");
-            leer = _plus_5;
+        EClass _eClass = op.eClass();
+        String _name = _eClass.getName();
+        boolean _equals_1 = _name.equals("VariableID");
+        if (_equals_1) {
+          VariableID prueba = new VariableIDImpl();
+          prueba = ((VariableID) op);
+          String _nombre = prueba.getNombre();
+          boolean _contains = punteros.contains(_nombre);
+          if (_contains) {
+            CharSequence _generate = this.generate(prueba);
+            String _plus = ((leer + "*") + _generate);
+            String _plus_1 = (_plus + ";");
+            leer = _plus_1;
           }
         } else {
-          operacion _variable_6 = l.getVariable();
-          CharSequence _generate_3 = this.generate(_variable_6);
-          String _plus_6 = (leer + _generate_3);
-          String _plus_7 = (_plus_6 + ";");
-          leer = _plus_7;
+          EClass _eClass_1 = op.eClass();
+          String _name_1 = _eClass_1.getName();
+          boolean _equals_2 = _name_1.equals("ValorVector");
+          if (_equals_2) {
+            ValorVector prueba_1 = new ValorVectorImpl();
+            prueba_1 = ((ValorVector) op);
+            String _nombre_vector = prueba_1.getNombre_vector();
+            boolean _contains_1 = punteros.contains(_nombre_vector);
+            if (_contains_1) {
+              CharSequence _generate_1 = this.generate(prueba_1);
+              String _plus_2 = ((leer + "*") + _generate_1);
+              String _plus_3 = (_plus_2 + ";");
+              leer = _plus_3;
+            }
+          } else {
+            EClass _eClass_2 = op.eClass();
+            String _name_2 = _eClass_2.getName();
+            boolean _equals_3 = _name_2.equals("ValorMatriz");
+            if (_equals_3) {
+              ValorMatriz prueba_2 = new ValorMatrizImpl();
+              prueba_2 = ((ValorMatriz) op);
+              String _nombre_matriz = prueba_2.getNombre_matriz();
+              boolean _contains_2 = punteros.contains(_nombre_matriz);
+              if (_contains_2) {
+                CharSequence _generate_2 = this.generate(prueba_2);
+                String _plus_4 = ((leer + "*") + _generate_2);
+                String _plus_5 = (_plus_4 + ";");
+                leer = _plus_5;
+              }
+            } else {
+              CharSequence _generate_3 = this.generate(op);
+              String _plus_6 = (leer + _generate_3);
+              String _plus_7 = (_plus_6 + ";");
+              leer = _plus_7;
+            }
+          }
         }
       }
     }
@@ -4138,12 +4146,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   @Override
   public CharSequence generate(final Leer l) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("cin >> ");
-    operacion _variable = l.getVariable();
-    CharSequence _generate = this.generate(_variable);
-    _builder.append(_generate, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    {
+      EList<operacion> _variable = l.getVariable();
+      for(final operacion op : _variable) {
+        _builder.append("cin >> ");
+        CharSequence _generate = this.generate(op);
+        _builder.append(_generate, "");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -5271,12 +5283,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                   CharSequence _xifexpression_15 = null;
                                   EClass _eClass_15 = op.eClass();
                                   String _name_15 = _eClass_15.getName();
-                                  boolean _equals_15 = _name_15.equals("Or");
+                                  boolean _equals_15 = _name_15.equals("Div");
                                   if (_equals_15) {
-                                    CharSequence _xblockexpression_15 = null;
+                                    String _xblockexpression_15 = null;
                                     {
-                                      Or prueba = new OrImpl();
-                                      prueba = ((Or) op);
+                                      Div prueba = new DivImpl();
+                                      prueba = ((Div) op);
                                       _xblockexpression_15 = this.generate(prueba);
                                     }
                                     _xifexpression_15 = _xblockexpression_15;
@@ -5284,12 +5296,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                     CharSequence _xifexpression_16 = null;
                                     EClass _eClass_16 = op.eClass();
                                     String _name_16 = _eClass_16.getName();
-                                    boolean _equals_16 = _name_16.equals("And");
+                                    boolean _equals_16 = _name_16.equals("Mod");
                                     if (_equals_16) {
-                                      CharSequence _xblockexpression_16 = null;
+                                      String _xblockexpression_16 = null;
                                       {
-                                        And prueba = new AndImpl();
-                                        prueba = ((And) op);
+                                        Mod prueba = new ModImpl();
+                                        prueba = ((Mod) op);
                                         _xblockexpression_16 = this.generate(prueba);
                                       }
                                       _xifexpression_16 = _xblockexpression_16;
@@ -5297,12 +5309,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                       CharSequence _xifexpression_17 = null;
                                       EClass _eClass_17 = op.eClass();
                                       String _name_17 = _eClass_17.getName();
-                                      boolean _equals_17 = _name_17.equals("Comparacion");
+                                      boolean _equals_17 = _name_17.equals("Or");
                                       if (_equals_17) {
                                         CharSequence _xblockexpression_17 = null;
                                         {
-                                          Comparacion prueba = new ComparacionImpl();
-                                          prueba = ((Comparacion) op);
+                                          Or prueba = new OrImpl();
+                                          prueba = ((Or) op);
                                           _xblockexpression_17 = this.generate(prueba);
                                         }
                                         _xifexpression_17 = _xblockexpression_17;
@@ -5310,12 +5322,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                         CharSequence _xifexpression_18 = null;
                                         EClass _eClass_18 = op.eClass();
                                         String _name_18 = _eClass_18.getName();
-                                        boolean _equals_18 = _name_18.equals("Igualdad");
+                                        boolean _equals_18 = _name_18.equals("And");
                                         if (_equals_18) {
                                           CharSequence _xblockexpression_18 = null;
                                           {
-                                            Igualdad prueba = new IgualdadImpl();
-                                            prueba = ((Igualdad) op);
+                                            And prueba = new AndImpl();
+                                            prueba = ((And) op);
                                             _xblockexpression_18 = this.generate(prueba);
                                           }
                                           _xifexpression_18 = _xblockexpression_18;
@@ -5323,12 +5335,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                           CharSequence _xifexpression_19 = null;
                                           EClass _eClass_19 = op.eClass();
                                           String _name_19 = _eClass_19.getName();
-                                          boolean _equals_19 = _name_19.equals("Negativa");
+                                          boolean _equals_19 = _name_19.equals("Comparacion");
                                           if (_equals_19) {
                                             CharSequence _xblockexpression_19 = null;
                                             {
-                                              Negativa prueba = new NegativaImpl();
-                                              prueba = ((Negativa) op);
+                                              Comparacion prueba = new ComparacionImpl();
+                                              prueba = ((Comparacion) op);
                                               _xblockexpression_19 = this.generate(prueba);
                                             }
                                             _xifexpression_19 = _xblockexpression_19;
@@ -5336,15 +5348,45 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                             CharSequence _xifexpression_20 = null;
                                             EClass _eClass_20 = op.eClass();
                                             String _name_20 = _eClass_20.getName();
-                                            boolean _equals_20 = _name_20.equals("Negacion");
+                                            boolean _equals_20 = _name_20.equals("Igualdad");
                                             if (_equals_20) {
                                               CharSequence _xblockexpression_20 = null;
                                               {
-                                                Negacion prueba = new NegacionImpl();
-                                                prueba = ((Negacion) op);
+                                                Igualdad prueba = new IgualdadImpl();
+                                                prueba = ((Igualdad) op);
                                                 _xblockexpression_20 = this.generate(prueba);
                                               }
                                               _xifexpression_20 = _xblockexpression_20;
+                                            } else {
+                                              CharSequence _xifexpression_21 = null;
+                                              EClass _eClass_21 = op.eClass();
+                                              String _name_21 = _eClass_21.getName();
+                                              boolean _equals_21 = _name_21.equals("Negativa");
+                                              if (_equals_21) {
+                                                CharSequence _xblockexpression_21 = null;
+                                                {
+                                                  Negativa prueba = new NegativaImpl();
+                                                  prueba = ((Negativa) op);
+                                                  _xblockexpression_21 = this.generate(prueba);
+                                                }
+                                                _xifexpression_21 = _xblockexpression_21;
+                                              } else {
+                                                CharSequence _xifexpression_22 = null;
+                                                EClass _eClass_22 = op.eClass();
+                                                String _name_22 = _eClass_22.getName();
+                                                boolean _equals_22 = _name_22.equals("Negacion");
+                                                if (_equals_22) {
+                                                  CharSequence _xblockexpression_22 = null;
+                                                  {
+                                                    Negacion prueba = new NegacionImpl();
+                                                    prueba = ((Negacion) op);
+                                                    _xblockexpression_22 = this.generate(prueba);
+                                                  }
+                                                  _xifexpression_22 = _xblockexpression_22;
+                                                }
+                                                _xifexpression_21 = _xifexpression_22;
+                                              }
+                                              _xifexpression_20 = _xifexpression_21;
                                             }
                                             _xifexpression_19 = _xifexpression_20;
                                           }
@@ -5596,12 +5638,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                   CharSequence _xifexpression_15 = null;
                                   EClass _eClass_15 = op.eClass();
                                   String _name_15 = _eClass_15.getName();
-                                  boolean _equals_15 = _name_15.equals("Or");
+                                  boolean _equals_15 = _name_15.equals("Div");
                                   if (_equals_15) {
-                                    CharSequence _xblockexpression_15 = null;
+                                    String _xblockexpression_15 = null;
                                     {
-                                      Or prueba = new OrImpl();
-                                      prueba = ((Or) op);
+                                      Div prueba = new DivImpl();
+                                      prueba = ((Div) op);
                                       _xblockexpression_15 = this.generate(prueba);
                                     }
                                     _xifexpression_15 = _xblockexpression_15;
@@ -5609,12 +5651,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                     CharSequence _xifexpression_16 = null;
                                     EClass _eClass_16 = op.eClass();
                                     String _name_16 = _eClass_16.getName();
-                                    boolean _equals_16 = _name_16.equals("And");
+                                    boolean _equals_16 = _name_16.equals("Mod");
                                     if (_equals_16) {
-                                      CharSequence _xblockexpression_16 = null;
+                                      String _xblockexpression_16 = null;
                                       {
-                                        And prueba = new AndImpl();
-                                        prueba = ((And) op);
+                                        Mod prueba = new ModImpl();
+                                        prueba = ((Mod) op);
                                         _xblockexpression_16 = this.generate(prueba);
                                       }
                                       _xifexpression_16 = _xblockexpression_16;
@@ -5622,12 +5664,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                       CharSequence _xifexpression_17 = null;
                                       EClass _eClass_17 = op.eClass();
                                       String _name_17 = _eClass_17.getName();
-                                      boolean _equals_17 = _name_17.equals("Comparacion");
+                                      boolean _equals_17 = _name_17.equals("Or");
                                       if (_equals_17) {
                                         CharSequence _xblockexpression_17 = null;
                                         {
-                                          Comparacion prueba = new ComparacionImpl();
-                                          prueba = ((Comparacion) op);
+                                          Or prueba = new OrImpl();
+                                          prueba = ((Or) op);
                                           _xblockexpression_17 = this.generate(prueba);
                                         }
                                         _xifexpression_17 = _xblockexpression_17;
@@ -5635,12 +5677,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                         CharSequence _xifexpression_18 = null;
                                         EClass _eClass_18 = op.eClass();
                                         String _name_18 = _eClass_18.getName();
-                                        boolean _equals_18 = _name_18.equals("Igualdad");
+                                        boolean _equals_18 = _name_18.equals("And");
                                         if (_equals_18) {
                                           CharSequence _xblockexpression_18 = null;
                                           {
-                                            Igualdad prueba = new IgualdadImpl();
-                                            prueba = ((Igualdad) op);
+                                            And prueba = new AndImpl();
+                                            prueba = ((And) op);
                                             _xblockexpression_18 = this.generate(prueba);
                                           }
                                           _xifexpression_18 = _xblockexpression_18;
@@ -5648,12 +5690,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                           CharSequence _xifexpression_19 = null;
                                           EClass _eClass_19 = op.eClass();
                                           String _name_19 = _eClass_19.getName();
-                                          boolean _equals_19 = _name_19.equals("Negativa");
+                                          boolean _equals_19 = _name_19.equals("Comparacion");
                                           if (_equals_19) {
                                             CharSequence _xblockexpression_19 = null;
                                             {
-                                              Negativa prueba = new NegativaImpl();
-                                              prueba = ((Negativa) op);
+                                              Comparacion prueba = new ComparacionImpl();
+                                              prueba = ((Comparacion) op);
                                               _xblockexpression_19 = this.generate(prueba);
                                             }
                                             _xifexpression_19 = _xblockexpression_19;
@@ -5661,15 +5703,45 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                             CharSequence _xifexpression_20 = null;
                                             EClass _eClass_20 = op.eClass();
                                             String _name_20 = _eClass_20.getName();
-                                            boolean _equals_20 = _name_20.equals("Negacion");
+                                            boolean _equals_20 = _name_20.equals("Igualdad");
                                             if (_equals_20) {
                                               CharSequence _xblockexpression_20 = null;
                                               {
-                                                Negacion prueba = new NegacionImpl();
-                                                prueba = ((Negacion) op);
+                                                Igualdad prueba = new IgualdadImpl();
+                                                prueba = ((Igualdad) op);
                                                 _xblockexpression_20 = this.generate(prueba);
                                               }
                                               _xifexpression_20 = _xblockexpression_20;
+                                            } else {
+                                              CharSequence _xifexpression_21 = null;
+                                              EClass _eClass_21 = op.eClass();
+                                              String _name_21 = _eClass_21.getName();
+                                              boolean _equals_21 = _name_21.equals("Negativa");
+                                              if (_equals_21) {
+                                                CharSequence _xblockexpression_21 = null;
+                                                {
+                                                  Negativa prueba = new NegativaImpl();
+                                                  prueba = ((Negativa) op);
+                                                  _xblockexpression_21 = this.generate(prueba);
+                                                }
+                                                _xifexpression_21 = _xblockexpression_21;
+                                              } else {
+                                                CharSequence _xifexpression_22 = null;
+                                                EClass _eClass_22 = op.eClass();
+                                                String _name_22 = _eClass_22.getName();
+                                                boolean _equals_22 = _name_22.equals("Negacion");
+                                                if (_equals_22) {
+                                                  CharSequence _xblockexpression_22 = null;
+                                                  {
+                                                    Negacion prueba = new NegacionImpl();
+                                                    prueba = ((Negacion) op);
+                                                    _xblockexpression_22 = this.generate(prueba);
+                                                  }
+                                                  _xifexpression_22 = _xblockexpression_22;
+                                                }
+                                                _xifexpression_21 = _xifexpression_22;
+                                              }
+                                              _xifexpression_20 = _xifexpression_21;
                                             }
                                             _xifexpression_19 = _xifexpression_20;
                                           }
@@ -5766,6 +5838,28 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     return (_plus_2 + _generate_1);
   }
   
+  public String generate(final Div myDivi) {
+    operacion _left = myDivi.getLeft();
+    CharSequence _generate = this.generate(_left);
+    String _plus = (_generate + " ");
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + " ");
+    operacion _right = myDivi.getRight();
+    CharSequence _generate_1 = this.generate(_right);
+    return (_plus_2 + _generate_1);
+  }
+  
+  public String generate(final Mod myMod) {
+    operacion _left = myMod.getLeft();
+    CharSequence _generate = this.generate(_left);
+    String _plus = (_generate + " ");
+    String _plus_1 = (_plus + "%");
+    String _plus_2 = (_plus_1 + " ");
+    operacion _right = myMod.getRight();
+    CharSequence _generate_1 = this.generate(_right);
+    return (_plus_2 + _generate_1);
+  }
+  
   @Override
   public CharSequence generate(final Or myOr) {
     operacion _left = myOr.getLeft();
@@ -5808,8 +5902,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     operacion _left = myIgualdad.getLeft();
     CharSequence _generate = this.generate(_left);
     String _plus = (_generate + " ");
-    signo _signo_op = myIgualdad.getSigno_op();
-    String _plus_1 = (_plus + _signo_op);
+    String _plus_1 = (_plus + "==");
     String _plus_2 = (_plus_1 + " ");
     operacion _right = myIgualdad.getRight();
     CharSequence _generate_1 = this.generate(_right);

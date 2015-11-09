@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ConstantesImpl#getVariable <em>Variable</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ConstantesImpl#getValor <em>Valor</em>}</li>
  * </ul>
+ * </p>
  *
  * @generated
  */

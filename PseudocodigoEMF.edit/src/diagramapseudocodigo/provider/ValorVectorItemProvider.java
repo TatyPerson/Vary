@@ -297,6 +297,11 @@ public class ValorVectorItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 	}
 
 }

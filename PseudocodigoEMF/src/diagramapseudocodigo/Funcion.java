@@ -10,11 +10,11 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Funcion#getTipo <em>Tipo</em>}</li>
  *   <li>{@link diagramapseudocodigo.Funcion#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncion()
  * @model

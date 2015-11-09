@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
- * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Modulo#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Modulo#getImplementacion <em>Implementacion</em>}</li>
@@ -21,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link diagramapseudocodigo.Modulo#getExporta_constantes <em>Exporta constantes</em>}</li>
  *   <li>{@link diagramapseudocodigo.Modulo#getExporta_funciones <em>Exporta funciones</em>}</li>
  * </ul>
+ * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getModulo()
  * @model
