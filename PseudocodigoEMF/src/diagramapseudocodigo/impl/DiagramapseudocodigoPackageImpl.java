@@ -49,6 +49,7 @@ import diagramapseudocodigo.Negativa;
 import diagramapseudocodigo.NombreInterna;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
 import diagramapseudocodigo.ParametroFuncion;
@@ -161,6 +162,13 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EClass divEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operacionParentesisEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1058,6 +1066,24 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 */
 	public EReference getDiv_Right() {
 		return (EReference)divEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getOperacionParentesis() {
+		return operacionParentesisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperacionParentesis_Valor_operacion() {
+		return (EReference)operacionParentesisEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -3038,6 +3064,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		createEReference(divEClass, DIV__LEFT);
 		createEReference(divEClass, DIV__RIGHT);
 
+		operacionParentesisEClass = createEClass(OPERACION_PARENTESIS);
+		createEReference(operacionParentesisEClass, OPERACION_PARENTESIS__VALOR_OPERACION);
+
 		// Create enums
 		signoEEnum = createEEnum(SIGNO);
 		negEEnum = createEEnum(NEG);
@@ -3142,6 +3171,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		cabeceraFuncionEClass.getESuperTypes().add(this.getCabeceraSubproceso());
 		modEClass.getESuperTypes().add(this.getoperacion());
 		divEClass.getESuperTypes().add(this.getoperacion());
+		operacionParentesisEClass.getESuperTypes().add(this.getoperacion());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(algoritmoEClass, Algoritmo.class, "Algoritmo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3438,6 +3468,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEReference(getDiv_Left(), this.getoperacion(), null, "left", null, 0, 1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDiv_Right(), this.getoperacion(), null, "right", null, 0, 1, Div.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(operacionParentesisEClass, OperacionParentesis.class, "OperacionParentesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperacionParentesis_Valor_operacion(), this.getoperacion(), null, "valor_operacion", null, 0, 1, OperacionParentesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(signoEEnum, signo.class, "signo");
 		addEEnumLiteral(signoEEnum, signo.SUM);
@@ -3490,7 +3523,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	protected void createExtendedMetaDataAnnotations() {
-		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";		
+		String source = "http:///org/eclipse/emf/ecore/util/ExtendedMetaData";	
 		addAnnotation
 		  (igualdadEClass, 
 		   source, 

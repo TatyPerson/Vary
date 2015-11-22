@@ -430,4 +430,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperacionParentesis" eSuperTypes="#//operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//operacion"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

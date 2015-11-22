@@ -12,12 +12,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Matriz#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Matriz#getValor <em>Valor</em>}</li>
  *   <li>{@link diagramapseudocodigo.Matriz#getTipo <em>Tipo</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getMatriz()
  * @model

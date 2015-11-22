@@ -24,13 +24,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.SubprocesoImpl#getParametrofuncion <em>Parametrofuncion</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.SubprocesoImpl#getSentencias <em>Sentencias</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.SubprocesoImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.SubprocesoImpl#getDeclaracion <em>Declaracion</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

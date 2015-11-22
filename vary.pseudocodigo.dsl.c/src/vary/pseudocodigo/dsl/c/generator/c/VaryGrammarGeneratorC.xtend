@@ -137,6 +137,8 @@ import diagramapseudocodigo.Mod
 import diagramapseudocodigo.impl.ModImpl
 import diagramapseudocodigo.Div
 import diagramapseudocodigo.impl.DivImpl
+import diagramapseudocodigo.OperacionParentesis
+import diagramapseudocodigo.impl.OperacionParentesisImpl
 
 /**
  * Generates code from your model files on save.
@@ -337,13 +339,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		if (s.eClass.name.equals("Funcion")) {
 			var Funcion funcion = new FuncionImpl
 			funcion = s as Funcion
-			var cabecera = funcion.tipo.tipoVariableC + " " + funcion.nombre + "(";
+			var cabecera = funcion.tipo.tipoVariableC + " " + funcion.nombre;
 			return variablesCabecerasSubproceso(funcion.parametrofuncion, cabecera);
 			
 		} else if (s.eClass.name.equals("Procedimiento")) {
 			var Procedimiento procedimiento = new ProcedimientoImpl
 			procedimiento = s as Procedimiento
-			var cabecera = "void" + " " + procedimiento.nombre + "(";
+			var cabecera = "void" + " " + procedimiento.nombre;
 			return variablesCabecerasSubproceso(procedimiento.parametrofuncion, cabecera);
 		}
 	}
@@ -949,7 +951,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Funcion myFun) {
-		var funcionDeclarada = myFun.tipo.tipoVariableC + " " + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
+		var funcionDeclarada = myFun.tipo.tipoVariableC + " " + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
@@ -980,7 +982,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Procedimiento myProc) {
-		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
+		var procedimientoDeclarado = "void " + myProc.nombre + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
@@ -2685,7 +2687,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return total;
 	}
 
-	override generate(LlamadaFuncion fun, boolean a) '''«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»'''
+	override generate(LlamadaFuncion fun, boolean a) '''«fun.nombre»«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»'''
 
 	override generate(Operador op) {
 		if (op.eClass.name.equals("NumeroEntero")) {
@@ -2857,6 +2859,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Div
 			prueba.generate
 		}
+		else if(op.eClass.name.equals("OperacionParentesis")) {
+			var OperacionParentesis prueba = new OperacionParentesisImpl
+			prueba = op as OperacionParentesis
+			prueba.generate
+		}
 		else if(op.eClass.name.equals("Mod")) {
 			var Mod prueba = new ModImpl
 			prueba = op as Mod
@@ -2973,11 +2980,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Div")) {
 			var Div prueba = new DivImpl
 			prueba = op as Div
-			prueba.generate
+			prueba.generate(punteros)
 		}
 		else if(op.eClass.name.equals("Mod")) {
 			var Mod prueba = new ModImpl
 			prueba = op as Mod
+			prueba.generate(punteros)
+		}
+		else if(op.eClass.name.equals("OperacionParentesis")) {
+			var OperacionParentesis prueba = new OperacionParentesisImpl
+			prueba = op as OperacionParentesis
 			prueba.generate(punteros)
 		}
 		else if (op.eClass.name.equals("Or")) {
@@ -3093,6 +3105,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Mod
 			prueba.generate
 		}
+		else if(op.eClass.name.equals("OperacionParentesis")) {
+			var OperacionParentesis prueba = new OperacionParentesisImpl
+			prueba = op as OperacionParentesis
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -3151,6 +3168,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	
 	override generate(Division myDivi) {
 		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
+	}
+	
+	def generate(OperacionParentesis op) {
+		return "(" + op.valor_operacion.generate + ")"
+	}
+	
+	def generate(OperacionParentesis op, EList<String> punteros) {
+		return "(" + op.valor_operacion.generate(punteros) + ")"
 	}
 	
 	def generate(Div myDivi) {

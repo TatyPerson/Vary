@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.LlamadaFuncion#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.LlamadaFuncion#getOperadores <em>Operadores</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getLlamadaFuncion()
  * @model

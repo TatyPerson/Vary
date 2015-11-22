@@ -18,11 +18,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.unariaImpl#getSsigno <em>Ssigno</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.unariaImpl#getVariable <em>Variable</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -21,7 +21,7 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__24=24;
     public static final int T__23=23;
     public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=13;
+    public static final int RULE_ANY_OTHER=14;
     public static final int T__21=21;
     public static final int T__20=20;
     public static final int EOF=-1;
@@ -35,7 +35,6 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__15=15;
     public static final int T__18=18;
     public static final int T__17=17;
-    public static final int T__14=14;
     public static final int T__99=99;
     public static final int T__98=98;
     public static final int T__97=97;
@@ -51,7 +50,7 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__86=86;
     public static final int T__89=89;
     public static final int T__88=88;
-    public static final int RULE_ML_COMMENT=11;
+    public static final int RULE_ML_COMMENT=12;
     public static final int RULE_STRING=5;
     public static final int T__71=71;
     public static final int T__72=72;
@@ -71,10 +70,11 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__65=65;
     public static final int T__62=62;
     public static final int T__63=63;
-    public static final int RULE_CAR=10;
+    public static final int RULE_NOMBRE_FUN=8;
+    public static final int RULE_CAR=11;
     public static final int T__61=61;
     public static final int T__60=60;
-    public static final int RULE_CAD=9;
+    public static final int RULE_CAD=10;
     public static final int T__55=55;
     public static final int T__56=56;
     public static final int T__57=57;
@@ -94,8 +94,7 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__111=111;
     public static final int T__110=110;
     public static final int RULE_INT=4;
-    public static final int RULE_COMENT=8;
-    public static final int T__112=112;
+    public static final int RULE_COMENT=9;
     public static final int T__50=50;
     public static final int T__42=42;
     public static final int T__43=43;
@@ -121,7 +120,7 @@ public class InternalVaryGrammarLexer extends Lexer {
     public static final int T__37=37;
     public static final int T__38=38;
     public static final int T__39=39;
-    public static final int RULE_WS=12;
+    public static final int RULE_WS=13;
 
     // delegates
     // delegators
@@ -136,35 +135,15 @@ public class InternalVaryGrammarLexer extends Lexer {
     }
     public String getGrammarFileName() { return "../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g"; }
 
-    // $ANTLR start "T__14"
-    public final void mT__14() throws RecognitionException {
-        try {
-            int _type = T__14;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:11:7: ( 'o' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:11:9: 'o'
-            {
-            match('o'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__14"
-
     // $ANTLR start "T__15"
     public final void mT__15() throws RecognitionException {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:12:7: ( 'y' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:12:9: 'y'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:11:7: ( 'o' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:11:9: 'o'
             {
-            match('y'); 
+            match('o'); 
 
             }
 
@@ -181,10 +160,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:13:7: ( '+' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:13:9: '+'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:12:7: ( 'y' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:12:9: 'y'
             {
-            match('+'); 
+            match('y'); 
 
             }
 
@@ -201,10 +180,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:14:7: ( '-' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:14:9: '-'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:13:7: ( '+' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:13:9: '+'
             {
-            match('-'); 
+            match('+'); 
 
             }
 
@@ -221,10 +200,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:15:7: ( '*' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:15:9: '*'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:14:7: ( '-' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:14:9: '-'
             {
-            match('*'); 
+            match('-'); 
 
             }
 
@@ -241,10 +220,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:16:7: ( '/' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:16:9: '/'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:15:7: ( '*' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:15:9: '*'
             {
-            match('/'); 
+            match('*'); 
 
             }
 
@@ -261,11 +240,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17:7: ( 'mod' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17:9: 'mod'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:16:7: ( '/' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:16:9: '/'
             {
-            match("mod"); 
-
+            match('/'); 
 
             }
 
@@ -282,10 +260,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18:7: ( 'div' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18:9: 'div'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17:7: ( 'mod' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:17:9: 'mod'
             {
-            match("div"); 
+            match("mod"); 
 
 
             }
@@ -303,10 +281,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19:7: ( 'escritura' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19:9: 'escritura'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18:7: ( 'div' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:18:9: 'div'
             {
-            match("escritura"); 
+            match("div"); 
 
 
             }
@@ -324,10 +302,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20:7: ( 'lectura' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20:9: 'lectura'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19:7: ( 'escritura' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:19:9: 'escritura'
             {
-            match("lectura"); 
+            match("escritura"); 
 
 
             }
@@ -345,10 +323,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21:7: ( 'cos' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21:9: 'cos'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20:7: ( 'lectura' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:20:9: 'lectura'
             {
-            match("cos"); 
+            match("lectura"); 
 
 
             }
@@ -366,10 +344,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:22:7: ( 'cuadrado' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:22:9: 'cuadrado'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21:7: ( 'cos(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21:9: 'cos('
             {
-            match("cuadrado"); 
+            match("cos("); 
 
 
             }
@@ -387,10 +365,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:23:7: ( 'exp' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:23:9: 'exp'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:22:7: ( 'cuadrado(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:22:9: 'cuadrado('
             {
-            match("exp"); 
+            match("cuadrado("); 
 
 
             }
@@ -408,10 +386,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:24:7: ( 'ln' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:24:9: 'ln'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:23:7: ( 'exp(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:23:9: 'exp('
             {
-            match("ln"); 
+            match("exp("); 
 
 
             }
@@ -429,10 +407,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:25:7: ( 'log' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:25:9: 'log'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:24:7: ( 'ln(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:24:9: 'ln('
             {
-            match("log"); 
+            match("ln("); 
 
 
             }
@@ -450,10 +428,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:26:7: ( 'sen' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:26:9: 'sen'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:25:7: ( 'log(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:25:9: 'log('
             {
-            match("sen"); 
+            match("log("); 
 
 
             }
@@ -471,10 +449,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:27:7: ( 'sqrt' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:27:9: 'sqrt'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:26:7: ( 'sen(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:26:9: 'sen('
             {
-            match("sqrt"); 
+            match("sen("); 
 
 
             }
@@ -492,10 +470,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:28:7: ( 'longitud' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:28:9: 'longitud'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:27:7: ( 'sqrt(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:27:9: 'sqrt('
             {
-            match("longitud"); 
+            match("sqrt("); 
 
 
             }
@@ -513,10 +491,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:29:7: ( 'concatena' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:29:9: 'concatena'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:28:7: ( 'longitud(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:28:9: 'longitud('
             {
-            match("concatena"); 
+            match("longitud("); 
 
 
             }
@@ -534,10 +512,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:30:7: ( 'E' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:30:9: 'E'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:29:7: ( 'concatena(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:29:9: 'concatena('
             {
-            match('E'); 
+            match("concatena("); 
+
 
             }
 
@@ -554,10 +533,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:31:7: ( 'e' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:31:9: 'e'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:30:7: ( 'E' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:30:9: 'E'
             {
-            match('e'); 
+            match('E'); 
 
             }
 
@@ -574,11 +553,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:32:7: ( 'entero' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:32:9: 'entero'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:31:7: ( 'e' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:31:9: 'e'
             {
-            match("entero"); 
-
+            match('e'); 
 
             }
 
@@ -595,10 +573,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:33:7: ( 'caracter' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:33:9: 'caracter'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:32:7: ( 'entero' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:32:9: 'entero'
             {
-            match("caracter"); 
+            match("entero"); 
 
 
             }
@@ -616,10 +594,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:34:7: ( 'real' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:34:9: 'real'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:33:7: ( 'caracter' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:33:9: 'caracter'
             {
-            match("real"); 
+            match("caracter"); 
 
 
             }
@@ -637,10 +615,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:35:7: ( 'logico' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:35:9: 'logico'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:34:7: ( 'real' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:34:9: 'real'
             {
-            match("logico"); 
+            match("real"); 
 
 
             }
@@ -658,10 +636,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:36:7: ( 'cadena' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:36:9: 'cadena'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:35:7: ( 'logico' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:35:9: 'logico'
             {
-            match("cadena"); 
+            match("logico"); 
 
 
             }
@@ -679,10 +657,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:37:7: ( '=' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:37:9: '='
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:36:7: ( 'cadena' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:36:9: 'cadena'
             {
-            match('='); 
+            match("cadena"); 
+
 
             }
 
@@ -699,11 +678,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:38:7: ( '!=' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:38:9: '!='
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:37:7: ( '=' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:37:9: '='
             {
-            match("!="); 
-
+            match('='); 
 
             }
 
@@ -720,10 +698,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:39:7: ( '<' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:39:9: '<'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:38:7: ( '!=' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:38:9: '!='
             {
-            match('<'); 
+            match("!="); 
+
 
             }
 
@@ -740,10 +719,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:40:7: ( '>' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:40:9: '>'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:39:7: ( '<' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:39:9: '<'
             {
-            match('>'); 
+            match('<'); 
 
             }
 
@@ -760,11 +739,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:41:7: ( '>=' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:41:9: '>='
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:40:7: ( '>' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:40:9: '>'
             {
-            match(">="); 
-
+            match('>'); 
 
             }
 
@@ -781,10 +759,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:42:7: ( '<=' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:42:9: '<='
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:41:7: ( '>=' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:41:9: '>='
             {
-            match("<="); 
+            match(">="); 
 
 
             }
@@ -802,10 +780,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:43:7: ( 'E/S' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:43:9: 'E/S'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:42:7: ( '<=' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:42:9: '<='
             {
-            match("E/S"); 
+            match("<="); 
 
 
             }
@@ -823,10 +801,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:44:7: ( 'S' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:44:9: 'S'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:43:7: ( 'E/S' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:43:9: 'E/S'
             {
-            match('S'); 
+            match("E/S"); 
+
 
             }
 
@@ -843,11 +822,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:45:7: ( 'verdadero' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:45:9: 'verdadero'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:44:7: ( 'S' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:44:9: 'S'
             {
-            match("verdadero"); 
-
+            match('S'); 
 
             }
 
@@ -864,10 +842,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:46:7: ( 'falso' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:46:9: 'falso'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:45:7: ( 'verdadero' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:45:9: 'verdadero'
             {
-            match("falso"); 
+            match("verdadero"); 
 
 
             }
@@ -885,10 +863,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:47:7: ( 'Algoritmo' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:47:9: 'Algoritmo'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:46:7: ( 'falso' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:46:9: 'falso'
             {
-            match("Algoritmo"); 
+            match("falso"); 
 
 
             }
@@ -906,10 +884,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:48:7: ( 'fin_algoritmo' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:48:9: 'fin_algoritmo'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:47:7: ( 'Algoritmo' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:47:9: 'Algoritmo'
             {
-            match("fin_algoritmo"); 
+            match("Algoritmo"); 
 
 
             }
@@ -927,10 +905,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:49:7: ( 'importa' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:49:9: 'importa'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:48:7: ( 'fin_algoritmo' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:48:9: 'fin_algoritmo'
             {
-            match("importa"); 
+            match("fin_algoritmo"); 
 
 
             }
@@ -948,10 +926,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:50:7: ( 'fin_importa' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:50:9: 'fin_importa'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:49:7: ( 'importa' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:49:9: 'importa'
             {
-            match("fin_importa"); 
+            match("importa"); 
 
 
             }
@@ -969,10 +947,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:51:7: ( 'const' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:51:9: 'const'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:50:7: ( 'fin_importa' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:50:9: 'fin_importa'
             {
-            match("const"); 
+            match("fin_importa"); 
 
 
             }
@@ -990,10 +968,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:52:7: ( 'tipo' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:52:9: 'tipo'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:51:7: ( 'const' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:51:9: 'const'
             {
-            match("tipo"); 
+            match("const"); 
 
 
             }
@@ -1011,10 +989,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:53:7: ( 'var' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:53:9: 'var'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:52:7: ( 'tipo' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:52:9: 'tipo'
             {
-            match("var"); 
+            match("tipo"); 
 
 
             }
@@ -1032,10 +1010,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:54:7: ( 'Modulo' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:54:9: 'Modulo'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:53:7: ( 'var' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:53:9: 'var'
             {
-            match("Modulo"); 
+            match("var"); 
 
 
             }
@@ -1053,10 +1031,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:55:7: ( 'fin_modulo' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:55:9: 'fin_modulo'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:54:7: ( 'Modulo' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:54:9: 'Modulo'
             {
-            match("fin_modulo"); 
+            match("Modulo"); 
 
 
             }
@@ -1074,10 +1052,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:56:7: ( 'exporta' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:56:9: 'exporta'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:55:7: ( 'fin_modulo' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:55:9: 'fin_modulo'
             {
-            match("exporta"); 
+            match("fin_modulo"); 
 
 
             }
@@ -1095,10 +1073,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:57:7: ( 'fin_exporta' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:57:9: 'fin_exporta'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:56:7: ( 'exporta' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:56:9: 'exporta'
             {
-            match("fin_exporta"); 
+            match("exporta"); 
 
 
             }
@@ -1116,10 +1094,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:58:7: ( 'implementacion' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:58:9: 'implementacion'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:57:7: ( 'fin_exporta' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:57:9: 'fin_exporta'
             {
-            match("implementacion"); 
+            match("fin_exporta"); 
 
 
             }
@@ -1137,10 +1115,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:59:7: ( 'fin_implementacion' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:59:9: 'fin_implementacion'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:58:7: ( 'implementacion' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:58:9: 'implementacion'
             {
-            match("fin_implementacion"); 
+            match("implementacion"); 
 
 
             }
@@ -1158,10 +1136,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:60:7: ( 'procedimiento' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:60:9: 'procedimiento'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:59:7: ( 'fin_implementacion' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:59:9: 'fin_implementacion'
             {
-            match("procedimiento"); 
+            match("fin_implementacion"); 
 
 
             }
@@ -1179,10 +1157,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:61:7: ( '(' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:61:9: '('
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:60:7: ( 'procedimiento' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:60:9: 'procedimiento'
             {
-            match('('); 
+            match("procedimiento"); 
+
 
             }
 
@@ -1199,8 +1178,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:62:7: ( ')' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:62:9: ')'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:61:7: ( ')' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:61:9: ')'
             {
             match(')'); 
 
@@ -1219,8 +1198,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:63:7: ( ',' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:63:9: ','
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:62:7: ( ',' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:62:9: ','
             {
             match(','); 
 
@@ -1239,8 +1218,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:64:7: ( 'funcion' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:64:9: 'funcion'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:63:7: ( 'funcion' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:63:9: 'funcion'
             {
             match("funcion"); 
 
@@ -1260,8 +1239,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:65:7: ( 'abrir' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:65:9: 'abrir'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:64:7: ( 'abrir' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:64:9: 'abrir'
             {
             match("abrir"); 
 
@@ -1281,11 +1260,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:66:7: ( 'cerrar' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:66:9: 'cerrar'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:65:7: ( '(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:65:9: '('
             {
-            match("cerrar"); 
-
+            match('('); 
 
             }
 
@@ -1302,10 +1280,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:67:7: ( '.' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:67:9: '.'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:66:7: ( 'cerrar' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:66:9: 'cerrar'
             {
-            match('.'); 
+            match("cerrar"); 
+
 
             }
 
@@ -1322,11 +1301,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:68:7: ( 'vector' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:68:9: 'vector'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:67:7: ( '.' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:67:9: '.'
             {
-            match("vector"); 
-
+            match('.'); 
 
             }
 
@@ -1343,10 +1321,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:69:7: ( '[' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:69:9: '['
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:68:7: ( 'vector' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:68:9: 'vector'
             {
-            match('['); 
+            match("vector"); 
+
 
             }
 
@@ -1363,10 +1342,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:70:7: ( ']' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:70:9: ']'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:69:7: ( '[' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:69:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -1383,11 +1362,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:71:7: ( 'de' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:71:9: 'de'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:70:7: ( ']' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:70:9: ']'
             {
-            match("de"); 
-
+            match(']'); 
 
             }
 
@@ -1404,10 +1382,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:72:7: ( ': ' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:72:9: ': '
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:71:7: ( 'de' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:71:9: 'de'
             {
-            match(": "); 
+            match("de"); 
 
 
             }
@@ -1425,10 +1403,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:73:7: ( 'matriz' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:73:9: 'matriz'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:72:7: ( ': ' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:72:9: ': '
             {
-            match("matriz"); 
+            match(": "); 
 
 
             }
@@ -1446,10 +1424,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:74:7: ( '][' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:74:9: ']['
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:73:7: ( 'matriz' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:73:9: 'matriz'
             {
-            match("]["); 
+            match("matriz"); 
 
 
             }
@@ -1467,10 +1445,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:75:7: ( 'registro:' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:75:9: 'registro:'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:74:7: ( '][' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:74:9: ']['
             {
-            match("registro:"); 
+            match("]["); 
 
 
             }
@@ -1488,10 +1466,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:76:7: ( 'fin_registro' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:76:9: 'fin_registro'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:75:7: ( 'registro:' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:75:9: 'registro:'
             {
-            match("fin_registro"); 
+            match("registro:"); 
 
 
             }
@@ -1509,10 +1487,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:77:7: ( 'archivo de ' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:77:9: 'archivo de '
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:76:7: ( 'fin_registro' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:76:9: 'fin_registro'
             {
-            match("archivo de "); 
+            match("fin_registro"); 
 
 
             }
@@ -1530,10 +1508,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:78:7: ( '{' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:78:9: '{'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:77:7: ( 'archivo de ' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:77:9: 'archivo de '
             {
-            match('{'); 
+            match("archivo de "); 
+
 
             }
 
@@ -1550,10 +1529,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:79:7: ( '}' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:79:9: '}'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:78:7: ( '{' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:78:9: '{'
             {
-            match('}'); 
+            match('{'); 
 
             }
 
@@ -1570,11 +1549,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:80:7: ( '..' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:80:9: '..'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:79:7: ( '}' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:79:9: '}'
             {
-            match(".."); 
-
+            match('}'); 
 
             }
 
@@ -1591,10 +1569,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:81:7: ( 'principal' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:81:9: 'principal'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:80:7: ( '..' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:80:9: '..'
             {
-            match("principal"); 
+            match(".."); 
 
 
             }
@@ -1612,10 +1590,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:82:7: ( 'inicio' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:82:9: 'inicio'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:81:7: ( 'principal' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:81:9: 'principal'
             {
-            match("inicio"); 
+            match("principal"); 
 
 
             }
@@ -1633,10 +1611,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:83:7: ( 'fin_inicio' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:83:9: 'fin_inicio'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:82:7: ( 'inicio' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:82:9: 'inicio'
             {
-            match("fin_inicio"); 
+            match("inicio"); 
 
 
             }
@@ -1654,8 +1632,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:84:7: ( 'fin_principal' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:84:9: 'fin_principal'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:83:7: ( 'fin_principal' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:83:9: 'fin_principal'
             {
             match("fin_principal"); 
 
@@ -1675,8 +1653,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:85:7: ( '<-' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:85:9: '<-'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:84:7: ( '<-' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:84:9: '<-'
             {
             match("<-"); 
 
@@ -1696,10 +1674,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:86:7: ( 'escribir' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:86:9: 'escribir'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:85:7: ( 'escribir(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:85:9: 'escribir('
             {
-            match("escribir"); 
+            match("escribir("); 
 
 
             }
@@ -1717,10 +1695,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:87:7: ( 'leer' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:87:9: 'leer'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:86:7: ( 'leer(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:86:9: 'leer('
             {
-            match("leer"); 
+            match("leer("); 
 
 
             }
@@ -1738,8 +1716,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:88:7: ( 'si' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:88:9: 'si'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:87:7: ( 'si' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:87:9: 'si'
             {
             match("si"); 
 
@@ -1759,8 +1737,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:89:7: ( 'entonces' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:89:9: 'entonces'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:88:7: ( 'entonces' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:88:9: 'entonces'
             {
             match("entonces"); 
 
@@ -1780,8 +1758,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:90:7: ( 'fin_si' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:90:9: 'fin_si'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:89:7: ( 'fin_si' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:89:9: 'fin_si'
             {
             match("fin_si"); 
 
@@ -1801,8 +1779,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:91:7: ( 'mientras' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:91:9: 'mientras'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:90:7: ( 'mientras' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:90:9: 'mientras'
             {
             match("mientras"); 
 
@@ -1822,8 +1800,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:92:7: ( 'hacer' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:92:9: 'hacer'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:91:7: ( 'hacer' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:91:9: 'hacer'
             {
             match("hacer"); 
 
@@ -1843,8 +1821,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:93:7: ( 'fin_mientras' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:93:9: 'fin_mientras'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:92:7: ( 'fin_mientras' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:92:9: 'fin_mientras'
             {
             match("fin_mientras"); 
 
@@ -1864,8 +1842,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:94:7: ( 'repetir' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:94:9: 'repetir'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:93:7: ( 'repetir' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:93:9: 'repetir'
             {
             match("repetir"); 
 
@@ -1885,8 +1863,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:95:7: ( 'hasta_que' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:95:9: 'hasta_que'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:94:7: ( 'hasta_que' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:94:9: 'hasta_que'
             {
             match("hasta_que"); 
 
@@ -1906,8 +1884,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:96:7: ( 'desde' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:96:9: 'desde'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:95:7: ( 'desde' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:95:9: 'desde'
             {
             match("desde"); 
 
@@ -1927,8 +1905,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:97:8: ( 'hasta' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:97:10: 'hasta'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:96:8: ( 'hasta' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:96:10: 'hasta'
             {
             match("hasta"); 
 
@@ -1948,8 +1926,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:98:8: ( 'fin_desde' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:98:10: 'fin_desde'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:97:8: ( 'fin_desde' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:97:10: 'fin_desde'
             {
             match("fin_desde"); 
 
@@ -1969,8 +1947,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:99:8: ( 'caso' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:99:10: 'caso'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:98:8: ( 'caso' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:98:10: 'caso'
             {
             match("caso"); 
 
@@ -1990,8 +1968,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:100:8: ( 'segun_sea' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:100:10: 'segun_sea'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:99:8: ( 'segun_sea' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:99:10: 'segun_sea'
             {
             match("segun_sea"); 
 
@@ -2011,8 +1989,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:101:8: ( 'en_otro_caso:' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:101:10: 'en_otro_caso:'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:100:8: ( 'en_otro_caso:' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:100:10: 'en_otro_caso:'
             {
             match("en_otro_caso:"); 
 
@@ -2032,8 +2010,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:102:8: ( 'fin_segun' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:102:10: 'fin_segun'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:101:8: ( 'fin_segun' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:101:10: 'fin_segun'
             {
             match("fin_segun"); 
 
@@ -2053,10 +2031,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:103:8: ( '|' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:103:10: '|'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:102:8: ( '-(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:102:10: '-('
             {
-            match('|'); 
+            match("-("); 
+
 
             }
 
@@ -2073,10 +2052,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:104:8: ( '-(' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:104:10: '-('
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:103:8: ( 'no' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:103:10: 'no'
             {
-            match("-("); 
+            match("no"); 
 
 
             }
@@ -2094,10 +2073,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:105:8: ( 'no' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:105:10: 'no'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:104:8: ( 'si_no' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:104:10: 'si_no'
             {
-            match("no"); 
+            match("si_no"); 
 
 
             }
@@ -2115,10 +2094,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:106:8: ( 'si_no' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:106:10: 'si_no'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:105:8: ( 'devolver' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:105:10: 'devolver'
             {
-            match("si_no"); 
+            match("devolver"); 
 
 
             }
@@ -2136,10 +2115,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:107:8: ( 'devolver' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:107:10: 'devolver'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:106:8: ( 'fin_funcion' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:106:10: 'fin_funcion'
             {
-            match("devolver"); 
+            match("fin_funcion"); 
 
 
             }
@@ -2157,29 +2136,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:108:8: ( 'fin_funcion' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:108:10: 'fin_funcion'
-            {
-            match("fin_funcion"); 
-
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__111"
-
-    // $ANTLR start "T__112"
-    public final void mT__112() throws RecognitionException {
-        try {
-            int _type = T__112;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:109:8: ( 'fin_procedimiento' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:109:10: 'fin_procedimiento'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:107:8: ( 'fin_procedimiento' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:107:10: 'fin_procedimiento'
             {
             match("fin_procedimiento"); 
 
@@ -2192,19 +2150,19 @@ public class InternalVaryGrammarLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__112"
+    // $ANTLR end "T__111"
 
     // $ANTLR start "RULE_SL_COMMENT"
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -2217,7 +2175,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2237,7 +2195,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                 }
             } while (true);
 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:40: ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:40: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2246,9 +2204,9 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:41: ( '\\r' )? '\\n'
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:41: ( '\\r' )? '\\n'
                     {
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:41: ( '\\r' )?
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:41: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2257,7 +2215,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21852:41: '\\r'
+                            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21537:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2284,27 +2242,80 @@ public class InternalVaryGrammarLexer extends Lexer {
     }
     // $ANTLR end "RULE_SL_COMMENT"
 
-    // $ANTLR start "RULE_CAD"
-    public final void mRULE_CAD() throws RecognitionException {
+    // $ANTLR start "RULE_NOMBRE_FUN"
+    public final void mRULE_NOMBRE_FUN() throws RecognitionException {
         try {
-            int _type = RULE_CAD;
+            int _type = RULE_NOMBRE_FUN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21854:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21854:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21539:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21539:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
             {
-            match('\"'); 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21854:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21539:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( ((LA4_0>=' ' && LA4_0<='!')||LA4_0=='#'||(LA4_0>='%' && LA4_0<='&')||(LA4_0>='(' && LA4_0<=')')||(LA4_0>=',' && LA4_0<='.')||(LA4_0>='0' && LA4_0<=':')||LA4_0=='='||(LA4_0>='?' && LA4_0<='Z')||LA4_0=='\\'||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')||LA4_0=='\u00C1'||LA4_0=='\u00C9'||LA4_0=='\u00CD'||LA4_0=='\u00D1'||LA4_0=='\u00D3'||LA4_0=='\u00DA'||LA4_0=='\u00E1'||LA4_0=='\u00E9'||LA4_0=='\u00ED'||LA4_0=='\u00F1'||LA4_0=='\u00F3'||LA4_0=='\u00FA') ) {
+                if ( ((LA4_0>='0' && LA4_0<='9')||(LA4_0>='A' && LA4_0<='Z')||LA4_0=='_'||(LA4_0>='a' && LA4_0<='z')) ) {
                     alt4=1;
                 }
 
 
                 switch (alt4) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:
+            	    {
+            	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+            match('('); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_NOMBRE_FUN"
+
+    // $ANTLR start "RULE_CAD"
+    public final void mRULE_CAD() throws RecognitionException {
+        try {
+            int _type = RULE_CAD;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21541:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21541:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"'
+            {
+            match('\"'); 
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21541:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )*
+            loop5:
+            do {
+                int alt5=2;
+                int LA5_0 = input.LA(1);
+
+                if ( ((LA5_0>=' ' && LA5_0<='!')||LA5_0=='#'||(LA5_0>='%' && LA5_0<='&')||(LA5_0>='(' && LA5_0<=')')||(LA5_0>=',' && LA5_0<='.')||(LA5_0>='0' && LA5_0<=':')||LA5_0=='='||(LA5_0>='?' && LA5_0<='Z')||LA5_0=='\\'||LA5_0=='_'||(LA5_0>='a' && LA5_0<='z')||LA5_0=='\u00C1'||LA5_0=='\u00C9'||LA5_0=='\u00CD'||LA5_0=='\u00D1'||LA5_0=='\u00D3'||LA5_0=='\u00DA'||LA5_0=='\u00E1'||LA5_0=='\u00E9'||LA5_0=='\u00ED'||LA5_0=='\u00F1'||LA5_0=='\u00F3'||LA5_0=='\u00FA') ) {
+                    alt5=1;
+                }
+
+
+                switch (alt5) {
             	case 1 :
             	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:
             	    {
@@ -2322,7 +2333,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop4;
+            	    break loop5;
                 }
             } while (true);
 
@@ -2343,8 +2354,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_CAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21856:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21856:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21543:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21543:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
             {
             match('\''); 
             if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2373,23 +2384,23 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_COMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21858:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21858:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21545:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21545:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21858:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
-            loop5:
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21545:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
+            loop6:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( ((LA5_0>=' ' && LA5_0<='!')||LA5_0=='#'||(LA5_0>='%' && LA5_0<='&')||(LA5_0>='(' && LA5_0<=')')||(LA5_0>='0' && LA5_0<='9')||LA5_0=='='||(LA5_0>='?' && LA5_0<='Z')||LA5_0=='\\'||LA5_0=='_'||(LA5_0>='a' && LA5_0<='z')) ) {
-                    alt5=1;
+                if ( ((LA6_0>=' ' && LA6_0<='!')||LA6_0=='#'||(LA6_0>='%' && LA6_0<='&')||(LA6_0>='(' && LA6_0<=')')||(LA6_0>='0' && LA6_0<='9')||LA6_0=='='||(LA6_0>='?' && LA6_0<='Z')||LA6_0=='\\'||LA6_0=='_'||(LA6_0>='a' && LA6_0<='z')) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt6) {
             	case 1 :
             	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:
             	    {
@@ -2407,7 +2418,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop6;
                 }
             } while (true);
 
@@ -2429,19 +2440,19 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21860:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21860:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21547:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21547:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21860:11: ( '^' )?
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21547:11: ( '^' )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA6_0=='^') ) {
-                alt6=1;
+            if ( (LA7_0=='^') ) {
+                alt7=1;
             }
-            switch (alt6) {
+            switch (alt7) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21860:11: '^'
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21547:11: '^'
                     {
                     match('^'); 
 
@@ -2459,18 +2470,18 @@ public class InternalVaryGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21860:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
-            loop7:
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21547:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            loop8:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-                if ( ((LA7_0>='0' && LA7_0<='9')||(LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
-                    alt7=1;
+                if ( ((LA8_0>='0' && LA8_0<='9')||(LA8_0>='A' && LA8_0<='Z')||LA8_0=='_'||(LA8_0>='a' && LA8_0<='z')) ) {
+                    alt8=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt8) {
             	case 1 :
             	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:
             	    {
@@ -2488,7 +2499,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop8;
                 }
             } while (true);
 
@@ -2508,24 +2519,24 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21862:10: ( ( '0' .. '9' )+ )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21862:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21549:10: ( ( '0' .. '9' )+ )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21549:12: ( '0' .. '9' )+
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21862:12: ( '0' .. '9' )+
-            int cnt8=0;
-            loop8:
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21549:12: ( '0' .. '9' )+
+            int cnt9=0;
+            loop9:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt9=2;
+                int LA9_0 = input.LA(1);
 
-                if ( ((LA8_0>='0' && LA8_0<='9')) ) {
-                    alt8=1;
+                if ( ((LA9_0>='0' && LA9_0<='9')) ) {
+                    alt9=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt9) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21862:13: '0' .. '9'
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21549:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2533,12 +2544,12 @@ public class InternalVaryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt8 >= 1 ) break loop8;
+            	    if ( cnt9 >= 1 ) break loop9;
                         EarlyExitException eee =
-                            new EarlyExitException(8, input);
+                            new EarlyExitException(9, input);
                         throw eee;
                 }
-                cnt8++;
+                cnt9++;
             } while (true);
 
 
@@ -2557,47 +2568,47 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0=='\"') ) {
-                alt11=1;
+            if ( (LA12_0=='\"') ) {
+                alt12=1;
             }
-            else if ( (LA11_0=='\'') ) {
-                alt11=2;
+            else if ( (LA12_0=='\'') ) {
+                alt12=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
-                    loop9:
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    loop10:
                     do {
-                        int alt9=3;
-                        int LA9_0 = input.LA(1);
+                        int alt10=3;
+                        int LA10_0 = input.LA(1);
 
-                        if ( (LA9_0=='\\') ) {
-                            alt9=1;
+                        if ( (LA10_0=='\\') ) {
+                            alt10=1;
                         }
-                        else if ( ((LA9_0>='\u0000' && LA9_0<='!')||(LA9_0>='#' && LA9_0<='[')||(LA9_0>=']' && LA9_0<='\uFFFF')) ) {
-                            alt9=2;
+                        else if ( ((LA10_0>='\u0000' && LA10_0<='!')||(LA10_0>='#' && LA10_0<='[')||(LA10_0>=']' && LA10_0<='\uFFFF')) ) {
+                            alt10=2;
                         }
 
 
-                        switch (alt9) {
+                        switch (alt10) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:21: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2605,7 +2616,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2621,7 +2632,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop9;
+                    	    break loop10;
                         }
                     } while (true);
 
@@ -2630,26 +2641,26 @@ public class InternalVaryGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
-                    loop10:
+                    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    loop11:
                     do {
-                        int alt10=3;
-                        int LA10_0 = input.LA(1);
+                        int alt11=3;
+                        int LA11_0 = input.LA(1);
 
-                        if ( (LA10_0=='\\') ) {
-                            alt10=1;
+                        if ( (LA11_0=='\\') ) {
+                            alt11=1;
                         }
-                        else if ( ((LA10_0>='\u0000' && LA10_0<='&')||(LA10_0>='(' && LA10_0<='[')||(LA10_0>=']' && LA10_0<='\uFFFF')) ) {
-                            alt10=2;
+                        else if ( ((LA11_0>='\u0000' && LA11_0<='&')||(LA11_0>='(' && LA11_0<='[')||(LA11_0>=']' && LA11_0<='\uFFFF')) ) {
+                            alt11=2;
                         }
 
 
-                        switch (alt10) {
+                        switch (alt11) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:54: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2657,7 +2668,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21864:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21551:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2673,7 +2684,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    break;
 
                     	default :
-                    	    break loop10;
+                    	    break loop11;
                         }
                     } while (true);
 
@@ -2700,37 +2711,37 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21866:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21866:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21553:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21553:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21866:24: ( options {greedy=false; } : . )*
-            loop12:
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21553:24: ( options {greedy=false; } : . )*
+            loop13:
             do {
-                int alt12=2;
-                int LA12_0 = input.LA(1);
+                int alt13=2;
+                int LA13_0 = input.LA(1);
 
-                if ( (LA12_0=='*') ) {
-                    int LA12_1 = input.LA(2);
+                if ( (LA13_0=='*') ) {
+                    int LA13_1 = input.LA(2);
 
-                    if ( (LA12_1=='/') ) {
-                        alt12=2;
+                    if ( (LA13_1=='/') ) {
+                        alt13=2;
                     }
-                    else if ( ((LA12_1>='\u0000' && LA12_1<='.')||(LA12_1>='0' && LA12_1<='\uFFFF')) ) {
-                        alt12=1;
+                    else if ( ((LA13_1>='\u0000' && LA13_1<='.')||(LA13_1>='0' && LA13_1<='\uFFFF')) ) {
+                        alt13=1;
                     }
 
 
                 }
-                else if ( ((LA12_0>='\u0000' && LA12_0<=')')||(LA12_0>='+' && LA12_0<='\uFFFF')) ) {
-                    alt12=1;
+                else if ( ((LA13_0>='\u0000' && LA13_0<=')')||(LA13_0>='+' && LA13_0<='\uFFFF')) ) {
+                    alt13=1;
                 }
 
 
-                switch (alt12) {
+                switch (alt13) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21866:52: .
+            	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21553:52: .
             	    {
             	    matchAny(); 
 
@@ -2738,7 +2749,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop12;
+            	    break loop13;
                 }
             } while (true);
 
@@ -2760,22 +2771,22 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21868:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21868:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21555:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21555:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21868:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt13=0;
-            loop13:
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21555:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            int cnt14=0;
+            loop14:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt14=2;
+                int LA14_0 = input.LA(1);
 
-                if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {
-                    alt13=1;
+                if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {
+                    alt14=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt14) {
             	case 1 :
             	    // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:
             	    {
@@ -2793,12 +2804,12 @@ public class InternalVaryGrammarLexer extends Lexer {
             	    break;
 
             	default :
-            	    if ( cnt13 >= 1 ) break loop13;
+            	    if ( cnt14 >= 1 ) break loop14;
                         EarlyExitException eee =
-                            new EarlyExitException(13, input);
+                            new EarlyExitException(14, input);
                         throw eee;
                 }
-                cnt13++;
+                cnt14++;
             } while (true);
 
 
@@ -2817,8 +2828,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21870:16: ( . )
-            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21870:18: .
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21557:16: ( . )
+            // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:21557:18: .
             {
             matchAny(); 
 
@@ -2833,768 +2844,761 @@ public class InternalVaryGrammarLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=109;
-        alt14 = dfa14.predict(input);
-        switch (alt14) {
+        // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:8: ( T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_SL_COMMENT | RULE_NOMBRE_FUN | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt15=108;
+        alt15 = dfa15.predict(input);
+        switch (alt15) {
             case 1 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:10: T__14
-                {
-                mT__14(); 
-
-                }
-                break;
-            case 2 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:16: T__15
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:10: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
-            case 3 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:22: T__16
+            case 2 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:16: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
-            case 4 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:28: T__17
+            case 3 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:22: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
-            case 5 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:34: T__18
+            case 4 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:28: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
-            case 6 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:40: T__19
+            case 5 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:34: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
-            case 7 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:46: T__20
+            case 6 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:40: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
-            case 8 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:52: T__21
+            case 7 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:46: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
-            case 9 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:58: T__22
+            case 8 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:52: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
-            case 10 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:64: T__23
+            case 9 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:58: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
-            case 11 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:70: T__24
+            case 10 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:64: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
-            case 12 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:76: T__25
+            case 11 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:70: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
-            case 13 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:82: T__26
+            case 12 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:76: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
-            case 14 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:88: T__27
+            case 13 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:82: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
-            case 15 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:94: T__28
+            case 14 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:88: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
-            case 16 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:100: T__29
+            case 15 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:94: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
-            case 17 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:106: T__30
+            case 16 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:100: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
-            case 18 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:112: T__31
+            case 17 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:106: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
-            case 19 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:118: T__32
+            case 18 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:112: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
-            case 20 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:124: T__33
+            case 19 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:118: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
-            case 21 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:130: T__34
+            case 20 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:124: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
-            case 22 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:136: T__35
+            case 21 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:130: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
-            case 23 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:142: T__36
+            case 22 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:136: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
-            case 24 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:148: T__37
+            case 23 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:142: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
-            case 25 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:154: T__38
+            case 24 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:148: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
-            case 26 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:160: T__39
+            case 25 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:154: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
-            case 27 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:166: T__40
+            case 26 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:160: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
-            case 28 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:172: T__41
+            case 27 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:166: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
-            case 29 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:178: T__42
+            case 28 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:172: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
-            case 30 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:184: T__43
+            case 29 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:178: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
-            case 31 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:190: T__44
+            case 30 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:184: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
-            case 32 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:196: T__45
+            case 31 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:190: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
-            case 33 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:202: T__46
+            case 32 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:196: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
-            case 34 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:208: T__47
+            case 33 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:202: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
-            case 35 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:214: T__48
+            case 34 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:208: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
-            case 36 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:220: T__49
+            case 35 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:214: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
-            case 37 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:226: T__50
+            case 36 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:220: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
-            case 38 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:232: T__51
+            case 37 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:226: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
-            case 39 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:238: T__52
+            case 38 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:232: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
-            case 40 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:244: T__53
+            case 39 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:238: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
-            case 41 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:250: T__54
+            case 40 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:244: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
-            case 42 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:256: T__55
+            case 41 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:250: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
-            case 43 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:262: T__56
+            case 42 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:256: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
-            case 44 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:268: T__57
+            case 43 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:262: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
-            case 45 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:274: T__58
+            case 44 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:268: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
-            case 46 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:280: T__59
+            case 45 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:274: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
-            case 47 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:286: T__60
+            case 46 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:280: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
-            case 48 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:292: T__61
+            case 47 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:286: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
-            case 49 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:298: T__62
+            case 48 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:292: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
-            case 50 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:304: T__63
+            case 49 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:298: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
-            case 51 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:310: T__64
+            case 50 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:304: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
-            case 52 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:316: T__65
+            case 51 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:310: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
-            case 53 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:322: T__66
+            case 52 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:316: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
-            case 54 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:328: T__67
+            case 53 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:322: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
-            case 55 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:334: T__68
+            case 54 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:328: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
-            case 56 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:340: T__69
+            case 55 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:334: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
-            case 57 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:346: T__70
+            case 56 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:340: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
-            case 58 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:352: T__71
+            case 57 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:346: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
-            case 59 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:358: T__72
+            case 58 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:352: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
-            case 60 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:364: T__73
+            case 59 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:358: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
-            case 61 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:370: T__74
+            case 60 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:364: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
-            case 62 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:376: T__75
+            case 61 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:370: T__75
                 {
                 mT__75(); 
 
                 }
                 break;
-            case 63 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:382: T__76
+            case 62 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:376: T__76
                 {
                 mT__76(); 
 
                 }
                 break;
-            case 64 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:388: T__77
+            case 63 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:382: T__77
                 {
                 mT__77(); 
 
                 }
                 break;
-            case 65 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:394: T__78
+            case 64 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:388: T__78
                 {
                 mT__78(); 
 
                 }
                 break;
-            case 66 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:400: T__79
+            case 65 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:394: T__79
                 {
                 mT__79(); 
 
                 }
                 break;
-            case 67 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:406: T__80
+            case 66 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:400: T__80
                 {
                 mT__80(); 
 
                 }
                 break;
-            case 68 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:412: T__81
+            case 67 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:406: T__81
                 {
                 mT__81(); 
 
                 }
                 break;
-            case 69 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:418: T__82
+            case 68 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:412: T__82
                 {
                 mT__82(); 
 
                 }
                 break;
-            case 70 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:424: T__83
+            case 69 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:418: T__83
                 {
                 mT__83(); 
 
                 }
                 break;
-            case 71 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:430: T__84
+            case 70 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:424: T__84
                 {
                 mT__84(); 
 
                 }
                 break;
-            case 72 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:436: T__85
+            case 71 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:430: T__85
                 {
                 mT__85(); 
 
                 }
                 break;
-            case 73 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:442: T__86
+            case 72 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:436: T__86
                 {
                 mT__86(); 
 
                 }
                 break;
-            case 74 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:448: T__87
+            case 73 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:442: T__87
                 {
                 mT__87(); 
 
                 }
                 break;
-            case 75 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:454: T__88
+            case 74 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:448: T__88
                 {
                 mT__88(); 
 
                 }
                 break;
-            case 76 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:460: T__89
+            case 75 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:454: T__89
                 {
                 mT__89(); 
 
                 }
                 break;
-            case 77 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:466: T__90
+            case 76 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:460: T__90
                 {
                 mT__90(); 
 
                 }
                 break;
-            case 78 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:472: T__91
+            case 77 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:466: T__91
                 {
                 mT__91(); 
 
                 }
                 break;
-            case 79 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:478: T__92
+            case 78 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:472: T__92
                 {
                 mT__92(); 
 
                 }
                 break;
-            case 80 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:484: T__93
+            case 79 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:478: T__93
                 {
                 mT__93(); 
 
                 }
                 break;
-            case 81 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:490: T__94
+            case 80 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:484: T__94
                 {
                 mT__94(); 
 
                 }
                 break;
-            case 82 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:496: T__95
+            case 81 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:490: T__95
                 {
                 mT__95(); 
 
                 }
                 break;
-            case 83 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:502: T__96
+            case 82 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:496: T__96
                 {
                 mT__96(); 
 
                 }
                 break;
-            case 84 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:508: T__97
+            case 83 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:502: T__97
                 {
                 mT__97(); 
 
                 }
                 break;
-            case 85 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:514: T__98
+            case 84 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:508: T__98
                 {
                 mT__98(); 
 
                 }
                 break;
-            case 86 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:520: T__99
+            case 85 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:514: T__99
                 {
                 mT__99(); 
 
                 }
                 break;
-            case 87 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:526: T__100
+            case 86 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:520: T__100
                 {
                 mT__100(); 
 
                 }
                 break;
-            case 88 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:533: T__101
+            case 87 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:527: T__101
                 {
                 mT__101(); 
 
                 }
                 break;
-            case 89 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:540: T__102
+            case 88 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:534: T__102
                 {
                 mT__102(); 
 
                 }
                 break;
-            case 90 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:547: T__103
+            case 89 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:541: T__103
                 {
                 mT__103(); 
 
                 }
                 break;
-            case 91 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:554: T__104
+            case 90 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:548: T__104
                 {
                 mT__104(); 
 
                 }
                 break;
-            case 92 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:561: T__105
+            case 91 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:555: T__105
                 {
                 mT__105(); 
 
                 }
                 break;
-            case 93 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:568: T__106
+            case 92 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:562: T__106
                 {
                 mT__106(); 
 
                 }
                 break;
-            case 94 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:575: T__107
+            case 93 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:569: T__107
                 {
                 mT__107(); 
 
                 }
                 break;
-            case 95 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:582: T__108
+            case 94 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:576: T__108
                 {
                 mT__108(); 
 
                 }
                 break;
-            case 96 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:589: T__109
+            case 95 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:583: T__109
                 {
                 mT__109(); 
 
                 }
                 break;
-            case 97 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:596: T__110
+            case 96 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:590: T__110
                 {
                 mT__110(); 
 
                 }
                 break;
-            case 98 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:603: T__111
+            case 97 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:597: T__111
                 {
                 mT__111(); 
 
                 }
                 break;
-            case 99 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:610: T__112
-                {
-                mT__112(); 
-
-                }
-                break;
-            case 100 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:617: RULE_SL_COMMENT
+            case 98 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:604: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 101 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:633: RULE_CAD
+            case 99 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:620: RULE_NOMBRE_FUN
+                {
+                mRULE_NOMBRE_FUN(); 
+
+                }
+                break;
+            case 100 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:636: RULE_CAD
                 {
                 mRULE_CAD(); 
 
                 }
                 break;
-            case 102 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:642: RULE_CAR
+            case 101 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:645: RULE_CAR
                 {
                 mRULE_CAR(); 
 
                 }
                 break;
-            case 103 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:651: RULE_COMENT
+            case 102 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:654: RULE_COMENT
                 {
                 mRULE_COMENT(); 
 
                 }
                 break;
-            case 104 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:663: RULE_ID
+            case 103 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:666: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 105 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:671: RULE_INT
+            case 104 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:674: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 106 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:680: RULE_STRING
+            case 105 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:683: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 107 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:692: RULE_ML_COMMENT
+            case 106 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:695: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 108 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:708: RULE_WS
+            case 107 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:711: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 109 :
-                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:716: RULE_ANY_OTHER
+            case 108 :
+                // ../vary.pseudocodigo.dsl.c.ui/src-gen/vary/pseudocodigo/dsl/c/ui/contentassist/antlr/internal/InternalVaryGrammar.g:1:719: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3606,63 +3610,123 @@ public class InternalVaryGrammarLexer extends Lexer {
     }
 
 
-    protected DFA14 dfa14 = new DFA14(this);
-    static final String DFA14_eotS =
-        "\1\uffff\1\57\1\61\1\uffff\1\64\1\uffff\1\70\2\60\1\101\3\60\1\115\1\60\1\uffff\1\56\1\123\1\125\1\126\7\60\3\uffff\1\60\1\150\1\uffff\1\153\1\56\2\uffff\1\60\1\uffff\1\60\3\56\16\uffff\4\60\1\u0083\3\60\1\uffff\1\60\1\u008a\7\60\1\u0098\2\uffff\1\60\10\uffff\13\60\3\uffff\2\60\10\uffff\1\60\1\uffff\1\u00ad\13\uffff\1\u00b4\2\60\1\u00b7\2\60\1\uffff\1\60\1\u00bc\4\60\1\uffff\1\u00c3\1\60\1\u00c5\6\60\1\u00cd\3\60\1\uffff\5\60\1\u00d6\16\60\1\uffff\1\u00b0\2\uffff\1\u00e6\1\uffff\1\u00e7\1\uffff\2\60\1\uffff\4\60\1\uffff\4\60\1\u00f2\1\60\1\uffff\1\60\1\uffff\5\60\1\u00fa\1\60\1\uffff\1\60\1\u00fd\1\60\1\u00ff\4\60\1\uffff\7\60\1\u0113\7\60\2\uffff\2\60\1\u011d\7\60\1\uffff\3\60\1\u0129\3\60\1\uffff\2\60\1\uffff\1\u012f\1\uffff\4\60\1\u0134\16\60\1\uffff\3\60\1\u0149\1\60\1\u014b\1\u014d\1\u014e\1\60\1\uffff\4\60\1\u0154\3\60\1\u0158\2\60\1\uffff\2\60\1\u015d\1\u015e\1\60\1\uffff\3\60\1\u0163\1\uffff\10\60\1\u016d\7\60\1\u0175\1\u0176\2\60\1\uffff\1\60\1\uffff\1\60\2\uffff\4\60\1\u017f\1\uffff\2\60\1\u0182\1\uffff\4\60\2\uffff\2\60\1\u0189\1\60\1\uffff\11\60\1\uffff\3\60\1\u0198\1\60\1\u019a\1\60\2\uffff\4\60\1\u01a0\1\u01a1\1\60\1\u01a3\1\uffff\1\u01a4\1\60\1\uffff\1\u01a6\1\60\1\u01a8\1\u01a9\2\60\1\uffff\16\60\1\uffff\1\60\1\uffff\3\60\1\uffff\1\60\2\uffff\1\u01bf\2\uffff\1\60\1\uffff\1\u01c1\2\uffff\1\u01c2\1\uffff\1\u01c3\12\60\1\u01ce\1\u01cf\1\60\1\u01d1\2\60\1\u01d4\1\u01d5\1\uffff\1\60\3\uffff\3\60\1\u01da\1\u01db\5\60\2\uffff\1\60\1\uffff\2\60\2\uffff\2\60\1\u01e6\1\60\2\uffff\1\60\1\u01e9\3\60\1\u01ed\4\60\1\uffff\1\60\1\u01f3\1\uffff\1\u01f4\2\60\1\uffff\2\60\1\uffff\1\u01f9\1\60\2\uffff\1\u01fb\2\60\1\u01fe\1\uffff\1\60\1\uffff\1\60\1\u0201\1\uffff\2\60\1\uffff\3\60\1\u0207\1\u0208\2\uffff";
-    static final String DFA14_eofS =
-        "\u0209\uffff";
-    static final String DFA14_minS =
-        "\1\0\2\60\1\uffff\1\50\1\uffff\1\52\1\141\1\145\1\60\1\145\1\141\1\145\1\57\1\145\1\uffff\1\75\1\55\1\75\1\60\2\141\1\154\1\155\1\151\1\157\1\162\3\uffff\1\142\1\56\1\uffff\1\133\1\40\2\uffff\1\141\1\uffff\1\157\2\0\1\101\14\uffff\1\0\1\uffff\1\144\1\164\1\145\1\166\1\60\1\143\1\160\1\137\1\uffff\1\143\1\60\1\147\1\156\1\141\1\144\1\162\1\147\1\162\1\60\2\uffff\1\141\10\uffff\1\143\1\162\1\154\2\156\1\147\1\160\1\151\1\160\1\144\1\151\3\uffff\1\162\1\143\10\uffff\1\143\1\uffff\1\60\2\0\2\uffff\2\0\2\uffff\2\0\1\uffff\1\60\1\162\1\156\1\60\1\144\1\157\1\uffff\1\162\1\60\1\145\1\157\1\164\1\162\1\uffff\1\60\1\147\1\60\1\143\1\144\1\141\1\145\1\157\1\162\1\60\1\165\1\164\1\156\1\uffff\1\154\1\151\1\145\1\144\1\164\1\60\1\163\1\137\1\143\1\157\1\154\1\143\1\157\1\165\1\143\1\156\1\151\1\150\1\145\1\164\1\uffff\2\0\1\uffff\1\0\1\uffff\1\0\1\uffff\1\151\1\164\1\uffff\1\145\1\154\1\151\1\162\1\uffff\1\162\1\156\1\164\1\165\1\60\1\143\1\uffff\1\151\1\uffff\1\141\1\164\1\162\1\143\1\156\1\60\1\141\1\uffff\1\156\1\60\1\157\1\60\1\163\1\164\1\141\1\157\1\uffff\1\157\1\141\1\151\2\162\1\145\1\151\1\60\1\154\1\145\1\143\1\162\1\151\1\162\1\141\2\uffff\1\172\1\162\1\60\1\166\1\142\1\164\1\157\1\143\2\162\1\uffff\1\157\2\164\1\60\1\141\1\164\1\141\1\uffff\1\162\1\137\1\uffff\1\60\1\uffff\1\164\1\151\1\144\1\162\1\60\1\154\1\155\1\151\1\170\1\145\1\162\2\145\1\165\1\157\1\151\1\164\1\155\1\157\1\uffff\1\157\1\144\1\151\1\60\1\166\3\60\1\141\1\uffff\1\145\1\165\1\151\1\141\1\60\1\145\1\157\1\141\1\60\1\165\1\145\1\uffff\1\144\1\145\2\60\1\163\1\uffff\2\162\1\145\1\60\1\uffff\1\147\1\160\1\151\1\144\1\145\1\160\1\147\1\151\1\60\1\147\1\163\2\156\1\164\1\141\1\145\2\60\1\151\1\160\1\uffff\1\157\1\uffff\1\161\2\uffff\1\163\3\162\1\60\1\uffff\1\163\1\137\1\60\1\uffff\1\144\1\156\1\157\1\162\2\uffff\1\145\1\157\1\60\1\162\1\uffff\1\157\1\154\1\143\1\165\1\156\1\157\1\151\1\156\1\143\1\uffff\1\165\1\144\1\143\1\60\1\155\1\60\1\156\2\uffff\1\155\1\141\1\40\1\165\2\60\1\141\1\60\1\uffff\1\60\1\143\1\uffff\1\60\1\141\2\60\1\141\1\72\1\uffff\1\157\2\162\1\145\1\151\1\154\1\164\1\162\1\163\1\143\1\145\1\156\1\145\1\151\1\uffff\1\157\1\uffff\1\164\1\151\1\154\1\uffff\1\145\2\uffff\1\60\2\uffff\1\141\1\uffff\1\60\2\uffff\1\60\1\uffff\1\60\1\151\1\164\1\155\2\157\1\162\2\164\1\151\1\144\2\60\1\157\1\60\1\141\1\145\2\60\1\uffff\1\163\3\uffff\1\164\1\141\1\145\2\60\2\141\1\162\1\160\1\151\2\uffff\1\156\1\uffff\1\143\1\156\2\uffff\1\157\1\155\1\60\1\156\2\uffff\1\163\1\60\1\157\1\141\1\155\1\60\1\151\1\164\1\72\1\157\1\uffff\1\164\1\60\1\uffff\1\60\1\154\1\151\1\uffff\2\157\1\uffff\1\60\1\141\2\uffff\1\60\1\145\1\156\1\60\1\uffff\1\143\1\uffff\1\156\1\60\1\uffff\1\151\1\164\1\uffff\2\157\1\156\2\60\2\uffff";
-    static final String DFA14_maxS =
-        "\1\uffff\2\172\1\uffff\1\50\1\uffff\1\57\1\157\1\151\1\172\1\157\1\165\1\161\1\172\1\145\1\uffff\3\75\1\172\1\145\1\165\1\154\1\156\1\151\1\157\1\162\3\uffff\1\162\1\56\1\uffff\1\133\1\40\2\uffff\1\141\1\uffff\1\157\2\uffff\1\172\14\uffff\1\uffff\1\uffff\1\144\1\164\1\145\1\166\1\172\1\143\1\160\1\164\1\uffff\1\145\1\172\1\156\1\163\1\141\1\163\1\162\1\156\1\162\1\172\2\uffff\1\160\10\uffff\2\162\1\154\2\156\1\147\1\160\1\151\1\160\1\144\1\157\3\uffff\1\162\1\143\10\uffff\1\163\1\uffff\1\172\2\uffff\2\uffff\2\uffff\2\uffff\2\uffff\1\uffff\1\172\1\162\1\156\1\172\1\144\1\157\1\uffff\1\162\1\172\2\157\1\164\1\162\1\uffff\1\172\1\147\1\172\1\163\1\144\1\141\1\145\1\157\1\162\1\172\1\165\1\164\1\156\1\uffff\1\154\1\151\1\145\1\144\1\164\1\172\1\163\1\137\1\143\2\157\1\143\1\157\1\165\1\143\1\156\1\151\1\150\1\145\1\164\1\uffff\2\uffff\1\uffff\1\uffff\1\uffff\1\uffff\1\uffff\1\151\1\164\1\uffff\1\145\1\154\1\151\1\162\1\uffff\1\162\1\156\1\164\1\165\1\172\1\143\1\uffff\1\151\1\uffff\1\141\1\164\1\162\1\143\1\156\1\172\1\141\1\uffff\1\156\1\172\1\157\1\172\1\163\1\164\1\141\1\157\1\uffff\1\157\1\163\1\151\2\162\1\145\1\151\1\172\1\154\1\145\1\143\1\162\1\151\1\162\1\141\2\uffff\1\172\1\162\1\172\1\166\2\164\1\157\1\143\2\162\1\uffff\1\157\2\164\1\172\1\141\1\164\1\141\1\uffff\1\162\1\137\1\uffff\1\172\1\uffff\1\164\1\151\1\144\1\162\1\172\1\154\1\156\1\157\1\170\1\145\1\162\1\151\1\145\1\165\1\157\1\151\1\164\1\155\1\157\1\uffff\1\157\1\144\1\151\1\172\1\166\3\172\1\141\1\uffff\1\145\1\165\1\151\1\141\1\172\1\145\1\157\1\141\1\172\1\165\1\145\1\uffff\1\144\1\145\2\172\1\163\1\uffff\2\162\1\145\1\172\1\uffff\1\147\1\160\1\151\1\144\1\145\1\160\1\147\1\157\1\172\1\147\1\163\2\156\1\164\1\141\1\145\2\172\1\151\1\160\1\uffff\1\157\1\uffff\1\161\2\uffff\1\163\3\162\1\172\1\uffff\1\163\1\137\1\172\1\uffff\1\144\1\156\1\157\1\162\2\uffff\1\145\1\157\1\172\1\162\1\uffff\2\157\1\143\1\165\1\156\1\157\1\151\1\156\1\143\1\uffff\1\165\1\144\1\143\1\172\1\155\1\172\1\156\2\uffff\1\155\1\141\1\40\1\165\2\172\1\141\1\172\1\uffff\1\172\1\143\1\uffff\1\172\1\141\2\172\1\141\1\72\1\uffff\1\157\2\162\1\145\1\151\1\154\1\164\1\162\1\163\1\143\1\145\1\156\1\145\1\151\1\uffff\1\157\1\uffff\1\164\1\151\1\154\1\uffff\1\145\2\uffff\1\172\2\uffff\1\141\1\uffff\1\172\2\uffff\1\172\1\uffff\1\172\1\151\1\164\1\155\2\157\1\162\2\164\1\151\1\144\2\172\1\157\1\172\1\141\1\145\2\172\1\uffff\1\163\3\uffff\1\164\1\141\1\145\2\172\2\141\1\162\1\160\1\151\2\uffff\1\156\1\uffff\1\143\1\156\2\uffff\1\157\1\155\1\172\1\156\2\uffff\1\163\1\172\1\157\1\141\1\155\1\172\1\151\1\164\1\72\1\157\1\uffff\1\164\1\172\1\uffff\1\172\1\154\1\151\1\uffff\2\157\1\uffff\1\172\1\141\2\uffff\1\172\1\145\1\156\1\172\1\uffff\1\143\1\uffff\1\156\1\172\1\uffff\1\151\1\164\1\uffff\2\157\1\156\2\172\2\uffff";
-    static final String DFA14_acceptS =
-        "\3\uffff\1\3\1\uffff\1\5\11\uffff\1\33\13\uffff\1\63\1\64\1\65\2\uffff\1\73\2\uffff\1\104\1\105\1\uffff\1\135\4\uffff\1\150\1\151\1\154\1\155\1\1\1\150\1\2\1\3\1\136\1\4\1\5\1\144\1\uffff\1\6\10\uffff\1\25\12\uffff\1\41\1\24\1\uffff\1\33\1\34\1\40\1\113\1\35\1\37\1\36\1\42\13\uffff\1\63\1\64\1\65\2\uffff\1\106\1\71\1\73\1\100\1\74\1\76\1\104\1\105\1\uffff\1\135\3\uffff\1\145\1\152\2\uffff\1\151\1\154\2\uffff\1\153\6\uffff\1\75\6\uffff\1\16\15\uffff\1\116\24\uffff\1\137\2\uffff\1\145\1\uffff\1\146\1\uffff\1\7\2\uffff\1\10\4\uffff\1\15\6\uffff\1\17\1\uffff\1\13\7\uffff\1\20\10\uffff\1\53\17\uffff\1\146\1\147\12\uffff\1\115\7\uffff\1\131\2\uffff\1\21\1\uffff\1\30\23\uffff\1\52\11\uffff\1\126\13\uffff\1\51\5\uffff\1\140\4\uffff\1\44\24\uffff\1\67\1\uffff\1\122\1\uffff\1\127\1\77\5\uffff\1\26\3\uffff\1\31\4\uffff\1\32\1\70\4\uffff\1\72\11\uffff\1\120\7\uffff\1\110\1\54\10\uffff\1\56\2\uffff\1\12\6\uffff\1\124\16\uffff\1\66\1\uffff\1\47\3\uffff\1\103\1\uffff\1\121\1\141\1\uffff\1\114\1\117\1\uffff\1\22\1\uffff\1\14\1\27\1\uffff\1\101\23\uffff\1\11\1\uffff\1\23\1\132\1\43\12\uffff\1\134\1\130\1\uffff\1\45\2\uffff\1\107\1\125\4\uffff\1\111\1\55\12\uffff\1\50\2\uffff\1\57\3\uffff\1\142\2\uffff\1\133\2\uffff\1\123\1\102\4\uffff\1\46\1\uffff\1\112\2\uffff\1\62\2\uffff\1\60\5\uffff\1\143\1\61";
-    static final String DFA14_specialS =
-        "\1\3\47\uffff\1\7\1\1\15\uffff\1\5\72\uffff\1\4\1\14\2\uffff\1\2\1\13\2\uffff\1\11\1\12\62\uffff\1\10\1\15\1\uffff\1\6\1\uffff\1\0\u0155\uffff}>";
-    static final String[] DFA14_transitionS = {
-            "\11\56\2\55\2\56\1\55\22\56\1\55\1\20\1\50\4\56\1\51\1\33\1\34\1\5\1\3\1\35\1\4\1\37\1\6\12\54\1\42\1\56\1\21\1\17\1\22\2\56\1\26\3\53\1\15\7\53\1\31\5\53\1\23\7\53\1\40\1\56\1\41\1\52\1\53\1\56\1\36\1\53\1\13\1\10\1\11\1\25\1\53\1\45\1\27\2\53\1\12\1\7\1\47\1\1\1\32\1\53\1\16\1\14\1\30\1\53\1\24\2\53\1\2\1\53\1\43\1\46\1\44\uff82\56",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+    protected DFA15 dfa15 = new DFA15(this);
+    static final String DFA15_eotS =
+        "\1\uffff\1\56\1\61\1\uffff\1\64\1\uffff\1\70\2\74\1\102\3\74\1\116\1\74\1\uffff\1\55\1\124\1\126\1\127\7\74\2\uffff\1\74\1\uffff\1\151\1\uffff\1\154\1\55\2\uffff\3\74\3\55\1\170\4\uffff\1\74\10\uffff\3\74\1\uffff\1\74\1\u0084\3\74\1\uffff\11\74\1\u0099\2\uffff\1\74\10\uffff\13\74\2\uffff\2\74\11\uffff\1\74\1\u00ae\7\uffff\1\170\4\uffff\1\u00b5\2\74\1\u00b8\2\74\1\uffff\6\74\1\uffff\15\74\1\uffff\5\74\1\u00d8\16\74\1\uffff\1\u00b1\2\uffff\1\u00e8\1\uffff\1\u00e9\1\uffff\2\74\1\uffff\3\74\1\uffff\6\74\2\uffff\2\74\1\uffff\5\74\1\u00ff\1\74\1\uffff\3\74\1\u0105\4\74\1\uffff\7\74\1\u0119\7\74\2\uffff\2\74\1\u0123\2\74\1\uffff\5\74\2\uffff\2\74\1\uffff\1\74\1\u0130\3\74\1\uffff\1\74\1\uffff\1\74\1\uffff\1\u0137\1\uffff\4\74\1\u013c\16\74\1\uffff\3\74\1\u0150\1\74\1\u0152\1\u0154\1\u0155\1\74\1\uffff\4\74\1\u015b\3\74\1\uffff\1\u015f\2\74\1\uffff\2\74\1\u0164\1\u0165\1\74\2\uffff\3\74\1\u016a\1\uffff\7\74\1\u0173\7\74\1\u017b\1\u017c\2\74\1\uffff\1\74\1\uffff\1\74\2\uffff\4\74\1\u0185\1\uffff\2\74\1\u0188\1\uffff\4\74\2\uffff\2\74\1\u018f\1\74\1\uffff\10\74\1\uffff\3\74\1\u019d\1\74\1\u019f\1\74\2\uffff\4\74\1\u01a5\1\u01a6\2\74\1\uffff\1\u01a9\1\74\1\uffff\3\74\1\u01ae\2\74\1\uffff\15\74\1\uffff\1\74\1\uffff\3\74\1\uffff\1\74\2\uffff\1\u01c3\2\uffff\1\74\1\uffff\1\74\2\uffff\1\u01c9\1\uffff\1\u01ca\11\74\1\u01d4\1\u01d5\1\74\1\u01d7\2\74\1\u01da\1\u01db\2\uffff\1\74\5\uffff\3\74\1\u01e1\5\74\2\uffff\1\74\1\uffff\2\74\2\uffff\1\74\1\uffff\1\74\1\u01ec\1\74\1\uffff\1\74\1\u01ef\3\74\1\u01f3\4\74\1\uffff\1\74\1\u01f9\1\uffff\1\u01fa\2\74\1\uffff\2\74\1\uffff\1\u01ff\1\74\2\uffff\1\u0201\2\74\1\u0204\1\uffff\1\74\1\uffff\1\74\1\u0207\1\uffff\2\74\1\uffff\3\74\1\u020d\1\u020e\2\uffff";
+    static final String DFA15_eofS =
+        "\u020f\uffff";
+    static final String DFA15_minS =
+        "\1\0\2\50\1\uffff\1\50\1\uffff\1\52\10\50\1\uffff\1\75\1\55\1\75\10\50\2\uffff\1\50\1\uffff\1\56\1\uffff\1\133\1\40\2\uffff\3\50\2\0\1\101\1\50\4\uffff\1\50\6\uffff\1\0\1\uffff\3\50\1\uffff\5\50\1\uffff\12\50\2\uffff\1\50\10\uffff\13\50\2\uffff\2\50\11\uffff\2\50\1\0\1\uffff\1\0\1\uffff\2\0\1\uffff\1\50\1\uffff\2\0\1\uffff\6\50\1\uffff\6\50\1\uffff\15\50\1\uffff\24\50\1\uffff\2\0\1\uffff\1\0\1\uffff\1\0\1\uffff\2\50\1\uffff\3\50\1\uffff\6\50\2\uffff\2\50\1\uffff\7\50\1\uffff\10\50\1\uffff\17\50\2\uffff\5\50\1\uffff\5\50\2\uffff\2\50\1\uffff\5\50\1\uffff\1\50\1\uffff\1\50\1\uffff\1\50\1\uffff\23\50\1\uffff\11\50\1\uffff\10\50\1\uffff\3\50\1\uffff\5\50\2\uffff\4\50\1\uffff\23\50\1\uffff\1\50\1\uffff\1\50\2\uffff\5\50\1\uffff\3\50\1\uffff\4\50\2\uffff\4\50\1\uffff\10\50\1\uffff\7\50\2\uffff\2\50\1\40\5\50\1\uffff\2\50\1\uffff\6\50\1\uffff\15\50\1\uffff\1\50\1\uffff\3\50\1\uffff\1\50\2\uffff\1\50\2\uffff\1\50\1\uffff\1\50\2\uffff\1\50\1\uffff\22\50\2\uffff\1\50\5\uffff\11\50\2\uffff\1\50\1\uffff\2\50\2\uffff\1\50\1\uffff\3\50\1\uffff\12\50\1\uffff\2\50\1\uffff\3\50\1\uffff\2\50\1\uffff\2\50\2\uffff\4\50\1\uffff\1\50\1\uffff\2\50\1\uffff\2\50\1\uffff\5\50\2\uffff";
+    static final String DFA15_maxS =
+        "\1\uffff\2\172\1\uffff\1\50\1\uffff\1\57\10\172\1\uffff\3\75\10\172\2\uffff\1\172\1\uffff\1\56\1\uffff\1\133\1\40\2\uffff\3\172\2\uffff\2\172\4\uffff\1\172\6\uffff\1\uffff\1\uffff\3\172\1\uffff\5\172\1\uffff\12\172\2\uffff\1\172\10\uffff\13\172\2\uffff\2\172\11\uffff\2\172\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff\1\uffff\1\172\1\uffff\2\uffff\1\uffff\6\172\1\uffff\6\172\1\uffff\15\172\1\uffff\24\172\1\uffff\2\uffff\1\uffff\1\uffff\1\uffff\1\uffff\1\uffff\2\172\1\uffff\3\172\1\uffff\6\172\2\uffff\2\172\1\uffff\7\172\1\uffff\10\172\1\uffff\17\172\2\uffff\5\172\1\uffff\5\172\2\uffff\2\172\1\uffff\5\172\1\uffff\1\172\1\uffff\1\172\1\uffff\1\172\1\uffff\23\172\1\uffff\11\172\1\uffff\10\172\1\uffff\3\172\1\uffff\5\172\2\uffff\4\172\1\uffff\23\172\1\uffff\1\172\1\uffff\1\172\2\uffff\5\172\1\uffff\3\172\1\uffff\4\172\2\uffff\4\172\1\uffff\10\172\1\uffff\7\172\2\uffff\10\172\1\uffff\2\172\1\uffff\6\172\1\uffff\15\172\1\uffff\1\172\1\uffff\3\172\1\uffff\1\172\2\uffff\1\172\2\uffff\1\172\1\uffff\1\172\2\uffff\1\172\1\uffff\22\172\2\uffff\1\172\5\uffff\11\172\2\uffff\1\172\1\uffff\2\172\2\uffff\1\172\1\uffff\3\172\1\uffff\12\172\1\uffff\2\172\1\uffff\3\172\1\uffff\2\172\1\uffff\2\172\2\uffff\4\172\1\uffff\1\172\1\uffff\2\172\1\uffff\2\172\1\uffff\5\172\2\uffff";
+    static final String DFA15_acceptS =
+        "\3\uffff\1\3\1\uffff\1\5\11\uffff\1\33\13\uffff\1\63\1\64\1\uffff\1\67\1\uffff\1\73\2\uffff\1\104\1\105\7\uffff\1\153\1\154\1\1\1\143\1\uffff\1\2\1\3\1\134\1\4\1\5\1\142\1\uffff\1\6\3\uffff\1\147\5\uffff\1\25\12\uffff\1\41\1\24\1\uffff\1\33\1\34\1\40\1\112\1\35\1\37\1\36\1\42\13\uffff\1\63\1\64\2\uffff\1\67\1\106\1\71\1\73\1\100\1\74\1\76\1\104\1\105\3\uffff\1\144\1\uffff\1\151\2\uffff\1\150\1\uffff\1\153\2\uffff\1\152\6\uffff\1\75\6\uffff\1\16\15\uffff\1\115\24\uffff\1\135\2\uffff\1\144\1\uffff\1\145\1\uffff\1\7\2\uffff\1\10\3\uffff\1\15\6\uffff\1\16\1\17\2\uffff\1\13\7\uffff\1\20\10\uffff\1\53\17\uffff\1\145\1\146\5\uffff\1\15\5\uffff\1\114\1\17\2\uffff\1\13\5\uffff\1\130\1\uffff\1\20\1\uffff\1\21\1\uffff\1\30\23\uffff\1\52\11\uffff\1\125\10\uffff\1\114\3\uffff\1\51\5\uffff\1\21\1\136\4\uffff\1\44\23\uffff\1\66\1\uffff\1\121\1\uffff\1\126\1\77\5\uffff\1\26\3\uffff\1\31\4\uffff\1\32\1\70\4\uffff\1\72\10\uffff\1\117\7\uffff\1\110\1\54\10\uffff\1\56\2\uffff\1\12\6\uffff\1\123\15\uffff\1\65\1\uffff\1\47\3\uffff\1\103\1\uffff\1\120\1\137\1\uffff\1\113\1\116\1\uffff\1\22\1\uffff\1\14\1\27\1\uffff\1\101\22\uffff\1\11\1\113\1\uffff\1\22\1\23\1\14\1\131\1\43\11\uffff\1\133\1\127\1\uffff\1\45\2\uffff\1\107\1\124\1\uffff\1\23\3\uffff\1\55\12\uffff\1\50\2\uffff\1\57\3\uffff\1\140\2\uffff\1\132\2\uffff\1\122\1\102\4\uffff\1\46\1\uffff\1\111\2\uffff\1\62\2\uffff\1\60\5\uffff\1\141\1\61";
+    static final String DFA15_specialS =
+        "\1\13\47\uffff\1\6\1\1\15\uffff\1\4\72\uffff\1\3\1\uffff\1\14\1\uffff\1\2\1\12\3\uffff\1\11\1\10\62\uffff\1\7\1\15\1\uffff\1\5\1\uffff\1\0\u015a\uffff}>";
+    static final String[] DFA15_transitionS = {
+            "\11\55\2\54\2\55\1\54\22\55\1\54\1\20\1\50\4\55\1\51\1\36\1\33\1\5\1\3\1\34\1\4\1\37\1\6\12\53\1\42\1\55\1\21\1\17\1\22\2\55\1\26\3\47\1\15\7\47\1\31\5\47\1\23\7\47\1\40\1\55\1\41\1\52\1\47\1\55\1\35\1\47\1\13\1\10\1\11\1\25\1\47\1\45\1\27\2\47\1\12\1\7\1\46\1\1\1\32\1\47\1\16\1\14\1\30\1\47\1\24\2\47\1\2\1\47\1\43\1\55\1\44\uff82\55",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             "\1\63",
             "",
             "\1\67\4\uffff\1\66",
-            "\1\72\7\uffff\1\73\5\uffff\1\71",
-            "\1\75\3\uffff\1\74",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\100\4\60\1\76\4\60\1\77\2\60",
-            "\1\102\10\uffff\1\103\1\104",
-            "\1\107\3\uffff\1\110\11\uffff\1\105\5\uffff\1\106",
-            "\1\111\3\uffff\1\113\7\uffff\1\112",
-            "\1\114\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\116",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\72\7\60\1\73\5\60\1\71\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\76\3\60\1\75\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\101\4\60\1\77\4\60\1\100\2\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\103\10\60\1\104\1\105\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\110\3\60\1\111\11\60\1\106\5\60\1\107\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\112\3\60\1\114\7\60\1\113\11\60",
+            "\1\57\6\uffff\1\115\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\117\25\60",
             "",
-            "\1\120",
-            "\1\122\17\uffff\1\121",
-            "\1\124",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\130\3\uffff\1\127",
-            "\1\131\7\uffff\1\132\13\uffff\1\133",
-            "\1\134",
-            "\1\135\1\136",
-            "\1\137",
-            "\1\140",
-            "\1\141",
-            "",
-            "",
-            "",
-            "\1\145\17\uffff\1\146",
-            "\1\147",
-            "",
-            "\1\152",
-            "\1\154",
+            "\1\121",
+            "\1\123\17\uffff\1\122",
+            "\1\125",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\131\3\60\1\130\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\132\7\60\1\133\13\60\1\134\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\135\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\136\1\137\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\140\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\141\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\142\10\60",
             "",
             "",
-            "\1\157",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\60\1\145\17\60\1\146\10\60",
             "",
-            "\1\161",
-            "\40\165\2\163\1\164\1\163\1\165\2\163\1\165\2\163\2\165\3\163\1\165\13\163\2\165\1\163\1\165\34\163\1\165\1\162\2\165\1\163\1\165\32\163\106\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\6\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\uff05\165",
+            "\1\150",
+            "",
+            "\1\153",
+            "\1\155",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\160\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\161\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\40\165\2\164\1\163\1\164\1\165\2\164\1\165\2\164\2\165\3\164\1\165\13\164\2\165\1\164\1\165\34\164\1\165\1\162\2\165\1\164\1\165\32\164\106\165\1\164\7\165\1\164\3\165\1\164\3\165\1\164\1\165\1\164\6\165\1\164\6\165\1\164\7\165\1\164\3\165\1\164\3\165\1\164\1\165\1\164\6\165\1\164\uff05\165",
             "\40\165\2\167\1\165\1\167\1\165\2\167\1\165\2\167\6\165\12\167\3\165\1\167\1\165\34\167\1\165\1\166\2\165\1\167\1\165\32\167\uff85\165",
-            "\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\32\74\4\uffff\1\74\1\uffff\32\74",
+            "\1\57\7\uffff\12\171\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
+            "",
+            "",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\40\175\2\174\1\175\1\174\1\175\2\174\1\175\2\174\1\173\5\175\12\174\3\175\1\174\1\175\34\174\1\175\1\174\2\175\1\174\1\175\32\174\uff85\175",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\176\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\177\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0080\25\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\25\60\1\u0081\4\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0082\2\60\1\u0083\4\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u0085\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u0086\12\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\u0088\1\uffff\23\60\1\u0087\6\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u0089\1\60\1\u008a\25\60",
+            "\1\u008b\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u008c\6\60\1\u008d\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u008f\4\60\1\u008e\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0090\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u0092\15\60\1\u0091\1\u0093\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0094\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u0096\6\60\1\u0095\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0097\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\u0098\1\uffff\32\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u009a\5\60\1\u009b\10\60\1\u009c\12\60",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u009e\16\60\1\u009d\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u009f\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u00a0\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00a1\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00a2\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u00a3\23\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u00a4\12\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00a5\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u00a6\12\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u00a7\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00a9\5\60\1\u00a8\13\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00aa\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00ab\27\60",
             "",
             "",
             "",
@@ -3672,768 +3736,712 @@ public class InternalVaryGrammarLexer extends Lexer {
             "",
             "",
             "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00ac\17\60\1\u00ad\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\40\165\2\u00b0\1\u00af\1\u00b0\1\165\2\u00b0\1\165\2\u00b0\2\165\3\u00b0\1\165\13\u00b0\2\165\1\u00b0\1\165\34\u00b0\1\165\1\u00b0\2\165\1\u00b0\1\165\32\u00b0\106\165\1\u00b0\7\165\1\u00b0\3\165\1\u00b0\3\165\1\u00b0\1\165\1\u00b0\6\165\1\u00b0\6\165\1\u00b0\7\165\1\u00b0\3\165\1\u00b0\3\165\1\u00b0\1\165\1\u00b0\6\165\1\u00b0\uff05\165",
             "",
+            "\40\165\2\164\1\163\1\164\1\165\2\164\1\165\2\164\2\165\3\164\1\165\13\164\2\165\1\164\1\165\34\164\1\165\1\162\2\165\1\164\1\165\32\164\106\165\1\164\7\165\1\164\3\165\1\164\3\165\1\164\1\165\1\164\6\165\1\164\6\165\1\164\7\165\1\164\3\165\1\164\3\165\1\164\1\165\1\164\6\165\1\164\uff05\165",
             "",
-            "",
-            "\40\174\2\172\1\174\1\172\1\174\2\172\1\174\2\172\1\173\5\174\12\172\3\174\1\172\1\174\34\172\1\174\1\172\2\174\1\172\1\174\32\172\uff85\174",
-            "",
-            "\1\175",
-            "\1\176",
-            "\1\177",
-            "\1\u0080",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0081\2\60\1\u0082\4\60",
-            "\1\u0084",
-            "\1\u0085",
-            "\1\u0087\24\uffff\1\u0086",
-            "",
-            "\1\u0088\1\uffff\1\u0089",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u008b\6\uffff\1\u008c",
-            "\1\u008e\4\uffff\1\u008d",
-            "\1\u008f",
-            "\1\u0091\15\uffff\1\u0090\1\u0092",
-            "\1\u0093",
-            "\1\u0095\6\uffff\1\u0094",
-            "\1\u0096",
-            "\12\60\7\uffff\32\60\4\uffff\1\u0097\1\uffff\32\60",
-            "",
-            "",
-            "\1\u0099\5\uffff\1\u009a\10\uffff\1\u009b",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u009d\16\uffff\1\u009c",
-            "\1\u009e",
-            "\1\u009f",
-            "\1\u00a0",
-            "\1\u00a1",
-            "\1\u00a2",
-            "\1\u00a3",
-            "\1\u00a4",
-            "\1\u00a5",
-            "\1\u00a6",
-            "\1\u00a8\5\uffff\1\u00a7",
-            "",
-            "",
-            "",
-            "\1\u00a9",
-            "\1\u00aa",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\u00ab\17\uffff\1\u00ac",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\40\165\2\u00af\1\u00ae\1\u00af\1\165\2\u00af\1\165\2\u00af\2\165\3\u00af\1\165\13\u00af\2\165\1\u00af\1\165\34\u00af\1\165\1\u00af\2\165\1\u00af\1\165\32\u00af\106\165\1\u00af\7\165\1\u00af\3\165\1\u00af\3\165\1\u00af\1\165\1\u00af\6\165\1\u00af\6\165\1\u00af\7\165\1\u00af\3\165\1\u00af\3\165\1\u00af\1\165\1\u00af\6\165\1\u00af\uff05\165",
-            "\40\165\2\163\1\164\1\163\1\165\2\163\1\165\2\163\2\165\3\163\1\165\13\163\2\165\1\163\1\165\34\163\1\165\1\162\2\165\1\163\1\165\32\163\106\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\6\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\uff05\165",
-            "",
-            "",
-            "\47\165\1\u00b1\uffd8\165",
             "\47\165\1\u00b2\uffd8\165",
+            "\47\165\1\u00b3\uffd8\165",
             "",
+            "\1\57\7\uffff\12\171\7\uffff\32\57\4\uffff\1\57\1\uffff\32\57",
             "",
-            "\40\174\2\172\1\174\1\172\1\174\2\172\1\174\2\172\1\173\5\174\12\172\3\174\1\172\1\174\34\172\1\174\1\172\2\174\1\172\1\174\32\172\uff85\174",
-            "\57\174\1\u00b3\uffd0\174",
+            "\57\175\1\u00b4\uffd0\175",
+            "\40\175\2\174\1\175\1\174\1\175\2\174\1\175\2\174\1\173\5\175\12\174\3\175\1\174\1\175\34\174\1\175\1\174\2\175\1\174\1\175\32\174\uff85\175",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00b5",
-            "\1\u00b6",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00b8",
-            "\1\u00b9",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00b6\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00b7\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u00b9\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00ba\13\60",
             "",
-            "\1\u00ba",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00bb\13\60",
-            "\1\u00bd\11\uffff\1\u00be",
-            "\1\u00bf",
-            "\1\u00c0",
-            "\1\u00c1",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00bb\10\60",
+            "\1\u00bc\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00bd\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u00be\11\60\1\u00bf\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00c0\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00c1\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00c2\10\60",
             "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00c2\21\60",
-            "\1\u00c4",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00c6\17\uffff\1\u00c7",
-            "\1\u00c8",
-            "\1\u00c9",
-            "\1\u00ca",
-            "\1\u00cb",
-            "\1\u00cc",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00ce",
-            "\1\u00cf",
-            "\1\u00d0",
+            "\1\u00c4\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00c5\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u00c6\23\60",
+            "\1\u00c7\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00c8\17\60\1\u00c9\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u00ca\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u00cb\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u00cc\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00cd\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00ce\10\60",
+            "\1\u00cf\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u00d0\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00d1\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00d2\14\60",
             "",
-            "\1\u00d1",
-            "\1\u00d2",
-            "\1\u00d3",
-            "\1\u00d4",
-            "\1\u00d5",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00d7",
-            "\1\u00d8",
-            "\1\u00d9",
-            "\1\u00da",
-            "\1\u00dc\2\uffff\1\u00db",
-            "\1\u00dd",
-            "\1\u00de",
-            "\1\u00df",
-            "\1\u00e0",
-            "\1\u00e1",
-            "\1\u00e2",
-            "\1\u00e3",
-            "\1\u00e4",
-            "\1\u00e5",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u00d3\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00d4\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u00d5\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u00d6\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00d7\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u00d9\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\u00da\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00db\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00dc\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u00de\2\60\1\u00dd\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00df\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u00e0\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u00e1\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00e2\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00e3\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00e4\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\7\60\1\u00e5\22\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u00e6\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00e7\6\60",
             "",
             "\0\165",
-            "\40\165\2\163\1\164\1\163\1\165\2\163\1\165\2\163\2\165\3\163\1\165\13\163\2\165\1\163\1\165\34\163\1\165\1\162\2\165\1\163\1\165\32\163\106\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\6\165\1\163\7\165\1\163\3\165\1\163\3\165\1\163\1\165\1\163\6\165\1\163\uff05\165",
+            "\40\165\2\164\1\163\1\164\1\165\2\164\1\165\2\164\2\165\3\164\1\165\13\164\2\165\1\164\1\165\34\164\1\165\1\162\2\165\1\164\1\165\32\164\106\165\1\164\7\165\1\164\3\165\1\164\3\165\1\164\1\165\1\164\6\165\1\164\6\165\1\164\7\165\1\164\3\165\1\164\3\165\1\164\1\165\1\164\6\165\1\164\uff05\165",
             "",
             "\0\165",
             "",
-            "\0\174",
-            "",
-            "\1\u00e8",
-            "\1\u00e9",
-            "",
-            "\1\u00ea",
-            "\1\u00eb",
-            "\1\u00ec",
-            "\1\u00ed",
-            "",
-            "\1\u00ee",
-            "\1\u00ef",
-            "\1\u00f0",
-            "\1\u00f1",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00f3",
-            "",
-            "\1\u00f4",
-            "",
-            "\1\u00f5",
-            "\1\u00f6",
-            "\1\u00f7",
-            "\1\u00f8",
-            "\1\u00f9",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00fb",
-            "",
-            "\1\u00fc",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u00fe",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0100",
-            "\1\u0101",
-            "\1\u0102",
-            "\1\u0103",
-            "",
-            "\1\u0104",
-            "\1\u0105\2\uffff\1\u010c\1\u0108\1\u010d\2\uffff\1\u0106\3\uffff\1\u0107\2\uffff\1\u010a\1\uffff\1\u0109\1\u010b",
-            "\1\u010e",
-            "\1\u010f",
-            "\1\u0110",
-            "\1\u0111",
-            "\1\u0112",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0114",
-            "\1\u0115",
-            "\1\u0116",
-            "\1\u0117",
-            "\1\u0118",
-            "\1\u0119",
-            "\1\u011a",
-            "",
-            "",
-            "\1\u011b",
-            "\1\u011c",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u011e",
-            "\1\u0120\21\uffff\1\u011f",
-            "\1\u0121",
-            "\1\u0122",
-            "\1\u0123",
-            "\1\u0124",
-            "\1\u0125",
-            "",
-            "\1\u0126",
-            "\1\u0127",
-            "\1\u0128",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u012a",
-            "\1\u012b",
-            "\1\u012c",
-            "",
-            "\1\u012d",
-            "\1\u012e",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u0130",
-            "\1\u0131",
-            "\1\u0132",
-            "\1\u0133",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0135",
-            "\1\u0136\1\u0137",
-            "\1\u0139\5\uffff\1\u0138",
-            "\1\u013a",
-            "\1\u013b",
-            "\1\u013c",
-            "\1\u013e\3\uffff\1\u013d",
-            "\1\u013f",
-            "\1\u0140",
-            "\1\u0141",
-            "\1\u0142",
-            "\1\u0143",
-            "\1\u0144",
-            "\1\u0145",
-            "",
-            "\1\u0146",
-            "\1\u0147",
-            "\1\u0148",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u014a",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\u014c\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u014f",
-            "",
-            "\1\u0150",
-            "\1\u0151",
-            "\1\u0152",
-            "\1\u0153",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0155",
-            "\1\u0156",
-            "\1\u0157",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0159",
-            "\1\u015a",
-            "",
-            "\1\u015b",
-            "\1\u015c",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u015f",
-            "",
-            "\1\u0160",
-            "\1\u0161",
-            "\1\u0162",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u0164",
-            "\1\u0165",
-            "\1\u0166",
-            "\1\u0167",
-            "\1\u0168",
-            "\1\u0169",
-            "\1\u016a",
-            "\1\u016b\5\uffff\1\u016c",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u016e",
-            "\1\u016f",
-            "\1\u0170",
-            "\1\u0171",
-            "\1\u0172",
-            "\1\u0173",
-            "\1\u0174",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0177",
-            "\1\u0178",
-            "",
-            "\1\u0179",
-            "",
-            "\1\u017a",
-            "",
-            "",
-            "\1\u017b",
-            "\1\u017c",
-            "\1\u017d",
-            "\1\u017e",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u0180",
-            "\1\u0181",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u0183",
-            "\1\u0184",
-            "\1\u0185",
-            "\1\u0186",
-            "",
-            "",
-            "\1\u0187",
-            "\1\u0188",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u018a",
-            "",
-            "\1\u018b",
-            "\1\u018d\2\uffff\1\u018c",
-            "\1\u018e",
-            "\1\u018f",
-            "\1\u0190",
-            "\1\u0191",
-            "\1\u0192",
-            "\1\u0193",
-            "\1\u0194",
-            "",
-            "\1\u0195",
-            "\1\u0196",
-            "\1\u0197",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u0199",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u019b",
-            "",
-            "",
-            "\1\u019c",
-            "\1\u019d",
-            "\1\u019e",
-            "\1\u019f",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01a2",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01a5",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01a7",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01aa",
-            "\1\u01ab",
-            "",
-            "\1\u01ac",
-            "\1\u01ad",
-            "\1\u01ae",
-            "\1\u01af",
-            "\1\u01b0",
-            "\1\u01b1",
-            "\1\u01b2",
-            "\1\u01b3",
-            "\1\u01b4",
-            "\1\u01b5",
-            "\1\u01b6",
-            "\1\u01b7",
-            "\1\u01b8",
-            "\1\u01b9",
-            "",
-            "\1\u01ba",
-            "",
-            "\1\u01bb",
-            "\1\u01bc",
-            "\1\u01bd",
-            "",
-            "\1\u01be",
-            "",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "",
-            "\1\u01c0",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01c4",
-            "\1\u01c5",
-            "\1\u01c6",
-            "\1\u01c7",
-            "\1\u01c8",
-            "\1\u01c9",
-            "\1\u01ca",
-            "\1\u01cb",
-            "\1\u01cc",
-            "\1\u01cd",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01d0",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01d2",
-            "\1\u01d3",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u01d6",
-            "",
-            "",
-            "",
-            "\1\u01d7",
-            "\1\u01d8",
-            "\1\u01d9",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01dc",
-            "\1\u01dd",
-            "\1\u01de",
-            "\1\u01df",
-            "\1\u01e0",
-            "",
-            "",
-            "\1\u01e1",
-            "",
-            "\1\u01e2",
-            "\1\u01e3",
-            "",
-            "",
-            "\1\u01e4",
-            "\1\u01e5",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01e7",
-            "",
-            "",
-            "\1\u01e8",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01ea",
-            "\1\u01eb",
-            "\1\u01ec",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01ee",
-            "\1\u01ef",
-            "\1\u01f0",
-            "\1\u01f1",
-            "",
-            "\1\u01f2",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01f5",
-            "\1\u01f6",
-            "",
-            "\1\u01f7",
-            "\1\u01f8",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01fa",
-            "",
-            "",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\1\u01fc",
-            "\1\u01fd",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u01ff",
-            "",
-            "\1\u0200",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "",
-            "\1\u0202",
-            "\1\u0203",
-            "",
-            "\1\u0204",
-            "\1\u0205",
-            "\1\u0206",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
-            "\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\0\175",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00ea\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00eb\6\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u00ec\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u00ed\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00ee\21\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00f0\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00f1\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00f2\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00f3\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u00f4\5\60",
+            "\1\u00f5\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00f7\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u00f8\21\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u00fa\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u00fb\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u00fc\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u00fd\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u00fe\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0100\31\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0102\14\60",
+            "\1\u0103\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u0104\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0106\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u0107\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0108\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u0109\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u010a\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u010b\2\60\1\u0112\1\u010e\1\u0113\2\60\1\u010c\3\60\1\u010d\2\60\1\u0110\1\60\1\u010f\1\u0111\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0114\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0115\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0116\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0117\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0118\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u011a\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u011b\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u011c\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u011d\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u011e\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u011f\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0120\31\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\31\60\1\u0121",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0122\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\25\60\1\u0124\4\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\60\1\u0126\21\60\1\u0125\6\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u0127\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u0128\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u0129\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u012a\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u012b\10\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u012d\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u012e\6\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u012f\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0131\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u0132\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0133\31\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0134\10\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\u0135\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u0138\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0139\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u013a\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u013b\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u013d\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u013e\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0140\5\60\1\u013f\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\27\60\1\u0141\2\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0142\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0143\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0145\3\60\1\u0144\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0146\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u0147\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u0148\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0149\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u014a\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u014b\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u014c\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u014d\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u014e\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u014f\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\25\60\1\u0151\4\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\u0153\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0156\31\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0157\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u0158\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0159\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u015a\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u015c\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u015d\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u015e\31\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u0160\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0161\25\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u0162\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0163\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0166\7\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0167\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0168\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0169\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u016b\23\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u016c\12\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u016d\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u016e\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u016f\12\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u0170\23\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0171\5\60\1\u0172\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\6\60\1\u0174\23\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0175\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0176\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0177\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u0178\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0179\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u017a\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u017d\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u017e\12\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u017f\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\20\60\1\u0180\11\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0181\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0182\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0183\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0184\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u0186\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\u0187\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u0189\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u018a\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u018b\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u018c\10\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u018d\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u018e\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u0190\10\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u0191\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u0193\2\60\1\u0192\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u0194\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0195\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u0196\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0197\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0198\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u0199\27\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u019a\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u019b\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u019c\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u019e\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u01a0\14\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u01a1\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01a2\31\60",
+            "\1\u01a3\7\uffff\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\24\60\1\u01a4\5\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01a7\31\60",
+            "\1\u01a8\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u01aa\27\60",
+            "",
+            "\1\u01ab\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01ac\31\60",
+            "\1\u01ad\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01af\31\60",
+            "\1\57\7\uffff\12\60\1\u01b0\6\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01b1\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u01b2\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u01b3\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u01b4\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u01b5\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01b6\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u01b7\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u01b8\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u01b9\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u01ba\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u01bb\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u01bc\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01bd\21\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01be\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01bf\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01c0\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u01c1\16\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u01c2\25\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01c5\31\60",
+            "",
+            "\1\u01c7\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01cb\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01cc\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u01cd\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01ce\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u01cf\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01d0\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01d1\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01d2\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\3\60\1\u01d3\26\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01d6\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01d8\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u01d9\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u01dc\7\60",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01de\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01df\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u01e0\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01e2\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01e3\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\21\60\1\u01e4\10\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\17\60\1\u01e5\12\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01e6\21\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u01e7\14\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u01e8\27\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u01e9\14\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01ea\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u01eb\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u01ed\14\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\22\60\1\u01ee\7\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01f0\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u01f1\31\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\14\60\1\u01f2\15\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01f4\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01f5\6\60",
+            "\1\57\7\uffff\12\60\1\u01f6\6\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01f7\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u01f8\6\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\13\60\1\u01fb\16\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u01fc\21\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01fd\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u01fe\13\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\1\u0200\31\60",
+            "",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\4\60\1\u0202\25\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0203\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\2\60\1\u0205\27\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u0206\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\10\60\1\u0208\21\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\23\60\1\u0209\6\60",
+            "",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u020a\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\16\60\1\u020b\13\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\15\60\1\u020c\14\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
+            "\1\57\7\uffff\12\60\7\uffff\32\60\4\uffff\1\60\1\uffff\32\60",
             "",
             ""
     };
 
-    static final short[] DFA14_eot = DFA.unpackEncodedString(DFA14_eotS);
-    static final short[] DFA14_eof = DFA.unpackEncodedString(DFA14_eofS);
-    static final char[] DFA14_min = DFA.unpackEncodedStringToUnsignedChars(DFA14_minS);
-    static final char[] DFA14_max = DFA.unpackEncodedStringToUnsignedChars(DFA14_maxS);
-    static final short[] DFA14_accept = DFA.unpackEncodedString(DFA14_acceptS);
-    static final short[] DFA14_special = DFA.unpackEncodedString(DFA14_specialS);
-    static final short[][] DFA14_transition;
+    static final short[] DFA15_eot = DFA.unpackEncodedString(DFA15_eotS);
+    static final short[] DFA15_eof = DFA.unpackEncodedString(DFA15_eofS);
+    static final char[] DFA15_min = DFA.unpackEncodedStringToUnsignedChars(DFA15_minS);
+    static final char[] DFA15_max = DFA.unpackEncodedStringToUnsignedChars(DFA15_maxS);
+    static final short[] DFA15_accept = DFA.unpackEncodedString(DFA15_acceptS);
+    static final short[] DFA15_special = DFA.unpackEncodedString(DFA15_specialS);
+    static final short[][] DFA15_transition;
 
     static {
-        int numStates = DFA14_transitionS.length;
-        DFA14_transition = new short[numStates][];
+        int numStates = DFA15_transitionS.length;
+        DFA15_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA14_transition[i] = DFA.unpackEncodedString(DFA14_transitionS[i]);
+            DFA15_transition[i] = DFA.unpackEncodedString(DFA15_transitionS[i]);
         }
     }
 
-    static class DFA14 extends DFA {
+    static class DFA15 extends DFA {
 
-        public DFA14(BaseRecognizer recognizer) {
+        public DFA15(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 14;
-            this.eot = DFA14_eot;
-            this.eof = DFA14_eof;
-            this.min = DFA14_min;
-            this.max = DFA14_max;
-            this.accept = DFA14_accept;
-            this.special = DFA14_special;
-            this.transition = DFA14_transition;
+            this.decisionNumber = 15;
+            this.eot = DFA15_eot;
+            this.eof = DFA15_eof;
+            this.min = DFA15_min;
+            this.max = DFA15_max;
+            this.accept = DFA15_accept;
+            this.special = DFA15_special;
+            this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | RULE_SL_COMMENT | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | RULE_SL_COMMENT | RULE_NOMBRE_FUN | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA14_179 = input.LA(1);
+                        int LA15_180 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_179>='\u0000' && LA14_179<='\uFFFF')) ) {s = 124;}
+                        if ( ((LA15_180>='\u0000' && LA15_180<='\uFFFF')) ) {s = 125;}
 
-                        else s = 231;
+                        else s = 233;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA14_41 = input.LA(1);
+                        int LA15_41 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_41=='\\') ) {s = 118;}
+                        if ( (LA15_41=='\\') ) {s = 118;}
 
-                        else if ( ((LA14_41>=' ' && LA14_41<='!')||LA14_41=='#'||(LA14_41>='%' && LA14_41<='&')||(LA14_41>='(' && LA14_41<=')')||(LA14_41>='0' && LA14_41<='9')||LA14_41=='='||(LA14_41>='?' && LA14_41<='Z')||LA14_41=='_'||(LA14_41>='a' && LA14_41<='z')) ) {s = 119;}
+                        else if ( ((LA15_41>=' ' && LA15_41<='!')||LA15_41=='#'||(LA15_41>='%' && LA15_41<='&')||(LA15_41>='(' && LA15_41<=')')||(LA15_41>='0' && LA15_41<='9')||LA15_41=='='||(LA15_41>='?' && LA15_41<='Z')||LA15_41=='_'||(LA15_41>='a' && LA15_41<='z')) ) {s = 119;}
 
-                        else if ( ((LA14_41>='\u0000' && LA14_41<='\u001F')||LA14_41=='\"'||LA14_41=='$'||LA14_41=='\''||(LA14_41>='*' && LA14_41<='/')||(LA14_41>=':' && LA14_41<='<')||LA14_41=='>'||LA14_41=='['||(LA14_41>=']' && LA14_41<='^')||LA14_41=='`'||(LA14_41>='{' && LA14_41<='\uFFFF')) ) {s = 117;}
+                        else if ( ((LA15_41>='\u0000' && LA15_41<='\u001F')||LA15_41=='\"'||LA15_41=='$'||LA15_41=='\''||(LA15_41>='*' && LA15_41<='/')||(LA15_41>=':' && LA15_41<='<')||LA15_41=='>'||LA15_41=='['||(LA15_41>=']' && LA15_41<='^')||LA15_41=='`'||(LA15_41>='{' && LA15_41<='\uFFFF')) ) {s = 117;}
 
-                        else s = 46;
+                        else s = 45;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA14_118 = input.LA(1);
+                        int LA15_118 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_118=='\'') ) {s = 177;}
+                        if ( (LA15_118=='\'') ) {s = 178;}
 
-                        else if ( ((LA14_118>='\u0000' && LA14_118<='&')||(LA14_118>='(' && LA14_118<='\uFFFF')) ) {s = 117;}
+                        else if ( ((LA15_118>='\u0000' && LA15_118<='&')||(LA15_118>='(' && LA15_118<='\uFFFF')) ) {s = 117;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA14_0 = input.LA(1);
+                        int LA15_114 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_0=='o') ) {s = 1;}
+                        if ( (LA15_114=='\"') ) {s = 175;}
 
-                        else if ( (LA14_0=='y') ) {s = 2;}
+                        else if ( ((LA15_114>=' ' && LA15_114<='!')||LA15_114=='#'||(LA15_114>='%' && LA15_114<='&')||(LA15_114>='(' && LA15_114<=')')||(LA15_114>=',' && LA15_114<='.')||(LA15_114>='0' && LA15_114<=':')||LA15_114=='='||(LA15_114>='?' && LA15_114<='Z')||LA15_114=='\\'||LA15_114=='_'||(LA15_114>='a' && LA15_114<='z')||LA15_114=='\u00C1'||LA15_114=='\u00C9'||LA15_114=='\u00CD'||LA15_114=='\u00D1'||LA15_114=='\u00D3'||LA15_114=='\u00DA'||LA15_114=='\u00E1'||LA15_114=='\u00E9'||LA15_114=='\u00ED'||LA15_114=='\u00F1'||LA15_114=='\u00F3'||LA15_114=='\u00FA') ) {s = 176;}
 
-                        else if ( (LA14_0=='+') ) {s = 3;}
-
-                        else if ( (LA14_0=='-') ) {s = 4;}
-
-                        else if ( (LA14_0=='*') ) {s = 5;}
-
-                        else if ( (LA14_0=='/') ) {s = 6;}
-
-                        else if ( (LA14_0=='m') ) {s = 7;}
-
-                        else if ( (LA14_0=='d') ) {s = 8;}
-
-                        else if ( (LA14_0=='e') ) {s = 9;}
-
-                        else if ( (LA14_0=='l') ) {s = 10;}
-
-                        else if ( (LA14_0=='c') ) {s = 11;}
-
-                        else if ( (LA14_0=='s') ) {s = 12;}
-
-                        else if ( (LA14_0=='E') ) {s = 13;}
-
-                        else if ( (LA14_0=='r') ) {s = 14;}
-
-                        else if ( (LA14_0=='=') ) {s = 15;}
-
-                        else if ( (LA14_0=='!') ) {s = 16;}
-
-                        else if ( (LA14_0=='<') ) {s = 17;}
-
-                        else if ( (LA14_0=='>') ) {s = 18;}
-
-                        else if ( (LA14_0=='S') ) {s = 19;}
-
-                        else if ( (LA14_0=='v') ) {s = 20;}
-
-                        else if ( (LA14_0=='f') ) {s = 21;}
-
-                        else if ( (LA14_0=='A') ) {s = 22;}
-
-                        else if ( (LA14_0=='i') ) {s = 23;}
-
-                        else if ( (LA14_0=='t') ) {s = 24;}
-
-                        else if ( (LA14_0=='M') ) {s = 25;}
-
-                        else if ( (LA14_0=='p') ) {s = 26;}
-
-                        else if ( (LA14_0=='(') ) {s = 27;}
-
-                        else if ( (LA14_0==')') ) {s = 28;}
-
-                        else if ( (LA14_0==',') ) {s = 29;}
-
-                        else if ( (LA14_0=='a') ) {s = 30;}
-
-                        else if ( (LA14_0=='.') ) {s = 31;}
-
-                        else if ( (LA14_0=='[') ) {s = 32;}
-
-                        else if ( (LA14_0==']') ) {s = 33;}
-
-                        else if ( (LA14_0==':') ) {s = 34;}
-
-                        else if ( (LA14_0=='{') ) {s = 35;}
-
-                        else if ( (LA14_0=='}') ) {s = 36;}
-
-                        else if ( (LA14_0=='h') ) {s = 37;}
-
-                        else if ( (LA14_0=='|') ) {s = 38;}
-
-                        else if ( (LA14_0=='n') ) {s = 39;}
-
-                        else if ( (LA14_0=='\"') ) {s = 40;}
-
-                        else if ( (LA14_0=='\'') ) {s = 41;}
-
-                        else if ( (LA14_0=='^') ) {s = 42;}
-
-                        else if ( ((LA14_0>='B' && LA14_0<='D')||(LA14_0>='F' && LA14_0<='L')||(LA14_0>='N' && LA14_0<='R')||(LA14_0>='T' && LA14_0<='Z')||LA14_0=='_'||LA14_0=='b'||LA14_0=='g'||(LA14_0>='j' && LA14_0<='k')||LA14_0=='q'||LA14_0=='u'||(LA14_0>='w' && LA14_0<='x')||LA14_0=='z') ) {s = 43;}
-
-                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 44;}
-
-                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 45;}
-
-                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||(LA14_0>='#' && LA14_0<='&')||LA14_0==';'||(LA14_0>='?' && LA14_0<='@')||LA14_0=='\\'||LA14_0=='`'||(LA14_0>='~' && LA14_0<='\uFFFF')) ) {s = 46;}
+                        else if ( ((LA15_114>='\u0000' && LA15_114<='\u001F')||LA15_114=='$'||LA15_114=='\''||(LA15_114>='*' && LA15_114<='+')||LA15_114=='/'||(LA15_114>=';' && LA15_114<='<')||LA15_114=='>'||LA15_114=='['||(LA15_114>=']' && LA15_114<='^')||LA15_114=='`'||(LA15_114>='{' && LA15_114<='\u00C0')||(LA15_114>='\u00C2' && LA15_114<='\u00C8')||(LA15_114>='\u00CA' && LA15_114<='\u00CC')||(LA15_114>='\u00CE' && LA15_114<='\u00D0')||LA15_114=='\u00D2'||(LA15_114>='\u00D4' && LA15_114<='\u00D9')||(LA15_114>='\u00DB' && LA15_114<='\u00E0')||(LA15_114>='\u00E2' && LA15_114<='\u00E8')||(LA15_114>='\u00EA' && LA15_114<='\u00EC')||(LA15_114>='\u00EE' && LA15_114<='\u00F0')||LA15_114=='\u00F2'||(LA15_114>='\u00F4' && LA15_114<='\u00F9')||(LA15_114>='\u00FB' && LA15_114<='\uFFFF')) ) {s = 117;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA14_114 = input.LA(1);
+                        int LA15_55 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_114=='\"') ) {s = 174;}
+                        if ( (LA15_55=='*') ) {s = 123;}
 
-                        else if ( ((LA14_114>=' ' && LA14_114<='!')||LA14_114=='#'||(LA14_114>='%' && LA14_114<='&')||(LA14_114>='(' && LA14_114<=')')||(LA14_114>=',' && LA14_114<='.')||(LA14_114>='0' && LA14_114<=':')||LA14_114=='='||(LA14_114>='?' && LA14_114<='Z')||LA14_114=='\\'||LA14_114=='_'||(LA14_114>='a' && LA14_114<='z')||LA14_114=='\u00C1'||LA14_114=='\u00C9'||LA14_114=='\u00CD'||LA14_114=='\u00D1'||LA14_114=='\u00D3'||LA14_114=='\u00DA'||LA14_114=='\u00E1'||LA14_114=='\u00E9'||LA14_114=='\u00ED'||LA14_114=='\u00F1'||LA14_114=='\u00F3'||LA14_114=='\u00FA') ) {s = 175;}
+                        else if ( ((LA15_55>=' ' && LA15_55<='!')||LA15_55=='#'||(LA15_55>='%' && LA15_55<='&')||(LA15_55>='(' && LA15_55<=')')||(LA15_55>='0' && LA15_55<='9')||LA15_55=='='||(LA15_55>='?' && LA15_55<='Z')||LA15_55=='\\'||LA15_55=='_'||(LA15_55>='a' && LA15_55<='z')) ) {s = 124;}
 
-                        else if ( ((LA14_114>='\u0000' && LA14_114<='\u001F')||LA14_114=='$'||LA14_114=='\''||(LA14_114>='*' && LA14_114<='+')||LA14_114=='/'||(LA14_114>=';' && LA14_114<='<')||LA14_114=='>'||LA14_114=='['||(LA14_114>=']' && LA14_114<='^')||LA14_114=='`'||(LA14_114>='{' && LA14_114<='\u00C0')||(LA14_114>='\u00C2' && LA14_114<='\u00C8')||(LA14_114>='\u00CA' && LA14_114<='\u00CC')||(LA14_114>='\u00CE' && LA14_114<='\u00D0')||LA14_114=='\u00D2'||(LA14_114>='\u00D4' && LA14_114<='\u00D9')||(LA14_114>='\u00DB' && LA14_114<='\u00E0')||(LA14_114>='\u00E2' && LA14_114<='\u00E8')||(LA14_114>='\u00EA' && LA14_114<='\u00EC')||(LA14_114>='\u00EE' && LA14_114<='\u00F0')||LA14_114=='\u00F2'||(LA14_114>='\u00F4' && LA14_114<='\u00F9')||(LA14_114>='\u00FB' && LA14_114<='\uFFFF')) ) {s = 117;}
+                        else if ( ((LA15_55>='\u0000' && LA15_55<='\u001F')||LA15_55=='\"'||LA15_55=='$'||LA15_55=='\''||(LA15_55>='+' && LA15_55<='/')||(LA15_55>=':' && LA15_55<='<')||LA15_55=='>'||LA15_55=='['||(LA15_55>=']' && LA15_55<='^')||LA15_55=='`'||(LA15_55>='{' && LA15_55<='\uFFFF')) ) {s = 125;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA14_55 = input.LA(1);
+                        int LA15_178 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_55>=' ' && LA14_55<='!')||LA14_55=='#'||(LA14_55>='%' && LA14_55<='&')||(LA14_55>='(' && LA14_55<=')')||(LA14_55>='0' && LA14_55<='9')||LA14_55=='='||(LA14_55>='?' && LA14_55<='Z')||LA14_55=='\\'||LA14_55=='_'||(LA14_55>='a' && LA14_55<='z')) ) {s = 122;}
+                        if ( ((LA15_178>='\u0000' && LA15_178<='\uFFFF')) ) {s = 117;}
 
-                        else if ( (LA14_55=='*') ) {s = 123;}
-
-                        else if ( ((LA14_55>='\u0000' && LA14_55<='\u001F')||LA14_55=='\"'||LA14_55=='$'||LA14_55=='\''||(LA14_55>='+' && LA14_55<='/')||(LA14_55>=':' && LA14_55<='<')||LA14_55=='>'||LA14_55=='['||(LA14_55>=']' && LA14_55<='^')||LA14_55=='`'||(LA14_55>='{' && LA14_55<='\uFFFF')) ) {s = 124;}
+                        else s = 232;
 
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA14_177 = input.LA(1);
+                        int LA15_40 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_177>='\u0000' && LA14_177<='\uFFFF')) ) {s = 117;}
+                        if ( (LA15_40=='\\') ) {s = 114;}
 
-                        else s = 230;
+                        else if ( (LA15_40=='\"') ) {s = 115;}
+
+                        else if ( ((LA15_40>=' ' && LA15_40<='!')||LA15_40=='#'||(LA15_40>='%' && LA15_40<='&')||(LA15_40>='(' && LA15_40<=')')||(LA15_40>=',' && LA15_40<='.')||(LA15_40>='0' && LA15_40<=':')||LA15_40=='='||(LA15_40>='?' && LA15_40<='Z')||LA15_40=='_'||(LA15_40>='a' && LA15_40<='z')||LA15_40=='\u00C1'||LA15_40=='\u00C9'||LA15_40=='\u00CD'||LA15_40=='\u00D1'||LA15_40=='\u00D3'||LA15_40=='\u00DA'||LA15_40=='\u00E1'||LA15_40=='\u00E9'||LA15_40=='\u00ED'||LA15_40=='\u00F1'||LA15_40=='\u00F3'||LA15_40=='\u00FA') ) {s = 116;}
+
+                        else if ( ((LA15_40>='\u0000' && LA15_40<='\u001F')||LA15_40=='$'||LA15_40=='\''||(LA15_40>='*' && LA15_40<='+')||LA15_40=='/'||(LA15_40>=';' && LA15_40<='<')||LA15_40=='>'||LA15_40=='['||(LA15_40>=']' && LA15_40<='^')||LA15_40=='`'||(LA15_40>='{' && LA15_40<='\u00C0')||(LA15_40>='\u00C2' && LA15_40<='\u00C8')||(LA15_40>='\u00CA' && LA15_40<='\u00CC')||(LA15_40>='\u00CE' && LA15_40<='\u00D0')||LA15_40=='\u00D2'||(LA15_40>='\u00D4' && LA15_40<='\u00D9')||(LA15_40>='\u00DB' && LA15_40<='\u00E0')||(LA15_40>='\u00E2' && LA15_40<='\u00E8')||(LA15_40>='\u00EA' && LA15_40<='\u00EC')||(LA15_40>='\u00EE' && LA15_40<='\u00F0')||LA15_40=='\u00F2'||(LA15_40>='\u00F4' && LA15_40<='\u00F9')||(LA15_40>='\u00FB' && LA15_40<='\uFFFF')) ) {s = 117;}
+
+                        else s = 45;
 
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA14_40 = input.LA(1);
+                        int LA15_175 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_40=='\\') ) {s = 114;}
+                        if ( ((LA15_175>='\u0000' && LA15_175<='\uFFFF')) ) {s = 117;}
 
-                        else if ( ((LA14_40>=' ' && LA14_40<='!')||LA14_40=='#'||(LA14_40>='%' && LA14_40<='&')||(LA14_40>='(' && LA14_40<=')')||(LA14_40>=',' && LA14_40<='.')||(LA14_40>='0' && LA14_40<=':')||LA14_40=='='||(LA14_40>='?' && LA14_40<='Z')||LA14_40=='_'||(LA14_40>='a' && LA14_40<='z')||LA14_40=='\u00C1'||LA14_40=='\u00C9'||LA14_40=='\u00CD'||LA14_40=='\u00D1'||LA14_40=='\u00D3'||LA14_40=='\u00DA'||LA14_40=='\u00E1'||LA14_40=='\u00E9'||LA14_40=='\u00ED'||LA14_40=='\u00F1'||LA14_40=='\u00F3'||LA14_40=='\u00FA') ) {s = 115;}
-
-                        else if ( (LA14_40=='\"') ) {s = 116;}
-
-                        else if ( ((LA14_40>='\u0000' && LA14_40<='\u001F')||LA14_40=='$'||LA14_40=='\''||(LA14_40>='*' && LA14_40<='+')||LA14_40=='/'||(LA14_40>=';' && LA14_40<='<')||LA14_40=='>'||LA14_40=='['||(LA14_40>=']' && LA14_40<='^')||LA14_40=='`'||(LA14_40>='{' && LA14_40<='\u00C0')||(LA14_40>='\u00C2' && LA14_40<='\u00C8')||(LA14_40>='\u00CA' && LA14_40<='\u00CC')||(LA14_40>='\u00CE' && LA14_40<='\u00D0')||LA14_40=='\u00D2'||(LA14_40>='\u00D4' && LA14_40<='\u00D9')||(LA14_40>='\u00DB' && LA14_40<='\u00E0')||(LA14_40>='\u00E2' && LA14_40<='\u00E8')||(LA14_40>='\u00EA' && LA14_40<='\u00EC')||(LA14_40>='\u00EE' && LA14_40<='\u00F0')||LA14_40=='\u00F2'||(LA14_40>='\u00F4' && LA14_40<='\u00F9')||(LA14_40>='\u00FB' && LA14_40<='\uFFFF')) ) {s = 117;}
-
-                        else s = 46;
+                        else s = 177;
 
                         if ( s>=0 ) return s;
                         break;
                     case 8 : 
-                        int LA14_174 = input.LA(1);
+                        int LA15_124 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_174>='\u0000' && LA14_174<='\uFFFF')) ) {s = 117;}
+                        if ( (LA15_124=='*') ) {s = 123;}
 
-                        else s = 176;
+                        else if ( ((LA15_124>=' ' && LA15_124<='!')||LA15_124=='#'||(LA15_124>='%' && LA15_124<='&')||(LA15_124>='(' && LA15_124<=')')||(LA15_124>='0' && LA15_124<='9')||LA15_124=='='||(LA15_124>='?' && LA15_124<='Z')||LA15_124=='\\'||LA15_124=='_'||(LA15_124>='a' && LA15_124<='z')) ) {s = 124;}
+
+                        else if ( ((LA15_124>='\u0000' && LA15_124<='\u001F')||LA15_124=='\"'||LA15_124=='$'||LA15_124=='\''||(LA15_124>='+' && LA15_124<='/')||(LA15_124>=':' && LA15_124<='<')||LA15_124=='>'||LA15_124=='['||(LA15_124>=']' && LA15_124<='^')||LA15_124=='`'||(LA15_124>='{' && LA15_124<='\uFFFF')) ) {s = 125;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 9 : 
-                        int LA14_122 = input.LA(1);
+                        int LA15_123 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_122=='*') ) {s = 123;}
+                        if ( (LA15_123=='/') ) {s = 180;}
 
-                        else if ( ((LA14_122>=' ' && LA14_122<='!')||LA14_122=='#'||(LA14_122>='%' && LA14_122<='&')||(LA14_122>='(' && LA14_122<=')')||(LA14_122>='0' && LA14_122<='9')||LA14_122=='='||(LA14_122>='?' && LA14_122<='Z')||LA14_122=='\\'||LA14_122=='_'||(LA14_122>='a' && LA14_122<='z')) ) {s = 122;}
-
-                        else if ( ((LA14_122>='\u0000' && LA14_122<='\u001F')||LA14_122=='\"'||LA14_122=='$'||LA14_122=='\''||(LA14_122>='+' && LA14_122<='/')||(LA14_122>=':' && LA14_122<='<')||LA14_122=='>'||LA14_122=='['||(LA14_122>=']' && LA14_122<='^')||LA14_122=='`'||(LA14_122>='{' && LA14_122<='\uFFFF')) ) {s = 124;}
+                        else if ( ((LA15_123>='\u0000' && LA15_123<='.')||(LA15_123>='0' && LA15_123<='\uFFFF')) ) {s = 125;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 10 : 
-                        int LA14_123 = input.LA(1);
+                        int LA15_119 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_123=='/') ) {s = 179;}
+                        if ( (LA15_119=='\'') ) {s = 179;}
 
-                        else if ( ((LA14_123>='\u0000' && LA14_123<='.')||(LA14_123>='0' && LA14_123<='\uFFFF')) ) {s = 124;}
+                        else if ( ((LA15_119>='\u0000' && LA15_119<='&')||(LA15_119>='(' && LA15_119<='\uFFFF')) ) {s = 117;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 11 : 
-                        int LA14_119 = input.LA(1);
+                        int LA15_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_119=='\'') ) {s = 178;}
+                        if ( (LA15_0=='o') ) {s = 1;}
 
-                        else if ( ((LA14_119>='\u0000' && LA14_119<='&')||(LA14_119>='(' && LA14_119<='\uFFFF')) ) {s = 117;}
+                        else if ( (LA15_0=='y') ) {s = 2;}
+
+                        else if ( (LA15_0=='+') ) {s = 3;}
+
+                        else if ( (LA15_0=='-') ) {s = 4;}
+
+                        else if ( (LA15_0=='*') ) {s = 5;}
+
+                        else if ( (LA15_0=='/') ) {s = 6;}
+
+                        else if ( (LA15_0=='m') ) {s = 7;}
+
+                        else if ( (LA15_0=='d') ) {s = 8;}
+
+                        else if ( (LA15_0=='e') ) {s = 9;}
+
+                        else if ( (LA15_0=='l') ) {s = 10;}
+
+                        else if ( (LA15_0=='c') ) {s = 11;}
+
+                        else if ( (LA15_0=='s') ) {s = 12;}
+
+                        else if ( (LA15_0=='E') ) {s = 13;}
+
+                        else if ( (LA15_0=='r') ) {s = 14;}
+
+                        else if ( (LA15_0=='=') ) {s = 15;}
+
+                        else if ( (LA15_0=='!') ) {s = 16;}
+
+                        else if ( (LA15_0=='<') ) {s = 17;}
+
+                        else if ( (LA15_0=='>') ) {s = 18;}
+
+                        else if ( (LA15_0=='S') ) {s = 19;}
+
+                        else if ( (LA15_0=='v') ) {s = 20;}
+
+                        else if ( (LA15_0=='f') ) {s = 21;}
+
+                        else if ( (LA15_0=='A') ) {s = 22;}
+
+                        else if ( (LA15_0=='i') ) {s = 23;}
+
+                        else if ( (LA15_0=='t') ) {s = 24;}
+
+                        else if ( (LA15_0=='M') ) {s = 25;}
+
+                        else if ( (LA15_0=='p') ) {s = 26;}
+
+                        else if ( (LA15_0==')') ) {s = 27;}
+
+                        else if ( (LA15_0==',') ) {s = 28;}
+
+                        else if ( (LA15_0=='a') ) {s = 29;}
+
+                        else if ( (LA15_0=='(') ) {s = 30;}
+
+                        else if ( (LA15_0=='.') ) {s = 31;}
+
+                        else if ( (LA15_0=='[') ) {s = 32;}
+
+                        else if ( (LA15_0==']') ) {s = 33;}
+
+                        else if ( (LA15_0==':') ) {s = 34;}
+
+                        else if ( (LA15_0=='{') ) {s = 35;}
+
+                        else if ( (LA15_0=='}') ) {s = 36;}
+
+                        else if ( (LA15_0=='h') ) {s = 37;}
+
+                        else if ( (LA15_0=='n') ) {s = 38;}
+
+                        else if ( ((LA15_0>='B' && LA15_0<='D')||(LA15_0>='F' && LA15_0<='L')||(LA15_0>='N' && LA15_0<='R')||(LA15_0>='T' && LA15_0<='Z')||LA15_0=='_'||LA15_0=='b'||LA15_0=='g'||(LA15_0>='j' && LA15_0<='k')||LA15_0=='q'||LA15_0=='u'||(LA15_0>='w' && LA15_0<='x')||LA15_0=='z') ) {s = 39;}
+
+                        else if ( (LA15_0=='\"') ) {s = 40;}
+
+                        else if ( (LA15_0=='\'') ) {s = 41;}
+
+                        else if ( (LA15_0=='^') ) {s = 42;}
+
+                        else if ( ((LA15_0>='0' && LA15_0<='9')) ) {s = 43;}
+
+                        else if ( ((LA15_0>='\t' && LA15_0<='\n')||LA15_0=='\r'||LA15_0==' ') ) {s = 44;}
+
+                        else if ( ((LA15_0>='\u0000' && LA15_0<='\b')||(LA15_0>='\u000B' && LA15_0<='\f')||(LA15_0>='\u000E' && LA15_0<='\u001F')||(LA15_0>='#' && LA15_0<='&')||LA15_0==';'||(LA15_0>='?' && LA15_0<='@')||LA15_0=='\\'||LA15_0=='`'||LA15_0=='|'||(LA15_0>='~' && LA15_0<='\uFFFF')) ) {s = 45;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 12 : 
-                        int LA14_115 = input.LA(1);
+                        int LA15_116 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_115=='\"') ) {s = 116;}
+                        if ( (LA15_116=='\"') ) {s = 115;}
 
-                        else if ( (LA14_115=='\\') ) {s = 114;}
+                        else if ( (LA15_116=='\\') ) {s = 114;}
 
-                        else if ( ((LA14_115>=' ' && LA14_115<='!')||LA14_115=='#'||(LA14_115>='%' && LA14_115<='&')||(LA14_115>='(' && LA14_115<=')')||(LA14_115>=',' && LA14_115<='.')||(LA14_115>='0' && LA14_115<=':')||LA14_115=='='||(LA14_115>='?' && LA14_115<='Z')||LA14_115=='_'||(LA14_115>='a' && LA14_115<='z')||LA14_115=='\u00C1'||LA14_115=='\u00C9'||LA14_115=='\u00CD'||LA14_115=='\u00D1'||LA14_115=='\u00D3'||LA14_115=='\u00DA'||LA14_115=='\u00E1'||LA14_115=='\u00E9'||LA14_115=='\u00ED'||LA14_115=='\u00F1'||LA14_115=='\u00F3'||LA14_115=='\u00FA') ) {s = 115;}
+                        else if ( ((LA15_116>=' ' && LA15_116<='!')||LA15_116=='#'||(LA15_116>='%' && LA15_116<='&')||(LA15_116>='(' && LA15_116<=')')||(LA15_116>=',' && LA15_116<='.')||(LA15_116>='0' && LA15_116<=':')||LA15_116=='='||(LA15_116>='?' && LA15_116<='Z')||LA15_116=='_'||(LA15_116>='a' && LA15_116<='z')||LA15_116=='\u00C1'||LA15_116=='\u00C9'||LA15_116=='\u00CD'||LA15_116=='\u00D1'||LA15_116=='\u00D3'||LA15_116=='\u00DA'||LA15_116=='\u00E1'||LA15_116=='\u00E9'||LA15_116=='\u00ED'||LA15_116=='\u00F1'||LA15_116=='\u00F3'||LA15_116=='\u00FA') ) {s = 116;}
 
-                        else if ( ((LA14_115>='\u0000' && LA14_115<='\u001F')||LA14_115=='$'||LA14_115=='\''||(LA14_115>='*' && LA14_115<='+')||LA14_115=='/'||(LA14_115>=';' && LA14_115<='<')||LA14_115=='>'||LA14_115=='['||(LA14_115>=']' && LA14_115<='^')||LA14_115=='`'||(LA14_115>='{' && LA14_115<='\u00C0')||(LA14_115>='\u00C2' && LA14_115<='\u00C8')||(LA14_115>='\u00CA' && LA14_115<='\u00CC')||(LA14_115>='\u00CE' && LA14_115<='\u00D0')||LA14_115=='\u00D2'||(LA14_115>='\u00D4' && LA14_115<='\u00D9')||(LA14_115>='\u00DB' && LA14_115<='\u00E0')||(LA14_115>='\u00E2' && LA14_115<='\u00E8')||(LA14_115>='\u00EA' && LA14_115<='\u00EC')||(LA14_115>='\u00EE' && LA14_115<='\u00F0')||LA14_115=='\u00F2'||(LA14_115>='\u00F4' && LA14_115<='\u00F9')||(LA14_115>='\u00FB' && LA14_115<='\uFFFF')) ) {s = 117;}
+                        else if ( ((LA15_116>='\u0000' && LA15_116<='\u001F')||LA15_116=='$'||LA15_116=='\''||(LA15_116>='*' && LA15_116<='+')||LA15_116=='/'||(LA15_116>=';' && LA15_116<='<')||LA15_116=='>'||LA15_116=='['||(LA15_116>=']' && LA15_116<='^')||LA15_116=='`'||(LA15_116>='{' && LA15_116<='\u00C0')||(LA15_116>='\u00C2' && LA15_116<='\u00C8')||(LA15_116>='\u00CA' && LA15_116<='\u00CC')||(LA15_116>='\u00CE' && LA15_116<='\u00D0')||LA15_116=='\u00D2'||(LA15_116>='\u00D4' && LA15_116<='\u00D9')||(LA15_116>='\u00DB' && LA15_116<='\u00E0')||(LA15_116>='\u00E2' && LA15_116<='\u00E8')||(LA15_116>='\u00EA' && LA15_116<='\u00EC')||(LA15_116>='\u00EE' && LA15_116<='\u00F0')||LA15_116=='\u00F2'||(LA15_116>='\u00F4' && LA15_116<='\u00F9')||(LA15_116>='\u00FB' && LA15_116<='\uFFFF')) ) {s = 117;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA14_175 = input.LA(1);
+                        int LA15_176 = input.LA(1);
 
                         s = -1;
-                        if ( (LA14_175=='\"') ) {s = 116;}
+                        if ( (LA15_176=='\"') ) {s = 115;}
 
-                        else if ( (LA14_175=='\\') ) {s = 114;}
+                        else if ( (LA15_176=='\\') ) {s = 114;}
 
-                        else if ( ((LA14_175>=' ' && LA14_175<='!')||LA14_175=='#'||(LA14_175>='%' && LA14_175<='&')||(LA14_175>='(' && LA14_175<=')')||(LA14_175>=',' && LA14_175<='.')||(LA14_175>='0' && LA14_175<=':')||LA14_175=='='||(LA14_175>='?' && LA14_175<='Z')||LA14_175=='_'||(LA14_175>='a' && LA14_175<='z')||LA14_175=='\u00C1'||LA14_175=='\u00C9'||LA14_175=='\u00CD'||LA14_175=='\u00D1'||LA14_175=='\u00D3'||LA14_175=='\u00DA'||LA14_175=='\u00E1'||LA14_175=='\u00E9'||LA14_175=='\u00ED'||LA14_175=='\u00F1'||LA14_175=='\u00F3'||LA14_175=='\u00FA') ) {s = 115;}
+                        else if ( ((LA15_176>=' ' && LA15_176<='!')||LA15_176=='#'||(LA15_176>='%' && LA15_176<='&')||(LA15_176>='(' && LA15_176<=')')||(LA15_176>=',' && LA15_176<='.')||(LA15_176>='0' && LA15_176<=':')||LA15_176=='='||(LA15_176>='?' && LA15_176<='Z')||LA15_176=='_'||(LA15_176>='a' && LA15_176<='z')||LA15_176=='\u00C1'||LA15_176=='\u00C9'||LA15_176=='\u00CD'||LA15_176=='\u00D1'||LA15_176=='\u00D3'||LA15_176=='\u00DA'||LA15_176=='\u00E1'||LA15_176=='\u00E9'||LA15_176=='\u00ED'||LA15_176=='\u00F1'||LA15_176=='\u00F3'||LA15_176=='\u00FA') ) {s = 116;}
 
-                        else if ( ((LA14_175>='\u0000' && LA14_175<='\u001F')||LA14_175=='$'||LA14_175=='\''||(LA14_175>='*' && LA14_175<='+')||LA14_175=='/'||(LA14_175>=';' && LA14_175<='<')||LA14_175=='>'||LA14_175=='['||(LA14_175>=']' && LA14_175<='^')||LA14_175=='`'||(LA14_175>='{' && LA14_175<='\u00C0')||(LA14_175>='\u00C2' && LA14_175<='\u00C8')||(LA14_175>='\u00CA' && LA14_175<='\u00CC')||(LA14_175>='\u00CE' && LA14_175<='\u00D0')||LA14_175=='\u00D2'||(LA14_175>='\u00D4' && LA14_175<='\u00D9')||(LA14_175>='\u00DB' && LA14_175<='\u00E0')||(LA14_175>='\u00E2' && LA14_175<='\u00E8')||(LA14_175>='\u00EA' && LA14_175<='\u00EC')||(LA14_175>='\u00EE' && LA14_175<='\u00F0')||LA14_175=='\u00F2'||(LA14_175>='\u00F4' && LA14_175<='\u00F9')||(LA14_175>='\u00FB' && LA14_175<='\uFFFF')) ) {s = 117;}
+                        else if ( ((LA15_176>='\u0000' && LA15_176<='\u001F')||LA15_176=='$'||LA15_176=='\''||(LA15_176>='*' && LA15_176<='+')||LA15_176=='/'||(LA15_176>=';' && LA15_176<='<')||LA15_176=='>'||LA15_176=='['||(LA15_176>=']' && LA15_176<='^')||LA15_176=='`'||(LA15_176>='{' && LA15_176<='\u00C0')||(LA15_176>='\u00C2' && LA15_176<='\u00C8')||(LA15_176>='\u00CA' && LA15_176<='\u00CC')||(LA15_176>='\u00CE' && LA15_176<='\u00D0')||LA15_176=='\u00D2'||(LA15_176>='\u00D4' && LA15_176<='\u00D9')||(LA15_176>='\u00DB' && LA15_176<='\u00E0')||(LA15_176>='\u00E2' && LA15_176<='\u00E8')||(LA15_176>='\u00EA' && LA15_176<='\u00EC')||(LA15_176>='\u00EE' && LA15_176<='\u00F0')||LA15_176=='\u00F2'||(LA15_176>='\u00F4' && LA15_176<='\u00F9')||(LA15_176>='\u00FB' && LA15_176<='\uFFFF')) ) {s = 117;}
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 14, _s, input);
+                new NoViableAltException(getDescription(), 15, _s, input);
             error(nvae);
             throw nvae;
         }

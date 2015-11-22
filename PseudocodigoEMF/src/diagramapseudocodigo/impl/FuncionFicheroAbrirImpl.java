@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.FuncionFicheroAbrirImpl#getModo <em>Modo</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.FuncionFicheroAbrirImpl#getVariable <em>Variable</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

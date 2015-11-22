@@ -20,11 +20,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.AsignacionComplejaImpl#getOperador <em>Operador</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AsignacionComplejaImpl#getValor_asignacion <em>Valor asignacion</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

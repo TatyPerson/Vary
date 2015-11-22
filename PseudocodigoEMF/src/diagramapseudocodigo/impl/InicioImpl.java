@@ -21,11 +21,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.InicioImpl#getTiene <em>Tiene</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.InicioImpl#getDeclaracion <em>Declaracion</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

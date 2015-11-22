@@ -56,6 +56,7 @@ import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.Leer;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
+import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
 import diagramapseudocodigo.Negacion;
@@ -781,6 +782,184 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
 			
 			checkDivEnteraAux(s.getSentencias(), variablesTipadas);
+		}
+	}
+	
+	protected void checkModuloAux(List<Sentencias> sentencias, Map<String, String> variablesTipadas) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof AsignacionNormal) {
+				AsignacionNormal a = (AsignacionNormal) s;
+				if(a.getOperador() instanceof Mod) {
+					Mod m = (Mod) a.getOperador();
+					if((!(m.getLeft() instanceof NumeroEntero) || !(m.getRight() instanceof NumeroEntero)) && (!(m.getLeft() instanceof VariableID) && !(m.getRight() instanceof VariableID))) {
+						error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+					}
+					else if(m.getLeft() instanceof NumeroDecimal || m.getRight() instanceof NumeroDecimal) {
+						error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+					}
+					else if(m.getLeft() instanceof VariableID && m.getRight() instanceof VariableID) {
+						VariableID left = (VariableID) m.getLeft();
+						VariableID right = (VariableID) m.getRight();
+						if(!(variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) || !(variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")))) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getLeft() instanceof VariableID && m.getRight() instanceof NumeroEntero) {
+						VariableID left = (VariableID) m.getLeft();
+						if(!variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getLeft() instanceof NumeroEntero && m.getRight() instanceof VariableID) {
+						VariableID right = (VariableID) m.getRight();
+						if(!variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getLeft() instanceof Suma || m.getLeft() instanceof Resta || m.getLeft() instanceof Multiplicacion || m.getLeft() instanceof Division || m.getLeft() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(m.getLeft(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getRight() instanceof Suma || m.getRight() instanceof Resta || m.getRight() instanceof Multiplicacion || m.getRight() instanceof Division || m.getRight() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(m.getRight(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+				}
+			}
+			else if(s instanceof AsignacionCompleja) {
+				AsignacionCompleja a = (AsignacionCompleja) s;
+				if(a.getOperador() instanceof Division) {
+					Mod m = (Mod) a.getOperador();
+					if((!(m.getLeft() instanceof NumeroEntero) || !(m.getRight() instanceof NumeroEntero)) && (!(m.getLeft() instanceof VariableID) && !(m.getRight() instanceof VariableID))) {
+						error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+					}
+					else if(m.getLeft() instanceof NumeroDecimal || m.getRight() instanceof NumeroDecimal) {
+						error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+					}
+					else if(m.getLeft() instanceof VariableID && m.getRight() instanceof VariableID) {
+						VariableID left = (VariableID) m.getLeft();
+						VariableID right = (VariableID) m.getRight();
+						if(!variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")) || !variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getLeft() instanceof VariableID && m.getRight() instanceof NumeroEntero) {
+						VariableID left = (VariableID) m.getLeft();
+						if(!variablesTipadas.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getLeft() instanceof NumeroEntero && m.getRight() instanceof VariableID) {
+						VariableID right = (VariableID) m.getRight();
+						if(!variablesTipadas.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getLeft() instanceof Suma || m.getLeft() instanceof Resta || m.getLeft() instanceof Multiplicacion || m.getLeft() instanceof Division || m.getLeft() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(m.getLeft(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+					else if(m.getRight() instanceof Suma || m.getRight() instanceof Resta || m.getRight() instanceof Multiplicacion || m.getRight() instanceof Division || m.getRight() instanceof Div) {
+						ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+						funciones.registrarValoresOperacion(m.getRight(), valoresOperacion);
+						int cuentaReales = 0;
+						
+						for(valor v: valoresOperacion) {
+							if(v instanceof NumeroDecimal) {
+								cuentaReales += 1;
+							}
+							else if(v instanceof VariableID) {
+								VariableID var = (VariableID) v;
+								if(variablesTipadas.get(var.getNombre()).equals(readerMessages.getString("TIPO_REAL"))) {
+									cuentaReales += 1;
+								}
+							}
+						}	
+						if(cuentaReales > 0) {
+							error(readerMessages.getString("MOD"), m, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	@Check
+	protected void checkModulo(Algoritmo algoritmo) {
+		Map<String, String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+		variablesTipadas.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
+		
+		checkModuloAux(algoritmo.getTiene().getTiene(), variablesTipadas);
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			variablesTipadas.clear();
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(s.getDeclaracion()));
+			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
+			
+			checkModuloAux(s.getSentencias(), variablesTipadas);	
+		}
+	}
+	
+	
+	@Check void checkModulo(Modulo modulo) {
+		Map<String, String> variablesTipadas = new HashMap<String, String>();
+		
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			variablesTipadas.clear();
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal()));
+			variablesTipadas.putAll(funciones.registrarVariablesTipadas(s.getDeclaracion()));
+			variablesTipadas.putAll(funciones.registrarParametrosTipados(s.getParametrofuncion()));
+			
+			checkModuloAux(s.getSentencias(), variablesTipadas);
 		}
 	}
 	

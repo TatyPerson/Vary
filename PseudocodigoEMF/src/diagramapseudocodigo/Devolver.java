@@ -12,11 +12,11 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Devolver#getEReference0 <em>EReference0</em>}</li>
  *   <li>{@link diagramapseudocodigo.Devolver#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getDevolver()
  * @model

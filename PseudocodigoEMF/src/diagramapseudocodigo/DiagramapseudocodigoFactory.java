@@ -103,6 +103,15 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Div createDiv();
 
 	/**
+	 * Returns a new object of class '<em>Operacion Parentesis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operacion Parentesis</em>'.
+	 * @generated
+	 */
+	OperacionParentesis createOperacionParentesis();
+
+	/**
 	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

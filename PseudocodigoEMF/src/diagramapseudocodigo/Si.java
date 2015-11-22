@@ -10,11 +10,11 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Si#getSino <em>Sino</em>}</li>
  *   <li>{@link diagramapseudocodigo.Si#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSi()
  * @model

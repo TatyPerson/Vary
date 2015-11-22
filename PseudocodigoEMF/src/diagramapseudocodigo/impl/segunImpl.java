@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.segunImpl#getCaso <em>Caso</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.segunImpl#getDevuelve <em>Devuelve</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -1584,6 +1584,22 @@
     <element xmi:type="ecore:EClass" href="diagramaPseudocodigo.ecore#//Div"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_UkVEsoY4EeWvGLM2Qvnq_Q" x="1920" y="356"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_v3j9IJFAEeWCaLMneKpZPQ" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_v3lLQJFAEeWCaLMneKpZPQ" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_v3mZYJFAEeWCaLMneKpZPQ" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_v3mZYZFAEeWCaLMneKpZPQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_v3mZYpFAEeWCaLMneKpZPQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_v3mZY5FAEeWCaLMneKpZPQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_v3nngJFAEeWCaLMneKpZPQ" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_v3nngZFAEeWCaLMneKpZPQ"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_v3nngpFAEeWCaLMneKpZPQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_v3nng5FAEeWCaLMneKpZPQ"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_v3j9IZFAEeWCaLMneKpZPQ" fontColor="4210752" fontName=".SF NS Text" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="diagramaPseudocodigo.ecore#//OperacionParentesis"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_v3j9IpFAEeWCaLMneKpZPQ" x="1444" y="88"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_AefcGfy1EeS1g8BfuAAiGQ"/>
   <element xmi:type="ecore:EPackage" href="diagramaPseudocodigo.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="_AefcGvy1EeS1g8BfuAAiGQ" type="3002" source="_AeT14fy1EeS1g8BfuAAiGQ" target="_AeUc-_y1EeS1g8BfuAAiGQ">
@@ -2872,5 +2888,18 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hav9g4Y4EeWvGLM2Qvnq_Q" points="[-22, -5, 543, 142]$[-563, -153, 2, -6]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hazn4IY4EeWvGLM2Qvnq_Q" id="(0.3669724770642202,0.12244897959183673)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_hazn4YY4EeWvGLM2Qvnq_Q" id="(0.8627450980392157,0.16666666666666666)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_Tq754JFBEeWCaLMneKpZPQ" type="3002" source="_v3j9IJFAEeWCaLMneKpZPQ" target="_AeW5WPy1EeS1g8BfuAAiGQ">
+    <children xmi:type="notation:Node" xmi:id="_Tq755JFBEeWCaLMneKpZPQ" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Tq755ZFBEeWCaLMneKpZPQ" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_Tq8g8JFBEeWCaLMneKpZPQ" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Tq8g8ZFBEeWCaLMneKpZPQ" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_Tq754ZFBEeWCaLMneKpZPQ" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Tq754pFBEeWCaLMneKpZPQ" fontColor="4210752" fontName=".SF NS Text" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//OperacionParentesis/valor_operacion"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Tq7545FBEeWCaLMneKpZPQ" points="[-12, 14, 76, -106]$[-148, 116, -60, -4]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Tq-9MJFBEeWCaLMneKpZPQ" id="(0.10743801652892562,0.5952380952380952)"/>
   </edges>
 </notation:Diagram>

@@ -279,6 +279,29 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionParentesis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperacionParentesisItemProvider operacionParentesisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.OperacionParentesis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperacionParentesisAdapter() {
+		if (operacionParentesisItemProvider == null) {
+			operacionParentesisItemProvider = new OperacionParentesisItemProvider(this);
+		}
+
+		return operacionParentesisItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1898,6 +1921,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (cabeceraFuncionItemProvider != null) cabeceraFuncionItemProvider.dispose();
 		if (modItemProvider != null) modItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
+		if (operacionParentesisItemProvider != null) operacionParentesisItemProvider.dispose();
 	}
 
 }

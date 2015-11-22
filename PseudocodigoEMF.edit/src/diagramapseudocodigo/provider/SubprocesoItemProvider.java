@@ -363,6 +363,11 @@ public class SubprocesoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 

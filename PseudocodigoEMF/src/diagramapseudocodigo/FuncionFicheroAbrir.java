@@ -11,11 +11,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.FuncionFicheroAbrir#getModo <em>Modo</em>}</li>
  *   <li>{@link diagramapseudocodigo.FuncionFicheroAbrir#getVariable <em>Variable</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncionFicheroAbrir()
  * @model

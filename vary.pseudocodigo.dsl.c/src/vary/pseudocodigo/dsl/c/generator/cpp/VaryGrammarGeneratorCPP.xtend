@@ -142,6 +142,8 @@ import diagramapseudocodigo.Mod
 import diagramapseudocodigo.impl.ModImpl
 import diagramapseudocodigo.Div
 import diagramapseudocodigo.impl.DivImpl
+import diagramapseudocodigo.OperacionParentesis
+import diagramapseudocodigo.impl.OperacionParentesisImpl
 
 /**
  * Generates code from your model files on save.
@@ -265,14 +267,6 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				variablesPublicas.add(myVariable.nombre)
 			}
 		}
-	}
-	
-	def generate(CabeceraProcedimiento myCabecera) {
-		
-	}
-	
-	def generate(CabeceraFuncion myFuncion) {
-		
 	}
 	
 	def generarCabeceras(Modulo myModulo) {
@@ -426,13 +420,13 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		if (s.eClass.name.equals("Funcion")) {
 			var Funcion funcion = new FuncionImpl
 			funcion = s as Funcion
-			var cabecera = funcion.tipo.tipoVariableCpp + " " + funcion.nombre + "(";
+			var cabecera = funcion.tipo.tipoVariableCpp + " " + funcion.nombre;
 			return variablesCabecerasSubproceso(funcion.parametrofuncion, cabecera);
 			
 		} else if (s.eClass.name.equals("Procedimiento")) {
 			var Procedimiento procedimiento = new ProcedimientoImpl
 			procedimiento = s as Procedimiento
-			var cabecera = "void" + " " + procedimiento.nombre + "(";
+			var cabecera = "void" + " " + procedimiento.nombre;
 			return variablesCabecerasSubproceso(procedimiento.parametrofuncion, cabecera);
 		}
 	}
@@ -441,13 +435,13 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		if (s.eClass.name.equals("Funcion")) {
 			var Funcion funcion = new FuncionImpl
 			funcion = s as Funcion
-			var cabecera = "static " + funcion.tipo.tipoVariableCpp + " " + funcion.nombre + "(";
+			var cabecera = "static " + funcion.tipo.tipoVariableCpp + " " + funcion.nombre;
 			return variablesCabecerasSubproceso(funcion.parametrofuncion, cabecera);
 			
 		} else if (s.eClass.name.equals("Procedimiento")) {
 			var Procedimiento procedimiento = new ProcedimientoImpl
 			procedimiento = s as Procedimiento
-			var cabecera = "static void" + " " + procedimiento.nombre + "(";
+			var cabecera = "static void" + " " + procedimiento.nombre;
 			return variablesCabecerasSubproceso(procedimiento.parametrofuncion, cabecera);
 		}
 	}
@@ -1138,7 +1132,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(Funcion myFun) {
-		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
+		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
@@ -1166,7 +1160,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	def generate(Funcion myFun, String nombreModulo) {
-		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
+		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
@@ -1194,7 +1188,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	def generateStatic(Funcion myFun, String nombreModulo) {
-		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + "(" + myFun.parametrofuncion.generate + "){" + "\n";
+		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
@@ -1222,7 +1216,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Procedimiento myProc) {
-		var procedimientoDeclarado = "void " + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
+		var procedimientoDeclarado = "void " + myProc.nombre + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
 			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
@@ -1946,9 +1940,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		}
 		
 		'''«IF !nombreModulo.equals("")»
-		ref«nombreModulo».«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»
+		ref«nombreModulo».«fun.nombre»«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»
 		«ELSE»
-		«fun.nombre»(«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
+		«fun.nombre»«IF subprocesosConPunteros.get(fun.nombre).size() == 0»«fun.operadores.generaParametros»«ELSE»«fun.operadores.generaParametrosPunteros(fun.nombre)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
 	}
 	override generate(Operador op) {
 		if (op.eClass.name.equals("NumeroEntero")) {
@@ -2121,6 +2115,11 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Mod
 			prueba.generate
 		}
+		else if(op.eClass.name.equals("OperacionParentesis")) {
+			var OperacionParentesis prueba = new OperacionParentesisImpl
+			prueba = op as OperacionParentesis
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -2238,6 +2237,11 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Mod
 			prueba.generate
 		}
+		else if(op.eClass.name.equals("OperacionParentesis")) {
+			var OperacionParentesis prueba = new OperacionParentesisImpl
+			prueba = op as OperacionParentesis
+			prueba.generate
+		}
 		else if (op.eClass.name.equals("Or")) {
 			var Or prueba = new OrImpl
 			prueba = op as Or
@@ -2284,6 +2288,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	
 	override generate(Division myDivi) {
 		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
+	}
+	
+	def generate(OperacionParentesis op) {
+		return "(" + op.valor_operacion.generate + ")"
 	}
 	
 	def generate(Div myDivi) {

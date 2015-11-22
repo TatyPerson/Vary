@@ -3689,6 +3689,43 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int DIV_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.OperacionParentesisImpl <em>Operacion Parentesis</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.OperacionParentesisImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getOperacionParentesis()
+	 * @generated
+	 */
+	int OPERACION_PARENTESIS = 77;
+
+	/**
+	 * The feature id for the '<em><b>Valor operacion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_PARENTESIS__VALOR_OPERACION = OPERACION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Operacion Parentesis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_PARENTESIS_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Operacion Parentesis</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_PARENTESIS_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3696,7 +3733,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 77;
+	int SIGNO = 78;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
@@ -3706,7 +3743,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
 	 * @generated
 	 */
-	int NEG = 78;
+	int NEG = 79;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
@@ -3716,7 +3753,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 79;
+	int NOMBRE_INTERNA = 80;
 
 
 	/**
@@ -3727,7 +3764,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 80;
+	int MODO_APERTURA = 81;
 
 
 	/**
@@ -4127,6 +4164,27 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDiv_Right();
+
+	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.OperacionParentesis <em>Operacion Parentesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operacion Parentesis</em>'.
+	 * @see diagramapseudocodigo.OperacionParentesis
+	 * @generated
+	 */
+	EClass getOperacionParentesis();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.OperacionParentesis#getValor_operacion <em>Valor operacion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Valor operacion</em>'.
+	 * @see diagramapseudocodigo.OperacionParentesis#getValor_operacion()
+	 * @see #getOperacionParentesis()
+	 * @generated
+	 */
+	EReference getOperacionParentesis_Valor_operacion();
 
 	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.Inicio <em>Inicio</em>}'.
@@ -6415,6 +6473,24 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DIV__RIGHT = eINSTANCE.getDiv_Right();
+
+		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.OperacionParentesisImpl <em>Operacion Parentesis</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.OperacionParentesisImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getOperacionParentesis()
+		 * @generated
+		 */
+		EClass OPERACION_PARENTESIS = eINSTANCE.getOperacionParentesis();
+
+		/**
+		 * The meta object literal for the '<em><b>Valor operacion</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERACION_PARENTESIS__VALOR_OPERACION = eINSTANCE.getOperacionParentesis_Valor_operacion();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.InicioImpl <em>Inicio</em>}' class.

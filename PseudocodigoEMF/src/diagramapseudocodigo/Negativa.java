@@ -10,10 +10,10 @@ package diagramapseudocodigo;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.Negativa#getValor_operacion <em>Valor operacion</em>}</li>
  * </ul>
- * </p>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getNegativa()
  * @model

@@ -42,6 +42,14 @@ public class VarySemanticHighlightingCalculator implements ISemanticHighlighting
 			setNodeColor(acceptor, leafNode, VaryHighLightingConfiguration.DECLARACIONES_ID);
 		} else if(name.equals("CampoRegistro")) {
 			setNodeColor(acceptor, node, VaryHighLightingConfiguration.CAMPOREGISTRO_ID);
+		} else if(name.equals("Escribir") || name.equals("Leer") || name.equals("Internas")) {
+			INode leafNode = null;
+			for(INode nodoAux: node.getLeafNodes()) {
+				if(nodoAux.getText().equals(")")) {
+					leafNode = nodoAux;
+				}
+			}
+			setNodeColor(acceptor, leafNode, VaryHighLightingConfiguration.TIPOS_ID);
 		}
 	}
 	

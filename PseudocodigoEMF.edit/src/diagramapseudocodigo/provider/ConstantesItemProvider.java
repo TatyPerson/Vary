@@ -275,6 +275,11 @@ public class ConstantesItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.CONSTANTES__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.CONSTANTES__VALOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
 	}
 
 	/**

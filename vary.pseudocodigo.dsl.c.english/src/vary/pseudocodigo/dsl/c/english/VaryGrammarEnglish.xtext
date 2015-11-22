@@ -58,13 +58,13 @@ CabeceraSubproceso returns CabeceraSubproceso:
 	
 CabeceraProcedimiento returns CabeceraProcedimiento:
 	'procedure'
-	nombre=EString
-	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
+	nombre=NOMBRE_FUN
+	(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
 	
 CabeceraFuncion returns CabeceraFuncion:
 	tipo=TipoVariable 'function'
-	nombre=EString
-	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
+	nombre=NOMBRE_FUN
+	(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
 
 	
 TipoComplejo returns TipoComplejo:
@@ -106,9 +106,10 @@ FuncionFicheroCerrar returns FuncionFicheroCerrar:
 ModoApertura returns ModoApertura:
 	'writing' | 'reading';
 
+terminal NOMBRE_FUN: ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ('(');
 
 NombreInterna returns NombreInterna:
-	'cos' | 'square' | 'exp' | 'ln' | 'log' | 'sen' | 'sqrt' | 'length' | 'concatena';
+	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'length(' | 'concatena(';
 
 
 EInt returns ecore::EInt:
@@ -179,7 +180,6 @@ Inicio returns Inicio:
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
 	'initiation'
 		(tiene+=Sentencias (  tiene+=Sentencias)*  )?
-	'end_initiation'
 	'end_main';
 
 EString returns ecore::EString:
@@ -214,14 +214,12 @@ AsignacionCompleja returns AsignacionCompleja:
 //	operadores+=Primaria;
 
 Escribir returns Escribir:
-	'write'
-	'('
+	'write('
 		 operador+=Primaria ( "," operador+=Primaria | operador+=operacion)* 
 	')';
 
 Leer returns Leer:
-	'read'
-	'('
+	'read('
 		variable+=Primaria ( "," variable+=Primaria)*
 	')';
 
@@ -393,16 +391,16 @@ PrimariaIndice returns operacion:
 
 Primaria returns operacion:
 	VariablesBasicas |
-	('|' operacion  '|')
-	| VariablesComplejas
+	VariablesComplejas
 	| {Negativa} '-(' valor_operacion=operacion ')'
 	| {Negacion} 'not''(' valor_operacion=operacion ')'
-	| Funciones;
+	| Funciones
+	| {OperacionParentesis} '(' valor_operacion=operacion ')';
 	
 	
 Funciones returns operacion:
-	{LlamadaFuncion} nombre=EString '(' (operadores+=operacion ( ',' operadores+=operacion)* )? ')'
-	| {Internas} nombre=NombreInterna '(' (operadores+=operacion ( ',' operadores+=operacion)* )? ')';
+	{LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=operacion ( ',' operadores+=operacion)* )? ')'
+	| {Internas} (nombre=NombreInterna) (operadores+=operacion ( ',' operadores+=operacion)* )? ')';
 	
 VariablesComplejas returns operacion:
 	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
@@ -438,25 +436,21 @@ ParametroFuncion returns ParametroFuncion:
 Funcion returns Funcion:
 	(tipo=TipoVariable)
 	'function'
-	nombre=EString
-	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
+	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
 	('var'
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )? )?
 	'initiation'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
 	(devuelve=Devolver)?
-	'end_initiation'
 	'end_function';
 	
 Procedimiento returns Procedimiento:
 	'procedure'
-	nombre=EString
-	'('(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
+	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
 	('var'
 	( declaracion+=Declaracion ( declaracion+=Declaracion)* )? )?
 	'initiation'
 	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
-	'end_initiation'
 	'end_procedure';
 	
 TipoPaso returns ecore::EString:

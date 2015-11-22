@@ -18,12 +18,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.DivImpl#getSigno_op <em>Signo op</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.DivImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.DivImpl#getRight <em>Right</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

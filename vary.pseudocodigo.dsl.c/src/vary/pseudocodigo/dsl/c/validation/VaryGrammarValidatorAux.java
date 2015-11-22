@@ -35,6 +35,7 @@ import diagramapseudocodigo.Negacion;
 import diagramapseudocodigo.Negativa;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
 import diagramapseudocodigo.ParametroFuncion;
@@ -582,7 +583,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 */
 	
 	protected boolean esOperacion(operacion op) {
-		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion || op instanceof Mod || op instanceof Div) {
+		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion || op instanceof Mod || op instanceof Div || op instanceof OperacionParentesis) {
 			return true;
 		}
 		else {
@@ -600,7 +601,16 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	}
 
 	protected ArrayList<valor> registrarValoresOperacion(operacion op, ArrayList<valor> valores) {
-		if(op instanceof Suma) {
+		if(op instanceof OperacionParentesis) {
+			OperacionParentesis opParentesis = (OperacionParentesis) op;
+			if(esOperacion(opParentesis.getValor_operacion())) {
+				registrarValoresOperacion(opParentesis.getValor_operacion(), valores);
+
+			}
+			else {
+				valores.add(opParentesis.getValor_operacion());
+			}
+		}else if(op instanceof Suma) {
 			Suma suma = (Suma) op;
 			if(esOperacion(suma.getLeft()) && esOperacion(suma.getRight())) {
 				registrarValoresOperacion(suma.getLeft(), valores);
