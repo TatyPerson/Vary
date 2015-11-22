@@ -754,6 +754,24 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				valores.add(igualdad.getLeft());
 				valores.add(igualdad.getRight());
 			}
+		}else if(op instanceof Div) {
+			Div div = (Div) op;
+			if(esOperacion(div.getLeft()) && esOperacion(div.getRight())) {
+				registrarValoresOperacion(div.getLeft(), valores);
+				registrarValoresOperacion(div.getRight(), valores);
+			}
+			else if(!esOperacion(div.getLeft()) && esOperacion(div.getRight())) {
+				registrarValoresOperacion(div.getRight(), valores);
+				valores.add(div.getLeft());
+			}
+			else if(esOperacion(div.getLeft()) && !esOperacion(div.getRight())) {
+				registrarValoresOperacion(div.getLeft(), valores);
+				valores.add(div.getRight());
+			}
+			else {
+				valores.add(div.getLeft());
+				valores.add(div.getRight());
+			}
 		} else if(op instanceof Negativa) {
 			Negativa negativa = (Negativa) op;
 			if(esOperacion(negativa.getValor_operacion())) {
