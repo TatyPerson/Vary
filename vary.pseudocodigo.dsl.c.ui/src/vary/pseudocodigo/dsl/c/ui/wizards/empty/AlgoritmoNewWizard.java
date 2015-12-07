@@ -141,7 +141,7 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 					"principal" + '\n' +	
 					"var" + '\n' +
 					"inicio" + '\n' +	
-					"fin_inicio" + '\n' +
+					"fin_principal" + '\n' +
 					"fin_algoritmo";
 		} else if(page.getExtensionFile().equals("ep")) {
 			fileName = fileName.replaceAll(".ep","");
@@ -154,7 +154,7 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 			"main" + '\n' +	
 			"var" + '\n' +
 			"initiation" + '\n' +	
-			"end_initiation" + '\n' +
+			"end_main" + '\n' +
 			"end_algorithm";
 		}
 		return new ByteArrayInputStream(contents.getBytes());

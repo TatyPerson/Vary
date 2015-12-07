@@ -80,7 +80,7 @@ inicio
     i <- 1
     res <- 0
     //Ejemplo de bucle mientras.  
-    mientras i <=n hacer
+    mientras (i <=n) hacer
         res <- res + v[i]
     fin_mientras
     devolver res
@@ -126,7 +126,7 @@ inicio
        escribir("1: Sumar dos operandos con una funcion.")
        escribir("2: Sumar dos operandos con un procedimiento.")
        escribir("3: Calcular el producto escalar de un vector.")
-    hasta_que valor>0 y valor<=3
+    hasta_que (valor>0 y valor<=3)
     devolver valor
 fin_funcion
 	
@@ -164,7 +164,7 @@ inicio //Cuerpo del algoritmo principal
 	//En este ejemplo se realiza la llamada al menu y posteriormente a operacion
 	opcion <- menu()
 	operacion(opcion)
-fin_inicio
+fin_principal
 
 fin_algoritmo
 «ENDFILE»

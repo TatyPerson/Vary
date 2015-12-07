@@ -153,7 +153,7 @@ public class AlgoritmoHelloWorldWizard extends Wizard implements INewWizard {
 				    '\t' + "inicio //Cuerpo del algoritmo principal" + '\n' +
 				    '\t' + '\t' + "saludo <- \"Hola!\"" + '\n' +
 					'\t' + '\t' + "escribir(saludo)" + '\n' +
-					"fin_inicio" + '\n' + '\n' +
+					"fin_principal" + '\n' + '\n' +
 					
 					"fin_algoritmo";
 		} else if(page.getExtensionFile().equals("ep")) {
@@ -177,7 +177,7 @@ public class AlgoritmoHelloWorldWizard extends Wizard implements INewWizard {
 				    '\t' + "initiation //Body main algorithm" + '\n' +
 				    '\t' + '\t' + "greeting <- \"Hello!\"" + '\n' +
 					'\t' + '\t' + "write(greeting)" + '\n' +
-					"end_initiation" + '\n' + '\n' +
+					"end_main" + '\n' + '\n' +
 					
 					"end_algorithm";
 		}

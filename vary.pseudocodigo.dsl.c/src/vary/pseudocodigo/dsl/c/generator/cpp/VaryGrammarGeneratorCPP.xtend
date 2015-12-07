@@ -1650,21 +1650,21 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			var VariableID prueba = new VariableIDImpl
 			prueba = op as VariableID
 			if(punteros.contains(prueba.nombre)) {
-				leer = leer + "*" + prueba.generate + ";"
+				leer = leer + prueba.generate + ";"
 			}
 		}
 		else if (op.eClass.name.equals("ValorVector")) {
 			var ValorVector prueba = new ValorVectorImpl
 			prueba = op as ValorVector
 			if(punteros.contains(prueba.nombre_vector)) {
-				leer = leer + "*" + prueba.generate + ";"
+				leer = leer + prueba.generate + ";"
 			}
 		}
 		else if (op.eClass.name.equals("ValorMatriz")) {
 			var ValorMatriz prueba = new ValorMatrizImpl
 			prueba = op as ValorMatriz
 			if(punteros.contains(prueba.nombre_matriz)) {
-				leer = leer + "*" + prueba.generate + ";"
+				leer = leer + prueba.generate + ";"
 			}
 		}
 		else {

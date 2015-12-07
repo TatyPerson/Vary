@@ -4082,7 +4082,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           boolean _contains = punteros.contains(_nombre);
           if (_contains) {
             CharSequence _generate = this.generate(prueba);
-            String _plus = ((leer + "*") + _generate);
+            String _plus = (leer + _generate);
             String _plus_1 = (_plus + ";");
             leer = _plus_1;
           }
@@ -4097,7 +4097,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             boolean _contains_1 = punteros.contains(_nombre_vector);
             if (_contains_1) {
               CharSequence _generate_1 = this.generate(prueba_1);
-              String _plus_2 = ((leer + "*") + _generate_1);
+              String _plus_2 = (leer + _generate_1);
               String _plus_3 = (_plus_2 + ";");
               leer = _plus_3;
             }
@@ -4112,7 +4112,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               boolean _contains_2 = punteros.contains(_nombre_matriz);
               if (_contains_2) {
                 CharSequence _generate_2 = this.generate(prueba_2);
-                String _plus_4 = ((leer + "*") + _generate_2);
+                String _plus_4 = (leer + _generate_2);
                 String _plus_5 = (_plus_4 + ";");
                 leer = _plus_5;
               }

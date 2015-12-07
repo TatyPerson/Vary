@@ -2,7 +2,7 @@ Manifest-Version: 2.0
 Bundle-ManifestVersion: 2
 Bundle-Name: vary.pseudocodigo.dsl.c.ui
 Bundle-Vendor: UCA
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.5
 Bundle-SymbolicName: vary.pseudocodigo.dsl.c.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: vary.pseudocodigo.dsl.c;visibility:=reexport,
@@ -25,8 +25,7 @@ Require-Bundle: vary.pseudocodigo.dsl.c;visibility:=reexport,
  org.eclipse.cdt.managedbuilder.core;bundle-version="8.3.0",
  org.eclipse.cdt.ui;bundle-version="5.7.0",
  org.eclipse.emf.mwe2.language;bundle-version="2.4.1",
- org.eclipse.emf.mwe2.launch;bundle-version="2.4.1",
- org.eclipse.xtext.xbase.lib
+ org.eclipse.emf.mwe2.launch;bundle-version="2.4.1"
 Import-Package: diagramapseudocodigo,
  org.apache.log4j,
  org.eclipse.xtext.xbase.lib,

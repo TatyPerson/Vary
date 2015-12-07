@@ -39,7 +39,7 @@ var
 
 initiation //Body main algorithm	
 
-end_initiation
+end_main
 
 end_algorithm
 «ENDFILE»

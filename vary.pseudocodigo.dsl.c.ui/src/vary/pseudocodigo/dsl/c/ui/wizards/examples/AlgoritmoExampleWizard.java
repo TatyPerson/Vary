@@ -160,7 +160,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + "inicio //Cuerpo de la funcion" + '\n' +
 					'\t' + '\t' + "resultado <- a + b" + '\n' +
 					'\t' + '\t' + "devolver resultado" + '\n' +
-					'\t' + "fin_inicio" + '\n' +
 					"fin_funcion" + '\n' + '\n' +
 
 					"//Ejemplo de procedimiento para realizar la suma de dos numeros" + '\n' + '\n' +
@@ -171,7 +170,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + "var" + '\n' +
 					'\t' + "inicio //Cuerpo del procedimiento" + '\n' +
 					'\t' + '\t' + "res <- a + b" + '\n' +
-					'\t' + "fin_inicio" + '\n' +
 					"fin_procedimiento" + '\n' + '\n' +
 
 					"//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero." + '\n' +
@@ -184,7 +182,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + "desde i <- 1 hasta n hacer" + '\n' +
 				    '\t' + '\t' + '\t' + "leer(v[i])" + '\n' +
 				   	'\t' + '\t' + "fin_desde" + '\n' +
-				   	'\t' + "fin_inicio" + '\n' +
 				   	"fin_procedimiento" + '\n' + '\n' +
 
 				   	"//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero." + '\n' +
@@ -197,11 +194,10 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + "i <- 1" + '\n' +
 				    '\t' + '\t' + "res <- 0" + '\n' +
 				    '\t' + '\t' + "//Ejemplo de bucle mientras." + '\n' +
-				    '\t' + '\t' + "mientras i <=n hacer" + '\n' +
+				    '\t' + '\t' + "mientras (i <=n) hacer" + '\n' +
 				    '\t' + '\t' + '\t' + "res <- res + v[i]" + '\n' +
 				    '\t' + '\t' + "fin_mientras" + '\n' +
 				    '\t' + '\t' + "devolver res" + '\n' +
-				    '\t' + "fin_inicio" + '\n' +
 				    "fin_funcion" + '\n' + '\n' +
 
 				    "//Precondicion: v es una variable de tipo tVect, vector de elementos de tipo entero." + '\n' +
@@ -214,7 +210,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + "desde i <- 1 hasta n hacer" + '\n' +
 				    '\t' + '\t' + '\t' + "escribir(v[i])" + '\n' +
 				    '\t' + '\t' + "fin_desde" + '\n' +
-				    '\t' + "fin_inicio" + '\n' +
 				    "fin_procedimiento" + '\n' + '\n' +
 
 
@@ -229,7 +224,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + '\t' + "escribir(\"El producto escalar del vector: \")" + '\n' +
 					'\t' + '\t' + "escribirVector(v, DIM)" + '\n' +
 				    '\t' + '\t' + "escribir(\"es: \", productoEscalar(v,DIM))" + '\n' +
-				    '\t' + "fin_inicio" + '\n' +
 				    "fin_procedimiento" + '\n' + '\n' +
 
 
@@ -244,9 +238,8 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + "escribir(\"1: Sumar dos operandos con una funcion.\")" + '\n' +
 				    '\t' + '\t' + '\t' + "escribir(\"2: Sumar dos operandos con un procedimiento.\")" + '\n' +
 				    '\t' + '\t' + '\t' + "escribir(\"3: Calcular el producto escalar de un vector.\")" + '\n' +
-				    '\t' + '\t' + "hasta_que valor>0 y valor<=3" + '\n' +
+				    '\t' + '\t' + "hasta_que (valor>0 y valor<=3)" + '\n' +
 				    '\t' + '\t' + "devolver valor" + '\n' +
-				    '\t' + "fin_inicio" + '\n' +
 				    "fin_funcion" + '\n' + '\n' +
 					
 				    "procedimiento operacion(E entero: opcion)" + '\n' +
@@ -266,7 +259,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + '\t' + "calculo_productoEscalar()" + '\n' +
 				    '\t' + '\t' + '\t' + "en_otro_caso: escribir(\"Opcion no valida.\")" + '\n' +
 					'\t' + '\t' + "fin_segun" + '\n' +
-					'\t' + "fin_inicio" + '\n' +
 					"fin_procedimiento" + '\n' + '\n' +
 
 
@@ -279,7 +271,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					"//En este ejemplo se realiza la llamada al menu y posteriormente a operacion" + '\n' +
 					'\t' + '\t' + "opcion <- menu()" + '\n' +
 					'\t' + '\t' + "operacion(opcion)" + '\n' +
-					"fin_inicio" + '\n' + '\n' +
+					"fin_principal" + '\n' + '\n' +
 					
 					"fin_algoritmo";
 		} else if(page.getExtensionFile().equals("ep")) {
@@ -305,67 +297,62 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 
 					"//Precondition: a, b>= 0 (integer initialized)" + '\n' +
 					"//Postcondition: returns a + b" + '\n' +
-					"integer function sumFun(E integer: a, E integer:  b)" + '\n' +
+					"integer function sumFun(I integer: a, I integer:  b)" + '\n' +
 					'\t' + "var //Declaration of variables" + '\n' +
 					'\t' + '\t' + "integer:  result" + '\n' +
 					'\t' + "initiation //Body Function" + '\n' +
 					'\t' + '\t' + "result <- a + b" + '\n' +
 					'\t' + '\t' + "return result" + '\n' +
-					'\t' + "end_initiation" + '\n' +
 					"end_function" + '\n' + '\n' +
 
 					"//Example of the procedure for adding two numbers" + '\n' + '\n' +
 					
 					"//Precondition: a, b>= 0 (integer initialized)" + '\n' +
 					"//Postcondition: returns a + b" + '\n' +
-					"procedure sumProc(E integer: a, E integer: b, S integer: res)" + '\n' +
+					"procedure sumProc(I integer: a, I integer: b, O integer: res)" + '\n' +
 					'\t' + "var" + '\n' +
 					'\t' + "initiation //Body Procedure" + '\n' +
 					'\t' + '\t' + "res <- a + b" + '\n' +
-					'\t' + "end_initiation" + '\n' +
 					"end_procedure" + '\n' + '\n' +
 
 					"//Precondition: v is a variable of type tVect, vector integer elements." + '\n' +
 					"//n is an integer variable that must be initialized n>= 0." + '\n' + 
 					"//Postcondition: v is initialized" + '\n' +
-					"procedure readVector(S tVect: v, E integer: n)" + '\n' +
+					"procedure readVector(O tVect: v, I integer: n)" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: i" + '\n' +
 				    '\t' + "initiation" + '\n' + '\n' +
 				    '\t' + '\t' + "for i <- 1 to n do" + '\n' +
 				    '\t' + '\t' + '\t' + "read(v[i])" + '\n' +
 				   	'\t' + '\t' + "end_for" + '\n' +
-				   	'\t' + "end_initiation" + '\n' +
 				   	"end_procedure" + '\n' + '\n' +
 
 				   	"//Precondition: v is a variable of type tVect, vector integer elements." + '\n' +
 				   	"//n is an integer variable that must be initialized n>= 0. " + '\n' +
 				   	"//Postcondition: returns the scalar product of the vector v" + '\n' +
-				   	"integer function scalarProduct(E tVect: v, E integer: n)" + '\n' +
+				   	"integer function scalarProduct(I tVect: v, I integer: n)" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: res, i" + '\n' +
 				    '\t' + "initiation" + '\n' +
 				    '\t' + '\t' + "i <- 1" + '\n' +
 				    '\t' + '\t' + "res <- 0" + '\n' +
 				    '\t' + '\t' + "//While loop example." + '\n' +
-				    '\t' + '\t' + "while i <=n do" + '\n' +
+				    '\t' + '\t' + "while (i <=n) do" + '\n' +
 				    '\t' + '\t' + '\t' + "res <- res + v[i]" + '\n' +
 				    '\t' + '\t' + "end_while" + '\n' +
 				    '\t' + '\t' + "return res" + '\n' +
-				    '\t' + "end_initiation" + '\n' +
 				    "end_function" + '\n' + '\n' +
 
 				    "//Precondition: v is a variable of type tVect, vector integer elements. " + '\n' +
 				    "//n is an integer variable that must be initialized n>= 0." + '\n' +
 				    "//Postcondition: vector values writes to stdout" + '\n' +
-				    "procedure writeVector(E tVect: v, E integer: n)" + '\n' +
+				    "procedure writeVector(I tVect: v, I integer: n)" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: i" + '\n' +
 				    '\t' + "initiation" + '\n' +
 				    '\t' + '\t' + "for i <- 1 to n do" + '\n' +
 				    '\t' + '\t' + '\t' + "write(v[i])" + '\n' +
 				    '\t' + '\t' + "end_for" + '\n' +
-				    '\t' + "end_initiation" + '\n' +
 				    "end_procedure" + '\n' + '\n' +
 
 
@@ -380,7 +367,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					'\t' + '\t' + "write(\"The scalar product of the vector: \")" + '\n' +
 					'\t' + '\t' + "writeVector(v, DIM)" + '\n' +
 				    '\t' + '\t' + "write(\"is: \", scalarProduct(v,DIM))" + '\n' +
-				    '\t' + "end_initiation" + '\n' +
 				    "end_procedure" + '\n' + '\n' +
 
 
@@ -395,12 +381,11 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + "write(\"1: Add two operands to a function.\")" + '\n' +
 				    '\t' + '\t' + '\t' + "write(\"2: Add two operands with a procedure.\")" + '\n' +
 				    '\t' + '\t' + '\t' + "write(\"3: Calculate the scalar product of a vector.\")" + '\n' +
-				    '\t' + '\t' + "until value>0 and value<=3" + '\n' +
+				    '\t' + '\t' + "until (value>0 and value<=3)" + '\n' +
 				    '\t' + '\t' + "return value" + '\n' +
-				    '\t' + "end_initiation" + '\n' +
 				    "end_function" + '\n' + '\n' +
 					
-				    "procedure operation(E integer: option)" + '\n' +
+				    "procedure operation(I integer: option)" + '\n' +
 				    '\t' + "var" + '\n' +
 				    '\t' + '\t' + "tVect: vect" + '\n' +
 					'\t' + '\t' + "integer: a, b, result" + '\n' +
@@ -417,7 +402,6 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + '\t' + '\t' + '\t' + "calculation_scalarProduct()" + '\n' +
 				    '\t' + '\t' + '\t' + "otherwise: write(\"Invalid option.\")" + '\n' +
 					'\t' + '\t' + "end_according_to" + '\n' +
-					'\t' + "end_initiation" + '\n' +
 					"end_procedure" + '\n' + '\n' +
 
 
@@ -430,7 +414,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					"//In this example the menu call operation is performed subsequently." + '\n' +
 					'\t' + '\t' + "option <- menu()" + '\n' +
 					'\t' + '\t' + "operation(option)" + '\n' +
-					"end_initiation" + '\n' + '\n' +
+					"end_main" + '\n' + '\n' +
 					
 					"end_algorithm";
 		}
