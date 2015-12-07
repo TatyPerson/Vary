@@ -5920,14 +5920,28 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   @Override
   public CharSequence generate(final Igualdad myIgualdad) {
-    operacion _left = myIgualdad.getLeft();
-    CharSequence _generate = this.generate(_left);
-    String _plus = (_generate + " ");
-    String _plus_1 = (_plus + "==");
-    String _plus_2 = (_plus_1 + " ");
-    operacion _right = myIgualdad.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    signo _signo_op = myIgualdad.getSigno_op();
+    String _literal = _signo_op.getLiteral();
+    boolean _equals = _literal.equals("=");
+    if (_equals) {
+      operacion _left = myIgualdad.getLeft();
+      CharSequence _generate = this.generate(_left);
+      String _plus = (_generate + " ");
+      String _plus_1 = (_plus + "==");
+      String _plus_2 = (_plus_1 + " ");
+      operacion _right = myIgualdad.getRight();
+      CharSequence _generate_1 = this.generate(_right);
+      return (_plus_2 + _generate_1);
+    } else {
+      operacion _left_1 = myIgualdad.getLeft();
+      CharSequence _generate_2 = this.generate(_left_1);
+      String _plus_3 = (_generate_2 + " ");
+      String _plus_4 = (_plus_3 + "!=");
+      String _plus_5 = (_plus_4 + " ");
+      operacion _right_1 = myIgualdad.getRight();
+      CharSequence _generate_3 = this.generate(_right_1);
+      return (_plus_5 + _generate_3);
+    }
   }
   
   @Override

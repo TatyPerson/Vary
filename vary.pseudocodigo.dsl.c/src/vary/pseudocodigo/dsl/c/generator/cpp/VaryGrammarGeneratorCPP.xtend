@@ -2315,7 +2315,12 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Igualdad myIgualdad) {
-		return myIgualdad.left.generate + " " + "==" + " " + myIgualdad.right.generate;
+		if(myIgualdad.signo_op.literal.equals("=")) {
+			return myIgualdad.left.generate + " " + "==" + " " + myIgualdad.right.generate;
+		}
+		else {
+			return myIgualdad.left.generate + " " + "!=" + " " + myIgualdad.right.generate;
+		}
 	}
 	
 	override generate(Negativa myNegativa) {
