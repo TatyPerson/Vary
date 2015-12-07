@@ -225,8 +225,8 @@ Leer returns Leer:
 	')';
 
 Si returns Si:
-	'si' 
-	'(' valor=operacion
+	('si' 
+	'(' | 'si(') valor=operacion
 	')' 'entonces'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
 		(devuelve=Devolver)?
@@ -234,8 +234,8 @@ Si returns Si:
 	'fin_si';
 
 mientras returns mientras:
-	'mientras'
-	'('
+	('mientras'
+	'(' | 'mientras(')
 	valor=operacion
 	')' 'hacer'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)*  )?
@@ -244,7 +244,7 @@ mientras returns mientras:
 repetir returns repetir:
 	'repetir'
 		(sentencias+=Sentencias ( sentencias+=Sentencias)*)?
-	 'hasta_que' '('
+	 ('hasta_que' '(' | 'hasta_que(')
 	 valor=operacion
 	 ')';
 
@@ -259,7 +259,7 @@ Caso returns Caso:
 ;
 	
 segun returns segun:
-	'segun_sea''('valor=Primaria')' 'hacer'
+	('segun_sea''(' | 'segun_sea(') valor=Primaria')' 'hacer'
 		(caso+=Caso ( caso+=Caso )* )?
 		'en_otro_caso:'
 		(sentencias+=Sentencias ( sentencias+=Sentencias )* )?

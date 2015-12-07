@@ -74,14 +74,18 @@ public class VaryAntlrTokenToAttributeIdMapper extends DefaultAntlrTokenToAttrib
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_HACER") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_DESDE") + "'").equals(tokenName) || 
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_MIENTRAS") + "'").equals(tokenName) ||
+				("'"+ readerKeywords.getBundle().getString("KEYWORD_MIENTRAS").concat("(") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_MIENTRAS") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_SI") + "'").equals(tokenName) ||
+				("'"+ readerKeywords.getBundle().getString("KEYWORD_SI").concat("(") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_ENTONCES") + "'").equals(tokenName) || 
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_SI") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_REPETIR") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_HASTA_QUE") + "'").equals(tokenName) ||
+				("'"+ readerKeywords.getBundle().getString("KEYWORD_HASTA_QUE").concat("(") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_CASO") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_SEGUN_SEA") + "'").equals(tokenName) ||
+				("'"+ readerKeywords.getBundle().getString("KEYWORD_SEGUN_SEA").concat("(") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_EN_OTRO_CASO") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_FIN_SEGUN") + "'").equals(tokenName) ||
 				("'"+ readerKeywords.getBundle().getString("KEYWORD_SINO") + "'").equals(tokenName)) {
