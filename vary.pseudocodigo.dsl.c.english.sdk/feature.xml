@@ -1,17 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature id="vary.pseudocodigo.dsl.c.english.sdk"
-	label="VaryGrammarEnglish SDK Feature "
-	version="1.0.0.qualifier">
-	<plugin
-			id="vary.pseudocodigo.dsl.c.english"
-			download-size="0"
-			install-size="0"
-			version="0.0.0"
-			unpack="false"/>
-	<plugin
-			id="vary.pseudocodigo.dsl.c.english.ui"
-			download-size="0"
-			install-size="0"
-			version="0.0.0"
-			unpack="false"/>
+<feature
+      id="vary.pseudocodigo.dsl.c.english.sdk"
+      label="VaryGrammarEnglish SDK Feature "
+      version="1.0.5"
+      os="linux,macosx,win32"
+      ws="win32"
+      nl="en,es,es_ES"
+      arch="x86,x86_64">
+
+   <url>
+      <update label="Vary Update site" url="http://tatyperson.github.io/Vary/"/>
+   </url>
+
+   <requires>
+      <import plugin="org.eclipse.cdt" version="8.3.0"/>
+      <import plugin="org.eclipse.xtext" version="2.4.3"/>
+      <import plugin="org.eclipse.gmf.runtime.common.core" version="1.7.0"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.7.0"/>
+   </requires>
+
+   <plugin
+         id="vary.pseudocodigo.dsl.c.english"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es,es_ES"
+         arch="x86,x86_64"
+         download-size="1500"
+         install-size="1500"
+         version="1.0.5"
+         unpack="false"/>
+
+   <plugin
+         id="vary.pseudocodigo.dsl.c.english.ui"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es,es_ES"
+         arch="x86,x86_64"
+         download-size="711"
+         install-size="711"
+         version="1.0.5"
+         unpack="false"/>
+
 </feature>

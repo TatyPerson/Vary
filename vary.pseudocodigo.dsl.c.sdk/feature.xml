@@ -1,17 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feature id="vary.pseudocodigo.dsl.c.sdk"
-	label="VaryGrammar SDK Feature "
-	version="1.0.0">
-	<plugin
-			id="vary.pseudocodigo.dsl.c"
-			download-size="0"
-			install-size="0"
-			version="0.0.0"
-			unpack="false"/>
-	<plugin
-			id="vary.pseudocodigo.dsl.c.ui"
-			download-size="0"
-			install-size="0"
-			version="0.0.0"
-			unpack="false"/>
+<feature
+      id="vary.pseudocodigo.dsl.c.sdk"
+      label="VaryGrammar SDK Feature "
+      version="1.0.5"
+      os="linux,macosx,win32"
+      ws="win32"
+      nl="en,es,es_ES"
+      arch="x86,x86_64">
+
+   <url>
+      <update label="Vary Update site" url="http://tatyperson.github.io/Vary/"/>
+   </url>
+
+   <includes
+         id="vary.pseudocodigo.dsl.c.english.sdk"
+         version="1.0.5"
+         name="Vary English"
+         os="linux,macosx,win32"
+         ws="win32"
+         arch="x86,x86_64"
+         nl="en,es,es_ES"/>
+
+   <requires>
+      <import plugin="org.eclipse.cdt" version="8.3.0"/>
+      <import plugin="org.eclipse.xtext" version="2.4.3"/>
+      <import plugin="org.eclipse.gmf.runtime.emf.core" version="1.7.0"/>
+      <import plugin="org.eclipse.gmf.runtime.common.core" version="1.7.0"/>
+   </requires>
+
+   <plugin
+         id="vary.pseudocodigo.dsl.c"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es_ES"
+         arch="x86,x86_64"
+         download-size="2100"
+         install-size="2100"
+         version="1.0.5"
+         unpack="false"/>
+
+   <plugin
+         id="vary.pseudocodigo.dsl.c.ui"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es_ES"
+         arch="x86,x86_64"
+         download-size="789"
+         install-size="789"
+         version="1.0.5"
+         unpack="false"/>
+
+   <plugin
+         id="PseudocodigoEMF"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es,es_ES"
+         arch="x86,x86_64"
+         download-size="468"
+         install-size="468"
+         version="1.0.5"
+         unpack="false"/>
+
+   <plugin
+         id="PseudocodigoEMF.edit"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es,es_ES"
+         arch="x86,x86_64"
+         download-size="1100"
+         install-size="1100"
+         version="1.0.5"
+         unpack="false"/>
+
+   <plugin
+         id="PseudocodigoEMF.editor"
+         os="linux,macosx,win32"
+         ws="win32"
+         nl="en,es,es_ES"
+         arch="x86,x86_64"
+         download-size="84"
+         install-size="84"
+         version="1.0.5"
+         unpack="false"/>
+
 </feature>
