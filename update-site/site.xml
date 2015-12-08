@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <description name="Vary Update site" url="http://tatyperson.github.io/Vary/">
+   <description name="Vary Update site" url="http://tatyperson.github.io/Vary/update-site/site.xml">
       Update site for Vary. Vary is a environment based on Eclipse IDE for improving computer programming learning. This environment allows user to program algorithms in a pseudocode way and automatically transform them into a executable code in several languages, such as C or C++. It also allows the measurement of quality of the algorithms from the SonarQube platform.
    </description>
    <feature url="features/vary.pseudocodigo.dsl.c.sdk_1.0.5.jar" id="vary.pseudocodigo.dsl.c.sdk" version="1.0.5" os="linux,macosx,win32" ws="win32" nl="en,es,es_ES" arch="x86,x86_64">
