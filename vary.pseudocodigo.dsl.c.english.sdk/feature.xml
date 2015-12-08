@@ -9,7 +9,7 @@
       arch="x86,x86_64">
 
    <url>
-      <update label="Vary Update site" url="http://tatyperson.github.io/Vary/"/>
+      <update label="Vary Update site" url="http://tatyperson.github.io/Vary/update-site/site.xml"/>
    </url>
 
    <requires>
