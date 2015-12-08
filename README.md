@@ -7,3 +7,5 @@ Vary testing plan: https://drive.google.com/file/d/0B-aW6P4G9rDxRnNDY2dLVGZCT1U/
 Vary plug-in for Sonar JavaDoc: http://tatyperson.github.io/Vary/doc-sonar/
 
 Vary plug-in for Eclipse JavaDoc: http://tatyperson.github.io/Vary/doc-eclipse/
+
+Vary update site for Eclipse: http://tatyperson.github.io/Vary/update-site/site.xml
