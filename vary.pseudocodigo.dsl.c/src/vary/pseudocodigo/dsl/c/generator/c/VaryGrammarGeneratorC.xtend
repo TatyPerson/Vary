@@ -1548,12 +1548,15 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(ValorRegistro myValor) {
-
 		//Este metodo esta escrito con otra sintaxis diferente porque me generaba un salto de linea innecesario
 		var concat = new String;
 		concat = myValor.nombre_registro.toString + '.'
 		for (myVariable : myValor.campo) {
-			concat = concat + myVariable.generate.toString;
+			if(myValor.campo.indexOf(myVariable) == myValor.campo.size() - 1) {
+				concat = concat + myVariable.generate.toString;
+			} else {
+				concat = concat + myVariable.generate.toString + ".";
+			}
 		}
 		return concat;
 	}
@@ -1813,7 +1816,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}	
 				else if(op.eClass.name.equals("ValorRegistro")) {
 					var registro = op as ValorRegistro;
-					tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					if(registro.campo.size() == 1) {
+						tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					} else {
+						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+						tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+					}
 				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 					if(resultado == "") {
@@ -1918,7 +1926,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 			else if(op.eClass.name.equals("ValorRegistro")) {
 				var registro = op as ValorRegistro;
-				tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+				if(registro.campo.size() == 1) {
+					tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+				} else {
+					var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+					tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+				}
 			}
 			if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 					if(resultado == "") {
@@ -2051,7 +2064,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}	
 				else if(op.eClass.name.equals("ValorRegistro")) {
 					var registro = op as ValorRegistro;
-					tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					if(registro.campo.size() == 1) {
+						tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					} else {
+						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+						tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+					}
 				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 					if(resultado == "") {
@@ -2332,7 +2350,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}	
 						else if(o.eClass.name.equals("ValorRegistro")) {
 							var registro = o as ValorRegistro;
-							tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+							//El último campo nos proporcionará el tipo
+							if(registro.campo.size() == 1) {
+								tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+							} else {
+								var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+								tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+							}
 						}
 						else if(o.eClass.name.equals("LlamadaFuncion")) {
 							var llamadaFuncion = o as LlamadaFuncion;
@@ -2461,7 +2485,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}	
 						else if(o.eClass.name.equals("ValorRegistro")) {
 							var registro = o as ValorRegistro;
-							tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+							//El último campo nos proporcionará el tipo
+							if(registro.campo.size() == 1) {
+								tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+							} else {
+								var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+								tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+							}
 						}
 						else if(o.eClass.name.equals("LlamadaFuncion")) {
 							var llamadaFuncion = o as LlamadaFuncion;
@@ -2591,7 +2621,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					else if(o.eClass.name.equals("ValorRegistro")) {
 						var registro = o as ValorRegistro;
-						tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+						//El último campo nos proporcionará el tipo
+						if(registro.campo.size() == 1) {
+							tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+						} else {
+							var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+							tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+						}	
 					}
 					else if(o.eClass.name.equals("LlamadaFuncion")) {
 						var llamadaFuncion = o as LlamadaFuncion;
@@ -2748,7 +2784,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}	
 						else if(o.eClass.name.equals("ValorRegistro")) {
 							var registro = o as ValorRegistro;
-							tipo = registros.get(variablesSubprocesos.get(s.nombre).get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+							//El último campo nos proporcionará el tipo
+							if(registro.campo.size() == 1) {
+								tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+							} else {
+								var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+								tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+							}
 						}
 						else if(o.eClass.name.equals("LlamadaFuncion")) {
 							var llamadaFuncion = o as LlamadaFuncion;

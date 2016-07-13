@@ -1544,12 +1544,15 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(ValorRegistro myValor) {
-
 		//Este metodo esta escrito con otra sintaxis diferente porque me generaba un salto de linea innecesario
 		var concat = new String;
 		concat = myValor.nombre_registro.toString + '.'
 		for (myVariable : myValor.campo) {
-			concat = concat + myVariable.generate.toString;
+			if(myValor.campo.indexOf(myVariable) == myValor.campo.size() - 1) {
+				concat = concat + myVariable.generate.toString;
+			} else {
+				concat = concat + myVariable.generate.toString + ".";
+			}
 		}
 		return concat;
 	}

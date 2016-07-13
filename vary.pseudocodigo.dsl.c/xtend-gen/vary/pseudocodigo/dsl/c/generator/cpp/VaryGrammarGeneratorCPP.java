@@ -3922,10 +3922,24 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     concat = _plus;
     EList<CampoRegistro> _campo = myValor.getCampo();
     for (final CampoRegistro myVariable : _campo) {
-      CharSequence _generate = this.generate(myVariable);
-      String _string_1 = _generate.toString();
-      String _plus_1 = (concat + _string_1);
-      concat = _plus_1;
+      EList<CampoRegistro> _campo_1 = myValor.getCampo();
+      int _indexOf = _campo_1.indexOf(myVariable);
+      EList<CampoRegistro> _campo_2 = myValor.getCampo();
+      int _size = _campo_2.size();
+      int _minus = (_size - 1);
+      boolean _equals = (_indexOf == _minus);
+      if (_equals) {
+        CharSequence _generate = this.generate(myVariable);
+        String _string_1 = _generate.toString();
+        String _plus_1 = (concat + _string_1);
+        concat = _plus_1;
+      } else {
+        CharSequence _generate_1 = this.generate(myVariable);
+        String _string_2 = _generate_1.toString();
+        String _plus_2 = (concat + _string_2);
+        String _plus_3 = (_plus_2 + ".");
+        concat = _plus_3;
+      }
     }
     return concat;
   }
