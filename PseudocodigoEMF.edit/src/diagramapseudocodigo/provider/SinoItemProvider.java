@@ -307,16 +307,6 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAsignacionNormal()));
 
 		newChildDescriptors.add
@@ -338,6 +328,11 @@ public class SinoItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter

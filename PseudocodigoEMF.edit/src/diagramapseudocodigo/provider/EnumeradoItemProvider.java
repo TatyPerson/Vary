@@ -272,16 +272,6 @@ public class EnumeradoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -293,6 +283,11 @@ public class EnumeradoItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 }

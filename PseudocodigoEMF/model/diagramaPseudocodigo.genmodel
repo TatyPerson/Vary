@@ -6,13 +6,6 @@
     publicConstructors="true" operationReflection="true" importOrganizing="true">
   <foreignModel>diagramaPseudocodigo.ecore</foreignModel>
   <genPackages prefix="Diagramapseudocodigo" disposableProviderFactory="true" ecorePackage="diagramaPseudocodigo.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//TipoVariable">
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoVariable/entero"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoVariable/caracter"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoVariable/cadena"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoVariable/logico"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoVariable/real"/>
-    </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//signo">
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/sum"/>
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/res"/>
@@ -26,20 +19,13 @@
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/o"/>
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/igualigual"/>
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/distinto"/>
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/and"/>
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/or"/>
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/mod"/>
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//signo/div_real"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//booleano">
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//booleano/verdadero"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//booleano/falso"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//inc">
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//inc/masmas"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//inc/menosmenos"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//inc/no"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//TipoPaso">
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoPaso/Entrada"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoPaso/EntradaSalida"/>
-      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//TipoPaso/Salida"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//neg">
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//neg/no"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//NombreInterna">
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//NombreInterna/cos"/>
@@ -52,12 +38,19 @@
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//NombreInterna/longitud"/>
       <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//NombreInterna/concatena"/>
     </genEnums>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Codigo">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Codigo/tiene"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Codigo/funcion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Codigo/nombre"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Codigo/constantes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Codigo/tipocomplejo"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="diagramaPseudocodigo.ecore#//ModoApertura">
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//ModoApertura/escritura"/>
+      <genEnumLiterals ecoreEnumLiteral="diagramaPseudocodigo.ecore#//ModoApertura/lectura"/>
+    </genEnums>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Algoritmo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/tiene"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/funcion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Algoritmo/nombre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/constantes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/tipocomplejo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/comentarios"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/global"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Algoritmo/importaciones"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Inicio">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Inicio/tiene"/>
@@ -66,15 +59,15 @@
     <genClasses image="false" ecoreClass="diagramaPseudocodigo.ecore#//Sentencias"/>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//DeclaracionVariable">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//DeclaracionVariable/tipo"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//DeclaracionVariable/tieneIDs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//DeclaracionVariable/variable"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//LlamadaFuncion">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//LlamadaFuncion/nombre"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//LlamadaFuncion/operador"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//LlamadaFuncion/operadores"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//VariableID">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//VariableID/nombre"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//VariableID/Mat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//VariableID/nombre"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//cadena"/>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ConstCadena">
@@ -88,10 +81,7 @@
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//NumeroEntero">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//NumeroEntero/valor"/>
     </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Asignacion">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Asignacion/operador"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Asignacion/Mat"/>
-    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Asignacion"/>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Escribir">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Escribir/operador"/>
     </genClasses>
@@ -100,9 +90,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Funcion/devuelve"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ParametroFuncion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ParametroFuncion/tipo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ParametroFuncion/variable"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ParametroFuncion/paso"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ParametroFuncion/tipo"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Leer">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Leer/variable"/>
@@ -111,17 +101,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//NumeroDecimal/valor"/>
     </genClasses>
     <genClasses image="false" ecoreClass="diagramaPseudocodigo.ecore#//valor"/>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//operacion">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//operacion/signo_op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//operacion/op_izq"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//operacion/op_der"/>
-    </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//operando_izq">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//operando_izq/oper_izq"/>
-    </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//operando_der">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//operando_der/oper_der"/>
-    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//operacion"/>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ValorBooleano">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorBooleano/valor"/>
     </genClasses>
@@ -142,10 +122,6 @@
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//desde">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//desde/asignacion"/>
     </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//incremento">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//incremento/nombre"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//incremento/ssigno"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="diagramaPseudocodigo.ecore#//Subproceso">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Subproceso/parametrofuncion"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Subproceso/sentencias"/>
@@ -158,7 +134,7 @@
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Internas">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Internas/nombre"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Internas/operador"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Internas/operadores"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//segun">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//segun/caso"/>
@@ -169,13 +145,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Devolver/devuelve"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Caso">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Caso/operador"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Caso/devuelve"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Caso/sentencias"/>
-    </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//unaria">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//unaria/ssigno"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//unaria/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Caso/operador"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Constantes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Constantes/variable"/>
@@ -227,26 +199,124 @@
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//CampoRegistro">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//CampoRegistro/nombre_campo"/>
     </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//AsignacionNormal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//AsignacionNormal/lvalue"/>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ValorVector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorVector/nombre_vector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ValorVector/campo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ValorVector/indice"/>
     </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//AsignacionCompleja">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//AsignacionCompleja/complejo"/>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ValorMatriz">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorMatriz/nombre_matriz"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ValorMatriz/campo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ValorMatriz/primerIndice"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ValorMatriz/segundoIndice"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Comentario">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Comentario/mensaje"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//FuncionFicheroAbrir">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//FuncionFicheroAbrir/modo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//FuncionFicheroAbrir/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//FuncionFicheroCerrar">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//FuncionFicheroCerrar/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Suma">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Suma/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Suma/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Suma/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Resta">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Resta/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Resta/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Resta/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Multiplicacion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Multiplicacion/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Multiplicacion/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Multiplicacion/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Division">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Division/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Division/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Division/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Or">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Or/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Or/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Or/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//And/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//And/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//And/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Comparacion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Comparacion/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Comparacion/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Comparacion/signo_op"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Igualdad">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Igualdad/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Igualdad/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Igualdad/signo_op"/>
     </genClasses>
     <genClasses ecoreClass="diagramaPseudocodigo.ecore#//SubrangoNumerico">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//SubrangoNumerico/limite_inf"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//SubrangoNumerico/limite_sup"/>
     </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//SubrangoRegistro"/>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ValorVector">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorVector/nombre_vector"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//ValorVector/campo"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorVector/elemento"/>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//SubrangoEnumerado">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//SubrangoEnumerado/limite_inf"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//SubrangoEnumerado/limite_sup"/>
     </genClasses>
-    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//ValorMatriz">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorMatriz/nombre_matriz"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorMatriz/elemento_i"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//ValorMatriz/elemento_j"/>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//AsignacionNormal">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//AsignacionNormal/Mat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//AsignacionNormal/valor_asignacion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//AsignacionNormal/operador"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//AsignacionCompleja">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//AsignacionCompleja/operador"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//AsignacionCompleja/valor_asignacion"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Codigo"/>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Modulo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Modulo/nombre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Modulo/implementacion"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Modulo/importaciones"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Modulo/exporta_global"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Modulo/exporta_tipos"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Modulo/exporta_constantes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Modulo/exporta_funciones"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//CabeceraSubproceso">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//CabeceraSubproceso/nombre"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//CabeceraSubproceso/parametrofuncion"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Implementacion">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Implementacion/funcion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Implementacion/global"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Implementacion/constantes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Implementacion/tipocomplejo"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//CabeceraProcedimiento"/>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//CabeceraFuncion">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//CabeceraFuncion/tipo"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Mod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Mod/signo_op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Mod/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Mod/left"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Div">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Div/signo_op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Div/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Div/right"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//OperacionParentesis">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//OperacionParentesis/valor_operacion"/>
+    </genClasses>
+    <genClasses ecoreClass="diagramaPseudocodigo.ecore#//Unaria">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference diagramaPseudocodigo.ecore#//Unaria/right"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute diagramaPseudocodigo.ecore#//Unaria/signo_op"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

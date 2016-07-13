@@ -272,16 +272,6 @@ public class AndItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.AND__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.AND__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.AND__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -293,6 +283,11 @@ public class AndItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.AND__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.AND__LEFT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -402,16 +397,6 @@ public class AndItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.AND__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.AND__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.AND__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -423,6 +408,11 @@ public class AndItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.AND__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.AND__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 	/**

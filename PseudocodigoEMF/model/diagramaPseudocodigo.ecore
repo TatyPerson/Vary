@@ -178,12 +178,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="operador" lowerBound="1"
         eType="#//operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="unaria" eSuperTypes="#//valor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ssigno" lowerBound="1"
-        eType="#//neg"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-        eType="#//valor" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Constantes">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//Variable" containment="true"/>
@@ -357,14 +351,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="limite_sup" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Negativa" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" lowerBound="1"
-        eType="#//operacion" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Negacion" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" lowerBound="1"
-        eType="#//operacion" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AsignacionNormal" eSuperTypes="#//Asignacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mat" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor_asignacion" lowerBound="1"
@@ -433,5 +419,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="OperacionParentesis" eSuperTypes="#//operacion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//operacion"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unaria" eSuperTypes="#//operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -275,16 +275,6 @@ public class ValorVectorItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -296,6 +286,11 @@ public class ValorVectorItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 }

@@ -315,13 +315,6 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiagramapseudocodigoPackage.UNARIA: {
-				unaria unaria = (unaria)theEObject;
-				T result = caseunaria(unaria);
-				if (result == null) result = casevalor(unaria);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DiagramapseudocodigoPackage.CONSTANTES: {
 				Constantes constantes = (Constantes)theEObject;
 				T result = caseConstantes(constantes);
@@ -566,24 +559,6 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case DiagramapseudocodigoPackage.NEGATIVA: {
-				Negativa negativa = (Negativa)theEObject;
-				T result = caseNegativa(negativa);
-				if (result == null) result = caseoperacion(negativa);
-				if (result == null) result = casevalor(negativa);
-				if (result == null) result = caseSentencias(negativa);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case DiagramapseudocodigoPackage.NEGACION: {
-				Negacion negacion = (Negacion)theEObject;
-				T result = caseNegacion(negacion);
-				if (result == null) result = caseoperacion(negacion);
-				if (result == null) result = casevalor(negacion);
-				if (result == null) result = caseSentencias(negacion);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case DiagramapseudocodigoPackage.ASIGNACION_NORMAL: {
 				AsignacionNormal asignacionNormal = (AsignacionNormal)theEObject;
 				T result = caseAsignacionNormal(asignacionNormal);
@@ -663,6 +638,15 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 				if (result == null) result = caseoperacion(operacionParentesis);
 				if (result == null) result = casevalor(operacionParentesis);
 				if (result == null) result = caseSentencias(operacionParentesis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case DiagramapseudocodigoPackage.UNARIA: {
+				Unaria unaria = (Unaria)theEObject;
+				T result = caseUnaria(unaria);
+				if (result == null) result = caseoperacion(unaria);
+				if (result == null) result = casevalor(unaria);
+				if (result == null) result = caseSentencias(unaria);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -817,6 +801,21 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseOperacionParentesis(OperacionParentesis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Unaria</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Unaria</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseUnaria(Unaria object) {
 		return null;
 	}
 
@@ -1301,21 +1300,6 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>unaria</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>unaria</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseunaria(unaria object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Constantes</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -1777,36 +1761,6 @@ public class DiagramapseudocodigoSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSubrangoEnumerado(SubrangoEnumerado object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Negativa</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Negativa</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNegativa(Negativa object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Negacion</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Negacion</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseNegacion(Negacion object) {
 		return null;
 	}
 

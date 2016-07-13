@@ -231,16 +231,6 @@ public class BloqueItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -252,6 +242,11 @@ public class BloqueItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -411,16 +406,6 @@ public class BloqueItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAsignacionNormal()));
 
 		newChildDescriptors.add
@@ -442,6 +427,11 @@ public class BloqueItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 	/**

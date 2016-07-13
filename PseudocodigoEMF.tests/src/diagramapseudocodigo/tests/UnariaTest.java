@@ -3,17 +3,17 @@
 package diagramapseudocodigo.tests;
 
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
-import diagramapseudocodigo.Negativa;
+import diagramapseudocodigo.Unaria;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Negativa</b></em>'.
+ * A test case for the model object '<em><b>Unaria</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class NegativaTest extends operacionTest {
+public class UnariaTest extends operacionTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class NegativaTest extends operacionTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(NegativaTest.class);
+		TestRunner.run(UnariaTest.class);
 	}
 
 	/**
-	 * Constructs a new Negativa test case with the given name.
+	 * Constructs a new Unaria test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NegativaTest(String name) {
+	public UnariaTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Negativa test case.
+	 * Returns the fixture for this Unaria test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Negativa getFixture() {
-		return (Negativa)fixture;
+	protected Unaria getFixture() {
+		return (Unaria)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class NegativaTest extends operacionTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(DiagramapseudocodigoFactory.eINSTANCE.createNegativa());
+		setFixture(DiagramapseudocodigoFactory.eINSTANCE.createUnaria());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class NegativaTest extends operacionTest {
 		setFixture(null);
 	}
 
-} //NegativaTest
+} //UnariaTest

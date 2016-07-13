@@ -90,7 +90,6 @@ import diagramapseudocodigo.mientras;
 import diagramapseudocodigo.operacion;
 import diagramapseudocodigo.repetir;
 import diagramapseudocodigo.segun;
-import diagramapseudocodigo.unaria;
 import diagramapseudocodigo.valor;
 
 public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
@@ -1753,8 +1752,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
 		}
 		else if(si.getValor() instanceof Negativa) {
-			Negativa negativa = (Negativa) si.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+			//Negativa negativa = (Negativa) si.getValor();
+			//error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
 		}
 		else if(si.getValor() instanceof Or) {
 			Or or = (Or) si.getValor();
@@ -1802,8 +1801,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
 		}
 		else if(miMientras.getValor() instanceof Negativa) {
-			Negativa negativa = (Negativa) miMientras.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+			//Negativa negativa = (Negativa) miMientras.getValor();
+			//error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
 		}
 		else if(miMientras.getValor() instanceof Or) {
 			Or or = (Or) miMientras.getValor();
@@ -1852,8 +1851,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
 		}
 		else if(miRepetir.getValor() instanceof Negativa) {
-			Negativa negativa = (Negativa) miRepetir.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
+			//Negativa negativa = (Negativa) miRepetir.getValor();
+			//error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
 		}
 		else if(miRepetir.getValor() instanceof Or) {
 			Or or = (Or) miRepetir.getValor();
@@ -2890,7 +2889,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			else if(sen instanceof Negacion) {
 				Negacion neg = (Negacion) sen;
 				if(!variables.contains(neg.getValor_operacion())){
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", neg.getValor_operacion()), neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION, VARIABLE_NO_DEFINIDA);
+					//error(readerMessages.getString("VARIABLE_NO_DECLARADA", neg.getValor_operacion()), neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION, VARIABLE_NO_DEFINIDA);
 				}
 			}
 			
@@ -2908,7 +2907,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
-					else if(as.getOperador() instanceof unaria) {
+					/*else if(as.getOperador() instanceof unaria) {
 						unaria u = (unaria) as.getOperador();
 						if(u.getVariable() instanceof VariableID) {
 							VariableID v = (VariableID) u.getVariable();
@@ -2916,7 +2915,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
-					}
+					}*/
 					else if(as.getOperador() instanceof operacion) {
 						operacion o = (operacion) as.getOperador();
 						ArrayList<valor> valores = new ArrayList<valor>();
@@ -3108,7 +3107,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 						}
 					}
-					else if(ac.getOperador() instanceof unaria) {
+					/*else if(ac.getOperador() instanceof unaria) {
 						unaria u = (unaria) ac.getOperador();
 						if(u.getVariable() instanceof VariableID) {
 							VariableID v = (VariableID) u.getVariable();
@@ -3116,7 +3115,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 							}
 						}
-					}
+					}*/
 					else if(ac.getOperador() instanceof operacion) {
 						operacion o = (operacion) ac.getOperador();
 						ArrayList<valor> valores = new ArrayList<valor>();
@@ -4377,7 +4376,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
-						else if(op instanceof unaria) {
+						/*else if(op instanceof unaria) {
 							unaria u = (unaria) op;
 							if(!(u.getVariable() instanceof ValorBooleano) && (!(u.getVariable() instanceof VariableID))) {
 								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
@@ -4388,7 +4387,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 									errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 								}
 							}
-						}
+						}*/
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
 							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(v.getNombre())) {

@@ -66,7 +66,6 @@ import diagramapseudocodigo.mientras;
 import diagramapseudocodigo.operacion;
 import diagramapseudocodigo.repetir;
 import diagramapseudocodigo.segun;
-import diagramapseudocodigo.unaria;
 import diagramapseudocodigo.valor;
 
 public interface VaryGeneratorInterface {
@@ -111,7 +110,6 @@ public interface VaryGeneratorInterface {
 	CharSequence generate(ConstCadena cadena);
 	CharSequence generate(Caracter caracter);
 	CharSequence generate(VariableID variable);
-	CharSequence generate(unaria unaria);
 	CharSequence generate(Leer leer);
 	CharSequence generate(Escribir escribir);
 	CharSequence generate(Internas internas);

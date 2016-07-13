@@ -278,16 +278,6 @@ public class DevolverItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -299,6 +289,11 @@ public class DevolverItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.DEVOLVER__DEVUELVE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 	/**

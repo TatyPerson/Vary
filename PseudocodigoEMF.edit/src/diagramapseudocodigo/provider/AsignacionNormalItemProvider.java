@@ -296,16 +296,6 @@ public class AsignacionNormalItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -317,6 +307,11 @@ public class AsignacionNormalItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 }

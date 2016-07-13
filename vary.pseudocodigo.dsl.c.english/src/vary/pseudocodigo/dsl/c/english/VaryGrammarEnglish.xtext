@@ -9,33 +9,32 @@ Codigo returns Codigo:
 	
 Algoritmo returns Algoritmo:
 	'Algorithm' nombre=EString
-	(comentarios+=Comentario (comentarios+=Comentario)* )?
 	('import'
-	(importaciones+=[Modulo] (importaciones+=[Modulo])* )?
+	(importaciones+=[Modulo])*
 	'end_import')?
 	('const'
-		( constantes+=Constantes (constantes+=Constantes)* )? )?
+		(constantes+=Constantes)* )?
 	('type'
-		( tipocomplejo+=TipoComplejo (tipocomplejo+=TipoComplejo)* )? )?
+		(tipocomplejo+=TipoComplejo)* )?
 	('var'
-		( global+=Declaracion ( global+=Declaracion)* )? )?
-	(funcion+=Subproceso (funcion+=Subproceso)* )?
+		(global+=Declaracion)* )?
+	(funcion+=Subproceso)*
 	tiene=Inicio
 	'end_algorithm';
 	
 Modulo returns Modulo:
 	'Module' nombre=ID
 	'import'
-	(importaciones+=[Modulo] (importaciones+=[Modulo])* )?
+	(importaciones+=[Modulo])*
 	'end_import'
 	'export'
 	('const'
-	(exporta_constantes+=EString (exporta_constantes+=EString)* )? )?
+	(exporta_constantes+=EString)* )?
 	('type'
-	(exporta_tipos+=EString (exporta_tipos+=EString)* )? )?
+	(exporta_tipos+=EString)* )? 
 	('var'
-		( exporta_global+=Declaracion ( exporta_global+=Declaracion)* )? )?
-	(exporta_funciones+=CabeceraSubproceso (exporta_funciones+=CabeceraSubproceso)* )?
+		(exporta_global+=Declaracion)* )? 
+	(exporta_funciones+=CabeceraSubproceso)* 
 	'end_export'
 	implementacion=Implementacion
 	'end_module';
@@ -44,12 +43,12 @@ Implementacion returns Implementacion:
 	{Implementacion}
 	'implementation'
 	('const'
-		( constantes+=Constantes (constantes+=Constantes)* )? )?
+		(constantes+=Constantes)* )? 
 	('type'
-		( tipocomplejo+=TipoComplejo (tipocomplejo+=TipoComplejo)* )? )?
+		(tipocomplejo+=TipoComplejo)* )?
 	('var'
-		( global+=Declaracion ( global+=Declaracion)* )? )?
-	(funcion+=Subproceso (funcion+=Subproceso)* )?
+		(global+=Declaracion)* )? 
+	(funcion+=Subproceso)* 
 	'end_implementation'
 ;
 
@@ -154,7 +153,7 @@ Matriz returns Matriz:
 
 Registro returns Registro:
 	'registry:' nombre=EString
-			(variable+=Declaracion (variable+=Declaracion)* )
+			(variable+=Declaracion)+
 	'end_registry';
 	
 Archivo returns Archivo:
@@ -177,9 +176,9 @@ Inicio returns Inicio:
 	'main'
 	{Inicio}
 	'var'
-	( declaracion+=Declaracion ( declaracion+=Declaracion)* )?
+	(declaracion+=Declaracion)*
 	'initiation'
-		(tiene+=Sentencias (  tiene+=Sentencias)*  )?
+		(tiene+=Sentencias)*
 	'end_main';
 
 EString returns ecore::EString:
@@ -228,7 +227,7 @@ Si returns Si:
 	'(' | 'if(')
 	valor=operacion
 	')' 'then'
-		(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
+		(sentencias+=Sentencias)*
 		(devuelve=Devolver)?
 	(sino=Sino)?
 	'end_if';
@@ -238,31 +237,31 @@ mientras returns mientras:
 	'(' | 'while(')
 	valor=operacion
 	')' 'do'
-		(sentencias+=Sentencias ( sentencias+=Sentencias)*  )?
+		(sentencias+=Sentencias)* 
 	'end_while';
 
 repetir returns repetir:
 	'repeat'
-		(sentencias+=Sentencias ( sentencias+=Sentencias)*)?
+		(sentencias+=Sentencias)*
 	 ('until' 
 	 '(' | 'until(')
 	 valor=operacion ')';
 
 desde returns desde:
 	'for' asignacion=AsignacionNormal 'to' valor=operacion 'do'
-		(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
+		(sentencias+=Sentencias)* 
 	'end_for';
 	
 Caso returns Caso:
-	'case' operador=Primaria ': ' (sentencias+=Sentencias ( sentencias+=Sentencias )* )?
+	'case' operador=Primaria ': ' ( sentencias+=Sentencias )*
 	(devuelve=Devolver)?
 ;
 	
 segun returns segun:
 	('according_to''(' | 'according_to(') valor=Primaria')' 'do'
-		(caso+=Caso ( caso+=Caso )* )?
+		(caso+=Caso )*
 		'otherwise:'
-		(sentencias+=Sentencias ( sentencias+=Sentencias )* )?
+		( sentencias+=Sentencias )*
 		(devuelve=Devolver)?
 	'end_according_to';
 
@@ -392,8 +391,8 @@ PrimariaIndice returns operacion:
 Primaria returns operacion:
 	VariablesBasicas |
 	VariablesComplejas
-	| {Negativa} '-(' valor_operacion=operacion ')'
-	| {Negacion} 'not''(' valor_operacion=operacion ')'
+	//| {Negativa} '-(' valor_operacion=operacion ')'
+	//| {Negacion} 'not''(' valor_operacion=operacion ')'
 	| Funciones
 	| {OperacionParentesis} '(' valor_operacion=operacion ')';
 	
@@ -438,9 +437,9 @@ Funcion returns Funcion:
 	'function'
 	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
 	('var'
-	( declaracion+=Declaracion ( declaracion+=Declaracion)* )? )?
+	(declaracion+=Declaracion)* )?
 	'initiation'
-	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
+	(sentencias+=Sentencias)* 
 	(devuelve=Devolver)?
 	'end_function';
 	
@@ -448,9 +447,9 @@ Procedimiento returns Procedimiento:
 	'procedure'
 	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
 	('var'
-	( declaracion+=Declaracion ( declaracion+=Declaracion)* )? )?
+	(declaracion+=Declaracion)* )?
 	'initiation'
-	( sentencias+=Sentencias (  sentencias+=Sentencias)*  )?
+	(sentencias+=Sentencias)*
 	'end_procedure';
 	
 TipoPaso returns ecore::EString:

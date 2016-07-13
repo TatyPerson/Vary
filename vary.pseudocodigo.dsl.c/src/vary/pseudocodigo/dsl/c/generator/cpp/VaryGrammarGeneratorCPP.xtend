@@ -61,7 +61,6 @@ import diagramapseudocodigo.impl.repetirImpl
 import diagramapseudocodigo.desde
 import diagramapseudocodigo.impl.desdeImpl
 import diagramapseudocodigo.Negacion
-import diagramapseudocodigo.impl.NegacionImpl
 import diagramapseudocodigo.Leer
 import diagramapseudocodigo.impl.LeerImpl
 import diagramapseudocodigo.Escribir
@@ -99,8 +98,6 @@ import diagramapseudocodigo.operacion
 import diagramapseudocodigo.impl.operacionImpl
 import diagramapseudocodigo.Internas
 import diagramapseudocodigo.impl.InternasImpl
-import diagramapseudocodigo.unaria
-import diagramapseudocodigo.impl.unariaImpl
 import diagramapseudocodigo.NombreInterna
 import diagramapseudocodigo.Suma
 import diagramapseudocodigo.impl.SumaImpl
@@ -119,7 +116,6 @@ import diagramapseudocodigo.impl.ComparacionImpl
 import diagramapseudocodigo.Igualdad
 import diagramapseudocodigo.impl.IgualdadImpl
 import diagramapseudocodigo.Negativa
-import diagramapseudocodigo.impl.NegativaImpl
 import diagramapseudocodigo.Devolver
 import diagramapseudocodigo.Sino
 import java.io.IOException
@@ -454,6 +450,8 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA"))) {
 				total = total + "const " + p.tipo.generate;
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && p.tipo instanceof TipoExistente) {
+				total = total + p.tipo.generate + "*";
 			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
 				total = total + p.tipo.generate + "*";
 			} else {
@@ -511,7 +509,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
+				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -524,7 +525,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(procedimiento.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
+				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -541,7 +545,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				subprocesosConPunteros.put(cabeceraFuncion.nombre, new ArrayList<Integer>());
 				var numParametro = 1;
 				for(ParametroFuncion parametro: cabeceraFuncion.parametrofuncion) {
-					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(cabeceraFuncion.nombre).add(numParametro)
+					}	
+					else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 						subprocesosConPunteros.get(cabeceraFuncion.nombre).add(numParametro)
 					}
 					numParametro = numParametro + 1;
@@ -555,6 +562,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				subprocesosConPunteros.put(cabeceraProcedimiento.nombre, new ArrayList<Integer>());
 				var numParametro = 1;
 				for(ParametroFuncion parametro: cabeceraProcedimiento.parametrofuncion) {
+					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+						subprocesosConPunteros.get(cabeceraProcedimiento.nombre).add(numParametro)
+					}
 					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 						subprocesosConPunteros.get(cabeceraProcedimiento.nombre).add(numParametro)
 					}
@@ -767,7 +777,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(funcion.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: funcion.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
+				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(funcion.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -780,7 +793,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			subprocesosConPunteros.put(procedimiento.nombre, new ArrayList<Integer>());
 			var numParametro = 1;
 			for(ParametroFuncion parametro: procedimiento.parametrofuncion) {
-				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+				if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
+				}
+				else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 					subprocesosConPunteros.get(procedimiento.nombre).add(numParametro)
 				}
 				numParametro = numParametro + 1;
@@ -797,6 +813,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				subprocesosConPunteros.put(cabeceraFuncion.nombre, new ArrayList<Integer>());
 				var numParametro = 1;
 				for(ParametroFuncion parametro: cabeceraFuncion.parametrofuncion) {
+					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+						subprocesosConPunteros.get(cabeceraFuncion.nombre).add(numParametro)
+					}
 					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 						subprocesosConPunteros.get(cabeceraFuncion.nombre).add(numParametro)
 					}
@@ -810,7 +829,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				subprocesosConPunteros.put(cabeceraProcedimiento.nombre, new ArrayList<Integer>());
 				var numParametro = 1;
 				for(ParametroFuncion parametro: cabeceraProcedimiento.parametrofuncion) {
-					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+					if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametro.tipo instanceof TipoExistente) {
+						subprocesosConPunteros.get(cabeceraProcedimiento.nombre).add(numParametro)
+					}
+					else if(parametro.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametro.tipo instanceof TipoExistente) {
 						subprocesosConPunteros.get(cabeceraProcedimiento.nombre).add(numParametro)
 					}
 					numParametro = numParametro + 1;
@@ -1121,6 +1143,8 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				total = total + ", "
 			if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA"))) {
 				total = total + "const " + p.tipo.generate + " " + p.variable.nombre;
+			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && p.tipo instanceof TipoExistente) {
+				total = total + p.tipo.generate + "* " + p.variable.nombre;
 			} else if (p.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && p.tipo instanceof TipoExistente) {
 				total = total + p.tipo.generate + " *" + p.variable.nombre;
 			} else {
@@ -1135,7 +1159,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1146,15 +1173,21 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			for(mySentencia:myFun.sentencias) {
 				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.generate + "\n";
 			}
+			
+			if(myFun.devuelve != null) {
+				funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate + "\n";
+			}
 		}
 		else {
 			for(mySentencia:myFun.sentencias) {
 				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.generatePunteros(punteros) + "\n";
 			}
+			
+			if(myFun.devuelve != null) {
+				funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate(punteros) + "\n";
+			}
 		}
-		if(myFun.devuelve != null) {
-			funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate + "\n";
-		}
+
 		funcionDeclarada = funcionDeclarada + "\n" + "}";
 		return funcionDeclarada;
 	}
@@ -1163,7 +1196,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && parametroFuncion.tipo instanceof TipoExistente) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1191,7 +1227,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		var funcionDeclarada = myFun.tipo.tipoVariableCpp + " " + nombreModulo + "::" + myFun.nombre + myFun.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myFun.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA"))) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1219,7 +1258,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		var procedimientoDeclarado = "void " + myProc.nombre + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA"))) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1244,7 +1286,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		var procedimientoDeclarado = "void " + nombreModulo + "::" + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA"))) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1269,7 +1314,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		var procedimientoDeclarado = "void " + nombreModulo + "::" + myProc.nombre + "(" + myProc.parametrofuncion.generate + "){" + "\n";
 		var punteros = new ArrayList<String>();
 		for(parametroFuncion: myProc.parametrofuncion) {
-			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
+			if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA"))) {
+				punteros.add(parametroFuncion.variable.nombre)
+			}
+			else if(parametroFuncion.paso.equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
 				punteros.add(parametroFuncion.variable.nombre)
 			}
 		}
@@ -1328,9 +1376,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = mySent as desde
 			prueba.generateDesdePunteros(punteros)
 		} else if (mySent.eClass.name.equals("negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = mySent as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = mySent as Negacion
+			//prueba.generate
 		} else if (mySent.eClass.name.equals("Leer")) {
 			var Leer prueba = new LeerImpl
 			prueba = mySent as Leer
@@ -1388,9 +1436,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = mySent as desde
 			prueba.generate
 		} else if (mySent.eClass.name.equals("Negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = mySent as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = mySent as Negacion
+			//prueba.generate
 		} else if (mySent.eClass.name.equals("Leer")) {
 			var Leer prueba = new LeerImpl
 			prueba = mySent as Leer
@@ -1454,16 +1502,20 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	
 	def generateAsignacionPunteros(AsignacionNormal asig, List<String> punteros) {
 		var asignacion = new String();
+		
+		//lado izquierdo de la asignación
 		if(punteros.contains(asig.valor_asignacion)) {
-			asignacion = "*" + asig.valor_asignacion + "";
+			asignacion = "*(" + asig.valor_asignacion + ")";
 		}
 		else {
 			asignacion = asig.valor_asignacion;
 		}
+		
+		//lado derecho de la asignación
 		for(matri:asig.mat) {
 			asignacion = asignacion + matri.toString;
 		}
-		asignacion = asignacion + " = " + asig.operador.generate + ";";
+		asignacion = asignacion + " = " + asig.operador.generate(punteros) + ";";
 		return asignacion;
 	}
 
@@ -1568,9 +1620,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = myVal as Internas
 			prueba.generate
 		} else if (myVal.eClass.name.equals("unaria")) {
-			var unaria prueba = new unariaImpl
-			prueba = myVal as unaria
-			prueba.generate
+			//var unaria prueba = new unariaImpl
+			//prueba = myVal as unaria
+			//prueba.generate
 		} else if (myVal.eClass.name.equals("ValorRegistro")) {
 			var ValorRegistro prueba = new ValorRegistroImpl
 			prueba = myVal as ValorRegistro
@@ -1619,9 +1671,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	//	«neg.nombre»«neg.ssigno»;
 	//'''
 
-	override generate(unaria myUnaria) {
-		return "!" + myUnaria.variable.generate;
-	}
+	//override generate(unaria myUnaria) {
+	//	return "!" + myUnaria.variable.generate;
+	//}
 	
 	
 	def generateEscribirPunteros(Escribir a, List<String> punteros) '''
@@ -2141,14 +2193,137 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba.generate
 		}
 		else if (op.eClass.name.equals("Negativa")) {
-			var Negativa prueba = new NegativaImpl
-			prueba = op as Negativa
-			prueba.generate
+			//var Negativa prueba = new NegativaImpl
+			//prueba = op as Negativa
+			//prueba.generate
 		}
 		else if (op.eClass.name.equals("Negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = op as Negacion
+			//var Negacion prueba = new NegacionImpl
+			//prueba = op as Negacion
+			//prueba.generate
+		}
+	}
+	
+	def generate(operacion op, List<String> punteros) {
+		if (op.eClass.name.equals("NumeroEntero")) {
+			var NumeroEntero prueba = new NumeroEnteroImpl
+			prueba = op as NumeroEntero
+			prueba.generate	
+		} else if (op.eClass.name.equals("NumeroDecimal")) {
+			var NumeroDecimal prueba = new NumeroDecimalImpl
+			prueba = op as NumeroDecimal
 			prueba.generate
+		} else if (op.eClass.name.equals("ValorBooleano")) {
+			var ValorBooleano prueba = new ValorBooleanoImpl
+			prueba = op as ValorBooleano
+			prueba.generate
+		} else if (op.eClass.name.equals("ConstCadena")) {
+			var ConstCadena prueba = new ConstCadenaImpl
+			prueba = op as ConstCadena
+			prueba.generate
+		} else if (op.eClass.name.equals("Caracter")) {
+			var Caracter prueba = new CaracterImpl
+			prueba = op as Caracter
+			prueba.generate
+		} else if (op.eClass.name.equals("VariableID")) {
+			var VariableID prueba = new VariableIDImpl
+			prueba = op as VariableID
+			if(punteros.contains(prueba.nombre)) {
+				return '*('+ prueba.generate + ')';
+			}
+			else {
+				prueba.generate
+			}
+		}
+		else if (op.eClass.name.equals("ValorRegistro")) {
+			var ValorRegistro prueba = new ValorRegistroImpl
+			prueba = op as ValorRegistro
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorVector")) {
+			var ValorVector prueba = new ValorVectorImpl
+			prueba = op as ValorVector
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("ValorMatriz")) {
+			var ValorMatriz prueba = new ValorMatrizImpl
+			prueba = op as ValorMatriz
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("LlamadaFuncion")) {
+			var LlamadaFuncion prueba = new LlamadaFuncionImpl
+			prueba = op as LlamadaFuncion
+			prueba.generate(false)
+		}
+		else if (op.eClass.name.equals("Internas")) {
+			var Internas prueba = new InternasImpl
+			prueba = op as Internas
+			prueba.generate
+		}
+		else if (op.eClass.name.equals("Suma")) {
+			var Suma prueba = new SumaImpl
+			prueba = op as Suma
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Resta")) {
+			var Resta prueba = new RestaImpl
+			prueba = op as Resta
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Multiplicacion")) {
+			var Multiplicacion prueba = new MultiplicacionImpl
+			prueba = op as Multiplicacion
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Division")) {
+			var Division prueba = new DivisionImpl
+			prueba = op as Division
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Div")) {
+			var Div prueba = new DivImpl
+			prueba = op as Div
+			prueba.generate(punteros)
+		}
+		else if(op.eClass.name.equals("Mod")) {
+			var Mod prueba = new ModImpl
+			prueba = op as Mod
+			prueba.generate(punteros)
+		}
+		else if(op.eClass.name.equals("OperacionParentesis")) {
+			var OperacionParentesis prueba = new OperacionParentesisImpl
+			prueba = op as OperacionParentesis
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Or")) {
+			var Or prueba = new OrImpl
+			prueba = op as Or
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("And")) {
+			var And prueba = new AndImpl
+			prueba = op as And
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Comparacion")) {
+			var Comparacion prueba = new ComparacionImpl
+			prueba = op as Comparacion
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Igualdad")) {
+			var Igualdad prueba = new IgualdadImpl
+			prueba = op as Igualdad
+			prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Negativa")) {
+			//var Negativa prueba = new NegativaImpl
+			//prueba = op as Negativa
+			//prueba.generate(punteros)
+		}
+		else if (op.eClass.name.equals("Negacion")) {
+			//var Negacion prueba = new NegacionImpl
+			//prueba = op as Negacion
+			//prueba.generate(punteros)
 		}
 	}
 	
@@ -2263,14 +2438,14 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba.generate
 		}
 		else if (op.eClass.name.equals("Negativa")) {
-			var Negativa prueba = new NegativaImpl
-			prueba = op as Negativa
-			prueba.generate
+			//var Negativa prueba = new NegativaImpl
+			//prueba = op as Negativa
+			//prueba.generate
 		}
 		else if (op.eClass.name.equals("Negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = op as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = op as Negacion
+			//prueba.generate
 		}
 	}
 	
@@ -2278,40 +2453,80 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		return mySuma.left.generate + " " + mySuma.signo_op + " " + mySuma.right.generate;
 	}
 	
+	def generate(Suma mySuma, List<String> punteros) {
+		return mySuma.left.generate(punteros) + " " + mySuma.signo_op + " " + mySuma.right.generate(punteros);
+	}
+	
 	override generate(Resta myResta) {
 		return myResta.left.generate + " " + myResta.signo_op + " " + myResta.right.generate;
+	}
+	
+	def generate(Resta myResta, List<String> punteros) {
+		return myResta.left.generate(punteros) + " " + myResta.signo_op + " " + myResta.right.generate(punteros);
 	}
 	
 	override generate(Multiplicacion myMulti) {
 		return myMulti.left.generate + " " + myMulti.signo_op + " " + myMulti.right.generate;
 	}
 	
+	def generate(Multiplicacion myMulti, List<String> punteros) {
+		return myMulti.left.generate(punteros) + " " + myMulti.signo_op + " " + myMulti.right.generate(punteros);
+	}
+	
 	override generate(Division myDivi) {
 		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
+	}
+	
+	def generate(Division myDivi, List<String> punteros) {
+		return myDivi.left.generate(punteros) + " " + myDivi.signo_op + " " + myDivi.right.generate(punteros);
 	}
 	
 	def generate(OperacionParentesis op) {
 		return "(" + op.valor_operacion.generate + ")"
 	}
 	
+	def generate(OperacionParentesis op, EList<String> punteros) {
+		return "(" + op.valor_operacion.generate(punteros) + ")"
+	}
+	
 	def generate(Div myDivi) {
-		return myDivi.left.generate + " " + "/" + " " + myDivi.right.generate;
+		return myDivi.left.generate + " / " + myDivi.right.generate;
+	}
+	
+	def generate(Div myDivi, List<String> punteros) {
+		return myDivi.left.generate(punteros) + " / " + myDivi.right.generate(punteros);
 	}
 	
 	def generate(Mod myMod) {
 		return myMod.left.generate + " " + "%" + " " + myMod.right.generate;
 	}
 	
+	def generate(Mod myMod, List<String> punteros) {
+		return myMod.left.generate(punteros) + " " + "%" + " " + myMod.right.generate(punteros);
+	}
+	
 	override generate(Or myOr) {
 		return myOr.left.generate + " " + "||" + " " + myOr.right.generate;
+	}
+	
+	def generate(Or myOr, List<String> punteros) {
+		return myOr.left.generate(punteros) + " " + "||" + " " + myOr.right.generate(punteros);
 	}
 	
 	override generate(And myAnd) {
 		return myAnd.left.generate + " " + "&&" + " " + myAnd.right.generate;
 	}
 	
+	def generate(And myAnd, List<String> punteros) {
+		return myAnd.left.generate(punteros) + " " + "&&" + " " + myAnd.right.generate(punteros);
+	}
+	
 	override generate(Comparacion myComparacion) {
 		return myComparacion.left.generate + " " + myComparacion.signo_op + " " + myComparacion.right.generate;
+	}
+	
+	def generate(Comparacion myComparacion, List<String> punteros) {
+		return myComparacion.left.generate(punteros) + " " + myComparacion.signo_op + " " + myComparacion.right.generate(punteros);
 	}
 	
 	override generate(Igualdad myIgualdad) {
@@ -2320,6 +2535,15 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		}
 		else {
 			return myIgualdad.left.generate + " " + "!=" + " " + myIgualdad.right.generate;
+		}
+	}
+	
+	def generate(Igualdad myIgualdad, List<String> punteros) {
+		if(myIgualdad.signo_op.literal.equals("=")) {
+			return myIgualdad.left.generate(punteros) + " " + "==" + " " + myIgualdad.right.generate(punteros);
+		}
+		else {
+			return myIgualdad.left.generate(punteros) + " " + "!=" + " " + myIgualdad.right.generate(punteros);
 		}
 	}
 	
@@ -2337,7 +2561,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF mySi.devuelve != null» 
-				«mySi.devuelve.generate»
+				«mySi.devuelve.generate(punteros)»
 			«ENDIF»	
 		}
 		«IF mySi.sino != null» 
@@ -2365,7 +2589,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF myCaso.devuelve != null» 
-				«myCaso.devuelve.generate»
+				«myCaso.devuelve.generate(punteros)»
 			«ENDIF»
 		break;
 	'''
@@ -2391,7 +2615,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 					«sent.generatePunteros(punteros)»
 				«ENDFOR»
 				«IF mySegun.devuelve != null» 
-				«mySegun.devuelve.generate»
+				«mySegun.devuelve.generate(punteros)»
 				«ENDIF»
 			break;
 		}
@@ -2417,13 +2641,17 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		return «myDevuelve.devuelve.generate»;
 	'''
 	
+	def generate(Devolver myDevuelve, List<String> punteros) '''
+		return «myDevuelve.devuelve.generate(punteros)»;
+	'''
+	
 	def generateSinoPunteros(Sino mySino, List<String> punteros) '''
 		else{
 			«FOR sent:mySino.sentencias»	
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF mySino.devuelve != null» 
-			«mySino.devuelve.generate»
+			«mySino.devuelve.generate(punteros)»
 			«ENDIF»	
 		}
 	'''
@@ -2474,7 +2702,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			«FOR sent:m.sentencias»
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
-		}while(«m.valor.generate»);
+		}while(!(«m.valor.generate»));
 	'''
 
 	override generate(repetir m) '''
@@ -2482,7 +2710,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			«FOR sent:m.sentencias»
 				«sent.generate»
 			«ENDFOR»
-		}while(«m.valor.generate»);
+		}while(!(«m.valor.generate»));
 	'''
 
 }

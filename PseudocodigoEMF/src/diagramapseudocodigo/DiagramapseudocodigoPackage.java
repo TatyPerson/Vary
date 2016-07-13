@@ -64,7 +64,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getCodigo()
 	 * @generated
 	 */
-	int CODIGO = 69;
+	int CODIGO = 66;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.AlgoritmoImpl <em>Algoritmo</em>}' class.
@@ -104,7 +104,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getDeclaracion()
 	 * @generated
 	 */
-	int DECLARACION = 37;
+	int DECLARACION = 36;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.DeclaracionVariableImpl <em>Declaracion Variable</em>}' class.
@@ -347,16 +347,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int DESDE = 25;
 
 	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.impl.NegacionImpl <em>Negacion</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.impl.NegacionImpl
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNegacion()
-	 * @generated
-	 */
-	int NEGACION = 66;
-
-	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ProcedimientoImpl <em>Procedimiento</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,16 +407,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CASO = 32;
 
 	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.impl.unariaImpl <em>unaria</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.impl.unariaImpl
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getunaria()
-	 * @generated
-	 */
-	int UNARIA = 33;
-
-	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ConstantesImpl <em>Constantes</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,7 +414,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getConstantes()
 	 * @generated
 	 */
-	int CONSTANTES = 34;
+	int CONSTANTES = 33;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoComplejoImpl <em>Tipo Complejo</em>}' class.
@@ -444,7 +424,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoComplejo()
 	 * @generated
 	 */
-	int TIPO_COMPLEJO = 39;
+	int TIPO_COMPLEJO = 38;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.VectorImpl <em>Vector</em>}' class.
@@ -454,7 +434,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getVector()
 	 * @generated
 	 */
-	int VECTOR = 35;
+	int VECTOR = 34;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.DeclaracionPropiaImpl <em>Declaracion Propia</em>}' class.
@@ -464,7 +444,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getDeclaracionPropia()
 	 * @generated
 	 */
-	int DECLARACION_PROPIA = 36;
+	int DECLARACION_PROPIA = 35;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.MatrizImpl <em>Matriz</em>}' class.
@@ -474,7 +454,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getMatriz()
 	 * @generated
 	 */
-	int MATRIZ = 38;
+	int MATRIZ = 37;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.RegistroImpl <em>Registro</em>}' class.
@@ -484,7 +464,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getRegistro()
 	 * @generated
 	 */
-	int REGISTRO = 40;
+	int REGISTRO = 39;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoImpl <em>Tipo</em>}' class.
@@ -494,7 +474,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipo()
 	 * @generated
 	 */
-	int TIPO = 41;
+	int TIPO = 40;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoDefinidoImpl <em>Tipo Definido</em>}' class.
@@ -504,7 +484,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoDefinido()
 	 * @generated
 	 */
-	int TIPO_DEFINIDO = 42;
+	int TIPO_DEFINIDO = 41;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoExistenteImpl <em>Tipo Existente</em>}' class.
@@ -514,7 +494,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoExistente()
 	 * @generated
 	 */
-	int TIPO_EXISTENTE = 43;
+	int TIPO_EXISTENTE = 42;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ArchivoImpl <em>Archivo</em>}' class.
@@ -524,7 +504,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getArchivo()
 	 * @generated
 	 */
-	int ARCHIVO = 44;
+	int ARCHIVO = 43;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.EnumeradoImpl <em>Enumerado</em>}' class.
@@ -534,7 +514,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getEnumerado()
 	 * @generated
 	 */
-	int ENUMERADO = 45;
+	int ENUMERADO = 44;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.SubrangoImpl <em>Subrango</em>}' class.
@@ -544,7 +524,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getSubrango()
 	 * @generated
 	 */
-	int SUBRANGO = 46;
+	int SUBRANGO = 45;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ValorComplejoImpl <em>Valor Complejo</em>}' class.
@@ -554,7 +534,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getValorComplejo()
 	 * @generated
 	 */
-	int VALOR_COMPLEJO = 47;
+	int VALOR_COMPLEJO = 46;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ValorRegistroImpl <em>Valor Registro</em>}' class.
@@ -564,7 +544,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getValorRegistro()
 	 * @generated
 	 */
-	int VALOR_REGISTRO = 48;
+	int VALOR_REGISTRO = 47;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.CampoRegistroImpl <em>Campo Registro</em>}' class.
@@ -574,7 +554,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getCampoRegistro()
 	 * @generated
 	 */
-	int CAMPO_REGISTRO = 49;
+	int CAMPO_REGISTRO = 48;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ValorVectorImpl <em>Valor Vector</em>}' class.
@@ -584,7 +564,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getValorVector()
 	 * @generated
 	 */
-	int VALOR_VECTOR = 50;
+	int VALOR_VECTOR = 49;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ValorMatrizImpl <em>Valor Matriz</em>}' class.
@@ -594,7 +574,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getValorMatriz()
 	 * @generated
 	 */
-	int VALOR_MATRIZ = 51;
+	int VALOR_MATRIZ = 50;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ComentarioImpl <em>Comentario</em>}' class.
@@ -604,7 +584,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getComentario()
 	 * @generated
 	 */
-	int COMENTARIO = 52;
+	int COMENTARIO = 51;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.FuncionFicheroAbrirImpl <em>Funcion Fichero Abrir</em>}' class.
@@ -614,7 +594,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getFuncionFicheroAbrir()
 	 * @generated
 	 */
-	int FUNCION_FICHERO_ABRIR = 53;
+	int FUNCION_FICHERO_ABRIR = 52;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.FuncionFicheroCerrarImpl <em>Funcion Fichero Cerrar</em>}' class.
@@ -624,7 +604,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getFuncionFicheroCerrar()
 	 * @generated
 	 */
-	int FUNCION_FICHERO_CERRAR = 54;
+	int FUNCION_FICHERO_CERRAR = 53;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.SumaImpl <em>Suma</em>}' class.
@@ -634,7 +614,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getSuma()
 	 * @generated
 	 */
-	int SUMA = 55;
+	int SUMA = 54;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.RestaImpl <em>Resta</em>}' class.
@@ -644,7 +624,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getResta()
 	 * @generated
 	 */
-	int RESTA = 56;
+	int RESTA = 55;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.MultiplicacionImpl <em>Multiplicacion</em>}' class.
@@ -654,7 +634,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getMultiplicacion()
 	 * @generated
 	 */
-	int MULTIPLICACION = 57;
+	int MULTIPLICACION = 56;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.DivisionImpl <em>Division</em>}' class.
@@ -664,7 +644,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getDivision()
 	 * @generated
 	 */
-	int DIVISION = 58;
+	int DIVISION = 57;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.OrImpl <em>Or</em>}' class.
@@ -674,7 +654,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getOr()
 	 * @generated
 	 */
-	int OR = 59;
+	int OR = 58;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.AndImpl <em>And</em>}' class.
@@ -684,7 +664,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getAnd()
 	 * @generated
 	 */
-	int AND = 60;
+	int AND = 59;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ComparacionImpl <em>Comparacion</em>}' class.
@@ -694,7 +674,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getComparacion()
 	 * @generated
 	 */
-	int COMPARACION = 61;
+	int COMPARACION = 60;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.IgualdadImpl <em>Igualdad</em>}' class.
@@ -704,7 +684,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getIgualdad()
 	 * @generated
 	 */
-	int IGUALDAD = 62;
+	int IGUALDAD = 61;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.SubrangoNumericoImpl <em>Subrango Numerico</em>}' class.
@@ -714,7 +694,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getSubrangoNumerico()
 	 * @generated
 	 */
-	int SUBRANGO_NUMERICO = 63;
+	int SUBRANGO_NUMERICO = 62;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.SubrangoEnumeradoImpl <em>Subrango Enumerado</em>}' class.
@@ -724,17 +704,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getSubrangoEnumerado()
 	 * @generated
 	 */
-	int SUBRANGO_ENUMERADO = 64;
-
-	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.impl.NegativaImpl <em>Negativa</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.impl.NegativaImpl
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNegativa()
-	 * @generated
-	 */
-	int NEGATIVA = 65;
+	int SUBRANGO_ENUMERADO = 63;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.AsignacionNormalImpl <em>Asignacion Normal</em>}' class.
@@ -744,7 +714,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getAsignacionNormal()
 	 * @generated
 	 */
-	int ASIGNACION_NORMAL = 67;
+	int ASIGNACION_NORMAL = 64;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.AsignacionComplejaImpl <em>Asignacion Compleja</em>}' class.
@@ -754,7 +724,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getAsignacionCompleja()
 	 * @generated
 	 */
-	int ASIGNACION_COMPLEJA = 68;
+	int ASIGNACION_COMPLEJA = 65;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ModuloImpl <em>Modulo</em>}' class.
@@ -764,7 +734,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModulo()
 	 * @generated
 	 */
-	int MODULO = 70;
+	int MODULO = 67;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.CabeceraSubprocesoImpl <em>Cabecera Subproceso</em>}' class.
@@ -774,7 +744,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getCabeceraSubproceso()
 	 * @generated
 	 */
-	int CABECERA_SUBPROCESO = 71;
+	int CABECERA_SUBPROCESO = 68;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.impl.ImplementacionImpl <em>Implementacion</em>}' class.
@@ -784,7 +754,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getImplementacion()
 	 * @generated
 	 */
-	int IMPLEMENTACION = 72;
+	int IMPLEMENTACION = 69;
 
 	/**
 	 * The number of structural features of the '<em>Codigo</em>' class.
@@ -2029,42 +1999,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CASO_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Ssigno</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARIA__SSIGNO = VALOR_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Variable</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARIA__VARIABLE = VALOR_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>unaria</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARIA_FEATURE_COUNT = VALOR_FEATURE_COUNT + 2;
-
-	/**
-	 * The number of operations of the '<em>unaria</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNARIA_OPERATION_COUNT = VALOR_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3172,60 +3106,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int SUBRANGO_ENUMERADO_OPERATION_COUNT = SUBRANGO_OPERATION_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Valor operacion</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGATIVA__VALOR_OPERACION = OPERACION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Negativa</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGATIVA_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Negativa</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGATIVA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Valor operacion</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGACION__VALOR_OPERACION = OPERACION_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Negacion</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGACION_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Negacion</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int NEGACION_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Mat</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3485,7 +3365,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getCabeceraProcedimiento()
 	 * @generated
 	 */
-	int CABECERA_PROCEDIMIENTO = 73;
+	int CABECERA_PROCEDIMIENTO = 70;
 
 	/**
 	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -3531,7 +3411,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getCabeceraFuncion()
 	 * @generated
 	 */
-	int CABECERA_FUNCION = 74;
+	int CABECERA_FUNCION = 71;
 
 	/**
 	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -3586,7 +3466,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getMod()
 	 * @generated
 	 */
-	int MOD = 75;
+	int MOD = 72;
 
 	/**
 	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
@@ -3641,7 +3521,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getDiv()
 	 * @generated
 	 */
-	int DIV = 76;
+	int DIV = 73;
 
 	/**
 	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
@@ -3696,7 +3576,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getOperacionParentesis()
 	 * @generated
 	 */
-	int OPERACION_PARENTESIS = 77;
+	int OPERACION_PARENTESIS = 74;
 
 	/**
 	 * The feature id for the '<em><b>Valor operacion</b></em>' containment reference.
@@ -3726,6 +3606,52 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int OPERACION_PARENTESIS_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.UnariaImpl <em>Unaria</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.UnariaImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getUnaria()
+	 * @generated
+	 */
+	int UNARIA = 75;
+
+	/**
+	 * The feature id for the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA__RIGHT = OPERACION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA__SIGNO_OP = OPERACION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Unaria</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of operations of the '<em>Unaria</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3733,7 +3659,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 78;
+	int SIGNO = 76;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
@@ -3743,7 +3669,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
 	 * @generated
 	 */
-	int NEG = 79;
+	int NEG = 77;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
@@ -3753,7 +3679,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
 	 * @generated
 	 */
-	int NOMBRE_INTERNA = 80;
+	int NOMBRE_INTERNA = 78;
 
 
 	/**
@@ -3764,7 +3690,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 81;
+	int MODO_APERTURA = 79;
 
 
 	/**
@@ -4185,6 +4111,38 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getOperacionParentesis_Valor_operacion();
+
+	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.Unaria <em>Unaria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Unaria</em>'.
+	 * @see diagramapseudocodigo.Unaria
+	 * @generated
+	 */
+	EClass getUnaria();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Unaria#getRight <em>Right</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Right</em>'.
+	 * @see diagramapseudocodigo.Unaria#getRight()
+	 * @see #getUnaria()
+	 * @generated
+	 */
+	EReference getUnaria_Right();
+
+	/**
+	 * Returns the meta object for the attribute '{@link diagramapseudocodigo.Unaria#getSigno_op <em>Signo op</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Signo op</em>'.
+	 * @see diagramapseudocodigo.Unaria#getSigno_op()
+	 * @see #getUnaria()
+	 * @generated
+	 */
+	EAttribute getUnaria_Signo_op();
 
 	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.Inicio <em>Inicio</em>}'.
@@ -4967,27 +4925,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getCaso_Operador();
-
-	/**
-	 * Returns the meta object for class '{@link diagramapseudocodigo.unaria <em>unaria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>unaria</em>'.
-	 * @see diagramapseudocodigo.unaria
-	 * @generated
-	 */
-	EClass getunaria();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.unaria#getVariable <em>Variable</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Variable</em>'.
-	 * @see diagramapseudocodigo.unaria#getVariable()
-	 * @see #getunaria()
-	 * @generated
-	 */
-	EReference getunaria_Variable();
 
 	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.Constantes <em>Constantes</em>}'.
@@ -5938,48 +5875,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EAttribute getSubrangoEnumerado_Limite_sup();
 
 	/**
-	 * Returns the meta object for class '{@link diagramapseudocodigo.Negativa <em>Negativa</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Negativa</em>'.
-	 * @see diagramapseudocodigo.Negativa
-	 * @generated
-	 */
-	EClass getNegativa();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Negativa#getValor_operacion <em>Valor operacion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Valor operacion</em>'.
-	 * @see diagramapseudocodigo.Negativa#getValor_operacion()
-	 * @see #getNegativa()
-	 * @generated
-	 */
-	EReference getNegativa_Valor_operacion();
-
-	/**
-	 * Returns the meta object for class '{@link diagramapseudocodigo.Negacion <em>Negacion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Negacion</em>'.
-	 * @see diagramapseudocodigo.Negacion
-	 * @generated
-	 */
-	EClass getNegacion();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.Negacion#getValor_operacion <em>Valor operacion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Valor operacion</em>'.
-	 * @see diagramapseudocodigo.Negacion#getValor_operacion()
-	 * @see #getNegacion()
-	 * @generated
-	 */
-	EReference getNegacion_Valor_operacion();
-
-	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.AsignacionNormal <em>Asignacion Normal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6086,17 +5981,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getVector_Tipo();
-
-	/**
-	 * Returns the meta object for the attribute '{@link diagramapseudocodigo.unaria#getSsigno <em>Ssigno</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ssigno</em>'.
-	 * @see diagramapseudocodigo.unaria#getSsigno()
-	 * @see #getunaria()
-	 * @generated
-	 */
-	EAttribute getunaria_Ssigno();
 
 	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.signo <em>signo</em>}'.
@@ -6491,6 +6375,32 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERACION_PARENTESIS__VALOR_OPERACION = eINSTANCE.getOperacionParentesis_Valor_operacion();
+
+		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.UnariaImpl <em>Unaria</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.UnariaImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getUnaria()
+		 * @generated
+		 */
+		EClass UNARIA = eINSTANCE.getUnaria();
+
+		/**
+		 * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNARIA__RIGHT = eINSTANCE.getUnaria_Right();
+
+		/**
+		 * The meta object literal for the '<em><b>Signo op</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute UNARIA__SIGNO_OP = eINSTANCE.getUnaria_Signo_op();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.InicioImpl <em>Inicio</em>}' class.
@@ -6967,24 +6877,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EReference DESDE__ASIGNACION = eINSTANCE.getdesde_Asignacion();
 
 		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.impl.NegacionImpl <em>Negacion</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.impl.NegacionImpl
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNegacion()
-		 * @generated
-		 */
-		EClass NEGACION = eINSTANCE.getNegacion();
-
-		/**
-		 * The meta object literal for the '<em><b>Valor operacion</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEGACION__VALOR_OPERACION = eINSTANCE.getNegacion_Valor_operacion();
-
-		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.AsignacionNormalImpl <em>Asignacion Normal</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -7225,24 +7117,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CASO__OPERADOR = eINSTANCE.getCaso_Operador();
-
-		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.impl.unariaImpl <em>unaria</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.impl.unariaImpl
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getunaria()
-		 * @generated
-		 */
-		EClass UNARIA = eINSTANCE.getunaria();
-
-		/**
-		 * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UNARIA__VARIABLE = eINSTANCE.getunaria_Variable();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.ConstantesImpl <em>Constantes</em>}' class.
@@ -8019,24 +7893,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EAttribute SUBRANGO_ENUMERADO__LIMITE_SUP = eINSTANCE.getSubrangoEnumerado_Limite_sup();
 
 		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.impl.NegativaImpl <em>Negativa</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.impl.NegativaImpl
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNegativa()
-		 * @generated
-		 */
-		EClass NEGATIVA = eINSTANCE.getNegativa();
-
-		/**
-		 * The meta object literal for the '<em><b>Valor operacion</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference NEGATIVA__VALOR_OPERACION = eINSTANCE.getNegativa_Valor_operacion();
-
-		/**
 		 * The meta object literal for the '<em><b>Nombre</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -8059,14 +7915,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VECTOR__TIPO = eINSTANCE.getVector_Tipo();
-
-		/**
-		 * The meta object literal for the '<em><b>Ssigno</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNARIA__SSIGNO = eINSTANCE.getunaria_Ssigno();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.

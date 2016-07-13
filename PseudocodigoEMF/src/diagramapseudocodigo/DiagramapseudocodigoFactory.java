@@ -112,6 +112,15 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	OperacionParentesis createOperacionParentesis();
 
 	/**
+	 * Returns a new object of class '<em>Unaria</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unaria</em>'.
+	 * @generated
+	 */
+	Unaria createUnaria();
+
+	/**
 	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -353,15 +362,6 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	 * @generated
 	 */
 	Caso createCaso();
-
-	/**
-	 * Returns a new object of class '<em>unaria</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>unaria</em>'.
-	 * @generated
-	 */
-	unaria createunaria();
 
 	/**
 	 * Returns a new object of class '<em>Constantes</em>'.
@@ -641,24 +641,6 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	 * @generated
 	 */
 	SubrangoEnumerado createSubrangoEnumerado();
-
-	/**
-	 * Returns a new object of class '<em>Negativa</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Negativa</em>'.
-	 * @generated
-	 */
-	Negativa createNegativa();
-
-	/**
-	 * Returns a new object of class '<em>Negacion</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Negacion</em>'.
-	 * @generated
-	 */
-	Negacion createNegacion();
 
 	/**
 	 * Returns a new object of class '<em>Asignacion Normal</em>'.

@@ -268,16 +268,6 @@ public class LlamadaFuncionItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__OPERADORES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__OPERADORES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__OPERADORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -289,6 +279,11 @@ public class LlamadaFuncionItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__OPERADORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__OPERADORES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 }

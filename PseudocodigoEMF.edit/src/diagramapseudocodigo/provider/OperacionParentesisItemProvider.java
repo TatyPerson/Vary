@@ -241,16 +241,6 @@ public class OperacionParentesisItemProvider extends operacionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.OPERACION_PARENTESIS__VALOR_OPERACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.OPERACION_PARENTESIS__VALOR_OPERACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.OPERACION_PARENTESIS__VALOR_OPERACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -262,6 +252,11 @@ public class OperacionParentesisItemProvider extends operacionItemProvider {
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.OPERACION_PARENTESIS__VALOR_OPERACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION_PARENTESIS__VALOR_OPERACION,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 }

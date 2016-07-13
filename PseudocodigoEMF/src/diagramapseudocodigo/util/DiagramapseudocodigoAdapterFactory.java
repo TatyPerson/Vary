@@ -200,10 +200,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createCasoAdapter();
 			}
 			@Override
-			public Adapter caseunaria(unaria object) {
-				return createunariaAdapter();
-			}
-			@Override
 			public Adapter caseConstantes(Constantes object) {
 				return createConstantesAdapter();
 			}
@@ -328,14 +324,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createSubrangoEnumeradoAdapter();
 			}
 			@Override
-			public Adapter caseNegativa(Negativa object) {
-				return createNegativaAdapter();
-			}
-			@Override
-			public Adapter caseNegacion(Negacion object) {
-				return createNegacionAdapter();
-			}
-			@Override
 			public Adapter caseAsignacionNormal(AsignacionNormal object) {
 				return createAsignacionNormalAdapter();
 			}
@@ -378,6 +366,10 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseOperacionParentesis(OperacionParentesis object) {
 				return createOperacionParentesisAdapter();
+			}
+			@Override
+			public Adapter caseUnaria(Unaria object) {
+				return createUnariaAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -536,6 +528,20 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperacionParentesisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Unaria <em>Unaria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.Unaria
+	 * @generated
+	 */
+	public Adapter createUnariaAdapter() {
 		return null;
 	}
 
@@ -988,20 +994,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.unaria <em>unaria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.unaria
-	 * @generated
-	 */
-	public Adapter createunariaAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Constantes <em>Constantes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -1432,34 +1424,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSubrangoEnumeradoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Negativa <em>Negativa</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Negativa
-	 * @generated
-	 */
-	public Adapter createNegativaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Negacion <em>Negacion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Negacion
-	 * @generated
-	 */
-	public Adapter createNegacionAdapter() {
 		return null;
 	}
 

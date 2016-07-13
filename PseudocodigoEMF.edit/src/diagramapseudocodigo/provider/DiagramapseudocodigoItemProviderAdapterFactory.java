@@ -302,6 +302,29 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Unaria} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnariaItemProvider unariaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Unaria}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnariaAdapter() {
+		if (unariaItemProvider == null) {
+			unariaItemProvider = new UnariaItemProvider(this);
+		}
+
+		return unariaItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -785,29 +808,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Negacion} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NegacionItemProvider negacionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Negacion}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNegacionAdapter() {
-		if (negacionItemProvider == null) {
-			negacionItemProvider = new NegacionItemProvider(this);
-		}
-
-		return negacionItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.AsignacionNormal} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -989,29 +989,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		}
 
 		return casoItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.unaria} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected unariaItemProvider unariaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.unaria}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createunariaAdapter() {
-		if (unariaItemProvider == null) {
-			unariaItemProvider = new unariaItemProvider(this);
-		}
-
-		return unariaItemProvider;
 	}
 
 	/**
@@ -1728,29 +1705,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Negativa} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NegativaItemProvider negativaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Negativa}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNegativaAdapter() {
-		if (negativaItemProvider == null) {
-			negativaItemProvider = new NegativaItemProvider(this);
-		}
-
-		return negativaItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1877,7 +1831,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (segunItemProvider != null) segunItemProvider.dispose();
 		if (devolverItemProvider != null) devolverItemProvider.dispose();
 		if (casoItemProvider != null) casoItemProvider.dispose();
-		if (unariaItemProvider != null) unariaItemProvider.dispose();
 		if (constantesItemProvider != null) constantesItemProvider.dispose();
 		if (vectorItemProvider != null) vectorItemProvider.dispose();
 		if (declaracionPropiaItemProvider != null) declaracionPropiaItemProvider.dispose();
@@ -1909,8 +1862,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (igualdadItemProvider != null) igualdadItemProvider.dispose();
 		if (subrangoNumericoItemProvider != null) subrangoNumericoItemProvider.dispose();
 		if (subrangoEnumeradoItemProvider != null) subrangoEnumeradoItemProvider.dispose();
-		if (negativaItemProvider != null) negativaItemProvider.dispose();
-		if (negacionItemProvider != null) negacionItemProvider.dispose();
 		if (asignacionNormalItemProvider != null) asignacionNormalItemProvider.dispose();
 		if (asignacionComplejaItemProvider != null) asignacionComplejaItemProvider.dispose();
 		if (codigoItemProvider != null) codigoItemProvider.dispose();
@@ -1922,6 +1873,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (modItemProvider != null) modItemProvider.dispose();
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (operacionParentesisItemProvider != null) operacionParentesisItemProvider.dispose();
+		if (unariaItemProvider != null) unariaItemProvider.dispose();
 	}
 
 }

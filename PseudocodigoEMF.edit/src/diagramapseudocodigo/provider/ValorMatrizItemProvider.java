@@ -277,16 +277,6 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -298,6 +288,11 @@ public class ValorMatrizItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -407,16 +402,6 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
@@ -428,6 +413,11 @@ public class ValorMatrizItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 	/**

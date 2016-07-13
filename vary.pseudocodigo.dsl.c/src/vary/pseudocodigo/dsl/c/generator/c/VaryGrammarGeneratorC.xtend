@@ -66,7 +66,6 @@ import diagramapseudocodigo.impl.repetirImpl
 import diagramapseudocodigo.repetir
 import diagramapseudocodigo.impl.desdeImpl
 import diagramapseudocodigo.desde
-import diagramapseudocodigo.impl.NegacionImpl
 import diagramapseudocodigo.Negacion
 import diagramapseudocodigo.impl.LeerImpl
 import diagramapseudocodigo.Leer
@@ -99,8 +98,6 @@ import diagramapseudocodigo.operacion
 import diagramapseudocodigo.impl.operacionImpl
 import diagramapseudocodigo.Internas
 import diagramapseudocodigo.impl.InternasImpl
-import diagramapseudocodigo.impl.unariaImpl
-import diagramapseudocodigo.unaria
 import diagramapseudocodigo.NombreInterna
 import diagramapseudocodigo.Suma
 import diagramapseudocodigo.impl.SumaImpl
@@ -118,7 +115,6 @@ import diagramapseudocodigo.impl.ComparacionImpl
 import diagramapseudocodigo.Comparacion
 import diagramapseudocodigo.impl.IgualdadImpl
 import diagramapseudocodigo.Igualdad
-import diagramapseudocodigo.impl.NegativaImpl
 import diagramapseudocodigo.Negativa
 import diagramapseudocodigo.Devolver
 import diagramapseudocodigo.Sino
@@ -932,6 +928,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	override generate(EList<ParametroFuncion> parametros) {
 		var total = "";
 		var actual = 1;
+		
 		for (p : parametros) {
 			if (actual != 1)
 				total = total + ", "
@@ -968,14 +965,19 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			for(mySentencia:myFun.sentencias) {
 				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.generate + "\n";
 			}
+			
+			if(myFun.devuelve != null) {
+				funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate + "\n";
+			}
 		}
 		else {
 			for(mySentencia:myFun.sentencias) {
 				funcionDeclarada = funcionDeclarada + "\t" + mySentencia.generatePunteros(punteros) + "\n";
 			}
-		}
-		if(myFun.devuelve != null) {
-			funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate + "\n";
+			
+			if(myFun.devuelve != null) {
+				funcionDeclarada = funcionDeclarada + "\t" + myFun.devuelve.generate(punteros) + "\n";
+			}
 		}
 		funcionDeclarada = funcionDeclarada + "\n" + "}";
 		return funcionDeclarada;
@@ -1047,9 +1049,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = mySent as desde
 			prueba.generateDesdePunteros(punteros)
 		} else if (mySent.eClass.name.equals("negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = mySent as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = mySent as Negacion
+			//prueba.generate
 		} else if (mySent.eClass.name.equals("Leer")) {
 			if(modulo != null) {
 				var Leer prueba = new LeerImpl
@@ -1192,12 +1194,38 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) || o.eClass.name.equals("NumeroDecimal")) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
-							cadena = cadena + " %r \\n \"";
+							cadena = cadena + " %f \\n \"";
 						}
 						else {
-							cadena = cadena + " %r";
+							cadena = cadena + " %f";
 						}
-					}
+					} else if(vectoresMatrices.containsKey(tipo)) {
+							var tipoAux = vectoresMatrices.get(tipo);
+							if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %i \\n \"";
+								}
+								else {
+									cadena = cadena + " %i";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %s \\n \"";
+								}
+								else {
+									cadena = cadena + " %s";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %f \\n \"";
+								}	
+								else {
+									cadena = cadena + " %f";
+								}
+							}
+						}
 				}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
@@ -1318,10 +1346,36 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %r \\n \"";
+								cadena = cadena + " %f \\n \"";
 							}	
 							else {
-								cadena = cadena + " %r";
+								cadena = cadena + " %f";
+							}
+						} else if(vectoresMatrices.containsKey(tipo)) {
+							var tipoAux = vectoresMatrices.get(tipo);
+							if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %i \\n \"";
+								}
+								else {
+									cadena = cadena + " %i";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %s \\n \"";
+								}
+								else {
+									cadena = cadena + " %s";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %f \\n \"";
+								}	
+								else {
+									cadena = cadena + " %f";
+								}
 							}
 						}
 					}
@@ -1376,9 +1430,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = mySent as desde
 			prueba.generate
 		} else if (mySent.eClass.name.equals("negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = mySent as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = mySent as Negacion
+			//prueba.generate
 		} else if (mySent.eClass.name.equals("Leer")) {
 			if(modulo != null) {
 				var Leer prueba = new LeerImpl
@@ -1570,9 +1624,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = myVal as Internas
 			prueba.generate
 		} else if (myVal.eClass.name.equals("unaria")) {
-			var unaria prueba = new unariaImpl
-			prueba = myVal as unaria
-			prueba.generate
+			//var unaria prueba = new unariaImpl
+			//prueba = myVal as unaria
+			//prueba.generate
 		} else if (myVal.eClass.name.equals("ValorRegistro")) {
 			var ValorRegistro prueba = new ValorRegistroImpl
 			prueba = myVal as ValorRegistro
@@ -1617,9 +1671,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	def generatePuntero(VariableID variable) '''
 	*«variable.nombre»«FOR matri:variable.mat»«matri.toString»«ENDFOR»'''
 
-	override generate(unaria myUnaria) {
-		return "!" + myUnaria.variable.generate;
-	}
+	//override generate(unaria myUnaria) {
+	//	return "!" + myUnaria.variable.generate;
+	//}
 	
 	def contienenExpresionLeer(EList<Sentencias> sentencias, Leer l) {
 		if(sentencias.contains(l)) {
@@ -1790,11 +1844,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%r", &«op.generate»);'''
+						resultado = '''scanf("%f", &«op.generate»);'''
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%r", &«op.generate»);'''
+						resultado = resultado + '''scanf("%f", &«op.generate»);'''
 					}
 		 		}
 		 		}
@@ -1895,13 +1949,43 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%r", &«op.generate»);'''
+						resultado = '''scanf("%f", &«op.generate»);'''
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%r", &«op.generate»);'''
+						resultado = resultado + '''scanf("%f", &«op.generate»);'''
 					}
 		 		}
+		 		else if(vectoresMatrices.containsKey(tipo)) {
+					var tipoAux = vectoresMatrices.get(tipo);
+					if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						if(resultado == "") {
+							resultado = '''scanf("%i", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = resultado + '''scanf("%i", &«op.generate»);'''
+						}
+					}
+					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+						if(resultado == "") {
+							resultado = '''scanf("%s", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = resultado + '''scanf("%s", &«op.generate»);'''
+						}
+					}
+					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						if(resultado == "") {
+							resultado = '''scanf("%f", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = resultado + '''scanf("%f", &«op.generate»);'''
+						}
+					}
+				}
 			}
 			return resultado;
 		}
@@ -1998,13 +2082,43 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%r", &«op.generate»);'''
+						resultado = '''scanf("%f", &«op.generate»);'''
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%r", &«op.generate»);'''
+						resultado = resultado + '''scanf("%f", &«op.generate»);'''
 					}
 		 		}
+		 		else if(vectoresMatrices.containsKey(tipo)) {
+					var tipoAux = vectoresMatrices.get(tipo);
+					if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						if(resultado == "") {
+							resultado = '''scanf("%i", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = resultado + '''scanf("%i", &«op.generate»);'''
+						}
+					}
+					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+						if(resultado == "") {
+							resultado = '''scanf("%s", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = resultado + '''scanf("%s", &«op.generate»);'''
+						}
+					}
+					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						if(resultado == "") {
+							resultado = '''scanf("%f", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = resultado + '''scanf("%f", &«op.generate»);'''
+						}
+					}
+				}
 			}
 			return resultado;
 			}
@@ -2250,10 +2364,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %r \\n \"";
+								cadena = cadena + " %f \\n \"";
 							}	
 							else {
-								cadena = cadena + " %r";
+								cadena = cadena + " %f";
 							}
 						}
 					}
@@ -2379,10 +2493,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %r \\n \"";
+								cadena = cadena + " %f \\n \"";
 							}	
 							else {
-								cadena = cadena + " %r";
+								cadena = cadena + " %f";
 							}
 						}
 					}
@@ -2418,7 +2532,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				else if(s.eClass.name.equals("Si") && perteneceInicio == false) {
 					var si = s as Si;
 					perteneceInicio = contienenExpresionEscribir(si.sentencias, a);
-					if(si.sino != null) {
+					if(si.sino != null && perteneceInicio == false) {
 						perteneceInicio = contienenExpresionEscribir(si.sino.sentencias, a);
 					}
 				}	
@@ -2509,12 +2623,39 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) || o.eClass.name.equals("NumeroDecimal")) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
-							cadena = cadena + " %r \\n \"";
+							cadena = cadena + " %f \\n \"";
 						}
 						else {
-							cadena = cadena + " %r";
+							cadena = cadena + " %f";
 						}
 					}
+					else if(vectoresMatrices.containsKey(tipo)) {
+							var tipoAux = vectoresMatrices.get(tipo);
+							if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %i \\n \"";
+								}
+								else {
+									cadena = cadena + " %i";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %s \\n \"";
+								}
+								else {
+									cadena = cadena + " %s";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %f \\n \"";
+								}	
+								else {
+									cadena = cadena + " %f";
+								}
+							}
+						}
 				}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
@@ -2555,6 +2696,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(perteneceSubproceso == false) {
 								perteneceSubproceso = contienenExpresionEscribir(c.sentencias, a);
 							}
+						}
+						//Si no esta en los case "genéricos" puede estar en el default
+						if(perteneceSubproceso == false) {
+							perteneceSubproceso = contienenExpresionEscribir(segun.sentencias, a);		
 						}
 					}
 		 		}
@@ -2635,10 +2780,37 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %r \\n \"";
+								cadena = cadena + " %f \\n \"";
 							}	
 							else {
-								cadena = cadena + " %r";
+								cadena = cadena + " %f";
+							}
+						}
+						else if(vectoresMatrices.containsKey(tipo)) {
+							var tipoAux = vectoresMatrices.get(tipo);
+							if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %i \\n \"";
+								}
+								else {
+									cadena = cadena + " %i";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %s \\n \"";
+								}
+								else {
+									cadena = cadena + " %s";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %f \\n \"";
+								}	
+								else {
+									cadena = cadena + " %f";
+								}
 							}
 						}
 					}
@@ -2890,14 +3062,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba.generate
 		}
 		else if (op.eClass.name.equals("Negativa")) {
-			var Negativa prueba = new NegativaImpl
-			prueba = op as Negativa
-			prueba.generate
+			//var Negativa prueba = new NegativaImpl
+			//prueba = op as Negativa
+			//prueba.generate
 		}
 		else if (op.eClass.name.equals("Negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = op as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = op as Negacion
+			//prueba.generate
 		}
 	}
 	
@@ -3013,14 +3185,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba.generate(punteros)
 		}
 		else if (op.eClass.name.equals("Negativa")) {
-			var Negativa prueba = new NegativaImpl
-			prueba = op as Negativa
-			prueba.generate(punteros)
+			//var Negativa prueba = new NegativaImpl
+			//prueba = op as Negativa
+			//prueba.generate(punteros)
 		}
 		else if (op.eClass.name.equals("Negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = op as Negacion
-			prueba.generate(punteros)
+			//var Negacion prueba = new NegacionImpl
+			//prueba = op as Negacion
+			//prueba.generate(punteros)
 		}
 	}
 
@@ -3131,14 +3303,14 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba.generate
 		}
 		else if (op.eClass.name.equals("Negativa")) {
-			var Negativa prueba = new NegativaImpl
-			prueba = op as Negativa
-			prueba.generate
+			//var Negativa prueba = new NegativaImpl
+			//prueba = op as Negativa
+			//prueba.generate
 		}
 		else if (op.eClass.name.equals("Negacion")) {
-			var Negacion prueba = new NegacionImpl
-			prueba = op as Negacion
-			prueba.generate
+			//var Negacion prueba = new NegacionImpl
+			//prueba = op as Negacion
+			//prueba.generate
 		}
 	}
 	
@@ -3179,11 +3351,19 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	def generate(Div myDivi) {
-		return myDivi.left.generate + " " + "/" + " " + myDivi.right.generate;
+		return myDivi.left.generate + " / " + myDivi.right.generate;
+	}
+	
+	def generate(Div myDivi, List<String> punteros) {
+		return myDivi.left.generate(punteros) + " / " + myDivi.right.generate(punteros);
 	}
 	
 	def generate(Mod myMod) {
 		return myMod.left.generate + " " + "%" + " " + myMod.right.generate;
+	}
+	
+	def generate(Mod myMod, List<String> punteros) {
+		return myMod.left.generate(punteros) + " " + "%" + " " + myMod.right.generate(punteros);
 	}
 	
 	def generate(Division myDivi, List<String> punteros) {
@@ -3224,7 +3404,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	def generate(Igualdad myIgualdad, List<String> punteros) {
-		return myIgualdad.left.generate(punteros) + " " + myIgualdad.signo_op + " " + myIgualdad.right.generate(punteros);
+		if(myIgualdad.signo_op.literal.equals("=")) {
+			return myIgualdad.left.generate(punteros) + " " + "==" + " " + myIgualdad.right.generate(punteros);
+		}
+		else {
+			return myIgualdad.left.generate(punteros) + " " + "!=" + " " + myIgualdad.right.generate(punteros);
+		}
 	}
 	
 	override generate(Negativa myNegativa) {
@@ -3249,7 +3434,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF mySi.devuelve != null» 
-			«mySi.devuelve.generate»
+			«mySi.devuelve.generate(punteros)»
 			«ENDIF»	
 		}
 		«IF mySi.sino != null» 
@@ -3277,7 +3462,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF myCaso.devuelve != null» 
-			«myCaso.devuelve.generate»
+			«myCaso.devuelve.generate(punteros)»
 			«ENDIF»
 		break;
 	'''
@@ -3303,7 +3488,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					«sent.generatePunteros(punteros)»
 				«ENDFOR»
 				«IF mySegun.devuelve != null» 
-				«mySegun.devuelve.generate»
+				«mySegun.devuelve.generate(punteros)»
 				«ENDIF»
 			break;
 		}
@@ -3329,13 +3514,17 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		return «myDevuelve.devuelve.generate»;
 	'''
 	
+	def generate(Devolver myDevuelve, List<String> punteros) '''
+		return «myDevuelve.devuelve.generate(punteros)»;
+	'''
+	
 	def generateSinoPunteros(Sino mySino, List<String> punteros) '''
 		else{
 			«FOR sent:mySino.sentencias»	
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
 			«IF mySino.devuelve != null» 
-			«mySino.devuelve.generate»
+			«mySino.devuelve.generate(punteros)»
 			«ENDIF»	
 		}
 	'''
@@ -3388,7 +3577,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			«FOR sent:r.sentencias»
 				«sent.generatePunteros(punteros)»
 			«ENDFOR»
-		}while(«r.valor.generate»);
+		}while(!(«r.valor.generate»));
 	'''
 
 	override generate(repetir r) '''
@@ -3396,6 +3585,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			«FOR sent:r.sentencias»
 				«sent.generate»
 			«ENDFOR»
-		}while(«r.valor.generate»);
+		}while(!(«r.valor.generate»));
 	'''
 }

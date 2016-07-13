@@ -5,7 +5,8 @@ package diagramapseudocodigo.provider;
 
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Negacion;
+import diagramapseudocodigo.Unaria;
+import diagramapseudocodigo.signo;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,24 +15,26 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
+
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link diagramapseudocodigo.Negacion} object.
+ * This is the item provider adapter for a {@link diagramapseudocodigo.Unaria} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NegacionItemProvider
-	extends operacionItemProvider {
+public class UnariaItemProvider extends operacionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NegacionItemProvider(AdapterFactory adapterFactory) {
+	public UnariaItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -46,8 +49,31 @@ public class NegacionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSigno_opPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Signo op feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSigno_opPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Unaria_signo_op_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Unaria_signo_op_feature", "_UI_Unaria_type"),
+				 DiagramapseudocodigoPackage.Literals.UNARIA__SIGNO_OP,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -62,7 +88,7 @@ public class NegacionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT);
 		}
 		return childrenFeatures;
 	}
@@ -81,14 +107,14 @@ public class NegacionItemProvider
 	}
 
 	/**
-	 * This returns Negacion.gif.
+	 * This returns Unaria.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Negacion"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Unaria"));
 	}
 
 	/**
@@ -99,8 +125,13 @@ public class NegacionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Negacion_type");
+		signo labelValue = ((Unaria)object).getSigno_op();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Unaria_type") :
+			getString("_UI_Unaria_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -113,8 +144,11 @@ public class NegacionItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Negacion.class)) {
-			case DiagramapseudocodigoPackage.NEGACION__VALOR_OPERACION:
+		switch (notification.getFeatureID(Unaria.class)) {
+			case DiagramapseudocodigoPackage.UNARIA__SIGNO_OP:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+			case DiagramapseudocodigoPackage.UNARIA__RIGHT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -134,133 +168,128 @@ public class NegacionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION,
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 	}
 
 }

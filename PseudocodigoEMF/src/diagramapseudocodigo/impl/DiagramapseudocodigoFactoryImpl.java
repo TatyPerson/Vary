@@ -85,7 +85,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.SEGUN: return createsegun();
 			case DiagramapseudocodigoPackage.DEVOLVER: return createDevolver();
 			case DiagramapseudocodigoPackage.CASO: return createCaso();
-			case DiagramapseudocodigoPackage.UNARIA: return createunaria();
 			case DiagramapseudocodigoPackage.CONSTANTES: return createConstantes();
 			case DiagramapseudocodigoPackage.VECTOR: return createVector();
 			case DiagramapseudocodigoPackage.DECLARACION_PROPIA: return createDeclaracionPropia();
@@ -117,8 +116,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.IGUALDAD: return createIgualdad();
 			case DiagramapseudocodigoPackage.SUBRANGO_NUMERICO: return createSubrangoNumerico();
 			case DiagramapseudocodigoPackage.SUBRANGO_ENUMERADO: return createSubrangoEnumerado();
-			case DiagramapseudocodigoPackage.NEGATIVA: return createNegativa();
-			case DiagramapseudocodigoPackage.NEGACION: return createNegacion();
 			case DiagramapseudocodigoPackage.ASIGNACION_NORMAL: return createAsignacionNormal();
 			case DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA: return createAsignacionCompleja();
 			case DiagramapseudocodigoPackage.CODIGO: return createCodigo();
@@ -130,6 +127,7 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.MOD: return createMod();
 			case DiagramapseudocodigoPackage.DIV: return createDiv();
 			case DiagramapseudocodigoPackage.OPERACION_PARENTESIS: return createOperacionParentesis();
+			case DiagramapseudocodigoPackage.UNARIA: return createUnaria();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -275,6 +273,16 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public OperacionParentesis createOperacionParentesis() {
 		OperacionParentesisImpl operacionParentesis = new OperacionParentesisImpl();
 		return operacionParentesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Unaria createUnaria() {
+		UnariaImpl unaria = new UnariaImpl();
+		return unaria;
 	}
 
 	/**
@@ -545,16 +553,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public Caso createCaso() {
 		CasoImpl caso = new CasoImpl();
 		return caso;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public unaria createunaria() {
-		unariaImpl unaria = new unariaImpl();
-		return unaria;
 	}
 
 	/**
@@ -865,26 +863,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public SubrangoEnumerado createSubrangoEnumerado() {
 		SubrangoEnumeradoImpl subrangoEnumerado = new SubrangoEnumeradoImpl();
 		return subrangoEnumerado;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Negativa createNegativa() {
-		NegativaImpl negativa = new NegativaImpl();
-		return negativa;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Negacion createNegacion() {
-		NegacionImpl negacion = new NegacionImpl();
-		return negacion;
 	}
 
 	/**

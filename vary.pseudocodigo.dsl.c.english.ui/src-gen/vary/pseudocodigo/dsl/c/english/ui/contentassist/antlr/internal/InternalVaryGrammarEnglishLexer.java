@@ -12,72 +12,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalVaryGrammarEnglishLexer extends Lexer {
-    public static final int RULE_ID=6;
-    public static final int T__29=29;
-    public static final int T__28=28;
-    public static final int T__27=27;
-    public static final int T__26=26;
-    public static final int T__25=25;
-    public static final int T__24=24;
-    public static final int T__23=23;
-    public static final int T__22=22;
-    public static final int RULE_ANY_OTHER=14;
-    public static final int T__21=21;
-    public static final int T__20=20;
-    public static final int EOF=-1;
-    public static final int T__93=93;
-    public static final int T__19=19;
-    public static final int T__94=94;
-    public static final int T__91=91;
-    public static final int T__92=92;
-    public static final int T__16=16;
-    public static final int T__90=90;
-    public static final int T__15=15;
-    public static final int T__18=18;
-    public static final int T__17=17;
-    public static final int T__99=99;
-    public static final int T__98=98;
-    public static final int T__97=97;
-    public static final int T__96=96;
-    public static final int T__95=95;
-    public static final int T__80=80;
-    public static final int T__81=81;
-    public static final int T__82=82;
-    public static final int T__83=83;
-    public static final int T__85=85;
-    public static final int T__84=84;
-    public static final int T__87=87;
-    public static final int T__86=86;
-    public static final int T__89=89;
-    public static final int T__88=88;
-    public static final int RULE_ML_COMMENT=12;
-    public static final int RULE_STRING=5;
-    public static final int T__71=71;
-    public static final int T__72=72;
-    public static final int T__70=70;
-    public static final int T__76=76;
-    public static final int T__75=75;
-    public static final int T__74=74;
-    public static final int T__73=73;
-    public static final int T__79=79;
-    public static final int T__78=78;
-    public static final int T__77=77;
-    public static final int T__68=68;
-    public static final int T__69=69;
-    public static final int T__66=66;
-    public static final int T__67=67;
-    public static final int T__64=64;
-    public static final int T__65=65;
-    public static final int T__62=62;
-    public static final int T__63=63;
-    public static final int T__116=116;
-    public static final int RULE_NOMBRE_FUN=8;
-    public static final int RULE_CAR=11;
-    public static final int T__114=114;
-    public static final int T__115=115;
-    public static final int T__61=61;
-    public static final int T__60=60;
-    public static final int RULE_CAD=10;
+    public static final int RULE_NOMBRE_FUN=7;
+    public static final int T__50=50;
+    public static final int T__59=59;
     public static final int T__55=55;
     public static final int T__56=56;
     public static final int T__57=57;
@@ -86,46 +23,109 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
     public static final int T__52=52;
     public static final int T__53=53;
     public static final int T__54=54;
-    public static final int T__107=107;
-    public static final int T__108=108;
-    public static final int T__109=109;
-    public static final int T__103=103;
-    public static final int T__59=59;
-    public static final int T__104=104;
-    public static final int T__105=105;
-    public static final int T__106=106;
-    public static final int T__111=111;
-    public static final int T__110=110;
+    public static final int T__60=60;
+    public static final int T__61=61;
+    public static final int RULE_ID=6;
     public static final int RULE_INT=4;
-    public static final int T__113=113;
-    public static final int RULE_COMENT=9;
-    public static final int T__112=112;
-    public static final int T__50=50;
-    public static final int T__42=42;
-    public static final int T__43=43;
-    public static final int T__40=40;
-    public static final int T__41=41;
-    public static final int T__46=46;
-    public static final int T__47=47;
-    public static final int T__44=44;
-    public static final int T__45=45;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int T__102=102;
-    public static final int T__101=101;
-    public static final int T__100=100;
-    public static final int RULE_SL_COMMENT=7;
-    public static final int T__30=30;
-    public static final int T__31=31;
-    public static final int T__32=32;
+    public static final int T__66=66;
+    public static final int RULE_ML_COMMENT=12;
+    public static final int T__67=67;
+    public static final int T__68=68;
+    public static final int T__69=69;
+    public static final int T__62=62;
+    public static final int T__63=63;
+    public static final int T__64=64;
+    public static final int T__65=65;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
     public static final int T__33=33;
     public static final int T__34=34;
     public static final int T__35=35;
     public static final int T__36=36;
-    public static final int T__37=37;
-    public static final int T__38=38;
-    public static final int T__39=39;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__91=91;
+    public static final int T__100=100;
+    public static final int T__92=92;
+    public static final int T__93=93;
+    public static final int T__102=102;
+    public static final int T__94=94;
+    public static final int T__101=101;
+    public static final int T__90=90;
+    public static final int RULE_COMENT=11;
+    public static final int T__19=19;
+    public static final int T__15=15;
+    public static final int T__16=16;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int T__99=99;
+    public static final int T__95=95;
+    public static final int T__96=96;
+    public static final int T__97=97;
+    public static final int T__98=98;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
+    public static final int T__70=70;
+    public static final int T__71=71;
+    public static final int T__72=72;
+    public static final int RULE_STRING=5;
+    public static final int RULE_CAR=9;
+    public static final int RULE_SL_COMMENT=10;
+    public static final int T__77=77;
+    public static final int T__78=78;
+    public static final int RULE_CAD=8;
+    public static final int T__79=79;
+    public static final int T__73=73;
+    public static final int T__115=115;
+    public static final int EOF=-1;
+    public static final int T__74=74;
+    public static final int T__114=114;
+    public static final int T__75=75;
+    public static final int T__76=76;
+    public static final int T__116=116;
+    public static final int T__80=80;
+    public static final int T__111=111;
+    public static final int T__81=81;
+    public static final int T__110=110;
+    public static final int T__82=82;
+    public static final int T__113=113;
+    public static final int T__83=83;
+    public static final int T__112=112;
     public static final int RULE_WS=13;
+    public static final int RULE_ANY_OTHER=14;
+    public static final int T__88=88;
+    public static final int T__108=108;
+    public static final int T__89=89;
+    public static final int T__107=107;
+    public static final int T__109=109;
+    public static final int T__84=84;
+    public static final int T__104=104;
+    public static final int T__85=85;
+    public static final int T__103=103;
+    public static final int T__86=86;
+    public static final int T__106=106;
+    public static final int T__87=87;
+    public static final int T__105=105;
 
     // delegates
     // delegators
@@ -2268,12 +2268,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -2286,7 +2286,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2306,7 +2306,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 }
             } while (true);
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:40: ( ( '\\r' )? '\\n' )?
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:40: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2315,9 +2315,9 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:41: ( '\\r' )? '\\n'
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:41: ( '\\r' )? '\\n'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:41: ( '\\r' )?
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:41: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2326,7 +2326,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21693:41: '\\r'
+                            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19309:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2358,10 +2358,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_NOMBRE_FUN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21695:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21695:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19311:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19311:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21695:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19311:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop4:
             do {
                 int alt4=2;
@@ -2411,11 +2411,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_CAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21697:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21697:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19313:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19313:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
             {
             match('\"'); 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21697:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19313:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
             loop5:
             do {
                 int alt5=2;
@@ -2465,8 +2465,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_CAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21699:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21699:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19315:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19315:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
             {
             match('\''); 
             if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2495,12 +2495,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_COMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21701:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21701:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19317:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19317:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21701:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19317:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -2551,10 +2551,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21703:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21703:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19319:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19319:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21703:11: ( '^' )?
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19319:11: ( '^' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2563,7 +2563,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21703:11: '^'
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19319:11: '^'
                     {
                     match('^'); 
 
@@ -2581,7 +2581,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21703:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19319:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop8:
             do {
                 int alt8=2;
@@ -2630,10 +2630,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21705:10: ( ( '0' .. '9' )+ )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21705:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19321:10: ( ( '0' .. '9' )+ )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19321:12: ( '0' .. '9' )+
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21705:12: ( '0' .. '9' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19321:12: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -2647,7 +2647,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21705:13: '0' .. '9'
+            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19321:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2679,10 +2679,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2700,10 +2700,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2719,7 +2719,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:21: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2727,7 +2727,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2752,10 +2752,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2771,7 +2771,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:54: '\\\\' .
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2779,7 +2779,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21707:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19323:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2822,12 +2822,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21709:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21709:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19325:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19325:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21709:24: ( options {greedy=false; } : . )*
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19325:24: ( options {greedy=false; } : . )*
             loop13:
             do {
                 int alt13=2;
@@ -2852,7 +2852,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21709:52: .
+            	    // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19325:52: .
             	    {
             	    matchAny(); 
 
@@ -2882,10 +2882,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21711:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21711:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19327:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19327:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21711:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19327:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -2939,8 +2939,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21713:16: ( . )
-            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:21713:18: .
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19329:16: ( . )
+            // ../vary.pseudocodigo.dsl.c.english.ui/src-gen/vary/pseudocodigo/dsl/c/english/ui/contentassist/antlr/internal/InternalVaryGrammarEnglish.g:19329:18: .
             {
             matchAny(); 
 
@@ -3762,13 +3762,13 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
     static final String DFA15_eofS =
         "\u01f8\uffff";
     static final String DFA15_minS =
-        "\1\0\2\50\1\uffff\1\50\1\uffff\1\52\14\50\1\uffff\1\75\1\55\1\75\10\50\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\2\50\2\0\1\101\1\50\2\uffff\4\50\1\uffff\1\50\1\uffff\3\50\5\uffff\1\0\1\uffff\21\50\1\uffff\3\50\1\uffff\5\50\12\uffff\14\50\13\uffff\1\50\2\0\2\uffff\2\0\1\uffff\1\50\2\uffff\1\50\1\uffff\4\50\2\0\1\uffff\4\50\1\uffff\22\50\1\uffff\2\50\2\uffff\10\50\1\uffff\11\50\2\0\1\uffff\1\0\1\uffff\2\50\1\uffff\2\50\1\0\1\uffff\2\50\1\uffff\7\50\1\uffff\7\50\1\uffff\1\50\1\uffff\3\50\2\uffff\1\50\1\uffff\13\50\1\uffff\1\50\1\uffff\3\50\3\uffff\3\50\1\uffff\1\50\1\uffff\4\50\2\uffff\3\50\1\uffff\4\50\1\uffff\1\50\2\uffff\1\50\1\uffff\11\50\2\uffff\7\50\3\uffff\13\50\3\uffff\1\50\1\uffff\4\50\1\uffff\1\50\1\uffff\1\50\1\uffff\23\50\2\uffff\1\50\1\uffff\7\50\1\40\1\uffff\1\50\2\uffff\2\50\2\uffff\2\50\3\uffff\3\50\1\uffff\10\50\1\uffff\2\50\1\uffff\1\50\1\uffff\3\50\2\uffff\3\50\3\uffff\3\50\1\uffff\11\50\1\uffff\2\50\2\uffff\2\50\1\uffff\5\50\1\uffff\10\50\1\uffff\6\50\1\uffff\2\50\1\uffff\1\50\2\uffff\7\50\1\uffff\4\50\2\uffff\1\50\1\uffff\2\50\1\uffff\1\50\2\uffff\3\50\1\uffff\11\50\2\uffff\3\50\2\uffff\2\50\2\uffff\2\50\1\uffff\3\50\1\uffff\2\50\1\uffff\2\50\1\uffff";
+        "\1\0\2\50\1\uffff\1\50\1\uffff\1\52\14\50\1\uffff\1\75\1\55\1\75\10\50\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\2\50\2\0\1\101\1\50\2\uffff\4\50\1\uffff\1\50\1\uffff\3\50\5\uffff\1\0\1\uffff\21\50\1\uffff\3\50\1\uffff\5\50\12\uffff\14\50\13\uffff\1\50\1\0\1\uffff\1\0\1\uffff\2\0\1\uffff\1\50\2\uffff\1\50\1\uffff\4\50\2\0\1\uffff\4\50\1\uffff\22\50\1\uffff\2\50\2\uffff\10\50\1\uffff\11\50\2\0\1\uffff\1\0\1\uffff\2\50\1\uffff\2\50\1\0\1\uffff\2\50\1\uffff\7\50\1\uffff\7\50\1\uffff\1\50\1\uffff\3\50\2\uffff\1\50\1\uffff\13\50\1\uffff\1\50\1\uffff\3\50\3\uffff\3\50\1\uffff\1\50\1\uffff\4\50\2\uffff\3\50\1\uffff\4\50\1\uffff\1\50\2\uffff\1\50\1\uffff\11\50\2\uffff\7\50\3\uffff\13\50\3\uffff\1\50\1\uffff\4\50\1\uffff\1\50\1\uffff\1\50\1\uffff\23\50\2\uffff\1\50\1\uffff\7\50\1\40\1\uffff\1\50\2\uffff\2\50\2\uffff\2\50\3\uffff\3\50\1\uffff\10\50\1\uffff\2\50\1\uffff\1\50\1\uffff\3\50\2\uffff\3\50\3\uffff\3\50\1\uffff\11\50\1\uffff\2\50\2\uffff\2\50\1\uffff\5\50\1\uffff\10\50\1\uffff\6\50\1\uffff\2\50\1\uffff\1\50\2\uffff\7\50\1\uffff\4\50\2\uffff\1\50\1\uffff\2\50\1\uffff\1\50\2\uffff\3\50\1\uffff\11\50\2\uffff\3\50\2\uffff\2\50\2\uffff\2\50\1\uffff\3\50\1\uffff\2\50\1\uffff\2\50\1\uffff";
     static final String DFA15_maxS =
-        "\1\uffff\2\172\1\uffff\1\50\1\uffff\1\57\14\172\1\uffff\3\75\10\172\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\2\172\2\uffff\2\172\2\uffff\4\172\1\uffff\1\172\1\uffff\3\172\5\uffff\1\uffff\1\uffff\21\172\1\uffff\3\172\1\uffff\5\172\12\uffff\14\172\13\uffff\1\172\2\uffff\2\uffff\2\uffff\1\uffff\1\172\2\uffff\1\172\1\uffff\4\172\2\uffff\1\uffff\4\172\1\uffff\22\172\1\uffff\2\172\2\uffff\10\172\1\uffff\11\172\2\uffff\1\uffff\1\uffff\1\uffff\2\172\1\uffff\2\172\1\uffff\1\uffff\2\172\1\uffff\7\172\1\uffff\7\172\1\uffff\1\172\1\uffff\3\172\2\uffff\1\172\1\uffff\13\172\1\uffff\1\172\1\uffff\3\172\3\uffff\3\172\1\uffff\1\172\1\uffff\4\172\2\uffff\3\172\1\uffff\4\172\1\uffff\1\172\2\uffff\1\172\1\uffff\11\172\2\uffff\7\172\3\uffff\13\172\3\uffff\1\172\1\uffff\4\172\1\uffff\1\172\1\uffff\1\172\1\uffff\23\172\2\uffff\1\172\1\uffff\10\172\1\uffff\1\172\2\uffff\2\172\2\uffff\2\172\3\uffff\3\172\1\uffff\10\172\1\uffff\2\172\1\uffff\1\172\1\uffff\3\172\2\uffff\3\172\3\uffff\3\172\1\uffff\11\172\1\uffff\2\172\2\uffff\2\172\1\uffff\5\172\1\uffff\10\172\1\uffff\6\172\1\uffff\2\172\1\uffff\1\172\2\uffff\7\172\1\uffff\4\172\2\uffff\1\172\1\uffff\2\172\1\uffff\1\172\2\uffff\3\172\1\uffff\11\172\2\uffff\3\172\2\uffff\2\172\2\uffff\2\172\1\uffff\3\172\1\uffff\2\172\1\uffff\2\172\1\uffff";
+        "\1\uffff\2\172\1\uffff\1\50\1\uffff\1\57\14\172\1\uffff\3\75\10\172\3\uffff\1\56\1\uffff\1\133\1\40\2\uffff\2\172\2\uffff\2\172\2\uffff\4\172\1\uffff\1\172\1\uffff\3\172\5\uffff\1\uffff\1\uffff\21\172\1\uffff\3\172\1\uffff\5\172\12\uffff\14\172\13\uffff\1\172\1\uffff\1\uffff\1\uffff\1\uffff\2\uffff\1\uffff\1\172\2\uffff\1\172\1\uffff\4\172\2\uffff\1\uffff\4\172\1\uffff\22\172\1\uffff\2\172\2\uffff\10\172\1\uffff\11\172\2\uffff\1\uffff\1\uffff\1\uffff\2\172\1\uffff\2\172\1\uffff\1\uffff\2\172\1\uffff\7\172\1\uffff\7\172\1\uffff\1\172\1\uffff\3\172\2\uffff\1\172\1\uffff\13\172\1\uffff\1\172\1\uffff\3\172\3\uffff\3\172\1\uffff\1\172\1\uffff\4\172\2\uffff\3\172\1\uffff\4\172\1\uffff\1\172\2\uffff\1\172\1\uffff\11\172\2\uffff\7\172\3\uffff\13\172\3\uffff\1\172\1\uffff\4\172\1\uffff\1\172\1\uffff\1\172\1\uffff\23\172\2\uffff\1\172\1\uffff\10\172\1\uffff\1\172\2\uffff\2\172\2\uffff\2\172\3\uffff\3\172\1\uffff\10\172\1\uffff\2\172\1\uffff\1\172\1\uffff\3\172\2\uffff\3\172\3\uffff\3\172\1\uffff\11\172\1\uffff\2\172\2\uffff\2\172\1\uffff\5\172\1\uffff\10\172\1\uffff\6\172\1\uffff\2\172\1\uffff\1\172\2\uffff\7\172\1\uffff\4\172\2\uffff\1\172\1\uffff\2\172\1\uffff\1\172\2\uffff\3\172\1\uffff\11\172\2\uffff\3\172\2\uffff\2\172\2\uffff\2\172\1\uffff\3\172\1\uffff\2\172\1\uffff\2\172\1\uffff";
     static final String DFA15_acceptS =
-        "\3\uffff\1\3\1\uffff\1\5\15\uffff\1\37\13\uffff\1\70\1\71\1\74\1\uffff\1\100\2\uffff\1\111\1\112\6\uffff\1\160\1\161\4\uffff\1\154\1\uffff\1\150\3\uffff\1\3\1\141\1\4\1\5\1\147\1\uffff\1\6\21\uffff\1\25\3\uffff\1\24\5\uffff\1\37\1\40\1\44\1\117\1\41\1\43\1\42\1\46\1\45\1\47\14\uffff\1\70\1\71\1\74\1\113\1\76\1\100\1\105\1\101\1\103\1\111\1\112\3\uffff\1\151\1\156\2\uffff\1\155\1\uffff\1\160\1\1\1\uffff\1\102\6\uffff\1\157\4\uffff\1\125\22\uffff\1\16\2\uffff\1\26\1\124\10\uffff\1\133\13\uffff\1\151\1\uffff\1\152\2\uffff\1\2\3\uffff\1\7\2\uffff\1\10\7\uffff\1\13\7\uffff\1\20\1\uffff\1\15\3\uffff\1\16\1\17\1\uffff\1\26\13\uffff\1\132\1\uffff\1\60\3\uffff\1\142\1\152\1\73\3\uffff\1\153\1\uffff\1\114\4\uffff\1\121\1\34\3\uffff\1\13\4\uffff\1\135\1\uffff\1\21\1\20\1\uffff\1\15\11\uffff\1\143\1\17\7\uffff\1\50\1\57\1\122\13\uffff\1\120\1\27\1\127\1\uffff\1\121\4\uffff\1\56\1\uffff\1\75\1\uffff\1\21\23\uffff\1\30\1\131\1\uffff\1\51\10\uffff\1\104\1\uffff\1\120\1\27\2\uffff\1\130\1\144\2\uffff\1\14\1\36\1\62\3\uffff\1\123\10\uffff\1\22\2\uffff\1\54\1\uffff\1\30\3\uffff\1\77\1\61\3\uffff\1\110\1\11\1\12\3\uffff\1\14\11\uffff\1\134\2\uffff\1\22\1\32\2\uffff\1\35\5\uffff\1\106\10\uffff\1\116\6\uffff\1\72\2\uffff\1\136\1\uffff\1\23\1\33\7\uffff\1\126\4\uffff\1\52\1\67\1\uffff\1\23\2\uffff\1\55\1\uffff\1\63\1\64\3\uffff\1\115\11\uffff\1\31\1\140\3\uffff\1\107\1\145\2\uffff\1\31\1\53\2\uffff\1\146\3\uffff\1\65\2\uffff\1\137\2\uffff\1\66";
+        "\3\uffff\1\3\1\uffff\1\5\15\uffff\1\37\13\uffff\1\70\1\71\1\74\1\uffff\1\100\2\uffff\1\111\1\112\6\uffff\1\160\1\161\4\uffff\1\154\1\uffff\1\150\3\uffff\1\3\1\141\1\4\1\5\1\147\1\uffff\1\6\21\uffff\1\25\3\uffff\1\24\5\uffff\1\37\1\40\1\44\1\117\1\41\1\43\1\42\1\46\1\45\1\47\14\uffff\1\70\1\71\1\74\1\113\1\76\1\100\1\105\1\101\1\103\1\111\1\112\2\uffff\1\151\1\uffff\1\156\2\uffff\1\155\1\uffff\1\160\1\1\1\uffff\1\102\6\uffff\1\157\4\uffff\1\125\22\uffff\1\16\2\uffff\1\26\1\124\10\uffff\1\133\13\uffff\1\151\1\uffff\1\152\2\uffff\1\2\3\uffff\1\7\2\uffff\1\10\7\uffff\1\13\7\uffff\1\20\1\uffff\1\15\3\uffff\1\16\1\17\1\uffff\1\26\13\uffff\1\132\1\uffff\1\60\3\uffff\1\142\1\152\1\73\3\uffff\1\153\1\uffff\1\114\4\uffff\1\121\1\34\3\uffff\1\13\4\uffff\1\135\1\uffff\1\21\1\20\1\uffff\1\15\11\uffff\1\143\1\17\7\uffff\1\50\1\57\1\122\13\uffff\1\120\1\27\1\127\1\uffff\1\121\4\uffff\1\56\1\uffff\1\75\1\uffff\1\21\23\uffff\1\30\1\131\1\uffff\1\51\10\uffff\1\104\1\uffff\1\120\1\27\2\uffff\1\130\1\144\2\uffff\1\14\1\36\1\62\3\uffff\1\123\10\uffff\1\22\2\uffff\1\54\1\uffff\1\30\3\uffff\1\77\1\61\3\uffff\1\110\1\11\1\12\3\uffff\1\14\11\uffff\1\134\2\uffff\1\22\1\32\2\uffff\1\35\5\uffff\1\106\10\uffff\1\116\6\uffff\1\72\2\uffff\1\136\1\uffff\1\23\1\33\7\uffff\1\126\4\uffff\1\52\1\67\1\uffff\1\23\2\uffff\1\55\1\uffff\1\63\1\64\3\uffff\1\115\11\uffff\1\31\1\140\3\uffff\1\107\1\145\2\uffff\1\31\1\53\2\uffff\1\146\3\uffff\1\65\2\uffff\1\137\2\uffff\1\66";
     static final String DFA15_specialS =
-        "\1\4\51\uffff\1\1\1\15\23\uffff\1\5\76\uffff\1\3\1\11\2\uffff\1\0\1\14\12\uffff\1\7\1\12\57\uffff\1\13\1\10\1\uffff\1\6\6\uffff\1\2\u012e\uffff}>";
+        "\1\12\51\uffff\1\5\1\1\23\uffff\1\14\76\uffff\1\10\1\uffff\1\7\1\uffff\1\4\1\3\12\uffff\1\2\1\0\57\uffff\1\11\1\6\1\uffff\1\13\6\uffff\1\15\u012e\uffff}>";
     static final String[] DFA15_transitionS = {
             "\11\57\2\56\2\57\1\56\22\57\1\56\1\24\1\52\4\57\1\53\1\41\1\37\1\5\1\3\1\40\1\4\1\42\1\6\12\55\1\45\1\57\1\25\1\23\1\26\2\57\1\33\3\51\1\17\3\51\1\27\3\51\1\35\1\51\1\30\13\51\1\43\1\57\1\44\1\54\1\51\1\57\1\2\1\22\1\13\1\10\1\15\1\32\2\51\1\20\2\51\1\16\1\7\1\50\1\1\1\36\1\51\1\12\1\14\1\31\1\21\1\34\1\11\3\51\1\46\1\57\1\47\uff82\57",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\5\65\1\62\11\65\1\61\1\65\1\60\1\65\1\63\6\65",
@@ -3812,7 +3812,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\16\65\1\175\13\65",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
-            "\40\u0081\2\177\1\u0080\1\177\1\u0081\2\177\1\u0081\2\177\2\u0081\3\177\1\u0081\13\177\2\u0081\1\177\1\u0081\34\177\1\u0081\1\176\2\u0081\1\177\1\u0081\32\177\uff85\u0081",
+            "\40\u0081\2\u0080\1\177\1\u0080\1\u0081\2\u0080\1\u0081\2\u0080\2\u0081\3\u0080\1\u0081\13\u0080\2\u0081\1\u0080\1\u0081\34\u0080\1\u0081\1\176\2\u0081\1\u0080\1\u0081\32\u0080\uff85\u0081",
             "\40\u0081\2\u0083\1\u0081\1\u0083\1\u0081\2\u0083\1\u0081\2\u0083\6\u0081\12\u0083\3\u0081\1\u0083\1\u0081\34\u0083\1\u0081\1\u0082\2\u0081\1\u0083\1\u0081\32\u0083\uff85\u0081",
             "\32\64\4\uffff\1\64\1\uffff\32\64",
             "\1\66\7\uffff\12\u0085\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
@@ -3833,7 +3833,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "",
             "",
             "",
-            "\40\u0090\2\u008f\1\u0090\1\u008f\1\u0090\2\u008f\1\u0090\2\u008f\1\u008e\5\u0090\12\u008f\3\u0090\1\u008f\1\u0090\34\u008f\1\u0090\1\u008f\2\u0090\1\u008f\1\u0090\32\u008f\uff85\u0090",
+            "\40\u0090\2\u008e\1\u0090\1\u008e\1\u0090\2\u008e\1\u0090\2\u008e\1\u008f\5\u0090\12\u008e\3\u0090\1\u008e\1\u0090\34\u008e\1\u0090\1\u008e\2\u0090\1\u008e\1\u0090\32\u008e\uff85\u0090",
             "",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\3\65\1\u0091\26\65",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\10\65\1\u0093\12\65\1\u0092\6\65",
@@ -3897,8 +3897,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\23\65\1\u00be\6\65",
             "\40\u0081\2\u00c0\1\u00bf\1\u00c0\1\u0081\2\u00c0\1\u0081\2\u00c0\2\u0081\3\u00c0\1\u0081\13\u00c0\2\u0081\1\u00c0\1\u0081\34\u00c0\1\u0081\1\u00c0\2\u0081\1\u00c0\1\u0081\32\u00c0\uff85\u0081",
-            "\40\u0081\2\177\1\u0080\1\177\1\u0081\2\177\1\u0081\2\177\2\u0081\3\177\1\u0081\13\177\2\u0081\1\177\1\u0081\34\177\1\u0081\1\176\2\u0081\1\177\1\u0081\32\177\uff85\u0081",
             "",
+            "\40\u0081\2\u0080\1\177\1\u0080\1\u0081\2\u0080\1\u0081\2\u0080\2\u0081\3\u0080\1\u0081\13\u0080\2\u0081\1\u0080\1\u0081\34\u0080\1\u0081\1\176\2\u0081\1\u0080\1\u0081\32\u0080\uff85\u0081",
             "",
             "\47\u0081\1\u00c2\uffd8\u0081",
             "\47\u0081\1\u00c3\uffd8\u0081",
@@ -3912,8 +3912,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\16\65\1\u00c7\13\65",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\7\65\1\u00c8\22\65",
+            "\40\u0090\2\u008e\1\u0090\1\u008e\1\u0090\2\u008e\1\u0090\2\u008e\1\u008f\5\u0090\12\u008e\3\u0090\1\u008e\1\u0090\34\u008e\1\u0090\1\u008e\2\u0090\1\u008e\1\u0090\32\u008e\uff85\u0090",
             "\57\u0090\1\u00c9\uffd0\u0090",
-            "\40\u0090\2\u008f\1\u0090\1\u008f\1\u0090\2\u008f\1\u0090\2\u008f\1\u008e\5\u0090\12\u008f\3\u0090\1\u008f\1\u0090\34\u008f\1\u0090\1\u008f\2\u0090\1\u008f\1\u0090\32\u008f\uff85\u0090",
             "",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\21\65\1\u00cb\10\65",
@@ -3962,7 +3962,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\2\65\1\u00f7\27\65",
             "\1\66\7\uffff\12\65\7\uffff\32\65\4\uffff\1\65\1\uffff\32\65",
             "\0\u0081",
-            "\40\u0081\2\177\1\u0080\1\177\1\u0081\2\177\1\u0081\2\177\2\u0081\3\177\1\u0081\13\177\2\u0081\1\177\1\u0081\34\177\1\u0081\1\176\2\u0081\1\177\1\u0081\32\177\uff85\u0081",
+            "\40\u0081\2\u0080\1\177\1\u0080\1\u0081\2\u0080\1\u0081\2\u0080\2\u0081\3\u0080\1\u0081\13\u0080\2\u0081\1\u0080\1\u0081\34\u0080\1\u0081\1\176\2\u0081\1\u0080\1\u0081\32\u0080\uff85\u0081",
             "",
             "\0\u0081",
             "",
@@ -4313,6 +4313,52 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA15_143 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA15_143=='/') ) {s = 201;}
+
+                        else if ( ((LA15_143>='\u0000' && LA15_143<='.')||(LA15_143>='0' && LA15_143<='\uFFFF')) ) {s = 144;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA15_43 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA15_43=='\\') ) {s = 130;}
+
+                        else if ( ((LA15_43>=' ' && LA15_43<='!')||LA15_43=='#'||(LA15_43>='%' && LA15_43<='&')||(LA15_43>='(' && LA15_43<=')')||(LA15_43>='0' && LA15_43<='9')||LA15_43=='='||(LA15_43>='?' && LA15_43<='Z')||LA15_43=='_'||(LA15_43>='a' && LA15_43<='z')) ) {s = 131;}
+
+                        else if ( ((LA15_43>='\u0000' && LA15_43<='\u001F')||LA15_43=='\"'||LA15_43=='$'||LA15_43=='\''||(LA15_43>='*' && LA15_43<='/')||(LA15_43>=':' && LA15_43<='<')||LA15_43=='>'||LA15_43=='['||(LA15_43>=']' && LA15_43<='^')||LA15_43=='`'||(LA15_43>='{' && LA15_43<='\uFFFF')) ) {s = 129;}
+
+                        else s = 47;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA15_142 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA15_142=='*') ) {s = 143;}
+
+                        else if ( ((LA15_142>=' ' && LA15_142<='!')||LA15_142=='#'||(LA15_142>='%' && LA15_142<='&')||(LA15_142>='(' && LA15_142<=')')||(LA15_142>='0' && LA15_142<='9')||LA15_142=='='||(LA15_142>='?' && LA15_142<='Z')||LA15_142=='\\'||LA15_142=='_'||(LA15_142>='a' && LA15_142<='z')) ) {s = 142;}
+
+                        else if ( ((LA15_142>='\u0000' && LA15_142<='\u001F')||LA15_142=='\"'||LA15_142=='$'||LA15_142=='\''||(LA15_142>='+' && LA15_142<='/')||(LA15_142>=':' && LA15_142<='<')||LA15_142=='>'||LA15_142=='['||(LA15_142>=']' && LA15_142<='^')||LA15_142=='`'||(LA15_142>='{' && LA15_142<='\uFFFF')) ) {s = 144;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA15_131 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA15_131=='\'') ) {s = 195;}
+
+                        else if ( ((LA15_131>='\u0000' && LA15_131<='&')||(LA15_131>='(' && LA15_131<='\uFFFF')) ) {s = 129;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
                         int LA15_130 = input.LA(1);
 
                         s = -1;
@@ -4322,15 +4368,15 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
+                    case 5 : 
                         int LA15_42 = input.LA(1);
 
                         s = -1;
                         if ( (LA15_42=='\\') ) {s = 126;}
 
-                        else if ( ((LA15_42>=' ' && LA15_42<='!')||LA15_42=='#'||(LA15_42>='%' && LA15_42<='&')||(LA15_42>='(' && LA15_42<=')')||(LA15_42>=',' && LA15_42<='.')||(LA15_42>='0' && LA15_42<=':')||LA15_42=='='||(LA15_42>='?' && LA15_42<='Z')||LA15_42=='_'||(LA15_42>='a' && LA15_42<='z')) ) {s = 127;}
+                        else if ( (LA15_42=='\"') ) {s = 127;}
 
-                        else if ( (LA15_42=='\"') ) {s = 128;}
+                        else if ( ((LA15_42>=' ' && LA15_42<='!')||LA15_42=='#'||(LA15_42>='%' && LA15_42<='&')||(LA15_42>='(' && LA15_42<=')')||(LA15_42>=',' && LA15_42<='.')||(LA15_42>='0' && LA15_42<=':')||LA15_42=='='||(LA15_42>='?' && LA15_42<='Z')||LA15_42=='_'||(LA15_42>='a' && LA15_42<='z')) ) {s = 128;}
 
                         else if ( ((LA15_42>='\u0000' && LA15_42<='\u001F')||LA15_42=='$'||LA15_42=='\''||(LA15_42>='*' && LA15_42<='+')||LA15_42=='/'||(LA15_42>=';' && LA15_42<='<')||LA15_42=='>'||LA15_42=='['||(LA15_42>=']' && LA15_42<='^')||LA15_42=='`'||(LA15_42>='{' && LA15_42<='\uFFFF')) ) {s = 129;}
 
@@ -4338,17 +4384,35 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 2 : 
-                        int LA15_201 = input.LA(1);
+                    case 6 : 
+                        int LA15_192 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA15_201>='\u0000' && LA15_201<='\uFFFF')) ) {s = 144;}
+                        if ( (LA15_192=='\"') ) {s = 127;}
 
-                        else s = 254;
+                        else if ( (LA15_192=='\\') ) {s = 126;}
+
+                        else if ( ((LA15_192>=' ' && LA15_192<='!')||LA15_192=='#'||(LA15_192>='%' && LA15_192<='&')||(LA15_192>='(' && LA15_192<=')')||(LA15_192>=',' && LA15_192<='.')||(LA15_192>='0' && LA15_192<=':')||LA15_192=='='||(LA15_192>='?' && LA15_192<='Z')||LA15_192=='_'||(LA15_192>='a' && LA15_192<='z')) ) {s = 128;}
+
+                        else if ( ((LA15_192>='\u0000' && LA15_192<='\u001F')||LA15_192=='$'||LA15_192=='\''||(LA15_192>='*' && LA15_192<='+')||LA15_192=='/'||(LA15_192>=';' && LA15_192<='<')||LA15_192=='>'||LA15_192=='['||(LA15_192>=']' && LA15_192<='^')||LA15_192=='`'||(LA15_192>='{' && LA15_192<='\uFFFF')) ) {s = 129;}
 
                         if ( s>=0 ) return s;
                         break;
-                    case 3 : 
+                    case 7 : 
+                        int LA15_128 = input.LA(1);
+
+                        s = -1;
+                        if ( (LA15_128=='\"') ) {s = 127;}
+
+                        else if ( (LA15_128=='\\') ) {s = 126;}
+
+                        else if ( ((LA15_128>=' ' && LA15_128<='!')||LA15_128=='#'||(LA15_128>='%' && LA15_128<='&')||(LA15_128>='(' && LA15_128<=')')||(LA15_128>=',' && LA15_128<='.')||(LA15_128>='0' && LA15_128<=':')||LA15_128=='='||(LA15_128>='?' && LA15_128<='Z')||LA15_128=='_'||(LA15_128>='a' && LA15_128<='z')) ) {s = 128;}
+
+                        else if ( ((LA15_128>='\u0000' && LA15_128<='\u001F')||LA15_128=='$'||LA15_128=='\''||(LA15_128>='*' && LA15_128<='+')||LA15_128=='/'||(LA15_128>=';' && LA15_128<='<')||LA15_128=='>'||LA15_128=='['||(LA15_128>=']' && LA15_128<='^')||LA15_128=='`'||(LA15_128>='{' && LA15_128<='\uFFFF')) ) {s = 129;}
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
                         int LA15_126 = input.LA(1);
 
                         s = -1;
@@ -4360,7 +4424,17 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 4 : 
+                    case 9 : 
+                        int LA15_191 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA15_191>='\u0000' && LA15_191<='\uFFFF')) ) {s = 129;}
+
+                        else s = 193;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
                         int LA15_0 = input.LA(1);
 
                         s = -1;
@@ -4460,19 +4534,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 5 : 
-                        int LA15_63 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA15_63=='*') ) {s = 142;}
-
-                        else if ( ((LA15_63>=' ' && LA15_63<='!')||LA15_63=='#'||(LA15_63>='%' && LA15_63<='&')||(LA15_63>='(' && LA15_63<=')')||(LA15_63>='0' && LA15_63<='9')||LA15_63=='='||(LA15_63>='?' && LA15_63<='Z')||LA15_63=='\\'||LA15_63=='_'||(LA15_63>='a' && LA15_63<='z')) ) {s = 143;}
-
-                        else if ( ((LA15_63>='\u0000' && LA15_63<='\u001F')||LA15_63=='\"'||LA15_63=='$'||LA15_63=='\''||(LA15_63>='+' && LA15_63<='/')||(LA15_63>=':' && LA15_63<='<')||LA15_63=='>'||LA15_63=='['||(LA15_63>=']' && LA15_63<='^')||LA15_63=='`'||(LA15_63>='{' && LA15_63<='\uFFFF')) ) {s = 144;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
+                    case 11 : 
                         int LA15_194 = input.LA(1);
 
                         s = -1;
@@ -4482,87 +4544,25 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         if ( s>=0 ) return s;
                         break;
-                    case 7 : 
-                        int LA15_142 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA15_142=='/') ) {s = 201;}
-
-                        else if ( ((LA15_142>='\u0000' && LA15_142<='.')||(LA15_142>='0' && LA15_142<='\uFFFF')) ) {s = 144;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA15_192 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA15_192=='\"') ) {s = 128;}
-
-                        else if ( (LA15_192=='\\') ) {s = 126;}
-
-                        else if ( ((LA15_192>=' ' && LA15_192<='!')||LA15_192=='#'||(LA15_192>='%' && LA15_192<='&')||(LA15_192>='(' && LA15_192<=')')||(LA15_192>=',' && LA15_192<='.')||(LA15_192>='0' && LA15_192<=':')||LA15_192=='='||(LA15_192>='?' && LA15_192<='Z')||LA15_192=='_'||(LA15_192>='a' && LA15_192<='z')) ) {s = 127;}
-
-                        else if ( ((LA15_192>='\u0000' && LA15_192<='\u001F')||LA15_192=='$'||LA15_192=='\''||(LA15_192>='*' && LA15_192<='+')||LA15_192=='/'||(LA15_192>=';' && LA15_192<='<')||LA15_192=='>'||LA15_192=='['||(LA15_192>=']' && LA15_192<='^')||LA15_192=='`'||(LA15_192>='{' && LA15_192<='\uFFFF')) ) {s = 129;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA15_127 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA15_127=='\"') ) {s = 128;}
-
-                        else if ( (LA15_127=='\\') ) {s = 126;}
-
-                        else if ( ((LA15_127>=' ' && LA15_127<='!')||LA15_127=='#'||(LA15_127>='%' && LA15_127<='&')||(LA15_127>='(' && LA15_127<=')')||(LA15_127>=',' && LA15_127<='.')||(LA15_127>='0' && LA15_127<=':')||LA15_127=='='||(LA15_127>='?' && LA15_127<='Z')||LA15_127=='_'||(LA15_127>='a' && LA15_127<='z')) ) {s = 127;}
-
-                        else if ( ((LA15_127>='\u0000' && LA15_127<='\u001F')||LA15_127=='$'||LA15_127=='\''||(LA15_127>='*' && LA15_127<='+')||LA15_127=='/'||(LA15_127>=';' && LA15_127<='<')||LA15_127=='>'||LA15_127=='['||(LA15_127>=']' && LA15_127<='^')||LA15_127=='`'||(LA15_127>='{' && LA15_127<='\uFFFF')) ) {s = 129;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA15_143 = input.LA(1);
-
-                        s = -1;
-                        if ( (LA15_143=='*') ) {s = 142;}
-
-                        else if ( ((LA15_143>=' ' && LA15_143<='!')||LA15_143=='#'||(LA15_143>='%' && LA15_143<='&')||(LA15_143>='(' && LA15_143<=')')||(LA15_143>='0' && LA15_143<='9')||LA15_143=='='||(LA15_143>='?' && LA15_143<='Z')||LA15_143=='\\'||LA15_143=='_'||(LA15_143>='a' && LA15_143<='z')) ) {s = 143;}
-
-                        else if ( ((LA15_143>='\u0000' && LA15_143<='\u001F')||LA15_143=='\"'||LA15_143=='$'||LA15_143=='\''||(LA15_143>='+' && LA15_143<='/')||(LA15_143>=':' && LA15_143<='<')||LA15_143=='>'||LA15_143=='['||(LA15_143>=']' && LA15_143<='^')||LA15_143=='`'||(LA15_143>='{' && LA15_143<='\uFFFF')) ) {s = 144;}
-
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA15_191 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA15_191>='\u0000' && LA15_191<='\uFFFF')) ) {s = 129;}
-
-                        else s = 193;
-
-                        if ( s>=0 ) return s;
-                        break;
                     case 12 : 
-                        int LA15_131 = input.LA(1);
+                        int LA15_63 = input.LA(1);
 
                         s = -1;
-                        if ( (LA15_131=='\'') ) {s = 195;}
+                        if ( ((LA15_63>=' ' && LA15_63<='!')||LA15_63=='#'||(LA15_63>='%' && LA15_63<='&')||(LA15_63>='(' && LA15_63<=')')||(LA15_63>='0' && LA15_63<='9')||LA15_63=='='||(LA15_63>='?' && LA15_63<='Z')||LA15_63=='\\'||LA15_63=='_'||(LA15_63>='a' && LA15_63<='z')) ) {s = 142;}
 
-                        else if ( ((LA15_131>='\u0000' && LA15_131<='&')||(LA15_131>='(' && LA15_131<='\uFFFF')) ) {s = 129;}
+                        else if ( (LA15_63=='*') ) {s = 143;}
+
+                        else if ( ((LA15_63>='\u0000' && LA15_63<='\u001F')||LA15_63=='\"'||LA15_63=='$'||LA15_63=='\''||(LA15_63>='+' && LA15_63<='/')||(LA15_63>=':' && LA15_63<='<')||LA15_63=='>'||LA15_63=='['||(LA15_63>=']' && LA15_63<='^')||LA15_63=='`'||(LA15_63>='{' && LA15_63<='\uFFFF')) ) {s = 144;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 13 : 
-                        int LA15_43 = input.LA(1);
+                        int LA15_201 = input.LA(1);
 
                         s = -1;
-                        if ( (LA15_43=='\\') ) {s = 130;}
+                        if ( ((LA15_201>='\u0000' && LA15_201<='\uFFFF')) ) {s = 144;}
 
-                        else if ( ((LA15_43>=' ' && LA15_43<='!')||LA15_43=='#'||(LA15_43>='%' && LA15_43<='&')||(LA15_43>='(' && LA15_43<=')')||(LA15_43>='0' && LA15_43<='9')||LA15_43=='='||(LA15_43>='?' && LA15_43<='Z')||LA15_43=='_'||(LA15_43>='a' && LA15_43<='z')) ) {s = 131;}
-
-                        else if ( ((LA15_43>='\u0000' && LA15_43<='\u001F')||LA15_43=='\"'||LA15_43=='$'||LA15_43=='\''||(LA15_43>='*' && LA15_43<='/')||(LA15_43>=':' && LA15_43<='<')||LA15_43=='>'||LA15_43=='['||(LA15_43>=']' && LA15_43<='^')||LA15_43=='`'||(LA15_43>='{' && LA15_43<='\uFFFF')) ) {s = 129;}
-
-                        else s = 47;
+                        else s = 254;
 
                         if ( s>=0 ) return s;
                         break;

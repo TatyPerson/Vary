@@ -307,16 +307,6 @@ public class InicioItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegativa()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNegacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAsignacionNormal()));
 
 		newChildDescriptors.add
@@ -338,6 +328,11 @@ public class InicioItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter
