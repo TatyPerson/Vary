@@ -291,6 +291,11 @@ public class ModItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MOD__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MOD__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
@@ -413,6 +418,11 @@ public class ModItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MOD__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.MOD__LEFT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
 	/**

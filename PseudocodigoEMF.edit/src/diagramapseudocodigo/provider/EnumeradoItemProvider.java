@@ -288,6 +288,11 @@ public class EnumeradoItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
 }

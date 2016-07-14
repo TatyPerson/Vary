@@ -2886,13 +2886,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			
-			else if(sen instanceof Negacion) {
-				Negacion neg = (Negacion) sen;
-				if(!variables.contains(neg.getValor_operacion())){
-					//error(readerMessages.getString("VARIABLE_NO_DECLARADA", neg.getValor_operacion()), neg, DiagramapseudocodigoPackage.Literals.NEGACION__VALOR_OPERACION, VARIABLE_NO_DEFINIDA);
-				}
-			}
-			
 			else if(sen instanceof Asignacion) {
 				Asignacion a = (Asignacion) sen;
 				if(a instanceof AsignacionNormal) {

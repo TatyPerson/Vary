@@ -80,7 +80,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="valor" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="operacion" eSuperTypes="#//valor #//Sentencias"/>
+  <eClassifiers xsi:type="ecore:EClass" name="operacion" eSuperTypes="#//valor #//Sentencias">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EAttribute0rence0" eType="#//operacion"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negacionesFinales" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="negacionesIniciales" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="signo">
     <eLiterals name="sum" literal="+"/>
     <eLiterals name="res" value="1" literal="-"/>
@@ -124,9 +130,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="desde" eSuperTypes="#//Bloque">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asignacion" lowerBound="1"
         eType="#//AsignacionNormal" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="neg">
-    <eLiterals name="no" value="2" literal="no"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subproceso" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parametrofuncion" upperBound="-1"
@@ -424,5 +427,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OperacionCompleta" eSuperTypes="#//operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//operacion"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -128,6 +128,7 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.DIV: return createDiv();
 			case DiagramapseudocodigoPackage.OPERACION_PARENTESIS: return createOperacionParentesis();
 			case DiagramapseudocodigoPackage.UNARIA: return createUnaria();
+			case DiagramapseudocodigoPackage.OPERACION_COMPLETA: return createOperacionCompleta();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -143,8 +144,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eDataType.getClassifierID()) {
 			case DiagramapseudocodigoPackage.SIGNO:
 				return createsignoFromString(eDataType, initialValue);
-			case DiagramapseudocodigoPackage.NEG:
-				return createnegFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.NOMBRE_INTERNA:
 				return createNombreInternaFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.MODO_APERTURA:
@@ -164,8 +163,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eDataType.getClassifierID()) {
 			case DiagramapseudocodigoPackage.SIGNO:
 				return convertsignoToString(eDataType, instanceValue);
-			case DiagramapseudocodigoPackage.NEG:
-				return convertnegToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.NOMBRE_INTERNA:
 				return convertNombreInternaToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.MODO_APERTURA:
@@ -283,6 +280,16 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public Unaria createUnaria() {
 		UnariaImpl unaria = new UnariaImpl();
 		return unaria;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperacionCompleta createOperacionCompleta() {
+		OperacionCompletaImpl operacionCompleta = new OperacionCompletaImpl();
+		return operacionCompleta;
 	}
 
 	/**
@@ -902,26 +909,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * @generated
 	 */
 	public String convertsignoToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public neg createnegFromString(EDataType eDataType, String initialValue) {
-		neg result = neg.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertnegToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

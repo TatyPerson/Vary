@@ -290,6 +290,11 @@ public class UnariaItemProvider extends operacionItemProvider {
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.UNARIA__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
 }

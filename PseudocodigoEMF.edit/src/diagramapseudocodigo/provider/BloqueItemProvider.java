@@ -250,6 +250,11 @@ public class BloqueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
@@ -432,6 +437,11 @@ public class BloqueItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
 	/**

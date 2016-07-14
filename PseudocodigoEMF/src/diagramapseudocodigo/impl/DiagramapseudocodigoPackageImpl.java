@@ -47,6 +47,7 @@ import diagramapseudocodigo.Multiplicacion;
 import diagramapseudocodigo.NombreInterna;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
@@ -78,7 +79,6 @@ import diagramapseudocodigo.Vector;
 import diagramapseudocodigo.cadena;
 import diagramapseudocodigo.desde;
 import diagramapseudocodigo.mientras;
-import diagramapseudocodigo.neg;
 import diagramapseudocodigo.operacion;
 import diagramapseudocodigo.repetir;
 import diagramapseudocodigo.segun;
@@ -174,6 +174,13 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EClass unariaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass operacionCompletaEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -642,13 +649,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum negEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum nombreInternaEEnum = null;
 
 	/**
@@ -1102,6 +1102,24 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOperacionCompleta() {
+		return operacionCompletaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperacionCompleta_Valor_operacion() {
+		return (EReference)operacionCompletaEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getInicio() {
 		return inicioEClass;
 	}
@@ -1437,6 +1455,33 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 */
 	public EClass getoperacion() {
 		return operacionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getoperacion_EAttribute0rence0() {
+		return (EReference)operacionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getoperacion_NegacionesFinales() {
+		return (EAttribute)operacionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getoperacion_NegacionesIniciales() {
+		return (EAttribute)operacionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -2668,15 +2713,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getneg() {
-		return negEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getNombreInterna() {
 		return nombreInternaEEnum;
 	}
@@ -2783,6 +2819,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		valorEClass = createEClass(VALOR);
 
 		operacionEClass = createEClass(OPERACION);
+		createEReference(operacionEClass, OPERACION__EATTRIBUTE0RENCE0);
+		createEAttribute(operacionEClass, OPERACION__NEGACIONES_FINALES);
+		createEAttribute(operacionEClass, OPERACION__NEGACIONES_INICIALES);
 
 		valorBooleanoEClass = createEClass(VALOR_BOOLEANO);
 		createEAttribute(valorBooleanoEClass, VALOR_BOOLEANO__VALOR);
@@ -3009,9 +3048,11 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		createEReference(unariaEClass, UNARIA__RIGHT);
 		createEAttribute(unariaEClass, UNARIA__SIGNO_OP);
 
+		operacionCompletaEClass = createEClass(OPERACION_COMPLETA);
+		createEReference(operacionCompletaEClass, OPERACION_COMPLETA__VALOR_OPERACION);
+
 		// Create enums
 		signoEEnum = createEEnum(SIGNO);
-		negEEnum = createEEnum(NEG);
 		nombreInternaEEnum = createEEnum(NOMBRE_INTERNA);
 		modoAperturaEEnum = createEEnum(MODO_APERTURA);
 	}
@@ -3112,6 +3153,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		divEClass.getESuperTypes().add(this.getoperacion());
 		operacionParentesisEClass.getESuperTypes().add(this.getoperacion());
 		unariaEClass.getESuperTypes().add(this.getoperacion());
+		operacionCompletaEClass.getESuperTypes().add(this.getoperacion());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(algoritmoEClass, Algoritmo.class, "Algoritmo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3179,6 +3221,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(valorEClass, valor.class, "valor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(operacionEClass, operacion.class, "operacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getoperacion_EAttribute0rence0(), this.getoperacion(), null, "EAttribute0rence0", null, 0, 1, operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getoperacion_NegacionesFinales(), ecorePackage.getEString(), "negacionesFinales", null, 0, -1, operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getoperacion_NegacionesIniciales(), ecorePackage.getEString(), "negacionesIniciales", null, 0, -1, operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valorBooleanoEClass, ValorBooleano.class, "ValorBooleano", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValorBooleano_Valor(), ecorePackage.getEString(), "valor", null, 1, 1, ValorBooleano.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3405,6 +3450,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEReference(getUnaria_Right(), this.getoperacion(), null, "right", null, 0, 1, Unaria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUnaria_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Unaria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(operacionCompletaEClass, OperacionCompleta.class, "OperacionCompleta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperacionCompleta_Valor_operacion(), this.getoperacion(), null, "valor_operacion", null, 0, 1, OperacionCompleta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
 		// Initialize enums and add enum literals
 		initEEnum(signoEEnum, signo.class, "signo");
 		addEEnumLiteral(signoEEnum, signo.SUM);
@@ -3423,9 +3471,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		addEEnumLiteral(signoEEnum, signo.OR);
 		addEEnumLiteral(signoEEnum, signo.MOD);
 		addEEnumLiteral(signoEEnum, signo.DIV_REAL);
-
-		initEEnum(negEEnum, neg.class, "neg");
-		addEEnumLiteral(negEEnum, neg.NO);
 
 		initEEnum(nombreInternaEEnum, NombreInterna.class, "NombreInterna");
 		addEEnumLiteral(nombreInternaEEnum, NombreInterna.COS);

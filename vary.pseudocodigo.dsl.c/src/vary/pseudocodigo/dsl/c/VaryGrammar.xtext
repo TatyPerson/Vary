@@ -345,25 +345,25 @@ operacion returns operacion:
 	Or;
 
 Or returns operacion:
-	And ({Or.left=current} signo_op=signoOr ('-')* ('no')* right=And)*;
+	And ({Or.left=current} signo_op=signoOr negacionesFinales+=('-')* negacionesFinales+=('no')* right=And)*;
 
 And returns operacion:
-	Mod ({And.left=current} signo_op=signoAnd ('-')* ('no')* right=Mod)*;
+	Mod ({And.left=current} signo_op=signoAnd negacionesFinales+=('-')* negacionesFinales+=('no')* right=Mod)*;
 	
 Mod returns operacion:
-	Igualdad ({Mod.left=current} signo_op=signoModulo ('-')* ('no')* right=Igualdad)*;
+	Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+=('-')* negacionesFinales+=('no')* right=Igualdad)*;
 
 Igualdad returns operacion:
-	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad ('-')* ('no')* right=Comparacion)*;
+	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+=('-')* negacionesFinales+=('no')* right=Comparacion)*;
 
 Comparacion returns operacion:
-	SumaResta ({Comparacion.left=current} signo_op=signoComparacion ('-')* ('no')* right=SumaResta)*;
+	SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+=('-')* negacionesFinales+=('no')* right=SumaResta)*;
 
 SumaResta returns operacion:
-	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) ('-')* ('no')* right=MultiplicacionDivision)*;
+	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) negacionesFinales+=('-')* negacionesFinales+=('no')* right=MultiplicacionDivision)*;
 
 MultiplicacionDivision returns operacion:
-	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) ('-')* ('no')* right=Primaria)*;
+	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) negacionesFinales+=('-')* negacionesFinales+=('no')* right=Primaria)*;
 	
 	
 operacionIndice returns operacion:
@@ -398,10 +398,10 @@ Primaria returns operacion:
 	| OperacionParentesis;
 	
 OperacionCompleta returns operacion:
-	('-')* ('no')* operacion;
+	{OperacionCompleta} negacionesIniciales+=('-')* negacionesIniciales+=('no')* valor_operacion=operacion;
 	
 OperacionParentesis returns operacion:
-	{OperacionParentesis} '(' ('-')* ('no')* valor_operacion=operacion ')';
+	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=operacion ')';
 	
 Funciones returns operacion:
 	({LlamadaFuncion} (nombre=NOMBRE_FUN) (('-')* ('no')* operadores+=operacion ( ','  ('-')* ('no')* operadores+=operacion)* )? ')') |

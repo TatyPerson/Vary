@@ -140,6 +140,8 @@ import diagramapseudocodigo.Div
 import diagramapseudocodigo.impl.DivImpl
 import diagramapseudocodigo.OperacionParentesis
 import diagramapseudocodigo.impl.OperacionParentesisImpl
+import diagramapseudocodigo.OperacionCompleta
+import diagramapseudocodigo.impl.OperacionCompletaImpl
 
 /**
  * Generates code from your model files on save.
@@ -2195,15 +2197,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Igualdad
 			prueba.generate
 		}
-		else if (op.eClass.name.equals("Negativa")) {
-			//var Negativa prueba = new NegativaImpl
-			//prueba = op as Negativa
-			//prueba.generate
-		}
-		else if (op.eClass.name.equals("Negacion")) {
-			//var Negacion prueba = new NegacionImpl
-			//prueba = op as Negacion
-			//prueba.generate
+		else if (op.eClass.name.equals("OperacionCompleta")) {
+			var OperacionCompleta prueba = new OperacionCompletaImpl
+			prueba = op as OperacionCompleta
+			prueba.generate
 		}
 	}
 	
@@ -2318,15 +2315,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			prueba = op as Igualdad
 			prueba.generate(punteros)
 		}
-		else if (op.eClass.name.equals("Negativa")) {
-			//var Negativa prueba = new NegativaImpl
-			//prueba = op as Negativa
-			//prueba.generate(punteros)
-		}
-		else if (op.eClass.name.equals("Negacion")) {
-			//var Negacion prueba = new NegacionImpl
-			//prueba = op as Negacion
-			//prueba.generate(punteros)
+		else if (op.eClass.name.equals("OperacionCompleta")) {
+			var OperacionCompleta prueba = new OperacionCompletaImpl
+			prueba = op as OperacionCompleta
+			prueba.generate
 		}
 	}
 	
@@ -2453,109 +2445,117 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(Suma mySuma) {
-		return mySuma.left.generate + " " + mySuma.signo_op + " " + mySuma.right.generate;
+		return mySuma.left.generate + " " + mySuma.signo_op + " " + mySuma.getNegacionesFinales().generate + " " +  mySuma.right.generate;
 	}
 	
 	def generate(Suma mySuma, List<String> punteros) {
-		return mySuma.left.generate(punteros) + " " + mySuma.signo_op + " " + mySuma.right.generate(punteros);
+		return mySuma.left.generate(punteros) + " " + mySuma.signo_op + " " + mySuma.getNegacionesFinales().generate + " " + mySuma.right.generate(punteros);
 	}
 	
 	override generate(Resta myResta) {
-		return myResta.left.generate + " " + myResta.signo_op + " " + myResta.right.generate;
+		return myResta.left.generate + " " + myResta.signo_op + " " + myResta.getNegacionesFinales().generate + " " + myResta.right.generate;
 	}
 	
 	def generate(Resta myResta, List<String> punteros) {
-		return myResta.left.generate(punteros) + " " + myResta.signo_op + " " + myResta.right.generate(punteros);
+		return myResta.left.generate(punteros) + " " + myResta.signo_op + " " + myResta.getNegacionesFinales().generate + " " + myResta.right.generate(punteros);
 	}
 	
 	override generate(Multiplicacion myMulti) {
-		return myMulti.left.generate + " " + myMulti.signo_op + " " + myMulti.right.generate;
+		return myMulti.left.generate + " " + myMulti.signo_op + " " + myMulti.getNegacionesFinales().generate + " " + myMulti.right.generate;
 	}
 	
 	def generate(Multiplicacion myMulti, List<String> punteros) {
-		return myMulti.left.generate(punteros) + " " + myMulti.signo_op + " " + myMulti.right.generate(punteros);
+		return myMulti.left.generate(punteros) + " " + myMulti.signo_op + " " + myMulti.getNegacionesFinales().generate + " " + myMulti.right.generate(punteros);
 	}
 	
 	override generate(Division myDivi) {
-		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.right.generate;
-	}
-	
-	def generate(Division myDivi, List<String> punteros) {
-		return myDivi.left.generate(punteros) + " " + myDivi.signo_op + " " + myDivi.right.generate(punteros);
+		return myDivi.left.generate + " " + myDivi.signo_op + " " + myDivi.getNegacionesFinales().generate + " " + myDivi.right.generate;
 	}
 	
 	def generate(OperacionParentesis op) {
-		return "(" + op.valor_operacion.generate + ")"
+		return op.negacionesIniciales.generate + " " + "(" + op.negacionesFinales.generate + op.valor_operacion.generate + ")"
 	}
 	
 	def generate(OperacionParentesis op, EList<String> punteros) {
-		return "(" + op.valor_operacion.generate(punteros) + ")"
+		return "(" + op.getNegacionesFinales().generate + " " + op.valor_operacion.generate(punteros) + ")"
 	}
 	
 	def generate(Div myDivi) {
-		return myDivi.left.generate + " / " + myDivi.right.generate;
+		return myDivi.left.generate + " / " + myDivi.getNegacionesFinales().generate + " " + myDivi.right.generate;
 	}
 	
 	def generate(Div myDivi, List<String> punteros) {
-		return myDivi.left.generate(punteros) + " / " + myDivi.right.generate(punteros);
+		return myDivi.left.generate(punteros) + " / " + myDivi.getNegacionesFinales().generate + " " + myDivi.right.generate(punteros);
 	}
 	
 	def generate(Mod myMod) {
-		return myMod.left.generate + " " + "%" + " " + myMod.right.generate;
+		return myMod.left.generate + " " + "%" + " " + myMod.getNegacionesFinales().generate + " " + myMod.right.generate;
 	}
 	
 	def generate(Mod myMod, List<String> punteros) {
-		return myMod.left.generate(punteros) + " " + "%" + " " + myMod.right.generate(punteros);
+		return myMod.left.generate(punteros) + " " + "%" + " " + myMod.getNegacionesFinales().generate + " " + myMod.right.generate(punteros);
+	}
+	
+	def generate(Division myDivi, List<String> punteros) {
+		return myDivi.left.generate(punteros) + " " + myDivi.signo_op + " " + myDivi.getNegacionesFinales().generate + " " + myDivi.right.generate(punteros);
 	}
 	
 	override generate(Or myOr) {
-		return myOr.left.generate + " " + "||" + " " + myOr.right.generate;
+		return myOr.left.generate + " " + "||" + " " + myOr.getNegacionesFinales().generate + " " + myOr.right.generate;
 	}
 	
 	def generate(Or myOr, List<String> punteros) {
-		return myOr.left.generate(punteros) + " " + "||" + " " + myOr.right.generate(punteros);
+		return myOr.left.generate(punteros) + " " + "||" + " " + myOr.getNegacionesFinales().generate + " " + myOr.right.generate(punteros);
 	}
 	
 	override generate(And myAnd) {
-		return myAnd.left.generate + " " + "&&" + " " + myAnd.right.generate;
+		return myAnd.left.generate + " " + "&&" + " " + myAnd.getNegacionesFinales().generate + " " + myAnd.right.generate;
 	}
 	
 	def generate(And myAnd, List<String> punteros) {
-		return myAnd.left.generate(punteros) + " " + "&&" + " " + myAnd.right.generate(punteros);
+		return myAnd.left.generate(punteros) + " " + "&&" + " " + myAnd.getNegacionesFinales().generate + " " + myAnd.right.generate(punteros);
 	}
 	
 	override generate(Comparacion myComparacion) {
-		return myComparacion.left.generate + " " + myComparacion.signo_op + " " + myComparacion.right.generate;
+		return myComparacion.left.generate + " " + myComparacion.signo_op + " " + myComparacion.getNegacionesFinales().generate + " " + myComparacion.right.generate;
 	}
 	
 	def generate(Comparacion myComparacion, List<String> punteros) {
-		return myComparacion.left.generate(punteros) + " " + myComparacion.signo_op + " " + myComparacion.right.generate(punteros);
+		return myComparacion.left.generate(punteros) + " " + myComparacion.signo_op + " " + myComparacion.getNegacionesFinales().generate + " " + myComparacion.right.generate(punteros);
 	}
 	
 	override generate(Igualdad myIgualdad) {
 		if(myIgualdad.signo_op.literal.equals("=")) {
-			return myIgualdad.left.generate + " " + "==" + " " + myIgualdad.right.generate;
+			return myIgualdad.left.generate + " " + "==" + " " + myIgualdad.getNegacionesFinales().generate + " " + myIgualdad.right.generate;
 		}
 		else {
-			return myIgualdad.left.generate + " " + "!=" + " " + myIgualdad.right.generate;
+			return myIgualdad.left.generate + " " + "!=" + " " + myIgualdad.getNegacionesFinales().generate + " " + myIgualdad.right.generate;
 		}
 	}
 	
 	def generate(Igualdad myIgualdad, List<String> punteros) {
 		if(myIgualdad.signo_op.literal.equals("=")) {
-			return myIgualdad.left.generate(punteros) + " " + "==" + " " + myIgualdad.right.generate(punteros);
+			return myIgualdad.left.generate(punteros) + " " + "==" + " " + myIgualdad.getNegacionesFinales().generate + " " + myIgualdad.right.generate(punteros);
 		}
 		else {
-			return myIgualdad.left.generate(punteros) + " " + "!=" + " " + myIgualdad.right.generate(punteros);
+			return myIgualdad.left.generate(punteros) + " " + "!=" + " " + myIgualdad.getNegacionesFinales().generate + " " + myIgualdad.right.generate(punteros);
 		}
 	}
 	
-	override generate(Negativa myNegativa) {
-		return "( - " + myNegativa.valor_operacion.generate + ")";
-	}
+	def generate(List<String> negaciones) {
+		var negacionesString = "";
+		for(String negacion: negaciones) {
+			if(negacion.equals("no")) {
+				negacionesString = negacionesString + "!";
+			} else {
+				negacionesString = negacionesString + negacion;	
+			}
+		}
+		return negacionesString;
+	} 
 	
-	override generate(Negacion myNegacion) {
-		return "!" + myNegacion.valor_operacion.generate;
+	def generate(OperacionCompleta operacion) {
+		return operacion.negacionesIniciales.generate + " " + operacion.valor_operacion.generate;
 	}
 	
 	def generateSiPunteros(Si mySi, List<String> punteros) '''

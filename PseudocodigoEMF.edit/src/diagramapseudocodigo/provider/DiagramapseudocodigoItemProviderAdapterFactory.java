@@ -325,6 +325,29 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionCompleta} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperacionCompletaItemProvider operacionCompletaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.OperacionCompleta}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperacionCompletaAdapter() {
+		if (operacionCompletaItemProvider == null) {
+			operacionCompletaItemProvider = new OperacionCompletaItemProvider(this);
+		}
+
+		return operacionCompletaItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1874,6 +1897,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (divItemProvider != null) divItemProvider.dispose();
 		if (operacionParentesisItemProvider != null) operacionParentesisItemProvider.dispose();
 		if (unariaItemProvider != null) unariaItemProvider.dispose();
+		if (operacionCompletaItemProvider != null) operacionCompletaItemProvider.dispose();
 	}
 
 }

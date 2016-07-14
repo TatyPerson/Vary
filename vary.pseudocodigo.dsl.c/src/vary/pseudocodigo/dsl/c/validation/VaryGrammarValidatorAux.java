@@ -35,6 +35,7 @@ import diagramapseudocodigo.Negacion;
 import diagramapseudocodigo.Negativa;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
@@ -583,7 +584,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 */
 	
 	protected boolean esOperacion(operacion op) {
-		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion || op instanceof Mod || op instanceof Div || op instanceof OperacionParentesis) {
+		if(op instanceof OperacionCompleta || op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion || op instanceof Mod || op instanceof Div || op instanceof OperacionParentesis) {
 			return true;
 		}
 		else {
@@ -592,7 +593,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	}
 	
 	protected boolean esOperacion(valor v) {
-		if(v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof Division || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof Negativa || v instanceof Negacion) {
+		if(v instanceof OperacionCompleta || v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof Division || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof Negativa || v instanceof Negacion) {
 			return true;
 		}
 		else {
@@ -609,6 +610,13 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			}
 			else {
 				valores.add(opParentesis.getValor_operacion());
+			}
+		}else if(op instanceof OperacionCompleta) {
+			OperacionCompleta opCompleta = (OperacionCompleta) op;
+			if(esOperacion(opCompleta.getValor_operacion())) {
+				registrarValoresOperacion(opCompleta.getValor_operacion(), valores);
+			} else {
+				valores.add(opCompleta.getValor_operacion());
 			}
 		}else if(op instanceof Suma) {
 			Suma suma = (Suma) op;
@@ -781,16 +789,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			else {
 				valores.add(negativa.getValor_operacion());
 			}
-		} else if(op instanceof Negacion) {
-			Negacion negacion = (Negacion) op;
-			if(esOperacion(negacion.getValor_operacion())) {
-				registrarValoresOperacion(negacion.getValor_operacion(), valores);
-
-			}
-			else {
-				valores.add(negacion.getValor_operacion());
-			}
-		}
+		} 
 		return valores;
 	}
 	

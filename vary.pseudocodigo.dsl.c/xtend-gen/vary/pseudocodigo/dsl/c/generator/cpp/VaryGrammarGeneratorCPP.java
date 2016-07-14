@@ -40,11 +40,10 @@ import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.ModoApertura;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.Negacion;
-import diagramapseudocodigo.Negativa;
 import diagramapseudocodigo.NombreInterna;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
@@ -103,6 +102,7 @@ import diagramapseudocodigo.impl.ModuloImpl;
 import diagramapseudocodigo.impl.MultiplicacionImpl;
 import diagramapseudocodigo.impl.NumeroDecimalImpl;
 import diagramapseudocodigo.impl.NumeroEnteroImpl;
+import diagramapseudocodigo.impl.OperacionCompletaImpl;
 import diagramapseudocodigo.impl.OperacionParentesisImpl;
 import diagramapseudocodigo.impl.OrImpl;
 import diagramapseudocodigo.impl.ProcedimientoImpl;
@@ -5598,23 +5598,20 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                                 }
                                                 _xifexpression_21 = _xblockexpression_21;
                                               } else {
-                                                Object _xifexpression_22 = null;
+                                                String _xifexpression_22 = null;
                                                 EClass _eClass_22 = op.eClass();
                                                 String _name_22 = _eClass_22.getName();
-                                                boolean _equals_22 = _name_22.equals("Negativa");
+                                                boolean _equals_22 = _name_22.equals("OperacionCompleta");
                                                 if (_equals_22) {
-                                                  _xifexpression_22 = null;
-                                                } else {
-                                                  Object _xifexpression_23 = null;
-                                                  EClass _eClass_23 = op.eClass();
-                                                  String _name_23 = _eClass_23.getName();
-                                                  boolean _equals_23 = _name_23.equals("Negacion");
-                                                  if (_equals_23) {
-                                                    _xifexpression_23 = null;
+                                                  String _xblockexpression_22 = null;
+                                                  {
+                                                    OperacionCompleta prueba = new OperacionCompletaImpl();
+                                                    prueba = ((OperacionCompleta) op);
+                                                    _xblockexpression_22 = this.generate(prueba);
                                                   }
-                                                  _xifexpression_22 = _xifexpression_23;
+                                                  _xifexpression_22 = _xblockexpression_22;
                                                 }
-                                                _xifexpression_21 = ((CharSequence)_xifexpression_22);
+                                                _xifexpression_21 = _xifexpression_22;
                                               }
                                               _xifexpression_20 = _xifexpression_21;
                                             }
@@ -5958,23 +5955,20 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                                 }
                                                 _xifexpression_21 = _xblockexpression_21;
                                               } else {
-                                                Object _xifexpression_22 = null;
+                                                String _xifexpression_22 = null;
                                                 EClass _eClass_22 = op.eClass();
                                                 String _name_22 = _eClass_22.getName();
-                                                boolean _equals_22 = _name_22.equals("Negativa");
+                                                boolean _equals_22 = _name_22.equals("OperacionCompleta");
                                                 if (_equals_22) {
-                                                  _xifexpression_22 = null;
-                                                } else {
-                                                  Object _xifexpression_23 = null;
-                                                  EClass _eClass_23 = op.eClass();
-                                                  String _name_23 = _eClass_23.getName();
-                                                  boolean _equals_23 = _name_23.equals("Negacion");
-                                                  if (_equals_23) {
-                                                    _xifexpression_23 = null;
+                                                  String _xblockexpression_22 = null;
+                                                  {
+                                                    OperacionCompleta prueba = new OperacionCompletaImpl();
+                                                    prueba = ((OperacionCompleta) op);
+                                                    _xblockexpression_22 = this.generate(prueba);
                                                   }
-                                                  _xifexpression_22 = _xifexpression_23;
+                                                  _xifexpression_22 = _xblockexpression_22;
                                                 }
-                                                _xifexpression_21 = ((String)_xifexpression_22);
+                                                _xifexpression_21 = _xifexpression_22;
                                               }
                                               _xifexpression_20 = _xifexpression_21;
                                             }
@@ -6387,9 +6381,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = mySuma.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = mySuma.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = mySuma.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final Suma mySuma, final List<String> punteros) {
@@ -6399,9 +6397,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = mySuma.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = mySuma.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = mySuma.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6412,9 +6414,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myResta.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myResta.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myResta.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final Resta myResta, final List<String> punteros) {
@@ -6424,9 +6430,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myResta.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myResta.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myResta.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6437,9 +6447,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myMulti.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myMulti.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myMulti.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final Multiplicacion myMulti, final List<String> punteros) {
@@ -6449,9 +6463,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myMulti.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myMulti.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myMulti.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6462,9 +6480,94 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myDivi.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myDivi.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myDivi.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
+  }
+  
+  public String generate(final OperacionParentesis op) {
+    EList<String> _negacionesIniciales = op.getNegacionesIniciales();
+    String _generate = this.generate(_negacionesIniciales);
+    String _plus = (_generate + " ");
+    String _plus_1 = (_plus + "(");
+    EList<String> _negacionesFinales = op.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_2 = (_plus_1 + _generate_1);
+    operacion _valor_operacion = op.getValor_operacion();
+    CharSequence _generate_2 = this.generate(_valor_operacion);
+    String _plus_3 = (_plus_2 + _generate_2);
+    return (_plus_3 + ")");
+  }
+  
+  public String generate(final OperacionParentesis op, final EList<String> punteros) {
+    EList<String> _negacionesFinales = op.getNegacionesFinales();
+    String _generate = this.generate(_negacionesFinales);
+    String _plus = ("(" + _generate);
+    String _plus_1 = (_plus + " ");
+    operacion _valor_operacion = op.getValor_operacion();
+    Object _generate_1 = this.generate(_valor_operacion, punteros);
+    String _plus_2 = (_plus_1 + _generate_1);
+    return (_plus_2 + ")");
+  }
+  
+  public String generate(final Div myDivi) {
+    operacion _left = myDivi.getLeft();
+    CharSequence _generate = this.generate(_left);
+    String _plus = (_generate + " / ");
+    EList<String> _negacionesFinales = myDivi.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_1 = (_plus + _generate_1);
+    String _plus_2 = (_plus_1 + " ");
+    operacion _right = myDivi.getRight();
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_2 + _generate_2);
+  }
+  
+  public String generate(final Div myDivi, final List<String> punteros) {
+    operacion _left = myDivi.getLeft();
+    Object _generate = this.generate(_left, punteros);
+    String _plus = (_generate + " / ");
+    EList<String> _negacionesFinales = myDivi.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_1 = (_plus + _generate_1);
+    String _plus_2 = (_plus_1 + " ");
+    operacion _right = myDivi.getRight();
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_2 + _generate_2);
+  }
+  
+  public String generate(final Mod myMod) {
+    operacion _left = myMod.getLeft();
+    CharSequence _generate = this.generate(_left);
+    String _plus = (_generate + " ");
+    String _plus_1 = (_plus + "%");
+    String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myMod.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
+    operacion _right = myMod.getRight();
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
+  }
+  
+  public String generate(final Mod myMod, final List<String> punteros) {
+    operacion _left = myMod.getLeft();
+    Object _generate = this.generate(_left, punteros);
+    String _plus = (_generate + " ");
+    String _plus_1 = (_plus + "%");
+    String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myMod.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
+    operacion _right = myMod.getRight();
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final Division myDivi, final List<String> punteros) {
@@ -6474,63 +6577,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myDivi.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myDivi.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myDivi.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
-  }
-  
-  public String generate(final OperacionParentesis op) {
-    operacion _valor_operacion = op.getValor_operacion();
-    CharSequence _generate = this.generate(_valor_operacion);
-    String _plus = ("(" + _generate);
-    return (_plus + ")");
-  }
-  
-  public String generate(final OperacionParentesis op, final EList<String> punteros) {
-    operacion _valor_operacion = op.getValor_operacion();
-    Object _generate = this.generate(_valor_operacion, punteros);
-    String _plus = ("(" + _generate);
-    return (_plus + ")");
-  }
-  
-  public String generate(final Div myDivi) {
-    operacion _left = myDivi.getLeft();
-    CharSequence _generate = this.generate(_left);
-    String _plus = (_generate + " / ");
-    operacion _right = myDivi.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus + _generate_1);
-  }
-  
-  public String generate(final Div myDivi, final List<String> punteros) {
-    operacion _left = myDivi.getLeft();
-    Object _generate = this.generate(_left, punteros);
-    String _plus = (_generate + " / ");
-    operacion _right = myDivi.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus + _generate_1);
-  }
-  
-  public String generate(final Mod myMod) {
-    operacion _left = myMod.getLeft();
-    CharSequence _generate = this.generate(_left);
-    String _plus = (_generate + " ");
-    String _plus_1 = (_plus + "%");
-    String _plus_2 = (_plus_1 + " ");
-    operacion _right = myMod.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
-  }
-  
-  public String generate(final Mod myMod, final List<String> punteros) {
-    operacion _left = myMod.getLeft();
-    Object _generate = this.generate(_left, punteros);
-    String _plus = (_generate + " ");
-    String _plus_1 = (_plus + "%");
-    String _plus_2 = (_plus_1 + " ");
-    operacion _right = myMod.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6540,9 +6593,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     String _plus = (_generate + " ");
     String _plus_1 = (_plus + "||");
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myOr.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myOr.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final Or myOr, final List<String> punteros) {
@@ -6551,9 +6608,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     String _plus = (_generate + " ");
     String _plus_1 = (_plus + "||");
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myOr.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myOr.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6563,9 +6624,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     String _plus = (_generate + " ");
     String _plus_1 = (_plus + "&&");
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myAnd.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myAnd.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final And myAnd, final List<String> punteros) {
@@ -6574,9 +6639,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     String _plus = (_generate + " ");
     String _plus_1 = (_plus + "&&");
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myAnd.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myAnd.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6587,9 +6656,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myComparacion.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myComparacion.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myComparacion.getRight();
-    CharSequence _generate_1 = this.generate(_right);
-    return (_plus_2 + _generate_1);
+    CharSequence _generate_2 = this.generate(_right);
+    return (_plus_4 + _generate_2);
   }
   
   public String generate(final Comparacion myComparacion, final List<String> punteros) {
@@ -6599,9 +6672,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     signo _signo_op = myComparacion.getSigno_op();
     String _plus_1 = (_plus + _signo_op);
     String _plus_2 = (_plus_1 + " ");
+    EList<String> _negacionesFinales = myComparacion.getNegacionesFinales();
+    String _generate_1 = this.generate(_negacionesFinales);
+    String _plus_3 = (_plus_2 + _generate_1);
+    String _plus_4 = (_plus_3 + " ");
     operacion _right = myComparacion.getRight();
-    Object _generate_1 = this.generate(_right, punteros);
-    return (_plus_2 + _generate_1);
+    Object _generate_2 = this.generate(_right, punteros);
+    return (_plus_4 + _generate_2);
   }
   
   @Override
@@ -6615,18 +6692,26 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       String _plus = (_generate + " ");
       String _plus_1 = (_plus + "==");
       String _plus_2 = (_plus_1 + " ");
+      EList<String> _negacionesFinales = myIgualdad.getNegacionesFinales();
+      String _generate_1 = this.generate(_negacionesFinales);
+      String _plus_3 = (_plus_2 + _generate_1);
+      String _plus_4 = (_plus_3 + " ");
       operacion _right = myIgualdad.getRight();
-      CharSequence _generate_1 = this.generate(_right);
-      return (_plus_2 + _generate_1);
+      CharSequence _generate_2 = this.generate(_right);
+      return (_plus_4 + _generate_2);
     } else {
       operacion _left_1 = myIgualdad.getLeft();
-      CharSequence _generate_2 = this.generate(_left_1);
-      String _plus_3 = (_generate_2 + " ");
-      String _plus_4 = (_plus_3 + "!=");
-      String _plus_5 = (_plus_4 + " ");
+      CharSequence _generate_3 = this.generate(_left_1);
+      String _plus_5 = (_generate_3 + " ");
+      String _plus_6 = (_plus_5 + "!=");
+      String _plus_7 = (_plus_6 + " ");
+      EList<String> _negacionesFinales_1 = myIgualdad.getNegacionesFinales();
+      String _generate_4 = this.generate(_negacionesFinales_1);
+      String _plus_8 = (_plus_7 + _generate_4);
+      String _plus_9 = (_plus_8 + " ");
       operacion _right_1 = myIgualdad.getRight();
-      CharSequence _generate_3 = this.generate(_right_1);
-      return (_plus_5 + _generate_3);
+      CharSequence _generate_5 = this.generate(_right_1);
+      return (_plus_9 + _generate_5);
     }
   }
   
@@ -6640,34 +6725,49 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       String _plus = (_generate + " ");
       String _plus_1 = (_plus + "==");
       String _plus_2 = (_plus_1 + " ");
+      EList<String> _negacionesFinales = myIgualdad.getNegacionesFinales();
+      String _generate_1 = this.generate(_negacionesFinales);
+      String _plus_3 = (_plus_2 + _generate_1);
+      String _plus_4 = (_plus_3 + " ");
       operacion _right = myIgualdad.getRight();
-      Object _generate_1 = this.generate(_right, punteros);
-      return (_plus_2 + _generate_1);
+      Object _generate_2 = this.generate(_right, punteros);
+      return (_plus_4 + _generate_2);
     } else {
       operacion _left_1 = myIgualdad.getLeft();
-      Object _generate_2 = this.generate(_left_1, punteros);
-      String _plus_3 = (_generate_2 + " ");
-      String _plus_4 = (_plus_3 + "!=");
-      String _plus_5 = (_plus_4 + " ");
+      Object _generate_3 = this.generate(_left_1, punteros);
+      String _plus_5 = (_generate_3 + " ");
+      String _plus_6 = (_plus_5 + "!=");
+      String _plus_7 = (_plus_6 + " ");
+      EList<String> _negacionesFinales_1 = myIgualdad.getNegacionesFinales();
+      String _generate_4 = this.generate(_negacionesFinales_1);
+      String _plus_8 = (_plus_7 + _generate_4);
+      String _plus_9 = (_plus_8 + " ");
       operacion _right_1 = myIgualdad.getRight();
-      Object _generate_3 = this.generate(_right_1, punteros);
-      return (_plus_5 + _generate_3);
+      Object _generate_5 = this.generate(_right_1, punteros);
+      return (_plus_9 + _generate_5);
     }
   }
   
-  @Override
-  public CharSequence generate(final Negativa myNegativa) {
-    operacion _valor_operacion = myNegativa.getValor_operacion();
-    CharSequence _generate = this.generate(_valor_operacion);
-    String _plus = ("( - " + _generate);
-    return (_plus + ")");
+  public String generate(final List<String> negaciones) {
+    String negacionesString = "";
+    for (final String negacion : negaciones) {
+      boolean _equals = negacion.equals("no");
+      if (_equals) {
+        negacionesString = (negacionesString + "!");
+      } else {
+        negacionesString = (negacionesString + negacion);
+      }
+    }
+    return negacionesString;
   }
   
-  @Override
-  public CharSequence generate(final Negacion myNegacion) {
-    operacion _valor_operacion = myNegacion.getValor_operacion();
-    CharSequence _generate = this.generate(_valor_operacion);
-    return ("!" + _generate);
+  public String generate(final OperacionCompleta operacion) {
+    EList<String> _negacionesIniciales = operacion.getNegacionesIniciales();
+    String _generate = this.generate(_negacionesIniciales);
+    String _plus = (_generate + " ");
+    diagramapseudocodigo.operacion _valor_operacion = operacion.getValor_operacion();
+    CharSequence _generate_1 = this.generate(_valor_operacion);
+    return (_plus + _generate_1);
   }
   
   public CharSequence generateSiPunteros(final Si mySi, final List<String> punteros) {

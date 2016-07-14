@@ -20,6 +20,7 @@ package diagramapseudocodigo;
  * @generated
  */
 public interface OperacionParentesis extends operacion {
+
 	/**
 	 * Returns the value of the '<em><b>Valor operacion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

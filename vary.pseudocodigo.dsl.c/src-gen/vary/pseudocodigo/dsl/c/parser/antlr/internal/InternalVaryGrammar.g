@@ -3984,14 +3984,36 @@ ruleOr returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='-' 
+)(
+(
+		lv_negacionesFinales_3_0=	'-' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getOrAccess().getHyphenMinusKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getOrAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
     }
-)*(	otherlv_4='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOrRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_4_0=	'no' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getOrAccess().getNoKeyword_1_3());
+        newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getOrAccess().getNegacionesFinalesNoKeyword_1_3_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOrRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -4064,14 +4086,36 @@ ruleAnd returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='-' 
+)(
+(
+		lv_negacionesFinales_3_0=	'-' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getAndAccess().getHyphenMinusKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getAndAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
     }
-)*(	otherlv_4='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAndRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_4_0=	'no' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getAndAccess().getNoKeyword_1_3());
+        newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getAndAccess().getNegacionesFinalesNoKeyword_1_3_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAndRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -4144,14 +4188,36 @@ ruleMod returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='-' 
+)(
+(
+		lv_negacionesFinales_3_0=	'-' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getModAccess().getHyphenMinusKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getModAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
     }
-)*(	otherlv_4='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getModRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_4_0=	'no' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getModAccess().getNoKeyword_1_3());
+        newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getModAccess().getNegacionesFinalesNoKeyword_1_3_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getModRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -4224,14 +4290,36 @@ ruleIgualdad returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='-' 
+)(
+(
+		lv_negacionesFinales_3_0=	'-' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getIgualdadAccess().getHyphenMinusKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getIgualdadAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
     }
-)*(	otherlv_4='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIgualdadRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_4_0=	'no' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getIgualdadAccess().getNoKeyword_1_3());
+        newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getIgualdadAccess().getNegacionesFinalesNoKeyword_1_3_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getIgualdadRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -4304,14 +4392,36 @@ ruleComparacion returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_3='-' 
+)(
+(
+		lv_negacionesFinales_3_0=	'-' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getComparacionAccess().getHyphenMinusKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getComparacionAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
     }
-)*(	otherlv_4='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getComparacionRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_4_0=	'no' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getComparacionAccess().getNoKeyword_1_3());
+        newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getComparacionAccess().getNegacionesFinalesNoKeyword_1_3_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getComparacionRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -4409,14 +4519,36 @@ ruleSumaResta returns [EObject current=null]
 	    }
 
 )
-)))(	otherlv_5='-' 
+)))(
+(
+		lv_negacionesFinales_5_0=	'-' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getSumaRestaAccess().getHyphenMinusKeyword_1_1());
+        newLeafNode(lv_negacionesFinales_5_0, grammarAccess.getSumaRestaAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0());
     }
-)*(	otherlv_6='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSumaRestaRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_5_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_6_0=	'no' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getSumaRestaAccess().getNoKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_6_0, grammarAccess.getSumaRestaAccess().getNegacionesFinalesNoKeyword_1_2_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSumaRestaRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_6_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -4539,14 +4671,36 @@ ruleMultiplicacionDivision returns [EObject current=null]
 	    }
 
 )
-)))(	otherlv_7='-' 
+)))(
+(
+		lv_negacionesFinales_7_0=	'-' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getMultiplicacionDivisionAccess().getHyphenMinusKeyword_1_1());
+        newLeafNode(lv_negacionesFinales_7_0, grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0());
     }
-)*(	otherlv_8='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultiplicacionDivisionRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_7_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_8_0=	'no' 
     {
-    	newLeafNode(otherlv_8, grammarAccess.getMultiplicacionDivisionAccess().getNoKeyword_1_2());
+        newLeafNode(lv_negacionesFinales_8_0, grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesNoKeyword_1_2_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getMultiplicacionDivisionRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_8_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 
@@ -5253,24 +5407,61 @@ ruleOperacionCompleta returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((	otherlv_0='-' 
+((
     {
-    	newLeafNode(otherlv_0, grammarAccess.getOperacionCompletaAccess().getHyphenMinusKeyword_0());
+        $current = forceCreateModelElement(
+            grammarAccess.getOperacionCompletaAccess().getOperacionCompletaAction_0(),
+            $current);
     }
-)*(	otherlv_1='no' 
+)(
+(
+		lv_negacionesIniciales_1_0=	'-' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getOperacionCompletaAccess().getNoKeyword_1());
+        newLeafNode(lv_negacionesIniciales_1_0, grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesHyphenMinusKeyword_1_0());
     }
-)*
-    { 
-        newCompositeNode(grammarAccess.getOperacionCompletaAccess().getOperacionParserRuleCall_2()); 
-    }
-    this_operacion_2=ruleoperacion
-    { 
-        $current = $this_operacion_2.current; 
-        afterParserOrEnumRuleCall();
-    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOperacionCompletaRule());
+	        }
+       		addWithLastConsumed($current, "negacionesIniciales", lv_negacionesIniciales_1_0, "-");
+	    }
+
 )
+)*(
+(
+		lv_negacionesIniciales_2_0=	'no' 
+    {
+        newLeafNode(lv_negacionesIniciales_2_0, grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesNoKeyword_2_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOperacionCompletaRule());
+	        }
+       		addWithLastConsumed($current, "negacionesIniciales", lv_negacionesIniciales_2_0, "no");
+	    }
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getOperacionCompletaAccess().getValor_operacionOperacionParserRuleCall_3_0()); 
+	    }
+		lv_valor_operacion_3_0=ruleoperacion		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getOperacionCompletaRule());
+	        }
+       		set(
+       			$current, 
+       			"valor_operacion",
+        		lv_valor_operacion_3_0, 
+        		"operacion");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
 ;
 
 
@@ -5301,14 +5492,36 @@ ruleOperacionParentesis returns [EObject current=null]
     {
     	newLeafNode(otherlv_1, grammarAccess.getOperacionParentesisAccess().getLeftParenthesisKeyword_1());
     }
-(	otherlv_2='-' 
+(
+(
+		lv_negacionesFinales_2_0=	'-' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getOperacionParentesisAccess().getHyphenMinusKeyword_2());
+        newLeafNode(lv_negacionesFinales_2_0, grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesHyphenMinusKeyword_2_0());
     }
-)*(	otherlv_3='no' 
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOperacionParentesisRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_2_0, "-");
+	    }
+
+)
+)*(
+(
+		lv_negacionesFinales_3_0=	'no' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getOperacionParentesisAccess().getNoKeyword_3());
+        newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesNoKeyword_3_0());
     }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getOperacionParentesisRule());
+	        }
+       		addWithLastConsumed($current, "negacionesFinales", lv_negacionesFinales_3_0, "no");
+	    }
+
+)
 )*(
 (
 		{ 

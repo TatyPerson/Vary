@@ -124,8 +124,6 @@ public interface VaryGeneratorInterface {
 	CharSequence generate(And and);
 	CharSequence generate(Comparacion comparacion);
 	CharSequence generate(Igualdad igualdad);
-	CharSequence generate(Negativa negativa);
-	CharSequence generate(Negacion negacion);
 	CharSequence generate(Si si);
 	CharSequence generate(Caso caso);
 	CharSequence generate(segun segun);

@@ -991,13 +991,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int VALOR_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LLAMADA_FUNCION__EATTRIBUTE0RENCE0 = VALOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LLAMADA_FUNCION__NEGACIONES_FINALES = VALOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LLAMADA_FUNCION__NEGACIONES_INICIALES = VALOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LLAMADA_FUNCION__NOMBRE = VALOR_FEATURE_COUNT + 0;
+	int LLAMADA_FUNCION__NOMBRE = VALOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Operadores</b></em>' containment reference list.
@@ -1006,7 +1033,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LLAMADA_FUNCION__OPERADORES = VALOR_FEATURE_COUNT + 1;
+	int LLAMADA_FUNCION__OPERADORES = VALOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Llamada Funcion</em>' class.
@@ -1015,7 +1042,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LLAMADA_FUNCION_FEATURE_COUNT = VALOR_FEATURE_COUNT + 2;
+	int LLAMADA_FUNCION_FEATURE_COUNT = VALOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Llamada Funcion</em>' class.
@@ -1045,13 +1072,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int OPERADOR_OPERATION_COUNT = VALOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_ID__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_ID__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VARIABLE_ID__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Mat</b></em>' attribute list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_ID__MAT = OPERADOR_FEATURE_COUNT + 0;
+	int VARIABLE_ID__MAT = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
@@ -1060,7 +1114,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_ID__NOMBRE = OPERADOR_FEATURE_COUNT + 1;
+	int VARIABLE_ID__NOMBRE = OPERADOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Variable ID</em>' class.
@@ -1069,7 +1123,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VARIABLE_ID_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 2;
+	int VARIABLE_ID_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Variable ID</em>' class.
@@ -1099,13 +1153,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CADENA_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_CADENA__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_CADENA__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONST_CADENA__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Contenido</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONST_CADENA__CONTENIDO = OPERADOR_FEATURE_COUNT + 0;
+	int CONST_CADENA__CONTENIDO = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Const Cadena</em>' class.
@@ -1114,7 +1195,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONST_CADENA_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 1;
+	int CONST_CADENA_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Const Cadena</em>' class.
@@ -1162,13 +1243,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int VARIABLE_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERO_ENTERO__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERO_ENTERO__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERO_ENTERO__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Valor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERO_ENTERO__VALOR = OPERADOR_FEATURE_COUNT + 0;
+	int NUMERO_ENTERO__VALOR = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Numero Entero</em>' class.
@@ -1177,7 +1285,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERO_ENTERO_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 1;
+	int NUMERO_ENTERO_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Numero Entero</em>' class.
@@ -1432,13 +1540,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int LEER_OPERATION_COUNT = SENTENCIAS_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERO_DECIMAL__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERO_DECIMAL__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMERO_DECIMAL__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Valor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERO_DECIMAL__VALOR = OPERADOR_FEATURE_COUNT + 0;
+	int NUMERO_DECIMAL__VALOR = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Numero Decimal</em>' class.
@@ -1447,7 +1582,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMERO_DECIMAL_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 1;
+	int NUMERO_DECIMAL_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Numero Decimal</em>' class.
@@ -1459,13 +1594,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int NUMERO_DECIMAL_OPERATION_COUNT = OPERADOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION__EATTRIBUTE0RENCE0 = VALOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION__NEGACIONES_FINALES = VALOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION__NEGACIONES_INICIALES = VALOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>operacion</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERACION_FEATURE_COUNT = VALOR_FEATURE_COUNT + 0;
+	int OPERACION_FEATURE_COUNT = VALOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>operacion</em>' class.
@@ -1477,13 +1639,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int OPERACION_OPERATION_COUNT = VALOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_BOOLEANO__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_BOOLEANO__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_BOOLEANO__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Valor</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALOR_BOOLEANO__VALOR = OPERADOR_FEATURE_COUNT + 0;
+	int VALOR_BOOLEANO__VALOR = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Valor Booleano</em>' class.
@@ -1492,7 +1681,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALOR_BOOLEANO_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 1;
+	int VALOR_BOOLEANO_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Valor Booleano</em>' class.
@@ -1801,13 +1990,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int PROCEDIMIENTO_OPERATION_COUNT = SUBPROCESO_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARACTER__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARACTER__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CARACTER__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Contenido</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CARACTER__CONTENIDO = OPERADOR_FEATURE_COUNT + 0;
+	int CARACTER__CONTENIDO = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Caracter</em>' class.
@@ -1816,7 +2032,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CARACTER_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 1;
+	int CARACTER_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Caracter</em>' class.
@@ -1828,13 +2044,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CARACTER_OPERATION_COUNT = OPERADOR_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAS__EATTRIBUTE0RENCE0 = VALOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAS__NEGACIONES_FINALES = VALOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTERNAS__NEGACIONES_INICIALES = VALOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAS__NOMBRE = VALOR_FEATURE_COUNT + 0;
+	int INTERNAS__NOMBRE = VALOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Operadores</b></em>' containment reference list.
@@ -1843,7 +2086,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAS__OPERADORES = VALOR_FEATURE_COUNT + 1;
+	int INTERNAS__OPERADORES = VALOR_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Internas</em>' class.
@@ -1852,7 +2095,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAS_FEATURE_COUNT = VALOR_FEATURE_COUNT + 2;
+	int INTERNAS_FEATURE_COUNT = VALOR_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Internas</em>' class.
@@ -2386,13 +2629,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int SUBRANGO_OPERATION_COUNT = TIPO_COMPLEJO_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_COMPLEJO__EATTRIBUTE0RENCE0 = OPERADOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_COMPLEJO__NEGACIONES_FINALES = OPERADOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_COMPLEJO__NEGACIONES_INICIALES = OPERADOR_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Valor Complejo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALOR_COMPLEJO_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 0;
+	int VALOR_COMPLEJO_FEATURE_COUNT = OPERADOR_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Valor Complejo</em>' class.
@@ -2402,6 +2672,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALOR_COMPLEJO_OPERATION_COUNT = OPERADOR_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_REGISTRO__EATTRIBUTE0RENCE0 = VALOR_COMPLEJO__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_REGISTRO__NEGACIONES_FINALES = VALOR_COMPLEJO__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_REGISTRO__NEGACIONES_INICIALES = VALOR_COMPLEJO__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Nombre registro</b></em>' attribute.
@@ -2467,6 +2764,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CAMPO_REGISTRO_OPERATION_COUNT = 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_VECTOR__EATTRIBUTE0RENCE0 = VALOR_COMPLEJO__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_VECTOR__NEGACIONES_FINALES = VALOR_COMPLEJO__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_VECTOR__NEGACIONES_INICIALES = VALOR_COMPLEJO__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Nombre vector</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2510,6 +2834,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALOR_VECTOR_OPERATION_COUNT = VALOR_COMPLEJO_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_MATRIZ__EATTRIBUTE0RENCE0 = VALOR_COMPLEJO__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_MATRIZ__NEGACIONES_FINALES = VALOR_COMPLEJO__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALOR_MATRIZ__NEGACIONES_INICIALES = VALOR_COMPLEJO__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Nombre matriz</b></em>' attribute.
@@ -2656,6 +3007,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int FUNCION_FICHERO_CERRAR_OPERATION_COUNT = SENTENCIAS_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMA__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMA__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SUMA__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2699,6 +3077,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @ordered
 	 */
 	int SUMA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTA__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTA__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RESTA__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2746,6 +3151,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int RESTA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICACION__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICACION__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTIPLICACION__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2789,6 +3221,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTIPLICACION_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIVISION__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIVISION__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIVISION__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2836,6 +3295,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int DIVISION_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OR__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2879,6 +3365,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @ordered
 	 */
 	int OR_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int AND__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -2926,6 +3439,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int AND_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARACION__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARACION__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPARACION__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2969,6 +3509,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @ordered
 	 */
 	int COMPARACION_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IGUALDAD__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IGUALDAD__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int IGUALDAD__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -3469,6 +4036,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int MOD = 72;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MOD__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3522,6 +4116,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	int DIV = 73;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIV__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Signo op</b></em>' attribute.
@@ -3579,6 +4200,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int OPERACION_PARENTESIS = 74;
 
 	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_PARENTESIS__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_PARENTESIS__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_PARENTESIS__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
 	 * The feature id for the '<em><b>Valor operacion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3614,6 +4262,33 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	int UNARIA = 75;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNARIA__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
 
 	/**
 	 * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -3652,6 +4327,70 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int UNARIA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.OperacionCompletaImpl <em>Operacion Completa</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.OperacionCompletaImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getOperacionCompleta()
+	 * @generated
+	 */
+	int OPERACION_COMPLETA = 76;
+
+	/**
+	 * The feature id for the '<em><b>EAttribute0rence0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_COMPLETA__EATTRIBUTE0RENCE0 = OPERACION__EATTRIBUTE0RENCE0;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Finales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_COMPLETA__NEGACIONES_FINALES = OPERACION__NEGACIONES_FINALES;
+
+	/**
+	 * The feature id for the '<em><b>Negaciones Iniciales</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_COMPLETA__NEGACIONES_INICIALES = OPERACION__NEGACIONES_INICIALES;
+
+	/**
+	 * The feature id for the '<em><b>Valor operacion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_COMPLETA__VALOR_OPERACION = OPERACION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Operacion Completa</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_COMPLETA_FEATURE_COUNT = OPERACION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Operacion Completa</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERACION_COMPLETA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3659,17 +4398,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 76;
-
-	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.neg
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
-	 * @generated
-	 */
-	int NEG = 77;
+	int SIGNO = 77;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
@@ -4145,6 +4874,27 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EAttribute getUnaria_Signo_op();
 
 	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.OperacionCompleta <em>Operacion Completa</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operacion Completa</em>'.
+	 * @see diagramapseudocodigo.OperacionCompleta
+	 * @generated
+	 */
+	EClass getOperacionCompleta();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.OperacionCompleta#getValor_operacion <em>Valor operacion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Valor operacion</em>'.
+	 * @see diagramapseudocodigo.OperacionCompleta#getValor_operacion()
+	 * @see #getOperacionCompleta()
+	 * @generated
+	 */
+	EReference getOperacionCompleta_Valor_operacion();
+
+	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.Inicio <em>Inicio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4543,6 +5293,39 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getoperacion();
+
+	/**
+	 * Returns the meta object for the reference '{@link diagramapseudocodigo.operacion#getEAttribute0rence0 <em>EAttribute0rence0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EAttribute0rence0</em>'.
+	 * @see diagramapseudocodigo.operacion#getEAttribute0rence0()
+	 * @see #getoperacion()
+	 * @generated
+	 */
+	EReference getoperacion_EAttribute0rence0();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link diagramapseudocodigo.operacion#getNegacionesFinales <em>Negaciones Finales</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Negaciones Finales</em>'.
+	 * @see diagramapseudocodigo.operacion#getNegacionesFinales()
+	 * @see #getoperacion()
+	 * @generated
+	 */
+	EAttribute getoperacion_NegacionesFinales();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link diagramapseudocodigo.operacion#getNegacionesIniciales <em>Negaciones Iniciales</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Negaciones Iniciales</em>'.
+	 * @see diagramapseudocodigo.operacion#getNegacionesIniciales()
+	 * @see #getoperacion()
+	 * @generated
+	 */
+	EAttribute getoperacion_NegacionesIniciales();
 
 	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.ValorBooleano <em>Valor Booleano</em>}'.
@@ -5993,16 +6776,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EEnum getsigno();
 
 	/**
-	 * Returns the meta object for enum '{@link diagramapseudocodigo.neg <em>neg</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>neg</em>'.
-	 * @see diagramapseudocodigo.neg
-	 * @generated
-	 */
-	EEnum getneg();
-
-	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -6403,6 +7176,24 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		EAttribute UNARIA__SIGNO_OP = eINSTANCE.getUnaria_Signo_op();
 
 		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.OperacionCompletaImpl <em>Operacion Completa</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.OperacionCompletaImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getOperacionCompleta()
+		 * @generated
+		 */
+		EClass OPERACION_COMPLETA = eINSTANCE.getOperacionCompleta();
+
+		/**
+		 * The meta object literal for the '<em><b>Valor operacion</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERACION_COMPLETA__VALOR_OPERACION = eINSTANCE.getOperacionCompleta_Valor_operacion();
+
+		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.InicioImpl <em>Inicio</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -6741,6 +7532,30 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass OPERACION = eINSTANCE.getoperacion();
+
+		/**
+		 * The meta object literal for the '<em><b>EAttribute0rence0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OPERACION__EATTRIBUTE0RENCE0 = eINSTANCE.getoperacion_EAttribute0rence0();
+
+		/**
+		 * The meta object literal for the '<em><b>Negaciones Finales</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERACION__NEGACIONES_FINALES = eINSTANCE.getoperacion_NegacionesFinales();
+
+		/**
+		 * The meta object literal for the '<em><b>Negaciones Iniciales</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OPERACION__NEGACIONES_INICIALES = eINSTANCE.getoperacion_NegacionesIniciales();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.ValorBooleanoImpl <em>Valor Booleano</em>}' class.
@@ -7925,16 +8740,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SIGNO = eINSTANCE.getsigno();
-
-		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.neg <em>neg</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.neg
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getneg()
-		 * @generated
-		 */
-		EEnum NEG = eINSTANCE.getneg();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.

@@ -121,6 +121,15 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Unaria createUnaria();
 
 	/**
+	 * Returns a new object of class '<em>Operacion Completa</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operacion Completa</em>'.
+	 * @generated
+	 */
+	OperacionCompleta createOperacionCompleta();
+
+	/**
 	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -9931,11 +9931,11 @@ protected class Operacion_OrParserRuleCall extends RuleCallToken {
 /************ begin Rule Or ****************
  *
  * Or returns operacion:
- * 	And ({Or.left=current} signo_op=signoOr "-"* "no"* right=And)*;
+ * 	And ({Or.left=current} signo_op=signoOr negacionesFinales+="-"* negacionesFinales+="no"* right=And)*;
  *
  **/
 
-// And ({Or.left=current} signo_op=signoOr "-"* "no"* right=And)*
+// And ({Or.left=current} signo_op=signoOr negacionesFinales+="-"* negacionesFinales+="no"* right=And)*
 protected class Or_Group extends GroupToken {
 	
 	public Or_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10042,7 +10042,7 @@ protected class Or_AndParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Or.left=current} signo_op=signoOr "-"* "no"* right=And)*
+// ({Or.left=current} signo_op=signoOr negacionesFinales+="-"* negacionesFinales+="no"* right=And)*
 protected class Or_Group_1 extends GroupToken {
 	
 	public Or_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10135,6 +10135,77 @@ protected class Or_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
+// negacionesFinales+="-"*
+protected class Or_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public Or_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOrAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Or_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Or_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOrAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOrAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class Or_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
+	
+	public Or_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOrAccess().getNegacionesFinalesAssignment_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Or_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Or_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Or_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOrAccess().getNegacionesFinalesNoKeyword_1_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOrAccess().getNegacionesFinalesNoKeyword_1_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=And
 protected class Or_RightAssignment_1_4 extends AssignmentToken  {
 	
@@ -10175,7 +10246,9 @@ protected class Or_RightAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Or_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Or_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Or_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new Or_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -10189,11 +10262,11 @@ protected class Or_RightAssignment_1_4 extends AssignmentToken  {
 /************ begin Rule And ****************
  *
  * And returns operacion:
- * 	Mod ({And.left=current} signo_op=signoAnd "-"* "no"* right=Mod)*;
+ * 	Mod ({And.left=current} signo_op=signoAnd negacionesFinales+="-"* negacionesFinales+="no"* right=Mod)*;
  *
  **/
 
-// Mod ({And.left=current} signo_op=signoAnd "-"* "no"* right=Mod)*
+// Mod ({And.left=current} signo_op=signoAnd negacionesFinales+="-"* negacionesFinales+="no"* right=Mod)*
 protected class And_Group extends GroupToken {
 	
 	public And_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10298,7 +10371,7 @@ protected class And_ModParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({And.left=current} signo_op=signoAnd "-"* "no"* right=Mod)*
+// ({And.left=current} signo_op=signoAnd negacionesFinales+="-"* negacionesFinales+="no"* right=Mod)*
 protected class And_Group_1 extends GroupToken {
 	
 	public And_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10391,6 +10464,77 @@ protected class And_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
+// negacionesFinales+="-"*
+protected class And_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public And_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAndAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new And_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new And_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getAndAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getAndAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class And_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
+	
+	public And_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getAndAccess().getNegacionesFinalesAssignment_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new And_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new And_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new And_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getAndAccess().getNegacionesFinalesNoKeyword_1_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getAndAccess().getNegacionesFinalesNoKeyword_1_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=Mod
 protected class And_RightAssignment_1_4 extends AssignmentToken  {
 	
@@ -10431,7 +10575,9 @@ protected class And_RightAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new And_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new And_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new And_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new And_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -10445,11 +10591,11 @@ protected class And_RightAssignment_1_4 extends AssignmentToken  {
 /************ begin Rule Mod ****************
  *
  * Mod returns operacion:
- * 	Igualdad ({Mod.left=current} signo_op=signoModulo "-"* "no"* right=Igualdad)*;
+ * 	Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+="-"* negacionesFinales+="no"* right=Igualdad)*;
  *
  **/
 
-// Igualdad ({Mod.left=current} signo_op=signoModulo "-"* "no"* right=Igualdad)*
+// Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+="-"* negacionesFinales+="no"* right=Igualdad)*
 protected class Mod_Group extends GroupToken {
 	
 	public Mod_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10552,7 +10698,7 @@ protected class Mod_IgualdadParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Mod.left=current} signo_op=signoModulo "-"* "no"* right=Igualdad)*
+// ({Mod.left=current} signo_op=signoModulo negacionesFinales+="-"* negacionesFinales+="no"* right=Igualdad)*
 protected class Mod_Group_1 extends GroupToken {
 	
 	public Mod_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10645,6 +10791,77 @@ protected class Mod_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
+// negacionesFinales+="-"*
+protected class Mod_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public Mod_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getModAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Mod_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Mod_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getModAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getModAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class Mod_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
+	
+	public Mod_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getModAccess().getNegacionesFinalesAssignment_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Mod_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Mod_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Mod_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getModAccess().getNegacionesFinalesNoKeyword_1_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getModAccess().getNegacionesFinalesNoKeyword_1_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=Igualdad
 protected class Mod_RightAssignment_1_4 extends AssignmentToken  {
 	
@@ -10685,7 +10902,9 @@ protected class Mod_RightAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Mod_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Mod_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Mod_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new Mod_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -10699,11 +10918,13 @@ protected class Mod_RightAssignment_1_4 extends AssignmentToken  {
 /************ begin Rule Igualdad ****************
  *
  * Igualdad returns operacion:
- * 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad "-"* "no"* right=Comparacion)*;
+ * 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+="-"* negacionesFinales+="no"*
+ * 	right=Comparacion)*;
  *
  **/
 
-// Comparacion ({Igualdad.left=current} signo_op=signoIgualdad "-"* "no"* right=Comparacion)*
+// Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+="-"* negacionesFinales+="no"*
+// right=Comparacion)*
 protected class Igualdad_Group extends GroupToken {
 	
 	public Igualdad_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10804,7 +11025,7 @@ protected class Igualdad_ComparacionParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Igualdad.left=current} signo_op=signoIgualdad "-"* "no"* right=Comparacion)*
+// ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+="-"* negacionesFinales+="no"* right=Comparacion)*
 protected class Igualdad_Group_1 extends GroupToken {
 	
 	public Igualdad_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10897,6 +11118,77 @@ protected class Igualdad_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
+// negacionesFinales+="-"*
+protected class Igualdad_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public Igualdad_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getIgualdadAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Igualdad_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Igualdad_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getIgualdadAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getIgualdadAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class Igualdad_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
+	
+	public Igualdad_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getIgualdadAccess().getNegacionesFinalesAssignment_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Igualdad_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Igualdad_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Igualdad_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getIgualdadAccess().getNegacionesFinalesNoKeyword_1_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getIgualdadAccess().getNegacionesFinalesNoKeyword_1_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=Comparacion
 protected class Igualdad_RightAssignment_1_4 extends AssignmentToken  {
 	
@@ -10937,7 +11229,9 @@ protected class Igualdad_RightAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Igualdad_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Igualdad_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Igualdad_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new Igualdad_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -10951,11 +11245,13 @@ protected class Igualdad_RightAssignment_1_4 extends AssignmentToken  {
 /************ begin Rule Comparacion ****************
  *
  * Comparacion returns operacion:
- * 	SumaResta ({Comparacion.left=current} signo_op=signoComparacion "-"* "no"* right=SumaResta)*;
+ * 	SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+="-"* negacionesFinales+="no"*
+ * 	right=SumaResta)*;
  *
  **/
 
-// SumaResta ({Comparacion.left=current} signo_op=signoComparacion "-"* "no"* right=SumaResta)*
+// SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+="-"* negacionesFinales+="no"*
+// right=SumaResta)*
 protected class Comparacion_Group extends GroupToken {
 	
 	public Comparacion_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11054,7 +11350,7 @@ protected class Comparacion_SumaRestaParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Comparacion.left=current} signo_op=signoComparacion "-"* "no"* right=SumaResta)*
+// ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+="-"* negacionesFinales+="no"* right=SumaResta)*
 protected class Comparacion_Group_1 extends GroupToken {
 	
 	public Comparacion_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11147,6 +11443,77 @@ protected class Comparacion_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
+// negacionesFinales+="-"*
+protected class Comparacion_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public Comparacion_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getComparacionAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Comparacion_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Comparacion_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getComparacionAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getComparacionAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class Comparacion_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
+	
+	public Comparacion_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getComparacionAccess().getNegacionesFinalesAssignment_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Comparacion_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Comparacion_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Comparacion_Signo_opAssignment_1_1(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getComparacionAccess().getNegacionesFinalesNoKeyword_1_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getComparacionAccess().getNegacionesFinalesNoKeyword_1_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=SumaResta
 protected class Comparacion_RightAssignment_1_4 extends AssignmentToken  {
 	
@@ -11187,7 +11554,9 @@ protected class Comparacion_RightAssignment_1_4 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Comparacion_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Comparacion_NegacionesFinalesAssignment_1_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Comparacion_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new Comparacion_Signo_opAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -11201,13 +11570,13 @@ protected class Comparacion_RightAssignment_1_4 extends AssignmentToken  {
 /************ begin Rule SumaResta ****************
  *
  * SumaResta returns operacion:
- * 	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) "-"* "no"*
- * 	right=MultiplicacionDivision)*;
+ * 	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
+ * 	negacionesFinales+="-"* negacionesFinales+="no"* right=MultiplicacionDivision)*;
  *
  **/
 
-// MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) "-"* "no"*
-// right=MultiplicacionDivision)*
+// MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
+// negacionesFinales+="-"* negacionesFinales+="no"* right=MultiplicacionDivision)*
 protected class SumaResta_Group extends GroupToken {
 	
 	public SumaResta_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11303,8 +11672,8 @@ protected class SumaResta_MultiplicacionDivisionParserRuleCall_0 extends RuleCal
 	}	
 }
 
-// (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) "-"* "no"*
-// right=MultiplicacionDivision)*
+// (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) negacionesFinales+="-"*
+// negacionesFinales+="no"* right=MultiplicacionDivision)*
 protected class SumaResta_Group_1 extends GroupToken {
 	
 	public SumaResta_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11546,6 +11915,77 @@ protected class SumaResta_Signo_opAssignment_1_0_1_1 extends AssignmentToken  {
 
 
 
+// negacionesFinales+="-"*
+protected class SumaResta_NegacionesFinalesAssignment_1_1 extends AssignmentToken  {
+	
+	public SumaResta_NegacionesFinalesAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSumaRestaAccess().getNegacionesFinalesAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SumaResta_NegacionesFinalesAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new SumaResta_Alternatives_1_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSumaRestaAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSumaRestaAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class SumaResta_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public SumaResta_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSumaRestaAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SumaResta_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new SumaResta_NegacionesFinalesAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new SumaResta_Alternatives_1_0(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSumaRestaAccess().getNegacionesFinalesNoKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSumaRestaAccess().getNegacionesFinalesNoKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=MultiplicacionDivision
 protected class SumaResta_RightAssignment_1_3 extends AssignmentToken  {
 	
@@ -11586,7 +12026,9 @@ protected class SumaResta_RightAssignment_1_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SumaResta_Alternatives_1_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new SumaResta_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new SumaResta_NegacionesFinalesAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new SumaResta_Alternatives_1_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -11601,12 +12043,12 @@ protected class SumaResta_RightAssignment_1_3 extends AssignmentToken  {
  *
  * MultiplicacionDivision returns operacion:
  * 	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision
- * 	| {Div.left=current} signo_op=signoDiv) "-"* "no"* right=Primaria)*;
+ * 	| {Div.left=current} signo_op=signoDiv) negacionesFinales+="-"* negacionesFinales+="no"* right=Primaria)*;
  *
  **/
 
 // Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
-// {Div.left=current} signo_op=signoDiv) "-"* "no"* right=Primaria)*
+// {Div.left=current} signo_op=signoDiv) negacionesFinales+="-"* negacionesFinales+="no"* right=Primaria)*
 protected class MultiplicacionDivision_Group extends GroupToken {
 	
 	public MultiplicacionDivision_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11698,7 +12140,7 @@ protected class MultiplicacionDivision_PrimariaParserRuleCall_0 extends RuleCall
 }
 
 // (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
-// {Div.left=current} signo_op=signoDiv) "-"* "no"* right=Primaria)*
+// {Div.left=current} signo_op=signoDiv) negacionesFinales+="-"* negacionesFinales+="no"* right=Primaria)*
 protected class MultiplicacionDivision_Group_1 extends GroupToken {
 	
 	public MultiplicacionDivision_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12037,6 +12479,77 @@ protected class MultiplicacionDivision_Signo_opAssignment_1_0_2_1 extends Assign
 
 
 
+// negacionesFinales+="-"*
+protected class MultiplicacionDivision_NegacionesFinalesAssignment_1_1 extends AssignmentToken  {
+	
+	public MultiplicacionDivision_NegacionesFinalesAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new MultiplicacionDivision_NegacionesFinalesAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new MultiplicacionDivision_Alternatives_1_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class MultiplicacionDivision_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
+	
+	public MultiplicacionDivision_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesAssignment_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new MultiplicacionDivision_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new MultiplicacionDivision_NegacionesFinalesAssignment_1_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new MultiplicacionDivision_Alternatives_1_0(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesNoKeyword_1_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesNoKeyword_1_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // right=Primaria
 protected class MultiplicacionDivision_RightAssignment_1_3 extends AssignmentToken  {
 	
@@ -12077,7 +12590,9 @@ protected class MultiplicacionDivision_RightAssignment_1_3 extends AssignmentTok
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new MultiplicacionDivision_Alternatives_1_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new MultiplicacionDivision_NegacionesFinalesAssignment_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new MultiplicacionDivision_NegacionesFinalesAssignment_1_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new MultiplicacionDivision_Alternatives_1_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -14357,11 +14872,11 @@ protected class Primaria_OperacionParentesisParserRuleCall_3 extends RuleCallTok
 /************ begin Rule OperacionCompleta ****************
  *
  * OperacionCompleta returns operacion:
- * 	"-"* "no"* operacion;
+ * 	{OperacionCompleta} negacionesIniciales+="-"* negacionesIniciales+="no"* valor_operacion=operacion;
  *
  **/
 
-// "-"* "no"* operacion
+// {OperacionCompleta} negacionesIniciales+="-"* negacionesIniciales+="no"* valor_operacion=operacion
 protected class OperacionCompleta_Group extends GroupToken {
 	
 	public OperacionCompleta_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14376,51 +14891,127 @@ protected class OperacionCompleta_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new OperacionCompleta_OperacionParserRuleCall_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new OperacionCompleta_Valor_operacionAssignment_3(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getAndAccess().getAndLeftAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesBasicasAccess().getCaracterAction_3_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getComparacionAccess().getComparacionLeftAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesBasicasAccess().getConstCadenaAction_2_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMultiplicacionDivisionAccess().getDivLeftAction_1_0_2_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMultiplicacionDivisionAccess().getDivisionLeftAction_1_0_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIgualdadAccess().getIgualdadLeftAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getFuncionesAccess().getInternasAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getFuncionesAccess().getLlamadaFuncionAction_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getModAccess().getModLeftAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMultiplicacionDivisionAccess().getMultiplicacionLeftAction_1_0_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesBasicasAccess().getNumeroDecimalAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesBasicasAccess().getNumeroEnteroAction_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOperacionParentesisAccess().getOperacionParentesisAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOrAccess().getOrLeftAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSumaRestaAccess().getRestaLeftAction_1_0_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSumaRestaAccess().getSumaLeftAction_1_0_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesBasicasAccess().getValorBooleanoAction_4_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesComplejasAccess().getValorMatrizAction_1_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesComplejasAccess().getValorRegistroAction_2_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesComplejasAccess().getValorVectorAction_0_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVariablesBasicasAccess().getVariableIDAction_5_0().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getOperacionCompletaAccess().getOperacionCompletaAction_0().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
 
 }
 
-// operacion
-protected class OperacionCompleta_OperacionParserRuleCall_2 extends RuleCallToken {
-	
-	public OperacionCompleta_OperacionParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// {OperacionCompleta}
+protected class OperacionCompleta_OperacionCompletaAction_0 extends ActionToken  {
+
+	public OperacionCompleta_OperacionCompletaAction_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getOperacionCompletaAccess().getOperacionParserRuleCall_2();
+	public Action getGrammarElement() {
+		return grammarAccess.getOperacionCompletaAccess().getOperacionCompletaAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(!eObjectConsumer.isConsumed()) return null;
+		return eObjectConsumer;
+	}
+}
+
+// negacionesIniciales+="-"*
+protected class OperacionCompleta_NegacionesInicialesAssignment_1 extends AssignmentToken  {
+	
+	public OperacionCompleta_NegacionesInicialesAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionCompleta_NegacionesInicialesAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new OperacionCompleta_OperacionCompletaAction_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesIniciales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesIniciales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesHyphenMinusKeyword_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesHyphenMinusKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesIniciales+="no"*
+protected class OperacionCompleta_NegacionesInicialesAssignment_2 extends AssignmentToken  {
+	
+	public OperacionCompleta_NegacionesInicialesAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionCompleta_NegacionesInicialesAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new OperacionCompleta_NegacionesInicialesAssignment_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new OperacionCompleta_OperacionCompletaAction_0(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesIniciales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesIniciales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesNoKeyword_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesNoKeyword_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// valor_operacion=operacion
+protected class OperacionCompleta_Valor_operacionAssignment_3 extends AssignmentToken  {
+	
+	public OperacionCompleta_Valor_operacionAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOperacionCompletaAccess().getValor_operacionAssignment_3();
 	}
 
     @Override
@@ -14431,16 +15022,30 @@ protected class OperacionCompleta_OperacionParserRuleCall_2 extends RuleCallToke
 		}	
 	}
 
-    @Override
+    @Override	
 	public IEObjectConsumer tryConsume() {
-		if(checkForRecursion(Operacion_OrParserRuleCall.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
+		if((value = eObjectConsumer.getConsumable("valor_operacion",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("valor_operacion");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOperacionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getOperacionCompletaAccess().getValor_operacionOperacionParserRuleCall_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
 	}
-	
+
     @Override
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+			case 0: return new OperacionCompleta_NegacionesInicialesAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new OperacionCompleta_NegacionesInicialesAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new OperacionCompleta_OperacionCompletaAction_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
 		}	
 	}	
 }
@@ -14452,11 +15057,11 @@ protected class OperacionCompleta_OperacionParserRuleCall_2 extends RuleCallToke
 /************ begin Rule OperacionParentesis ****************
  *
  * OperacionParentesis returns operacion:
- * 	{OperacionParentesis} "(" "-"* "no"* valor_operacion=operacion ")";
+ * 	{OperacionParentesis} "(" negacionesFinales+="-"* negacionesFinales+="no"* valor_operacion=operacion ")";
  *
  **/
 
-// {OperacionParentesis} "(" "-"* "no"* valor_operacion=operacion ")"
+// {OperacionParentesis} "(" negacionesFinales+="-"* negacionesFinales+="no"* valor_operacion=operacion ")"
 protected class OperacionParentesis_Group extends GroupToken {
 	
 	public OperacionParentesis_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14533,6 +15138,77 @@ protected class OperacionParentesis_LeftParenthesisKeyword_1 extends KeywordToke
 
 }
 
+// negacionesFinales+="-"*
+protected class OperacionParentesis_NegacionesFinalesAssignment_2 extends AssignmentToken  {
+	
+	public OperacionParentesis_NegacionesFinalesAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionParentesis_NegacionesFinalesAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new OperacionParentesis_LeftParenthesisKeyword_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesHyphenMinusKeyword_2_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesHyphenMinusKeyword_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// negacionesFinales+="no"*
+protected class OperacionParentesis_NegacionesFinalesAssignment_3 extends AssignmentToken  {
+	
+	public OperacionParentesis_NegacionesFinalesAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionParentesis_NegacionesFinalesAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new OperacionParentesis_NegacionesFinalesAssignment_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new OperacionParentesis_LeftParenthesisKeyword_1(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("negacionesFinales",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("negacionesFinales");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesNoKeyword_3_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesNoKeyword_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 // valor_operacion=operacion
 protected class OperacionParentesis_Valor_operacionAssignment_4 extends AssignmentToken  {
 	
@@ -14573,7 +15249,9 @@ protected class OperacionParentesis_Valor_operacionAssignment_4 extends Assignme
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new OperacionParentesis_LeftParenthesisKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new OperacionParentesis_NegacionesFinalesAssignment_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new OperacionParentesis_NegacionesFinalesAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new OperacionParentesis_LeftParenthesisKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	

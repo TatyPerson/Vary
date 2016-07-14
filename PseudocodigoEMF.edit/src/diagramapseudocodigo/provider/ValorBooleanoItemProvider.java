@@ -43,9 +43,78 @@ public class ValorBooleanoItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addEAttribute0rence0PropertyDescriptor(object);
+			addNegacionesFinalesPropertyDescriptor(object);
+			addNegacionesInicialesPropertyDescriptor(object);
 			addValorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the EAttribute0rence0 feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEAttribute0rence0PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_operacion_EAttribute0rence0_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_EAttribute0rence0_feature", "_UI_operacion_type"),
+				 DiagramapseudocodigoPackage.Literals.OPERACION__EATTRIBUTE0RENCE0,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Negaciones Finales feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNegacionesFinalesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_operacion_negacionesFinales_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_negacionesFinales_feature", "_UI_operacion_type"),
+				 DiagramapseudocodigoPackage.Literals.OPERACION__NEGACIONES_FINALES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Negaciones Iniciales feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNegacionesInicialesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_operacion_negacionesIniciales_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_negacionesIniciales_feature", "_UI_operacion_type"),
+				 DiagramapseudocodigoPackage.Literals.OPERACION__NEGACIONES_INICIALES,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -107,6 +176,8 @@ public class ValorBooleanoItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ValorBooleano.class)) {
+			case DiagramapseudocodigoPackage.VALOR_BOOLEANO__NEGACIONES_FINALES:
+			case DiagramapseudocodigoPackage.VALOR_BOOLEANO__NEGACIONES_INICIALES:
 			case DiagramapseudocodigoPackage.VALOR_BOOLEANO__VALOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
