@@ -199,12 +199,12 @@ AsignacionNormal returns AsignacionNormal:
 	valor_asignacion=EString
 //	 Mat+=MAT*
 	'<-'
-	operador=operacion;
+	operador=OperacionCompleta;
 	
 AsignacionCompleja returns AsignacionCompleja:
 	valor_asignacion=VariablesComplejas
 	'<-'
-	operador=operacion;
+	operador=OperacionCompleta;
 
 //AsignacionCompleja returns AsignacionCompleja:
 //	operadores+=Primaria
@@ -225,7 +225,7 @@ Leer returns Leer:
 Si returns Si:
 	('if' 
 	'(' | 'if(')
-	valor=operacion
+	valor=OperacionCompleta
 	')' 'then'
 		(sentencias+=Sentencias)*
 		(devuelve=Devolver)?
@@ -235,7 +235,7 @@ Si returns Si:
 mientras returns mientras:
 	('while'
 	'(' | 'while(')
-	valor=operacion
+	valor=OperacionCompleta
 	')' 'do'
 		(sentencias+=Sentencias)* 
 	'end_while';
@@ -245,10 +245,10 @@ repetir returns repetir:
 		(sentencias+=Sentencias)*
 	 ('until' 
 	 '(' | 'until(')
-	 valor=operacion ')';
+	 valor=OperacionCompleta ')';
 
 desde returns desde:
-	'for' asignacion=AsignacionNormal 'to' valor=operacion 'do'
+	'for' asignacion=AsignacionNormal 'to' valor=OperacionCompleta 'do'
 		(sentencias+=Sentencias)* 
 	'end_for';
 	
@@ -258,7 +258,7 @@ Caso returns Caso:
 ;
 	
 segun returns segun:
-	('according_to''(' | 'according_to(') valor=Primaria')' 'do'
+	('according_to''(' | 'according_to(') valor=OperacionCompleta')' 'do'
 		(caso+=Caso )*
 		'otherwise:'
 		( sentencias+=Sentencias )*
@@ -342,25 +342,25 @@ operacion returns operacion:
 	Or;
 
 Or returns operacion:
-	And ({Or.left=current} signo_op=signoOr right=And)*;
+	And ({Or.left=current} signo_op=signoOr negacionesFinales+=('-')* negacionesFinales+=('no')* right=And)*;
 
 And returns operacion:
-	Mod ({And.left=current} signo_op=signoAnd right=Mod)*;
+	Mod ({And.left=current} signo_op=signoAnd negacionesFinales+=('-')* negacionesFinales+=('no')* right=Mod)*;
 	
 Mod returns operacion:
-	Igualdad ({Mod.left=current} signo_op=signoModulo right=Igualdad)*;
+	Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+=('-')* negacionesFinales+=('no')* right=Igualdad)*;
 
 Igualdad returns operacion:
-	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad right=Comparacion)*;
+	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+=('-')* negacionesFinales+=('no')* right=Comparacion)*;
 
 Comparacion returns operacion:
-	SumaResta ({Comparacion.left=current} signo_op=signoComparacion right=SumaResta)*;
+	SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+=('-')* negacionesFinales+=('no')* right=SumaResta)*;
 
 SumaResta returns operacion:
-	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivision)*;
+	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) negacionesFinales+=('-')* negacionesFinales+=('no')* right=MultiplicacionDivision)*;
 
 MultiplicacionDivision returns operacion:
-	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=Primaria)*;
+	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) negacionesFinales+=('-')* negacionesFinales+=('no')* right=Primaria)*;
 	
 	
 operacionIndice returns operacion:
@@ -391,15 +391,18 @@ PrimariaIndice returns operacion:
 Primaria returns operacion:
 	VariablesBasicas |
 	VariablesComplejas
-	//| {Negativa} '-(' valor_operacion=operacion ')'
-	//| {Negacion} 'not''(' valor_operacion=operacion ')'
 	| Funciones
-	| {OperacionParentesis} '(' valor_operacion=operacion ')';
+	| OperacionParentesis;
 	
+OperacionCompleta returns operacion:
+	{OperacionCompleta} negacionesIniciales+=('-')* negacionesIniciales+=('no')* valor_operacion=operacion;
+	
+OperacionParentesis returns operacion:
+	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=operacion ')';
 	
 Funciones returns operacion:
-	{LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=operacion ( ',' operadores+=operacion)* )? ')'
-	| {Internas} (nombre=NombreInterna) (operadores+=operacion ( ',' operadores+=operacion)* )? ')';
+	({LlamadaFuncion} (nombre=NOMBRE_FUN) (('-')* ('no')* operadores+=operacion ( ','  ('-')* ('no')* operadores+=operacion)* )? ')') |
+	({Internas} (nombre=NombreInterna) (('-')* ('no')* operadores+=operacion ( ',' ('-')* ('no')* operadores+=operacion)* )? ')');
 	
 VariablesComplejas returns operacion:
 	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
@@ -422,7 +425,7 @@ Sino returns Sino:
 
 Devolver returns Devolver:
 	{Devolver}
-	'return' devuelve=operacion;
+	'return' devuelve=OperacionCompleta;
 
 //neg returns neg:
 //	"no" /* TODO: implement this rule and an appropriate IValueConverter */;

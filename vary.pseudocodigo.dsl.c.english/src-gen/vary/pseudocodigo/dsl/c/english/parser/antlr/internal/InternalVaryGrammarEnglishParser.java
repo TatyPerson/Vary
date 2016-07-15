@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_NOMBRE_FUN", "RULE_INT", "RULE_STRING", "RULE_CAD", "RULE_CAR", "RULE_SL_COMMENT", "RULE_COMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Algorithm'", "'import'", "'end_import'", "'const'", "'type'", "'var'", "'end_algorithm'", "'Module'", "'export'", "'end_export'", "'end_module'", "'implementation'", "'end_implementation'", "'procedure'", "','", "')'", "'function'", "'open'", "'('", "'close'", "'writing'", "'reading'", "'cos('", "'square('", "'exp('", "'ln('", "'log('", "'sen('", "'sqrt('", "'length('", "'concatena('", "'.'", "'E'", "'e'", "'+'", "'-'", "'='", "'vector'", "'['", "']'", "'of'", "': '", "'matrix'", "']['", "'registry:'", "'end_registry'", "'archive of '", "'{'", "'}'", "'..'", "'main'", "'initiation'", "'end_main'", "'<-'", "'write('", "'read('", "'if'", "'if('", "'then'", "'end_if'", "'while'", "'while('", "'do'", "'end_while'", "'repeat'", "'until'", "'until('", "'for'", "'to'", "'end_for'", "'case'", "'according_to'", "'according_to('", "'otherwise:'", "'end_according_to'", "'integer'", "'character'", "'real'", "'boolean'", "'string'", "'or'", "'and'", "'!='", "'<'", "'>'", "'>='", "'<='", "'*'", "'/'", "'mod'", "'div'", "'-('", "'not'", "'else'", "'return'", "'end_function'", "'end_procedure'", "'I'", "'I/O'", "'O'", "'true'", "'false'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_NOMBRE_FUN", "RULE_INT", "RULE_STRING", "RULE_CAD", "RULE_CAR", "RULE_SL_COMMENT", "RULE_COMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Algorithm'", "'import'", "'end_import'", "'const'", "'type'", "'var'", "'end_algorithm'", "'Module'", "'export'", "'end_export'", "'end_module'", "'implementation'", "'end_implementation'", "'procedure'", "','", "')'", "'function'", "'open'", "'('", "'close'", "'writing'", "'reading'", "'cos('", "'square('", "'exp('", "'ln('", "'log('", "'sen('", "'sqrt('", "'length('", "'concatena('", "'.'", "'E'", "'e'", "'+'", "'-'", "'='", "'vector'", "'['", "']'", "'of'", "': '", "'matrix'", "']['", "'registry:'", "'end_registry'", "'archive of '", "'{'", "'}'", "'..'", "'main'", "'initiation'", "'end_main'", "'<-'", "'write('", "'read('", "'if'", "'if('", "'then'", "'end_if'", "'while'", "'while('", "'do'", "'end_while'", "'repeat'", "'until'", "'until('", "'for'", "'to'", "'end_for'", "'case'", "'according_to'", "'according_to('", "'otherwise:'", "'end_according_to'", "'integer'", "'character'", "'real'", "'boolean'", "'string'", "'or'", "'and'", "'!='", "'<'", "'>'", "'>='", "'<='", "'*'", "'/'", "'mod'", "'div'", "'no'", "'else'", "'return'", "'end_function'", "'end_procedure'", "'I'", "'I/O'", "'O'", "'true'", "'false'"
     };
     public static final int RULE_NOMBRE_FUN=5;
     public static final int T__50=50;
@@ -113,7 +113,6 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
     public static final int T__114=114;
     public static final int T__75=75;
     public static final int T__76=76;
-    public static final int T__116=116;
     public static final int T__80=80;
     public static final int T__111=111;
     public static final int T__81=81;
@@ -2010,7 +2009,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             int alt28=2;
             int LA28_0 = input.LA(1);
 
-            if ( ((LA28_0>=112 && LA28_0<=114)) ) {
+            if ( ((LA28_0>=111 && LA28_0<=113)) ) {
                 alt28=1;
             }
             switch (alt28) {
@@ -2263,7 +2262,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             int alt30=2;
             int LA30_0 = input.LA(1);
 
-            if ( ((LA30_0>=112 && LA30_0<=114)) ) {
+            if ( ((LA30_0>=111 && LA30_0<=113)) ) {
                 alt30=1;
             }
             switch (alt30) {
@@ -7100,11 +7099,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             else if ( (LA50_0==RULE_ID) ) {
                 int LA50_2 = input.LA(2);
 
-                if ( (LA50_2==68) ) {
-                    alt50=1;
-                }
-                else if ( (LA50_2==46||LA50_2==53) ) {
+                if ( (LA50_2==46||LA50_2==53) ) {
                     alt50=2;
+                }
+                else if ( (LA50_2==68) ) {
+                    alt50=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -7213,7 +7212,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleAsignacionNormal"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2680:1: ruleAsignacionNormal returns [EObject current=null] : ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2680:1: ruleAsignacionNormal returns [EObject current=null] : ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) ) ;
     public final EObject ruleAsignacionNormal() throws RecognitionException {
         EObject current = null;
 
@@ -7226,11 +7225,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2683:28: ( ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:1: ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2683:28: ( ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:1: ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:1: ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:2: ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:1: ( ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:2: ( (lv_valor_asignacion_0_0= ruleEString ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) )
             {
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2684:2: ( (lv_valor_asignacion_0_0= ruleEString ) )
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2685:1: (lv_valor_asignacion_0_0= ruleEString )
@@ -7267,17 +7266,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                 	newLeafNode(otherlv_1, grammarAccess.getAsignacionNormalAccess().getLessThanSignHyphenMinusKeyword_1());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2706:1: ( (lv_operador_2_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2707:1: (lv_operador_2_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2706:1: ( (lv_operador_2_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2707:1: (lv_operador_2_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2707:1: (lv_operador_2_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2708:3: lv_operador_2_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2707:1: (lv_operador_2_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2708:3: lv_operador_2_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getAsignacionNormalAccess().getOperadorOperacionParserRuleCall_2_0()); 
+            	        newCompositeNode(grammarAccess.getAsignacionNormalAccess().getOperadorOperacionCompletaParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleAsignacionNormal6157);
-            lv_operador_2_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_ruleAsignacionNormal6157);
+            lv_operador_2_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -7289,7 +7288,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"operador",
                     		lv_operador_2_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -7355,7 +7354,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleAsignacionCompleja"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2741:1: ruleAsignacionCompleja returns [EObject current=null] : ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2741:1: ruleAsignacionCompleja returns [EObject current=null] : ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) ) ;
     public final EObject ruleAsignacionCompleja() throws RecognitionException {
         EObject current = null;
 
@@ -7368,11 +7367,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2744:28: ( ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:1: ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2744:28: ( ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:1: ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:1: ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:2: ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:1: ( ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:2: ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) ) otherlv_1= '<-' ( (lv_operador_2_0= ruleOperacionCompleta ) )
             {
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2745:2: ( (lv_valor_asignacion_0_0= ruleVariablesComplejas ) )
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2746:1: (lv_valor_asignacion_0_0= ruleVariablesComplejas )
@@ -7409,17 +7408,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                 	newLeafNode(otherlv_1, grammarAccess.getAsignacionComplejaAccess().getLessThanSignHyphenMinusKeyword_1());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2767:1: ( (lv_operador_2_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2768:1: (lv_operador_2_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2767:1: ( (lv_operador_2_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2768:1: (lv_operador_2_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2768:1: (lv_operador_2_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2769:3: lv_operador_2_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2768:1: (lv_operador_2_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2769:3: lv_operador_2_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getAsignacionComplejaAccess().getOperadorOperacionParserRuleCall_2_0()); 
+            	        newCompositeNode(grammarAccess.getAsignacionComplejaAccess().getOperadorOperacionCompletaParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleAsignacionCompleja6282);
-            lv_operador_2_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_ruleAsignacionCompleja6282);
+            lv_operador_2_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -7431,7 +7430,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"operador",
                     		lv_operador_2_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -7564,7 +7563,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                 if ( (LA51_0==29) ) {
                     alt51=1;
                 }
-                else if ( ((LA51_0>=RULE_ID && LA51_0<=RULE_CAR)||LA51_0==33||(LA51_0>=37 && LA51_0<=45)||(LA51_0>=106 && LA51_0<=107)||(LA51_0>=115 && LA51_0<=116)) ) {
+                else if ( ((LA51_0>=RULE_ID && LA51_0<=RULE_CAR)||LA51_0==33||(LA51_0>=37 && LA51_0<=45)||(LA51_0>=114 && LA51_0<=115)) ) {
                     alt51=2;
                 }
 
@@ -7897,7 +7896,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleSi"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2959:1: ruleSi returns [EObject current=null] : ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2959:1: ruleSi returns [EObject current=null] : ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' ) ;
     public final EObject ruleSi() throws RecognitionException {
         EObject current = null;
 
@@ -7919,11 +7918,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2962:28: ( ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:1: ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2962:28: ( ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:1: ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:1: ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:2: ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:1: ( ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:2: ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'then' ( (lv_sentencias_6_0= ruleSentencias ) )* ( (lv_devuelve_7_0= ruleDevolver ) )? ( (lv_sino_8_0= ruleSino ) )? otherlv_9= 'end_if'
             {
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2963:2: ( (otherlv_0= 'if' otherlv_1= '(' ) | otherlv_2= 'if(' )
             int alt53=2;
@@ -7975,17 +7974,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2976:2: ( (lv_valor_3_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2977:1: (lv_valor_3_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2976:2: ( (lv_valor_3_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2977:1: (lv_valor_3_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2977:1: (lv_valor_3_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2978:3: lv_valor_3_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2977:1: (lv_valor_3_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:2978:3: lv_valor_3_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getSiAccess().getValorOperacionParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getSiAccess().getValorOperacionCompletaParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleSi6753);
-            lv_valor_3_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_ruleSi6753);
+            lv_valor_3_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -7997,7 +7996,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"valor",
                     		lv_valor_3_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -8067,7 +8066,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             int alt55=2;
             int LA55_0 = input.LA(1);
 
-            if ( (LA55_0==109) ) {
+            if ( (LA55_0==108) ) {
                 alt55=1;
             }
             switch (alt55) {
@@ -8109,7 +8108,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             int alt56=2;
             int LA56_0 = input.LA(1);
 
-            if ( (LA56_0==108) ) {
+            if ( (LA56_0==107) ) {
                 alt56=1;
             }
             switch (alt56) {
@@ -8208,7 +8207,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "rulemientras"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3077:1: rulemientras returns [EObject current=null] : ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3077:1: rulemientras returns [EObject current=null] : ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' ) ;
     public final EObject rulemientras() throws RecognitionException {
         EObject current = null;
 
@@ -8226,11 +8225,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3080:28: ( ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:1: ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3080:28: ( ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:1: ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:1: ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:2: ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:1: ( ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:2: ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_sentencias_6_0= ruleSentencias ) )* otherlv_7= 'end_while'
             {
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3081:2: ( (otherlv_0= 'while' otherlv_1= '(' ) | otherlv_2= 'while(' )
             int alt57=2;
@@ -8282,17 +8281,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3094:2: ( (lv_valor_3_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3095:1: (lv_valor_3_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3094:2: ( (lv_valor_3_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3095:1: (lv_valor_3_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3095:1: (lv_valor_3_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3096:3: lv_valor_3_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3095:1: (lv_valor_3_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3096:3: lv_valor_3_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getMientrasAccess().getValorOperacionParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getMientrasAccess().getValorOperacionCompletaParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_rulemientras6993);
-            lv_valor_3_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_rulemientras6993);
+            lv_valor_3_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -8304,7 +8303,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"valor",
                     		lv_valor_3_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -8431,7 +8430,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "rulerepetir"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3159:1: rulerepetir returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleoperacion ) ) otherlv_6= ')' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3159:1: rulerepetir returns [EObject current=null] : (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleOperacionCompleta ) ) otherlv_6= ')' ) ;
     public final EObject rulerepetir() throws RecognitionException {
         EObject current = null;
 
@@ -8448,11 +8447,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3162:28: ( (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleoperacion ) ) otherlv_6= ')' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3163:1: (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleoperacion ) ) otherlv_6= ')' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3162:28: ( (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleOperacionCompleta ) ) otherlv_6= ')' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3163:1: (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleOperacionCompleta ) ) otherlv_6= ')' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3163:1: (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleoperacion ) ) otherlv_6= ')' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3163:3: otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleoperacion ) ) otherlv_6= ')'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3163:1: (otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleOperacionCompleta ) ) otherlv_6= ')' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3163:3: otherlv_0= 'repeat' ( (lv_sentencias_1_0= ruleSentencias ) )* ( (otherlv_2= 'until' otherlv_3= '(' ) | otherlv_4= 'until(' ) ( (lv_valor_5_0= ruleOperacionCompleta ) ) otherlv_6= ')'
             {
             otherlv_0=(Token)match(input,79,FollowSets000.FOLLOW_79_in_rulerepetir7134); 
 
@@ -8557,17 +8556,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3198:2: ( (lv_valor_5_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3199:1: (lv_valor_5_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3198:2: ( (lv_valor_5_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3199:1: (lv_valor_5_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3199:1: (lv_valor_5_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3200:3: lv_valor_5_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3199:1: (lv_valor_5_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3200:3: lv_valor_5_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getRepetirAccess().getValorOperacionParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getRepetirAccess().getValorOperacionCompletaParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_rulerepetir7223);
-            lv_valor_5_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_rulerepetir7223);
+            lv_valor_5_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -8579,7 +8578,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"valor",
                     		lv_valor_5_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -8649,7 +8648,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruledesde"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3237:1: ruledesde returns [EObject current=null] : (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3237:1: ruledesde returns [EObject current=null] : (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' ) ;
     public final EObject ruledesde() throws RecognitionException {
         EObject current = null;
 
@@ -8667,11 +8666,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3240:28: ( (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3241:1: (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3240:28: ( (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3241:1: (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3241:1: (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3241:3: otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleoperacion ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3241:1: (otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3241:3: otherlv_0= 'for' ( (lv_asignacion_1_0= ruleAsignacionNormal ) ) otherlv_2= 'to' ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= 'do' ( (lv_sentencias_5_0= ruleSentencias ) )* otherlv_6= 'end_for'
             {
             otherlv_0=(Token)match(input,82,FollowSets000.FOLLOW_82_in_ruledesde7318); 
 
@@ -8712,17 +8711,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                 	newLeafNode(otherlv_2, grammarAccess.getDesdeAccess().getToKeyword_2());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3267:1: ( (lv_valor_3_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3268:1: (lv_valor_3_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3267:1: ( (lv_valor_3_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3268:1: (lv_valor_3_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3268:1: (lv_valor_3_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3269:3: lv_valor_3_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3268:1: (lv_valor_3_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3269:3: lv_valor_3_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getDesdeAccess().getValorOperacionParserRuleCall_3_0()); 
+            	        newCompositeNode(grammarAccess.getDesdeAccess().getValorOperacionCompletaParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruledesde7372);
-            lv_valor_3_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_ruledesde7372);
+            lv_valor_3_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -8734,7 +8733,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"valor",
                     		lv_valor_3_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -8971,7 +8970,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             int alt63=2;
             int LA63_0 = input.LA(1);
 
-            if ( (LA63_0==109) ) {
+            if ( (LA63_0==108) ) {
                 alt63=1;
             }
             switch (alt63) {
@@ -9066,7 +9065,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "rulesegun"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3411:1: rulesegun returns [EObject current=null] : ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= rulePrimaria ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3411:1: rulesegun returns [EObject current=null] : ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' ) ;
     public final EObject rulesegun() throws RecognitionException {
         EObject current = null;
 
@@ -9089,11 +9088,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3414:28: ( ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= rulePrimaria ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:1: ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= rulePrimaria ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3414:28: ( ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:1: ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:1: ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= rulePrimaria ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:2: ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= rulePrimaria ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:1: ( ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:2: ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' ) ( (lv_valor_3_0= ruleOperacionCompleta ) ) otherlv_4= ')' otherlv_5= 'do' ( (lv_caso_6_0= ruleCaso ) )* otherlv_7= 'otherwise:' ( (lv_sentencias_8_0= ruleSentencias ) )* ( (lv_devuelve_9_0= ruleDevolver ) )? otherlv_10= 'end_according_to'
             {
             // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3415:2: ( (otherlv_0= 'according_to' otherlv_1= '(' ) | otherlv_2= 'according_to(' )
             int alt64=2;
@@ -9145,17 +9144,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3428:2: ( (lv_valor_3_0= rulePrimaria ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3429:1: (lv_valor_3_0= rulePrimaria )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3428:2: ( (lv_valor_3_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3429:1: (lv_valor_3_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3429:1: (lv_valor_3_0= rulePrimaria )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3430:3: lv_valor_3_0= rulePrimaria
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3429:1: (lv_valor_3_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3430:3: lv_valor_3_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getSegunAccess().getValorPrimariaParserRuleCall_1_0()); 
+            	        newCompositeNode(grammarAccess.getSegunAccess().getValorOperacionCompletaParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_rulesegun7716);
-            lv_valor_3_0=rulePrimaria();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_rulesegun7716);
+            lv_valor_3_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -9167,7 +9166,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"valor",
                     		lv_valor_3_0, 
-                    		"Primaria");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -9290,7 +9289,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             int alt67=2;
             int LA67_0 = input.LA(1);
 
-            if ( (LA67_0==109) ) {
+            if ( (LA67_0==108) ) {
                 alt67=1;
             }
             switch (alt67) {
@@ -10563,25 +10562,27 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleOr"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3963:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) ) )* ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3963:1: ruleOr returns [EObject current=null] : (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) ) )* ) ;
     public final EObject ruleOr() throws RecognitionException {
         EObject current = null;
 
+        Token lv_negacionesFinales_3_0=null;
+        Token lv_negacionesFinales_4_0=null;
         EObject this_And_0 = null;
 
         AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
 
-        EObject lv_right_3_0 = null;
+        EObject lv_right_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3966:28: ( (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3967:1: (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3966:28: ( (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3967:1: (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) ) )* )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3967:1: (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3968:5: this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3967:1: (this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3968:5: this_And_0= ruleAnd ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) ) )*
             {
              
                     newCompositeNode(grammarAccess.getOrAccess().getAndParserRuleCall_0()); 
@@ -10595,20 +10596,20 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     current = this_And_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3976:1: ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) ) )*
-            loop71:
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3976:1: ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) ) )*
+            loop73:
             do {
-                int alt71=2;
-                int LA71_0 = input.LA(1);
+                int alt73=2;
+                int LA73_0 = input.LA(1);
 
-                if ( (LA71_0==95) ) {
-                    alt71=1;
+                if ( (LA73_0==95) ) {
+                    alt73=1;
                 }
 
 
-                switch (alt71) {
+                switch (alt73) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3976:2: () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAnd ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3976:2: () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleAnd ) )
             	    {
             	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3976:2: ()
             	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:3977:5: 
@@ -10652,17 +10653,97 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4000:2: ( (lv_right_3_0= ruleAnd ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4001:1: (lv_right_3_0= ruleAnd )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4000:2: ( (lv_negacionesFinales_3_0= '-' ) )*
+            	    loop71:
+            	    do {
+            	        int alt71=2;
+            	        int LA71_0 = input.LA(1);
+
+            	        if ( (LA71_0==50) ) {
+            	            alt71=1;
+            	        }
+
+
+            	        switch (alt71) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4001:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4001:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4002:3: lv_negacionesFinales_3_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_3_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleOr9290); 
+
+            	    	            newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getOrAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getOrRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop71;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4015:3: ( (lv_negacionesFinales_4_0= 'no' ) )*
+            	    loop72:
+            	    do {
+            	        int alt72=2;
+            	        int LA72_0 = input.LA(1);
+
+            	        if ( (LA72_0==106) ) {
+            	            alt72=1;
+            	        }
+
+
+            	        switch (alt72) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4016:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4016:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4017:3: lv_negacionesFinales_4_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_4_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleOr9322); 
+
+            	    	            newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getOrAccess().getNegacionesFinalesNoKeyword_1_3_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getOrRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop72;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4030:3: ( (lv_right_5_0= ruleAnd ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4031:1: (lv_right_5_0= ruleAnd )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4001:1: (lv_right_3_0= ruleAnd )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4002:3: lv_right_3_0= ruleAnd
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4031:1: (lv_right_5_0= ruleAnd )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4032:3: lv_right_5_0= ruleAnd
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getOrAccess().getRightAndParserRuleCall_1_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleAnd_in_ruleOr9293);
-            	    lv_right_3_0=ruleAnd();
+            	    pushFollow(FollowSets000.FOLLOW_ruleAnd_in_ruleOr9357);
+            	    lv_right_5_0=ruleAnd();
 
             	    state._fsp--;
 
@@ -10673,380 +10754,8 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	           		set(
             	           			current, 
             	           			"right",
-            	            		lv_right_3_0, 
+            	            		lv_right_5_0, 
             	            		"And");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop71;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleOr"
-
-
-    // $ANTLR start "entryRuleAnd"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4026:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
-    public final EObject entryRuleAnd() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleAnd = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4027:2: (iv_ruleAnd= ruleAnd EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4028:2: iv_ruleAnd= ruleAnd EOF
-            {
-             newCompositeNode(grammarAccess.getAndRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleAnd_in_entryRuleAnd9331);
-            iv_ruleAnd=ruleAnd();
-
-            state._fsp--;
-
-             current =iv_ruleAnd; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnd9341); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleAnd"
-
-
-    // $ANTLR start "ruleAnd"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4035:1: ruleAnd returns [EObject current=null] : (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) ) )* ) ;
-    public final EObject ruleAnd() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_Mod_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4038:28: ( (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4039:1: (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4039:1: (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4040:5: this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getAndAccess().getModParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleMod_in_ruleAnd9388);
-            this_Mod_0=ruleMod();
-
-            state._fsp--;
-
-             
-                    current = this_Mod_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4048:1: ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) ) )*
-            loop72:
-            do {
-                int alt72=2;
-                int LA72_0 = input.LA(1);
-
-                if ( (LA72_0==96) ) {
-                    alt72=1;
-                }
-
-
-                switch (alt72) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4048:2: () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleMod ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4048:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4049:5: 
-            	    {
-
-            	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getAndAccess().getAndLeftAction_1_0(),
-            	                current);
-            	        
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4054:2: ( (lv_signo_op_2_0= rulesignoAnd ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4055:1: (lv_signo_op_2_0= rulesignoAnd )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4055:1: (lv_signo_op_2_0= rulesignoAnd )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4056:3: lv_signo_op_2_0= rulesignoAnd
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getAndAccess().getSigno_opSignoAndParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoAnd_in_ruleAnd9418);
-            	    lv_signo_op_2_0=rulesignoAnd();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getAndRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"signo_op",
-            	            		lv_signo_op_2_0, 
-            	            		"signoAnd");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4072:2: ( (lv_right_3_0= ruleMod ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4073:1: (lv_right_3_0= ruleMod )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4073:1: (lv_right_3_0= ruleMod )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4074:3: lv_right_3_0= ruleMod
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getAndAccess().getRightModParserRuleCall_1_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleMod_in_ruleAnd9439);
-            	    lv_right_3_0=ruleMod();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getAndRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"Mod");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop72;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleAnd"
-
-
-    // $ANTLR start "entryRuleMod"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4098:1: entryRuleMod returns [EObject current=null] : iv_ruleMod= ruleMod EOF ;
-    public final EObject entryRuleMod() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleMod = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4099:2: (iv_ruleMod= ruleMod EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4100:2: iv_ruleMod= ruleMod EOF
-            {
-             newCompositeNode(grammarAccess.getModRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMod_in_entryRuleMod9477);
-            iv_ruleMod=ruleMod();
-
-            state._fsp--;
-
-             current =iv_ruleMod; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMod9487); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleMod"
-
-
-    // $ANTLR start "ruleMod"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4107:1: ruleMod returns [EObject current=null] : (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) ) )* ) ;
-    public final EObject ruleMod() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_Igualdad_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4110:28: ( (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4111:1: (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4111:1: (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4112:5: this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getModAccess().getIgualdadParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleIgualdad_in_ruleMod9534);
-            this_Igualdad_0=ruleIgualdad();
-
-            state._fsp--;
-
-             
-                    current = this_Igualdad_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4120:1: ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) ) )*
-            loop73:
-            do {
-                int alt73=2;
-                int LA73_0 = input.LA(1);
-
-                if ( (LA73_0==104) ) {
-                    alt73=1;
-                }
-
-
-                switch (alt73) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4120:2: () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_right_3_0= ruleIgualdad ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4120:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4121:5: 
-            	    {
-
-            	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getModAccess().getModLeftAction_1_0(),
-            	                current);
-            	        
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4126:2: ( (lv_signo_op_2_0= rulesignoModulo ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4127:1: (lv_signo_op_2_0= rulesignoModulo )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4127:1: (lv_signo_op_2_0= rulesignoModulo )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4128:3: lv_signo_op_2_0= rulesignoModulo
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getModAccess().getSigno_opSignoModuloParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoModulo_in_ruleMod9564);
-            	    lv_signo_op_2_0=rulesignoModulo();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getModRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"signo_op",
-            	            		lv_signo_op_2_0, 
-            	            		"signoModulo");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4144:2: ( (lv_right_3_0= ruleIgualdad ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4145:1: (lv_right_3_0= ruleIgualdad )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4145:1: (lv_right_3_0= ruleIgualdad )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4146:3: lv_right_3_0= ruleIgualdad
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getModAccess().getRightIgualdadParserRuleCall_1_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleIgualdad_in_ruleMod9585);
-            	    lv_right_3_0=ruleIgualdad();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getModRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"Igualdad");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -11081,29 +10790,29 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "ruleMod"
+    // $ANTLR end "ruleOr"
 
 
-    // $ANTLR start "entryRuleIgualdad"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4170:1: entryRuleIgualdad returns [EObject current=null] : iv_ruleIgualdad= ruleIgualdad EOF ;
-    public final EObject entryRuleIgualdad() throws RecognitionException {
+    // $ANTLR start "entryRuleAnd"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4056:1: entryRuleAnd returns [EObject current=null] : iv_ruleAnd= ruleAnd EOF ;
+    public final EObject entryRuleAnd() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleIgualdad = null;
+        EObject iv_ruleAnd = null;
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4171:2: (iv_ruleIgualdad= ruleIgualdad EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4172:2: iv_ruleIgualdad= ruleIgualdad EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4057:2: (iv_ruleAnd= ruleAnd EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4058:2: iv_ruleAnd= ruleAnd EOF
             {
-             newCompositeNode(grammarAccess.getIgualdadRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleIgualdad_in_entryRuleIgualdad9623);
-            iv_ruleIgualdad=ruleIgualdad();
+             newCompositeNode(grammarAccess.getAndRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleAnd_in_entryRuleAnd9395);
+            iv_ruleAnd=ruleAnd();
 
             state._fsp--;
 
-             current =iv_ruleIgualdad; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleIgualdad9633); 
+             current =iv_ruleAnd; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAnd9405); 
 
             }
 
@@ -11117,391 +10826,19 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "entryRuleIgualdad"
+    // $ANTLR end "entryRuleAnd"
 
 
-    // $ANTLR start "ruleIgualdad"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4179:1: ruleIgualdad returns [EObject current=null] : (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) ) )* ) ;
-    public final EObject ruleIgualdad() throws RecognitionException {
+    // $ANTLR start "ruleAnd"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4065:1: ruleAnd returns [EObject current=null] : (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) ) )* ) ;
+    public final EObject ruleAnd() throws RecognitionException {
         EObject current = null;
 
-        EObject this_Comparacion_0 = null;
+        Token lv_negacionesFinales_3_0=null;
+        Token lv_negacionesFinales_4_0=null;
+        EObject this_Mod_0 = null;
 
         AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4182:28: ( (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4183:1: (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4183:1: (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4184:5: this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getIgualdadAccess().getComparacionParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleComparacion_in_ruleIgualdad9680);
-            this_Comparacion_0=ruleComparacion();
-
-            state._fsp--;
-
-             
-                    current = this_Comparacion_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4192:1: ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) ) )*
-            loop74:
-            do {
-                int alt74=2;
-                int LA74_0 = input.LA(1);
-
-                if ( (LA74_0==51||LA74_0==97) ) {
-                    alt74=1;
-                }
-
-
-                switch (alt74) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4192:2: () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacion ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4192:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4193:5: 
-            	    {
-
-            	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getIgualdadAccess().getIgualdadLeftAction_1_0(),
-            	                current);
-            	        
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4198:2: ( (lv_signo_op_2_0= rulesignoIgualdad ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4199:1: (lv_signo_op_2_0= rulesignoIgualdad )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4199:1: (lv_signo_op_2_0= rulesignoIgualdad )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4200:3: lv_signo_op_2_0= rulesignoIgualdad
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getIgualdadAccess().getSigno_opSignoIgualdadParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoIgualdad_in_ruleIgualdad9710);
-            	    lv_signo_op_2_0=rulesignoIgualdad();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getIgualdadRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"signo_op",
-            	            		lv_signo_op_2_0, 
-            	            		"signoIgualdad");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4216:2: ( (lv_right_3_0= ruleComparacion ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4217:1: (lv_right_3_0= ruleComparacion )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4217:1: (lv_right_3_0= ruleComparacion )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4218:3: lv_right_3_0= ruleComparacion
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getIgualdadAccess().getRightComparacionParserRuleCall_1_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleComparacion_in_ruleIgualdad9731);
-            	    lv_right_3_0=ruleComparacion();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getIgualdadRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"Comparacion");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop74;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleIgualdad"
-
-
-    // $ANTLR start "entryRuleComparacion"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4242:1: entryRuleComparacion returns [EObject current=null] : iv_ruleComparacion= ruleComparacion EOF ;
-    public final EObject entryRuleComparacion() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleComparacion = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4243:2: (iv_ruleComparacion= ruleComparacion EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4244:2: iv_ruleComparacion= ruleComparacion EOF
-            {
-             newCompositeNode(grammarAccess.getComparacionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleComparacion_in_entryRuleComparacion9769);
-            iv_ruleComparacion=ruleComparacion();
-
-            state._fsp--;
-
-             current =iv_ruleComparacion; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComparacion9779); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleComparacion"
-
-
-    // $ANTLR start "ruleComparacion"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4251:1: ruleComparacion returns [EObject current=null] : (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) ) )* ) ;
-    public final EObject ruleComparacion() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_SumaResta_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4254:28: ( (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4255:1: (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4255:1: (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4256:5: this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getComparacionAccess().getSumaRestaParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleSumaResta_in_ruleComparacion9826);
-            this_SumaResta_0=ruleSumaResta();
-
-            state._fsp--;
-
-             
-                    current = this_SumaResta_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4264:1: ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) ) )*
-            loop75:
-            do {
-                int alt75=2;
-                int LA75_0 = input.LA(1);
-
-                if ( ((LA75_0>=98 && LA75_0<=101)) ) {
-                    alt75=1;
-                }
-
-
-                switch (alt75) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4264:2: () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaResta ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4264:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4265:5: 
-            	    {
-
-            	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getComparacionAccess().getComparacionLeftAction_1_0(),
-            	                current);
-            	        
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4270:2: ( (lv_signo_op_2_0= rulesignoComparacion ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4271:1: (lv_signo_op_2_0= rulesignoComparacion )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4271:1: (lv_signo_op_2_0= rulesignoComparacion )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4272:3: lv_signo_op_2_0= rulesignoComparacion
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getComparacionAccess().getSigno_opSignoComparacionParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoComparacion_in_ruleComparacion9856);
-            	    lv_signo_op_2_0=rulesignoComparacion();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getComparacionRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"signo_op",
-            	            		lv_signo_op_2_0, 
-            	            		"signoComparacion");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4288:2: ( (lv_right_3_0= ruleSumaResta ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4289:1: (lv_right_3_0= ruleSumaResta )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4289:1: (lv_right_3_0= ruleSumaResta )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4290:3: lv_right_3_0= ruleSumaResta
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getComparacionAccess().getRightSumaRestaParserRuleCall_1_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSumaResta_in_ruleComparacion9877);
-            	    lv_right_3_0=ruleSumaResta();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getComparacionRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"SumaResta");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop75;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleComparacion"
-
-
-    // $ANTLR start "entryRuleSumaResta"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4314:1: entryRuleSumaResta returns [EObject current=null] : iv_ruleSumaResta= ruleSumaResta EOF ;
-    public final EObject entryRuleSumaResta() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSumaResta = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4315:2: (iv_ruleSumaResta= ruleSumaResta EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4316:2: iv_ruleSumaResta= ruleSumaResta EOF
-            {
-             newCompositeNode(grammarAccess.getSumaRestaRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSumaResta_in_entryRuleSumaResta9915);
-            iv_ruleSumaResta=ruleSumaResta();
-
-            state._fsp--;
-
-             current =iv_ruleSumaResta; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSumaResta9925); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSumaResta"
-
-
-    // $ANTLR start "ruleSumaResta"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4323:1: ruleSumaResta returns [EObject current=null] : (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) ) )* ) ;
-    public final EObject ruleSumaResta() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_MultiplicacionDivision_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_4_0 = null;
 
         EObject lv_right_5_0 = null;
 
@@ -11509,190 +10846,184 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4326:28: ( (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4327:1: (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4068:28: ( (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4069:1: (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) ) )* )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4327:1: (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4328:5: this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4069:1: (this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4070:5: this_Mod_0= ruleMod ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) ) )*
             {
              
-                    newCompositeNode(grammarAccess.getSumaRestaAccess().getMultiplicacionDivisionParserRuleCall_0()); 
+                    newCompositeNode(grammarAccess.getAndAccess().getModParserRuleCall_0()); 
                 
-            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta9972);
-            this_MultiplicacionDivision_0=ruleMultiplicacionDivision();
+            pushFollow(FollowSets000.FOLLOW_ruleMod_in_ruleAnd9452);
+            this_Mod_0=ruleMod();
 
             state._fsp--;
 
              
-                    current = this_MultiplicacionDivision_0; 
+                    current = this_Mod_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) ) )*
-            loop77:
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4078:1: ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) ) )*
+            loop76:
             do {
-                int alt77=2;
-                int LA77_0 = input.LA(1);
+                int alt76=2;
+                int LA76_0 = input.LA(1);
 
-                if ( ((LA77_0>=49 && LA77_0<=50)) ) {
-                    alt77=1;
+                if ( (LA76_0==96) ) {
+                    alt76=1;
                 }
 
 
-                switch (alt77) {
+                switch (alt76) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivision ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4078:2: () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleMod ) )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) )
-            	    int alt76=2;
-            	    int LA76_0 = input.LA(1);
-
-            	    if ( (LA76_0==49) ) {
-            	        alt76=1;
-            	    }
-            	    else if ( (LA76_0==50) ) {
-            	        alt76=2;
-            	    }
-            	    else {
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 76, 0, input);
-
-            	        throw nvae;
-            	    }
-            	    switch (alt76) {
-            	        case 1 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:4: () ( (lv_signo_op_2_0= rulesignoSuma ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:4: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4337:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getSumaRestaAccess().getSumaLeftAction_1_0_0_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4342:2: ( (lv_signo_op_2_0= rulesignoSuma ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4343:1: (lv_signo_op_2_0= rulesignoSuma )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4343:1: (lv_signo_op_2_0= rulesignoSuma )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4344:3: lv_signo_op_2_0= rulesignoSuma
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getSumaRestaAccess().getSigno_opSignoSumaParserRuleCall_1_0_0_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoSuma_in_ruleSumaResta10004);
-            	            lv_signo_op_2_0=rulesignoSuma();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_2_0, 
-            	                    		"signoSuma");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4361:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4361:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4361:7: () ( (lv_signo_op_4_0= rulesignoResta ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4361:7: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4362:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getSumaRestaAccess().getRestaLeftAction_1_0_1_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4367:2: ( (lv_signo_op_4_0= rulesignoResta ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4368:1: (lv_signo_op_4_0= rulesignoResta )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4368:1: (lv_signo_op_4_0= rulesignoResta )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4369:3: lv_signo_op_4_0= rulesignoResta
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getSumaRestaAccess().getSigno_opSignoRestaParserRuleCall_1_0_1_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoResta_in_ruleSumaResta10042);
-            	            lv_signo_op_4_0=rulesignoResta();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_4_0, 
-            	                    		"signoResta");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4385:4: ( (lv_right_5_0= ruleMultiplicacionDivision ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4386:1: (lv_right_5_0= ruleMultiplicacionDivision )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4078:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4079:5: 
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4386:1: (lv_right_5_0= ruleMultiplicacionDivision )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4387:3: lv_right_5_0= ruleMultiplicacionDivision
+
+            	            current = forceCreateModelElementAndSet(
+            	                grammarAccess.getAndAccess().getAndLeftAction_1_0(),
+            	                current);
+            	        
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4084:2: ( (lv_signo_op_2_0= rulesignoAnd ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4085:1: (lv_signo_op_2_0= rulesignoAnd )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4085:1: (lv_signo_op_2_0= rulesignoAnd )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4086:3: lv_signo_op_2_0= rulesignoAnd
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getSumaRestaAccess().getRightMultiplicacionDivisionParserRuleCall_1_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getAndAccess().getSigno_opSignoAndParserRuleCall_1_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta10065);
-            	    lv_right_5_0=ruleMultiplicacionDivision();
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoAnd_in_ruleAnd9482);
+            	    lv_signo_op_2_0=rulesignoAnd();
 
             	    state._fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getSumaRestaRule());
+            	    	            current = createModelElementForParent(grammarAccess.getAndRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"signo_op",
+            	            		lv_signo_op_2_0, 
+            	            		"signoAnd");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4102:2: ( (lv_negacionesFinales_3_0= '-' ) )*
+            	    loop74:
+            	    do {
+            	        int alt74=2;
+            	        int LA74_0 = input.LA(1);
+
+            	        if ( (LA74_0==50) ) {
+            	            alt74=1;
+            	        }
+
+
+            	        switch (alt74) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4103:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4103:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4104:3: lv_negacionesFinales_3_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_3_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleAnd9500); 
+
+            	    	            newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getAndAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getAndRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop74;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4117:3: ( (lv_negacionesFinales_4_0= 'no' ) )*
+            	    loop75:
+            	    do {
+            	        int alt75=2;
+            	        int LA75_0 = input.LA(1);
+
+            	        if ( (LA75_0==106) ) {
+            	            alt75=1;
+            	        }
+
+
+            	        switch (alt75) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4118:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4118:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4119:3: lv_negacionesFinales_4_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_4_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleAnd9532); 
+
+            	    	            newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getAndAccess().getNegacionesFinalesNoKeyword_1_3_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getAndRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop75;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4132:3: ( (lv_right_5_0= ruleMod ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4133:1: (lv_right_5_0= ruleMod )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4133:1: (lv_right_5_0= ruleMod )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4134:3: lv_right_5_0= ruleMod
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getAndAccess().getRightModParserRuleCall_1_4_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleMod_in_ruleAnd9567);
+            	    lv_right_5_0=ruleMod();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getAndRule());
             	    	        }
             	           		set(
             	           			current, 
             	           			"right",
             	            		lv_right_5_0, 
-            	            		"MultiplicacionDivision");
+            	            		"Mod");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -11706,7 +11037,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	    break;
 
             	default :
-            	    break loop77;
+            	    break loop76;
                 }
             } while (true);
 
@@ -11727,29 +11058,29 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "ruleSumaResta"
+    // $ANTLR end "ruleAnd"
 
 
-    // $ANTLR start "entryRuleMultiplicacionDivision"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4411:1: entryRuleMultiplicacionDivision returns [EObject current=null] : iv_ruleMultiplicacionDivision= ruleMultiplicacionDivision EOF ;
-    public final EObject entryRuleMultiplicacionDivision() throws RecognitionException {
+    // $ANTLR start "entryRuleMod"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4158:1: entryRuleMod returns [EObject current=null] : iv_ruleMod= ruleMod EOF ;
+    public final EObject entryRuleMod() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleMultiplicacionDivision = null;
+        EObject iv_ruleMod = null;
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4412:2: (iv_ruleMultiplicacionDivision= ruleMultiplicacionDivision EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4413:2: iv_ruleMultiplicacionDivision= ruleMultiplicacionDivision EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4159:2: (iv_ruleMod= ruleMod EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4160:2: iv_ruleMod= ruleMod EOF
             {
-             newCompositeNode(grammarAccess.getMultiplicacionDivisionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivision_in_entryRuleMultiplicacionDivision10103);
-            iv_ruleMultiplicacionDivision=ruleMultiplicacionDivision();
+             newCompositeNode(grammarAccess.getModRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleMod_in_entryRuleMod9605);
+            iv_ruleMod=ruleMod();
 
             state._fsp--;
 
-             current =iv_ruleMultiplicacionDivision; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMultiplicacionDivision10113); 
+             current =iv_ruleMod; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMod9615); 
 
             }
 
@@ -11763,275 +11094,204 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "entryRuleMultiplicacionDivision"
+    // $ANTLR end "entryRuleMod"
 
 
-    // $ANTLR start "ruleMultiplicacionDivision"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4420:1: ruleMultiplicacionDivision returns [EObject current=null] : (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) ) )* ) ;
-    public final EObject ruleMultiplicacionDivision() throws RecognitionException {
+    // $ANTLR start "ruleMod"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4167:1: ruleMod returns [EObject current=null] : (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) ) )* ) ;
+    public final EObject ruleMod() throws RecognitionException {
         EObject current = null;
 
-        EObject this_Primaria_0 = null;
+        Token lv_negacionesFinales_3_0=null;
+        Token lv_negacionesFinales_4_0=null;
+        EObject this_Igualdad_0 = null;
 
         AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
 
-        AntlrDatatypeRuleToken lv_signo_op_4_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_6_0 = null;
-
-        EObject lv_right_7_0 = null;
+        EObject lv_right_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4423:28: ( (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4424:1: (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4170:28: ( (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4171:1: (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) ) )* )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4424:1: (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4425:5: this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4171:1: (this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4172:5: this_Igualdad_0= ruleIgualdad ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) ) )*
             {
              
-                    newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getPrimariaParserRuleCall_0()); 
+                    newCompositeNode(grammarAccess.getModAccess().getIgualdadParserRuleCall_0()); 
                 
-            pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10160);
-            this_Primaria_0=rulePrimaria();
+            pushFollow(FollowSets000.FOLLOW_ruleIgualdad_in_ruleMod9662);
+            this_Igualdad_0=ruleIgualdad();
 
             state._fsp--;
 
              
-                    current = this_Primaria_0; 
+                    current = this_Igualdad_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4180:1: ( () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) ) )*
             loop79:
             do {
                 int alt79=2;
                 int LA79_0 = input.LA(1);
 
-                if ( ((LA79_0>=102 && LA79_0<=103)||LA79_0==105) ) {
+                if ( (LA79_0==104) ) {
                     alt79=1;
                 }
 
 
                 switch (alt79) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimaria ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4180:2: () ( (lv_signo_op_2_0= rulesignoModulo ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleIgualdad ) )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) )
-            	    int alt78=3;
-            	    switch ( input.LA(1) ) {
-            	    case 102:
-            	        {
-            	        alt78=1;
-            	        }
-            	        break;
-            	    case 103:
-            	        {
-            	        alt78=2;
-            	        }
-            	        break;
-            	    case 105:
-            	        {
-            	        alt78=3;
-            	        }
-            	        break;
-            	    default:
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 78, 0, input);
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4180:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4181:5: 
+            	    {
 
-            	        throw nvae;
-            	    }
-
-            	    switch (alt78) {
-            	        case 1 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:4: () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4433:4: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4434:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getMultiplicacionDivisionAccess().getMultiplicacionLeftAction_1_0_0_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4439:2: ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4440:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4440:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4441:3: lv_signo_op_2_0= rulesignoMultiplicacion
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoMultiplicacionParserRuleCall_1_0_0_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivision10192);
-            	            lv_signo_op_2_0=rulesignoMultiplicacion();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_2_0, 
-            	                    		"signoMultiplicacion");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4458:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4458:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4458:7: () ( (lv_signo_op_4_0= rulesignoDivision ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4458:7: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4459:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getMultiplicacionDivisionAccess().getDivisionLeftAction_1_0_1_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4464:2: ( (lv_signo_op_4_0= rulesignoDivision ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4465:1: (lv_signo_op_4_0= rulesignoDivision )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4465:1: (lv_signo_op_4_0= rulesignoDivision )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4466:3: lv_signo_op_4_0= rulesignoDivision
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoDivisionParserRuleCall_1_0_1_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivision10230);
-            	            lv_signo_op_4_0=rulesignoDivision();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_4_0, 
-            	                    		"signoDivision");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
-            	        case 3 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4483:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4483:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4483:7: () ( (lv_signo_op_6_0= rulesignoDiv ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4483:7: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4484:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getMultiplicacionDivisionAccess().getDivLeftAction_1_0_2_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4489:2: ( (lv_signo_op_6_0= rulesignoDiv ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4490:1: (lv_signo_op_6_0= rulesignoDiv )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4490:1: (lv_signo_op_6_0= rulesignoDiv )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4491:3: lv_signo_op_6_0= rulesignoDiv
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoDivParserRuleCall_1_0_2_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivision10268);
-            	            lv_signo_op_6_0=rulesignoDiv();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_6_0, 
-            	                    		"signoDiv");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
+            	            current = forceCreateModelElementAndSet(
+            	                grammarAccess.getModAccess().getModLeftAction_1_0(),
+            	                current);
+            	        
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4507:4: ( (lv_right_7_0= rulePrimaria ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4508:1: (lv_right_7_0= rulePrimaria )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4186:2: ( (lv_signo_op_2_0= rulesignoModulo ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4187:1: (lv_signo_op_2_0= rulesignoModulo )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4508:1: (lv_right_7_0= rulePrimaria )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4509:3: lv_right_7_0= rulePrimaria
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4187:1: (lv_signo_op_2_0= rulesignoModulo )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4188:3: lv_signo_op_2_0= rulesignoModulo
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getRightPrimariaParserRuleCall_1_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getModAccess().getSigno_opSignoModuloParserRuleCall_1_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10291);
-            	    lv_right_7_0=rulePrimaria();
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoModulo_in_ruleMod9692);
+            	    lv_signo_op_2_0=rulesignoModulo();
 
             	    state._fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
+            	    	            current = createModelElementForParent(grammarAccess.getModRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"signo_op",
+            	            		lv_signo_op_2_0, 
+            	            		"signoModulo");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4204:2: ( (lv_negacionesFinales_3_0= '-' ) )*
+            	    loop77:
+            	    do {
+            	        int alt77=2;
+            	        int LA77_0 = input.LA(1);
+
+            	        if ( (LA77_0==50) ) {
+            	            alt77=1;
+            	        }
+
+
+            	        switch (alt77) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4205:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4205:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4206:3: lv_negacionesFinales_3_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_3_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleMod9710); 
+
+            	    	            newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getModAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getModRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop77;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4219:3: ( (lv_negacionesFinales_4_0= 'no' ) )*
+            	    loop78:
+            	    do {
+            	        int alt78=2;
+            	        int LA78_0 = input.LA(1);
+
+            	        if ( (LA78_0==106) ) {
+            	            alt78=1;
+            	        }
+
+
+            	        switch (alt78) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4220:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4220:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4221:3: lv_negacionesFinales_4_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_4_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleMod9742); 
+
+            	    	            newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getModAccess().getNegacionesFinalesNoKeyword_1_3_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getModRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop78;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4234:3: ( (lv_right_5_0= ruleIgualdad ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4235:1: (lv_right_5_0= ruleIgualdad )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4235:1: (lv_right_5_0= ruleIgualdad )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4236:3: lv_right_5_0= ruleIgualdad
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getModAccess().getRightIgualdadParserRuleCall_1_4_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleIgualdad_in_ruleMod9777);
+            	    lv_right_5_0=ruleIgualdad();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getModRule());
             	    	        }
             	           		set(
             	           			current, 
             	           			"right",
-            	            		lv_right_7_0, 
-            	            		"Primaria");
+            	            		lv_right_5_0, 
+            	            		"Igualdad");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -12066,29 +11326,29 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "ruleMultiplicacionDivision"
+    // $ANTLR end "ruleMod"
 
 
-    // $ANTLR start "entryRuleoperacionIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4533:1: entryRuleoperacionIndice returns [EObject current=null] : iv_ruleoperacionIndice= ruleoperacionIndice EOF ;
-    public final EObject entryRuleoperacionIndice() throws RecognitionException {
+    // $ANTLR start "entryRuleIgualdad"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4260:1: entryRuleIgualdad returns [EObject current=null] : iv_ruleIgualdad= ruleIgualdad EOF ;
+    public final EObject entryRuleIgualdad() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleoperacionIndice = null;
+        EObject iv_ruleIgualdad = null;
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4534:2: (iv_ruleoperacionIndice= ruleoperacionIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4535:2: iv_ruleoperacionIndice= ruleoperacionIndice EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4261:2: (iv_ruleIgualdad= ruleIgualdad EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4262:2: iv_ruleIgualdad= ruleIgualdad EOF
             {
-             newCompositeNode(grammarAccess.getOperacionIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_entryRuleoperacionIndice10329);
-            iv_ruleoperacionIndice=ruleoperacionIndice();
+             newCompositeNode(grammarAccess.getIgualdadRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleIgualdad_in_entryRuleIgualdad9815);
+            iv_ruleIgualdad=ruleIgualdad();
 
             state._fsp--;
 
-             current =iv_ruleoperacionIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleoperacionIndice10339); 
+             current =iv_ruleIgualdad; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleIgualdad9825); 
 
             }
 
@@ -12102,494 +11362,45 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "entryRuleoperacionIndice"
+    // $ANTLR end "entryRuleIgualdad"
 
 
-    // $ANTLR start "ruleoperacionIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4542:1: ruleoperacionIndice returns [EObject current=null] : this_OrIndice_0= ruleOrIndice ;
-    public final EObject ruleoperacionIndice() throws RecognitionException {
+    // $ANTLR start "ruleIgualdad"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4269:1: ruleIgualdad returns [EObject current=null] : (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) ) )* ) ;
+    public final EObject ruleIgualdad() throws RecognitionException {
         EObject current = null;
 
-        EObject this_OrIndice_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4545:28: (this_OrIndice_0= ruleOrIndice )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4547:5: this_OrIndice_0= ruleOrIndice
-            {
-             
-                    newCompositeNode(grammarAccess.getOperacionIndiceAccess().getOrIndiceParserRuleCall()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleOrIndice_in_ruleoperacionIndice10385);
-            this_OrIndice_0=ruleOrIndice();
-
-            state._fsp--;
-
-             
-                    current = this_OrIndice_0; 
-                    afterParserOrEnumRuleCall();
-                
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleoperacionIndice"
-
-
-    // $ANTLR start "entryRuleOrIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4563:1: entryRuleOrIndice returns [EObject current=null] : iv_ruleOrIndice= ruleOrIndice EOF ;
-    public final EObject entryRuleOrIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleOrIndice = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4564:2: (iv_ruleOrIndice= ruleOrIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4565:2: iv_ruleOrIndice= ruleOrIndice EOF
-            {
-             newCompositeNode(grammarAccess.getOrIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleOrIndice_in_entryRuleOrIndice10419);
-            iv_ruleOrIndice=ruleOrIndice();
-
-            state._fsp--;
-
-             current =iv_ruleOrIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOrIndice10429); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleOrIndice"
-
-
-    // $ANTLR start "ruleOrIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4572:1: ruleOrIndice returns [EObject current=null] : (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* ) ;
-    public final EObject ruleOrIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_AndIndice_0 = null;
+        Token lv_negacionesFinales_3_0=null;
+        Token lv_negacionesFinales_4_0=null;
+        EObject this_Comparacion_0 = null;
 
         AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
 
-        EObject lv_right_3_0 = null;
+        EObject lv_right_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4575:28: ( (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4576:1: (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4272:28: ( (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4273:1: (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) ) )* )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4576:1: (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4577:5: this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4273:1: (this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4274:5: this_Comparacion_0= ruleComparacion ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) ) )*
             {
              
-                    newCompositeNode(grammarAccess.getOrIndiceAccess().getAndIndiceParserRuleCall_0()); 
+                    newCompositeNode(grammarAccess.getIgualdadAccess().getComparacionParserRuleCall_0()); 
                 
-            pushFollow(FollowSets000.FOLLOW_ruleAndIndice_in_ruleOrIndice10476);
-            this_AndIndice_0=ruleAndIndice();
+            pushFollow(FollowSets000.FOLLOW_ruleComparacion_in_ruleIgualdad9872);
+            this_Comparacion_0=ruleComparacion();
 
             state._fsp--;
 
              
-                    current = this_AndIndice_0; 
+                    current = this_Comparacion_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4585:1: ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )*
-            loop80:
-            do {
-                int alt80=2;
-                int LA80_0 = input.LA(1);
-
-                if ( (LA80_0==95) ) {
-                    alt80=1;
-                }
-
-
-                switch (alt80) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4585:2: () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4585:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4586:5: 
-            	    {
-
-            	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getOrIndiceAccess().getOrLeftAction_1_0(),
-            	                current);
-            	        
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4591:2: ( (lv_signo_op_2_0= rulesignoOr ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4592:1: (lv_signo_op_2_0= rulesignoOr )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4592:1: (lv_signo_op_2_0= rulesignoOr )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4593:3: lv_signo_op_2_0= rulesignoOr
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getOrIndiceAccess().getSigno_opSignoOrParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoOr_in_ruleOrIndice10506);
-            	    lv_signo_op_2_0=rulesignoOr();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getOrIndiceRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"signo_op",
-            	            		lv_signo_op_2_0, 
-            	            		"signoOr");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4609:2: ( (lv_right_3_0= ruleAndIndice ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4610:1: (lv_right_3_0= ruleAndIndice )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4610:1: (lv_right_3_0= ruleAndIndice )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4611:3: lv_right_3_0= ruleAndIndice
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getOrIndiceAccess().getRightAndIndiceParserRuleCall_1_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleAndIndice_in_ruleOrIndice10527);
-            	    lv_right_3_0=ruleAndIndice();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getOrIndiceRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"AndIndice");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop80;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleOrIndice"
-
-
-    // $ANTLR start "entryRuleAndIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4635:1: entryRuleAndIndice returns [EObject current=null] : iv_ruleAndIndice= ruleAndIndice EOF ;
-    public final EObject entryRuleAndIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleAndIndice = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4636:2: (iv_ruleAndIndice= ruleAndIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4637:2: iv_ruleAndIndice= ruleAndIndice EOF
-            {
-             newCompositeNode(grammarAccess.getAndIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleAndIndice_in_entryRuleAndIndice10565);
-            iv_ruleAndIndice=ruleAndIndice();
-
-            state._fsp--;
-
-             current =iv_ruleAndIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAndIndice10575); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleAndIndice"
-
-
-    // $ANTLR start "ruleAndIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4644:1: ruleAndIndice returns [EObject current=null] : (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* ) ;
-    public final EObject ruleAndIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_IgualdadIndice_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4647:28: ( (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4648:1: (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4648:1: (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4649:5: this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getAndIndiceAccess().getIgualdadIndiceParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleIgualdadIndice_in_ruleAndIndice10622);
-            this_IgualdadIndice_0=ruleIgualdadIndice();
-
-            state._fsp--;
-
-             
-                    current = this_IgualdadIndice_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4657:1: ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )*
-            loop81:
-            do {
-                int alt81=2;
-                int LA81_0 = input.LA(1);
-
-                if ( (LA81_0==96) ) {
-                    alt81=1;
-                }
-
-
-                switch (alt81) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4657:2: () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4657:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4658:5: 
-            	    {
-
-            	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getAndIndiceAccess().getAndLeftAction_1_0(),
-            	                current);
-            	        
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4663:2: ( (lv_signo_op_2_0= rulesignoAnd ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4664:1: (lv_signo_op_2_0= rulesignoAnd )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4664:1: (lv_signo_op_2_0= rulesignoAnd )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4665:3: lv_signo_op_2_0= rulesignoAnd
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getAndIndiceAccess().getSigno_opSignoAndParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoAnd_in_ruleAndIndice10652);
-            	    lv_signo_op_2_0=rulesignoAnd();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getAndIndiceRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"signo_op",
-            	            		lv_signo_op_2_0, 
-            	            		"signoAnd");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4681:2: ( (lv_right_3_0= ruleIgualdadIndice ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4682:1: (lv_right_3_0= ruleIgualdadIndice )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4682:1: (lv_right_3_0= ruleIgualdadIndice )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4683:3: lv_right_3_0= ruleIgualdadIndice
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getAndIndiceAccess().getRightIgualdadIndiceParserRuleCall_1_2_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleIgualdadIndice_in_ruleAndIndice10673);
-            	    lv_right_3_0=ruleIgualdadIndice();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getAndIndiceRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"IgualdadIndice");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop81;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleAndIndice"
-
-
-    // $ANTLR start "entryRuleIgualdadIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4707:1: entryRuleIgualdadIndice returns [EObject current=null] : iv_ruleIgualdadIndice= ruleIgualdadIndice EOF ;
-    public final EObject entryRuleIgualdadIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleIgualdadIndice = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4708:2: (iv_ruleIgualdadIndice= ruleIgualdadIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4709:2: iv_ruleIgualdadIndice= ruleIgualdadIndice EOF
-            {
-             newCompositeNode(grammarAccess.getIgualdadIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleIgualdadIndice_in_entryRuleIgualdadIndice10711);
-            iv_ruleIgualdadIndice=ruleIgualdadIndice();
-
-            state._fsp--;
-
-             current =iv_ruleIgualdadIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleIgualdadIndice10721); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleIgualdadIndice"
-
-
-    // $ANTLR start "ruleIgualdadIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4716:1: ruleIgualdadIndice returns [EObject current=null] : (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* ) ;
-    public final EObject ruleIgualdadIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_ComparacionIndice_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        EObject lv_right_3_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4719:28: ( (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4720:1: (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4720:1: (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4721:5: this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getIgualdadIndiceAccess().getComparacionIndiceParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice10768);
-            this_ComparacionIndice_0=ruleComparacionIndice();
-
-            state._fsp--;
-
-             
-                    current = this_ComparacionIndice_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4729:1: ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4282:1: ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) ) )*
             loop82:
             do {
                 int alt82=2;
@@ -12602,36 +11413,36 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                 switch (alt82) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4729:2: () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4282:2: () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleComparacion ) )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4729:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4730:5: 
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4282:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4283:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getIgualdadIndiceAccess().getIgualdadLeftAction_1_0(),
+            	                grammarAccess.getIgualdadAccess().getIgualdadLeftAction_1_0(),
             	                current);
             	        
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4735:2: ( (lv_signo_op_2_0= rulesignoIgualdad ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4736:1: (lv_signo_op_2_0= rulesignoIgualdad )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4288:2: ( (lv_signo_op_2_0= rulesignoIgualdad ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4289:1: (lv_signo_op_2_0= rulesignoIgualdad )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4736:1: (lv_signo_op_2_0= rulesignoIgualdad )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4737:3: lv_signo_op_2_0= rulesignoIgualdad
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4289:1: (lv_signo_op_2_0= rulesignoIgualdad )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4290:3: lv_signo_op_2_0= rulesignoIgualdad
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getIgualdadIndiceAccess().getSigno_opSignoIgualdadParserRuleCall_1_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getIgualdadAccess().getSigno_opSignoIgualdadParserRuleCall_1_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoIgualdad_in_ruleIgualdadIndice10798);
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoIgualdad_in_ruleIgualdad9902);
             	    lv_signo_op_2_0=rulesignoIgualdad();
 
             	    state._fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getIgualdadIndiceRule());
+            	    	            current = createModelElementForParent(grammarAccess.getIgualdadRule());
             	    	        }
             	           		set(
             	           			current, 
@@ -12646,29 +11457,109 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4753:2: ( (lv_right_3_0= ruleComparacionIndice ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4754:1: (lv_right_3_0= ruleComparacionIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4306:2: ( (lv_negacionesFinales_3_0= '-' ) )*
+            	    loop80:
+            	    do {
+            	        int alt80=2;
+            	        int LA80_0 = input.LA(1);
+
+            	        if ( (LA80_0==50) ) {
+            	            alt80=1;
+            	        }
+
+
+            	        switch (alt80) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4307:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4307:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4308:3: lv_negacionesFinales_3_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_3_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleIgualdad9920); 
+
+            	    	            newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getIgualdadAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getIgualdadRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop80;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4321:3: ( (lv_negacionesFinales_4_0= 'no' ) )*
+            	    loop81:
+            	    do {
+            	        int alt81=2;
+            	        int LA81_0 = input.LA(1);
+
+            	        if ( (LA81_0==106) ) {
+            	            alt81=1;
+            	        }
+
+
+            	        switch (alt81) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4322:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4322:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4323:3: lv_negacionesFinales_4_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_4_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleIgualdad9952); 
+
+            	    	            newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getIgualdadAccess().getNegacionesFinalesNoKeyword_1_3_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getIgualdadRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop81;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4336:3: ( (lv_right_5_0= ruleComparacion ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4337:1: (lv_right_5_0= ruleComparacion )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4754:1: (lv_right_3_0= ruleComparacionIndice )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4755:3: lv_right_3_0= ruleComparacionIndice
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4337:1: (lv_right_5_0= ruleComparacion )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4338:3: lv_right_5_0= ruleComparacion
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getIgualdadIndiceAccess().getRightComparacionIndiceParserRuleCall_1_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getIgualdadAccess().getRightComparacionParserRuleCall_1_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice10819);
-            	    lv_right_3_0=ruleComparacionIndice();
+            	    pushFollow(FollowSets000.FOLLOW_ruleComparacion_in_ruleIgualdad9987);
+            	    lv_right_5_0=ruleComparacion();
 
             	    state._fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getIgualdadIndiceRule());
+            	    	            current = createModelElementForParent(grammarAccess.getIgualdadRule());
             	    	        }
             	           		set(
             	           			current, 
             	           			"right",
-            	            		lv_right_3_0, 
-            	            		"ComparacionIndice");
+            	            		lv_right_5_0, 
+            	            		"Comparacion");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -12703,29 +11594,29 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "ruleIgualdadIndice"
+    // $ANTLR end "ruleIgualdad"
 
 
-    // $ANTLR start "entryRuleComparacionIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4779:1: entryRuleComparacionIndice returns [EObject current=null] : iv_ruleComparacionIndice= ruleComparacionIndice EOF ;
-    public final EObject entryRuleComparacionIndice() throws RecognitionException {
+    // $ANTLR start "entryRuleComparacion"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4362:1: entryRuleComparacion returns [EObject current=null] : iv_ruleComparacion= ruleComparacion EOF ;
+    public final EObject entryRuleComparacion() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleComparacionIndice = null;
+        EObject iv_ruleComparacion = null;
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4780:2: (iv_ruleComparacionIndice= ruleComparacionIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4781:2: iv_ruleComparacionIndice= ruleComparacionIndice EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4363:2: (iv_ruleComparacion= ruleComparacion EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4364:2: iv_ruleComparacion= ruleComparacion EOF
             {
-             newCompositeNode(grammarAccess.getComparacionIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleComparacionIndice_in_entryRuleComparacionIndice10857);
-            iv_ruleComparacionIndice=ruleComparacionIndice();
+             newCompositeNode(grammarAccess.getComparacionRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleComparacion_in_entryRuleComparacion10025);
+            iv_ruleComparacion=ruleComparacion();
 
             state._fsp--;
 
-             current =iv_ruleComparacionIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComparacionIndice10867); 
+             current =iv_ruleComparacion; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComparacion10035); 
 
             }
 
@@ -12739,85 +11630,87 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
-    // $ANTLR end "entryRuleComparacionIndice"
+    // $ANTLR end "entryRuleComparacion"
 
 
-    // $ANTLR start "ruleComparacionIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4788:1: ruleComparacionIndice returns [EObject current=null] : (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* ) ;
-    public final EObject ruleComparacionIndice() throws RecognitionException {
+    // $ANTLR start "ruleComparacion"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4371:1: ruleComparacion returns [EObject current=null] : (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) ) )* ) ;
+    public final EObject ruleComparacion() throws RecognitionException {
         EObject current = null;
 
-        EObject this_SumaRestaIndice_0 = null;
+        Token lv_negacionesFinales_3_0=null;
+        Token lv_negacionesFinales_4_0=null;
+        EObject this_SumaResta_0 = null;
 
         AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
 
-        EObject lv_right_3_0 = null;
+        EObject lv_right_5_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4791:28: ( (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4792:1: (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4374:28: ( (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4375:1: (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) ) )* )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4792:1: (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4793:5: this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4375:1: (this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4376:5: this_SumaResta_0= ruleSumaResta ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) ) )*
             {
              
-                    newCompositeNode(grammarAccess.getComparacionIndiceAccess().getSumaRestaIndiceParserRuleCall_0()); 
+                    newCompositeNode(grammarAccess.getComparacionAccess().getSumaRestaParserRuleCall_0()); 
                 
-            pushFollow(FollowSets000.FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice10914);
-            this_SumaRestaIndice_0=ruleSumaRestaIndice();
+            pushFollow(FollowSets000.FOLLOW_ruleSumaResta_in_ruleComparacion10082);
+            this_SumaResta_0=ruleSumaResta();
 
             state._fsp--;
 
              
-                    current = this_SumaRestaIndice_0; 
+                    current = this_SumaResta_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4801:1: ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )*
-            loop83:
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4384:1: ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) ) )*
+            loop85:
             do {
-                int alt83=2;
-                int LA83_0 = input.LA(1);
+                int alt85=2;
+                int LA85_0 = input.LA(1);
 
-                if ( ((LA83_0>=98 && LA83_0<=101)) ) {
-                    alt83=1;
+                if ( ((LA85_0>=98 && LA85_0<=101)) ) {
+                    alt85=1;
                 }
 
 
-                switch (alt83) {
+                switch (alt85) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4801:2: () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4384:2: () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_negacionesFinales_3_0= '-' ) )* ( (lv_negacionesFinales_4_0= 'no' ) )* ( (lv_right_5_0= ruleSumaResta ) )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4801:2: ()
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4802:5: 
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4384:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4385:5: 
             	    {
 
             	            current = forceCreateModelElementAndSet(
-            	                grammarAccess.getComparacionIndiceAccess().getComparacionLeftAction_1_0(),
+            	                grammarAccess.getComparacionAccess().getComparacionLeftAction_1_0(),
             	                current);
             	        
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4807:2: ( (lv_signo_op_2_0= rulesignoComparacion ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4808:1: (lv_signo_op_2_0= rulesignoComparacion )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4390:2: ( (lv_signo_op_2_0= rulesignoComparacion ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4391:1: (lv_signo_op_2_0= rulesignoComparacion )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4808:1: (lv_signo_op_2_0= rulesignoComparacion )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4809:3: lv_signo_op_2_0= rulesignoComparacion
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4391:1: (lv_signo_op_2_0= rulesignoComparacion )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4392:3: lv_signo_op_2_0= rulesignoComparacion
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getComparacionIndiceAccess().getSigno_opSignoComparacionParserRuleCall_1_1_0()); 
+            	    	        newCompositeNode(grammarAccess.getComparacionAccess().getSigno_opSignoComparacionParserRuleCall_1_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulesignoComparacion_in_ruleComparacionIndice10944);
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoComparacion_in_ruleComparacion10112);
             	    lv_signo_op_2_0=rulesignoComparacion();
 
             	    state._fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getComparacionIndiceRule());
+            	    	            current = createModelElementForParent(grammarAccess.getComparacionRule());
             	    	        }
             	           		set(
             	           			current, 
@@ -12832,303 +11725,109 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4825:2: ( (lv_right_3_0= ruleSumaRestaIndice ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4826:1: (lv_right_3_0= ruleSumaRestaIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4408:2: ( (lv_negacionesFinales_3_0= '-' ) )*
+            	    loop83:
+            	    do {
+            	        int alt83=2;
+            	        int LA83_0 = input.LA(1);
+
+            	        if ( (LA83_0==50) ) {
+            	            alt83=1;
+            	        }
+
+
+            	        switch (alt83) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4409:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4409:1: (lv_negacionesFinales_3_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4410:3: lv_negacionesFinales_3_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_3_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleComparacion10130); 
+
+            	    	            newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getComparacionAccess().getNegacionesFinalesHyphenMinusKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getComparacionRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_3_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop83;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4423:3: ( (lv_negacionesFinales_4_0= 'no' ) )*
+            	    loop84:
+            	    do {
+            	        int alt84=2;
+            	        int LA84_0 = input.LA(1);
+
+            	        if ( (LA84_0==106) ) {
+            	            alt84=1;
+            	        }
+
+
+            	        switch (alt84) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4424:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4424:1: (lv_negacionesFinales_4_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4425:3: lv_negacionesFinales_4_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_4_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleComparacion10162); 
+
+            	    	            newLeafNode(lv_negacionesFinales_4_0, grammarAccess.getComparacionAccess().getNegacionesFinalesNoKeyword_1_3_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getComparacionRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_4_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop84;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4438:3: ( (lv_right_5_0= ruleSumaResta ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4439:1: (lv_right_5_0= ruleSumaResta )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4826:1: (lv_right_3_0= ruleSumaRestaIndice )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4827:3: lv_right_3_0= ruleSumaRestaIndice
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4439:1: (lv_right_5_0= ruleSumaResta )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4440:3: lv_right_5_0= ruleSumaResta
             	    {
             	     
-            	    	        newCompositeNode(grammarAccess.getComparacionIndiceAccess().getRightSumaRestaIndiceParserRuleCall_1_2_0()); 
+            	    	        newCompositeNode(grammarAccess.getComparacionAccess().getRightSumaRestaParserRuleCall_1_4_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice10965);
-            	    lv_right_3_0=ruleSumaRestaIndice();
+            	    pushFollow(FollowSets000.FOLLOW_ruleSumaResta_in_ruleComparacion10197);
+            	    lv_right_5_0=ruleSumaResta();
 
             	    state._fsp--;
 
 
             	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getComparacionIndiceRule());
-            	    	        }
-            	           		set(
-            	           			current, 
-            	           			"right",
-            	            		lv_right_3_0, 
-            	            		"SumaRestaIndice");
-            	    	        afterParserOrEnumRuleCall();
-            	    	    
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop83;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-             leaveRule(); 
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleComparacionIndice"
-
-
-    // $ANTLR start "entryRuleSumaRestaIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4851:1: entryRuleSumaRestaIndice returns [EObject current=null] : iv_ruleSumaRestaIndice= ruleSumaRestaIndice EOF ;
-    public final EObject entryRuleSumaRestaIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleSumaRestaIndice = null;
-
-
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4852:2: (iv_ruleSumaRestaIndice= ruleSumaRestaIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4853:2: iv_ruleSumaRestaIndice= ruleSumaRestaIndice EOF
-            {
-             newCompositeNode(grammarAccess.getSumaRestaIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSumaRestaIndice_in_entryRuleSumaRestaIndice11003);
-            iv_ruleSumaRestaIndice=ruleSumaRestaIndice();
-
-            state._fsp--;
-
-             current =iv_ruleSumaRestaIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSumaRestaIndice11013); 
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleSumaRestaIndice"
-
-
-    // $ANTLR start "ruleSumaRestaIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4860:1: ruleSumaRestaIndice returns [EObject current=null] : (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* ) ;
-    public final EObject ruleSumaRestaIndice() throws RecognitionException {
-        EObject current = null;
-
-        EObject this_MultiplicacionDivisionIndice_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
-
-        AntlrDatatypeRuleToken lv_signo_op_4_0 = null;
-
-        EObject lv_right_5_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4863:28: ( (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4864:1: (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* )
-            {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4864:1: (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4865:5: this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )*
-            {
-             
-                    newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getMultiplicacionDivisionIndiceParserRuleCall_0()); 
-                
-            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11060);
-            this_MultiplicacionDivisionIndice_0=ruleMultiplicacionDivisionIndice();
-
-            state._fsp--;
-
-             
-                    current = this_MultiplicacionDivisionIndice_0; 
-                    afterParserOrEnumRuleCall();
-                
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )*
-            loop85:
-            do {
-                int alt85=2;
-                int LA85_0 = input.LA(1);
-
-                if ( ((LA85_0>=49 && LA85_0<=50)) ) {
-                    alt85=1;
-                }
-
-
-                switch (alt85) {
-            	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) )
-            	    int alt84=2;
-            	    int LA84_0 = input.LA(1);
-
-            	    if ( (LA84_0==49) ) {
-            	        alt84=1;
-            	    }
-            	    else if ( (LA84_0==50) ) {
-            	        alt84=2;
-            	    }
-            	    else {
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 84, 0, input);
-
-            	        throw nvae;
-            	    }
-            	    switch (alt84) {
-            	        case 1 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:4: () ( (lv_signo_op_2_0= rulesignoSuma ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:4: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4874:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getSumaRestaIndiceAccess().getSumaLeftAction_1_0_0_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4879:2: ( (lv_signo_op_2_0= rulesignoSuma ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4880:1: (lv_signo_op_2_0= rulesignoSuma )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4880:1: (lv_signo_op_2_0= rulesignoSuma )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4881:3: lv_signo_op_2_0= rulesignoSuma
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getSigno_opSignoSumaParserRuleCall_1_0_0_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoSuma_in_ruleSumaRestaIndice11092);
-            	            lv_signo_op_2_0=rulesignoSuma();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaIndiceRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_2_0, 
-            	                    		"signoSuma");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4898:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4898:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4898:7: () ( (lv_signo_op_4_0= rulesignoResta ) )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4898:7: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4899:5: 
-            	            {
-
-            	                    current = forceCreateModelElementAndSet(
-            	                        grammarAccess.getSumaRestaIndiceAccess().getRestaLeftAction_1_0_1_0(),
-            	                        current);
-            	                
-
-            	            }
-
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4904:2: ( (lv_signo_op_4_0= rulesignoResta ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4905:1: (lv_signo_op_4_0= rulesignoResta )
-            	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4905:1: (lv_signo_op_4_0= rulesignoResta )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4906:3: lv_signo_op_4_0= rulesignoResta
-            	            {
-            	             
-            	            	        newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getSigno_opSignoRestaParserRuleCall_1_0_1_1_0()); 
-            	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoResta_in_ruleSumaRestaIndice11130);
-            	            lv_signo_op_4_0=rulesignoResta();
-
-            	            state._fsp--;
-
-
-            	            	        if (current==null) {
-            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaIndiceRule());
-            	            	        }
-            	                   		set(
-            	                   			current, 
-            	                   			"signo_op",
-            	                    		lv_signo_op_4_0, 
-            	                    		"signoResta");
-            	            	        afterParserOrEnumRuleCall();
-            	            	    
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-
-
-            	            }
-            	            break;
-
-            	    }
-
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4922:4: ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4923:1: (lv_right_5_0= ruleMultiplicacionDivisionIndice )
-            	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4923:1: (lv_right_5_0= ruleMultiplicacionDivisionIndice )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4924:3: lv_right_5_0= ruleMultiplicacionDivisionIndice
-            	    {
-            	     
-            	    	        newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getRightMultiplicacionDivisionIndiceParserRuleCall_1_1_0()); 
-            	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11153);
-            	    lv_right_5_0=ruleMultiplicacionDivisionIndice();
-
-            	    state._fsp--;
-
-
-            	    	        if (current==null) {
-            	    	            current = createModelElementForParent(grammarAccess.getSumaRestaIndiceRule());
+            	    	            current = createModelElementForParent(grammarAccess.getComparacionRule());
             	    	        }
             	           		set(
             	           			current, 
             	           			"right",
             	            		lv_right_5_0, 
-            	            		"MultiplicacionDivisionIndice");
+            	            		"SumaResta");
             	    	        afterParserOrEnumRuleCall();
             	    	    
 
@@ -13163,11 +11862,1885 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         }
         return current;
     }
+    // $ANTLR end "ruleComparacion"
+
+
+    // $ANTLR start "entryRuleSumaResta"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4464:1: entryRuleSumaResta returns [EObject current=null] : iv_ruleSumaResta= ruleSumaResta EOF ;
+    public final EObject entryRuleSumaResta() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSumaResta = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4465:2: (iv_ruleSumaResta= ruleSumaResta EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4466:2: iv_ruleSumaResta= ruleSumaResta EOF
+            {
+             newCompositeNode(grammarAccess.getSumaRestaRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleSumaResta_in_entryRuleSumaResta10235);
+            iv_ruleSumaResta=ruleSumaResta();
+
+            state._fsp--;
+
+             current =iv_ruleSumaResta; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSumaResta10245); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSumaResta"
+
+
+    // $ANTLR start "ruleSumaResta"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4473:1: ruleSumaResta returns [EObject current=null] : (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) ) )* ) ;
+    public final EObject ruleSumaResta() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_negacionesFinales_5_0=null;
+        Token lv_negacionesFinales_6_0=null;
+        EObject this_MultiplicacionDivision_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_4_0 = null;
+
+        EObject lv_right_7_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4476:28: ( (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4477:1: (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4477:1: (this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4478:5: this_MultiplicacionDivision_0= ruleMultiplicacionDivision ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getSumaRestaAccess().getMultiplicacionDivisionParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta10292);
+            this_MultiplicacionDivision_0=ruleMultiplicacionDivision();
+
+            state._fsp--;
+
+             
+                    current = this_MultiplicacionDivision_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) ) )*
+            loop89:
+            do {
+                int alt89=2;
+                int LA89_0 = input.LA(1);
+
+                if ( ((LA89_0>=49 && LA89_0<=50)) ) {
+                    alt89=1;
+                }
+
+
+                switch (alt89) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_negacionesFinales_5_0= '-' ) )* ( (lv_negacionesFinales_6_0= 'no' ) )* ( (lv_right_7_0= ruleMultiplicacionDivision ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) )
+            	    int alt86=2;
+            	    int LA86_0 = input.LA(1);
+
+            	    if ( (LA86_0==49) ) {
+            	        alt86=1;
+            	    }
+            	    else if ( (LA86_0==50) ) {
+            	        alt86=2;
+            	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 86, 0, input);
+
+            	        throw nvae;
+            	    }
+            	    switch (alt86) {
+            	        case 1 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:4: () ( (lv_signo_op_2_0= rulesignoSuma ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4486:4: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4487:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getSumaRestaAccess().getSumaLeftAction_1_0_0_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4492:2: ( (lv_signo_op_2_0= rulesignoSuma ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4493:1: (lv_signo_op_2_0= rulesignoSuma )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4493:1: (lv_signo_op_2_0= rulesignoSuma )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4494:3: lv_signo_op_2_0= rulesignoSuma
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getSumaRestaAccess().getSigno_opSignoSumaParserRuleCall_1_0_0_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoSuma_in_ruleSumaResta10324);
+            	            lv_signo_op_2_0=rulesignoSuma();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_2_0, 
+            	                    		"signoSuma");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4511:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4511:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4511:7: () ( (lv_signo_op_4_0= rulesignoResta ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4511:7: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4512:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getSumaRestaAccess().getRestaLeftAction_1_0_1_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4517:2: ( (lv_signo_op_4_0= rulesignoResta ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4518:1: (lv_signo_op_4_0= rulesignoResta )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4518:1: (lv_signo_op_4_0= rulesignoResta )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4519:3: lv_signo_op_4_0= rulesignoResta
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getSumaRestaAccess().getSigno_opSignoRestaParserRuleCall_1_0_1_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoResta_in_ruleSumaResta10362);
+            	            lv_signo_op_4_0=rulesignoResta();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_4_0, 
+            	                    		"signoResta");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4535:4: ( (lv_negacionesFinales_5_0= '-' ) )*
+            	    loop87:
+            	    do {
+            	        int alt87=2;
+            	        int LA87_0 = input.LA(1);
+
+            	        if ( (LA87_0==50) ) {
+            	            alt87=1;
+            	        }
+
+
+            	        switch (alt87) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4536:1: (lv_negacionesFinales_5_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4536:1: (lv_negacionesFinales_5_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4537:3: lv_negacionesFinales_5_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_5_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleSumaResta10382); 
+
+            	    	            newLeafNode(lv_negacionesFinales_5_0, grammarAccess.getSumaRestaAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getSumaRestaRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_5_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop87;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4550:3: ( (lv_negacionesFinales_6_0= 'no' ) )*
+            	    loop88:
+            	    do {
+            	        int alt88=2;
+            	        int LA88_0 = input.LA(1);
+
+            	        if ( (LA88_0==106) ) {
+            	            alt88=1;
+            	        }
+
+
+            	        switch (alt88) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4551:1: (lv_negacionesFinales_6_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4551:1: (lv_negacionesFinales_6_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4552:3: lv_negacionesFinales_6_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_6_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleSumaResta10414); 
+
+            	    	            newLeafNode(lv_negacionesFinales_6_0, grammarAccess.getSumaRestaAccess().getNegacionesFinalesNoKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getSumaRestaRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_6_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop88;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4565:3: ( (lv_right_7_0= ruleMultiplicacionDivision ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4566:1: (lv_right_7_0= ruleMultiplicacionDivision )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4566:1: (lv_right_7_0= ruleMultiplicacionDivision )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4567:3: lv_right_7_0= ruleMultiplicacionDivision
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSumaRestaAccess().getRightMultiplicacionDivisionParserRuleCall_1_3_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta10449);
+            	    lv_right_7_0=ruleMultiplicacionDivision();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSumaRestaRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_7_0, 
+            	            		"MultiplicacionDivision");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop89;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSumaResta"
+
+
+    // $ANTLR start "entryRuleMultiplicacionDivision"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4591:1: entryRuleMultiplicacionDivision returns [EObject current=null] : iv_ruleMultiplicacionDivision= ruleMultiplicacionDivision EOF ;
+    public final EObject entryRuleMultiplicacionDivision() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleMultiplicacionDivision = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4592:2: (iv_ruleMultiplicacionDivision= ruleMultiplicacionDivision EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4593:2: iv_ruleMultiplicacionDivision= ruleMultiplicacionDivision EOF
+            {
+             newCompositeNode(grammarAccess.getMultiplicacionDivisionRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivision_in_entryRuleMultiplicacionDivision10487);
+            iv_ruleMultiplicacionDivision=ruleMultiplicacionDivision();
+
+            state._fsp--;
+
+             current =iv_ruleMultiplicacionDivision; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMultiplicacionDivision10497); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleMultiplicacionDivision"
+
+
+    // $ANTLR start "ruleMultiplicacionDivision"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4600:1: ruleMultiplicacionDivision returns [EObject current=null] : (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) ) )* ) ;
+    public final EObject ruleMultiplicacionDivision() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_negacionesFinales_7_0=null;
+        Token lv_negacionesFinales_8_0=null;
+        EObject this_Primaria_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_4_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_6_0 = null;
+
+        EObject lv_right_9_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4603:28: ( (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4604:1: (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4604:1: (this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4605:5: this_Primaria_0= rulePrimaria ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getPrimariaParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10544);
+            this_Primaria_0=rulePrimaria();
+
+            state._fsp--;
+
+             
+                    current = this_Primaria_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) ) )*
+            loop93:
+            do {
+                int alt93=2;
+                int LA93_0 = input.LA(1);
+
+                if ( ((LA93_0>=102 && LA93_0<=103)||LA93_0==105) ) {
+                    alt93=1;
+                }
+
+
+                switch (alt93) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_negacionesFinales_7_0= '-' ) )* ( (lv_negacionesFinales_8_0= 'no' ) )* ( (lv_right_9_0= rulePrimaria ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) )
+            	    int alt90=3;
+            	    switch ( input.LA(1) ) {
+            	    case 102:
+            	        {
+            	        alt90=1;
+            	        }
+            	        break;
+            	    case 103:
+            	        {
+            	        alt90=2;
+            	        }
+            	        break;
+            	    case 105:
+            	        {
+            	        alt90=3;
+            	        }
+            	        break;
+            	    default:
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 90, 0, input);
+
+            	        throw nvae;
+            	    }
+
+            	    switch (alt90) {
+            	        case 1 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:4: () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4613:4: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4614:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getMultiplicacionDivisionAccess().getMultiplicacionLeftAction_1_0_0_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4619:2: ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4620:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4620:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4621:3: lv_signo_op_2_0= rulesignoMultiplicacion
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoMultiplicacionParserRuleCall_1_0_0_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivision10576);
+            	            lv_signo_op_2_0=rulesignoMultiplicacion();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_2_0, 
+            	                    		"signoMultiplicacion");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4638:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4638:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4638:7: () ( (lv_signo_op_4_0= rulesignoDivision ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4638:7: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4639:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getMultiplicacionDivisionAccess().getDivisionLeftAction_1_0_1_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4644:2: ( (lv_signo_op_4_0= rulesignoDivision ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4645:1: (lv_signo_op_4_0= rulesignoDivision )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4645:1: (lv_signo_op_4_0= rulesignoDivision )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4646:3: lv_signo_op_4_0= rulesignoDivision
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoDivisionParserRuleCall_1_0_1_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivision10614);
+            	            lv_signo_op_4_0=rulesignoDivision();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_4_0, 
+            	                    		"signoDivision");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 3 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4663:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4663:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4663:7: () ( (lv_signo_op_6_0= rulesignoDiv ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4663:7: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4664:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getMultiplicacionDivisionAccess().getDivLeftAction_1_0_2_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4669:2: ( (lv_signo_op_6_0= rulesignoDiv ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4670:1: (lv_signo_op_6_0= rulesignoDiv )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4670:1: (lv_signo_op_6_0= rulesignoDiv )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4671:3: lv_signo_op_6_0= rulesignoDiv
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getSigno_opSignoDivParserRuleCall_1_0_2_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivision10652);
+            	            lv_signo_op_6_0=rulesignoDiv();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_6_0, 
+            	                    		"signoDiv");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4687:4: ( (lv_negacionesFinales_7_0= '-' ) )*
+            	    loop91:
+            	    do {
+            	        int alt91=2;
+            	        int LA91_0 = input.LA(1);
+
+            	        if ( (LA91_0==50) ) {
+            	            alt91=1;
+            	        }
+
+
+            	        switch (alt91) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4688:1: (lv_negacionesFinales_7_0= '-' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4688:1: (lv_negacionesFinales_7_0= '-' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4689:3: lv_negacionesFinales_7_0= '-'
+            	    	    {
+            	    	    lv_negacionesFinales_7_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleMultiplicacionDivision10672); 
+
+            	    	            newLeafNode(lv_negacionesFinales_7_0, grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesHyphenMinusKeyword_1_1_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getMultiplicacionDivisionRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_7_0, "-");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop91;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4702:3: ( (lv_negacionesFinales_8_0= 'no' ) )*
+            	    loop92:
+            	    do {
+            	        int alt92=2;
+            	        int LA92_0 = input.LA(1);
+
+            	        if ( (LA92_0==106) ) {
+            	            alt92=1;
+            	        }
+
+
+            	        switch (alt92) {
+            	    	case 1 :
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4703:1: (lv_negacionesFinales_8_0= 'no' )
+            	    	    {
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4703:1: (lv_negacionesFinales_8_0= 'no' )
+            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4704:3: lv_negacionesFinales_8_0= 'no'
+            	    	    {
+            	    	    lv_negacionesFinales_8_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleMultiplicacionDivision10704); 
+
+            	    	            newLeafNode(lv_negacionesFinales_8_0, grammarAccess.getMultiplicacionDivisionAccess().getNegacionesFinalesNoKeyword_1_2_0());
+            	    	        
+
+            	    	    	        if (current==null) {
+            	    	    	            current = createModelElement(grammarAccess.getMultiplicacionDivisionRule());
+            	    	    	        }
+            	    	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_8_0, "no");
+            	    	    	    
+
+            	    	    }
+
+
+            	    	    }
+            	    	    break;
+
+            	    	default :
+            	    	    break loop92;
+            	        }
+            	    } while (true);
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4717:3: ( (lv_right_9_0= rulePrimaria ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4718:1: (lv_right_9_0= rulePrimaria )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4718:1: (lv_right_9_0= rulePrimaria )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4719:3: lv_right_9_0= rulePrimaria
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getMultiplicacionDivisionAccess().getRightPrimariaParserRuleCall_1_3_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10739);
+            	    lv_right_9_0=rulePrimaria();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getMultiplicacionDivisionRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_9_0, 
+            	            		"Primaria");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop93;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleMultiplicacionDivision"
+
+
+    // $ANTLR start "entryRuleoperacionIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4743:1: entryRuleoperacionIndice returns [EObject current=null] : iv_ruleoperacionIndice= ruleoperacionIndice EOF ;
+    public final EObject entryRuleoperacionIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleoperacionIndice = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4744:2: (iv_ruleoperacionIndice= ruleoperacionIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4745:2: iv_ruleoperacionIndice= ruleoperacionIndice EOF
+            {
+             newCompositeNode(grammarAccess.getOperacionIndiceRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_entryRuleoperacionIndice10777);
+            iv_ruleoperacionIndice=ruleoperacionIndice();
+
+            state._fsp--;
+
+             current =iv_ruleoperacionIndice; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleoperacionIndice10787); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleoperacionIndice"
+
+
+    // $ANTLR start "ruleoperacionIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4752:1: ruleoperacionIndice returns [EObject current=null] : this_OrIndice_0= ruleOrIndice ;
+    public final EObject ruleoperacionIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_OrIndice_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4755:28: (this_OrIndice_0= ruleOrIndice )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4757:5: this_OrIndice_0= ruleOrIndice
+            {
+             
+                    newCompositeNode(grammarAccess.getOperacionIndiceAccess().getOrIndiceParserRuleCall()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleOrIndice_in_ruleoperacionIndice10833);
+            this_OrIndice_0=ruleOrIndice();
+
+            state._fsp--;
+
+             
+                    current = this_OrIndice_0; 
+                    afterParserOrEnumRuleCall();
+                
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleoperacionIndice"
+
+
+    // $ANTLR start "entryRuleOrIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4773:1: entryRuleOrIndice returns [EObject current=null] : iv_ruleOrIndice= ruleOrIndice EOF ;
+    public final EObject entryRuleOrIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleOrIndice = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4774:2: (iv_ruleOrIndice= ruleOrIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4775:2: iv_ruleOrIndice= ruleOrIndice EOF
+            {
+             newCompositeNode(grammarAccess.getOrIndiceRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleOrIndice_in_entryRuleOrIndice10867);
+            iv_ruleOrIndice=ruleOrIndice();
+
+            state._fsp--;
+
+             current =iv_ruleOrIndice; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOrIndice10877); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleOrIndice"
+
+
+    // $ANTLR start "ruleOrIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4782:1: ruleOrIndice returns [EObject current=null] : (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* ) ;
+    public final EObject ruleOrIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_AndIndice_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4785:28: ( (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4786:1: (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4786:1: (this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4787:5: this_AndIndice_0= ruleAndIndice ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getOrIndiceAccess().getAndIndiceParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleAndIndice_in_ruleOrIndice10924);
+            this_AndIndice_0=ruleAndIndice();
+
+            state._fsp--;
+
+             
+                    current = this_AndIndice_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4795:1: ( () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) ) )*
+            loop94:
+            do {
+                int alt94=2;
+                int LA94_0 = input.LA(1);
+
+                if ( (LA94_0==95) ) {
+                    alt94=1;
+                }
+
+
+                switch (alt94) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4795:2: () ( (lv_signo_op_2_0= rulesignoOr ) ) ( (lv_right_3_0= ruleAndIndice ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4795:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4796:5: 
+            	    {
+
+            	            current = forceCreateModelElementAndSet(
+            	                grammarAccess.getOrIndiceAccess().getOrLeftAction_1_0(),
+            	                current);
+            	        
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4801:2: ( (lv_signo_op_2_0= rulesignoOr ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4802:1: (lv_signo_op_2_0= rulesignoOr )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4802:1: (lv_signo_op_2_0= rulesignoOr )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4803:3: lv_signo_op_2_0= rulesignoOr
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getOrIndiceAccess().getSigno_opSignoOrParserRuleCall_1_1_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoOr_in_ruleOrIndice10954);
+            	    lv_signo_op_2_0=rulesignoOr();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getOrIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"signo_op",
+            	            		lv_signo_op_2_0, 
+            	            		"signoOr");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4819:2: ( (lv_right_3_0= ruleAndIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4820:1: (lv_right_3_0= ruleAndIndice )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4820:1: (lv_right_3_0= ruleAndIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4821:3: lv_right_3_0= ruleAndIndice
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getOrIndiceAccess().getRightAndIndiceParserRuleCall_1_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleAndIndice_in_ruleOrIndice10975);
+            	    lv_right_3_0=ruleAndIndice();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getOrIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_3_0, 
+            	            		"AndIndice");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop94;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOrIndice"
+
+
+    // $ANTLR start "entryRuleAndIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4845:1: entryRuleAndIndice returns [EObject current=null] : iv_ruleAndIndice= ruleAndIndice EOF ;
+    public final EObject entryRuleAndIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAndIndice = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4846:2: (iv_ruleAndIndice= ruleAndIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4847:2: iv_ruleAndIndice= ruleAndIndice EOF
+            {
+             newCompositeNode(grammarAccess.getAndIndiceRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleAndIndice_in_entryRuleAndIndice11013);
+            iv_ruleAndIndice=ruleAndIndice();
+
+            state._fsp--;
+
+             current =iv_ruleAndIndice; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleAndIndice11023); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAndIndice"
+
+
+    // $ANTLR start "ruleAndIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4854:1: ruleAndIndice returns [EObject current=null] : (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* ) ;
+    public final EObject ruleAndIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_IgualdadIndice_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4857:28: ( (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4858:1: (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4858:1: (this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4859:5: this_IgualdadIndice_0= ruleIgualdadIndice ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getAndIndiceAccess().getIgualdadIndiceParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleIgualdadIndice_in_ruleAndIndice11070);
+            this_IgualdadIndice_0=ruleIgualdadIndice();
+
+            state._fsp--;
+
+             
+                    current = this_IgualdadIndice_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4867:1: ( () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) ) )*
+            loop95:
+            do {
+                int alt95=2;
+                int LA95_0 = input.LA(1);
+
+                if ( (LA95_0==96) ) {
+                    alt95=1;
+                }
+
+
+                switch (alt95) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4867:2: () ( (lv_signo_op_2_0= rulesignoAnd ) ) ( (lv_right_3_0= ruleIgualdadIndice ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4867:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4868:5: 
+            	    {
+
+            	            current = forceCreateModelElementAndSet(
+            	                grammarAccess.getAndIndiceAccess().getAndLeftAction_1_0(),
+            	                current);
+            	        
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4873:2: ( (lv_signo_op_2_0= rulesignoAnd ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4874:1: (lv_signo_op_2_0= rulesignoAnd )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4874:1: (lv_signo_op_2_0= rulesignoAnd )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4875:3: lv_signo_op_2_0= rulesignoAnd
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getAndIndiceAccess().getSigno_opSignoAndParserRuleCall_1_1_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoAnd_in_ruleAndIndice11100);
+            	    lv_signo_op_2_0=rulesignoAnd();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getAndIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"signo_op",
+            	            		lv_signo_op_2_0, 
+            	            		"signoAnd");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4891:2: ( (lv_right_3_0= ruleIgualdadIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4892:1: (lv_right_3_0= ruleIgualdadIndice )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4892:1: (lv_right_3_0= ruleIgualdadIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4893:3: lv_right_3_0= ruleIgualdadIndice
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getAndIndiceAccess().getRightIgualdadIndiceParserRuleCall_1_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleIgualdadIndice_in_ruleAndIndice11121);
+            	    lv_right_3_0=ruleIgualdadIndice();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getAndIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_3_0, 
+            	            		"IgualdadIndice");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop95;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAndIndice"
+
+
+    // $ANTLR start "entryRuleIgualdadIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4917:1: entryRuleIgualdadIndice returns [EObject current=null] : iv_ruleIgualdadIndice= ruleIgualdadIndice EOF ;
+    public final EObject entryRuleIgualdadIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleIgualdadIndice = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4918:2: (iv_ruleIgualdadIndice= ruleIgualdadIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4919:2: iv_ruleIgualdadIndice= ruleIgualdadIndice EOF
+            {
+             newCompositeNode(grammarAccess.getIgualdadIndiceRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleIgualdadIndice_in_entryRuleIgualdadIndice11159);
+            iv_ruleIgualdadIndice=ruleIgualdadIndice();
+
+            state._fsp--;
+
+             current =iv_ruleIgualdadIndice; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleIgualdadIndice11169); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleIgualdadIndice"
+
+
+    // $ANTLR start "ruleIgualdadIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4926:1: ruleIgualdadIndice returns [EObject current=null] : (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* ) ;
+    public final EObject ruleIgualdadIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_ComparacionIndice_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4929:28: ( (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4930:1: (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4930:1: (this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4931:5: this_ComparacionIndice_0= ruleComparacionIndice ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getIgualdadIndiceAccess().getComparacionIndiceParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice11216);
+            this_ComparacionIndice_0=ruleComparacionIndice();
+
+            state._fsp--;
+
+             
+                    current = this_ComparacionIndice_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4939:1: ( () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) ) )*
+            loop96:
+            do {
+                int alt96=2;
+                int LA96_0 = input.LA(1);
+
+                if ( (LA96_0==51||LA96_0==97) ) {
+                    alt96=1;
+                }
+
+
+                switch (alt96) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4939:2: () ( (lv_signo_op_2_0= rulesignoIgualdad ) ) ( (lv_right_3_0= ruleComparacionIndice ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4939:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4940:5: 
+            	    {
+
+            	            current = forceCreateModelElementAndSet(
+            	                grammarAccess.getIgualdadIndiceAccess().getIgualdadLeftAction_1_0(),
+            	                current);
+            	        
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4945:2: ( (lv_signo_op_2_0= rulesignoIgualdad ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4946:1: (lv_signo_op_2_0= rulesignoIgualdad )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4946:1: (lv_signo_op_2_0= rulesignoIgualdad )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4947:3: lv_signo_op_2_0= rulesignoIgualdad
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getIgualdadIndiceAccess().getSigno_opSignoIgualdadParserRuleCall_1_1_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoIgualdad_in_ruleIgualdadIndice11246);
+            	    lv_signo_op_2_0=rulesignoIgualdad();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getIgualdadIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"signo_op",
+            	            		lv_signo_op_2_0, 
+            	            		"signoIgualdad");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4963:2: ( (lv_right_3_0= ruleComparacionIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4964:1: (lv_right_3_0= ruleComparacionIndice )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4964:1: (lv_right_3_0= ruleComparacionIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4965:3: lv_right_3_0= ruleComparacionIndice
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getIgualdadIndiceAccess().getRightComparacionIndiceParserRuleCall_1_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice11267);
+            	    lv_right_3_0=ruleComparacionIndice();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getIgualdadIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_3_0, 
+            	            		"ComparacionIndice");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop96;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleIgualdadIndice"
+
+
+    // $ANTLR start "entryRuleComparacionIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4989:1: entryRuleComparacionIndice returns [EObject current=null] : iv_ruleComparacionIndice= ruleComparacionIndice EOF ;
+    public final EObject entryRuleComparacionIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleComparacionIndice = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4990:2: (iv_ruleComparacionIndice= ruleComparacionIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4991:2: iv_ruleComparacionIndice= ruleComparacionIndice EOF
+            {
+             newCompositeNode(grammarAccess.getComparacionIndiceRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleComparacionIndice_in_entryRuleComparacionIndice11305);
+            iv_ruleComparacionIndice=ruleComparacionIndice();
+
+            state._fsp--;
+
+             current =iv_ruleComparacionIndice; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleComparacionIndice11315); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleComparacionIndice"
+
+
+    // $ANTLR start "ruleComparacionIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4998:1: ruleComparacionIndice returns [EObject current=null] : (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* ) ;
+    public final EObject ruleComparacionIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_SumaRestaIndice_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        EObject lv_right_3_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5001:28: ( (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5002:1: (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5002:1: (this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5003:5: this_SumaRestaIndice_0= ruleSumaRestaIndice ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getComparacionIndiceAccess().getSumaRestaIndiceParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice11362);
+            this_SumaRestaIndice_0=ruleSumaRestaIndice();
+
+            state._fsp--;
+
+             
+                    current = this_SumaRestaIndice_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5011:1: ( () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) ) )*
+            loop97:
+            do {
+                int alt97=2;
+                int LA97_0 = input.LA(1);
+
+                if ( ((LA97_0>=98 && LA97_0<=101)) ) {
+                    alt97=1;
+                }
+
+
+                switch (alt97) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5011:2: () ( (lv_signo_op_2_0= rulesignoComparacion ) ) ( (lv_right_3_0= ruleSumaRestaIndice ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5011:2: ()
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5012:5: 
+            	    {
+
+            	            current = forceCreateModelElementAndSet(
+            	                grammarAccess.getComparacionIndiceAccess().getComparacionLeftAction_1_0(),
+            	                current);
+            	        
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5017:2: ( (lv_signo_op_2_0= rulesignoComparacion ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5018:1: (lv_signo_op_2_0= rulesignoComparacion )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5018:1: (lv_signo_op_2_0= rulesignoComparacion )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5019:3: lv_signo_op_2_0= rulesignoComparacion
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getComparacionIndiceAccess().getSigno_opSignoComparacionParserRuleCall_1_1_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_rulesignoComparacion_in_ruleComparacionIndice11392);
+            	    lv_signo_op_2_0=rulesignoComparacion();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getComparacionIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"signo_op",
+            	            		lv_signo_op_2_0, 
+            	            		"signoComparacion");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5035:2: ( (lv_right_3_0= ruleSumaRestaIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5036:1: (lv_right_3_0= ruleSumaRestaIndice )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5036:1: (lv_right_3_0= ruleSumaRestaIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5037:3: lv_right_3_0= ruleSumaRestaIndice
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getComparacionIndiceAccess().getRightSumaRestaIndiceParserRuleCall_1_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice11413);
+            	    lv_right_3_0=ruleSumaRestaIndice();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getComparacionIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_3_0, 
+            	            		"SumaRestaIndice");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop97;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleComparacionIndice"
+
+
+    // $ANTLR start "entryRuleSumaRestaIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5061:1: entryRuleSumaRestaIndice returns [EObject current=null] : iv_ruleSumaRestaIndice= ruleSumaRestaIndice EOF ;
+    public final EObject entryRuleSumaRestaIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSumaRestaIndice = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5062:2: (iv_ruleSumaRestaIndice= ruleSumaRestaIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5063:2: iv_ruleSumaRestaIndice= ruleSumaRestaIndice EOF
+            {
+             newCompositeNode(grammarAccess.getSumaRestaIndiceRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleSumaRestaIndice_in_entryRuleSumaRestaIndice11451);
+            iv_ruleSumaRestaIndice=ruleSumaRestaIndice();
+
+            state._fsp--;
+
+             current =iv_ruleSumaRestaIndice; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSumaRestaIndice11461); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSumaRestaIndice"
+
+
+    // $ANTLR start "ruleSumaRestaIndice"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5070:1: ruleSumaRestaIndice returns [EObject current=null] : (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* ) ;
+    public final EObject ruleSumaRestaIndice() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_MultiplicacionDivisionIndice_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_2_0 = null;
+
+        AntlrDatatypeRuleToken lv_signo_op_4_0 = null;
+
+        EObject lv_right_5_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5073:28: ( (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5074:1: (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5074:1: (this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5075:5: this_MultiplicacionDivisionIndice_0= ruleMultiplicacionDivisionIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )*
+            {
+             
+                    newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getMultiplicacionDivisionIndiceParserRuleCall_0()); 
+                
+            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11508);
+            this_MultiplicacionDivisionIndice_0=ruleMultiplicacionDivisionIndice();
+
+            state._fsp--;
+
+             
+                    current = this_MultiplicacionDivisionIndice_0; 
+                    afterParserOrEnumRuleCall();
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) ) )*
+            loop99:
+            do {
+                int alt99=2;
+                int LA99_0 = input.LA(1);
+
+                if ( ((LA99_0>=49 && LA99_0<=50)) ) {
+                    alt99=1;
+                }
+
+
+                switch (alt99) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) ) ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:2: ( ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoResta ) ) ) )
+            	    int alt98=2;
+            	    int LA98_0 = input.LA(1);
+
+            	    if ( (LA98_0==49) ) {
+            	        alt98=1;
+            	    }
+            	    else if ( (LA98_0==50) ) {
+            	        alt98=2;
+            	    }
+            	    else {
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 98, 0, input);
+
+            	        throw nvae;
+            	    }
+            	    switch (alt98) {
+            	        case 1 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:3: ( () ( (lv_signo_op_2_0= rulesignoSuma ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:4: () ( (lv_signo_op_2_0= rulesignoSuma ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:4: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5084:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getSumaRestaIndiceAccess().getSumaLeftAction_1_0_0_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5089:2: ( (lv_signo_op_2_0= rulesignoSuma ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5090:1: (lv_signo_op_2_0= rulesignoSuma )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5090:1: (lv_signo_op_2_0= rulesignoSuma )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5091:3: lv_signo_op_2_0= rulesignoSuma
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getSigno_opSignoSumaParserRuleCall_1_0_0_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoSuma_in_ruleSumaRestaIndice11540);
+            	            lv_signo_op_2_0=rulesignoSuma();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaIndiceRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_2_0, 
+            	                    		"signoSuma");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:6: ( () ( (lv_signo_op_4_0= rulesignoResta ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:7: () ( (lv_signo_op_4_0= rulesignoResta ) )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:7: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5109:5: 
+            	            {
+
+            	                    current = forceCreateModelElementAndSet(
+            	                        grammarAccess.getSumaRestaIndiceAccess().getRestaLeftAction_1_0_1_0(),
+            	                        current);
+            	                
+
+            	            }
+
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5114:2: ( (lv_signo_op_4_0= rulesignoResta ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5115:1: (lv_signo_op_4_0= rulesignoResta )
+            	            {
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5115:1: (lv_signo_op_4_0= rulesignoResta )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5116:3: lv_signo_op_4_0= rulesignoResta
+            	            {
+            	             
+            	            	        newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getSigno_opSignoRestaParserRuleCall_1_0_1_1_0()); 
+            	            	    
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoResta_in_ruleSumaRestaIndice11578);
+            	            lv_signo_op_4_0=rulesignoResta();
+
+            	            state._fsp--;
+
+
+            	            	        if (current==null) {
+            	            	            current = createModelElementForParent(grammarAccess.getSumaRestaIndiceRule());
+            	            	        }
+            	                   		set(
+            	                   			current, 
+            	                   			"signo_op",
+            	                    		lv_signo_op_4_0, 
+            	                    		"signoResta");
+            	            	        afterParserOrEnumRuleCall();
+            	            	    
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+
+
+            	            }
+            	            break;
+
+            	    }
+
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5132:4: ( (lv_right_5_0= ruleMultiplicacionDivisionIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5133:1: (lv_right_5_0= ruleMultiplicacionDivisionIndice )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5133:1: (lv_right_5_0= ruleMultiplicacionDivisionIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5134:3: lv_right_5_0= ruleMultiplicacionDivisionIndice
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSumaRestaIndiceAccess().getRightMultiplicacionDivisionIndiceParserRuleCall_1_1_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11601);
+            	    lv_right_5_0=ruleMultiplicacionDivisionIndice();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSumaRestaIndiceRule());
+            	    	        }
+            	           		set(
+            	           			current, 
+            	           			"right",
+            	            		lv_right_5_0, 
+            	            		"MultiplicacionDivisionIndice");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop99;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleSumaRestaIndice"
 
 
     // $ANTLR start "entryRuleMultiplicacionDivisionIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4948:1: entryRuleMultiplicacionDivisionIndice returns [EObject current=null] : iv_ruleMultiplicacionDivisionIndice= ruleMultiplicacionDivisionIndice EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5158:1: entryRuleMultiplicacionDivisionIndice returns [EObject current=null] : iv_ruleMultiplicacionDivisionIndice= ruleMultiplicacionDivisionIndice EOF ;
     public final EObject entryRuleMultiplicacionDivisionIndice() throws RecognitionException {
         EObject current = null;
 
@@ -13175,17 +13748,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4949:2: (iv_ruleMultiplicacionDivisionIndice= ruleMultiplicacionDivisionIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4950:2: iv_ruleMultiplicacionDivisionIndice= ruleMultiplicacionDivisionIndice EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5159:2: (iv_ruleMultiplicacionDivisionIndice= ruleMultiplicacionDivisionIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5160:2: iv_ruleMultiplicacionDivisionIndice= ruleMultiplicacionDivisionIndice EOF
             {
              newCompositeNode(grammarAccess.getMultiplicacionDivisionIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivisionIndice_in_entryRuleMultiplicacionDivisionIndice11191);
+            pushFollow(FollowSets000.FOLLOW_ruleMultiplicacionDivisionIndice_in_entryRuleMultiplicacionDivisionIndice11639);
             iv_ruleMultiplicacionDivisionIndice=ruleMultiplicacionDivisionIndice();
 
             state._fsp--;
 
              current =iv_ruleMultiplicacionDivisionIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMultiplicacionDivisionIndice11201); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleMultiplicacionDivisionIndice11649); 
 
             }
 
@@ -13203,7 +13776,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleMultiplicacionDivisionIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4957:1: ruleMultiplicacionDivisionIndice returns [EObject current=null] : (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5167:1: ruleMultiplicacionDivisionIndice returns [EObject current=null] : (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* ) ;
     public final EObject ruleMultiplicacionDivisionIndice() throws RecognitionException {
         EObject current = null;
 
@@ -13221,16 +13794,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4960:28: ( (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4961:1: (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5170:28: ( (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5171:1: (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4961:1: (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4962:5: this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )*
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5171:1: (this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )* )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5172:5: this_PrimariaIndice_0= rulePrimariaIndice ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )*
             {
              
                     newCompositeNode(grammarAccess.getMultiplicacionDivisionIndiceAccess().getPrimariaIndiceParserRuleCall_0()); 
                 
-            pushFollow(FollowSets000.FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11248);
+            pushFollow(FollowSets000.FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11696);
             this_PrimariaIndice_0=rulePrimariaIndice();
 
             state._fsp--;
@@ -13239,55 +13812,55 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     current = this_PrimariaIndice_0; 
                     afterParserOrEnumRuleCall();
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )*
-            loop87:
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:1: ( ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) ) )*
+            loop101:
             do {
-                int alt87=2;
-                int LA87_0 = input.LA(1);
+                int alt101=2;
+                int LA101_0 = input.LA(1);
 
-                if ( ((LA87_0>=102 && LA87_0<=103)||LA87_0==105) ) {
-                    alt87=1;
+                if ( ((LA101_0>=102 && LA101_0<=103)||LA101_0==105) ) {
+                    alt101=1;
                 }
 
 
-                switch (alt87) {
+                switch (alt101) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) ) ( (lv_right_7_0= rulePrimariaIndice ) )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) )
-            	    int alt86=3;
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:2: ( ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) ) | ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) ) | ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) ) )
+            	    int alt100=3;
             	    switch ( input.LA(1) ) {
             	    case 102:
             	        {
-            	        alt86=1;
+            	        alt100=1;
             	        }
             	        break;
             	    case 103:
             	        {
-            	        alt86=2;
+            	        alt100=2;
             	        }
             	        break;
             	    case 105:
             	        {
-            	        alt86=3;
+            	        alt100=3;
             	        }
             	        break;
             	    default:
             	        NoViableAltException nvae =
-            	            new NoViableAltException("", 86, 0, input);
+            	            new NoViableAltException("", 100, 0, input);
 
             	        throw nvae;
             	    }
 
-            	    switch (alt86) {
+            	    switch (alt100) {
             	        case 1 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:4: () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:3: ( () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:4: () ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4970:4: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4971:5: 
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5180:4: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5181:5: 
             	            {
 
             	                    current = forceCreateModelElementAndSet(
@@ -13297,16 +13870,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	            }
 
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4976:2: ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4977:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5186:2: ( (lv_signo_op_2_0= rulesignoMultiplicacion ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5187:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4977:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4978:3: lv_signo_op_2_0= rulesignoMultiplicacion
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5187:1: (lv_signo_op_2_0= rulesignoMultiplicacion )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5188:3: lv_signo_op_2_0= rulesignoMultiplicacion
             	            {
             	             
             	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionIndiceAccess().getSigno_opSignoMultiplicacionParserRuleCall_1_0_0_1_0()); 
             	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivisionIndice11280);
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivisionIndice11728);
             	            lv_signo_op_2_0=rulesignoMultiplicacion();
 
             	            state._fsp--;
@@ -13335,13 +13908,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	            }
             	            break;
             	        case 2 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4995:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5205:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4995:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4995:7: () ( (lv_signo_op_4_0= rulesignoDivision ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5205:6: ( () ( (lv_signo_op_4_0= rulesignoDivision ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5205:7: () ( (lv_signo_op_4_0= rulesignoDivision ) )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4995:7: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:4996:5: 
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5205:7: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5206:5: 
             	            {
 
             	                    current = forceCreateModelElementAndSet(
@@ -13351,16 +13924,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	            }
 
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5001:2: ( (lv_signo_op_4_0= rulesignoDivision ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5002:1: (lv_signo_op_4_0= rulesignoDivision )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5211:2: ( (lv_signo_op_4_0= rulesignoDivision ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5212:1: (lv_signo_op_4_0= rulesignoDivision )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5002:1: (lv_signo_op_4_0= rulesignoDivision )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5003:3: lv_signo_op_4_0= rulesignoDivision
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5212:1: (lv_signo_op_4_0= rulesignoDivision )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5213:3: lv_signo_op_4_0= rulesignoDivision
             	            {
             	             
             	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionIndiceAccess().getSigno_opSignoDivisionParserRuleCall_1_0_1_1_0()); 
             	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivisionIndice11318);
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivisionIndice11766);
             	            lv_signo_op_4_0=rulesignoDivision();
 
             	            state._fsp--;
@@ -13389,13 +13962,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	            }
             	            break;
             	        case 3 :
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5020:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5230:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5020:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5020:7: () ( (lv_signo_op_6_0= rulesignoDiv ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5230:6: ( () ( (lv_signo_op_6_0= rulesignoDiv ) ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5230:7: () ( (lv_signo_op_6_0= rulesignoDiv ) )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5020:7: ()
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5021:5: 
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5230:7: ()
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5231:5: 
             	            {
 
             	                    current = forceCreateModelElementAndSet(
@@ -13405,16 +13978,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	            }
 
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5026:2: ( (lv_signo_op_6_0= rulesignoDiv ) )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5027:1: (lv_signo_op_6_0= rulesignoDiv )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5236:2: ( (lv_signo_op_6_0= rulesignoDiv ) )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5237:1: (lv_signo_op_6_0= rulesignoDiv )
             	            {
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5027:1: (lv_signo_op_6_0= rulesignoDiv )
-            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5028:3: lv_signo_op_6_0= rulesignoDiv
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5237:1: (lv_signo_op_6_0= rulesignoDiv )
+            	            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5238:3: lv_signo_op_6_0= rulesignoDiv
             	            {
             	             
             	            	        newCompositeNode(grammarAccess.getMultiplicacionDivisionIndiceAccess().getSigno_opSignoDivParserRuleCall_1_0_2_1_0()); 
             	            	    
-            	            pushFollow(FollowSets000.FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivisionIndice11356);
+            	            pushFollow(FollowSets000.FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivisionIndice11804);
             	            lv_signo_op_6_0=rulesignoDiv();
 
             	            state._fsp--;
@@ -13445,16 +14018,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             	    }
 
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5044:4: ( (lv_right_7_0= rulePrimariaIndice ) )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5045:1: (lv_right_7_0= rulePrimariaIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5254:4: ( (lv_right_7_0= rulePrimariaIndice ) )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5255:1: (lv_right_7_0= rulePrimariaIndice )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5045:1: (lv_right_7_0= rulePrimariaIndice )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5046:3: lv_right_7_0= rulePrimariaIndice
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5255:1: (lv_right_7_0= rulePrimariaIndice )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5256:3: lv_right_7_0= rulePrimariaIndice
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getMultiplicacionDivisionIndiceAccess().getRightPrimariaIndiceParserRuleCall_1_1_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11379);
+            	    pushFollow(FollowSets000.FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11827);
             	    lv_right_7_0=rulePrimariaIndice();
 
             	    state._fsp--;
@@ -13481,7 +14054,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	    break;
 
             	default :
-            	    break loop87;
+            	    break loop101;
                 }
             } while (true);
 
@@ -13506,7 +14079,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRulePrimariaIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5070:1: entryRulePrimariaIndice returns [EObject current=null] : iv_rulePrimariaIndice= rulePrimariaIndice EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5280:1: entryRulePrimariaIndice returns [EObject current=null] : iv_rulePrimariaIndice= rulePrimariaIndice EOF ;
     public final EObject entryRulePrimariaIndice() throws RecognitionException {
         EObject current = null;
 
@@ -13514,17 +14087,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5071:2: (iv_rulePrimariaIndice= rulePrimariaIndice EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5072:2: iv_rulePrimariaIndice= rulePrimariaIndice EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5281:2: (iv_rulePrimariaIndice= rulePrimariaIndice EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5282:2: iv_rulePrimariaIndice= rulePrimariaIndice EOF
             {
              newCompositeNode(grammarAccess.getPrimariaIndiceRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulePrimariaIndice_in_entryRulePrimariaIndice11417);
+            pushFollow(FollowSets000.FOLLOW_rulePrimariaIndice_in_entryRulePrimariaIndice11865);
             iv_rulePrimariaIndice=rulePrimariaIndice();
 
             state._fsp--;
 
              current =iv_rulePrimariaIndice; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimariaIndice11427); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimariaIndice11875); 
 
             }
 
@@ -13542,7 +14115,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "rulePrimariaIndice"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5079:1: rulePrimariaIndice returns [EObject current=null] : ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5289:1: rulePrimariaIndice returns [EObject current=null] : ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) ) ;
     public final EObject rulePrimariaIndice() throws RecognitionException {
         EObject current = null;
 
@@ -13554,34 +14127,34 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5082:28: ( ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5292:28: ( ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) )
-            int alt88=2;
-            int LA88_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_nombre_3_0= ruleEString ) ) ) )
+            int alt102=2;
+            int LA102_0 = input.LA(1);
 
-            if ( (LA88_0==RULE_INT) ) {
-                alt88=1;
+            if ( (LA102_0==RULE_INT) ) {
+                alt102=1;
             }
-            else if ( (LA88_0==RULE_ID||LA88_0==RULE_STRING) ) {
-                alt88=2;
+            else if ( (LA102_0==RULE_ID||LA102_0==RULE_STRING) ) {
+                alt102=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 88, 0, input);
+                    new NoViableAltException("", 102, 0, input);
 
                 throw nvae;
             }
-            switch (alt88) {
+            switch (alt102) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:3: () ( (lv_valor_1_0= ruleEInt ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:3: () ( (lv_valor_1_0= ruleEInt ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5083:3: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5084:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:3: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5294:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -13591,16 +14164,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5089:2: ( (lv_valor_1_0= ruleEInt ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5090:1: (lv_valor_1_0= ruleEInt )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5299:2: ( (lv_valor_1_0= ruleEInt ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5300:1: (lv_valor_1_0= ruleEInt )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5090:1: (lv_valor_1_0= ruleEInt )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5091:3: lv_valor_1_0= ruleEInt
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5300:1: (lv_valor_1_0= ruleEInt )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5301:3: lv_valor_1_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getPrimariaIndiceAccess().getValorEIntParserRuleCall_0_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulePrimariaIndice11483);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_rulePrimariaIndice11931);
                     lv_valor_1_0=ruleEInt();
 
                     state._fsp--;
@@ -13629,13 +14202,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:6: ( () ( (lv_nombre_3_0= ruleEString ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5318:6: ( () ( (lv_nombre_3_0= ruleEString ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:6: ( () ( (lv_nombre_3_0= ruleEString ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:7: () ( (lv_nombre_3_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5318:6: ( () ( (lv_nombre_3_0= ruleEString ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5318:7: () ( (lv_nombre_3_0= ruleEString ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5108:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5109:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5318:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5319:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -13645,16 +14218,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5114:2: ( (lv_nombre_3_0= ruleEString ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5115:1: (lv_nombre_3_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5324:2: ( (lv_nombre_3_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5325:1: (lv_nombre_3_0= ruleEString )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5115:1: (lv_nombre_3_0= ruleEString )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5116:3: lv_nombre_3_0= ruleEString
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5325:1: (lv_nombre_3_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5326:3: lv_nombre_3_0= ruleEString
                     {
                      
                     	        newCompositeNode(grammarAccess.getPrimariaIndiceAccess().getNombreEStringParserRuleCall_1_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_rulePrimariaIndice11521);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_rulePrimariaIndice11969);
                     lv_nombre_3_0=ruleEString();
 
                     state._fsp--;
@@ -13703,7 +14276,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRulePrimaria"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5140:1: entryRulePrimaria returns [EObject current=null] : iv_rulePrimaria= rulePrimaria EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5350:1: entryRulePrimaria returns [EObject current=null] : iv_rulePrimaria= rulePrimaria EOF ;
     public final EObject entryRulePrimaria() throws RecognitionException {
         EObject current = null;
 
@@ -13711,17 +14284,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5141:2: (iv_rulePrimaria= rulePrimaria EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5142:2: iv_rulePrimaria= rulePrimaria EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5351:2: (iv_rulePrimaria= rulePrimaria EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5352:2: iv_rulePrimaria= rulePrimaria EOF
             {
              newCompositeNode(grammarAccess.getPrimariaRule()); 
-            pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_entryRulePrimaria11558);
+            pushFollow(FollowSets000.FOLLOW_rulePrimaria_in_entryRulePrimaria12006);
             iv_rulePrimaria=rulePrimaria();
 
             state._fsp--;
 
              current =iv_rulePrimaria; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimaria11568); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRulePrimaria12016); 
 
             }
 
@@ -13739,61 +14312,50 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "rulePrimaria"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5149:1: rulePrimaria returns [EObject current=null] : (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | ( () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' ) | ( () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')' ) | this_Funciones_11= ruleFunciones | ( () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')' ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5359:1: rulePrimaria returns [EObject current=null] : (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | this_Funciones_2= ruleFunciones | this_OperacionParentesis_3= ruleOperacionParentesis ) ;
     public final EObject rulePrimaria() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_3=null;
-        Token otherlv_5=null;
-        Token otherlv_7=null;
-        Token otherlv_8=null;
-        Token otherlv_10=null;
-        Token otherlv_13=null;
-        Token otherlv_15=null;
         EObject this_VariablesBasicas_0 = null;
 
         EObject this_VariablesComplejas_1 = null;
 
-        EObject lv_valor_operacion_4_0 = null;
+        EObject this_Funciones_2 = null;
 
-        EObject lv_valor_operacion_9_0 = null;
-
-        EObject this_Funciones_11 = null;
-
-        EObject lv_valor_operacion_14_0 = null;
+        EObject this_OperacionParentesis_3 = null;
 
 
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5152:28: ( (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | ( () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' ) | ( () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')' ) | this_Funciones_11= ruleFunciones | ( () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')' ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5153:1: (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | ( () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' ) | ( () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')' ) | this_Funciones_11= ruleFunciones | ( () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5362:28: ( (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | this_Funciones_2= ruleFunciones | this_OperacionParentesis_3= ruleOperacionParentesis ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5363:1: (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | this_Funciones_2= ruleFunciones | this_OperacionParentesis_3= ruleOperacionParentesis )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5153:1: (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | ( () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' ) | ( () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')' ) | this_Funciones_11= ruleFunciones | ( () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')' ) )
-            int alt89=6;
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5363:1: (this_VariablesBasicas_0= ruleVariablesBasicas | this_VariablesComplejas_1= ruleVariablesComplejas | this_Funciones_2= ruleFunciones | this_OperacionParentesis_3= ruleOperacionParentesis )
+            int alt103=4;
             switch ( input.LA(1) ) {
             case RULE_INT:
             case RULE_CAD:
             case RULE_CAR:
+            case 114:
             case 115:
-            case 116:
                 {
-                alt89=1;
+                alt103=1;
                 }
                 break;
             case RULE_STRING:
                 {
-                int LA89_2 = input.LA(2);
+                int LA103_2 = input.LA(2);
 
-                if ( (LA89_2==EOF||(LA89_2>=RULE_ID && LA89_2<=RULE_CAR)||(LA89_2>=19 && LA89_2<=20)||(LA89_2>=27 && LA89_2<=30)||(LA89_2>=32 && LA89_2<=34)||(LA89_2>=37 && LA89_2<=45)||(LA89_2>=49 && LA89_2<=51)||LA89_2==54||LA89_2==56||LA89_2==58||LA89_2==63||LA89_2==65||LA89_2==67||(LA89_2>=69 && LA89_2<=72)||(LA89_2>=74 && LA89_2<=111)||(LA89_2>=115 && LA89_2<=116)) ) {
-                    alt89=1;
+                if ( (LA103_2==EOF||(LA103_2>=RULE_ID && LA103_2<=RULE_CAR)||(LA103_2>=19 && LA103_2<=20)||(LA103_2>=27 && LA103_2<=30)||(LA103_2>=32 && LA103_2<=34)||(LA103_2>=37 && LA103_2<=45)||(LA103_2>=49 && LA103_2<=51)||LA103_2==54||LA103_2==56||LA103_2==58||LA103_2==63||LA103_2==65||LA103_2==67||(LA103_2>=69 && LA103_2<=72)||(LA103_2>=74 && LA103_2<=105)||(LA103_2>=107 && LA103_2<=110)||(LA103_2>=114 && LA103_2<=115)) ) {
+                    alt103=1;
                 }
-                else if ( (LA89_2==46||LA89_2==53) ) {
-                    alt89=2;
+                else if ( (LA103_2==46||LA103_2==53) ) {
+                    alt103=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 89, 2, input);
+                        new NoViableAltException("", 103, 2, input);
 
                     throw nvae;
                 }
@@ -13801,30 +14363,20 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                 break;
             case RULE_ID:
                 {
-                int LA89_3 = input.LA(2);
+                int LA103_3 = input.LA(2);
 
-                if ( (LA89_3==46||LA89_3==53) ) {
-                    alt89=2;
+                if ( (LA103_3==46||LA103_3==53) ) {
+                    alt103=2;
                 }
-                else if ( (LA89_3==EOF||(LA89_3>=RULE_ID && LA89_3<=RULE_CAR)||(LA89_3>=19 && LA89_3<=20)||(LA89_3>=27 && LA89_3<=30)||(LA89_3>=32 && LA89_3<=34)||(LA89_3>=37 && LA89_3<=45)||(LA89_3>=49 && LA89_3<=51)||LA89_3==54||LA89_3==56||LA89_3==58||LA89_3==63||LA89_3==65||LA89_3==67||(LA89_3>=69 && LA89_3<=72)||(LA89_3>=74 && LA89_3<=111)||(LA89_3>=115 && LA89_3<=116)) ) {
-                    alt89=1;
+                else if ( (LA103_3==EOF||(LA103_3>=RULE_ID && LA103_3<=RULE_CAR)||(LA103_3>=19 && LA103_3<=20)||(LA103_3>=27 && LA103_3<=30)||(LA103_3>=32 && LA103_3<=34)||(LA103_3>=37 && LA103_3<=45)||(LA103_3>=49 && LA103_3<=51)||LA103_3==54||LA103_3==56||LA103_3==58||LA103_3==63||LA103_3==65||LA103_3==67||(LA103_3>=69 && LA103_3<=72)||(LA103_3>=74 && LA103_3<=105)||(LA103_3>=107 && LA103_3<=110)||(LA103_3>=114 && LA103_3<=115)) ) {
+                    alt103=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 89, 3, input);
+                        new NoViableAltException("", 103, 3, input);
 
                     throw nvae;
                 }
-                }
-                break;
-            case 106:
-                {
-                alt89=3;
-                }
-                break;
-            case 107:
-                {
-                alt89=4;
                 }
                 break;
             case RULE_NOMBRE_FUN:
@@ -13838,29 +14390,29 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             case 44:
             case 45:
                 {
-                alt89=5;
+                alt103=3;
                 }
                 break;
             case 33:
                 {
-                alt89=6;
+                alt103=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 89, 0, input);
+                    new NoViableAltException("", 103, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt89) {
+            switch (alt103) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5154:5: this_VariablesBasicas_0= ruleVariablesBasicas
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5364:5: this_VariablesBasicas_0= ruleVariablesBasicas
                     {
                      
                             newCompositeNode(grammarAccess.getPrimariaAccess().getVariablesBasicasParserRuleCall_0()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleVariablesBasicas_in_rulePrimaria11615);
+                    pushFollow(FollowSets000.FOLLOW_ruleVariablesBasicas_in_rulePrimaria12063);
                     this_VariablesBasicas_0=ruleVariablesBasicas();
 
                     state._fsp--;
@@ -13873,12 +14425,12 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5164:5: this_VariablesComplejas_1= ruleVariablesComplejas
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5374:5: this_VariablesComplejas_1= ruleVariablesComplejas
                     {
                      
                             newCompositeNode(grammarAccess.getPrimariaAccess().getVariablesComplejasParserRuleCall_1()); 
                         
-                    pushFollow(FollowSets000.FOLLOW_ruleVariablesComplejas_in_rulePrimaria11642);
+                    pushFollow(FollowSets000.FOLLOW_ruleVariablesComplejas_in_rulePrimaria12090);
                     this_VariablesComplejas_1=ruleVariablesComplejas();
 
                     state._fsp--;
@@ -13891,210 +14443,38 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 3 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5173:6: ( () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' )
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5173:6: ( () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5173:7: () otherlv_3= '-(' ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')'
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5173:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5174:5: 
-                    {
-
-                            current = forceCreateModelElement(
-                                grammarAccess.getPrimariaAccess().getNegativaAction_2_0(),
-                                current);
-                        
-
-                    }
-
-                    otherlv_3=(Token)match(input,106,FollowSets000.FOLLOW_106_in_rulePrimaria11669); 
-
-                        	newLeafNode(otherlv_3, grammarAccess.getPrimariaAccess().getHyphenMinusLeftParenthesisKeyword_2_1());
-                        
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5183:1: ( (lv_valor_operacion_4_0= ruleoperacion ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5184:1: (lv_valor_operacion_4_0= ruleoperacion )
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5184:1: (lv_valor_operacion_4_0= ruleoperacion )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5185:3: lv_valor_operacion_4_0= ruleoperacion
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5384:5: this_Funciones_2= ruleFunciones
                     {
                      
-                    	        newCompositeNode(grammarAccess.getPrimariaAccess().getValor_operacionOperacionParserRuleCall_2_2_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_rulePrimaria11690);
-                    lv_valor_operacion_4_0=ruleoperacion();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getPrimariaRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"valor_operacion",
-                            		lv_valor_operacion_4_0, 
-                            		"operacion");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-                    otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulePrimaria11702); 
-
-                        	newLeafNode(otherlv_5, grammarAccess.getPrimariaAccess().getRightParenthesisKeyword_2_3());
+                            newCompositeNode(grammarAccess.getPrimariaAccess().getFuncionesParserRuleCall_2()); 
                         
-
-                    }
-
-
-                    }
-                    break;
-                case 4 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5206:6: ( () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')' )
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5206:6: ( () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5206:7: () otherlv_7= 'not' otherlv_8= '(' ( (lv_valor_operacion_9_0= ruleoperacion ) ) otherlv_10= ')'
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5206:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5207:5: 
-                    {
-
-                            current = forceCreateModelElement(
-                                grammarAccess.getPrimariaAccess().getNegacionAction_3_0(),
-                                current);
-                        
-
-                    }
-
-                    otherlv_7=(Token)match(input,107,FollowSets000.FOLLOW_107_in_rulePrimaria11731); 
-
-                        	newLeafNode(otherlv_7, grammarAccess.getPrimariaAccess().getNotKeyword_3_1());
-                        
-                    otherlv_8=(Token)match(input,33,FollowSets000.FOLLOW_33_in_rulePrimaria11743); 
-
-                        	newLeafNode(otherlv_8, grammarAccess.getPrimariaAccess().getLeftParenthesisKeyword_3_2());
-                        
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5220:1: ( (lv_valor_operacion_9_0= ruleoperacion ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5221:1: (lv_valor_operacion_9_0= ruleoperacion )
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5221:1: (lv_valor_operacion_9_0= ruleoperacion )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5222:3: lv_valor_operacion_9_0= ruleoperacion
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getPrimariaAccess().getValor_operacionOperacionParserRuleCall_3_3_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_rulePrimaria11764);
-                    lv_valor_operacion_9_0=ruleoperacion();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getPrimariaRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"valor_operacion",
-                            		lv_valor_operacion_9_0, 
-                            		"operacion");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-                    otherlv_10=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulePrimaria11776); 
-
-                        	newLeafNode(otherlv_10, grammarAccess.getPrimariaAccess().getRightParenthesisKeyword_3_4());
-                        
-
-                    }
-
-
-                    }
-                    break;
-                case 5 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5244:5: this_Funciones_11= ruleFunciones
-                    {
-                     
-                            newCompositeNode(grammarAccess.getPrimariaAccess().getFuncionesParserRuleCall_4()); 
-                        
-                    pushFollow(FollowSets000.FOLLOW_ruleFunciones_in_rulePrimaria11805);
-                    this_Funciones_11=ruleFunciones();
+                    pushFollow(FollowSets000.FOLLOW_ruleFunciones_in_rulePrimaria12117);
+                    this_Funciones_2=ruleFunciones();
 
                     state._fsp--;
 
                      
-                            current = this_Funciones_11; 
+                            current = this_Funciones_2; 
                             afterParserOrEnumRuleCall();
                         
 
                     }
                     break;
-                case 6 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5253:6: ( () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')' )
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5253:6: ( () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5253:7: () otherlv_13= '(' ( (lv_valor_operacion_14_0= ruleoperacion ) ) otherlv_15= ')'
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5253:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5254:5: 
-                    {
-
-                            current = forceCreateModelElement(
-                                grammarAccess.getPrimariaAccess().getOperacionParentesisAction_5_0(),
-                                current);
-                        
-
-                    }
-
-                    otherlv_13=(Token)match(input,33,FollowSets000.FOLLOW_33_in_rulePrimaria11832); 
-
-                        	newLeafNode(otherlv_13, grammarAccess.getPrimariaAccess().getLeftParenthesisKeyword_5_1());
-                        
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5263:1: ( (lv_valor_operacion_14_0= ruleoperacion ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5264:1: (lv_valor_operacion_14_0= ruleoperacion )
-                    {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5264:1: (lv_valor_operacion_14_0= ruleoperacion )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5265:3: lv_valor_operacion_14_0= ruleoperacion
+                case 4 :
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5394:5: this_OperacionParentesis_3= ruleOperacionParentesis
                     {
                      
-                    	        newCompositeNode(grammarAccess.getPrimariaAccess().getValor_operacionOperacionParserRuleCall_5_2_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_rulePrimaria11853);
-                    lv_valor_operacion_14_0=ruleoperacion();
+                            newCompositeNode(grammarAccess.getPrimariaAccess().getOperacionParentesisParserRuleCall_3()); 
+                        
+                    pushFollow(FollowSets000.FOLLOW_ruleOperacionParentesis_in_rulePrimaria12144);
+                    this_OperacionParentesis_3=ruleOperacionParentesis();
 
                     state._fsp--;
 
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getPrimariaRule());
-                    	        }
-                           		set(
-                           			current, 
-                           			"valor_operacion",
-                            		lv_valor_operacion_14_0, 
-                            		"operacion");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-                    otherlv_15=(Token)match(input,30,FollowSets000.FOLLOW_30_in_rulePrimaria11865); 
-
-                        	newLeafNode(otherlv_15, grammarAccess.getPrimariaAccess().getRightParenthesisKeyword_5_3());
+                     
+                            current = this_OperacionParentesis_3; 
+                            afterParserOrEnumRuleCall();
                         
-
-                    }
-
 
                     }
                     break;
@@ -14118,8 +14498,412 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
     // $ANTLR end "rulePrimaria"
 
 
+    // $ANTLR start "entryRuleOperacionCompleta"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5410:1: entryRuleOperacionCompleta returns [EObject current=null] : iv_ruleOperacionCompleta= ruleOperacionCompleta EOF ;
+    public final EObject entryRuleOperacionCompleta() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleOperacionCompleta = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5411:2: (iv_ruleOperacionCompleta= ruleOperacionCompleta EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5412:2: iv_ruleOperacionCompleta= ruleOperacionCompleta EOF
+            {
+             newCompositeNode(grammarAccess.getOperacionCompletaRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_entryRuleOperacionCompleta12179);
+            iv_ruleOperacionCompleta=ruleOperacionCompleta();
+
+            state._fsp--;
+
+             current =iv_ruleOperacionCompleta; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOperacionCompleta12189); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleOperacionCompleta"
+
+
+    // $ANTLR start "ruleOperacionCompleta"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5419:1: ruleOperacionCompleta returns [EObject current=null] : ( () ( (lv_negacionesIniciales_1_0= '-' ) )* ( (lv_negacionesIniciales_2_0= 'no' ) )* ( (lv_valor_operacion_3_0= ruleoperacion ) ) ) ;
+    public final EObject ruleOperacionCompleta() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_negacionesIniciales_1_0=null;
+        Token lv_negacionesIniciales_2_0=null;
+        EObject lv_valor_operacion_3_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5422:28: ( ( () ( (lv_negacionesIniciales_1_0= '-' ) )* ( (lv_negacionesIniciales_2_0= 'no' ) )* ( (lv_valor_operacion_3_0= ruleoperacion ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5423:1: ( () ( (lv_negacionesIniciales_1_0= '-' ) )* ( (lv_negacionesIniciales_2_0= 'no' ) )* ( (lv_valor_operacion_3_0= ruleoperacion ) ) )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5423:1: ( () ( (lv_negacionesIniciales_1_0= '-' ) )* ( (lv_negacionesIniciales_2_0= 'no' ) )* ( (lv_valor_operacion_3_0= ruleoperacion ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5423:2: () ( (lv_negacionesIniciales_1_0= '-' ) )* ( (lv_negacionesIniciales_2_0= 'no' ) )* ( (lv_valor_operacion_3_0= ruleoperacion ) )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5423:2: ()
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5424:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getOperacionCompletaAccess().getOperacionCompletaAction_0(),
+                        current);
+                
+
+            }
+
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5429:2: ( (lv_negacionesIniciales_1_0= '-' ) )*
+            loop104:
+            do {
+                int alt104=2;
+                int LA104_0 = input.LA(1);
+
+                if ( (LA104_0==50) ) {
+                    alt104=1;
+                }
+
+
+                switch (alt104) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5430:1: (lv_negacionesIniciales_1_0= '-' )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5430:1: (lv_negacionesIniciales_1_0= '-' )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5431:3: lv_negacionesIniciales_1_0= '-'
+            	    {
+            	    lv_negacionesIniciales_1_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleOperacionCompleta12241); 
+
+            	            newLeafNode(lv_negacionesIniciales_1_0, grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesHyphenMinusKeyword_1_0());
+            	        
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getOperacionCompletaRule());
+            	    	        }
+            	           		addWithLastConsumed(current, "negacionesIniciales", lv_negacionesIniciales_1_0, "-");
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop104;
+                }
+            } while (true);
+
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5444:3: ( (lv_negacionesIniciales_2_0= 'no' ) )*
+            loop105:
+            do {
+                int alt105=2;
+                int LA105_0 = input.LA(1);
+
+                if ( (LA105_0==106) ) {
+                    alt105=1;
+                }
+
+
+                switch (alt105) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5445:1: (lv_negacionesIniciales_2_0= 'no' )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5445:1: (lv_negacionesIniciales_2_0= 'no' )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5446:3: lv_negacionesIniciales_2_0= 'no'
+            	    {
+            	    lv_negacionesIniciales_2_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleOperacionCompleta12273); 
+
+            	            newLeafNode(lv_negacionesIniciales_2_0, grammarAccess.getOperacionCompletaAccess().getNegacionesInicialesNoKeyword_2_0());
+            	        
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getOperacionCompletaRule());
+            	    	        }
+            	           		addWithLastConsumed(current, "negacionesIniciales", lv_negacionesIniciales_2_0, "no");
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop105;
+                }
+            } while (true);
+
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5459:3: ( (lv_valor_operacion_3_0= ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5460:1: (lv_valor_operacion_3_0= ruleoperacion )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5460:1: (lv_valor_operacion_3_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5461:3: lv_valor_operacion_3_0= ruleoperacion
+            {
+             
+            	        newCompositeNode(grammarAccess.getOperacionCompletaAccess().getValor_operacionOperacionParserRuleCall_3_0()); 
+            	    
+            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleOperacionCompleta12308);
+            lv_valor_operacion_3_0=ruleoperacion();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getOperacionCompletaRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"valor_operacion",
+                    		lv_valor_operacion_3_0, 
+                    		"operacion");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOperacionCompleta"
+
+
+    // $ANTLR start "entryRuleOperacionParentesis"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5485:1: entryRuleOperacionParentesis returns [EObject current=null] : iv_ruleOperacionParentesis= ruleOperacionParentesis EOF ;
+    public final EObject entryRuleOperacionParentesis() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleOperacionParentesis = null;
+
+
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5486:2: (iv_ruleOperacionParentesis= ruleOperacionParentesis EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5487:2: iv_ruleOperacionParentesis= ruleOperacionParentesis EOF
+            {
+             newCompositeNode(grammarAccess.getOperacionParentesisRule()); 
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionParentesis_in_entryRuleOperacionParentesis12344);
+            iv_ruleOperacionParentesis=ruleOperacionParentesis();
+
+            state._fsp--;
+
+             current =iv_ruleOperacionParentesis; 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleOperacionParentesis12354); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleOperacionParentesis"
+
+
+    // $ANTLR start "ruleOperacionParentesis"
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5494:1: ruleOperacionParentesis returns [EObject current=null] : ( () otherlv_1= '(' ( (lv_negacionesFinales_2_0= '-' ) )* ( (lv_negacionesFinales_3_0= 'no' ) )* ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' ) ;
+    public final EObject ruleOperacionParentesis() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token lv_negacionesFinales_2_0=null;
+        Token lv_negacionesFinales_3_0=null;
+        Token otherlv_5=null;
+        EObject lv_valor_operacion_4_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5497:28: ( ( () otherlv_1= '(' ( (lv_negacionesFinales_2_0= '-' ) )* ( (lv_negacionesFinales_3_0= 'no' ) )* ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5498:1: ( () otherlv_1= '(' ( (lv_negacionesFinales_2_0= '-' ) )* ( (lv_negacionesFinales_3_0= 'no' ) )* ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5498:1: ( () otherlv_1= '(' ( (lv_negacionesFinales_2_0= '-' ) )* ( (lv_negacionesFinales_3_0= 'no' ) )* ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5498:2: () otherlv_1= '(' ( (lv_negacionesFinales_2_0= '-' ) )* ( (lv_negacionesFinales_3_0= 'no' ) )* ( (lv_valor_operacion_4_0= ruleoperacion ) ) otherlv_5= ')'
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5498:2: ()
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5499:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getOperacionParentesisAccess().getOperacionParentesisAction_0(),
+                        current);
+                
+
+            }
+
+            otherlv_1=(Token)match(input,33,FollowSets000.FOLLOW_33_in_ruleOperacionParentesis12400); 
+
+                	newLeafNode(otherlv_1, grammarAccess.getOperacionParentesisAccess().getLeftParenthesisKeyword_1());
+                
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5508:1: ( (lv_negacionesFinales_2_0= '-' ) )*
+            loop106:
+            do {
+                int alt106=2;
+                int LA106_0 = input.LA(1);
+
+                if ( (LA106_0==50) ) {
+                    alt106=1;
+                }
+
+
+                switch (alt106) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5509:1: (lv_negacionesFinales_2_0= '-' )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5509:1: (lv_negacionesFinales_2_0= '-' )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5510:3: lv_negacionesFinales_2_0= '-'
+            	    {
+            	    lv_negacionesFinales_2_0=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleOperacionParentesis12418); 
+
+            	            newLeafNode(lv_negacionesFinales_2_0, grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesHyphenMinusKeyword_2_0());
+            	        
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getOperacionParentesisRule());
+            	    	        }
+            	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_2_0, "-");
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop106;
+                }
+            } while (true);
+
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5523:3: ( (lv_negacionesFinales_3_0= 'no' ) )*
+            loop107:
+            do {
+                int alt107=2;
+                int LA107_0 = input.LA(1);
+
+                if ( (LA107_0==106) ) {
+                    alt107=1;
+                }
+
+
+                switch (alt107) {
+            	case 1 :
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5524:1: (lv_negacionesFinales_3_0= 'no' )
+            	    {
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5524:1: (lv_negacionesFinales_3_0= 'no' )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5525:3: lv_negacionesFinales_3_0= 'no'
+            	    {
+            	    lv_negacionesFinales_3_0=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleOperacionParentesis12450); 
+
+            	            newLeafNode(lv_negacionesFinales_3_0, grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesNoKeyword_3_0());
+            	        
+
+            	    	        if (current==null) {
+            	    	            current = createModelElement(grammarAccess.getOperacionParentesisRule());
+            	    	        }
+            	           		addWithLastConsumed(current, "negacionesFinales", lv_negacionesFinales_3_0, "no");
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop107;
+                }
+            } while (true);
+
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5538:3: ( (lv_valor_operacion_4_0= ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5539:1: (lv_valor_operacion_4_0= ruleoperacion )
+            {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5539:1: (lv_valor_operacion_4_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5540:3: lv_valor_operacion_4_0= ruleoperacion
+            {
+             
+            	        newCompositeNode(grammarAccess.getOperacionParentesisAccess().getValor_operacionOperacionParserRuleCall_4_0()); 
+            	    
+            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleOperacionParentesis12485);
+            lv_valor_operacion_4_0=ruleoperacion();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getOperacionParentesisRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"valor_operacion",
+                    		lv_valor_operacion_4_0, 
+                    		"operacion");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+            otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleOperacionParentesis12497); 
+
+                	newLeafNode(otherlv_5, grammarAccess.getOperacionParentesisAccess().getRightParenthesisKeyword_5());
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOperacionParentesis"
+
+
     // $ANTLR start "entryRuleFunciones"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5293:1: entryRuleFunciones returns [EObject current=null] : iv_ruleFunciones= ruleFunciones EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5568:1: entryRuleFunciones returns [EObject current=null] : iv_ruleFunciones= ruleFunciones EOF ;
     public final EObject entryRuleFunciones() throws RecognitionException {
         EObject current = null;
 
@@ -14127,17 +14911,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5294:2: (iv_ruleFunciones= ruleFunciones EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5295:2: iv_ruleFunciones= ruleFunciones EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5569:2: (iv_ruleFunciones= ruleFunciones EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5570:2: iv_ruleFunciones= ruleFunciones EOF
             {
              newCompositeNode(grammarAccess.getFuncionesRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleFunciones_in_entryRuleFunciones11902);
+            pushFollow(FollowSets000.FOLLOW_ruleFunciones_in_entryRuleFunciones12533);
             iv_ruleFunciones=ruleFunciones();
 
             state._fsp--;
 
              current =iv_ruleFunciones; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFunciones11912); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFunciones12543); 
 
             }
 
@@ -14155,57 +14939,65 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleFunciones"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5302:1: ruleFunciones returns [EObject current=null] : ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')' ) | ( () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')' ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5577:1: ruleFunciones returns [EObject current=null] : ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')' ) | ( () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')' ) ) ;
     public final EObject ruleFunciones() throws RecognitionException {
         EObject current = null;
 
         Token lv_nombre_1_0=null;
+        Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_5=null;
+        Token otherlv_6=null;
+        Token otherlv_7=null;
         Token otherlv_9=null;
-        Token otherlv_11=null;
-        EObject lv_operadores_2_0 = null;
-
+        Token otherlv_12=null;
+        Token otherlv_13=null;
+        Token otherlv_15=null;
+        Token otherlv_16=null;
+        Token otherlv_17=null;
+        Token otherlv_19=null;
         EObject lv_operadores_4_0 = null;
-
-        AntlrDatatypeRuleToken lv_nombre_7_0 = null;
 
         EObject lv_operadores_8_0 = null;
 
-        EObject lv_operadores_10_0 = null;
+        AntlrDatatypeRuleToken lv_nombre_11_0 = null;
+
+        EObject lv_operadores_14_0 = null;
+
+        EObject lv_operadores_18_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5305:28: ( ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')' ) | ( () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')' ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5306:1: ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')' ) | ( () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5580:28: ( ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')' ) | ( () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')' ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5581:1: ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')' ) | ( () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')' ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5306:1: ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')' ) | ( () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')' ) )
-            int alt94=2;
-            int LA94_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5581:1: ( ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')' ) | ( () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')' ) )
+            int alt120=2;
+            int LA120_0 = input.LA(1);
 
-            if ( (LA94_0==RULE_NOMBRE_FUN) ) {
-                alt94=1;
+            if ( (LA120_0==RULE_NOMBRE_FUN) ) {
+                alt120=1;
             }
-            else if ( ((LA94_0>=37 && LA94_0<=45)) ) {
-                alt94=2;
+            else if ( ((LA120_0>=37 && LA120_0<=45)) ) {
+                alt120=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 94, 0, input);
+                    new NoViableAltException("", 120, 0, input);
 
                 throw nvae;
             }
-            switch (alt94) {
+            switch (alt120) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5306:2: ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')' )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5581:2: ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')' )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5306:2: ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5306:3: () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )? otherlv_5= ')'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5581:2: ( () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')' )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5581:3: () ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )? otherlv_9= ')'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5306:3: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5307:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5581:3: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5582:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -14215,13 +15007,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5312:2: ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5313:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5587:2: ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5588:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5313:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5314:3: lv_nombre_1_0= RULE_NOMBRE_FUN
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5588:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5589:3: lv_nombre_1_0= RULE_NOMBRE_FUN
                     {
-                    lv_nombre_1_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_RULE_NOMBRE_FUN_in_ruleFunciones11964); 
+                    lv_nombre_1_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_RULE_NOMBRE_FUN_in_ruleFunciones12595); 
 
                     			newLeafNode(lv_nombre_1_0, grammarAccess.getFuncionesAccess().getNombreNOMBRE_FUNTerminalRuleCall_0_1_0()); 
                     		
@@ -14241,28 +15033,84 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5330:2: ( ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )* )?
-                    int alt91=2;
-                    int LA91_0 = input.LA(1);
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5605:2: ( (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )* )?
+                    int alt113=2;
+                    int LA113_0 = input.LA(1);
 
-                    if ( ((LA91_0>=RULE_ID && LA91_0<=RULE_CAR)||LA91_0==33||(LA91_0>=37 && LA91_0<=45)||(LA91_0>=106 && LA91_0<=107)||(LA91_0>=115 && LA91_0<=116)) ) {
-                        alt91=1;
+                    if ( ((LA113_0>=RULE_ID && LA113_0<=RULE_CAR)||LA113_0==33||(LA113_0>=37 && LA113_0<=45)||LA113_0==50||LA113_0==106||(LA113_0>=114 && LA113_0<=115)) ) {
+                        alt113=1;
                     }
-                    switch (alt91) {
+                    switch (alt113) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5330:3: ( (lv_operadores_2_0= ruleoperacion ) ) (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )*
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5605:3: (otherlv_2= '-' )* (otherlv_3= 'no' )* ( (lv_operadores_4_0= ruleoperacion ) ) (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )*
                             {
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5330:3: ( (lv_operadores_2_0= ruleoperacion ) )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5331:1: (lv_operadores_2_0= ruleoperacion )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5605:3: (otherlv_2= '-' )*
+                            loop108:
+                            do {
+                                int alt108=2;
+                                int LA108_0 = input.LA(1);
+
+                                if ( (LA108_0==50) ) {
+                                    alt108=1;
+                                }
+
+
+                                switch (alt108) {
+                            	case 1 :
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5605:5: otherlv_2= '-'
+                            	    {
+                            	    otherlv_2=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleFunciones12614); 
+
+                            	        	newLeafNode(otherlv_2, grammarAccess.getFuncionesAccess().getHyphenMinusKeyword_0_2_0());
+                            	        
+
+                            	    }
+                            	    break;
+
+                            	default :
+                            	    break loop108;
+                                }
+                            } while (true);
+
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5609:3: (otherlv_3= 'no' )*
+                            loop109:
+                            do {
+                                int alt109=2;
+                                int LA109_0 = input.LA(1);
+
+                                if ( (LA109_0==106) ) {
+                                    alt109=1;
+                                }
+
+
+                                switch (alt109) {
+                            	case 1 :
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5609:5: otherlv_3= 'no'
+                            	    {
+                            	    otherlv_3=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleFunciones12629); 
+
+                            	        	newLeafNode(otherlv_3, grammarAccess.getFuncionesAccess().getNoKeyword_0_2_1());
+                            	        
+
+                            	    }
+                            	    break;
+
+                            	default :
+                            	    break loop109;
+                                }
+                            } while (true);
+
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5613:3: ( (lv_operadores_4_0= ruleoperacion ) )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5614:1: (lv_operadores_4_0= ruleoperacion )
                             {
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5331:1: (lv_operadores_2_0= ruleoperacion )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5332:3: lv_operadores_2_0= ruleoperacion
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5614:1: (lv_operadores_4_0= ruleoperacion )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5615:3: lv_operadores_4_0= ruleoperacion
                             {
                              
-                            	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_0_2_0_0()); 
+                            	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_0_2_2_0()); 
                             	    
-                            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones11991);
-                            lv_operadores_2_0=ruleoperacion();
+                            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12652);
+                            lv_operadores_4_0=ruleoperacion();
 
                             state._fsp--;
 
@@ -14273,7 +15121,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                                    		add(
                                    			current, 
                                    			"operadores",
-                                    		lv_operadores_2_0, 
+                                    		lv_operadores_4_0, 
                                     		"operacion");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -14283,36 +15131,92 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                             }
 
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5348:2: (otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) ) )*
-                            loop90:
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5631:2: (otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) ) )*
+                            loop112:
                             do {
-                                int alt90=2;
-                                int LA90_0 = input.LA(1);
+                                int alt112=2;
+                                int LA112_0 = input.LA(1);
 
-                                if ( (LA90_0==29) ) {
-                                    alt90=1;
+                                if ( (LA112_0==29) ) {
+                                    alt112=1;
                                 }
 
 
-                                switch (alt90) {
+                                switch (alt112) {
                             	case 1 :
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5348:4: otherlv_3= ',' ( (lv_operadores_4_0= ruleoperacion ) )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5631:4: otherlv_5= ',' (otherlv_6= '-' )* (otherlv_7= 'no' )* ( (lv_operadores_8_0= ruleoperacion ) )
                             	    {
-                            	    otherlv_3=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleFunciones12004); 
+                            	    otherlv_5=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleFunciones12665); 
 
-                            	        	newLeafNode(otherlv_3, grammarAccess.getFuncionesAccess().getCommaKeyword_0_2_1_0());
+                            	        	newLeafNode(otherlv_5, grammarAccess.getFuncionesAccess().getCommaKeyword_0_2_3_0());
                             	        
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5352:1: ( (lv_operadores_4_0= ruleoperacion ) )
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5353:1: (lv_operadores_4_0= ruleoperacion )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5635:1: (otherlv_6= '-' )*
+                            	    loop110:
+                            	    do {
+                            	        int alt110=2;
+                            	        int LA110_0 = input.LA(1);
+
+                            	        if ( (LA110_0==50) ) {
+                            	            alt110=1;
+                            	        }
+
+
+                            	        switch (alt110) {
+                            	    	case 1 :
+                            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5635:3: otherlv_6= '-'
+                            	    	    {
+                            	    	    otherlv_6=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleFunciones12678); 
+
+                            	    	        	newLeafNode(otherlv_6, grammarAccess.getFuncionesAccess().getHyphenMinusKeyword_0_2_3_1());
+                            	    	        
+
+                            	    	    }
+                            	    	    break;
+
+                            	    	default :
+                            	    	    break loop110;
+                            	        }
+                            	    } while (true);
+
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5639:3: (otherlv_7= 'no' )*
+                            	    loop111:
+                            	    do {
+                            	        int alt111=2;
+                            	        int LA111_0 = input.LA(1);
+
+                            	        if ( (LA111_0==106) ) {
+                            	            alt111=1;
+                            	        }
+
+
+                            	        switch (alt111) {
+                            	    	case 1 :
+                            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5639:5: otherlv_7= 'no'
+                            	    	    {
+                            	    	    otherlv_7=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleFunciones12693); 
+
+                            	    	        	newLeafNode(otherlv_7, grammarAccess.getFuncionesAccess().getNoKeyword_0_2_3_2());
+                            	    	        
+
+                            	    	    }
+                            	    	    break;
+
+                            	    	default :
+                            	    	    break loop111;
+                            	        }
+                            	    } while (true);
+
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5643:3: ( (lv_operadores_8_0= ruleoperacion ) )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5644:1: (lv_operadores_8_0= ruleoperacion )
                             	    {
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5353:1: (lv_operadores_4_0= ruleoperacion )
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5354:3: lv_operadores_4_0= ruleoperacion
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5644:1: (lv_operadores_8_0= ruleoperacion )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5645:3: lv_operadores_8_0= ruleoperacion
                             	    {
                             	     
-                            	    	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_0_2_1_1_0()); 
+                            	    	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_0_2_3_3_0()); 
                             	    	    
-                            	    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12025);
-                            	    lv_operadores_4_0=ruleoperacion();
+                            	    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12716);
+                            	    lv_operadores_8_0=ruleoperacion();
 
                             	    state._fsp--;
 
@@ -14323,7 +15227,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                             	           		add(
                             	           			current, 
                             	           			"operadores",
-                            	            		lv_operadores_4_0, 
+                            	            		lv_operadores_8_0, 
                             	            		"operacion");
                             	    	        afterParserOrEnumRuleCall();
                             	    	    
@@ -14338,7 +15242,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                             	    break;
 
                             	default :
-                            	    break loop90;
+                            	    break loop112;
                                 }
                             } while (true);
 
@@ -14348,9 +15252,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleFunciones12041); 
+                    otherlv_9=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleFunciones12732); 
 
-                        	newLeafNode(otherlv_5, grammarAccess.getFuncionesAccess().getRightParenthesisKeyword_0_3());
+                        	newLeafNode(otherlv_9, grammarAccess.getFuncionesAccess().getRightParenthesisKeyword_0_3());
                         
 
                     }
@@ -14359,13 +15263,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5375:6: ( () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')' )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5666:6: ( () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')' )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5375:6: ( () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5375:7: () ( (lv_nombre_7_0= ruleNombreInterna ) ) ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )? otherlv_11= ')'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5666:6: ( () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')' )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5666:7: () ( (lv_nombre_11_0= ruleNombreInterna ) ) ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )? otherlv_19= ')'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5375:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5376:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5666:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5667:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -14375,17 +15279,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5381:2: ( (lv_nombre_7_0= ruleNombreInterna ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5382:1: (lv_nombre_7_0= ruleNombreInterna )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5672:2: ( (lv_nombre_11_0= ruleNombreInterna ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5673:1: (lv_nombre_11_0= ruleNombreInterna )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5382:1: (lv_nombre_7_0= ruleNombreInterna )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5383:3: lv_nombre_7_0= ruleNombreInterna
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5673:1: (lv_nombre_11_0= ruleNombreInterna )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5674:3: lv_nombre_11_0= ruleNombreInterna
                     {
                      
                     	        newCompositeNode(grammarAccess.getFuncionesAccess().getNombreNombreInternaParserRuleCall_1_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleNombreInterna_in_ruleFunciones12079);
-                    lv_nombre_7_0=ruleNombreInterna();
+                    pushFollow(FollowSets000.FOLLOW_ruleNombreInterna_in_ruleFunciones12770);
+                    lv_nombre_11_0=ruleNombreInterna();
 
                     state._fsp--;
 
@@ -14396,7 +15300,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                            		set(
                            			current, 
                            			"nombre",
-                            		lv_nombre_7_0, 
+                            		lv_nombre_11_0, 
                             		"NombreInterna");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -14406,28 +15310,84 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5399:2: ( ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )* )?
-                    int alt93=2;
-                    int LA93_0 = input.LA(1);
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5690:2: ( (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )* )?
+                    int alt119=2;
+                    int LA119_0 = input.LA(1);
 
-                    if ( ((LA93_0>=RULE_ID && LA93_0<=RULE_CAR)||LA93_0==33||(LA93_0>=37 && LA93_0<=45)||(LA93_0>=106 && LA93_0<=107)||(LA93_0>=115 && LA93_0<=116)) ) {
-                        alt93=1;
+                    if ( ((LA119_0>=RULE_ID && LA119_0<=RULE_CAR)||LA119_0==33||(LA119_0>=37 && LA119_0<=45)||LA119_0==50||LA119_0==106||(LA119_0>=114 && LA119_0<=115)) ) {
+                        alt119=1;
                     }
-                    switch (alt93) {
+                    switch (alt119) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5399:3: ( (lv_operadores_8_0= ruleoperacion ) ) (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )*
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5690:3: (otherlv_12= '-' )* (otherlv_13= 'no' )* ( (lv_operadores_14_0= ruleoperacion ) ) (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )*
                             {
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5399:3: ( (lv_operadores_8_0= ruleoperacion ) )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5400:1: (lv_operadores_8_0= ruleoperacion )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5690:3: (otherlv_12= '-' )*
+                            loop114:
+                            do {
+                                int alt114=2;
+                                int LA114_0 = input.LA(1);
+
+                                if ( (LA114_0==50) ) {
+                                    alt114=1;
+                                }
+
+
+                                switch (alt114) {
+                            	case 1 :
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5690:5: otherlv_12= '-'
+                            	    {
+                            	    otherlv_12=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleFunciones12784); 
+
+                            	        	newLeafNode(otherlv_12, grammarAccess.getFuncionesAccess().getHyphenMinusKeyword_1_2_0());
+                            	        
+
+                            	    }
+                            	    break;
+
+                            	default :
+                            	    break loop114;
+                                }
+                            } while (true);
+
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5694:3: (otherlv_13= 'no' )*
+                            loop115:
+                            do {
+                                int alt115=2;
+                                int LA115_0 = input.LA(1);
+
+                                if ( (LA115_0==106) ) {
+                                    alt115=1;
+                                }
+
+
+                                switch (alt115) {
+                            	case 1 :
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5694:5: otherlv_13= 'no'
+                            	    {
+                            	    otherlv_13=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleFunciones12799); 
+
+                            	        	newLeafNode(otherlv_13, grammarAccess.getFuncionesAccess().getNoKeyword_1_2_1());
+                            	        
+
+                            	    }
+                            	    break;
+
+                            	default :
+                            	    break loop115;
+                                }
+                            } while (true);
+
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5698:3: ( (lv_operadores_14_0= ruleoperacion ) )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5699:1: (lv_operadores_14_0= ruleoperacion )
                             {
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5400:1: (lv_operadores_8_0= ruleoperacion )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5401:3: lv_operadores_8_0= ruleoperacion
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5699:1: (lv_operadores_14_0= ruleoperacion )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5700:3: lv_operadores_14_0= ruleoperacion
                             {
                              
-                            	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_1_2_0_0()); 
+                            	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_1_2_2_0()); 
                             	    
-                            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12101);
-                            lv_operadores_8_0=ruleoperacion();
+                            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12822);
+                            lv_operadores_14_0=ruleoperacion();
 
                             state._fsp--;
 
@@ -14438,7 +15398,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                                    		add(
                                    			current, 
                                    			"operadores",
-                                    		lv_operadores_8_0, 
+                                    		lv_operadores_14_0, 
                                     		"operacion");
                             	        afterParserOrEnumRuleCall();
                             	    
@@ -14448,36 +15408,92 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                             }
 
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5417:2: (otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) ) )*
-                            loop92:
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5716:2: (otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) ) )*
+                            loop118:
                             do {
-                                int alt92=2;
-                                int LA92_0 = input.LA(1);
+                                int alt118=2;
+                                int LA118_0 = input.LA(1);
 
-                                if ( (LA92_0==29) ) {
-                                    alt92=1;
+                                if ( (LA118_0==29) ) {
+                                    alt118=1;
                                 }
 
 
-                                switch (alt92) {
+                                switch (alt118) {
                             	case 1 :
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5417:4: otherlv_9= ',' ( (lv_operadores_10_0= ruleoperacion ) )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5716:4: otherlv_15= ',' (otherlv_16= '-' )* (otherlv_17= 'no' )* ( (lv_operadores_18_0= ruleoperacion ) )
                             	    {
-                            	    otherlv_9=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleFunciones12114); 
+                            	    otherlv_15=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleFunciones12835); 
 
-                            	        	newLeafNode(otherlv_9, grammarAccess.getFuncionesAccess().getCommaKeyword_1_2_1_0());
+                            	        	newLeafNode(otherlv_15, grammarAccess.getFuncionesAccess().getCommaKeyword_1_2_3_0());
                             	        
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5421:1: ( (lv_operadores_10_0= ruleoperacion ) )
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5422:1: (lv_operadores_10_0= ruleoperacion )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5720:1: (otherlv_16= '-' )*
+                            	    loop116:
+                            	    do {
+                            	        int alt116=2;
+                            	        int LA116_0 = input.LA(1);
+
+                            	        if ( (LA116_0==50) ) {
+                            	            alt116=1;
+                            	        }
+
+
+                            	        switch (alt116) {
+                            	    	case 1 :
+                            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5720:3: otherlv_16= '-'
+                            	    	    {
+                            	    	    otherlv_16=(Token)match(input,50,FollowSets000.FOLLOW_50_in_ruleFunciones12848); 
+
+                            	    	        	newLeafNode(otherlv_16, grammarAccess.getFuncionesAccess().getHyphenMinusKeyword_1_2_3_1());
+                            	    	        
+
+                            	    	    }
+                            	    	    break;
+
+                            	    	default :
+                            	    	    break loop116;
+                            	        }
+                            	    } while (true);
+
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5724:3: (otherlv_17= 'no' )*
+                            	    loop117:
+                            	    do {
+                            	        int alt117=2;
+                            	        int LA117_0 = input.LA(1);
+
+                            	        if ( (LA117_0==106) ) {
+                            	            alt117=1;
+                            	        }
+
+
+                            	        switch (alt117) {
+                            	    	case 1 :
+                            	    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5724:5: otherlv_17= 'no'
+                            	    	    {
+                            	    	    otherlv_17=(Token)match(input,106,FollowSets000.FOLLOW_106_in_ruleFunciones12863); 
+
+                            	    	        	newLeafNode(otherlv_17, grammarAccess.getFuncionesAccess().getNoKeyword_1_2_3_2());
+                            	    	        
+
+                            	    	    }
+                            	    	    break;
+
+                            	    	default :
+                            	    	    break loop117;
+                            	        }
+                            	    } while (true);
+
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5728:3: ( (lv_operadores_18_0= ruleoperacion ) )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5729:1: (lv_operadores_18_0= ruleoperacion )
                             	    {
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5422:1: (lv_operadores_10_0= ruleoperacion )
-                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5423:3: lv_operadores_10_0= ruleoperacion
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5729:1: (lv_operadores_18_0= ruleoperacion )
+                            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5730:3: lv_operadores_18_0= ruleoperacion
                             	    {
                             	     
-                            	    	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_1_2_1_1_0()); 
+                            	    	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionParserRuleCall_1_2_3_3_0()); 
                             	    	    
-                            	    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12135);
-                            	    lv_operadores_10_0=ruleoperacion();
+                            	    pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleFunciones12886);
+                            	    lv_operadores_18_0=ruleoperacion();
 
                             	    state._fsp--;
 
@@ -14488,7 +15504,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                             	           		add(
                             	           			current, 
                             	           			"operadores",
-                            	            		lv_operadores_10_0, 
+                            	            		lv_operadores_18_0, 
                             	            		"operacion");
                             	    	        afterParserOrEnumRuleCall();
                             	    	    
@@ -14503,7 +15519,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                             	    break;
 
                             	default :
-                            	    break loop92;
+                            	    break loop118;
                                 }
                             } while (true);
 
@@ -14513,9 +15529,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_11=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleFunciones12151); 
+                    otherlv_19=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleFunciones12902); 
 
-                        	newLeafNode(otherlv_11, grammarAccess.getFuncionesAccess().getRightParenthesisKeyword_1_3());
+                        	newLeafNode(otherlv_19, grammarAccess.getFuncionesAccess().getRightParenthesisKeyword_1_3());
                         
 
                     }
@@ -14544,7 +15560,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleVariablesComplejas"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5451:1: entryRuleVariablesComplejas returns [EObject current=null] : iv_ruleVariablesComplejas= ruleVariablesComplejas EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5758:1: entryRuleVariablesComplejas returns [EObject current=null] : iv_ruleVariablesComplejas= ruleVariablesComplejas EOF ;
     public final EObject entryRuleVariablesComplejas() throws RecognitionException {
         EObject current = null;
 
@@ -14552,17 +15568,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5452:2: (iv_ruleVariablesComplejas= ruleVariablesComplejas EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5453:2: iv_ruleVariablesComplejas= ruleVariablesComplejas EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5759:2: (iv_ruleVariablesComplejas= ruleVariablesComplejas EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5760:2: iv_ruleVariablesComplejas= ruleVariablesComplejas EOF
             {
              newCompositeNode(grammarAccess.getVariablesComplejasRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleVariablesComplejas_in_entryRuleVariablesComplejas12188);
+            pushFollow(FollowSets000.FOLLOW_ruleVariablesComplejas_in_entryRuleVariablesComplejas12939);
             iv_ruleVariablesComplejas=ruleVariablesComplejas();
 
             state._fsp--;
 
              current =iv_ruleVariablesComplejas; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVariablesComplejas12198); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVariablesComplejas12949); 
 
             }
 
@@ -14580,7 +15596,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleVariablesComplejas"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5460:1: ruleVariablesComplejas returns [EObject current=null] : ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5767:1: ruleVariablesComplejas returns [EObject current=null] : ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) ) ;
     public final EObject ruleVariablesComplejas() throws RecognitionException {
         EObject current = null;
 
@@ -14617,21 +15633,21 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5463:28: ( ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5464:1: ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5770:28: ( ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:1: ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5464:1: ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) )
-            int alt98=3;
-            alt98 = dfa98.predict(input);
-            switch (alt98) {
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:1: ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) )
+            int alt124=3;
+            alt124 = dfa124.predict(input);
+            switch (alt124) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5464:2: ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:2: ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5464:2: ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5464:3: () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )?
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:2: ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:3: () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )?
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5464:3: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5465:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:3: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5772:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -14641,19 +15657,19 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5470:2: ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5470:3: ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5777:2: ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5777:3: ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5470:3: ( (lv_nombre_vector_1_0= ruleEString ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5471:1: (lv_nombre_vector_1_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5777:3: ( (lv_nombre_vector_1_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5778:1: (lv_nombre_vector_1_0= ruleEString )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5471:1: (lv_nombre_vector_1_0= ruleEString )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5472:3: lv_nombre_vector_1_0= ruleEString
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5778:1: (lv_nombre_vector_1_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5779:3: lv_nombre_vector_1_0= ruleEString
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getNombre_vectorEStringParserRuleCall_0_1_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesComplejas12255);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesComplejas13006);
                     lv_nombre_vector_1_0=ruleEString();
 
                     state._fsp--;
@@ -14675,20 +15691,20 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_2=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleVariablesComplejas12267); 
+                    otherlv_2=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleVariablesComplejas13018); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getVariablesComplejasAccess().getLeftSquareBracketKeyword_0_1_1());
                         
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5492:1: ( (lv_indice_3_0= ruleoperacionIndice ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5493:1: (lv_indice_3_0= ruleoperacionIndice )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5799:1: ( (lv_indice_3_0= ruleoperacionIndice ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5800:1: (lv_indice_3_0= ruleoperacionIndice )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5493:1: (lv_indice_3_0= ruleoperacionIndice )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5494:3: lv_indice_3_0= ruleoperacionIndice
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5800:1: (lv_indice_3_0= ruleoperacionIndice )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5801:3: lv_indice_3_0= ruleoperacionIndice
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getIndiceOperacionIndiceParserRuleCall_0_1_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas12288);
+                    pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas13039);
                     lv_indice_3_0=ruleoperacionIndice();
 
                     state._fsp--;
@@ -14710,38 +15726,38 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_4=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleVariablesComplejas12300); 
+                    otherlv_4=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleVariablesComplejas13051); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketKeyword_0_1_3());
                         
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5514:2: (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )?
-                    int alt95=2;
-                    int LA95_0 = input.LA(1);
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5821:2: (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )?
+                    int alt121=2;
+                    int LA121_0 = input.LA(1);
 
-                    if ( (LA95_0==46) ) {
-                        alt95=1;
+                    if ( (LA121_0==46) ) {
+                        alt121=1;
                     }
-                    switch (alt95) {
+                    switch (alt121) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5514:4: otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5821:4: otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) )
                             {
-                            otherlv_5=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas12314); 
+                            otherlv_5=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas13065); 
 
                                 	newLeafNode(otherlv_5, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_0_2_0());
                                 
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5518:1: ( (lv_campo_6_0= ruleCampoRegistro ) )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5519:1: (lv_campo_6_0= ruleCampoRegistro )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5825:1: ( (lv_campo_6_0= ruleCampoRegistro ) )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5826:1: (lv_campo_6_0= ruleCampoRegistro )
                             {
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5519:1: (lv_campo_6_0= ruleCampoRegistro )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5520:3: lv_campo_6_0= ruleCampoRegistro
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5826:1: (lv_campo_6_0= ruleCampoRegistro )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5827:3: lv_campo_6_0= ruleCampoRegistro
                             {
                              
                             	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_0_2_1_0()); 
                             	    
-                            pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12335);
+                            pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13086);
                             lv_campo_6_0=ruleCampoRegistro();
 
                             state._fsp--;
@@ -14776,13 +15792,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5537:6: ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5844:6: ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5537:6: ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5537:7: () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )?
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5844:6: ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5844:7: () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )?
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5537:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5538:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5844:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5845:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -14792,19 +15808,19 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5543:2: ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5543:3: ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5850:2: ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5850:3: ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5543:3: ( (lv_nombre_matriz_8_0= ruleEString ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5544:1: (lv_nombre_matriz_8_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5850:3: ( (lv_nombre_matriz_8_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5851:1: (lv_nombre_matriz_8_0= ruleEString )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5544:1: (lv_nombre_matriz_8_0= ruleEString )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5545:3: lv_nombre_matriz_8_0= ruleEString
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5851:1: (lv_nombre_matriz_8_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5852:3: lv_nombre_matriz_8_0= ruleEString
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getNombre_matrizEStringParserRuleCall_1_1_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesComplejas12376);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesComplejas13127);
                     lv_nombre_matriz_8_0=ruleEString();
 
                     state._fsp--;
@@ -14826,20 +15842,20 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_9=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleVariablesComplejas12388); 
+                    otherlv_9=(Token)match(input,53,FollowSets000.FOLLOW_53_in_ruleVariablesComplejas13139); 
 
                         	newLeafNode(otherlv_9, grammarAccess.getVariablesComplejasAccess().getLeftSquareBracketKeyword_1_1_1());
                         
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5565:1: ( (lv_primerIndice_10_0= ruleoperacionIndice ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5566:1: (lv_primerIndice_10_0= ruleoperacionIndice )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5872:1: ( (lv_primerIndice_10_0= ruleoperacionIndice ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5873:1: (lv_primerIndice_10_0= ruleoperacionIndice )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5566:1: (lv_primerIndice_10_0= ruleoperacionIndice )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5567:3: lv_primerIndice_10_0= ruleoperacionIndice
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5873:1: (lv_primerIndice_10_0= ruleoperacionIndice )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5874:3: lv_primerIndice_10_0= ruleoperacionIndice
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getPrimerIndiceOperacionIndiceParserRuleCall_1_1_2_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas12409);
+                    pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas13160);
                     lv_primerIndice_10_0=ruleoperacionIndice();
 
                     state._fsp--;
@@ -14861,20 +15877,20 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_11=(Token)match(input,58,FollowSets000.FOLLOW_58_in_ruleVariablesComplejas12421); 
+                    otherlv_11=(Token)match(input,58,FollowSets000.FOLLOW_58_in_ruleVariablesComplejas13172); 
 
                         	newLeafNode(otherlv_11, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketLeftSquareBracketKeyword_1_1_3());
                         
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5587:1: ( (lv_segundoIndice_12_0= ruleoperacionIndice ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5588:1: (lv_segundoIndice_12_0= ruleoperacionIndice )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5894:1: ( (lv_segundoIndice_12_0= ruleoperacionIndice ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5895:1: (lv_segundoIndice_12_0= ruleoperacionIndice )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5588:1: (lv_segundoIndice_12_0= ruleoperacionIndice )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5589:3: lv_segundoIndice_12_0= ruleoperacionIndice
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5895:1: (lv_segundoIndice_12_0= ruleoperacionIndice )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5896:3: lv_segundoIndice_12_0= ruleoperacionIndice
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getSegundoIndiceOperacionIndiceParserRuleCall_1_1_4_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas12442);
+                    pushFollow(FollowSets000.FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas13193);
                     lv_segundoIndice_12_0=ruleoperacionIndice();
 
                     state._fsp--;
@@ -14896,38 +15912,38 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_13=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleVariablesComplejas12454); 
+                    otherlv_13=(Token)match(input,54,FollowSets000.FOLLOW_54_in_ruleVariablesComplejas13205); 
 
                         	newLeafNode(otherlv_13, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketKeyword_1_1_5());
                         
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5609:2: (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )?
-                    int alt96=2;
-                    int LA96_0 = input.LA(1);
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5916:2: (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )?
+                    int alt122=2;
+                    int LA122_0 = input.LA(1);
 
-                    if ( (LA96_0==46) ) {
-                        alt96=1;
+                    if ( (LA122_0==46) ) {
+                        alt122=1;
                     }
-                    switch (alt96) {
+                    switch (alt122) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5609:4: otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5916:4: otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) )
                             {
-                            otherlv_14=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas12468); 
+                            otherlv_14=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas13219); 
 
                                 	newLeafNode(otherlv_14, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_1_2_0());
                                 
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5613:1: ( (lv_campo_15_0= ruleCampoRegistro ) )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5614:1: (lv_campo_15_0= ruleCampoRegistro )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5920:1: ( (lv_campo_15_0= ruleCampoRegistro ) )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5921:1: (lv_campo_15_0= ruleCampoRegistro )
                             {
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5614:1: (lv_campo_15_0= ruleCampoRegistro )
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5615:3: lv_campo_15_0= ruleCampoRegistro
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5921:1: (lv_campo_15_0= ruleCampoRegistro )
+                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5922:3: lv_campo_15_0= ruleCampoRegistro
                             {
                              
                             	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_1_2_1_0()); 
                             	    
-                            pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12489);
+                            pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13240);
                             lv_campo_15_0=ruleCampoRegistro();
 
                             state._fsp--;
@@ -14962,13 +15978,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 3 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5632:6: ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5939:6: ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5632:6: ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5632:7: () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5939:6: ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5939:7: () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5632:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5633:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5939:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5940:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -14978,16 +15994,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5638:2: ( (lv_nombre_registro_17_0= ruleEString ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5639:1: (lv_nombre_registro_17_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5945:2: ( (lv_nombre_registro_17_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5946:1: (lv_nombre_registro_17_0= ruleEString )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5639:1: (lv_nombre_registro_17_0= ruleEString )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5640:3: lv_nombre_registro_17_0= ruleEString
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5946:1: (lv_nombre_registro_17_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5947:3: lv_nombre_registro_17_0= ruleEString
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getNombre_registroEStringParserRuleCall_2_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesComplejas12529);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesComplejas13280);
                     lv_nombre_registro_17_0=ruleEString();
 
                     state._fsp--;
@@ -15009,23 +16025,23 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    otherlv_18=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas12541); 
+                    otherlv_18=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas13292); 
 
                         	newLeafNode(otherlv_18, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_2_2());
                         
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5660:1: ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5660:2: ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5967:1: ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5967:2: ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )*
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5660:2: ( (lv_campo_19_0= ruleCampoRegistro ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5661:1: (lv_campo_19_0= ruleCampoRegistro )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5967:2: ( (lv_campo_19_0= ruleCampoRegistro ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5968:1: (lv_campo_19_0= ruleCampoRegistro )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5661:1: (lv_campo_19_0= ruleCampoRegistro )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5662:3: lv_campo_19_0= ruleCampoRegistro
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5968:1: (lv_campo_19_0= ruleCampoRegistro )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5969:3: lv_campo_19_0= ruleCampoRegistro
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_3_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12563);
+                    pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13314);
                     lv_campo_19_0=ruleCampoRegistro();
 
                     state._fsp--;
@@ -15047,35 +16063,35 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5678:2: (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )*
-                    loop97:
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5985:2: (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )*
+                    loop123:
                     do {
-                        int alt97=2;
-                        int LA97_0 = input.LA(1);
+                        int alt123=2;
+                        int LA123_0 = input.LA(1);
 
-                        if ( (LA97_0==46) ) {
-                            alt97=1;
+                        if ( (LA123_0==46) ) {
+                            alt123=1;
                         }
 
 
-                        switch (alt97) {
+                        switch (alt123) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5678:4: otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5985:4: otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) )
                     	    {
-                    	    otherlv_20=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas12576); 
+                    	    otherlv_20=(Token)match(input,46,FollowSets000.FOLLOW_46_in_ruleVariablesComplejas13327); 
 
                     	        	newLeafNode(otherlv_20, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_2_3_1_0());
                     	        
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5682:1: ( (lv_campo_21_0= ruleCampoRegistro ) )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5683:1: (lv_campo_21_0= ruleCampoRegistro )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5989:1: ( (lv_campo_21_0= ruleCampoRegistro ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5990:1: (lv_campo_21_0= ruleCampoRegistro )
                     	    {
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5683:1: (lv_campo_21_0= ruleCampoRegistro )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5684:3: lv_campo_21_0= ruleCampoRegistro
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5990:1: (lv_campo_21_0= ruleCampoRegistro )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5991:3: lv_campo_21_0= ruleCampoRegistro
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_3_1_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12597);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13348);
                     	    lv_campo_21_0=ruleCampoRegistro();
 
                     	    state._fsp--;
@@ -15102,7 +16118,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     	    break;
 
                     	default :
-                    	    break loop97;
+                    	    break loop123;
                         }
                     } while (true);
 
@@ -15136,7 +16152,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleVariablesBasicas"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5708:1: entryRuleVariablesBasicas returns [EObject current=null] : iv_ruleVariablesBasicas= ruleVariablesBasicas EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6015:1: entryRuleVariablesBasicas returns [EObject current=null] : iv_ruleVariablesBasicas= ruleVariablesBasicas EOF ;
     public final EObject entryRuleVariablesBasicas() throws RecognitionException {
         EObject current = null;
 
@@ -15144,17 +16160,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5709:2: (iv_ruleVariablesBasicas= ruleVariablesBasicas EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5710:2: iv_ruleVariablesBasicas= ruleVariablesBasicas EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6016:2: (iv_ruleVariablesBasicas= ruleVariablesBasicas EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6017:2: iv_ruleVariablesBasicas= ruleVariablesBasicas EOF
             {
              newCompositeNode(grammarAccess.getVariablesBasicasRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleVariablesBasicas_in_entryRuleVariablesBasicas12637);
+            pushFollow(FollowSets000.FOLLOW_ruleVariablesBasicas_in_entryRuleVariablesBasicas13388);
             iv_ruleVariablesBasicas=ruleVariablesBasicas();
 
             state._fsp--;
 
              current =iv_ruleVariablesBasicas; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVariablesBasicas12647); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleVariablesBasicas13398); 
 
             }
 
@@ -15172,7 +16188,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleVariablesBasicas"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5717:1: ruleVariablesBasicas returns [EObject current=null] : ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6024:1: ruleVariablesBasicas returns [EObject current=null] : ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) ) ;
     public final EObject ruleVariablesBasicas() throws RecognitionException {
         EObject current = null;
 
@@ -15190,25 +16206,25 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5720:28: ( ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5721:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6027:28: ( ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6028:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5721:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) )
-            int alt99=6;
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6028:1: ( ( () ( (lv_valor_1_0= ruleEInt ) ) ) | ( () ( (lv_valor_3_0= ruleEFloat ) ) ) | ( () ( (lv_contenido_5_0= RULE_CAD ) ) ) | ( () ( (lv_contenido_7_0= RULE_CAR ) ) ) | ( () ( (lv_valor_9_0= ruleBooleano ) ) ) | ( () ( (lv_nombre_11_0= ruleEString ) ) ) )
+            int alt125=6;
             switch ( input.LA(1) ) {
             case RULE_INT:
                 {
-                int LA99_1 = input.LA(2);
+                int LA125_1 = input.LA(2);
 
-                if ( (LA99_1==46) ) {
-                    alt99=2;
+                if ( (LA125_1==46) ) {
+                    alt125=2;
                 }
-                else if ( (LA99_1==EOF||(LA99_1>=RULE_ID && LA99_1<=RULE_CAR)||(LA99_1>=19 && LA99_1<=20)||(LA99_1>=27 && LA99_1<=30)||(LA99_1>=32 && LA99_1<=34)||(LA99_1>=37 && LA99_1<=45)||(LA99_1>=49 && LA99_1<=51)||LA99_1==54||LA99_1==56||LA99_1==58||LA99_1==63||LA99_1==65||LA99_1==67||(LA99_1>=69 && LA99_1<=72)||(LA99_1>=74 && LA99_1<=111)||(LA99_1>=115 && LA99_1<=116)) ) {
-                    alt99=1;
+                else if ( (LA125_1==EOF||(LA125_1>=RULE_ID && LA125_1<=RULE_CAR)||(LA125_1>=19 && LA125_1<=20)||(LA125_1>=27 && LA125_1<=30)||(LA125_1>=32 && LA125_1<=34)||(LA125_1>=37 && LA125_1<=45)||(LA125_1>=49 && LA125_1<=51)||LA125_1==54||LA125_1==56||LA125_1==58||LA125_1==63||LA125_1==65||LA125_1==67||(LA125_1>=69 && LA125_1<=72)||(LA125_1>=74 && LA125_1<=105)||(LA125_1>=107 && LA125_1<=110)||(LA125_1>=114 && LA125_1<=115)) ) {
+                    alt125=1;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("", 99, 1, input);
+                        new NoViableAltException("", 125, 1, input);
 
                     throw nvae;
                 }
@@ -15216,42 +16232,42 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                 break;
             case RULE_CAD:
                 {
-                alt99=3;
+                alt125=3;
                 }
                 break;
             case RULE_CAR:
                 {
-                alt99=4;
+                alt125=4;
                 }
                 break;
+            case 114:
             case 115:
-            case 116:
                 {
-                alt99=5;
+                alt125=5;
                 }
                 break;
             case RULE_ID:
             case RULE_STRING:
                 {
-                alt99=6;
+                alt125=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 99, 0, input);
+                    new NoViableAltException("", 125, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt99) {
+            switch (alt125) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5721:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6028:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5721:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5721:3: () ( (lv_valor_1_0= ruleEInt ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6028:2: ( () ( (lv_valor_1_0= ruleEInt ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6028:3: () ( (lv_valor_1_0= ruleEInt ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5721:3: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5722:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6028:3: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6029:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -15261,16 +16277,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5727:2: ( (lv_valor_1_0= ruleEInt ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5728:1: (lv_valor_1_0= ruleEInt )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6034:2: ( (lv_valor_1_0= ruleEInt ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6035:1: (lv_valor_1_0= ruleEInt )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5728:1: (lv_valor_1_0= ruleEInt )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5729:3: lv_valor_1_0= ruleEInt
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6035:1: (lv_valor_1_0= ruleEInt )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6036:3: lv_valor_1_0= ruleEInt
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesBasicasAccess().getValorEIntParserRuleCall_0_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleVariablesBasicas12703);
+                    pushFollow(FollowSets000.FOLLOW_ruleEInt_in_ruleVariablesBasicas13454);
                     lv_valor_1_0=ruleEInt();
 
                     state._fsp--;
@@ -15299,13 +16315,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5746:6: ( () ( (lv_valor_3_0= ruleEFloat ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6053:6: ( () ( (lv_valor_3_0= ruleEFloat ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5746:6: ( () ( (lv_valor_3_0= ruleEFloat ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5746:7: () ( (lv_valor_3_0= ruleEFloat ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6053:6: ( () ( (lv_valor_3_0= ruleEFloat ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6053:7: () ( (lv_valor_3_0= ruleEFloat ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5746:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5747:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6053:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6054:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -15315,16 +16331,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5752:2: ( (lv_valor_3_0= ruleEFloat ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5753:1: (lv_valor_3_0= ruleEFloat )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6059:2: ( (lv_valor_3_0= ruleEFloat ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6060:1: (lv_valor_3_0= ruleEFloat )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5753:1: (lv_valor_3_0= ruleEFloat )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5754:3: lv_valor_3_0= ruleEFloat
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6060:1: (lv_valor_3_0= ruleEFloat )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6061:3: lv_valor_3_0= ruleEFloat
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesBasicasAccess().getValorEFloatParserRuleCall_1_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEFloat_in_ruleVariablesBasicas12741);
+                    pushFollow(FollowSets000.FOLLOW_ruleEFloat_in_ruleVariablesBasicas13492);
                     lv_valor_3_0=ruleEFloat();
 
                     state._fsp--;
@@ -15353,13 +16369,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 3 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:6: ( () ( (lv_contenido_5_0= RULE_CAD ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6078:6: ( () ( (lv_contenido_5_0= RULE_CAD ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:6: ( () ( (lv_contenido_5_0= RULE_CAD ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:7: () ( (lv_contenido_5_0= RULE_CAD ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6078:6: ( () ( (lv_contenido_5_0= RULE_CAD ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6078:7: () ( (lv_contenido_5_0= RULE_CAD ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5771:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5772:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6078:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6079:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -15369,13 +16385,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5777:2: ( (lv_contenido_5_0= RULE_CAD ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5778:1: (lv_contenido_5_0= RULE_CAD )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6084:2: ( (lv_contenido_5_0= RULE_CAD ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6085:1: (lv_contenido_5_0= RULE_CAD )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5778:1: (lv_contenido_5_0= RULE_CAD )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5779:3: lv_contenido_5_0= RULE_CAD
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6085:1: (lv_contenido_5_0= RULE_CAD )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6086:3: lv_contenido_5_0= RULE_CAD
                     {
-                    lv_contenido_5_0=(Token)match(input,RULE_CAD,FollowSets000.FOLLOW_RULE_CAD_in_ruleVariablesBasicas12775); 
+                    lv_contenido_5_0=(Token)match(input,RULE_CAD,FollowSets000.FOLLOW_RULE_CAD_in_ruleVariablesBasicas13526); 
 
                     			newLeafNode(lv_contenido_5_0, grammarAccess.getVariablesBasicasAccess().getContenidoCADTerminalRuleCall_2_1_0()); 
                     		
@@ -15402,13 +16418,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 4 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5796:6: ( () ( (lv_contenido_7_0= RULE_CAR ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6103:6: ( () ( (lv_contenido_7_0= RULE_CAR ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5796:6: ( () ( (lv_contenido_7_0= RULE_CAR ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5796:7: () ( (lv_contenido_7_0= RULE_CAR ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6103:6: ( () ( (lv_contenido_7_0= RULE_CAR ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6103:7: () ( (lv_contenido_7_0= RULE_CAR ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5796:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5797:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6103:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6104:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -15418,13 +16434,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5802:2: ( (lv_contenido_7_0= RULE_CAR ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5803:1: (lv_contenido_7_0= RULE_CAR )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6109:2: ( (lv_contenido_7_0= RULE_CAR ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6110:1: (lv_contenido_7_0= RULE_CAR )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5803:1: (lv_contenido_7_0= RULE_CAR )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5804:3: lv_contenido_7_0= RULE_CAR
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6110:1: (lv_contenido_7_0= RULE_CAR )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6111:3: lv_contenido_7_0= RULE_CAR
                     {
-                    lv_contenido_7_0=(Token)match(input,RULE_CAR,FollowSets000.FOLLOW_RULE_CAR_in_ruleVariablesBasicas12814); 
+                    lv_contenido_7_0=(Token)match(input,RULE_CAR,FollowSets000.FOLLOW_RULE_CAR_in_ruleVariablesBasicas13565); 
 
                     			newLeafNode(lv_contenido_7_0, grammarAccess.getVariablesBasicasAccess().getContenidoCARTerminalRuleCall_3_1_0()); 
                     		
@@ -15451,13 +16467,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 5 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5821:6: ( () ( (lv_valor_9_0= ruleBooleano ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6128:6: ( () ( (lv_valor_9_0= ruleBooleano ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5821:6: ( () ( (lv_valor_9_0= ruleBooleano ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5821:7: () ( (lv_valor_9_0= ruleBooleano ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6128:6: ( () ( (lv_valor_9_0= ruleBooleano ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6128:7: () ( (lv_valor_9_0= ruleBooleano ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5821:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5822:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6128:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6129:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -15467,16 +16483,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5827:2: ( (lv_valor_9_0= ruleBooleano ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5828:1: (lv_valor_9_0= ruleBooleano )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6134:2: ( (lv_valor_9_0= ruleBooleano ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6135:1: (lv_valor_9_0= ruleBooleano )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5828:1: (lv_valor_9_0= ruleBooleano )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5829:3: lv_valor_9_0= ruleBooleano
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6135:1: (lv_valor_9_0= ruleBooleano )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6136:3: lv_valor_9_0= ruleBooleano
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesBasicasAccess().getValorBooleanoParserRuleCall_4_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleBooleano_in_ruleVariablesBasicas12857);
+                    pushFollow(FollowSets000.FOLLOW_ruleBooleano_in_ruleVariablesBasicas13608);
                     lv_valor_9_0=ruleBooleano();
 
                     state._fsp--;
@@ -15505,13 +16521,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 6 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5846:6: ( () ( (lv_nombre_11_0= ruleEString ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6153:6: ( () ( (lv_nombre_11_0= ruleEString ) ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5846:6: ( () ( (lv_nombre_11_0= ruleEString ) ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5846:7: () ( (lv_nombre_11_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6153:6: ( () ( (lv_nombre_11_0= ruleEString ) ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6153:7: () ( (lv_nombre_11_0= ruleEString ) )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5846:7: ()
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5847:5: 
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6153:7: ()
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6154:5: 
                     {
 
                             current = forceCreateModelElement(
@@ -15521,16 +16537,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5852:2: ( (lv_nombre_11_0= ruleEString ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5853:1: (lv_nombre_11_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6159:2: ( (lv_nombre_11_0= ruleEString ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6160:1: (lv_nombre_11_0= ruleEString )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5853:1: (lv_nombre_11_0= ruleEString )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5854:3: lv_nombre_11_0= ruleEString
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6160:1: (lv_nombre_11_0= ruleEString )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6161:3: lv_nombre_11_0= ruleEString
                     {
                      
                     	        newCompositeNode(grammarAccess.getVariablesBasicasAccess().getNombreEStringParserRuleCall_5_1_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesBasicas12895);
+                    pushFollow(FollowSets000.FOLLOW_ruleEString_in_ruleVariablesBasicas13646);
                     lv_nombre_11_0=ruleEString();
 
                     state._fsp--;
@@ -15579,7 +16595,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleSino"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5878:1: entryRuleSino returns [EObject current=null] : iv_ruleSino= ruleSino EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6185:1: entryRuleSino returns [EObject current=null] : iv_ruleSino= ruleSino EOF ;
     public final EObject entryRuleSino() throws RecognitionException {
         EObject current = null;
 
@@ -15587,17 +16603,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5879:2: (iv_ruleSino= ruleSino EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5880:2: iv_ruleSino= ruleSino EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6186:2: (iv_ruleSino= ruleSino EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6187:2: iv_ruleSino= ruleSino EOF
             {
              newCompositeNode(grammarAccess.getSinoRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleSino_in_entryRuleSino12932);
+            pushFollow(FollowSets000.FOLLOW_ruleSino_in_entryRuleSino13683);
             iv_ruleSino=ruleSino();
 
             state._fsp--;
 
              current =iv_ruleSino; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSino12942); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleSino13693); 
 
             }
 
@@ -15615,7 +16631,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleSino"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5887:1: ruleSino returns [EObject current=null] : ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6194:1: ruleSino returns [EObject current=null] : ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? ) ;
     public final EObject ruleSino() throws RecognitionException {
         EObject current = null;
 
@@ -15630,14 +16646,14 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5890:28: ( ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5891:1: ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6197:28: ( ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6198:1: ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5891:1: ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5891:2: () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )?
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6198:1: ( () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6198:2: () otherlv_1= 'else' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )?
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5891:2: ()
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5892:5: 
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6198:2: ()
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6199:5: 
             {
 
                     current = forceCreateModelElement(
@@ -15647,31 +16663,31 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,108,FollowSets000.FOLLOW_108_in_ruleSino12988); 
+            otherlv_1=(Token)match(input,107,FollowSets000.FOLLOW_107_in_ruleSino13739); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getSinoAccess().getElseKeyword_1());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5901:1: ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )?
-            int alt101=2;
-            int LA101_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6208:1: ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )?
+            int alt127=2;
+            int LA127_0 = input.LA(1);
 
-            if ( ((LA101_0>=RULE_ID && LA101_0<=RULE_NOMBRE_FUN)||LA101_0==RULE_STRING||LA101_0==32||LA101_0==34||(LA101_0>=37 && LA101_0<=45)||(LA101_0>=69 && LA101_0<=72)||(LA101_0>=75 && LA101_0<=76)||LA101_0==79||LA101_0==82||(LA101_0>=86 && LA101_0<=87)) ) {
-                alt101=1;
+            if ( ((LA127_0>=RULE_ID && LA127_0<=RULE_NOMBRE_FUN)||LA127_0==RULE_STRING||LA127_0==32||LA127_0==34||(LA127_0>=37 && LA127_0<=45)||(LA127_0>=69 && LA127_0<=72)||(LA127_0>=75 && LA127_0<=76)||LA127_0==79||LA127_0==82||(LA127_0>=86 && LA127_0<=87)) ) {
+                alt127=1;
             }
-            switch (alt101) {
+            switch (alt127) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5901:2: ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )*
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6208:2: ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )*
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5901:2: ( (lv_sentencias_2_0= ruleSentencias ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5902:1: (lv_sentencias_2_0= ruleSentencias )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6208:2: ( (lv_sentencias_2_0= ruleSentencias ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6209:1: (lv_sentencias_2_0= ruleSentencias )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5902:1: (lv_sentencias_2_0= ruleSentencias )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5903:3: lv_sentencias_2_0= ruleSentencias
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6209:1: (lv_sentencias_2_0= ruleSentencias )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6210:3: lv_sentencias_2_0= ruleSentencias
                     {
                      
                     	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleSino13010);
+                    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleSino13761);
                     lv_sentencias_2_0=ruleSentencias();
 
                     state._fsp--;
@@ -15693,28 +16709,28 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5919:2: ( (lv_sentencias_3_0= ruleSentencias ) )*
-                    loop100:
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6226:2: ( (lv_sentencias_3_0= ruleSentencias ) )*
+                    loop126:
                     do {
-                        int alt100=2;
-                        int LA100_0 = input.LA(1);
+                        int alt126=2;
+                        int LA126_0 = input.LA(1);
 
-                        if ( ((LA100_0>=RULE_ID && LA100_0<=RULE_NOMBRE_FUN)||LA100_0==RULE_STRING||LA100_0==32||LA100_0==34||(LA100_0>=37 && LA100_0<=45)||(LA100_0>=69 && LA100_0<=72)||(LA100_0>=75 && LA100_0<=76)||LA100_0==79||LA100_0==82||(LA100_0>=86 && LA100_0<=87)) ) {
-                            alt100=1;
+                        if ( ((LA126_0>=RULE_ID && LA126_0<=RULE_NOMBRE_FUN)||LA126_0==RULE_STRING||LA126_0==32||LA126_0==34||(LA126_0>=37 && LA126_0<=45)||(LA126_0>=69 && LA126_0<=72)||(LA126_0>=75 && LA126_0<=76)||LA126_0==79||LA126_0==82||(LA126_0>=86 && LA126_0<=87)) ) {
+                            alt126=1;
                         }
 
 
-                        switch (alt100) {
+                        switch (alt126) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5920:1: (lv_sentencias_3_0= ruleSentencias )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6227:1: (lv_sentencias_3_0= ruleSentencias )
                     	    {
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5920:1: (lv_sentencias_3_0= ruleSentencias )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5921:3: lv_sentencias_3_0= ruleSentencias
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6227:1: (lv_sentencias_3_0= ruleSentencias )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6228:3: lv_sentencias_3_0= ruleSentencias
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleSino13031);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleSino13782);
                     	    lv_sentencias_3_0=ruleSentencias();
 
                     	    state._fsp--;
@@ -15738,7 +16754,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     	    break;
 
                     	default :
-                    	    break loop100;
+                    	    break loop126;
                         }
                     } while (true);
 
@@ -15748,24 +16764,24 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5937:5: ( (lv_devuelve_4_0= ruleDevolver ) )?
-            int alt102=2;
-            int LA102_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6244:5: ( (lv_devuelve_4_0= ruleDevolver ) )?
+            int alt128=2;
+            int LA128_0 = input.LA(1);
 
-            if ( (LA102_0==109) ) {
-                alt102=1;
+            if ( (LA128_0==108) ) {
+                alt128=1;
             }
-            switch (alt102) {
+            switch (alt128) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5938:1: (lv_devuelve_4_0= ruleDevolver )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6245:1: (lv_devuelve_4_0= ruleDevolver )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5938:1: (lv_devuelve_4_0= ruleDevolver )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5939:3: lv_devuelve_4_0= ruleDevolver
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6245:1: (lv_devuelve_4_0= ruleDevolver )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6246:3: lv_devuelve_4_0= ruleDevolver
                     {
                      
                     	        newCompositeNode(grammarAccess.getSinoAccess().getDevuelveDevolverParserRuleCall_3_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleDevolver_in_ruleSino13055);
+                    pushFollow(FollowSets000.FOLLOW_ruleDevolver_in_ruleSino13806);
                     lv_devuelve_4_0=ruleDevolver();
 
                     state._fsp--;
@@ -15811,7 +16827,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleDevolver"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5963:1: entryRuleDevolver returns [EObject current=null] : iv_ruleDevolver= ruleDevolver EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6270:1: entryRuleDevolver returns [EObject current=null] : iv_ruleDevolver= ruleDevolver EOF ;
     public final EObject entryRuleDevolver() throws RecognitionException {
         EObject current = null;
 
@@ -15819,17 +16835,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5964:2: (iv_ruleDevolver= ruleDevolver EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5965:2: iv_ruleDevolver= ruleDevolver EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6271:2: (iv_ruleDevolver= ruleDevolver EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6272:2: iv_ruleDevolver= ruleDevolver EOF
             {
              newCompositeNode(grammarAccess.getDevolverRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleDevolver_in_entryRuleDevolver13092);
+            pushFollow(FollowSets000.FOLLOW_ruleDevolver_in_entryRuleDevolver13843);
             iv_ruleDevolver=ruleDevolver();
 
             state._fsp--;
 
              current =iv_ruleDevolver; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDevolver13102); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleDevolver13853); 
 
             }
 
@@ -15847,7 +16863,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleDevolver"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5972:1: ruleDevolver returns [EObject current=null] : ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleoperacion ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6279:1: ruleDevolver returns [EObject current=null] : ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) ) ;
     public final EObject ruleDevolver() throws RecognitionException {
         EObject current = null;
 
@@ -15858,14 +16874,14 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5975:28: ( ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleoperacion ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5976:1: ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleoperacion ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6282:28: ( ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6283:1: ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5976:1: ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleoperacion ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5976:2: () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleoperacion ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6283:1: ( () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6283:2: () otherlv_1= 'return' ( (lv_devuelve_2_0= ruleOperacionCompleta ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5976:2: ()
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5977:5: 
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6283:2: ()
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6284:5: 
             {
 
                     current = forceCreateModelElement(
@@ -15875,21 +16891,21 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,109,FollowSets000.FOLLOW_109_in_ruleDevolver13148); 
+            otherlv_1=(Token)match(input,108,FollowSets000.FOLLOW_108_in_ruleDevolver13899); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getDevolverAccess().getReturnKeyword_1());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5986:1: ( (lv_devuelve_2_0= ruleoperacion ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5987:1: (lv_devuelve_2_0= ruleoperacion )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6293:1: ( (lv_devuelve_2_0= ruleOperacionCompleta ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6294:1: (lv_devuelve_2_0= ruleOperacionCompleta )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5987:1: (lv_devuelve_2_0= ruleoperacion )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:5988:3: lv_devuelve_2_0= ruleoperacion
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6294:1: (lv_devuelve_2_0= ruleOperacionCompleta )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6295:3: lv_devuelve_2_0= ruleOperacionCompleta
             {
              
-            	        newCompositeNode(grammarAccess.getDevolverAccess().getDevuelveOperacionParserRuleCall_2_0()); 
+            	        newCompositeNode(grammarAccess.getDevolverAccess().getDevuelveOperacionCompletaParserRuleCall_2_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleoperacion_in_ruleDevolver13169);
-            lv_devuelve_2_0=ruleoperacion();
+            pushFollow(FollowSets000.FOLLOW_ruleOperacionCompleta_in_ruleDevolver13920);
+            lv_devuelve_2_0=ruleOperacionCompleta();
 
             state._fsp--;
 
@@ -15901,7 +16917,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                    			current, 
                    			"devuelve",
                     		lv_devuelve_2_0, 
-                    		"operacion");
+                    		"OperacionCompleta");
             	        afterParserOrEnumRuleCall();
             	    
 
@@ -15931,7 +16947,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleParametroFuncion"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6012:1: entryRuleParametroFuncion returns [EObject current=null] : iv_ruleParametroFuncion= ruleParametroFuncion EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6319:1: entryRuleParametroFuncion returns [EObject current=null] : iv_ruleParametroFuncion= ruleParametroFuncion EOF ;
     public final EObject entryRuleParametroFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -15939,17 +16955,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6013:2: (iv_ruleParametroFuncion= ruleParametroFuncion EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6014:2: iv_ruleParametroFuncion= ruleParametroFuncion EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6320:2: (iv_ruleParametroFuncion= ruleParametroFuncion EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6321:2: iv_ruleParametroFuncion= ruleParametroFuncion EOF
             {
              newCompositeNode(grammarAccess.getParametroFuncionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_entryRuleParametroFuncion13205);
+            pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_entryRuleParametroFuncion13956);
             iv_ruleParametroFuncion=ruleParametroFuncion();
 
             state._fsp--;
 
              current =iv_ruleParametroFuncion; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleParametroFuncion13215); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleParametroFuncion13966); 
 
             }
 
@@ -15967,7 +16983,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleParametroFuncion"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6021:1: ruleParametroFuncion returns [EObject current=null] : ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6328:1: ruleParametroFuncion returns [EObject current=null] : ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) ;
     public final EObject ruleParametroFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -15982,22 +16998,22 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6024:28: ( ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6025:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6331:28: ( ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6332:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6025:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6025:2: ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6332:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6332:2: ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6025:2: ( (lv_paso_0_0= ruleTipoPaso ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6026:1: (lv_paso_0_0= ruleTipoPaso )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6332:2: ( (lv_paso_0_0= ruleTipoPaso ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6333:1: (lv_paso_0_0= ruleTipoPaso )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6026:1: (lv_paso_0_0= ruleTipoPaso )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6027:3: lv_paso_0_0= ruleTipoPaso
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6333:1: (lv_paso_0_0= ruleTipoPaso )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6334:3: lv_paso_0_0= ruleTipoPaso
             {
              
             	        newCompositeNode(grammarAccess.getParametroFuncionAccess().getPasoTipoPasoParserRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleTipoPaso_in_ruleParametroFuncion13261);
+            pushFollow(FollowSets000.FOLLOW_ruleTipoPaso_in_ruleParametroFuncion14012);
             lv_paso_0_0=ruleTipoPaso();
 
             state._fsp--;
@@ -16019,16 +17035,16 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6043:2: ( (lv_tipo_1_0= ruleTipo ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6044:1: (lv_tipo_1_0= ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6350:2: ( (lv_tipo_1_0= ruleTipo ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6351:1: (lv_tipo_1_0= ruleTipo )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6044:1: (lv_tipo_1_0= ruleTipo )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6045:3: lv_tipo_1_0= ruleTipo
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6351:1: (lv_tipo_1_0= ruleTipo )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6352:3: lv_tipo_1_0= ruleTipo
             {
              
             	        newCompositeNode(grammarAccess.getParametroFuncionAccess().getTipoTipoParserRuleCall_1_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleTipo_in_ruleParametroFuncion13282);
+            pushFollow(FollowSets000.FOLLOW_ruleTipo_in_ruleParametroFuncion14033);
             lv_tipo_1_0=ruleTipo();
 
             state._fsp--;
@@ -16050,20 +17066,20 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_2=(Token)match(input,56,FollowSets000.FOLLOW_56_in_ruleParametroFuncion13294); 
+            otherlv_2=(Token)match(input,56,FollowSets000.FOLLOW_56_in_ruleParametroFuncion14045); 
 
                 	newLeafNode(otherlv_2, grammarAccess.getParametroFuncionAccess().getColonSpaceKeyword_2());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6065:1: ( (lv_variable_3_0= ruleVariable ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6066:1: (lv_variable_3_0= ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6372:1: ( (lv_variable_3_0= ruleVariable ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6373:1: (lv_variable_3_0= ruleVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6066:1: (lv_variable_3_0= ruleVariable )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6067:3: lv_variable_3_0= ruleVariable
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6373:1: (lv_variable_3_0= ruleVariable )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6374:3: lv_variable_3_0= ruleVariable
             {
              
             	        newCompositeNode(grammarAccess.getParametroFuncionAccess().getVariableVariableParserRuleCall_3_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleVariable_in_ruleParametroFuncion13315);
+            pushFollow(FollowSets000.FOLLOW_ruleVariable_in_ruleParametroFuncion14066);
             lv_variable_3_0=ruleVariable();
 
             state._fsp--;
@@ -16106,7 +17122,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleFuncion"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6091:1: entryRuleFuncion returns [EObject current=null] : iv_ruleFuncion= ruleFuncion EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6398:1: entryRuleFuncion returns [EObject current=null] : iv_ruleFuncion= ruleFuncion EOF ;
     public final EObject entryRuleFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -16114,17 +17130,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6092:2: (iv_ruleFuncion= ruleFuncion EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6093:2: iv_ruleFuncion= ruleFuncion EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6399:2: (iv_ruleFuncion= ruleFuncion EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6400:2: iv_ruleFuncion= ruleFuncion EOF
             {
              newCompositeNode(grammarAccess.getFuncionRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleFuncion_in_entryRuleFuncion13351);
+            pushFollow(FollowSets000.FOLLOW_ruleFuncion_in_entryRuleFuncion14102);
             iv_ruleFuncion=ruleFuncion();
 
             state._fsp--;
 
              current =iv_ruleFuncion; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFuncion13361); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleFuncion14112); 
 
             }
 
@@ -16142,7 +17158,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleFuncion"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6100:1: ruleFuncion returns [EObject current=null] : ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6407:1: ruleFuncion returns [EObject current=null] : ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' ) ;
     public final EObject ruleFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -16169,22 +17185,22 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6103:28: ( ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6104:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6410:28: ( ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6411:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6104:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6104:2: ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6411:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6411:2: ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'function' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'initiation' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'end_function'
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6104:2: ( (lv_tipo_0_0= ruleTipoVariable ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6105:1: (lv_tipo_0_0= ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6411:2: ( (lv_tipo_0_0= ruleTipoVariable ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6412:1: (lv_tipo_0_0= ruleTipoVariable )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6105:1: (lv_tipo_0_0= ruleTipoVariable )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6106:3: lv_tipo_0_0= ruleTipoVariable
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6412:1: (lv_tipo_0_0= ruleTipoVariable )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6413:3: lv_tipo_0_0= ruleTipoVariable
             {
              
             	        newCompositeNode(grammarAccess.getFuncionAccess().getTipoTipoVariableParserRuleCall_0_0()); 
             	    
-            pushFollow(FollowSets000.FOLLOW_ruleTipoVariable_in_ruleFuncion13407);
+            pushFollow(FollowSets000.FOLLOW_ruleTipoVariable_in_ruleFuncion14158);
             lv_tipo_0_0=ruleTipoVariable();
 
             state._fsp--;
@@ -16206,17 +17222,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_1=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleFuncion13419); 
+            otherlv_1=(Token)match(input,31,FollowSets000.FOLLOW_31_in_ruleFuncion14170); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getFuncionAccess().getFunctionKeyword_1());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6126:1: ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6127:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6433:1: ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6434:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6127:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6128:3: lv_nombre_2_0= RULE_NOMBRE_FUN
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6434:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6435:3: lv_nombre_2_0= RULE_NOMBRE_FUN
             {
-            lv_nombre_2_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_RULE_NOMBRE_FUN_in_ruleFuncion13436); 
+            lv_nombre_2_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_RULE_NOMBRE_FUN_in_ruleFuncion14187); 
 
             			newLeafNode(lv_nombre_2_0, grammarAccess.getFuncionAccess().getNombreNOMBRE_FUNTerminalRuleCall_2_0()); 
             		
@@ -16236,27 +17252,27 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6144:2: ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )?
-            int alt104=2;
-            int LA104_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6451:2: ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )?
+            int alt130=2;
+            int LA130_0 = input.LA(1);
 
-            if ( ((LA104_0>=112 && LA104_0<=114)) ) {
-                alt104=1;
+            if ( ((LA130_0>=111 && LA130_0<=113)) ) {
+                alt130=1;
             }
-            switch (alt104) {
+            switch (alt130) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6144:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6451:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6144:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6145:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6451:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6452:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6145:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6146:3: lv_parametrofuncion_3_0= ruleParametroFuncion
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6452:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6453:3: lv_parametrofuncion_3_0= ruleParametroFuncion
                     {
                      
                     	        newCompositeNode(grammarAccess.getFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_3_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleFuncion13463);
+                    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleFuncion14214);
                     lv_parametrofuncion_3_0=ruleParametroFuncion();
 
                     state._fsp--;
@@ -16278,35 +17294,35 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6162:2: (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
-                    loop103:
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6469:2: (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
+                    loop129:
                     do {
-                        int alt103=2;
-                        int LA103_0 = input.LA(1);
+                        int alt129=2;
+                        int LA129_0 = input.LA(1);
 
-                        if ( (LA103_0==29) ) {
-                            alt103=1;
+                        if ( (LA129_0==29) ) {
+                            alt129=1;
                         }
 
 
-                        switch (alt103) {
+                        switch (alt129) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6162:4: otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6469:4: otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
                     	    {
-                    	    otherlv_4=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleFuncion13476); 
+                    	    otherlv_4=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleFuncion14227); 
 
                     	        	newLeafNode(otherlv_4, grammarAccess.getFuncionAccess().getCommaKeyword_3_1_0());
                     	        
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6166:1: ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6167:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6473:1: ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6474:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
                     	    {
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6167:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6168:3: lv_parametrofuncion_5_0= ruleParametroFuncion
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6474:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6475:3: lv_parametrofuncion_5_0= ruleParametroFuncion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_3_1_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleFuncion13497);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleFuncion14248);
                     	    lv_parametrofuncion_5_0=ruleParametroFuncion();
 
                     	    state._fsp--;
@@ -16333,7 +17349,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     	    break;
 
                     	default :
-                    	    break loop103;
+                    	    break loop129;
                         }
                     } while (true);
 
@@ -16343,47 +17359,47 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_6=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleFuncion13513); 
+            otherlv_6=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleFuncion14264); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getFuncionAccess().getRightParenthesisKeyword_4());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6188:1: (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )?
-            int alt106=2;
-            int LA106_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6495:1: (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )?
+            int alt132=2;
+            int LA132_0 = input.LA(1);
 
-            if ( (LA106_0==20) ) {
-                alt106=1;
+            if ( (LA132_0==20) ) {
+                alt132=1;
             }
-            switch (alt106) {
+            switch (alt132) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6188:3: otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )*
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6495:3: otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )*
                     {
-                    otherlv_7=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleFuncion13526); 
+                    otherlv_7=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleFuncion14277); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getFuncionAccess().getVarKeyword_5_0());
                         
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6192:1: ( (lv_declaracion_8_0= ruleDeclaracion ) )*
-                    loop105:
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6499:1: ( (lv_declaracion_8_0= ruleDeclaracion ) )*
+                    loop131:
                     do {
-                        int alt105=2;
-                        int LA105_0 = input.LA(1);
+                        int alt131=2;
+                        int LA131_0 = input.LA(1);
 
-                        if ( (LA105_0==RULE_ID||LA105_0==RULE_STRING||(LA105_0>=90 && LA105_0<=94)) ) {
-                            alt105=1;
+                        if ( (LA131_0==RULE_ID||LA131_0==RULE_STRING||(LA131_0>=90 && LA131_0<=94)) ) {
+                            alt131=1;
                         }
 
 
-                        switch (alt105) {
+                        switch (alt131) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6193:1: (lv_declaracion_8_0= ruleDeclaracion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6500:1: (lv_declaracion_8_0= ruleDeclaracion )
                     	    {
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6193:1: (lv_declaracion_8_0= ruleDeclaracion )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6194:3: lv_declaracion_8_0= ruleDeclaracion
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6500:1: (lv_declaracion_8_0= ruleDeclaracion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6501:3: lv_declaracion_8_0= ruleDeclaracion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_5_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleDeclaracion_in_ruleFuncion13547);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleDeclaracion_in_ruleFuncion14298);
                     	    lv_declaracion_8_0=ruleDeclaracion();
 
                     	    state._fsp--;
@@ -16407,7 +17423,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     	    break;
 
                     	default :
-                    	    break loop105;
+                    	    break loop131;
                         }
                     } while (true);
 
@@ -16417,32 +17433,32 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_9=(Token)match(input,66,FollowSets000.FOLLOW_66_in_ruleFuncion13562); 
+            otherlv_9=(Token)match(input,66,FollowSets000.FOLLOW_66_in_ruleFuncion14313); 
 
                 	newLeafNode(otherlv_9, grammarAccess.getFuncionAccess().getInitiationKeyword_6());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6214:1: ( (lv_sentencias_10_0= ruleSentencias ) )*
-            loop107:
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6521:1: ( (lv_sentencias_10_0= ruleSentencias ) )*
+            loop133:
             do {
-                int alt107=2;
-                int LA107_0 = input.LA(1);
+                int alt133=2;
+                int LA133_0 = input.LA(1);
 
-                if ( ((LA107_0>=RULE_ID && LA107_0<=RULE_NOMBRE_FUN)||LA107_0==RULE_STRING||LA107_0==32||LA107_0==34||(LA107_0>=37 && LA107_0<=45)||(LA107_0>=69 && LA107_0<=72)||(LA107_0>=75 && LA107_0<=76)||LA107_0==79||LA107_0==82||(LA107_0>=86 && LA107_0<=87)) ) {
-                    alt107=1;
+                if ( ((LA133_0>=RULE_ID && LA133_0<=RULE_NOMBRE_FUN)||LA133_0==RULE_STRING||LA133_0==32||LA133_0==34||(LA133_0>=37 && LA133_0<=45)||(LA133_0>=69 && LA133_0<=72)||(LA133_0>=75 && LA133_0<=76)||LA133_0==79||LA133_0==82||(LA133_0>=86 && LA133_0<=87)) ) {
+                    alt133=1;
                 }
 
 
-                switch (alt107) {
+                switch (alt133) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6215:1: (lv_sentencias_10_0= ruleSentencias )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6522:1: (lv_sentencias_10_0= ruleSentencias )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6215:1: (lv_sentencias_10_0= ruleSentencias )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6216:3: lv_sentencias_10_0= ruleSentencias
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6522:1: (lv_sentencias_10_0= ruleSentencias )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6523:3: lv_sentencias_10_0= ruleSentencias
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_7_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleFuncion13583);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleFuncion14334);
             	    lv_sentencias_10_0=ruleSentencias();
 
             	    state._fsp--;
@@ -16466,28 +17482,28 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	    break;
 
             	default :
-            	    break loop107;
+            	    break loop133;
                 }
             } while (true);
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6232:3: ( (lv_devuelve_11_0= ruleDevolver ) )?
-            int alt108=2;
-            int LA108_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6539:3: ( (lv_devuelve_11_0= ruleDevolver ) )?
+            int alt134=2;
+            int LA134_0 = input.LA(1);
 
-            if ( (LA108_0==109) ) {
-                alt108=1;
+            if ( (LA134_0==108) ) {
+                alt134=1;
             }
-            switch (alt108) {
+            switch (alt134) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6233:1: (lv_devuelve_11_0= ruleDevolver )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6540:1: (lv_devuelve_11_0= ruleDevolver )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6233:1: (lv_devuelve_11_0= ruleDevolver )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6234:3: lv_devuelve_11_0= ruleDevolver
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6540:1: (lv_devuelve_11_0= ruleDevolver )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6541:3: lv_devuelve_11_0= ruleDevolver
                     {
                      
                     	        newCompositeNode(grammarAccess.getFuncionAccess().getDevuelveDevolverParserRuleCall_8_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleDevolver_in_ruleFuncion13605);
+                    pushFollow(FollowSets000.FOLLOW_ruleDevolver_in_ruleFuncion14356);
                     lv_devuelve_11_0=ruleDevolver();
 
                     state._fsp--;
@@ -16512,7 +17528,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_12=(Token)match(input,110,FollowSets000.FOLLOW_110_in_ruleFuncion13618); 
+            otherlv_12=(Token)match(input,109,FollowSets000.FOLLOW_109_in_ruleFuncion14369); 
 
                 	newLeafNode(otherlv_12, grammarAccess.getFuncionAccess().getEnd_functionKeyword_9());
                 
@@ -16537,7 +17553,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleProcedimiento"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6262:1: entryRuleProcedimiento returns [EObject current=null] : iv_ruleProcedimiento= ruleProcedimiento EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6569:1: entryRuleProcedimiento returns [EObject current=null] : iv_ruleProcedimiento= ruleProcedimiento EOF ;
     public final EObject entryRuleProcedimiento() throws RecognitionException {
         EObject current = null;
 
@@ -16545,17 +17561,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6263:2: (iv_ruleProcedimiento= ruleProcedimiento EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6264:2: iv_ruleProcedimiento= ruleProcedimiento EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6570:2: (iv_ruleProcedimiento= ruleProcedimiento EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6571:2: iv_ruleProcedimiento= ruleProcedimiento EOF
             {
              newCompositeNode(grammarAccess.getProcedimientoRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleProcedimiento_in_entryRuleProcedimiento13654);
+            pushFollow(FollowSets000.FOLLOW_ruleProcedimiento_in_entryRuleProcedimiento14405);
             iv_ruleProcedimiento=ruleProcedimiento();
 
             state._fsp--;
 
              current =iv_ruleProcedimiento; 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleProcedimiento13664); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleProcedimiento14415); 
 
             }
 
@@ -16573,7 +17589,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleProcedimiento"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6271:1: ruleProcedimiento returns [EObject current=null] : (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6578:1: ruleProcedimiento returns [EObject current=null] : (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' ) ;
     public final EObject ruleProcedimiento() throws RecognitionException {
         EObject current = null;
 
@@ -16596,23 +17612,23 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6274:28: ( (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6275:1: (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6581:28: ( (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6582:1: (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6275:1: (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6275:3: otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure'
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6582:1: (otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6582:3: otherlv_0= 'procedure' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'initiation' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'end_procedure'
             {
-            otherlv_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleProcedimiento13701); 
+            otherlv_0=(Token)match(input,28,FollowSets000.FOLLOW_28_in_ruleProcedimiento14452); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getProcedimientoAccess().getProcedureKeyword_0());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6279:1: ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6280:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6586:1: ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6587:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6280:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6281:3: lv_nombre_1_0= RULE_NOMBRE_FUN
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6587:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6588:3: lv_nombre_1_0= RULE_NOMBRE_FUN
             {
-            lv_nombre_1_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_RULE_NOMBRE_FUN_in_ruleProcedimiento13718); 
+            lv_nombre_1_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_RULE_NOMBRE_FUN_in_ruleProcedimiento14469); 
 
             			newLeafNode(lv_nombre_1_0, grammarAccess.getProcedimientoAccess().getNombreNOMBRE_FUNTerminalRuleCall_1_0()); 
             		
@@ -16632,27 +17648,27 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6297:2: ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )?
-            int alt110=2;
-            int LA110_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6604:2: ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )?
+            int alt136=2;
+            int LA136_0 = input.LA(1);
 
-            if ( ((LA110_0>=112 && LA110_0<=114)) ) {
-                alt110=1;
+            if ( ((LA136_0>=111 && LA136_0<=113)) ) {
+                alt136=1;
             }
-            switch (alt110) {
+            switch (alt136) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6297:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6604:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6297:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6298:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6604:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6605:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6298:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6299:3: lv_parametrofuncion_2_0= ruleParametroFuncion
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6605:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6606:3: lv_parametrofuncion_2_0= ruleParametroFuncion
                     {
                      
                     	        newCompositeNode(grammarAccess.getProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_2_0_0()); 
                     	    
-                    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleProcedimiento13745);
+                    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleProcedimiento14496);
                     lv_parametrofuncion_2_0=ruleParametroFuncion();
 
                     state._fsp--;
@@ -16674,35 +17690,35 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
                     }
 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6315:2: (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
-                    loop109:
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6622:2: (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
+                    loop135:
                     do {
-                        int alt109=2;
-                        int LA109_0 = input.LA(1);
+                        int alt135=2;
+                        int LA135_0 = input.LA(1);
 
-                        if ( (LA109_0==29) ) {
-                            alt109=1;
+                        if ( (LA135_0==29) ) {
+                            alt135=1;
                         }
 
 
-                        switch (alt109) {
+                        switch (alt135) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6315:4: otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6622:4: otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleProcedimiento13758); 
+                    	    otherlv_3=(Token)match(input,29,FollowSets000.FOLLOW_29_in_ruleProcedimiento14509); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getProcedimientoAccess().getCommaKeyword_2_1_0());
                     	        
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6319:1: ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6320:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6626:1: ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6627:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
                     	    {
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6320:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6321:3: lv_parametrofuncion_4_0= ruleParametroFuncion
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6627:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6628:3: lv_parametrofuncion_4_0= ruleParametroFuncion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_2_1_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleProcedimiento13779);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleParametroFuncion_in_ruleProcedimiento14530);
                     	    lv_parametrofuncion_4_0=ruleParametroFuncion();
 
                     	    state._fsp--;
@@ -16729,7 +17745,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     	    break;
 
                     	default :
-                    	    break loop109;
+                    	    break loop135;
                         }
                     } while (true);
 
@@ -16739,47 +17755,47 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleProcedimiento13795); 
+            otherlv_5=(Token)match(input,30,FollowSets000.FOLLOW_30_in_ruleProcedimiento14546); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getProcedimientoAccess().getRightParenthesisKeyword_3());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6341:1: (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )?
-            int alt112=2;
-            int LA112_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6648:1: (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )?
+            int alt138=2;
+            int LA138_0 = input.LA(1);
 
-            if ( (LA112_0==20) ) {
-                alt112=1;
+            if ( (LA138_0==20) ) {
+                alt138=1;
             }
-            switch (alt112) {
+            switch (alt138) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6341:3: otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )*
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6648:3: otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )*
                     {
-                    otherlv_6=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleProcedimiento13808); 
+                    otherlv_6=(Token)match(input,20,FollowSets000.FOLLOW_20_in_ruleProcedimiento14559); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getProcedimientoAccess().getVarKeyword_4_0());
                         
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6345:1: ( (lv_declaracion_7_0= ruleDeclaracion ) )*
-                    loop111:
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6652:1: ( (lv_declaracion_7_0= ruleDeclaracion ) )*
+                    loop137:
                     do {
-                        int alt111=2;
-                        int LA111_0 = input.LA(1);
+                        int alt137=2;
+                        int LA137_0 = input.LA(1);
 
-                        if ( (LA111_0==RULE_ID||LA111_0==RULE_STRING||(LA111_0>=90 && LA111_0<=94)) ) {
-                            alt111=1;
+                        if ( (LA137_0==RULE_ID||LA137_0==RULE_STRING||(LA137_0>=90 && LA137_0<=94)) ) {
+                            alt137=1;
                         }
 
 
-                        switch (alt111) {
+                        switch (alt137) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6346:1: (lv_declaracion_7_0= ruleDeclaracion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6653:1: (lv_declaracion_7_0= ruleDeclaracion )
                     	    {
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6346:1: (lv_declaracion_7_0= ruleDeclaracion )
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6347:3: lv_declaracion_7_0= ruleDeclaracion
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6653:1: (lv_declaracion_7_0= ruleDeclaracion )
+                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6654:3: lv_declaracion_7_0= ruleDeclaracion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_4_1_0()); 
                     	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_ruleDeclaracion_in_ruleProcedimiento13829);
+                    	    pushFollow(FollowSets000.FOLLOW_ruleDeclaracion_in_ruleProcedimiento14580);
                     	    lv_declaracion_7_0=ruleDeclaracion();
 
                     	    state._fsp--;
@@ -16803,7 +17819,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     	    break;
 
                     	default :
-                    	    break loop111;
+                    	    break loop137;
                         }
                     } while (true);
 
@@ -16813,32 +17829,32 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
             }
 
-            otherlv_8=(Token)match(input,66,FollowSets000.FOLLOW_66_in_ruleProcedimiento13844); 
+            otherlv_8=(Token)match(input,66,FollowSets000.FOLLOW_66_in_ruleProcedimiento14595); 
 
                 	newLeafNode(otherlv_8, grammarAccess.getProcedimientoAccess().getInitiationKeyword_5());
                 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6367:1: ( (lv_sentencias_9_0= ruleSentencias ) )*
-            loop113:
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6674:1: ( (lv_sentencias_9_0= ruleSentencias ) )*
+            loop139:
             do {
-                int alt113=2;
-                int LA113_0 = input.LA(1);
+                int alt139=2;
+                int LA139_0 = input.LA(1);
 
-                if ( ((LA113_0>=RULE_ID && LA113_0<=RULE_NOMBRE_FUN)||LA113_0==RULE_STRING||LA113_0==32||LA113_0==34||(LA113_0>=37 && LA113_0<=45)||(LA113_0>=69 && LA113_0<=72)||(LA113_0>=75 && LA113_0<=76)||LA113_0==79||LA113_0==82||(LA113_0>=86 && LA113_0<=87)) ) {
-                    alt113=1;
+                if ( ((LA139_0>=RULE_ID && LA139_0<=RULE_NOMBRE_FUN)||LA139_0==RULE_STRING||LA139_0==32||LA139_0==34||(LA139_0>=37 && LA139_0<=45)||(LA139_0>=69 && LA139_0<=72)||(LA139_0>=75 && LA139_0<=76)||LA139_0==79||LA139_0==82||(LA139_0>=86 && LA139_0<=87)) ) {
+                    alt139=1;
                 }
 
 
-                switch (alt113) {
+                switch (alt139) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6368:1: (lv_sentencias_9_0= ruleSentencias )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6675:1: (lv_sentencias_9_0= ruleSentencias )
             	    {
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6368:1: (lv_sentencias_9_0= ruleSentencias )
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6369:3: lv_sentencias_9_0= ruleSentencias
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6675:1: (lv_sentencias_9_0= ruleSentencias )
+            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6676:3: lv_sentencias_9_0= ruleSentencias
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_6_0()); 
             	    	    
-            	    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleProcedimiento13865);
+            	    pushFollow(FollowSets000.FOLLOW_ruleSentencias_in_ruleProcedimiento14616);
             	    lv_sentencias_9_0=ruleSentencias();
 
             	    state._fsp--;
@@ -16862,11 +17878,11 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             	    break;
 
             	default :
-            	    break loop113;
+            	    break loop139;
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,111,FollowSets000.FOLLOW_111_in_ruleProcedimiento13878); 
+            otherlv_10=(Token)match(input,110,FollowSets000.FOLLOW_110_in_ruleProcedimiento14629); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getProcedimientoAccess().getEnd_procedureKeyword_7());
                 
@@ -16891,7 +17907,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleTipoPaso"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6397:1: entryRuleTipoPaso returns [String current=null] : iv_ruleTipoPaso= ruleTipoPaso EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6704:1: entryRuleTipoPaso returns [String current=null] : iv_ruleTipoPaso= ruleTipoPaso EOF ;
     public final String entryRuleTipoPaso() throws RecognitionException {
         String current = null;
 
@@ -16899,17 +17915,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6398:2: (iv_ruleTipoPaso= ruleTipoPaso EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6399:2: iv_ruleTipoPaso= ruleTipoPaso EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6705:2: (iv_ruleTipoPaso= ruleTipoPaso EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6706:2: iv_ruleTipoPaso= ruleTipoPaso EOF
             {
              newCompositeNode(grammarAccess.getTipoPasoRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleTipoPaso_in_entryRuleTipoPaso13915);
+            pushFollow(FollowSets000.FOLLOW_ruleTipoPaso_in_entryRuleTipoPaso14666);
             iv_ruleTipoPaso=ruleTipoPaso();
 
             state._fsp--;
 
              current =iv_ruleTipoPaso.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTipoPaso13926); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleTipoPaso14677); 
 
             }
 
@@ -16927,7 +17943,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleTipoPaso"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6406:1: ruleTipoPaso returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'I' | kw= 'I/O' | kw= 'O' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6713:1: ruleTipoPaso returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'I' | kw= 'I/O' | kw= 'O' ) ;
     public final AntlrDatatypeRuleToken ruleTipoPaso() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -16936,39 +17952,39 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6409:28: ( (kw= 'I' | kw= 'I/O' | kw= 'O' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6410:1: (kw= 'I' | kw= 'I/O' | kw= 'O' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6716:28: ( (kw= 'I' | kw= 'I/O' | kw= 'O' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6717:1: (kw= 'I' | kw= 'I/O' | kw= 'O' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6410:1: (kw= 'I' | kw= 'I/O' | kw= 'O' )
-            int alt114=3;
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6717:1: (kw= 'I' | kw= 'I/O' | kw= 'O' )
+            int alt140=3;
             switch ( input.LA(1) ) {
+            case 111:
+                {
+                alt140=1;
+                }
+                break;
             case 112:
                 {
-                alt114=1;
+                alt140=2;
                 }
                 break;
             case 113:
                 {
-                alt114=2;
-                }
-                break;
-            case 114:
-                {
-                alt114=3;
+                alt140=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 114, 0, input);
+                    new NoViableAltException("", 140, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt114) {
+            switch (alt140) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6411:2: kw= 'I'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6718:2: kw= 'I'
                     {
-                    kw=(Token)match(input,112,FollowSets000.FOLLOW_112_in_ruleTipoPaso13964); 
+                    kw=(Token)match(input,111,FollowSets000.FOLLOW_111_in_ruleTipoPaso14715); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getTipoPasoAccess().getIKeyword_0()); 
@@ -16977,9 +17993,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6418:2: kw= 'I/O'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6725:2: kw= 'I/O'
                     {
-                    kw=(Token)match(input,113,FollowSets000.FOLLOW_113_in_ruleTipoPaso13983); 
+                    kw=(Token)match(input,112,FollowSets000.FOLLOW_112_in_ruleTipoPaso14734); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getTipoPasoAccess().getIOKeyword_1()); 
@@ -16988,9 +18004,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 3 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6425:2: kw= 'O'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6732:2: kw= 'O'
                     {
-                    kw=(Token)match(input,114,FollowSets000.FOLLOW_114_in_ruleTipoPaso14002); 
+                    kw=(Token)match(input,113,FollowSets000.FOLLOW_113_in_ruleTipoPaso14753); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getTipoPasoAccess().getOKeyword_2()); 
@@ -17019,7 +18035,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "entryRuleBooleano"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6438:1: entryRuleBooleano returns [String current=null] : iv_ruleBooleano= ruleBooleano EOF ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6745:1: entryRuleBooleano returns [String current=null] : iv_ruleBooleano= ruleBooleano EOF ;
     public final String entryRuleBooleano() throws RecognitionException {
         String current = null;
 
@@ -17027,17 +18043,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6439:2: (iv_ruleBooleano= ruleBooleano EOF )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6440:2: iv_ruleBooleano= ruleBooleano EOF
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6746:2: (iv_ruleBooleano= ruleBooleano EOF )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6747:2: iv_ruleBooleano= ruleBooleano EOF
             {
              newCompositeNode(grammarAccess.getBooleanoRule()); 
-            pushFollow(FollowSets000.FOLLOW_ruleBooleano_in_entryRuleBooleano14043);
+            pushFollow(FollowSets000.FOLLOW_ruleBooleano_in_entryRuleBooleano14794);
             iv_ruleBooleano=ruleBooleano();
 
             state._fsp--;
 
              current =iv_ruleBooleano.getText(); 
-            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBooleano14054); 
+            match(input,EOF,FollowSets000.FOLLOW_EOF_in_entryRuleBooleano14805); 
 
             }
 
@@ -17055,7 +18071,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleBooleano"
-    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6447:1: ruleBooleano returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
+    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6754:1: ruleBooleano returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'true' | kw= 'false' ) ;
     public final AntlrDatatypeRuleToken ruleBooleano() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -17064,30 +18080,30 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6450:28: ( (kw= 'true' | kw= 'false' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6451:1: (kw= 'true' | kw= 'false' )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6757:28: ( (kw= 'true' | kw= 'false' ) )
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6758:1: (kw= 'true' | kw= 'false' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6451:1: (kw= 'true' | kw= 'false' )
-            int alt115=2;
-            int LA115_0 = input.LA(1);
+            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6758:1: (kw= 'true' | kw= 'false' )
+            int alt141=2;
+            int LA141_0 = input.LA(1);
 
-            if ( (LA115_0==115) ) {
-                alt115=1;
+            if ( (LA141_0==114) ) {
+                alt141=1;
             }
-            else if ( (LA115_0==116) ) {
-                alt115=2;
+            else if ( (LA141_0==115) ) {
+                alt141=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 115, 0, input);
+                    new NoViableAltException("", 141, 0, input);
 
                 throw nvae;
             }
-            switch (alt115) {
+            switch (alt141) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6452:2: kw= 'true'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6759:2: kw= 'true'
                     {
-                    kw=(Token)match(input,115,FollowSets000.FOLLOW_115_in_ruleBooleano14092); 
+                    kw=(Token)match(input,114,FollowSets000.FOLLOW_114_in_ruleBooleano14843); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getBooleanoAccess().getTrueKeyword_0()); 
@@ -17096,9 +18112,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6459:2: kw= 'false'
+                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6766:2: kw= 'false'
                     {
-                    kw=(Token)match(input,116,FollowSets000.FOLLOW_116_in_ruleBooleano14111); 
+                    kw=(Token)match(input,115,FollowSets000.FOLLOW_115_in_ruleBooleano14862); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getBooleanoAccess().getFalseKeyword_1()); 
@@ -17129,7 +18145,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     protected DFA31 dfa31 = new DFA31(this);
-    protected DFA98 dfa98 = new DFA98(this);
+    protected DFA124 dfa124 = new DFA124(this);
     static final String DFA31_eotS =
         "\12\uffff";
     static final String DFA31_eofS =
@@ -17188,19 +18204,19 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             return "819:1: (this_Vector_0= ruleVector | this_Matriz_1= ruleMatriz | this_Registro_2= ruleRegistro | this_Archivo_3= ruleArchivo | this_Enumerado_4= ruleEnumerado | this_Subrango_5= ruleSubrango )";
         }
     }
-    static final String DFA98_eotS =
+    static final String DFA124_eotS =
         "\u0172\uffff";
-    static final String DFA98_eofS =
+    static final String DFA124_eofS =
         "\u0172\uffff";
-    static final String DFA98_minS =
+    static final String DFA124_minS =
         "\1\4\2\56\1\4\1\uffff\3\61\15\4\2\uffff\22\61\50\4\55\61\70\4\74\61\52\4\55\61\21\4\22\61\3\4\3\61";
-    static final String DFA98_maxS =
+    static final String DFA124_maxS =
         "\1\7\2\65\1\7\1\uffff\3\151\15\7\2\uffff\22\151\50\7\55\151\70\7\74\151\52\7\55\151\21\7\22\151\3\7\3\151";
-    static final String DFA98_acceptS =
+    static final String DFA124_acceptS =
         "\4\uffff\1\3\20\uffff\1\1\1\2\u015b\uffff";
-    static final String DFA98_specialS =
+    static final String DFA124_specialS =
         "\u0172\uffff}>";
-    static final String[] DFA98_transitionS = {
+    static final String[] DFA124_transitionS = {
             "\1\2\2\uffff\1\1",
             "\1\4\6\uffff\1\3",
             "\1\4\6\uffff\1\3",
@@ -17573,37 +18589,37 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
             "\1\u0158\1\u0159\1\u00b4\2\uffff\1\25\3\uffff\1\26\44\uffff\1\24\1\120\1\u00b5\1\u0118\1\u0119\1\u011a\1\u011b\1\u016c\1\u016d\1\uffff\1\u016e"
     };
 
-    static final short[] DFA98_eot = DFA.unpackEncodedString(DFA98_eotS);
-    static final short[] DFA98_eof = DFA.unpackEncodedString(DFA98_eofS);
-    static final char[] DFA98_min = DFA.unpackEncodedStringToUnsignedChars(DFA98_minS);
-    static final char[] DFA98_max = DFA.unpackEncodedStringToUnsignedChars(DFA98_maxS);
-    static final short[] DFA98_accept = DFA.unpackEncodedString(DFA98_acceptS);
-    static final short[] DFA98_special = DFA.unpackEncodedString(DFA98_specialS);
-    static final short[][] DFA98_transition;
+    static final short[] DFA124_eot = DFA.unpackEncodedString(DFA124_eotS);
+    static final short[] DFA124_eof = DFA.unpackEncodedString(DFA124_eofS);
+    static final char[] DFA124_min = DFA.unpackEncodedStringToUnsignedChars(DFA124_minS);
+    static final char[] DFA124_max = DFA.unpackEncodedStringToUnsignedChars(DFA124_maxS);
+    static final short[] DFA124_accept = DFA.unpackEncodedString(DFA124_acceptS);
+    static final short[] DFA124_special = DFA.unpackEncodedString(DFA124_specialS);
+    static final short[][] DFA124_transition;
 
     static {
-        int numStates = DFA98_transitionS.length;
-        DFA98_transition = new short[numStates][];
+        int numStates = DFA124_transitionS.length;
+        DFA124_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA98_transition[i] = DFA.unpackEncodedString(DFA98_transitionS[i]);
+            DFA124_transition[i] = DFA.unpackEncodedString(DFA124_transitionS[i]);
         }
     }
 
-    class DFA98 extends DFA {
+    class DFA124 extends DFA {
 
-        public DFA98(BaseRecognizer recognizer) {
+        public DFA124(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 98;
-            this.eot = DFA98_eot;
-            this.eof = DFA98_eof;
-            this.min = DFA98_min;
-            this.max = DFA98_max;
-            this.accept = DFA98_accept;
-            this.special = DFA98_special;
-            this.transition = DFA98_transition;
+            this.decisionNumber = 124;
+            this.eot = DFA124_eot;
+            this.eof = DFA124_eof;
+            this.min = DFA124_min;
+            this.max = DFA124_max;
+            this.accept = DFA124_accept;
+            this.special = DFA124_special;
+            this.transition = DFA124_transition;
         }
         public String getDescription() {
-            return "5464:1: ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) )";
+            return "5771:1: ( ( () ( ( (lv_nombre_vector_1_0= ruleEString ) ) otherlv_2= '[' ( (lv_indice_3_0= ruleoperacionIndice ) ) otherlv_4= ']' ) (otherlv_5= '.' ( (lv_campo_6_0= ruleCampoRegistro ) ) )? ) | ( () ( ( (lv_nombre_matriz_8_0= ruleEString ) ) otherlv_9= '[' ( (lv_primerIndice_10_0= ruleoperacionIndice ) ) otherlv_11= '][' ( (lv_segundoIndice_12_0= ruleoperacionIndice ) ) otherlv_13= ']' ) (otherlv_14= '.' ( (lv_campo_15_0= ruleCampoRegistro ) ) )? ) | ( () ( (lv_nombre_registro_17_0= ruleEString ) ) otherlv_18= '.' ( ( (lv_campo_19_0= ruleCampoRegistro ) ) (otherlv_20= '.' ( (lv_campo_21_0= ruleCampoRegistro ) ) )* ) ) )";
         }
     }
  
@@ -17666,18 +18682,18 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleCabeceraProcedimiento_in_entryRuleCabeceraProcedimiento1208 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleCabeceraProcedimiento1218 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_28_in_ruleCabeceraProcedimiento1255 = new BitSet(new long[]{0x0000000000000020L});
-        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleCabeceraProcedimiento1272 = new BitSet(new long[]{0x0000000040000000L,0x0007000000000000L});
+        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleCabeceraProcedimiento1272 = new BitSet(new long[]{0x0000000040000000L,0x0003800000000000L});
         public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleCabeceraProcedimiento1299 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleCabeceraProcedimiento1312 = new BitSet(new long[]{0x0000000000000000L,0x0007000000000000L});
+        public static final BitSet FOLLOW_29_in_ruleCabeceraProcedimiento1312 = new BitSet(new long[]{0x0000000000000000L,0x0003800000000000L});
         public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleCabeceraProcedimiento1333 = new BitSet(new long[]{0x0000000060000000L});
         public static final BitSet FOLLOW_30_in_ruleCabeceraProcedimiento1349 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleCabeceraFuncion_in_entryRuleCabeceraFuncion1385 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleCabeceraFuncion1395 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleTipoVariable_in_ruleCabeceraFuncion1441 = new BitSet(new long[]{0x0000000080000000L});
         public static final BitSet FOLLOW_31_in_ruleCabeceraFuncion1453 = new BitSet(new long[]{0x0000000000000020L});
-        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleCabeceraFuncion1470 = new BitSet(new long[]{0x0000000040000000L,0x0007000000000000L});
+        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleCabeceraFuncion1470 = new BitSet(new long[]{0x0000000040000000L,0x0003800000000000L});
         public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleCabeceraFuncion1497 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleCabeceraFuncion1510 = new BitSet(new long[]{0x0000000000000000L,0x0007000000000000L});
+        public static final BitSet FOLLOW_29_in_ruleCabeceraFuncion1510 = new BitSet(new long[]{0x0000000000000000L,0x0003800000000000L});
         public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleCabeceraFuncion1531 = new BitSet(new long[]{0x0000000060000000L});
         public static final BitSet FOLLOW_30_in_ruleCabeceraFuncion1547 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleTipoComplejo_in_entryRuleTipoComplejo1583 = new BitSet(new long[]{0x0000000000000000L});
@@ -17715,17 +18731,17 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleFuncionFicheroAbrir_in_entryRuleFuncionFicheroAbrir2504 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleFuncionFicheroAbrir2514 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_32_in_ruleFuncionFicheroAbrir2551 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleFuncionFicheroAbrir2563 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_33_in_ruleFuncionFicheroAbrir2563 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleFuncionFicheroAbrir2585 = new BitSet(new long[]{0x0000000020000000L});
         public static final BitSet FOLLOW_29_in_ruleFuncionFicheroAbrir2597 = new BitSet(new long[]{0x0000001800000000L});
         public static final BitSet FOLLOW_ruleModoApertura_in_ruleFuncionFicheroAbrir2618 = new BitSet(new long[]{0x0000000020000000L});
-        public static final BitSet FOLLOW_29_in_ruleFuncionFicheroAbrir2630 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_29_in_ruleFuncionFicheroAbrir2630 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleFuncionFicheroAbrir2651 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_ruleFuncionFicheroAbrir2664 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleFuncionFicheroCerrar_in_entryRuleFuncionFicheroCerrar2700 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleFuncionFicheroCerrar2710 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_34_in_ruleFuncionFicheroCerrar2747 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleFuncionFicheroCerrar2759 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_33_in_ruleFuncionFicheroCerrar2759 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleFuncionFicheroCerrar2780 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_ruleFuncionFicheroCerrar2792 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleModoApertura_in_entryRuleModoApertura2829 = new BitSet(new long[]{0x0000000000000000L});
@@ -17772,12 +18788,12 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleConstantes_in_entryRuleConstantes3885 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleConstantes3895 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleVariable_in_ruleConstantes3941 = new BitSet(new long[]{0x0008000000000000L});
-        public static final BitSet FOLLOW_51_in_ruleConstantes3953 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_51_in_ruleConstantes3953 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleConstantes3974 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleVector_in_entryRuleVector4010 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleVector4020 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_52_in_ruleVector4057 = new BitSet(new long[]{0x0020000000000000L});
-        public static final BitSet FOLLOW_53_in_ruleVector4069 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_53_in_ruleVector4069 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleVector4090 = new BitSet(new long[]{0x0040000000000000L});
         public static final BitSet FOLLOW_54_in_ruleVector4102 = new BitSet(new long[]{0x0080000000000000L});
         public static final BitSet FOLLOW_55_in_ruleVector4114 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000000L});
@@ -17787,9 +18803,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleMatriz_in_entryRuleMatriz4204 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleMatriz4214 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_57_in_ruleMatriz4251 = new BitSet(new long[]{0x0020000000000000L});
-        public static final BitSet FOLLOW_53_in_ruleMatriz4263 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_53_in_ruleMatriz4263 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleMatriz4284 = new BitSet(new long[]{0x0400000000000000L});
-        public static final BitSet FOLLOW_58_in_ruleMatriz4296 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_58_in_ruleMatriz4296 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleMatriz4317 = new BitSet(new long[]{0x0040000000000000L});
         public static final BitSet FOLLOW_54_in_ruleMatriz4329 = new BitSet(new long[]{0x0080000000000000L});
         public static final BitSet FOLLOW_55_in_ruleMatriz4341 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000000L});
@@ -17812,9 +18828,9 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_EOF_in_entryRuleEnumerado4716 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_ruleEnumerado4762 = new BitSet(new long[]{0x0008000000000000L});
         public static final BitSet FOLLOW_51_in_ruleEnumerado4774 = new BitSet(new long[]{0x4000000000000000L});
-        public static final BitSet FOLLOW_62_in_ruleEnumerado4786 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_62_in_ruleEnumerado4786 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleEnumerado4808 = new BitSet(new long[]{0x8000000020000000L});
-        public static final BitSet FOLLOW_29_in_ruleEnumerado4821 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_29_in_ruleEnumerado4821 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleEnumerado4842 = new BitSet(new long[]{0x8000000020000000L});
         public static final BitSet FOLLOW_63_in_ruleEnumerado4857 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleSubrango_in_entryRuleSubrango4893 = new BitSet(new long[]{0x0000000000000000L});
@@ -17868,46 +18884,46 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleAsignacionNormal_in_entryRuleAsignacionNormal6068 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleAsignacionNormal6078 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEString_in_ruleAsignacionNormal6124 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-        public static final BitSet FOLLOW_68_in_ruleAsignacionNormal6136 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleAsignacionNormal6157 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_68_in_ruleAsignacionNormal6136 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_ruleAsignacionNormal6157 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleAsignacionCompleja_in_entryRuleAsignacionCompleja6193 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleAsignacionCompleja6203 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleVariablesComplejas_in_ruleAsignacionCompleja6249 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-        public static final BitSet FOLLOW_68_in_ruleAsignacionCompleja6261 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleAsignacionCompleja6282 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_68_in_ruleAsignacionCompleja6261 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_ruleAsignacionCompleja6282 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleEscribir_in_entryRuleEscribir6318 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleEscribir6328 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_69_in_ruleEscribir6365 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulePrimaria_in_ruleEscribir6386 = new BitSet(new long[]{0x00003FE2600003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_29_in_ruleEscribir6400 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulePrimaria_in_ruleEscribir6421 = new BitSet(new long[]{0x00003FE2600003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleEscribir6449 = new BitSet(new long[]{0x00003FE2600003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_69_in_ruleEscribir6365 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
+        public static final BitSet FOLLOW_rulePrimaria_in_ruleEscribir6386 = new BitSet(new long[]{0x00043FE2600003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_29_in_ruleEscribir6400 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
+        public static final BitSet FOLLOW_rulePrimaria_in_ruleEscribir6421 = new BitSet(new long[]{0x00043FE2600003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleEscribir6449 = new BitSet(new long[]{0x00043FE2600003F0L,0x000C040000000000L});
         public static final BitSet FOLLOW_30_in_ruleEscribir6463 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleLeer_in_entryRuleLeer6499 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleLeer6509 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_70_in_ruleLeer6546 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_70_in_ruleLeer6546 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleLeer6567 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleLeer6580 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_29_in_ruleLeer6580 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleLeer6601 = new BitSet(new long[]{0x0000000060000000L});
         public static final BitSet FOLLOW_30_in_ruleLeer6615 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleSi_in_entryRuleSi6651 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleSi6661 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_71_in_ruleSi6700 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_ruleSi6712 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_72_in_ruleSi6731 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleSi6753 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_33_in_ruleSi6712 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_72_in_ruleSi6731 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_ruleSi6753 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_ruleSi6765 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000200L});
-        public static final BitSet FOLLOW_73_in_ruleSi6777 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000300000C49DE0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_ruleSi6798 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000300000C49DE0L});
-        public static final BitSet FOLLOW_ruleDevolver_in_ruleSi6820 = new BitSet(new long[]{0x0000000000000000L,0x0000100000000400L});
+        public static final BitSet FOLLOW_73_in_ruleSi6777 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000180000C49DE0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_ruleSi6798 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000180000C49DE0L});
+        public static final BitSet FOLLOW_ruleDevolver_in_ruleSi6820 = new BitSet(new long[]{0x0000000000000000L,0x0000080000000400L});
         public static final BitSet FOLLOW_ruleSino_in_ruleSi6842 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000400L});
         public static final BitSet FOLLOW_74_in_ruleSi6855 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rulemientras_in_entryRulemientras6891 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRulemientras6901 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_75_in_rulemientras6940 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_rulemientras6952 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_76_in_rulemientras6971 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rulemientras6993 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_33_in_rulemientras6952 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_76_in_rulemientras6971 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_rulemientras6993 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_rulemientras7005 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
         public static final BitSet FOLLOW_77_in_rulemientras7017 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000000000C4D9E0L});
         public static final BitSet FOLLOW_ruleSentencias_in_rulemientras7038 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000000000C4D9E0L});
@@ -17917,37 +18933,37 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_79_in_rulerepetir7134 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000000000C799E0L});
         public static final BitSet FOLLOW_ruleSentencias_in_rulerepetir7155 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000000000C799E0L});
         public static final BitSet FOLLOW_80_in_rulerepetir7170 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_rulerepetir7182 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_81_in_rulerepetir7201 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rulerepetir7223 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_33_in_rulerepetir7182 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_81_in_rulerepetir7201 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_rulerepetir7223 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_rulerepetir7235 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruledesde_in_entryRuledesde7271 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuledesde7281 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_82_in_ruledesde7318 = new BitSet(new long[]{0x0000000000000090L});
         public static final BitSet FOLLOW_ruleAsignacionNormal_in_ruledesde7339 = new BitSet(new long[]{0x0000000000000000L,0x0000000000080000L});
-        public static final BitSet FOLLOW_83_in_ruledesde7351 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruledesde7372 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+        public static final BitSet FOLLOW_83_in_ruledesde7351 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_ruledesde7372 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
         public static final BitSet FOLLOW_77_in_ruledesde7384 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000000000D499E0L});
         public static final BitSet FOLLOW_ruleSentencias_in_ruledesde7405 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000000000D499E0L});
         public static final BitSet FOLLOW_84_in_ruledesde7418 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleCaso_in_entryRuleCaso7454 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleCaso7464 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_85_in_ruleCaso7501 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
+        public static final BitSet FOLLOW_85_in_ruleCaso7501 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C000000000000L});
         public static final BitSet FOLLOW_rulePrimaria_in_ruleCaso7522 = new BitSet(new long[]{0x0100000000000000L});
-        public static final BitSet FOLLOW_56_in_ruleCaso7534 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000200000C499E0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_ruleCaso7555 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000200000C499E0L});
+        public static final BitSet FOLLOW_56_in_ruleCaso7534 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000100000C499E0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_ruleCaso7555 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000100000C499E0L});
         public static final BitSet FOLLOW_ruleDevolver_in_ruleCaso7577 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rulesegun_in_entryRulesegun7614 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRulesegun7624 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_86_in_rulesegun7663 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_rulesegun7675 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_87_in_rulesegun7694 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulePrimaria_in_rulesegun7716 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_33_in_rulesegun7675 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_87_in_rulesegun7694 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_rulesegun7716 = new BitSet(new long[]{0x0000000040000000L});
         public static final BitSet FOLLOW_30_in_rulesegun7728 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
         public static final BitSet FOLLOW_77_in_rulesegun7740 = new BitSet(new long[]{0x0000000000000000L,0x0000000001200000L});
         public static final BitSet FOLLOW_ruleCaso_in_rulesegun7761 = new BitSet(new long[]{0x0000000000000000L,0x0000000001200000L});
-        public static final BitSet FOLLOW_88_in_rulesegun7774 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000200002C499E0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_rulesegun7795 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000200002C499E0L});
+        public static final BitSet FOLLOW_88_in_rulesegun7774 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000100002C499E0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_rulesegun7795 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000100002C499E0L});
         public static final BitSet FOLLOW_ruleDevolver_in_rulesegun7817 = new BitSet(new long[]{0x0000000000000000L,0x0000000002000000L});
         public static final BitSet FOLLOW_89_in_rulesegun7830 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleTipoVariable_in_entryRuleTipoVariable7867 = new BitSet(new long[]{0x0000000000000000L});
@@ -18000,190 +19016,215 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
         public static final BitSet FOLLOW_ruleOr_in_entryRuleOr9185 = new BitSet(new long[]{0x0000000000000000L});
         public static final BitSet FOLLOW_EOF_in_entryRuleOr9195 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleAnd_in_ruleOr9242 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
-        public static final BitSet FOLLOW_rulesignoOr_in_ruleOr9272 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleAnd_in_ruleOr9293 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
-        public static final BitSet FOLLOW_ruleAnd_in_entryRuleAnd9331 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleAnd9341 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMod_in_ruleAnd9388 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
-        public static final BitSet FOLLOW_rulesignoAnd_in_ruleAnd9418 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleMod_in_ruleAnd9439 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
-        public static final BitSet FOLLOW_ruleMod_in_entryRuleMod9477 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMod9487 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleIgualdad_in_ruleMod9534 = new BitSet(new long[]{0x0000000000000002L,0x0000010000000000L});
-        public static final BitSet FOLLOW_rulesignoModulo_in_ruleMod9564 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleIgualdad_in_ruleMod9585 = new BitSet(new long[]{0x0000000000000002L,0x0000010000000000L});
-        public static final BitSet FOLLOW_ruleIgualdad_in_entryRuleIgualdad9623 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleIgualdad9633 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComparacion_in_ruleIgualdad9680 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
-        public static final BitSet FOLLOW_rulesignoIgualdad_in_ruleIgualdad9710 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleComparacion_in_ruleIgualdad9731 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
-        public static final BitSet FOLLOW_ruleComparacion_in_entryRuleComparacion9769 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleComparacion9779 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSumaResta_in_ruleComparacion9826 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
-        public static final BitSet FOLLOW_rulesignoComparacion_in_ruleComparacion9856 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleSumaResta_in_ruleComparacion9877 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
-        public static final BitSet FOLLOW_ruleSumaResta_in_entryRuleSumaResta9915 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSumaResta9925 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta9972 = new BitSet(new long[]{0x0006000000000002L});
-        public static final BitSet FOLLOW_rulesignoSuma_in_ruleSumaResta10004 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulesignoResta_in_ruleSumaResta10042 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta10065 = new BitSet(new long[]{0x0006000000000002L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_entryRuleMultiplicacionDivision10103 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicacionDivision10113 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10160 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
-        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivision10192 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivision10230 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivision10268 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10291 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_entryRuleoperacionIndice10329 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleoperacionIndice10339 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOrIndice_in_ruleoperacionIndice10385 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOrIndice_in_entryRuleOrIndice10419 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleOrIndice10429 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAndIndice_in_ruleOrIndice10476 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
-        public static final BitSet FOLLOW_rulesignoOr_in_ruleOrIndice10506 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleAndIndice_in_ruleOrIndice10527 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
-        public static final BitSet FOLLOW_ruleAndIndice_in_entryRuleAndIndice10565 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleAndIndice10575 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleIgualdadIndice_in_ruleAndIndice10622 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
-        public static final BitSet FOLLOW_rulesignoAnd_in_ruleAndIndice10652 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleIgualdadIndice_in_ruleAndIndice10673 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
-        public static final BitSet FOLLOW_ruleIgualdadIndice_in_entryRuleIgualdadIndice10711 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleIgualdadIndice10721 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice10768 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
-        public static final BitSet FOLLOW_rulesignoIgualdad_in_ruleIgualdadIndice10798 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice10819 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
-        public static final BitSet FOLLOW_ruleComparacionIndice_in_entryRuleComparacionIndice10857 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleComparacionIndice10867 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice10914 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
-        public static final BitSet FOLLOW_rulesignoComparacion_in_ruleComparacionIndice10944 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice10965 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
-        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_entryRuleSumaRestaIndice11003 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSumaRestaIndice11013 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11060 = new BitSet(new long[]{0x0006000000000002L});
-        public static final BitSet FOLLOW_rulesignoSuma_in_ruleSumaRestaIndice11092 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_rulesignoResta_in_ruleSumaRestaIndice11130 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11153 = new BitSet(new long[]{0x0006000000000002L});
-        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_entryRuleMultiplicacionDivisionIndice11191 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicacionDivisionIndice11201 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11248 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
-        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivisionIndice11280 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivisionIndice11318 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivisionIndice11356 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11379 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
-        public static final BitSet FOLLOW_rulePrimariaIndice_in_entryRulePrimariaIndice11417 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulePrimariaIndice11427 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_rulePrimariaIndice11483 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rulePrimariaIndice11521 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rulePrimaria_in_entryRulePrimaria11558 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRulePrimaria11568 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariablesBasicas_in_rulePrimaria11615 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariablesComplejas_in_rulePrimaria11642 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_106_in_rulePrimaria11669 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rulePrimaria11690 = new BitSet(new long[]{0x0000000040000000L});
-        public static final BitSet FOLLOW_30_in_rulePrimaria11702 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_107_in_rulePrimaria11731 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_33_in_rulePrimaria11743 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rulePrimaria11764 = new BitSet(new long[]{0x0000000040000000L});
-        public static final BitSet FOLLOW_30_in_rulePrimaria11776 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFunciones_in_rulePrimaria11805 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_33_in_rulePrimaria11832 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_rulePrimaria11853 = new BitSet(new long[]{0x0000000040000000L});
-        public static final BitSet FOLLOW_30_in_rulePrimaria11865 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFunciones_in_entryRuleFunciones11902 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleFunciones11912 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleFunciones11964 = new BitSet(new long[]{0x00003FE2400003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones11991 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleFunciones12004 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12025 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_30_in_ruleFunciones12041 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleNombreInterna_in_ruleFunciones12079 = new BitSet(new long[]{0x00003FE2400003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12101 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleFunciones12114 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12135 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_30_in_ruleFunciones12151 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleVariablesComplejas_in_entryRuleVariablesComplejas12188 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleVariablesComplejas12198 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesComplejas12255 = new BitSet(new long[]{0x0020000000000000L});
-        public static final BitSet FOLLOW_53_in_ruleVariablesComplejas12267 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas12288 = new BitSet(new long[]{0x0040000000000000L});
-        public static final BitSet FOLLOW_54_in_ruleVariablesComplejas12300 = new BitSet(new long[]{0x0000400000000002L});
-        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas12314 = new BitSet(new long[]{0x0000000000000090L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12335 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesComplejas12376 = new BitSet(new long[]{0x0020000000000000L});
-        public static final BitSet FOLLOW_53_in_ruleVariablesComplejas12388 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas12409 = new BitSet(new long[]{0x0400000000000000L});
-        public static final BitSet FOLLOW_58_in_ruleVariablesComplejas12421 = new BitSet(new long[]{0x00000000000000D0L});
-        public static final BitSet FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas12442 = new BitSet(new long[]{0x0040000000000000L});
-        public static final BitSet FOLLOW_54_in_ruleVariablesComplejas12454 = new BitSet(new long[]{0x0000400000000002L});
-        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas12468 = new BitSet(new long[]{0x0000000000000090L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12489 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesComplejas12529 = new BitSet(new long[]{0x0000400000000000L});
-        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas12541 = new BitSet(new long[]{0x0000000000000090L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12563 = new BitSet(new long[]{0x0000400000000002L});
-        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas12576 = new BitSet(new long[]{0x0000000000000090L});
-        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas12597 = new BitSet(new long[]{0x0000400000000002L});
-        public static final BitSet FOLLOW_ruleVariablesBasicas_in_entryRuleVariablesBasicas12637 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleVariablesBasicas12647 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEInt_in_ruleVariablesBasicas12703 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEFloat_in_ruleVariablesBasicas12741 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_CAD_in_ruleVariablesBasicas12775 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_RULE_CAR_in_ruleVariablesBasicas12814 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleBooleano_in_ruleVariablesBasicas12857 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesBasicas12895 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleSino_in_entryRuleSino12932 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleSino12942 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_108_in_ruleSino12988 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000200000C499E0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_ruleSino13010 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000200000C499E0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_ruleSino13031 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000200000C499E0L});
-        public static final BitSet FOLLOW_ruleDevolver_in_ruleSino13055 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDevolver_in_entryRuleDevolver13092 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleDevolver13102 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_109_in_ruleDevolver13148 = new BitSet(new long[]{0x00003FE2000003F0L,0x00180C0000000000L});
-        public static final BitSet FOLLOW_ruleoperacion_in_ruleDevolver13169 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_entryRuleParametroFuncion13205 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleParametroFuncion13215 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoPaso_in_ruleParametroFuncion13261 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000000L});
-        public static final BitSet FOLLOW_ruleTipo_in_ruleParametroFuncion13282 = new BitSet(new long[]{0x0100000000000000L});
-        public static final BitSet FOLLOW_56_in_ruleParametroFuncion13294 = new BitSet(new long[]{0x0000000000000090L});
-        public static final BitSet FOLLOW_ruleVariable_in_ruleParametroFuncion13315 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFuncion_in_entryRuleFuncion13351 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleFuncion13361 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoVariable_in_ruleFuncion13407 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_31_in_ruleFuncion13419 = new BitSet(new long[]{0x0000000000000020L});
-        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleFuncion13436 = new BitSet(new long[]{0x0000000040000000L,0x0007000000000000L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleFuncion13463 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleFuncion13476 = new BitSet(new long[]{0x0000000000000000L,0x0007000000000000L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleFuncion13497 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_30_in_ruleFuncion13513 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000004L});
-        public static final BitSet FOLLOW_20_in_ruleFuncion13526 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_ruleFuncion13547 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
-        public static final BitSet FOLLOW_66_in_ruleFuncion13562 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000600000C499E0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_ruleFuncion13583 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000600000C499E0L});
-        public static final BitSet FOLLOW_ruleDevolver_in_ruleFuncion13605 = new BitSet(new long[]{0x0000000000000000L,0x0000400000000000L});
-        public static final BitSet FOLLOW_110_in_ruleFuncion13618 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleProcedimiento_in_entryRuleProcedimiento13654 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleProcedimiento13664 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_28_in_ruleProcedimiento13701 = new BitSet(new long[]{0x0000000000000020L});
-        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleProcedimiento13718 = new BitSet(new long[]{0x0000000040000000L,0x0007000000000000L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleProcedimiento13745 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_29_in_ruleProcedimiento13758 = new BitSet(new long[]{0x0000000000000000L,0x0007000000000000L});
-        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleProcedimiento13779 = new BitSet(new long[]{0x0000000060000000L});
-        public static final BitSet FOLLOW_30_in_ruleProcedimiento13795 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000004L});
-        public static final BitSet FOLLOW_20_in_ruleProcedimiento13808 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
-        public static final BitSet FOLLOW_ruleDeclaracion_in_ruleProcedimiento13829 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
-        public static final BitSet FOLLOW_66_in_ruleProcedimiento13844 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000800000C499E0L});
-        public static final BitSet FOLLOW_ruleSentencias_in_ruleProcedimiento13865 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000800000C499E0L});
-        public static final BitSet FOLLOW_111_in_ruleProcedimiento13878 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleTipoPaso_in_entryRuleTipoPaso13915 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleTipoPaso13926 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_112_in_ruleTipoPaso13964 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_113_in_ruleTipoPaso13983 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_114_in_ruleTipoPaso14002 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleBooleano_in_entryRuleBooleano14043 = new BitSet(new long[]{0x0000000000000000L});
-        public static final BitSet FOLLOW_EOF_in_entryRuleBooleano14054 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_115_in_ruleBooleano14092 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_116_in_ruleBooleano14111 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulesignoOr_in_ruleOr9272 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleOr9290 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleOr9322 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleAnd_in_ruleOr9357 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
+        public static final BitSet FOLLOW_ruleAnd_in_entryRuleAnd9395 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAnd9405 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMod_in_ruleAnd9452 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
+        public static final BitSet FOLLOW_rulesignoAnd_in_ruleAnd9482 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleAnd9500 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleAnd9532 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleMod_in_ruleAnd9567 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
+        public static final BitSet FOLLOW_ruleMod_in_entryRuleMod9605 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMod9615 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleIgualdad_in_ruleMod9662 = new BitSet(new long[]{0x0000000000000002L,0x0000010000000000L});
+        public static final BitSet FOLLOW_rulesignoModulo_in_ruleMod9692 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleMod9710 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleMod9742 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleIgualdad_in_ruleMod9777 = new BitSet(new long[]{0x0000000000000002L,0x0000010000000000L});
+        public static final BitSet FOLLOW_ruleIgualdad_in_entryRuleIgualdad9815 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleIgualdad9825 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComparacion_in_ruleIgualdad9872 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
+        public static final BitSet FOLLOW_rulesignoIgualdad_in_ruleIgualdad9902 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleIgualdad9920 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleIgualdad9952 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleComparacion_in_ruleIgualdad9987 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
+        public static final BitSet FOLLOW_ruleComparacion_in_entryRuleComparacion10025 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleComparacion10035 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSumaResta_in_ruleComparacion10082 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
+        public static final BitSet FOLLOW_rulesignoComparacion_in_ruleComparacion10112 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleComparacion10130 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleComparacion10162 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleSumaResta_in_ruleComparacion10197 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
+        public static final BitSet FOLLOW_ruleSumaResta_in_entryRuleSumaResta10235 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSumaResta10245 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta10292 = new BitSet(new long[]{0x0006000000000002L});
+        public static final BitSet FOLLOW_rulesignoSuma_in_ruleSumaResta10324 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_rulesignoResta_in_ruleSumaResta10362 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleSumaResta10382 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleSumaResta10414 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_ruleSumaResta10449 = new BitSet(new long[]{0x0006000000000002L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivision_in_entryRuleMultiplicacionDivision10487 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicacionDivision10497 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10544 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
+        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivision10576 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivision10614 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivision10652 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleMultiplicacionDivision10672 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleMultiplicacionDivision10704 = new BitSet(new long[]{0x00003FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_rulePrimaria_in_ruleMultiplicacionDivision10739 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_entryRuleoperacionIndice10777 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleoperacionIndice10787 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOrIndice_in_ruleoperacionIndice10833 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOrIndice_in_entryRuleOrIndice10867 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleOrIndice10877 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAndIndice_in_ruleOrIndice10924 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
+        public static final BitSet FOLLOW_rulesignoOr_in_ruleOrIndice10954 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleAndIndice_in_ruleOrIndice10975 = new BitSet(new long[]{0x0000000000000002L,0x0000000080000000L});
+        public static final BitSet FOLLOW_ruleAndIndice_in_entryRuleAndIndice11013 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleAndIndice11023 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleIgualdadIndice_in_ruleAndIndice11070 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
+        public static final BitSet FOLLOW_rulesignoAnd_in_ruleAndIndice11100 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleIgualdadIndice_in_ruleAndIndice11121 = new BitSet(new long[]{0x0000000000000002L,0x0000000100000000L});
+        public static final BitSet FOLLOW_ruleIgualdadIndice_in_entryRuleIgualdadIndice11159 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleIgualdadIndice11169 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice11216 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
+        public static final BitSet FOLLOW_rulesignoIgualdad_in_ruleIgualdadIndice11246 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleComparacionIndice_in_ruleIgualdadIndice11267 = new BitSet(new long[]{0x0008000000000002L,0x0000000200000000L});
+        public static final BitSet FOLLOW_ruleComparacionIndice_in_entryRuleComparacionIndice11305 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleComparacionIndice11315 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice11362 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
+        public static final BitSet FOLLOW_rulesignoComparacion_in_ruleComparacionIndice11392 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_ruleComparacionIndice11413 = new BitSet(new long[]{0x0000000000000002L,0x0000003C00000000L});
+        public static final BitSet FOLLOW_ruleSumaRestaIndice_in_entryRuleSumaRestaIndice11451 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSumaRestaIndice11461 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11508 = new BitSet(new long[]{0x0006000000000002L});
+        public static final BitSet FOLLOW_rulesignoSuma_in_ruleSumaRestaIndice11540 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_rulesignoResta_in_ruleSumaRestaIndice11578 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_ruleSumaRestaIndice11601 = new BitSet(new long[]{0x0006000000000002L});
+        public static final BitSet FOLLOW_ruleMultiplicacionDivisionIndice_in_entryRuleMultiplicacionDivisionIndice11639 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleMultiplicacionDivisionIndice11649 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11696 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
+        public static final BitSet FOLLOW_rulesignoMultiplicacion_in_ruleMultiplicacionDivisionIndice11728 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_rulesignoDivision_in_ruleMultiplicacionDivisionIndice11766 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_rulesignoDiv_in_ruleMultiplicacionDivisionIndice11804 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_rulePrimariaIndice_in_ruleMultiplicacionDivisionIndice11827 = new BitSet(new long[]{0x0000000000000002L,0x000002C000000000L});
+        public static final BitSet FOLLOW_rulePrimariaIndice_in_entryRulePrimariaIndice11865 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimariaIndice11875 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_rulePrimariaIndice11931 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rulePrimariaIndice11969 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rulePrimaria_in_entryRulePrimaria12006 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRulePrimaria12016 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariablesBasicas_in_rulePrimaria12063 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariablesComplejas_in_rulePrimaria12090 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFunciones_in_rulePrimaria12117 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOperacionParentesis_in_rulePrimaria12144 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_entryRuleOperacionCompleta12179 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleOperacionCompleta12189 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_50_in_ruleOperacionCompleta12241 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleOperacionCompleta12273 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleOperacionCompleta12308 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOperacionParentesis_in_entryRuleOperacionParentesis12344 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleOperacionParentesis12354 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_33_in_ruleOperacionParentesis12400 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleOperacionParentesis12418 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleOperacionParentesis12450 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleOperacionParentesis12485 = new BitSet(new long[]{0x0000000040000000L});
+        public static final BitSet FOLLOW_30_in_ruleOperacionParentesis12497 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFunciones_in_entryRuleFunciones12533 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFunciones12543 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleFunciones12595 = new BitSet(new long[]{0x00043FE2400003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleFunciones12614 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleFunciones12629 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12652 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_29_in_ruleFunciones12665 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleFunciones12678 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleFunciones12693 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12716 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_30_in_ruleFunciones12732 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleNombreInterna_in_ruleFunciones12770 = new BitSet(new long[]{0x00043FE2400003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleFunciones12784 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleFunciones12799 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12822 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_29_in_ruleFunciones12835 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_50_in_ruleFunciones12848 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_106_in_ruleFunciones12863 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleoperacion_in_ruleFunciones12886 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_30_in_ruleFunciones12902 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleVariablesComplejas_in_entryRuleVariablesComplejas12939 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleVariablesComplejas12949 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesComplejas13006 = new BitSet(new long[]{0x0020000000000000L});
+        public static final BitSet FOLLOW_53_in_ruleVariablesComplejas13018 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas13039 = new BitSet(new long[]{0x0040000000000000L});
+        public static final BitSet FOLLOW_54_in_ruleVariablesComplejas13051 = new BitSet(new long[]{0x0000400000000002L});
+        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas13065 = new BitSet(new long[]{0x0000000000000090L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13086 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesComplejas13127 = new BitSet(new long[]{0x0020000000000000L});
+        public static final BitSet FOLLOW_53_in_ruleVariablesComplejas13139 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas13160 = new BitSet(new long[]{0x0400000000000000L});
+        public static final BitSet FOLLOW_58_in_ruleVariablesComplejas13172 = new BitSet(new long[]{0x00000000000000D0L});
+        public static final BitSet FOLLOW_ruleoperacionIndice_in_ruleVariablesComplejas13193 = new BitSet(new long[]{0x0040000000000000L});
+        public static final BitSet FOLLOW_54_in_ruleVariablesComplejas13205 = new BitSet(new long[]{0x0000400000000002L});
+        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas13219 = new BitSet(new long[]{0x0000000000000090L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13240 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesComplejas13280 = new BitSet(new long[]{0x0000400000000000L});
+        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas13292 = new BitSet(new long[]{0x0000000000000090L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13314 = new BitSet(new long[]{0x0000400000000002L});
+        public static final BitSet FOLLOW_46_in_ruleVariablesComplejas13327 = new BitSet(new long[]{0x0000000000000090L});
+        public static final BitSet FOLLOW_ruleCampoRegistro_in_ruleVariablesComplejas13348 = new BitSet(new long[]{0x0000400000000002L});
+        public static final BitSet FOLLOW_ruleVariablesBasicas_in_entryRuleVariablesBasicas13388 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleVariablesBasicas13398 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEInt_in_ruleVariablesBasicas13454 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEFloat_in_ruleVariablesBasicas13492 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_CAD_in_ruleVariablesBasicas13526 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_RULE_CAR_in_ruleVariablesBasicas13565 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBooleano_in_ruleVariablesBasicas13608 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_ruleVariablesBasicas13646 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleSino_in_entryRuleSino13683 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleSino13693 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_107_in_ruleSino13739 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000100000C499E0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_ruleSino13761 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000100000C499E0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_ruleSino13782 = new BitSet(new long[]{0x00003FE5000000B2L,0x0000100000C499E0L});
+        public static final BitSet FOLLOW_ruleDevolver_in_ruleSino13806 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDevolver_in_entryRuleDevolver13843 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleDevolver13853 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_108_in_ruleDevolver13899 = new BitSet(new long[]{0x00043FE2000003F0L,0x000C040000000000L});
+        public static final BitSet FOLLOW_ruleOperacionCompleta_in_ruleDevolver13920 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_entryRuleParametroFuncion13956 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleParametroFuncion13966 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoPaso_in_ruleParametroFuncion14012 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000000L});
+        public static final BitSet FOLLOW_ruleTipo_in_ruleParametroFuncion14033 = new BitSet(new long[]{0x0100000000000000L});
+        public static final BitSet FOLLOW_56_in_ruleParametroFuncion14045 = new BitSet(new long[]{0x0000000000000090L});
+        public static final BitSet FOLLOW_ruleVariable_in_ruleParametroFuncion14066 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFuncion_in_entryRuleFuncion14102 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleFuncion14112 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoVariable_in_ruleFuncion14158 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_31_in_ruleFuncion14170 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleFuncion14187 = new BitSet(new long[]{0x0000000040000000L,0x0003800000000000L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleFuncion14214 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_29_in_ruleFuncion14227 = new BitSet(new long[]{0x0000000000000000L,0x0003800000000000L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleFuncion14248 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_30_in_ruleFuncion14264 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000004L});
+        public static final BitSet FOLLOW_20_in_ruleFuncion14277 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_ruleFuncion14298 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
+        public static final BitSet FOLLOW_66_in_ruleFuncion14313 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000300000C499E0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_ruleFuncion14334 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000300000C499E0L});
+        public static final BitSet FOLLOW_ruleDevolver_in_ruleFuncion14356 = new BitSet(new long[]{0x0000000000000000L,0x0000200000000000L});
+        public static final BitSet FOLLOW_109_in_ruleFuncion14369 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleProcedimiento_in_entryRuleProcedimiento14405 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleProcedimiento14415 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_28_in_ruleProcedimiento14452 = new BitSet(new long[]{0x0000000000000020L});
+        public static final BitSet FOLLOW_RULE_NOMBRE_FUN_in_ruleProcedimiento14469 = new BitSet(new long[]{0x0000000040000000L,0x0003800000000000L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleProcedimiento14496 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_29_in_ruleProcedimiento14509 = new BitSet(new long[]{0x0000000000000000L,0x0003800000000000L});
+        public static final BitSet FOLLOW_ruleParametroFuncion_in_ruleProcedimiento14530 = new BitSet(new long[]{0x0000000060000000L});
+        public static final BitSet FOLLOW_30_in_ruleProcedimiento14546 = new BitSet(new long[]{0x0000000000100000L,0x0000000000000004L});
+        public static final BitSet FOLLOW_20_in_ruleProcedimiento14559 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
+        public static final BitSet FOLLOW_ruleDeclaracion_in_ruleProcedimiento14580 = new BitSet(new long[]{0x0000000000000090L,0x000000007C000004L});
+        public static final BitSet FOLLOW_66_in_ruleProcedimiento14595 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000400000C499E0L});
+        public static final BitSet FOLLOW_ruleSentencias_in_ruleProcedimiento14616 = new BitSet(new long[]{0x00003FE5000000B0L,0x0000400000C499E0L});
+        public static final BitSet FOLLOW_110_in_ruleProcedimiento14629 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleTipoPaso_in_entryRuleTipoPaso14666 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleTipoPaso14677 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_111_in_ruleTipoPaso14715 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_112_in_ruleTipoPaso14734 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_113_in_ruleTipoPaso14753 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleBooleano_in_entryRuleBooleano14794 = new BitSet(new long[]{0x0000000000000000L});
+        public static final BitSet FOLLOW_EOF_in_entryRuleBooleano14805 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_114_in_ruleBooleano14843 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_115_in_ruleBooleano14862 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 
