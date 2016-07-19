@@ -223,13 +223,20 @@ protected class Codigo_ModuloParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule Algoritmo ****************
  *
  * Algoritmo:
- * 	"Algoritmo" nombre=EString ("importa" importaciones+=[Modulo]* "fin_importa")? ("const" constantes+=Constantes*)?
- * 	("tipo" tipocomplejo+=TipoComplejo*)? ("var" global+=Declaracion*)? funcion+=Subproceso* tiene=Inicio "fin_algoritmo";
+ * 	'Algoritmo' nombre=EString ('importa'
+ * 	importaciones+=[Modulo]*
+ * 	'fin_importa')? ('const'
+ * 	constantes+=Constantes*)? ('tipo'
+ * 	tipocomplejo+=TipoComplejo*)? ('var'
+ * 	global+=Declaracion*)?
+ * 	funcion+=Subproceso*
+ * 	tiene=Inicio
+ * 	'fin_algoritmo';
  *
  **/
 
-// "Algoritmo" nombre=EString ("importa" importaciones+=[Modulo]* "fin_importa")? ("const" constantes+=Constantes*)?
-// ("tipo" tipocomplejo+=TipoComplejo*)? ("var" global+=Declaracion*)? funcion+=Subproceso* tiene=Inicio "fin_algoritmo"
+// 'Algoritmo' nombre=EString ('importa' importaciones+=[Modulo]* 'fin_importa')? ('const' constantes+=Constantes*)?
+// ('tipo' tipocomplejo+=TipoComplejo*)? ('var' global+=Declaracion*)? funcion+=Subproceso* tiene=Inicio 'fin_algoritmo'
 protected class Algoritmo_Group extends GroupToken {
 	
 	public Algoritmo_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -258,7 +265,7 @@ protected class Algoritmo_Group extends GroupToken {
 
 }
 
-// "Algoritmo"
+// 'Algoritmo'
 protected class Algoritmo_AlgoritmoKeyword_0 extends KeywordToken  {
 	
 	public Algoritmo_AlgoritmoKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -313,7 +320,7 @@ protected class Algoritmo_NombreAssignment_1 extends AssignmentToken  {
 
 }
 
-// ("importa" importaciones+=[Modulo]* "fin_importa")?
+// ('importa' importaciones+=[Modulo]* 'fin_importa')?
 protected class Algoritmo_Group_2 extends GroupToken {
 	
 	public Algoritmo_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -335,7 +342,7 @@ protected class Algoritmo_Group_2 extends GroupToken {
 
 }
 
-// "importa"
+// 'importa'
 protected class Algoritmo_ImportaKeyword_2_0 extends KeywordToken  {
 	
 	public Algoritmo_ImportaKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -395,7 +402,7 @@ protected class Algoritmo_ImportacionesAssignment_2_1 extends AssignmentToken  {
 
 }
 
-// "fin_importa"
+// 'fin_importa'
 protected class Algoritmo_Fin_importaKeyword_2_2 extends KeywordToken  {
 	
 	public Algoritmo_Fin_importaKeyword_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -418,7 +425,7 @@ protected class Algoritmo_Fin_importaKeyword_2_2 extends KeywordToken  {
 }
 
 
-// ("const" constantes+=Constantes*)?
+// ('const' constantes+=Constantes*)?
 protected class Algoritmo_Group_3 extends GroupToken {
 	
 	public Algoritmo_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -440,7 +447,7 @@ protected class Algoritmo_Group_3 extends GroupToken {
 
 }
 
-// "const"
+// 'const'
 protected class Algoritmo_ConstKeyword_3_0 extends KeywordToken  {
 	
 	public Algoritmo_ConstKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -511,7 +518,7 @@ protected class Algoritmo_ConstantesAssignment_3_1 extends AssignmentToken  {
 }
 
 
-// ("tipo" tipocomplejo+=TipoComplejo*)?
+// ('tipo' tipocomplejo+=TipoComplejo*)?
 protected class Algoritmo_Group_4 extends GroupToken {
 	
 	public Algoritmo_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -533,7 +540,7 @@ protected class Algoritmo_Group_4 extends GroupToken {
 
 }
 
-// "tipo"
+// 'tipo'
 protected class Algoritmo_TipoKeyword_4_0 extends KeywordToken  {
 	
 	public Algoritmo_TipoKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -605,7 +612,7 @@ protected class Algoritmo_TipocomplejoAssignment_4_1 extends AssignmentToken  {
 }
 
 
-// ("var" global+=Declaracion*)?
+// ('var' global+=Declaracion*)?
 protected class Algoritmo_Group_5 extends GroupToken {
 	
 	public Algoritmo_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -627,7 +634,7 @@ protected class Algoritmo_Group_5 extends GroupToken {
 
 }
 
-// "var"
+// 'var'
 protected class Algoritmo_VarKeyword_5_0 extends KeywordToken  {
 	
 	public Algoritmo_VarKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -802,7 +809,7 @@ protected class Algoritmo_TieneAssignment_7 extends AssignmentToken  {
 	}	
 }
 
-// "fin_algoritmo"
+// 'fin_algoritmo'
 protected class Algoritmo_Fin_algoritmoKeyword_8 extends KeywordToken  {
 	
 	public Algoritmo_Fin_algoritmoKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -831,15 +838,22 @@ protected class Algoritmo_Fin_algoritmoKeyword_8 extends KeywordToken  {
 /************ begin Rule Modulo ****************
  *
  * Modulo:
- * 	"Modulo" nombre=ID "importa" importaciones+=[Modulo]* "fin_importa" ("exporta" ("const" exporta_constantes+=EString*)?
- * 	("tipo" exporta_tipos+=EString*)? ("var" exporta_global+=Declaracion*)? exporta_funciones+=CabeceraSubproceso*
- * 	"fin_exporta") implementacion=Implementacion "fin_modulo";
+ * 	'Modulo' nombre=ID
+ * 	'importa'
+ * 	importaciones+=[Modulo]*
+ * 	'fin_importa' ('exporta' ('const'
+ * 	exporta_constantes+=EString*)? ('tipo'
+ * 	exporta_tipos+=EString*)? ('var'
+ * 	exporta_global+=Declaracion*)?
+ * 	exporta_funciones+=CabeceraSubproceso*
+ * 	'fin_exporta') implementacion=Implementacion
+ * 	'fin_modulo';
  *
  **/
 
-// "Modulo" nombre=ID "importa" importaciones+=[Modulo]* "fin_importa" ("exporta" ("const" exporta_constantes+=EString*)?
-// ("tipo" exporta_tipos+=EString*)? ("var" exporta_global+=Declaracion*)? exporta_funciones+=CabeceraSubproceso*
-// "fin_exporta") implementacion=Implementacion "fin_modulo"
+// 'Modulo' nombre=ID 'importa' importaciones+=[Modulo]* 'fin_importa' ('exporta' ('const' exporta_constantes+=EString*)?
+// ('tipo' exporta_tipos+=EString*)? ('var' exporta_global+=Declaracion*)? exporta_funciones+=CabeceraSubproceso*
+// 'fin_exporta') implementacion=Implementacion 'fin_modulo'
 protected class Modulo_Group extends GroupToken {
 	
 	public Modulo_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -868,7 +882,7 @@ protected class Modulo_Group extends GroupToken {
 
 }
 
-// "Modulo"
+// 'Modulo'
 protected class Modulo_ModuloKeyword_0 extends KeywordToken  {
 	
 	public Modulo_ModuloKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -923,7 +937,7 @@ protected class Modulo_NombreAssignment_1 extends AssignmentToken  {
 
 }
 
-// "importa"
+// 'importa'
 protected class Modulo_ImportaKeyword_2 extends KeywordToken  {
 	
 	public Modulo_ImportaKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -983,7 +997,7 @@ protected class Modulo_ImportacionesAssignment_3 extends AssignmentToken  {
 
 }
 
-// "fin_importa"
+// 'fin_importa'
 protected class Modulo_Fin_importaKeyword_4 extends KeywordToken  {
 	
 	public Modulo_Fin_importaKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1006,8 +1020,8 @@ protected class Modulo_Fin_importaKeyword_4 extends KeywordToken  {
 
 }
 
-// "exporta" ("const" exporta_constantes+=EString*)? ("tipo" exporta_tipos+=EString*)? ("var"
-// exporta_global+=Declaracion*)? exporta_funciones+=CabeceraSubproceso* "fin_exporta"
+// ('exporta' ('const' exporta_constantes+=EString*)? ('tipo' exporta_tipos+=EString*)? ('var'
+// exporta_global+=Declaracion*)? exporta_funciones+=CabeceraSubproceso* 'fin_exporta')
 protected class Modulo_Group_5 extends GroupToken {
 	
 	public Modulo_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1029,7 +1043,7 @@ protected class Modulo_Group_5 extends GroupToken {
 
 }
 
-// "exporta"
+// 'exporta'
 protected class Modulo_ExportaKeyword_5_0 extends KeywordToken  {
 	
 	public Modulo_ExportaKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1051,7 +1065,7 @@ protected class Modulo_ExportaKeyword_5_0 extends KeywordToken  {
 
 }
 
-// ("const" exporta_constantes+=EString*)?
+// ('const' exporta_constantes+=EString*)?
 protected class Modulo_Group_5_1 extends GroupToken {
 	
 	public Modulo_Group_5_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1073,7 +1087,7 @@ protected class Modulo_Group_5_1 extends GroupToken {
 
 }
 
-// "const"
+// 'const'
 protected class Modulo_ConstKeyword_5_1_0 extends KeywordToken  {
 	
 	public Modulo_ConstKeyword_5_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1131,7 +1145,7 @@ protected class Modulo_Exporta_constantesAssignment_5_1_1 extends AssignmentToke
 }
 
 
-// ("tipo" exporta_tipos+=EString*)?
+// ('tipo' exporta_tipos+=EString*)?
 protected class Modulo_Group_5_2 extends GroupToken {
 	
 	public Modulo_Group_5_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1153,7 +1167,7 @@ protected class Modulo_Group_5_2 extends GroupToken {
 
 }
 
-// "tipo"
+// 'tipo'
 protected class Modulo_TipoKeyword_5_2_0 extends KeywordToken  {
 	
 	public Modulo_TipoKeyword_5_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1212,7 +1226,7 @@ protected class Modulo_Exporta_tiposAssignment_5_2_1 extends AssignmentToken  {
 }
 
 
-// ("var" exporta_global+=Declaracion*)?
+// ('var' exporta_global+=Declaracion*)?
 protected class Modulo_Group_5_3 extends GroupToken {
 	
 	public Modulo_Group_5_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1234,7 +1248,7 @@ protected class Modulo_Group_5_3 extends GroupToken {
 
 }
 
-// "var"
+// 'var'
 protected class Modulo_VarKeyword_5_3_0 extends KeywordToken  {
 	
 	public Modulo_VarKeyword_5_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1356,7 +1370,7 @@ protected class Modulo_Exporta_funcionesAssignment_5_4 extends AssignmentToken  
 	}	
 }
 
-// "fin_exporta"
+// 'fin_exporta'
 protected class Modulo_Fin_exportaKeyword_5_5 extends KeywordToken  {
 	
 	public Modulo_Fin_exportaKeyword_5_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1429,7 +1443,7 @@ protected class Modulo_ImplementacionAssignment_6 extends AssignmentToken  {
 	}	
 }
 
-// "fin_modulo"
+// 'fin_modulo'
 protected class Modulo_Fin_moduloKeyword_7 extends KeywordToken  {
 	
 	public Modulo_Fin_moduloKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1458,13 +1472,17 @@ protected class Modulo_Fin_moduloKeyword_7 extends KeywordToken  {
 /************ begin Rule Implementacion ****************
  *
  * Implementacion:
- * 	{Implementacion} ("implementacion" ("const" constantes+=Constantes*)? ("tipo" tipocomplejo+=TipoComplejo*)? ("var"
- * 	global+=Declaracion*)? funcion+=Subproceso* "fin_implementacion");
+ * 	{Implementacion} ('implementacion' ('const'
+ * 	constantes+=Constantes*)? ('tipo'
+ * 	tipocomplejo+=TipoComplejo*)? ('var'
+ * 	global+=Declaracion*)?
+ * 	funcion+=Subproceso*
+ * 	'fin_implementacion');
  *
  **/
 
-// {Implementacion} ("implementacion" ("const" constantes+=Constantes*)? ("tipo" tipocomplejo+=TipoComplejo*)? ("var"
-// global+=Declaracion*)? funcion+=Subproceso* "fin_implementacion")
+// {Implementacion} ('implementacion' ('const' constantes+=Constantes*)? ('tipo' tipocomplejo+=TipoComplejo*)? ('var'
+// global+=Declaracion*)? funcion+=Subproceso* 'fin_implementacion')
 protected class Implementacion_Group extends GroupToken {
 	
 	public Implementacion_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1519,8 +1537,8 @@ protected class Implementacion_ImplementacionAction_0 extends ActionToken  {
 	}
 }
 
-// "implementacion" ("const" constantes+=Constantes*)? ("tipo" tipocomplejo+=TipoComplejo*)? ("var" global+=Declaracion*)?
-// funcion+=Subproceso* "fin_implementacion"
+// ('implementacion' ('const' constantes+=Constantes*)? ('tipo' tipocomplejo+=TipoComplejo*)? ('var' global+=Declaracion*)?
+// funcion+=Subproceso* 'fin_implementacion')
 protected class Implementacion_Group_1 extends GroupToken {
 	
 	public Implementacion_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1542,7 +1560,7 @@ protected class Implementacion_Group_1 extends GroupToken {
 
 }
 
-// "implementacion"
+// 'implementacion'
 protected class Implementacion_ImplementacionKeyword_1_0 extends KeywordToken  {
 	
 	public Implementacion_ImplementacionKeyword_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1564,7 +1582,7 @@ protected class Implementacion_ImplementacionKeyword_1_0 extends KeywordToken  {
 
 }
 
-// ("const" constantes+=Constantes*)?
+// ('const' constantes+=Constantes*)?
 protected class Implementacion_Group_1_1 extends GroupToken {
 	
 	public Implementacion_Group_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1586,7 +1604,7 @@ protected class Implementacion_Group_1_1 extends GroupToken {
 
 }
 
-// "const"
+// 'const'
 protected class Implementacion_ConstKeyword_1_1_0 extends KeywordToken  {
 	
 	public Implementacion_ConstKeyword_1_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1656,7 +1674,7 @@ protected class Implementacion_ConstantesAssignment_1_1_1 extends AssignmentToke
 }
 
 
-// ("tipo" tipocomplejo+=TipoComplejo*)?
+// ('tipo' tipocomplejo+=TipoComplejo*)?
 protected class Implementacion_Group_1_2 extends GroupToken {
 	
 	public Implementacion_Group_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1678,7 +1696,7 @@ protected class Implementacion_Group_1_2 extends GroupToken {
 
 }
 
-// "tipo"
+// 'tipo'
 protected class Implementacion_TipoKeyword_1_2_0 extends KeywordToken  {
 	
 	public Implementacion_TipoKeyword_1_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1749,7 +1767,7 @@ protected class Implementacion_TipocomplejoAssignment_1_2_1 extends AssignmentTo
 }
 
 
-// ("var" global+=Declaracion*)?
+// ('var' global+=Declaracion*)?
 protected class Implementacion_Group_1_3 extends GroupToken {
 	
 	public Implementacion_Group_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1771,7 +1789,7 @@ protected class Implementacion_Group_1_3 extends GroupToken {
 
 }
 
-// "var"
+// 'var'
 protected class Implementacion_VarKeyword_1_3_0 extends KeywordToken  {
 	
 	public Implementacion_VarKeyword_1_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1893,7 +1911,7 @@ protected class Implementacion_FuncionAssignment_1_4 extends AssignmentToken  {
 	}	
 }
 
-// "fin_implementacion"
+// 'fin_implementacion'
 protected class Implementacion_Fin_implementacionKeyword_1_5 extends KeywordToken  {
 	
 	public Implementacion_Fin_implementacionKeyword_1_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2041,11 +2059,12 @@ protected class CabeceraSubproceso_CabeceraFuncionParserRuleCall_1 extends RuleC
 /************ begin Rule CabeceraProcedimiento ****************
  *
  * CabeceraProcedimiento:
- * 	"procedimiento" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")";
+ * 	'procedimiento'
+ * 	nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ')';
  *
  **/
 
-// "procedimiento" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")"
+// 'procedimiento' nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ')'
 protected class CabeceraProcedimiento_Group extends GroupToken {
 	
 	public CabeceraProcedimiento_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2074,7 +2093,7 @@ protected class CabeceraProcedimiento_Group extends GroupToken {
 
 }
 
-// "procedimiento"
+// 'procedimiento'
 protected class CabeceraProcedimiento_ProcedimientoKeyword_0 extends KeywordToken  {
 	
 	public CabeceraProcedimiento_ProcedimientoKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2291,7 +2310,7 @@ protected class CabeceraProcedimiento_ParametrofuncionAssignment_2_1_1 extends A
 
 
 
-// ")"
+// ')'
 protected class CabeceraProcedimiento_RightParenthesisKeyword_3 extends KeywordToken  {
 	
 	public CabeceraProcedimiento_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2321,13 +2340,13 @@ protected class CabeceraProcedimiento_RightParenthesisKeyword_3 extends KeywordT
 /************ begin Rule CabeceraFuncion ****************
  *
  * CabeceraFuncion:
- * 	tipo=TipoVariable "funcion" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion (","
- * 	parametrofuncion+=ParametroFuncion)*)? ")";
+ * 	tipo=TipoVariable 'funcion'
+ * 	nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ')';
  *
  **/
 
-// tipo=TipoVariable "funcion" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion (","
-// parametrofuncion+=ParametroFuncion)*)? ")"
+// tipo=TipoVariable 'funcion' nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion (","
+// parametrofuncion+=ParametroFuncion)*)? ')'
 protected class CabeceraFuncion_Group extends GroupToken {
 	
 	public CabeceraFuncion_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2389,7 +2408,7 @@ protected class CabeceraFuncion_TipoAssignment_0 extends AssignmentToken  {
 
 }
 
-// "funcion"
+// 'funcion'
 protected class CabeceraFuncion_FuncionKeyword_1 extends KeywordToken  {
 	
 	public CabeceraFuncion_FuncionKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2607,7 +2626,7 @@ protected class CabeceraFuncion_ParametrofuncionAssignment_3_1_1 extends Assignm
 
 
 
-// ")"
+// ')'
 protected class CabeceraFuncion_RightParenthesisKeyword_4 extends KeywordToken  {
 	
 	public CabeceraFuncion_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3019,11 +3038,11 @@ protected class Subproceso_ProcedimientoParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule Comentario ****************
  *
  * Comentario:
- * 	{Comentario} / * ML_COMMENT | * / SL_COMMENT mensaje=COMENT;
+ * 	{Comentario} SL_COMMENT mensaje=COMENT;
  *
  **/
 
-// {Comentario} / * ML_COMMENT | * / SL_COMMENT mensaje=COMENT
+// {Comentario} SL_COMMENT mensaje=COMENT
 protected class Comentario_Group extends GroupToken {
 	
 	public Comentario_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3799,11 +3818,13 @@ protected class Declaracion_DeclaracionPropiaParserRuleCall_1 extends RuleCallTo
 /************ begin Rule FuncionFicheroAbrir ****************
  *
  * FuncionFicheroAbrir:
- * 	"abrir" "(" (variable+=Primaria "," modo=ModoApertura "," variable+=Primaria) ")";
+ * 	'abrir'
+ * 	'(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
+ * 	')';
  *
  **/
 
-// "abrir" "(" (variable+=Primaria "," modo=ModoApertura "," variable+=Primaria) ")"
+// 'abrir' '(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria) ')'
 protected class FuncionFicheroAbrir_Group extends GroupToken {
 	
 	public FuncionFicheroAbrir_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3832,7 +3853,7 @@ protected class FuncionFicheroAbrir_Group extends GroupToken {
 
 }
 
-// "abrir"
+// 'abrir'
 protected class FuncionFicheroAbrir_AbrirKeyword_0 extends KeywordToken  {
 	
 	public FuncionFicheroAbrir_AbrirKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3853,7 +3874,7 @@ protected class FuncionFicheroAbrir_AbrirKeyword_0 extends KeywordToken  {
 
 }
 
-// "("
+// '('
 protected class FuncionFicheroAbrir_LeftParenthesisKeyword_1 extends KeywordToken  {
 	
 	public FuncionFicheroAbrir_LeftParenthesisKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3875,7 +3896,7 @@ protected class FuncionFicheroAbrir_LeftParenthesisKeyword_1 extends KeywordToke
 
 }
 
-// variable+=Primaria "," modo=ModoApertura "," variable+=Primaria
+// (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
 protected class FuncionFicheroAbrir_Group_2 extends GroupToken {
 	
 	public FuncionFicheroAbrir_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3943,7 +3964,7 @@ protected class FuncionFicheroAbrir_VariableAssignment_2_0 extends AssignmentTok
 	}	
 }
 
-// ","
+// ','
 protected class FuncionFicheroAbrir_CommaKeyword_2_1 extends KeywordToken  {
 	
 	public FuncionFicheroAbrir_CommaKeyword_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3999,7 +4020,7 @@ protected class FuncionFicheroAbrir_ModoAssignment_2_2 extends AssignmentToken  
 
 }
 
-// ","
+// ','
 protected class FuncionFicheroAbrir_CommaKeyword_2_3 extends KeywordToken  {
 	
 	public FuncionFicheroAbrir_CommaKeyword_2_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4068,7 +4089,7 @@ protected class FuncionFicheroAbrir_VariableAssignment_2_4 extends AssignmentTok
 }
 
 
-// ")"
+// ')'
 protected class FuncionFicheroAbrir_RightParenthesisKeyword_3 extends KeywordToken  {
 	
 	public FuncionFicheroAbrir_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4097,11 +4118,13 @@ protected class FuncionFicheroAbrir_RightParenthesisKeyword_3 extends KeywordTok
 /************ begin Rule FuncionFicheroCerrar ****************
  *
  * FuncionFicheroCerrar:
- * 	"cerrar" "(" variable=Primaria ")";
+ * 	'cerrar'
+ * 	'('
+ * 	variable=Primaria ')';
  *
  **/
 
-// "cerrar" "(" variable=Primaria ")"
+// 'cerrar' '(' variable=Primaria ')'
 protected class FuncionFicheroCerrar_Group extends GroupToken {
 	
 	public FuncionFicheroCerrar_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4130,7 +4153,7 @@ protected class FuncionFicheroCerrar_Group extends GroupToken {
 
 }
 
-// "cerrar"
+// 'cerrar'
 protected class FuncionFicheroCerrar_CerrarKeyword_0 extends KeywordToken  {
 	
 	public FuncionFicheroCerrar_CerrarKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4151,7 +4174,7 @@ protected class FuncionFicheroCerrar_CerrarKeyword_0 extends KeywordToken  {
 
 }
 
-// "("
+// '('
 protected class FuncionFicheroCerrar_LeftParenthesisKeyword_1 extends KeywordToken  {
 	
 	public FuncionFicheroCerrar_LeftParenthesisKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4219,7 +4242,7 @@ protected class FuncionFicheroCerrar_VariableAssignment_2 extends AssignmentToke
 	}	
 }
 
-// ")"
+// ')'
 protected class FuncionFicheroCerrar_RightParenthesisKeyword_3 extends KeywordToken  {
 	
 	public FuncionFicheroCerrar_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4509,11 +4532,11 @@ protected class TipoExistente_TipoAssignment extends AssignmentToken  {
 /************ begin Rule Constantes ****************
  *
  * Constantes:
- * 	variable=Variable "=" valor=Primaria;
+ * 	variable=Variable '=' valor=Primaria;
  *
  **/
 
-// variable=Variable "=" valor=Primaria
+// variable=Variable '=' valor=Primaria
 protected class Constantes_Group extends GroupToken {
 	
 	public Constantes_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4587,7 +4610,7 @@ protected class Constantes_VariableAssignment_0 extends AssignmentToken  {
 	}	
 }
 
-// "="
+// '='
 protected class Constantes_EqualsSignKeyword_1 extends KeywordToken  {
 	
 	public Constantes_EqualsSignKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4662,11 +4685,11 @@ protected class Constantes_ValorAssignment_2 extends AssignmentToken  {
 /************ begin Rule Vector ****************
  *
  * Vector:
- * 	"vector" "[" valor=Primaria "]" "de" tipo=Tipo ": " nombre=EString;
+ * 	'vector' '[' valor=Primaria ']' 'de' tipo=Tipo ': ' nombre=EString;
  *
  **/
 
-// "vector" "[" valor=Primaria "]" "de" tipo=Tipo ": " nombre=EString
+// 'vector' '[' valor=Primaria ']' 'de' tipo=Tipo ': ' nombre=EString
 protected class Vector_Group extends GroupToken {
 	
 	public Vector_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4695,7 +4718,7 @@ protected class Vector_Group extends GroupToken {
 
 }
 
-// "vector"
+// 'vector'
 protected class Vector_VectorKeyword_0 extends KeywordToken  {
 	
 	public Vector_VectorKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4716,7 +4739,7 @@ protected class Vector_VectorKeyword_0 extends KeywordToken  {
 
 }
 
-// "["
+// '['
 protected class Vector_LeftSquareBracketKeyword_1 extends KeywordToken  {
 	
 	public Vector_LeftSquareBracketKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4784,7 +4807,7 @@ protected class Vector_ValorAssignment_2 extends AssignmentToken  {
 	}	
 }
 
-// "]"
+// ']'
 protected class Vector_RightSquareBracketKeyword_3 extends KeywordToken  {
 	
 	public Vector_RightSquareBracketKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4806,7 +4829,7 @@ protected class Vector_RightSquareBracketKeyword_3 extends KeywordToken  {
 
 }
 
-// "de"
+// 'de'
 protected class Vector_DeKeyword_4 extends KeywordToken  {
 	
 	public Vector_DeKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4874,7 +4897,7 @@ protected class Vector_TipoAssignment_5 extends AssignmentToken  {
 	}	
 }
 
-// ": "
+// ': '
 protected class Vector_ColonSpaceKeyword_6 extends KeywordToken  {
 	
 	public Vector_ColonSpaceKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4937,11 +4960,11 @@ protected class Vector_NombreAssignment_7 extends AssignmentToken  {
 /************ begin Rule Matriz ****************
  *
  * Matriz:
- * 	"matriz" "[" valor+=Primaria "][" valor+=Primaria "]" "de" tipo=Tipo ": " nombre=EString;
+ * 	'matriz' '[' valor+=Primaria '][' valor+=Primaria ']' 'de' tipo=Tipo ': ' nombre=EString;
  *
  **/
 
-// "matriz" "[" valor+=Primaria "][" valor+=Primaria "]" "de" tipo=Tipo ": " nombre=EString
+// 'matriz' '[' valor+=Primaria '][' valor+=Primaria ']' 'de' tipo=Tipo ': ' nombre=EString
 protected class Matriz_Group extends GroupToken {
 	
 	public Matriz_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4970,7 +4993,7 @@ protected class Matriz_Group extends GroupToken {
 
 }
 
-// "matriz"
+// 'matriz'
 protected class Matriz_MatrizKeyword_0 extends KeywordToken  {
 	
 	public Matriz_MatrizKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4991,7 +5014,7 @@ protected class Matriz_MatrizKeyword_0 extends KeywordToken  {
 
 }
 
-// "["
+// '['
 protected class Matriz_LeftSquareBracketKeyword_1 extends KeywordToken  {
 	
 	public Matriz_LeftSquareBracketKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5059,7 +5082,7 @@ protected class Matriz_ValorAssignment_2 extends AssignmentToken  {
 	}	
 }
 
-// "]["
+// ']['
 protected class Matriz_RightSquareBracketLeftSquareBracketKeyword_3 extends KeywordToken  {
 	
 	public Matriz_RightSquareBracketLeftSquareBracketKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5127,7 +5150,7 @@ protected class Matriz_ValorAssignment_4 extends AssignmentToken  {
 	}	
 }
 
-// "]"
+// ']'
 protected class Matriz_RightSquareBracketKeyword_5 extends KeywordToken  {
 	
 	public Matriz_RightSquareBracketKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5149,7 +5172,7 @@ protected class Matriz_RightSquareBracketKeyword_5 extends KeywordToken  {
 
 }
 
-// "de"
+// 'de'
 protected class Matriz_DeKeyword_6 extends KeywordToken  {
 	
 	public Matriz_DeKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5217,7 +5240,7 @@ protected class Matriz_TipoAssignment_7 extends AssignmentToken  {
 	}	
 }
 
-// ": "
+// ': '
 protected class Matriz_ColonSpaceKeyword_8 extends KeywordToken  {
 	
 	public Matriz_ColonSpaceKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5280,11 +5303,13 @@ protected class Matriz_NombreAssignment_9 extends AssignmentToken  {
 /************ begin Rule Registro ****************
  *
  * Registro:
- * 	"registro:" nombre=EString variable+=Declaracion+ "fin_registro";
+ * 	'registro:' nombre=EString
+ * 	variable+=Declaracion+
+ * 	'fin_registro';
  *
  **/
 
-// "registro:" nombre=EString variable+=Declaracion+ "fin_registro"
+// 'registro:' nombre=EString variable+=Declaracion+ 'fin_registro'
 protected class Registro_Group extends GroupToken {
 	
 	public Registro_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5313,7 +5338,7 @@ protected class Registro_Group extends GroupToken {
 
 }
 
-// "registro:"
+// 'registro:'
 protected class Registro_RegistroKeyword_0 extends KeywordToken  {
 	
 	public Registro_RegistroKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5415,7 +5440,7 @@ protected class Registro_VariableAssignment_2 extends AssignmentToken  {
 	}	
 }
 
-// "fin_registro"
+// 'fin_registro'
 protected class Registro_Fin_registroKeyword_3 extends KeywordToken  {
 	
 	public Registro_Fin_registroKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5444,11 +5469,11 @@ protected class Registro_Fin_registroKeyword_3 extends KeywordToken  {
 /************ begin Rule Archivo ****************
  *
  * Archivo:
- * 	"archivo de " tipo=Tipo ": " nombre=EString;
+ * 	'archivo de ' tipo=Tipo ': ' nombre=EString;
  *
  **/
 
-// "archivo de " tipo=Tipo ": " nombre=EString
+// 'archivo de ' tipo=Tipo ': ' nombre=EString
 protected class Archivo_Group extends GroupToken {
 	
 	public Archivo_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5477,7 +5502,7 @@ protected class Archivo_Group extends GroupToken {
 
 }
 
-// "archivo de "
+// 'archivo de '
 protected class Archivo_ArchivoDeKeyword_0 extends KeywordToken  {
 	
 	public Archivo_ArchivoDeKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5544,7 +5569,7 @@ protected class Archivo_TipoAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ": "
+// ': '
 protected class Archivo_ColonSpaceKeyword_2 extends KeywordToken  {
 	
 	public Archivo_ColonSpaceKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5607,11 +5632,11 @@ protected class Archivo_NombreAssignment_3 extends AssignmentToken  {
 /************ begin Rule Enumerado ****************
  *
  * Enumerado:
- * 	nombre=EString "=" "{" (valor+=Primaria ("," valor+=Primaria)*) "}";
+ * 	nombre=EString '=' '{' (valor+=Primaria (',' valor+=Primaria)*) '}';
  *
  **/
 
-// nombre=EString "=" "{" (valor+=Primaria ("," valor+=Primaria)*) "}"
+// nombre=EString '=' '{' (valor+=Primaria (',' valor+=Primaria)*) '}'
 protected class Enumerado_Group extends GroupToken {
 	
 	public Enumerado_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5673,7 +5698,7 @@ protected class Enumerado_NombreAssignment_0 extends AssignmentToken  {
 
 }
 
-// "="
+// '='
 protected class Enumerado_EqualsSignKeyword_1 extends KeywordToken  {
 	
 	public Enumerado_EqualsSignKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5695,7 +5720,7 @@ protected class Enumerado_EqualsSignKeyword_1 extends KeywordToken  {
 
 }
 
-// "{"
+// '{'
 protected class Enumerado_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 	
 	public Enumerado_LeftCurlyBracketKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5717,7 +5742,7 @@ protected class Enumerado_LeftCurlyBracketKeyword_2 extends KeywordToken  {
 
 }
 
-// valor+=Primaria ("," valor+=Primaria)*
+// (valor+=Primaria (',' valor+=Primaria)*)
 protected class Enumerado_Group_3 extends GroupToken {
 	
 	public Enumerado_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5786,7 +5811,7 @@ protected class Enumerado_ValorAssignment_3_0 extends AssignmentToken  {
 	}	
 }
 
-// ("," valor+=Primaria)*
+// (',' valor+=Primaria)*
 protected class Enumerado_Group_3_1 extends GroupToken {
 	
 	public Enumerado_Group_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5808,7 +5833,7 @@ protected class Enumerado_Group_3_1 extends GroupToken {
 
 }
 
-// ","
+// ','
 protected class Enumerado_CommaKeyword_3_1_0 extends KeywordToken  {
 	
 	public Enumerado_CommaKeyword_3_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5879,7 +5904,7 @@ protected class Enumerado_ValorAssignment_3_1_1 extends AssignmentToken  {
 
 
 
-// "}"
+// '}'
 protected class Enumerado_RightCurlyBracketKeyword_4 extends KeywordToken  {
 	
 	public Enumerado_RightCurlyBracketKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6022,11 +6047,11 @@ protected class Subrango_SubrangoEnumeradoParserRuleCall_1 extends RuleCallToken
 /************ begin Rule SubrangoNumerico ****************
  *
  * SubrangoNumerico:
- * 	nombre=EString "=" (limite_inf=EInt ".." limite_sup=EInt);
+ * 	nombre=EString '=' (limite_inf=EInt '..' limite_sup=EInt);
  *
  **/
 
-// nombre=EString "=" (limite_inf=EInt ".." limite_sup=EInt)
+// nombre=EString '=' (limite_inf=EInt '..' limite_sup=EInt)
 protected class SubrangoNumerico_Group extends GroupToken {
 	
 	public SubrangoNumerico_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6088,7 +6113,7 @@ protected class SubrangoNumerico_NombreAssignment_0 extends AssignmentToken  {
 
 }
 
-// "="
+// '='
 protected class SubrangoNumerico_EqualsSignKeyword_1 extends KeywordToken  {
 	
 	public SubrangoNumerico_EqualsSignKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6110,7 +6135,7 @@ protected class SubrangoNumerico_EqualsSignKeyword_1 extends KeywordToken  {
 
 }
 
-// limite_inf=EInt ".." limite_sup=EInt
+// (limite_inf=EInt '..' limite_sup=EInt)
 protected class SubrangoNumerico_Group_2 extends GroupToken {
 	
 	public SubrangoNumerico_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6166,7 +6191,7 @@ protected class SubrangoNumerico_Limite_infAssignment_2_0 extends AssignmentToke
 
 }
 
-// ".."
+// '..'
 protected class SubrangoNumerico_FullStopFullStopKeyword_2_1 extends KeywordToken  {
 	
 	public SubrangoNumerico_FullStopFullStopKeyword_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6230,11 +6255,11 @@ protected class SubrangoNumerico_Limite_supAssignment_2_2 extends AssignmentToke
 /************ begin Rule SubrangoEnumerado ****************
  *
  * SubrangoEnumerado:
- * 	nombre=EString "=" (limite_inf=EString ".." limite_sup=EString);
+ * 	nombre=EString '=' (limite_inf=EString '..' limite_sup=EString);
  *
  **/
 
-// nombre=EString "=" (limite_inf=EString ".." limite_sup=EString)
+// nombre=EString '=' (limite_inf=EString '..' limite_sup=EString)
 protected class SubrangoEnumerado_Group extends GroupToken {
 	
 	public SubrangoEnumerado_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6296,7 +6321,7 @@ protected class SubrangoEnumerado_NombreAssignment_0 extends AssignmentToken  {
 
 }
 
-// "="
+// '='
 protected class SubrangoEnumerado_EqualsSignKeyword_1 extends KeywordToken  {
 	
 	public SubrangoEnumerado_EqualsSignKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6318,7 +6343,7 @@ protected class SubrangoEnumerado_EqualsSignKeyword_1 extends KeywordToken  {
 
 }
 
-// limite_inf=EString ".." limite_sup=EString
+// (limite_inf=EString '..' limite_sup=EString)
 protected class SubrangoEnumerado_Group_2 extends GroupToken {
 	
 	public SubrangoEnumerado_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6374,7 +6399,7 @@ protected class SubrangoEnumerado_Limite_infAssignment_2_0 extends AssignmentTok
 
 }
 
-// ".."
+// '..'
 protected class SubrangoEnumerado_FullStopFullStopKeyword_2_1 extends KeywordToken  {
 	
 	public SubrangoEnumerado_FullStopFullStopKeyword_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6438,11 +6463,16 @@ protected class SubrangoEnumerado_Limite_supAssignment_2_2 extends AssignmentTok
 /************ begin Rule Inicio ****************
  *
  * Inicio:
- * 	"principal" {Inicio} "var" declaracion+=Declaracion* "inicio" tiene+=Sentencias* "fin_principal";
+ * 	'principal' {Inicio}
+ * 	'var'
+ * 	declaracion+=Declaracion*
+ * 	'inicio'
+ * 	tiene+=Sentencias*
+ * 	'fin_principal';
  *
  **/
 
-// "principal" {Inicio} "var" declaracion+=Declaracion* "inicio" tiene+=Sentencias* "fin_principal"
+// 'principal' {Inicio} 'var' declaracion+=Declaracion* 'inicio' tiene+=Sentencias* 'fin_principal'
 protected class Inicio_Group extends GroupToken {
 	
 	public Inicio_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6471,7 +6501,7 @@ protected class Inicio_Group extends GroupToken {
 
 }
 
-// "principal"
+// 'principal'
 protected class Inicio_PrincipalKeyword_0 extends KeywordToken  {
 	
 	public Inicio_PrincipalKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6519,7 +6549,7 @@ protected class Inicio_InicioAction_1 extends ActionToken  {
 	}
 }
 
-// "var"
+// 'var'
 protected class Inicio_VarKeyword_2 extends KeywordToken  {
 	
 	public Inicio_VarKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6588,7 +6618,7 @@ protected class Inicio_DeclaracionAssignment_3 extends AssignmentToken  {
 	}	
 }
 
-// "inicio"
+// 'inicio'
 protected class Inicio_InicioKeyword_4 extends KeywordToken  {
 	
 	public Inicio_InicioKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6658,7 +6688,7 @@ protected class Inicio_TieneAssignment_5 extends AssignmentToken  {
 	}	
 }
 
-// "fin_principal"
+// 'fin_principal'
 protected class Inicio_Fin_principalKeyword_6 extends KeywordToken  {
 	
 	public Inicio_Fin_principalKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6689,11 +6719,12 @@ protected class Inicio_Fin_principalKeyword_6 extends KeywordToken  {
 /************ begin Rule DeclaracionVariable ****************
  *
  * DeclaracionVariable:
- * 	tipo=TipoVariable ": " variable+=Variable ("," variable+=Variable)*;
+ * 	tipo=TipoVariable ': '
+ * 	variable+=Variable (',' variable+=Variable)*;
  *
  **/
 
-// tipo=TipoVariable ": " variable+=Variable ("," variable+=Variable)*
+// tipo=TipoVariable ': ' variable+=Variable (',' variable+=Variable)*
 protected class DeclaracionVariable_Group extends GroupToken {
 	
 	public DeclaracionVariable_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6756,7 +6787,7 @@ protected class DeclaracionVariable_TipoAssignment_0 extends AssignmentToken  {
 
 }
 
-// ": "
+// ': '
 protected class DeclaracionVariable_ColonSpaceKeyword_1 extends KeywordToken  {
 	
 	public DeclaracionVariable_ColonSpaceKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6824,7 +6855,7 @@ protected class DeclaracionVariable_VariableAssignment_2 extends AssignmentToken
 	}	
 }
 
-// ("," variable+=Variable)*
+// (',' variable+=Variable)*
 protected class DeclaracionVariable_Group_3 extends GroupToken {
 	
 	public DeclaracionVariable_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6846,7 +6877,7 @@ protected class DeclaracionVariable_Group_3 extends GroupToken {
 
 }
 
-// ","
+// ','
 protected class DeclaracionVariable_CommaKeyword_3_0 extends KeywordToken  {
 	
 	public DeclaracionVariable_CommaKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6923,11 +6954,12 @@ protected class DeclaracionVariable_VariableAssignment_3_1 extends AssignmentTok
 /************ begin Rule DeclaracionPropia ****************
  *
  * DeclaracionPropia:
- * 	tipo=EString ": " variable+=Variable ("," variable+=Variable)*;
+ * 	tipo=EString ': '
+ * 	variable+=Variable (',' variable+=Variable)*;
  *
  **/
 
-// tipo=EString ": " variable+=Variable ("," variable+=Variable)*
+// tipo=EString ': ' variable+=Variable (',' variable+=Variable)*
 protected class DeclaracionPropia_Group extends GroupToken {
 	
 	public DeclaracionPropia_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6990,7 +7022,7 @@ protected class DeclaracionPropia_TipoAssignment_0 extends AssignmentToken  {
 
 }
 
-// ": "
+// ': '
 protected class DeclaracionPropia_ColonSpaceKeyword_1 extends KeywordToken  {
 	
 	public DeclaracionPropia_ColonSpaceKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7058,7 +7090,7 @@ protected class DeclaracionPropia_VariableAssignment_2 extends AssignmentToken  
 	}	
 }
 
-// ("," variable+=Variable)*
+// (',' variable+=Variable)*
 protected class DeclaracionPropia_Group_3 extends GroupToken {
 	
 	public DeclaracionPropia_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7080,7 +7112,7 @@ protected class DeclaracionPropia_Group_3 extends GroupToken {
 
 }
 
-// ","
+// ','
 protected class DeclaracionPropia_CommaKeyword_3_0 extends KeywordToken  {
 	
 	public DeclaracionPropia_CommaKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7271,13 +7303,15 @@ protected class Asignacion_AsignacionComplejaParserRuleCall_1 extends RuleCallTo
 /************ begin Rule AsignacionNormal ****************
  *
  * AsignacionNormal:
- * 	valor_asignacion=EString //	 Mat+=MAT*
- * 	"<-" operador=OperacionCompleta;
+ * 	valor_asignacion=EString
+ * 	//	 Mat+=MAT*
+ * 	'<-'
+ * 	operador=OperacionCompleta;
  *
  **/
 
 // valor_asignacion=EString //	 Mat+=MAT*
-// "<-" operador=OperacionCompleta
+// '<-' operador=OperacionCompleta
 protected class AsignacionNormal_Group extends GroupToken {
 	
 	public AsignacionNormal_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7340,7 +7374,7 @@ protected class AsignacionNormal_Valor_asignacionAssignment_0 extends Assignment
 }
 
 // //	 Mat+=MAT*
-// "<-"
+// '<-'
 protected class AsignacionNormal_LessThanSignHyphenMinusKeyword_1 extends KeywordToken  {
 	
 	public AsignacionNormal_LessThanSignHyphenMinusKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7415,11 +7449,13 @@ protected class AsignacionNormal_OperadorAssignment_2 extends AssignmentToken  {
 /************ begin Rule AsignacionCompleja ****************
  *
  * AsignacionCompleja:
- * 	valor_asignacion=VariablesComplejas "<-" operador=OperacionCompleta;
+ * 	valor_asignacion=VariablesComplejas
+ * 	'<-'
+ * 	operador=OperacionCompleta;
  *
  **/
 
-// valor_asignacion=VariablesComplejas "<-" operador=OperacionCompleta
+// valor_asignacion=VariablesComplejas '<-' operador=OperacionCompleta
 protected class AsignacionCompleja_Group extends GroupToken {
 	
 	public AsignacionCompleja_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7493,7 +7529,7 @@ protected class AsignacionCompleja_Valor_asignacionAssignment_0 extends Assignme
 	}	
 }
 
-// "<-"
+// '<-'
 protected class AsignacionCompleja_LessThanSignHyphenMinusKeyword_1 extends KeywordToken  {
 	
 	public AsignacionCompleja_LessThanSignHyphenMinusKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7573,11 +7609,13 @@ protected class AsignacionCompleja_OperadorAssignment_2 extends AssignmentToken 
  * //	 '='
  * //	operadores+=Primaria;
  * Escribir:
- * 	"escribir(" operador+=Primaria ("," operador+=Primaria | operador+=operacion)* ")";
+ * 	'escribir('
+ * 	operador+=Primaria ("," operador+=Primaria | operador+=operacion)*
+ * 	')';
  *
  **/
 
-// "escribir(" operador+=Primaria ("," operador+=Primaria | operador+=operacion)* ")"
+// 'escribir(' operador+=Primaria ("," operador+=Primaria | operador+=operacion)* ')'
 protected class Escribir_Group extends GroupToken {
 	
 	public Escribir_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7606,7 +7644,7 @@ protected class Escribir_Group extends GroupToken {
 
 }
 
-// "escribir("
+// 'escribir('
 protected class Escribir_EscribirKeyword_0 extends KeywordToken  {
 	
 	public Escribir_EscribirKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7836,7 +7874,7 @@ protected class Escribir_OperadorAssignment_2_1 extends AssignmentToken  {
 }
 
 
-// ")"
+// ')'
 protected class Escribir_RightParenthesisKeyword_3 extends KeywordToken  {
 	
 	public Escribir_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7866,11 +7904,13 @@ protected class Escribir_RightParenthesisKeyword_3 extends KeywordToken  {
 /************ begin Rule Leer ****************
  *
  * Leer:
- * 	"leer(" variable+=Primaria ("," variable+=Primaria)* ")";
+ * 	'leer('
+ * 	variable+=Primaria ("," variable+=Primaria)*
+ * 	')';
  *
  **/
 
-// "leer(" variable+=Primaria ("," variable+=Primaria)* ")"
+// 'leer(' variable+=Primaria ("," variable+=Primaria)* ')'
 protected class Leer_Group extends GroupToken {
 	
 	public Leer_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7899,7 +7939,7 @@ protected class Leer_Group extends GroupToken {
 
 }
 
-// "leer("
+// 'leer('
 protected class Leer_LeerKeyword_0 extends KeywordToken  {
 	
 	public Leer_LeerKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8058,7 +8098,7 @@ protected class Leer_VariableAssignment_2_1 extends AssignmentToken  {
 }
 
 
-// ")"
+// ')'
 protected class Leer_RightParenthesisKeyword_3 extends KeywordToken  {
 	
 	public Leer_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8088,12 +8128,17 @@ protected class Leer_RightParenthesisKeyword_3 extends KeywordToken  {
 /************ begin Rule Si ****************
  *
  * Si:
- * 	("si" "(" | "si(") valor=OperacionCompleta ")" "entonces" sentencias+=Sentencias* devuelve=Devolver? sino=Sino?
- * 	"fin_si";
+ * 	('si'
+ * 	'(' | 'si(') valor=OperacionCompleta
+ * 	')' 'entonces'
+ * 	sentencias+=Sentencias*
+ * 	devuelve=Devolver?
+ * 	sino=Sino?
+ * 	'fin_si';
  *
  **/
 
-// ("si" "(" | "si(") valor=OperacionCompleta ")" "entonces" sentencias+=Sentencias* devuelve=Devolver? sino=Sino? "fin_si"
+// ('si' '(' | 'si(') valor=OperacionCompleta ')' 'entonces' sentencias+=Sentencias* devuelve=Devolver? sino=Sino? 'fin_si'
 protected class Si_Group extends GroupToken {
 	
 	public Si_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8122,7 +8167,7 @@ protected class Si_Group extends GroupToken {
 
 }
 
-// "si" "(" | "si("
+// ('si' '(' | 'si(')
 protected class Si_Alternatives_0 extends AlternativesToken {
 
 	public Si_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8144,7 +8189,7 @@ protected class Si_Alternatives_0 extends AlternativesToken {
 
 }
 
-// "si("
+// 'si('
 protected class Si_SiKeyword_0_1 extends KeywordToken  {
 	
 	public Si_SiKeyword_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8212,7 +8257,7 @@ protected class Si_ValorAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ")"
+// ')'
 protected class Si_RightParenthesisKeyword_2 extends KeywordToken  {
 	
 	public Si_RightParenthesisKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8234,7 +8279,7 @@ protected class Si_RightParenthesisKeyword_2 extends KeywordToken  {
 
 }
 
-// "entonces"
+// 'entonces'
 protected class Si_EntoncesKeyword_3 extends KeywordToken  {
 	
 	public Si_EntoncesKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8398,7 +8443,7 @@ protected class Si_SinoAssignment_6 extends AssignmentToken  {
 	}	
 }
 
-// "fin_si"
+// 'fin_si'
 protected class Si_Fin_siKeyword_7 extends KeywordToken  {
 	
 	public Si_Fin_siKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8430,11 +8475,15 @@ protected class Si_Fin_siKeyword_7 extends KeywordToken  {
 /************ begin Rule mientras ****************
  *
  * mientras:
- * 	("mientras" "(" | "mientras(") valor=OperacionCompleta ")" "hacer" sentencias+=Sentencias* "fin_mientras";
+ * 	('mientras'
+ * 	'(' | 'mientras(') valor=OperacionCompleta
+ * 	')' 'hacer'
+ * 	sentencias+=Sentencias*
+ * 	'fin_mientras';
  *
  **/
 
-// ("mientras" "(" | "mientras(") valor=OperacionCompleta ")" "hacer" sentencias+=Sentencias* "fin_mientras"
+// ('mientras' '(' | 'mientras(') valor=OperacionCompleta ')' 'hacer' sentencias+=Sentencias* 'fin_mientras'
 protected class Mientras_Group extends GroupToken {
 	
 	public Mientras_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8463,7 +8512,7 @@ protected class Mientras_Group extends GroupToken {
 
 }
 
-// "mientras" "(" | "mientras("
+// ('mientras' '(' | 'mientras(')
 protected class Mientras_Alternatives_0 extends AlternativesToken {
 
 	public Mientras_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8485,7 +8534,7 @@ protected class Mientras_Alternatives_0 extends AlternativesToken {
 
 }
 
-// "mientras("
+// 'mientras('
 protected class Mientras_MientrasKeyword_0_1 extends KeywordToken  {
 	
 	public Mientras_MientrasKeyword_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8553,7 +8602,7 @@ protected class Mientras_ValorAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ")"
+// ')'
 protected class Mientras_RightParenthesisKeyword_2 extends KeywordToken  {
 	
 	public Mientras_RightParenthesisKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8575,7 +8624,7 @@ protected class Mientras_RightParenthesisKeyword_2 extends KeywordToken  {
 
 }
 
-// "hacer"
+// 'hacer'
 protected class Mientras_HacerKeyword_3 extends KeywordToken  {
 	
 	public Mientras_HacerKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8644,7 +8693,7 @@ protected class Mientras_SentenciasAssignment_4 extends AssignmentToken  {
 	}	
 }
 
-// "fin_mientras"
+// 'fin_mientras'
 protected class Mientras_Fin_mientrasKeyword_5 extends KeywordToken  {
 	
 	public Mientras_Fin_mientrasKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8674,11 +8723,13 @@ protected class Mientras_Fin_mientrasKeyword_5 extends KeywordToken  {
 /************ begin Rule repetir ****************
  *
  * repetir:
- * 	"repetir" sentencias+=Sentencias* ("hasta_que" "(" | "hasta_que(") valor=OperacionCompleta ")";
+ * 	'repetir'
+ * 	sentencias+=Sentencias* ('hasta_que' '(' | 'hasta_que(') valor=OperacionCompleta
+ * 	')';
  *
  **/
 
-// "repetir" sentencias+=Sentencias* ("hasta_que" "(" | "hasta_que(") valor=OperacionCompleta ")"
+// 'repetir' sentencias+=Sentencias* ('hasta_que' '(' | 'hasta_que(') valor=OperacionCompleta ')'
 protected class Repetir_Group extends GroupToken {
 	
 	public Repetir_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8707,7 +8758,7 @@ protected class Repetir_Group extends GroupToken {
 
 }
 
-// "repetir"
+// 'repetir'
 protected class Repetir_RepetirKeyword_0 extends KeywordToken  {
 	
 	public Repetir_RepetirKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8775,7 +8826,7 @@ protected class Repetir_SentenciasAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// "hasta_que" "(" | "hasta_que("
+// ('hasta_que' '(' | 'hasta_que(')
 protected class Repetir_Alternatives_2 extends AlternativesToken {
 
 	public Repetir_Alternatives_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8797,7 +8848,7 @@ protected class Repetir_Alternatives_2 extends AlternativesToken {
 
 }
 
-// "hasta_que("
+// 'hasta_que('
 protected class Repetir_Hasta_queKeyword_2_1 extends KeywordToken  {
 	
 	public Repetir_Hasta_queKeyword_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8867,7 +8918,7 @@ protected class Repetir_ValorAssignment_3 extends AssignmentToken  {
 	}	
 }
 
-// ")"
+// ')'
 protected class Repetir_RightParenthesisKeyword_4 extends KeywordToken  {
 	
 	public Repetir_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8896,11 +8947,13 @@ protected class Repetir_RightParenthesisKeyword_4 extends KeywordToken  {
 /************ begin Rule desde ****************
  *
  * desde:
- * 	"desde" asignacion=AsignacionNormal "hasta" valor=OperacionCompleta "hacer" sentencias+=Sentencias* "fin_desde";
+ * 	'desde' asignacion=AsignacionNormal 'hasta' valor=OperacionCompleta 'hacer'
+ * 	sentencias+=Sentencias*
+ * 	'fin_desde';
  *
  **/
 
-// "desde" asignacion=AsignacionNormal "hasta" valor=OperacionCompleta "hacer" sentencias+=Sentencias* "fin_desde"
+// 'desde' asignacion=AsignacionNormal 'hasta' valor=OperacionCompleta 'hacer' sentencias+=Sentencias* 'fin_desde'
 protected class Desde_Group extends GroupToken {
 	
 	public Desde_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8929,7 +8982,7 @@ protected class Desde_Group extends GroupToken {
 
 }
 
-// "desde"
+// 'desde'
 protected class Desde_DesdeKeyword_0 extends KeywordToken  {
 	
 	public Desde_DesdeKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8996,7 +9049,7 @@ protected class Desde_AsignacionAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// "hasta"
+// 'hasta'
 protected class Desde_HastaKeyword_2 extends KeywordToken  {
 	
 	public Desde_HastaKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9064,7 +9117,7 @@ protected class Desde_ValorAssignment_3 extends AssignmentToken  {
 	}	
 }
 
-// "hacer"
+// 'hacer'
 protected class Desde_HacerKeyword_4 extends KeywordToken  {
 	
 	public Desde_HacerKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9133,7 +9186,7 @@ protected class Desde_SentenciasAssignment_5 extends AssignmentToken  {
 	}	
 }
 
-// "fin_desde"
+// 'fin_desde'
 protected class Desde_Fin_desdeKeyword_6 extends KeywordToken  {
 	
 	public Desde_Fin_desdeKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9163,11 +9216,12 @@ protected class Desde_Fin_desdeKeyword_6 extends KeywordToken  {
 /************ begin Rule Caso ****************
  *
  * Caso:
- * 	"caso" operador=Primaria ": " sentencias+=Sentencias* devuelve=Devolver?;
+ * 	'caso' operador=Primaria ': ' sentencias+=Sentencias*
+ * 	devuelve=Devolver?;
  *
  **/
 
-// "caso" operador=Primaria ": " sentencias+=Sentencias* devuelve=Devolver?
+// 'caso' operador=Primaria ': ' sentencias+=Sentencias* devuelve=Devolver?
 protected class Caso_Group extends GroupToken {
 	
 	public Caso_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9198,7 +9252,7 @@ protected class Caso_Group extends GroupToken {
 
 }
 
-// "caso"
+// 'caso'
 protected class Caso_CasoKeyword_0 extends KeywordToken  {
 	
 	public Caso_CasoKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9265,7 +9319,7 @@ protected class Caso_OperadorAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ": "
+// ': '
 protected class Caso_ColonSpaceKeyword_2 extends KeywordToken  {
 	
 	public Caso_ColonSpaceKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9388,13 +9442,17 @@ protected class Caso_DevuelveAssignment_4 extends AssignmentToken  {
 /************ begin Rule segun ****************
  *
  * segun:
- * 	("segun_sea" "(" | "segun_sea(") valor=OperacionCompleta ")" "hacer" caso+=Caso* "en_otro_caso:"
- * 	sentencias+=Sentencias* devuelve=Devolver? "fin_segun";
+ * 	('segun_sea' '(' | 'segun_sea(') valor=OperacionCompleta ')' 'hacer'
+ * 	caso+=Caso*
+ * 	'en_otro_caso:'
+ * 	sentencias+=Sentencias*
+ * 	devuelve=Devolver?
+ * 	'fin_segun';
  *
  **/
 
-// ("segun_sea" "(" | "segun_sea(") valor=OperacionCompleta ")" "hacer" caso+=Caso* "en_otro_caso:" sentencias+=Sentencias*
-// devuelve=Devolver? "fin_segun"
+// ('segun_sea' '(' | 'segun_sea(') valor=OperacionCompleta ')' 'hacer' caso+=Caso* 'en_otro_caso:' sentencias+=Sentencias*
+// devuelve=Devolver? 'fin_segun'
 protected class Segun_Group extends GroupToken {
 	
 	public Segun_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9423,7 +9481,7 @@ protected class Segun_Group extends GroupToken {
 
 }
 
-// "segun_sea" "(" | "segun_sea("
+// ('segun_sea' '(' | 'segun_sea(')
 protected class Segun_Alternatives_0 extends AlternativesToken {
 
 	public Segun_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9445,7 +9503,7 @@ protected class Segun_Alternatives_0 extends AlternativesToken {
 
 }
 
-// "segun_sea("
+// 'segun_sea('
 protected class Segun_Segun_seaKeyword_0_1 extends KeywordToken  {
 	
 	public Segun_Segun_seaKeyword_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9513,7 +9571,7 @@ protected class Segun_ValorAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ")"
+// ')'
 protected class Segun_RightParenthesisKeyword_2 extends KeywordToken  {
 	
 	public Segun_RightParenthesisKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9535,7 +9593,7 @@ protected class Segun_RightParenthesisKeyword_2 extends KeywordToken  {
 
 }
 
-// "hacer"
+// 'hacer'
 protected class Segun_HacerKeyword_3 extends KeywordToken  {
 	
 	public Segun_HacerKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9604,7 +9662,7 @@ protected class Segun_CasoAssignment_4 extends AssignmentToken  {
 	}	
 }
 
-// "en_otro_caso:"
+// 'en_otro_caso:'
 protected class Segun_En_otro_casoKeyword_5 extends KeywordToken  {
 	
 	public Segun_En_otro_casoKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9721,7 +9779,7 @@ protected class Segun_DevuelveAssignment_7 extends AssignmentToken  {
 	}	
 }
 
-// "fin_segun"
+// 'fin_segun'
 protected class Segun_Fin_segunKeyword_8 extends KeywordToken  {
 	
 	public Segun_Fin_segunKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -9930,12 +9988,12 @@ protected class Operacion_OrParserRuleCall extends RuleCallToken {
 
 /************ begin Rule Or ****************
  *
- * Or returns operacion:
- * 	And ({Or.left=current} signo_op=signoOr negacionesFinales+="-"* negacionesFinales+="no"* right=And)*;
+ * Or operacion:
+ * 	And ({Or.left=current} signo_op=signoOr negacionesFinales+='-'* negacionesFinales+='no'* right=And)*
  *
  **/
 
-// And ({Or.left=current} signo_op=signoOr negacionesFinales+="-"* negacionesFinales+="no"* right=And)*
+// And ({Or.left=current} signo_op=signoOr negacionesFinales+='-'* negacionesFinales+='no'* right=And)*
 protected class Or_Group extends GroupToken {
 	
 	public Or_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10042,7 +10100,7 @@ protected class Or_AndParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Or.left=current} signo_op=signoOr negacionesFinales+="-"* negacionesFinales+="no"* right=And)*
+// ({Or.left=current} signo_op=signoOr negacionesFinales+='-'* negacionesFinales+='no'* right=And)*
 protected class Or_Group_1 extends GroupToken {
 	
 	public Or_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10135,7 +10193,7 @@ protected class Or_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class Or_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public Or_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10170,7 +10228,7 @@ protected class Or_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class Or_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
 	
 	public Or_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10261,12 +10319,12 @@ protected class Or_RightAssignment_1_4 extends AssignmentToken  {
 
 /************ begin Rule And ****************
  *
- * And returns operacion:
- * 	Mod ({And.left=current} signo_op=signoAnd negacionesFinales+="-"* negacionesFinales+="no"* right=Mod)*;
+ * And operacion:
+ * 	Mod ({And.left=current} signo_op=signoAnd negacionesFinales+='-'* negacionesFinales+='no'* right=Mod)*
  *
  **/
 
-// Mod ({And.left=current} signo_op=signoAnd negacionesFinales+="-"* negacionesFinales+="no"* right=Mod)*
+// Mod ({And.left=current} signo_op=signoAnd negacionesFinales+='-'* negacionesFinales+='no'* right=Mod)*
 protected class And_Group extends GroupToken {
 	
 	public And_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10371,7 +10429,7 @@ protected class And_ModParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({And.left=current} signo_op=signoAnd negacionesFinales+="-"* negacionesFinales+="no"* right=Mod)*
+// ({And.left=current} signo_op=signoAnd negacionesFinales+='-'* negacionesFinales+='no'* right=Mod)*
 protected class And_Group_1 extends GroupToken {
 	
 	public And_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10464,7 +10522,7 @@ protected class And_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class And_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public And_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10499,7 +10557,7 @@ protected class And_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class And_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
 	
 	public And_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10590,12 +10648,12 @@ protected class And_RightAssignment_1_4 extends AssignmentToken  {
 
 /************ begin Rule Mod ****************
  *
- * Mod returns operacion:
- * 	Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+="-"* negacionesFinales+="no"* right=Igualdad)*;
+ * Mod operacion:
+ * 	Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+='-'* negacionesFinales+='no'* right=Igualdad)*
  *
  **/
 
-// Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+="-"* negacionesFinales+="no"* right=Igualdad)*
+// Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+='-'* negacionesFinales+='no'* right=Igualdad)*
 protected class Mod_Group extends GroupToken {
 	
 	public Mod_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10698,7 +10756,7 @@ protected class Mod_IgualdadParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Mod.left=current} signo_op=signoModulo negacionesFinales+="-"* negacionesFinales+="no"* right=Igualdad)*
+// ({Mod.left=current} signo_op=signoModulo negacionesFinales+='-'* negacionesFinales+='no'* right=Igualdad)*
 protected class Mod_Group_1 extends GroupToken {
 	
 	public Mod_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10791,7 +10849,7 @@ protected class Mod_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class Mod_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public Mod_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10826,7 +10884,7 @@ protected class Mod_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class Mod_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
 	
 	public Mod_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -10917,13 +10975,13 @@ protected class Mod_RightAssignment_1_4 extends AssignmentToken  {
 
 /************ begin Rule Igualdad ****************
  *
- * Igualdad returns operacion:
- * 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+="-"* negacionesFinales+="no"*
- * 	right=Comparacion)*;
+ * Igualdad operacion:
+ * 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+='-'* negacionesFinales+='no'*
+ * 	right=Comparacion)*
  *
  **/
 
-// Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+="-"* negacionesFinales+="no"*
+// Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+='-'* negacionesFinales+='no'*
 // right=Comparacion)*
 protected class Igualdad_Group extends GroupToken {
 	
@@ -11025,7 +11083,7 @@ protected class Igualdad_ComparacionParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+="-"* negacionesFinales+="no"* right=Comparacion)*
+// ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+='-'* negacionesFinales+='no'* right=Comparacion)*
 protected class Igualdad_Group_1 extends GroupToken {
 	
 	public Igualdad_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11118,7 +11176,7 @@ protected class Igualdad_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class Igualdad_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public Igualdad_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11153,7 +11211,7 @@ protected class Igualdad_NegacionesFinalesAssignment_1_2 extends AssignmentToken
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class Igualdad_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
 	
 	public Igualdad_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11244,13 +11302,13 @@ protected class Igualdad_RightAssignment_1_4 extends AssignmentToken  {
 
 /************ begin Rule Comparacion ****************
  *
- * Comparacion returns operacion:
- * 	SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+="-"* negacionesFinales+="no"*
- * 	right=SumaResta)*;
+ * Comparacion operacion:
+ * 	SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+='-'* negacionesFinales+='no'*
+ * 	right=SumaResta)*
  *
  **/
 
-// SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+="-"* negacionesFinales+="no"*
+// SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+='-'* negacionesFinales+='no'*
 // right=SumaResta)*
 protected class Comparacion_Group extends GroupToken {
 	
@@ -11350,7 +11408,7 @@ protected class Comparacion_SumaRestaParserRuleCall_0 extends RuleCallToken {
 	}	
 }
 
-// ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+="-"* negacionesFinales+="no"* right=SumaResta)*
+// ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+='-'* negacionesFinales+='no'* right=SumaResta)*
 protected class Comparacion_Group_1 extends GroupToken {
 	
 	public Comparacion_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11443,7 +11501,7 @@ protected class Comparacion_Signo_opAssignment_1_1 extends AssignmentToken  {
 
 }
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class Comparacion_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public Comparacion_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11478,7 +11536,7 @@ protected class Comparacion_NegacionesFinalesAssignment_1_2 extends AssignmentTo
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class Comparacion_NegacionesFinalesAssignment_1_3 extends AssignmentToken  {
 	
 	public Comparacion_NegacionesFinalesAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11569,14 +11627,14 @@ protected class Comparacion_RightAssignment_1_4 extends AssignmentToken  {
 
 /************ begin Rule SumaResta ****************
  *
- * SumaResta returns operacion:
+ * SumaResta operacion:
  * 	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
- * 	negacionesFinales+="-"* negacionesFinales+="no"* right=MultiplicacionDivision)*;
+ * 	negacionesFinales+='-'* negacionesFinales+='no'* right=MultiplicacionDivision)*
  *
  **/
 
 // MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
-// negacionesFinales+="-"* negacionesFinales+="no"* right=MultiplicacionDivision)*
+// negacionesFinales+='-'* negacionesFinales+='no'* right=MultiplicacionDivision)*
 protected class SumaResta_Group extends GroupToken {
 	
 	public SumaResta_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11672,8 +11730,8 @@ protected class SumaResta_MultiplicacionDivisionParserRuleCall_0 extends RuleCal
 	}	
 }
 
-// (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) negacionesFinales+="-"*
-// negacionesFinales+="no"* right=MultiplicacionDivision)*
+// (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) negacionesFinales+='-'*
+// negacionesFinales+='no'* right=MultiplicacionDivision)*
 protected class SumaResta_Group_1 extends GroupToken {
 	
 	public SumaResta_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11703,7 +11761,7 @@ protected class SumaResta_Group_1 extends GroupToken {
 
 }
 
-// {Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta
+// ({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
 protected class SumaResta_Alternatives_1_0 extends AlternativesToken {
 
 	public SumaResta_Alternatives_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11915,7 +11973,7 @@ protected class SumaResta_Signo_opAssignment_1_0_1_1 extends AssignmentToken  {
 
 
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class SumaResta_NegacionesFinalesAssignment_1_1 extends AssignmentToken  {
 	
 	public SumaResta_NegacionesFinalesAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -11950,7 +12008,7 @@ protected class SumaResta_NegacionesFinalesAssignment_1_1 extends AssignmentToke
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class SumaResta_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public SumaResta_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12041,14 +12099,14 @@ protected class SumaResta_RightAssignment_1_3 extends AssignmentToken  {
 
 /************ begin Rule MultiplicacionDivision ****************
  *
- * MultiplicacionDivision returns operacion:
+ * MultiplicacionDivision operacion:
  * 	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision
- * 	| {Div.left=current} signo_op=signoDiv) negacionesFinales+="-"* negacionesFinales+="no"* right=Primaria)*;
+ * 	| {Div.left=current} signo_op=signoDiv) negacionesFinales+='-'* negacionesFinales+='no'* right=Primaria)*
  *
  **/
 
 // Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
-// {Div.left=current} signo_op=signoDiv) negacionesFinales+="-"* negacionesFinales+="no"* right=Primaria)*
+// {Div.left=current} signo_op=signoDiv) negacionesFinales+='-'* negacionesFinales+='no'* right=Primaria)*
 protected class MultiplicacionDivision_Group extends GroupToken {
 	
 	public MultiplicacionDivision_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12140,7 +12198,7 @@ protected class MultiplicacionDivision_PrimariaParserRuleCall_0 extends RuleCall
 }
 
 // (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
-// {Div.left=current} signo_op=signoDiv) negacionesFinales+="-"* negacionesFinales+="no"* right=Primaria)*
+// {Div.left=current} signo_op=signoDiv) negacionesFinales+='-'* negacionesFinales+='no'* right=Primaria)*
 protected class MultiplicacionDivision_Group_1 extends GroupToken {
 	
 	public MultiplicacionDivision_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12171,8 +12229,8 @@ protected class MultiplicacionDivision_Group_1 extends GroupToken {
 
 }
 
-// {Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
-// {Div.left=current} signo_op=signoDiv
+// ({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
+// {Div.left=current} signo_op=signoDiv)
 protected class MultiplicacionDivision_Alternatives_1_0 extends AlternativesToken {
 
 	public MultiplicacionDivision_Alternatives_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12479,7 +12537,7 @@ protected class MultiplicacionDivision_Signo_opAssignment_1_0_2_1 extends Assign
 
 
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class MultiplicacionDivision_NegacionesFinalesAssignment_1_1 extends AssignmentToken  {
 	
 	public MultiplicacionDivision_NegacionesFinalesAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12514,7 +12572,7 @@ protected class MultiplicacionDivision_NegacionesFinalesAssignment_1_1 extends A
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class MultiplicacionDivision_NegacionesFinalesAssignment_1_2 extends AssignmentToken  {
 	
 	public MultiplicacionDivision_NegacionesFinalesAssignment_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -12605,8 +12663,8 @@ protected class MultiplicacionDivision_RightAssignment_1_3 extends AssignmentTok
 
 /************ begin Rule operacionIndice ****************
  *
- * operacionIndice returns operacion:
- * 	OrIndice;
+ * operacionIndice operacion:
+ * 	OrIndice
  *
  **/
 
@@ -12661,8 +12719,8 @@ protected class OperacionIndice_OrIndiceParserRuleCall extends RuleCallToken {
 
 /************ begin Rule OrIndice ****************
  *
- * OrIndice returns operacion:
- * 	AndIndice ({Or.left=current} signo_op=signoOr right=AndIndice)*;
+ * OrIndice operacion:
+ * 	AndIndice ({Or.left=current} signo_op=signoOr right=AndIndice)*
  *
  **/
 
@@ -12897,8 +12955,8 @@ protected class OrIndice_RightAssignment_1_2 extends AssignmentToken  {
 
 /************ begin Rule AndIndice ****************
  *
- * AndIndice returns operacion:
- * 	IgualdadIndice ({And.left=current} signo_op=signoAnd right=IgualdadIndice)*;
+ * AndIndice operacion:
+ * 	IgualdadIndice ({And.left=current} signo_op=signoAnd right=IgualdadIndice)*
  *
  **/
 
@@ -13131,8 +13189,8 @@ protected class AndIndice_RightAssignment_1_2 extends AssignmentToken  {
 
 /************ begin Rule IgualdadIndice ****************
  *
- * IgualdadIndice returns operacion:
- * 	ComparacionIndice ({Igualdad.left=current} signo_op=signoIgualdad right=ComparacionIndice)*;
+ * IgualdadIndice operacion:
+ * 	ComparacionIndice ({Igualdad.left=current} signo_op=signoIgualdad right=ComparacionIndice)*
  *
  **/
 
@@ -13363,8 +13421,8 @@ protected class IgualdadIndice_RightAssignment_1_2 extends AssignmentToken  {
 
 /************ begin Rule ComparacionIndice ****************
  *
- * ComparacionIndice returns operacion:
- * 	SumaRestaIndice ({Comparacion.left=current} signo_op=signoComparacion right=SumaRestaIndice)*;
+ * ComparacionIndice operacion:
+ * 	SumaRestaIndice ({Comparacion.left=current} signo_op=signoComparacion right=SumaRestaIndice)*
  *
  **/
 
@@ -13593,9 +13651,9 @@ protected class ComparacionIndice_RightAssignment_1_2 extends AssignmentToken  {
 
 /************ begin Rule SumaRestaIndice ****************
  *
- * SumaRestaIndice returns operacion:
+ * SumaRestaIndice operacion:
  * 	MultiplicacionDivisionIndice (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
- * 	right=MultiplicacionDivisionIndice)*;
+ * 	right=MultiplicacionDivisionIndice)*
  *
  **/
 
@@ -13707,7 +13765,7 @@ protected class SumaRestaIndice_Group_1 extends GroupToken {
 
 }
 
-// {Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta
+// ({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta)
 protected class SumaRestaIndice_Alternatives_1_0 extends AlternativesToken {
 
 	public SumaRestaIndice_Alternatives_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -13972,9 +14030,9 @@ protected class SumaRestaIndice_RightAssignment_1_1 extends AssignmentToken  {
 
 /************ begin Rule MultiplicacionDivisionIndice ****************
  *
- * MultiplicacionDivisionIndice returns operacion:
+ * MultiplicacionDivisionIndice operacion:
  * 	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current}
- * 	signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=PrimariaIndice)*;
+ * 	signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=PrimariaIndice)*
  *
  **/
 
@@ -14082,8 +14140,8 @@ protected class MultiplicacionDivisionIndice_Group_1 extends GroupToken {
 
 }
 
-// {Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
-// {Div.left=current} signo_op=signoDiv
+// ({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision |
+// {Div.left=current} signo_op=signoDiv)
 protected class MultiplicacionDivisionIndice_Alternatives_1_0 extends AlternativesToken {
 
 	public MultiplicacionDivisionIndice_Alternatives_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14443,8 +14501,9 @@ protected class MultiplicacionDivisionIndice_RightAssignment_1_1 extends Assignm
 
 /************ begin Rule PrimariaIndice ****************
  *
- * PrimariaIndice returns operacion:
- * 	{NumeroEntero} valor=EInt | {VariableID} nombre=EString;
+ * PrimariaIndice operacion:
+ * 	{NumeroEntero} valor=EInt
+ * 	| {VariableID} nombre=EString
  *
  **/
 
@@ -14665,8 +14724,10 @@ protected class PrimariaIndice_NombreAssignment_1_1 extends AssignmentToken  {
 
 /************ begin Rule Primaria ****************
  *
- * Primaria returns operacion:
- * 	VariablesBasicas | VariablesComplejas | Funciones | OperacionParentesis;
+ * Primaria operacion:
+ * 	VariablesBasicas | VariablesComplejas
+ * 	| Funciones
+ * 	| OperacionParentesis
  *
  **/
 
@@ -14871,12 +14932,12 @@ protected class Primaria_OperacionParentesisParserRuleCall_3 extends RuleCallTok
 
 /************ begin Rule OperacionCompleta ****************
  *
- * OperacionCompleta returns operacion:
- * 	{OperacionCompleta} negacionesIniciales+="-"* negacionesIniciales+="no"* valor_operacion=operacion;
+ * OperacionCompleta operacion:
+ * 	{OperacionCompleta} negacionesIniciales+='-'* negacionesIniciales+='no'* valor_operacion=operacion
  *
  **/
 
-// {OperacionCompleta} negacionesIniciales+="-"* negacionesIniciales+="no"* valor_operacion=operacion
+// {OperacionCompleta} negacionesIniciales+='-'* negacionesIniciales+='no'* valor_operacion=operacion
 protected class OperacionCompleta_Group extends GroupToken {
 	
 	public OperacionCompleta_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14931,7 +14992,7 @@ protected class OperacionCompleta_OperacionCompletaAction_0 extends ActionToken 
 	}
 }
 
-// negacionesIniciales+="-"*
+// negacionesIniciales+='-'*
 protected class OperacionCompleta_NegacionesInicialesAssignment_1 extends AssignmentToken  {
 	
 	public OperacionCompleta_NegacionesInicialesAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -14966,7 +15027,7 @@ protected class OperacionCompleta_NegacionesInicialesAssignment_1 extends Assign
 
 }
 
-// negacionesIniciales+="no"*
+// negacionesIniciales+='no'*
 protected class OperacionCompleta_NegacionesInicialesAssignment_2 extends AssignmentToken  {
 	
 	public OperacionCompleta_NegacionesInicialesAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15056,12 +15117,12 @@ protected class OperacionCompleta_Valor_operacionAssignment_3 extends Assignment
 
 /************ begin Rule OperacionParentesis ****************
  *
- * OperacionParentesis returns operacion:
- * 	{OperacionParentesis} "(" negacionesFinales+="-"* negacionesFinales+="no"* valor_operacion=operacion ")";
+ * OperacionParentesis operacion:
+ * 	{OperacionParentesis} '(' negacionesFinales+='-'* negacionesFinales+='no'* valor_operacion=operacion ')'
  *
  **/
 
-// {OperacionParentesis} "(" negacionesFinales+="-"* negacionesFinales+="no"* valor_operacion=operacion ")"
+// {OperacionParentesis} '(' negacionesFinales+='-'* negacionesFinales+='no'* valor_operacion=operacion ')'
 protected class OperacionParentesis_Group extends GroupToken {
 	
 	public OperacionParentesis_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15116,7 +15177,7 @@ protected class OperacionParentesis_OperacionParentesisAction_0 extends ActionTo
 	}
 }
 
-// "("
+// '('
 protected class OperacionParentesis_LeftParenthesisKeyword_1 extends KeywordToken  {
 	
 	public OperacionParentesis_LeftParenthesisKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15138,7 +15199,7 @@ protected class OperacionParentesis_LeftParenthesisKeyword_1 extends KeywordToke
 
 }
 
-// negacionesFinales+="-"*
+// negacionesFinales+='-'*
 protected class OperacionParentesis_NegacionesFinalesAssignment_2 extends AssignmentToken  {
 	
 	public OperacionParentesis_NegacionesFinalesAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15173,7 +15234,7 @@ protected class OperacionParentesis_NegacionesFinalesAssignment_2 extends Assign
 
 }
 
-// negacionesFinales+="no"*
+// negacionesFinales+='no'*
 protected class OperacionParentesis_NegacionesFinalesAssignment_3 extends AssignmentToken  {
 	
 	public OperacionParentesis_NegacionesFinalesAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15257,7 +15318,7 @@ protected class OperacionParentesis_Valor_operacionAssignment_4 extends Assignme
 	}	
 }
 
-// ")"
+// ')'
 protected class OperacionParentesis_RightParenthesisKeyword_5 extends KeywordToken  {
 	
 	public OperacionParentesis_RightParenthesisKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15285,14 +15346,14 @@ protected class OperacionParentesis_RightParenthesisKeyword_5 extends KeywordTok
 
 /************ begin Rule Funciones ****************
  *
- * Funciones returns operacion:
- * 	{LlamadaFuncion} nombre=NOMBRE_FUN ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)? ")" |
- * 	{Internas} nombre=NombreInterna ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)? ")";
+ * Funciones operacion:
+ * 	{LlamadaFuncion} nombre=NOMBRE_FUN ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)? ')' |
+ * 	{Internas} nombre=NombreInterna ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)? ')'
  *
  **/
 
-// {LlamadaFuncion} nombre=NOMBRE_FUN ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)? ")" |
-// {Internas} nombre=NombreInterna ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)? ")"
+// {LlamadaFuncion} nombre=NOMBRE_FUN ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)? ')' |
+// {Internas} nombre=NombreInterna ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)? ')'
 protected class Funciones_Alternatives extends AlternativesToken {
 
 	public Funciones_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15323,7 +15384,7 @@ protected class Funciones_Alternatives extends AlternativesToken {
 
 }
 
-// {LlamadaFuncion} nombre=NOMBRE_FUN ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)? ")"
+// {LlamadaFuncion} nombre=NOMBRE_FUN ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)? ')'
 protected class Funciones_Group_0 extends GroupToken {
 	
 	public Funciones_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15412,7 +15473,7 @@ protected class Funciones_NombreAssignment_0_1 extends AssignmentToken  {
 
 }
 
-// ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)?
+// ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)?
 protected class Funciones_Group_0_2 extends GroupToken {
 	
 	public Funciones_Group_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15481,7 +15542,7 @@ protected class Funciones_OperadoresAssignment_0_2_2 extends AssignmentToken  {
 	}	
 }
 
-// ("," "-"* "no"* operadores+=operacion)*
+// (',' '-'* 'no'* operadores+=operacion)*
 protected class Funciones_Group_0_2_3 extends GroupToken {
 	
 	public Funciones_Group_0_2_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15503,7 +15564,7 @@ protected class Funciones_Group_0_2_3 extends GroupToken {
 
 }
 
-// ","
+// ','
 protected class Funciones_CommaKeyword_0_2_3_0 extends KeywordToken  {
 	
 	public Funciones_CommaKeyword_0_2_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15574,7 +15635,7 @@ protected class Funciones_OperadoresAssignment_0_2_3_3 extends AssignmentToken  
 
 
 
-// ")"
+// ')'
 protected class Funciones_RightParenthesisKeyword_0_3 extends KeywordToken  {
 	
 	public Funciones_RightParenthesisKeyword_0_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15598,7 +15659,7 @@ protected class Funciones_RightParenthesisKeyword_0_3 extends KeywordToken  {
 }
 
 
-// {Internas} nombre=NombreInterna ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)? ")"
+// {Internas} nombre=NombreInterna ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)? ')'
 protected class Funciones_Group_1 extends GroupToken {
 	
 	public Funciones_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15687,7 +15748,7 @@ protected class Funciones_NombreAssignment_1_1 extends AssignmentToken  {
 
 }
 
-// ("-"* "no"* operadores+=operacion ("," "-"* "no"* operadores+=operacion)*)?
+// ('-'* 'no'* operadores+=operacion (',' '-'* 'no'* operadores+=operacion)*)?
 protected class Funciones_Group_1_2 extends GroupToken {
 	
 	public Funciones_Group_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15756,7 +15817,7 @@ protected class Funciones_OperadoresAssignment_1_2_2 extends AssignmentToken  {
 	}	
 }
 
-// ("," "-"* "no"* operadores+=operacion)*
+// (',' '-'* 'no'* operadores+=operacion)*
 protected class Funciones_Group_1_2_3 extends GroupToken {
 	
 	public Funciones_Group_1_2_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15778,7 +15839,7 @@ protected class Funciones_Group_1_2_3 extends GroupToken {
 
 }
 
-// ","
+// ','
 protected class Funciones_CommaKeyword_1_2_3_0 extends KeywordToken  {
 	
 	public Funciones_CommaKeyword_1_2_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15849,7 +15910,7 @@ protected class Funciones_OperadoresAssignment_1_2_3_3 extends AssignmentToken  
 
 
 
-// ")"
+// ')'
 protected class Funciones_RightParenthesisKeyword_1_3 extends KeywordToken  {
 	
 	public Funciones_RightParenthesisKeyword_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15879,17 +15940,17 @@ protected class Funciones_RightParenthesisKeyword_1_3 extends KeywordToken  {
 
 /************ begin Rule VariablesComplejas ****************
  *
- * VariablesComplejas returns operacion:
- * 	{ValorVector} (nombre_vector=EString "[" indice=operacionIndice "]") ("." campo+=CampoRegistro)? | {ValorMatriz}
- * 	(nombre_matriz=EString "[" primerIndice=operacionIndice "][" segundoIndice=operacionIndice "]") ("."
- * 	campo+=CampoRegistro)? | {ValorRegistro} nombre_registro=EString "." (campo+=CampoRegistro ("."
- * 	campo+=CampoRegistro)*);
+ * VariablesComplejas operacion:
+ * 	{ValorVector} (nombre_vector=EString '[' indice=operacionIndice ']') ('.' campo+=CampoRegistro)?
+ * 	| {ValorMatriz} (nombre_matriz=EString '[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']') ('.'
+ * 	campo+=CampoRegistro)?
+ * 	| {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)*)
  *
  **/
 
-// {ValorVector} (nombre_vector=EString "[" indice=operacionIndice "]") ("." campo+=CampoRegistro)? | {ValorMatriz}
-// (nombre_matriz=EString "[" primerIndice=operacionIndice "][" segundoIndice=operacionIndice "]") ("."
-// campo+=CampoRegistro)? | {ValorRegistro} nombre_registro=EString "." (campo+=CampoRegistro ("." campo+=CampoRegistro)*)
+// {ValorVector} (nombre_vector=EString '[' indice=operacionIndice ']') ('.' campo+=CampoRegistro)? | {ValorMatriz}
+// (nombre_matriz=EString '[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']') ('.'
+// campo+=CampoRegistro)? | {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)*)
 protected class VariablesComplejas_Alternatives extends AlternativesToken {
 
 	public VariablesComplejas_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15922,7 +15983,7 @@ protected class VariablesComplejas_Alternatives extends AlternativesToken {
 
 }
 
-// {ValorVector} (nombre_vector=EString "[" indice=operacionIndice "]") ("." campo+=CampoRegistro)?
+// {ValorVector} (nombre_vector=EString '[' indice=operacionIndice ']') ('.' campo+=CampoRegistro)?
 protected class VariablesComplejas_Group_0 extends GroupToken {
 	
 	public VariablesComplejas_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -15978,7 +16039,7 @@ protected class VariablesComplejas_ValorVectorAction_0_0 extends ActionToken  {
 	}
 }
 
-// nombre_vector=EString "[" indice=operacionIndice "]"
+// (nombre_vector=EString '[' indice=operacionIndice ']')
 protected class VariablesComplejas_Group_0_1 extends GroupToken {
 	
 	public VariablesComplejas_Group_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16034,7 +16095,7 @@ protected class VariablesComplejas_Nombre_vectorAssignment_0_1_0 extends Assignm
 
 }
 
-// "["
+// '['
 protected class VariablesComplejas_LeftSquareBracketKeyword_0_1_1 extends KeywordToken  {
 	
 	public VariablesComplejas_LeftSquareBracketKeyword_0_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16102,7 +16163,7 @@ protected class VariablesComplejas_IndiceAssignment_0_1_2 extends AssignmentToke
 	}	
 }
 
-// "]"
+// ']'
 protected class VariablesComplejas_RightSquareBracketKeyword_0_1_3 extends KeywordToken  {
 	
 	public VariablesComplejas_RightSquareBracketKeyword_0_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16125,7 +16186,7 @@ protected class VariablesComplejas_RightSquareBracketKeyword_0_1_3 extends Keywo
 }
 
 
-// ("." campo+=CampoRegistro)?
+// ('.' campo+=CampoRegistro)?
 protected class VariablesComplejas_Group_0_2 extends GroupToken {
 	
 	public VariablesComplejas_Group_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16147,7 +16208,7 @@ protected class VariablesComplejas_Group_0_2 extends GroupToken {
 
 }
 
-// "."
+// '.'
 protected class VariablesComplejas_FullStopKeyword_0_2_0 extends KeywordToken  {
 	
 	public VariablesComplejas_FullStopKeyword_0_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16217,7 +16278,7 @@ protected class VariablesComplejas_CampoAssignment_0_2_1 extends AssignmentToken
 
 
 
-// {ValorMatriz} (nombre_matriz=EString "[" primerIndice=operacionIndice "][" segundoIndice=operacionIndice "]") ("."
+// {ValorMatriz} (nombre_matriz=EString '[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']') ('.'
 // campo+=CampoRegistro)?
 protected class VariablesComplejas_Group_1 extends GroupToken {
 	
@@ -16274,7 +16335,7 @@ protected class VariablesComplejas_ValorMatrizAction_1_0 extends ActionToken  {
 	}
 }
 
-// nombre_matriz=EString "[" primerIndice=operacionIndice "][" segundoIndice=operacionIndice "]"
+// (nombre_matriz=EString '[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']')
 protected class VariablesComplejas_Group_1_1 extends GroupToken {
 	
 	public VariablesComplejas_Group_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16330,7 +16391,7 @@ protected class VariablesComplejas_Nombre_matrizAssignment_1_1_0 extends Assignm
 
 }
 
-// "["
+// '['
 protected class VariablesComplejas_LeftSquareBracketKeyword_1_1_1 extends KeywordToken  {
 	
 	public VariablesComplejas_LeftSquareBracketKeyword_1_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16398,7 +16459,7 @@ protected class VariablesComplejas_PrimerIndiceAssignment_1_1_2 extends Assignme
 	}	
 }
 
-// "]["
+// ']['
 protected class VariablesComplejas_RightSquareBracketLeftSquareBracketKeyword_1_1_3 extends KeywordToken  {
 	
 	public VariablesComplejas_RightSquareBracketLeftSquareBracketKeyword_1_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16466,7 +16527,7 @@ protected class VariablesComplejas_SegundoIndiceAssignment_1_1_4 extends Assignm
 	}	
 }
 
-// "]"
+// ']'
 protected class VariablesComplejas_RightSquareBracketKeyword_1_1_5 extends KeywordToken  {
 	
 	public VariablesComplejas_RightSquareBracketKeyword_1_1_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16489,7 +16550,7 @@ protected class VariablesComplejas_RightSquareBracketKeyword_1_1_5 extends Keywo
 }
 
 
-// ("." campo+=CampoRegistro)?
+// ('.' campo+=CampoRegistro)?
 protected class VariablesComplejas_Group_1_2 extends GroupToken {
 	
 	public VariablesComplejas_Group_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16511,7 +16572,7 @@ protected class VariablesComplejas_Group_1_2 extends GroupToken {
 
 }
 
-// "."
+// '.'
 protected class VariablesComplejas_FullStopKeyword_1_2_0 extends KeywordToken  {
 	
 	public VariablesComplejas_FullStopKeyword_1_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16581,7 +16642,7 @@ protected class VariablesComplejas_CampoAssignment_1_2_1 extends AssignmentToken
 
 
 
-// {ValorRegistro} nombre_registro=EString "." (campo+=CampoRegistro ("." campo+=CampoRegistro)*)
+// {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)*)
 protected class VariablesComplejas_Group_2 extends GroupToken {
 	
 	public VariablesComplejas_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16670,7 +16731,7 @@ protected class VariablesComplejas_Nombre_registroAssignment_2_1 extends Assignm
 
 }
 
-// "."
+// '.'
 protected class VariablesComplejas_FullStopKeyword_2_2 extends KeywordToken  {
 	
 	public VariablesComplejas_FullStopKeyword_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16692,7 +16753,7 @@ protected class VariablesComplejas_FullStopKeyword_2_2 extends KeywordToken  {
 
 }
 
-// campo+=CampoRegistro ("." campo+=CampoRegistro)*
+// (campo+=CampoRegistro ('.' campo+=CampoRegistro)*)
 protected class VariablesComplejas_Group_2_3 extends GroupToken {
 	
 	public VariablesComplejas_Group_2_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16761,7 +16822,7 @@ protected class VariablesComplejas_CampoAssignment_2_3_0 extends AssignmentToken
 	}	
 }
 
-// ("." campo+=CampoRegistro)*
+// ('.' campo+=CampoRegistro)*
 protected class VariablesComplejas_Group_2_3_1 extends GroupToken {
 	
 	public VariablesComplejas_Group_2_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16783,7 +16844,7 @@ protected class VariablesComplejas_Group_2_3_1 extends GroupToken {
 
 }
 
-// "."
+// '.'
 protected class VariablesComplejas_FullStopKeyword_2_3_1_0 extends KeywordToken  {
 	
 	public VariablesComplejas_FullStopKeyword_2_3_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -16861,9 +16922,13 @@ protected class VariablesComplejas_CampoAssignment_2_3_1_1 extends AssignmentTok
 
 /************ begin Rule VariablesBasicas ****************
  *
- * VariablesBasicas returns operacion:
- * 	{NumeroEntero} valor=EInt | {NumeroDecimal} valor=EFloat | {ConstCadena} contenido=CAD | {Caracter} contenido=CAR |
- * 	{ValorBooleano} valor=Booleano | {VariableID} nombre=EString;
+ * VariablesBasicas operacion:
+ * 	{NumeroEntero} valor=EInt
+ * 	| {NumeroDecimal} valor=EFloat
+ * 	| {ConstCadena} contenido=CAD
+ * 	| {Caracter} contenido=CAR
+ * 	| {ValorBooleano} valor=Booleano
+ * 	| {VariableID} nombre=EString
  *
  **/
 
@@ -17454,11 +17519,13 @@ protected class VariablesBasicas_NombreAssignment_5_1 extends AssignmentToken  {
 /************ begin Rule Sino ****************
  *
  * Sino:
- * 	{Sino} "si_no" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver?;
+ * 	{Sino}
+ * 	'si_no' (sentencias+=Sentencias sentencias+=Sentencias*)?
+ * 	devuelve=Devolver?;
  *
  **/
 
-// {Sino} "si_no" (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver?
+// {Sino} 'si_no' (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver?
 protected class Sino_Group extends GroupToken {
 	
 	public Sino_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17515,7 +17582,7 @@ protected class Sino_SinoAction_0 extends ActionToken  {
 	}
 }
 
-// "si_no"
+// 'si_no'
 protected class Sino_Si_noKeyword_1 extends KeywordToken  {
 	
 	public Sino_Si_noKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17708,11 +17775,12 @@ protected class Sino_DevuelveAssignment_3 extends AssignmentToken  {
 /************ begin Rule Devolver ****************
  *
  * Devolver:
- * 	{Devolver} "devolver" devuelve=OperacionCompleta;
+ * 	{Devolver}
+ * 	'devolver' devuelve=OperacionCompleta;
  *
  **/
 
-// {Devolver} "devolver" devuelve=OperacionCompleta
+// {Devolver} 'devolver' devuelve=OperacionCompleta
 protected class Devolver_Group extends GroupToken {
 	
 	public Devolver_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17767,7 +17835,7 @@ protected class Devolver_DevolverAction_0 extends ActionToken  {
 	}
 }
 
-// "devolver"
+// 'devolver'
 protected class Devolver_DevolverKeyword_1 extends KeywordToken  {
 	
 	public Devolver_DevolverKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -17844,7 +17912,9 @@ protected class Devolver_DevuelveAssignment_2 extends AssignmentToken  {
  * //neg returns neg:
  * //	"no" / * TODO: implement this rule and an appropriate IValueConverter * /;
  * ParametroFuncion:
- * 	paso=TipoPaso tipo=Tipo ": " variable=Variable;
+ * 	paso=TipoPaso
+ * 	tipo=Tipo ": "
+ * 	variable=Variable;
  *
  **/
 
@@ -18031,15 +18101,19 @@ protected class ParametroFuncion_VariableAssignment_3 extends AssignmentToken  {
 /************ begin Rule Funcion ****************
  *
  * Funcion:
- * 	tipo=TipoVariable "funcion" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion (","
- * 	parametrofuncion+=ParametroFuncion)*)? ")" ("var" declaracion+=Declaracion*)? "inicio" sentencias+=Sentencias*
- * 	devuelve=Devolver? "fin_funcion";
+ * 	tipo=TipoVariable 'funcion'
+ * 	nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ')' ('var'
+ * 	declaracion+=Declaracion*)?
+ * 	'inicio'
+ * 	sentencias+=Sentencias*
+ * 	devuelve=Devolver?
+ * 	'fin_funcion';
  *
  **/
 
-// tipo=TipoVariable "funcion" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion (","
-// parametrofuncion+=ParametroFuncion)*)? ")" ("var" declaracion+=Declaracion*)? "inicio" sentencias+=Sentencias*
-// devuelve=Devolver? "fin_funcion"
+// tipo=TipoVariable 'funcion' nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion (","
+// parametrofuncion+=ParametroFuncion)*)? ')' ('var' declaracion+=Declaracion*)? 'inicio' sentencias+=Sentencias*
+// devuelve=Devolver? 'fin_funcion'
 protected class Funcion_Group extends GroupToken {
 	
 	public Funcion_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18101,7 +18175,7 @@ protected class Funcion_TipoAssignment_0 extends AssignmentToken  {
 
 }
 
-// "funcion"
+// 'funcion'
 protected class Funcion_FuncionKeyword_1 extends KeywordToken  {
 	
 	public Funcion_FuncionKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18319,7 +18393,7 @@ protected class Funcion_ParametrofuncionAssignment_3_1_1 extends AssignmentToken
 
 
 
-// ")"
+// ')'
 protected class Funcion_RightParenthesisKeyword_4 extends KeywordToken  {
 	
 	public Funcion_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18342,7 +18416,7 @@ protected class Funcion_RightParenthesisKeyword_4 extends KeywordToken  {
 
 }
 
-// ("var" declaracion+=Declaracion*)?
+// ('var' declaracion+=Declaracion*)?
 protected class Funcion_Group_5 extends GroupToken {
 	
 	public Funcion_Group_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18364,7 +18438,7 @@ protected class Funcion_Group_5 extends GroupToken {
 
 }
 
-// "var"
+// 'var'
 protected class Funcion_VarKeyword_5_0 extends KeywordToken  {
 	
 	public Funcion_VarKeyword_5_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18434,7 +18508,7 @@ protected class Funcion_DeclaracionAssignment_5_1 extends AssignmentToken  {
 }
 
 
-// "inicio"
+// 'inicio'
 protected class Funcion_InicioKeyword_6 extends KeywordToken  {
 	
 	public Funcion_InicioKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18551,7 +18625,7 @@ protected class Funcion_DevuelveAssignment_8 extends AssignmentToken  {
 	}	
 }
 
-// "fin_funcion"
+// 'fin_funcion'
 protected class Funcion_Fin_funcionKeyword_9 extends KeywordToken  {
 	
 	public Funcion_Fin_funcionKeyword_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18582,13 +18656,17 @@ protected class Funcion_Fin_funcionKeyword_9 extends KeywordToken  {
 /************ begin Rule Procedimiento ****************
  *
  * Procedimiento:
- * 	"procedimiento" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")"
- * 	("var" declaracion+=Declaracion*)? "inicio" sentencias+=Sentencias* "fin_procedimiento";
+ * 	'procedimiento'
+ * 	nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ')' ('var'
+ * 	declaracion+=Declaracion*)?
+ * 	'inicio'
+ * 	sentencias+=Sentencias*
+ * 	'fin_procedimiento';
  *
  **/
 
-// "procedimiento" nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ")"
-// ("var" declaracion+=Declaracion*)? "inicio" sentencias+=Sentencias* "fin_procedimiento"
+// 'procedimiento' nombre=NOMBRE_FUN (parametrofuncion+=ParametroFuncion ("," parametrofuncion+=ParametroFuncion)*)? ')'
+// ('var' declaracion+=Declaracion*)? 'inicio' sentencias+=Sentencias* 'fin_procedimiento'
 protected class Procedimiento_Group extends GroupToken {
 	
 	public Procedimiento_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18617,7 +18695,7 @@ protected class Procedimiento_Group extends GroupToken {
 
 }
 
-// "procedimiento"
+// 'procedimiento'
 protected class Procedimiento_ProcedimientoKeyword_0 extends KeywordToken  {
 	
 	public Procedimiento_ProcedimientoKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18834,7 +18912,7 @@ protected class Procedimiento_ParametrofuncionAssignment_2_1_1 extends Assignmen
 
 
 
-// ")"
+// ')'
 protected class Procedimiento_RightParenthesisKeyword_3 extends KeywordToken  {
 	
 	public Procedimiento_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18857,7 +18935,7 @@ protected class Procedimiento_RightParenthesisKeyword_3 extends KeywordToken  {
 
 }
 
-// ("var" declaracion+=Declaracion*)?
+// ('var' declaracion+=Declaracion*)?
 protected class Procedimiento_Group_4 extends GroupToken {
 	
 	public Procedimiento_Group_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18879,7 +18957,7 @@ protected class Procedimiento_Group_4 extends GroupToken {
 
 }
 
-// "var"
+// 'var'
 protected class Procedimiento_VarKeyword_4_0 extends KeywordToken  {
 	
 	public Procedimiento_VarKeyword_4_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -18949,7 +19027,7 @@ protected class Procedimiento_DeclaracionAssignment_4_1 extends AssignmentToken 
 }
 
 
-// "inicio"
+// 'inicio'
 protected class Procedimiento_InicioKeyword_5 extends KeywordToken  {
 	
 	public Procedimiento_InicioKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -19019,7 +19097,7 @@ protected class Procedimiento_SentenciasAssignment_6 extends AssignmentToken  {
 	}	
 }
 
-// "fin_procedimiento"
+// 'fin_procedimiento'
 protected class Procedimiento_Fin_procedimientoKeyword_7 extends KeywordToken  {
 	
 	public Procedimiento_Fin_procedimientoKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {

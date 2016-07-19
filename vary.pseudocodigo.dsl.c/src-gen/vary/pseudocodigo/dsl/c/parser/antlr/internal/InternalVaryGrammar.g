@@ -134,7 +134,7 @@ ruleAlgoritmo returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -177,7 +177,7 @@ ruleAlgoritmo returns [EObject current=null]
        			$current, 
        			"constantes",
         		lv_constantes_6_0, 
-        		"Constantes");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Constantes");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -199,7 +199,7 @@ ruleAlgoritmo returns [EObject current=null]
        			$current, 
        			"tipocomplejo",
         		lv_tipocomplejo_8_0, 
-        		"TipoComplejo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoComplejo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -221,7 +221,7 @@ ruleAlgoritmo returns [EObject current=null]
        			$current, 
        			"global",
         		lv_global_10_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -239,7 +239,7 @@ ruleAlgoritmo returns [EObject current=null]
        			$current, 
        			"funcion",
         		lv_funcion_11_0, 
-        		"Subproceso");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Subproceso");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -257,7 +257,7 @@ ruleAlgoritmo returns [EObject current=null]
        			$current, 
        			"tiene",
         		lv_tiene_12_0, 
-        		"Inicio");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Inicio");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -305,7 +305,7 @@ ruleModulo returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"ID");
+        		"org.eclipse.xtext.common.Terminals.ID");
 	    }
 
 )
@@ -351,7 +351,7 @@ ruleModulo returns [EObject current=null]
        			$current, 
        			"exporta_constantes",
         		lv_exporta_constantes_7_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -373,7 +373,7 @@ ruleModulo returns [EObject current=null]
        			$current, 
        			"exporta_tipos",
         		lv_exporta_tipos_9_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -395,7 +395,7 @@ ruleModulo returns [EObject current=null]
        			$current, 
        			"exporta_global",
         		lv_exporta_global_11_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -413,7 +413,7 @@ ruleModulo returns [EObject current=null]
        			$current, 
        			"exporta_funciones",
         		lv_exporta_funciones_12_0, 
-        		"CabeceraSubproceso");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CabeceraSubproceso");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -435,7 +435,7 @@ ruleModulo returns [EObject current=null]
        			$current, 
        			"implementacion",
         		lv_implementacion_14_0, 
-        		"Implementacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Implementacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -492,7 +492,7 @@ ruleImplementacion returns [EObject current=null]
        			$current, 
        			"constantes",
         		lv_constantes_3_0, 
-        		"Constantes");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Constantes");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -514,7 +514,7 @@ ruleImplementacion returns [EObject current=null]
        			$current, 
        			"tipocomplejo",
         		lv_tipocomplejo_5_0, 
-        		"TipoComplejo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoComplejo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -536,7 +536,7 @@ ruleImplementacion returns [EObject current=null]
        			$current, 
        			"global",
         		lv_global_7_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -554,7 +554,7 @@ ruleImplementacion returns [EObject current=null]
        			$current, 
        			"funcion",
         		lv_funcion_8_0, 
-        		"Subproceso");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Subproceso");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -642,7 +642,7 @@ ruleCabeceraProcedimiento returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"NOMBRE_FUN");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.NOMBRE_FUN");
 	    }
 
 )
@@ -659,7 +659,7 @@ ruleCabeceraProcedimiento returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_2_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -681,7 +681,7 @@ ruleCabeceraProcedimiento returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_4_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -724,7 +724,7 @@ ruleCabeceraFuncion returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_0_0, 
-        		"TipoVariable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoVariable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -747,7 +747,7 @@ ruleCabeceraFuncion returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_2_0, 
-        		"NOMBRE_FUN");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.NOMBRE_FUN");
 	    }
 
 )
@@ -764,7 +764,7 @@ ruleCabeceraFuncion returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_3_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -786,7 +786,7 @@ ruleCabeceraFuncion returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_5_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1159,7 +1159,7 @@ ruleFuncionFicheroAbrir returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1181,7 +1181,7 @@ ruleFuncionFicheroAbrir returns [EObject current=null]
        			$current, 
        			"modo",
         		lv_modo_4_0, 
-        		"ModoApertura");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ModoApertura");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1203,7 +1203,7 @@ ruleFuncionFicheroAbrir returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_6_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1254,7 +1254,7 @@ ruleFuncionFicheroCerrar returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1503,7 +1503,7 @@ ruleCampoRegistro returns [EObject current=null]
        			$current, 
        			"nombre_campo",
         		lv_nombre_campo_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1582,7 +1582,7 @@ ruleTipoDefinido returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1621,7 +1621,7 @@ ruleTipoExistente returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_0_0, 
-        		"TipoVariable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoVariable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1660,7 +1660,7 @@ ruleConstantes returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_0_0, 
-        		"Variable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1682,7 +1682,7 @@ ruleConstantes returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_2_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1729,7 +1729,7 @@ ruleVector returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_2_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1755,7 +1755,7 @@ ruleVector returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_5_0, 
-        		"Tipo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Tipo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1777,7 +1777,7 @@ ruleVector returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_7_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1824,7 +1824,7 @@ ruleMatriz returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_2_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1846,7 +1846,7 @@ ruleMatriz returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_4_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1872,7 +1872,7 @@ ruleMatriz returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_7_0, 
-        		"Tipo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Tipo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1894,7 +1894,7 @@ ruleMatriz returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_9_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1937,7 +1937,7 @@ ruleRegistro returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1955,7 +1955,7 @@ ruleRegistro returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2002,7 +2002,7 @@ ruleArchivo returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_1_0, 
-        		"Tipo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Tipo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2024,7 +2024,7 @@ ruleArchivo returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_3_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2063,7 +2063,7 @@ ruleEnumerado returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2089,7 +2089,7 @@ ruleEnumerado returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_3_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2111,7 +2111,7 @@ ruleEnumerado returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_5_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2194,7 +2194,7 @@ ruleSubrangoNumerico returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2216,7 +2216,7 @@ ruleSubrangoNumerico returns [EObject current=null]
        			$current, 
        			"limite_inf",
         		lv_limite_inf_2_0, 
-        		"EInt");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EInt");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2238,7 +2238,7 @@ ruleSubrangoNumerico returns [EObject current=null]
        			$current, 
        			"limite_sup",
         		lv_limite_sup_4_0, 
-        		"EInt");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EInt");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2277,7 +2277,7 @@ ruleSubrangoEnumerado returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2299,7 +2299,7 @@ ruleSubrangoEnumerado returns [EObject current=null]
        			$current, 
        			"limite_inf",
         		lv_limite_inf_2_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2321,7 +2321,7 @@ ruleSubrangoEnumerado returns [EObject current=null]
        			$current, 
        			"limite_sup",
         		lv_limite_sup_4_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2374,7 +2374,7 @@ ruleInicio returns [EObject current=null]
        			$current, 
        			"declaracion",
         		lv_declaracion_3_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2396,7 +2396,7 @@ ruleInicio returns [EObject current=null]
        			$current, 
        			"tiene",
         		lv_tiene_5_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2475,7 +2475,7 @@ ruleDeclaracionVariable returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_0_0, 
-        		"TipoVariable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoVariable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2497,7 +2497,7 @@ ruleDeclaracionVariable returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"Variable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2519,7 +2519,7 @@ ruleDeclaracionVariable returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_4_0, 
-        		"Variable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2558,7 +2558,7 @@ ruleDeclaracionPropia returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2580,7 +2580,7 @@ ruleDeclaracionPropia returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_2_0, 
-        		"Variable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2602,7 +2602,7 @@ ruleDeclaracionPropia returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_4_0, 
-        		"Variable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2681,7 +2681,7 @@ ruleAsignacionNormal returns [EObject current=null]
        			$current, 
        			"valor_asignacion",
         		lv_valor_asignacion_0_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2703,7 +2703,7 @@ ruleAsignacionNormal returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_2_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2742,7 +2742,7 @@ ruleAsignacionCompleja returns [EObject current=null]
        			$current, 
        			"valor_asignacion",
         		lv_valor_asignacion_0_0, 
-        		"VariablesComplejas");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.VariablesComplejas");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2764,7 +2764,7 @@ ruleAsignacionCompleja returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_2_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2807,7 +2807,7 @@ ruleEscribir returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_1_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2829,7 +2829,7 @@ ruleEscribir returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_3_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2848,7 +2848,7 @@ ruleEscribir returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_4_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2895,7 +2895,7 @@ ruleLeer returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_1_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2917,7 +2917,7 @@ ruleLeer returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_3_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2973,7 +2973,7 @@ ruleSi returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_3_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2999,7 +2999,7 @@ ruleSi returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_6_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3017,7 +3017,7 @@ ruleSi returns [EObject current=null]
        			$current, 
        			"devuelve",
         		lv_devuelve_7_0, 
-        		"Devolver");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3035,7 +3035,7 @@ ruleSi returns [EObject current=null]
        			$current, 
        			"sino",
         		lv_sino_8_0, 
-        		"Sino");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sino");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3091,7 +3091,7 @@ rulemientras returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_3_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3117,7 +3117,7 @@ rulemientras returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_6_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3164,7 +3164,7 @@ rulerepetir returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_1_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3195,7 +3195,7 @@ rulerepetir returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_5_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3242,7 +3242,7 @@ ruledesde returns [EObject current=null]
        			$current, 
        			"asignacion",
         		lv_asignacion_1_0, 
-        		"AsignacionNormal");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.AsignacionNormal");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3264,7 +3264,7 @@ ruledesde returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_3_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3286,7 +3286,7 @@ ruledesde returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_5_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3333,7 +3333,7 @@ ruleCaso returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_1_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3355,7 +3355,7 @@ ruleCaso returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_3_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3373,7 +3373,7 @@ ruleCaso returns [EObject current=null]
        			$current, 
        			"devuelve",
         		lv_devuelve_4_0, 
-        		"Devolver");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3425,7 +3425,7 @@ rulesegun returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_3_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3451,7 +3451,7 @@ rulesegun returns [EObject current=null]
        			$current, 
        			"caso",
         		lv_caso_6_0, 
-        		"Caso");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Caso");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3473,7 +3473,7 @@ rulesegun returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_8_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3491,7 +3491,7 @@ rulesegun returns [EObject current=null]
        			$current, 
        			"devuelve",
         		lv_devuelve_9_0, 
-        		"Devolver");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3595,7 +3595,7 @@ ruleVariable returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -3979,7 +3979,7 @@ ruleOr returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoOr");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoOr");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4027,7 +4027,7 @@ ruleOr returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"And");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.And");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4081,7 +4081,7 @@ ruleAnd returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoAnd");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoAnd");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4129,7 +4129,7 @@ ruleAnd returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Mod");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Mod");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4183,7 +4183,7 @@ ruleMod returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoModulo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoModulo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4231,7 +4231,7 @@ ruleMod returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Igualdad");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Igualdad");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4285,7 +4285,7 @@ ruleIgualdad returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoIgualdad");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoIgualdad");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4333,7 +4333,7 @@ ruleIgualdad returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"Comparacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Comparacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4387,7 +4387,7 @@ ruleComparacion returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoComparacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoComparacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4435,7 +4435,7 @@ ruleComparacion returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"SumaResta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.SumaResta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4489,7 +4489,7 @@ ruleSumaResta returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoSuma");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoSuma");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4514,7 +4514,7 @@ ruleSumaResta returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_4_0, 
-        		"signoResta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoResta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4562,7 +4562,7 @@ ruleSumaResta returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_7_0, 
-        		"MultiplicacionDivision");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.MultiplicacionDivision");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4616,7 +4616,7 @@ ruleMultiplicacionDivision returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoMultiplicacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoMultiplicacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4641,7 +4641,7 @@ ruleMultiplicacionDivision returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_4_0, 
-        		"signoDivision");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoDivision");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4666,7 +4666,7 @@ ruleMultiplicacionDivision returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_6_0, 
-        		"signoDiv");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoDiv");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4714,7 +4714,7 @@ ruleMultiplicacionDivision returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_9_0, 
-        		"Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4798,7 +4798,7 @@ ruleOrIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoOr");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoOr");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4816,7 +4816,7 @@ ruleOrIndice returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"AndIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.AndIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4870,7 +4870,7 @@ ruleAndIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoAnd");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoAnd");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4888,7 +4888,7 @@ ruleAndIndice returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"IgualdadIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.IgualdadIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4942,7 +4942,7 @@ ruleIgualdadIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoIgualdad");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoIgualdad");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -4960,7 +4960,7 @@ ruleIgualdadIndice returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"ComparacionIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ComparacionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5014,7 +5014,7 @@ ruleComparacionIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoComparacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoComparacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5032,7 +5032,7 @@ ruleComparacionIndice returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"SumaRestaIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.SumaRestaIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5086,7 +5086,7 @@ ruleSumaRestaIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoSuma");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoSuma");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5111,7 +5111,7 @@ ruleSumaRestaIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_4_0, 
-        		"signoResta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoResta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5129,7 +5129,7 @@ ruleSumaRestaIndice returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_5_0, 
-        		"MultiplicacionDivisionIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.MultiplicacionDivisionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5183,7 +5183,7 @@ ruleMultiplicacionDivisionIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_2_0, 
-        		"signoMultiplicacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoMultiplicacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5208,7 +5208,7 @@ ruleMultiplicacionDivisionIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_4_0, 
-        		"signoDivision");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoDivision");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5233,7 +5233,7 @@ ruleMultiplicacionDivisionIndice returns [EObject current=null]
        			$current, 
        			"signo_op",
         		lv_signo_op_6_0, 
-        		"signoDiv");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.signoDiv");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5251,7 +5251,7 @@ ruleMultiplicacionDivisionIndice returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_7_0, 
-        		"PrimariaIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.PrimariaIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5296,7 +5296,7 @@ rulePrimariaIndice returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_1_0, 
-        		"EInt");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EInt");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5321,7 +5321,7 @@ rulePrimariaIndice returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_3_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5456,7 +5456,7 @@ ruleOperacionCompleta returns [EObject current=null]
        			$current, 
        			"valor_operacion",
         		lv_valor_operacion_3_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5535,7 +5535,7 @@ ruleOperacionParentesis returns [EObject current=null]
        			$current, 
        			"valor_operacion",
         		lv_valor_operacion_4_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5585,7 +5585,7 @@ ruleFunciones returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"NOMBRE_FUN");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.NOMBRE_FUN");
 	    }
 
 )
@@ -5610,7 +5610,7 @@ ruleFunciones returns [EObject current=null]
        			$current, 
        			"operadores",
         		lv_operadores_4_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5640,7 +5640,7 @@ ruleFunciones returns [EObject current=null]
        			$current, 
        			"operadores",
         		lv_operadores_8_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5669,7 +5669,7 @@ ruleFunciones returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_11_0, 
-        		"NombreInterna");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.NombreInterna");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5695,7 +5695,7 @@ ruleFunciones returns [EObject current=null]
        			$current, 
        			"operadores",
         		lv_operadores_14_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5725,7 +5725,7 @@ ruleFunciones returns [EObject current=null]
        			$current, 
        			"operadores",
         		lv_operadores_18_0, 
-        		"operacion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5774,7 +5774,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"nombre_vector",
         		lv_nombre_vector_1_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5796,7 +5796,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"indice",
         		lv_indice_3_0, 
-        		"operacionIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5822,7 +5822,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"campo",
         		lv_campo_6_0, 
-        		"CampoRegistro");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5847,7 +5847,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"nombre_matriz",
         		lv_nombre_matriz_8_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5869,7 +5869,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"primerIndice",
         		lv_primerIndice_10_0, 
-        		"operacionIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5891,7 +5891,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"segundoIndice",
         		lv_segundoIndice_12_0, 
-        		"operacionIndice");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5917,7 +5917,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"campo",
         		lv_campo_15_0, 
-        		"CampoRegistro");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5942,7 +5942,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"nombre_registro",
         		lv_nombre_registro_17_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5964,7 +5964,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"campo",
         		lv_campo_19_0, 
-        		"CampoRegistro");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -5986,7 +5986,7 @@ ruleVariablesComplejas returns [EObject current=null]
        			$current, 
        			"campo",
         		lv_campo_21_0, 
-        		"CampoRegistro");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6031,7 +6031,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_1_0, 
-        		"EInt");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EInt");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6056,7 +6056,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_3_0, 
-        		"EFloat");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EFloat");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6082,7 +6082,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"contenido",
         		lv_contenido_5_0, 
-        		"CAD");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CAD");
 	    }
 
 )
@@ -6107,7 +6107,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"contenido",
         		lv_contenido_7_0, 
-        		"CAR");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.CAR");
 	    }
 
 )
@@ -6131,7 +6131,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"valor",
         		lv_valor_9_0, 
-        		"Booleano");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Booleano");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6156,7 +6156,7 @@ ruleVariablesBasicas returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_11_0, 
-        		"EString");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6205,7 +6205,7 @@ ruleSino returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_2_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6223,7 +6223,7 @@ ruleSino returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_3_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6241,7 +6241,7 @@ ruleSino returns [EObject current=null]
        			$current, 
        			"devuelve",
         		lv_devuelve_4_0, 
-        		"Devolver");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6290,7 +6290,7 @@ ruleDevolver returns [EObject current=null]
        			$current, 
        			"devuelve",
         		lv_devuelve_2_0, 
-        		"OperacionCompleta");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6329,7 +6329,7 @@ ruleParametroFuncion returns [EObject current=null]
        			$current, 
        			"paso",
         		lv_paso_0_0, 
-        		"TipoPaso");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoPaso");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6347,7 +6347,7 @@ ruleParametroFuncion returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_1_0, 
-        		"Tipo");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Tipo");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6369,7 +6369,7 @@ ruleParametroFuncion returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_3_0, 
-        		"Variable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Variable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6408,7 +6408,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"tipo",
         		lv_tipo_0_0, 
-        		"TipoVariable");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.TipoVariable");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6431,7 +6431,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_2_0, 
-        		"NOMBRE_FUN");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.NOMBRE_FUN");
 	    }
 
 )
@@ -6448,7 +6448,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_3_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6470,7 +6470,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_5_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6496,7 +6496,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"declaracion",
         		lv_declaracion_8_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6518,7 +6518,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_10_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6536,7 +6536,7 @@ ruleFuncion returns [EObject current=null]
        			$current, 
        			"devuelve",
         		lv_devuelve_11_0, 
-        		"Devolver");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6584,7 +6584,7 @@ ruleProcedimiento returns [EObject current=null]
        			$current, 
        			"nombre",
         		lv_nombre_1_0, 
-        		"NOMBRE_FUN");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.NOMBRE_FUN");
 	    }
 
 )
@@ -6601,7 +6601,7 @@ ruleProcedimiento returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_2_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6623,7 +6623,7 @@ ruleProcedimiento returns [EObject current=null]
        			$current, 
        			"parametrofuncion",
         		lv_parametrofuncion_4_0, 
-        		"ParametroFuncion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.ParametroFuncion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6649,7 +6649,7 @@ ruleProcedimiento returns [EObject current=null]
        			$current, 
        			"declaracion",
         		lv_declaracion_7_0, 
-        		"Declaracion");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -6671,7 +6671,7 @@ ruleProcedimiento returns [EObject current=null]
        			$current, 
        			"sentencias",
         		lv_sentencias_9_0, 
-        		"Sentencias");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
 	        afterParserOrEnumRuleCall();
 	    }
 

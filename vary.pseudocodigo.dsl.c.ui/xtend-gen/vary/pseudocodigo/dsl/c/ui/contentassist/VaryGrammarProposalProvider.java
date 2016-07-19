@@ -329,194 +329,122 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       for (final TipoComplejo tipo : _tipocomplejo) {
         if ((tipo instanceof Vector)) {
           Vector vector = ((Vector) tipo);
-          boolean _and = false;
-          EList<String> _exporta_tipos = modulo.getExporta_tipos();
-          String _nombre = vector.getNombre();
-          boolean _contains = _exporta_tipos.contains(_nombre);
-          if (!_contains) {
-            _and = false;
-          } else {
-            String _nombre_1 = vector.getNombre();
-            boolean _contains_1 = tiposLocales.contains(_nombre_1);
-            boolean _not = (!_contains_1);
-            _and = _not;
-          }
-          if (_and) {
-            String _nombre_2 = vector.getNombre();
-            String _plus = (_nombre_2 + " : ");
+          if ((modulo.getExporta_tipos().contains(vector.getNombre()) && (!tiposLocales.contains(vector.getNombre())))) {
+            String _nombre = vector.getNombre();
+            String _plus = (_nombre + " : ");
             ResourceBundle _bundle = this.readerKeywords.getBundle();
             String _string = _bundle.getString("KEYWORD_VECTOR");
             String _plus_1 = (_plus + _string);
             StyledString styledString = new StyledString(_plus_1);
-            String _nombre_3 = modulo.getNombre();
-            String _plus_2 = (" - " + _nombre_3);
+            String _nombre_1 = modulo.getNombre();
+            String _plus_2 = (" - " + _nombre_1);
             StyledString styledStringAux = new StyledString(_plus_2);
             int _length = styledStringAux.length();
             styledStringAux.setStyle(0, _length, StyledString.QUALIFIER_STYLER);
             styledString.append(styledStringAux);
-            String _nombre_4 = vector.getNombre();
-            ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_4, styledString, VaryGrammarProposalProvider.typePublic, context);
+            String _nombre_2 = vector.getNombre();
+            ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_2, styledString, VaryGrammarProposalProvider.typePublic, context);
             acceptor.accept(completionProposal);
           }
         } else {
           if ((tipo instanceof Matriz)) {
             Matriz matriz = ((Matriz) tipo);
-            boolean _and_1 = false;
-            EList<String> _exporta_tipos_1 = modulo.getExporta_tipos();
-            String _nombre_5 = matriz.getNombre();
-            boolean _contains_2 = _exporta_tipos_1.contains(_nombre_5);
-            if (!_contains_2) {
-              _and_1 = false;
-            } else {
-              String _nombre_6 = matriz.getNombre();
-              boolean _contains_3 = tiposLocales.contains(_nombre_6);
-              boolean _not_1 = (!_contains_3);
-              _and_1 = _not_1;
-            }
-            if (_and_1) {
-              String _nombre_7 = matriz.getNombre();
-              String _plus_3 = (_nombre_7 + " : ");
+            if ((modulo.getExporta_tipos().contains(matriz.getNombre()) && (!tiposLocales.contains(matriz.getNombre())))) {
+              String _nombre_3 = matriz.getNombre();
+              String _plus_3 = (_nombre_3 + " : ");
               ResourceBundle _bundle_1 = this.readerKeywords.getBundle();
               String _string_1 = _bundle_1.getString("KEYWORD_MATRIZ");
               String _plus_4 = (_plus_3 + _string_1);
               StyledString styledString_1 = new StyledString(_plus_4);
-              String _nombre_8 = modulo.getNombre();
-              String _plus_5 = (" - " + _nombre_8);
+              String _nombre_4 = modulo.getNombre();
+              String _plus_5 = (" - " + _nombre_4);
               StyledString styledStringAux_1 = new StyledString(_plus_5);
               int _length_1 = styledStringAux_1.length();
               styledStringAux_1.setStyle(0, _length_1, StyledString.QUALIFIER_STYLER);
               styledString_1.append(styledStringAux_1);
-              String _nombre_9 = matriz.getNombre();
-              ICompletionProposal completionProposal_1 = this.createCompletionProposal(_nombre_9, styledString_1, VaryGrammarProposalProvider.typePublic, context);
+              String _nombre_5 = matriz.getNombre();
+              ICompletionProposal completionProposal_1 = this.createCompletionProposal(_nombre_5, styledString_1, VaryGrammarProposalProvider.typePublic, context);
               acceptor.accept(completionProposal_1);
             }
           } else {
             if ((tipo instanceof Registro)) {
               Registro registro = ((Registro) tipo);
-              boolean _and_2 = false;
-              EList<String> _exporta_tipos_2 = modulo.getExporta_tipos();
-              String _nombre_10 = registro.getNombre();
-              boolean _contains_4 = _exporta_tipos_2.contains(_nombre_10);
-              if (!_contains_4) {
-                _and_2 = false;
-              } else {
-                String _nombre_11 = registro.getNombre();
-                boolean _contains_5 = tiposLocales.contains(_nombre_11);
-                boolean _not_2 = (!_contains_5);
-                _and_2 = _not_2;
-              }
-              if (_and_2) {
-                String _nombre_12 = registro.getNombre();
-                String _plus_6 = (_nombre_12 + " : ");
+              if ((modulo.getExporta_tipos().contains(registro.getNombre()) && (!tiposLocales.contains(registro.getNombre())))) {
+                String _nombre_6 = registro.getNombre();
+                String _plus_6 = (_nombre_6 + " : ");
                 ResourceBundle _bundle_2 = this.readerKeywords.getBundle();
                 String _string_2 = _bundle_2.getString("KEYWORD_REGISTRO");
                 String _replaceAll = _string_2.replaceAll(":", "");
                 String _plus_7 = (_plus_6 + _replaceAll);
                 StyledString styledString_2 = new StyledString(_plus_7);
-                String _nombre_13 = modulo.getNombre();
-                String _plus_8 = (" - " + _nombre_13);
+                String _nombre_7 = modulo.getNombre();
+                String _plus_8 = (" - " + _nombre_7);
                 StyledString styledStringAux_2 = new StyledString(_plus_8);
                 int _length_2 = styledStringAux_2.length();
                 styledStringAux_2.setStyle(0, _length_2, StyledString.QUALIFIER_STYLER);
                 styledString_2.append(styledStringAux_2);
-                String _nombre_14 = registro.getNombre();
-                ICompletionProposal completionProposal_2 = this.createCompletionProposal(_nombre_14, styledString_2, VaryGrammarProposalProvider.typePublic, context);
+                String _nombre_8 = registro.getNombre();
+                ICompletionProposal completionProposal_2 = this.createCompletionProposal(_nombre_8, styledString_2, VaryGrammarProposalProvider.typePublic, context);
                 acceptor.accept(completionProposal_2);
               }
             } else {
               if ((tipo instanceof Enumerado)) {
                 Enumerado enumerado = ((Enumerado) tipo);
-                boolean _and_3 = false;
-                EList<String> _exporta_tipos_3 = modulo.getExporta_tipos();
-                String _nombre_15 = enumerado.getNombre();
-                boolean _contains_6 = _exporta_tipos_3.contains(_nombre_15);
-                if (!_contains_6) {
-                  _and_3 = false;
-                } else {
-                  String _nombre_16 = enumerado.getNombre();
-                  boolean _contains_7 = tiposLocales.contains(_nombre_16);
-                  boolean _not_3 = (!_contains_7);
-                  _and_3 = _not_3;
-                }
-                if (_and_3) {
-                  String _nombre_17 = enumerado.getNombre();
-                  String _plus_9 = (_nombre_17 + " : ");
+                if ((modulo.getExporta_tipos().contains(enumerado.getNombre()) && (!tiposLocales.contains(enumerado.getNombre())))) {
+                  String _nombre_9 = enumerado.getNombre();
+                  String _plus_9 = (_nombre_9 + " : ");
                   ResourceBundle _bundle_3 = this.readerKeywords.getBundle();
                   String _string_3 = _bundle_3.getString("KEYWORD_ENUMERADO");
                   String _plus_10 = (_plus_9 + _string_3);
                   StyledString styledString_3 = new StyledString(_plus_10);
-                  String _nombre_18 = modulo.getNombre();
-                  String _plus_11 = (" - " + _nombre_18);
+                  String _nombre_10 = modulo.getNombre();
+                  String _plus_11 = (" - " + _nombre_10);
                   StyledString styledStringAux_3 = new StyledString(_plus_11);
                   int _length_3 = styledStringAux_3.length();
                   styledStringAux_3.setStyle(0, _length_3, StyledString.QUALIFIER_STYLER);
                   styledString_3.append(styledStringAux_3);
-                  String _nombre_19 = enumerado.getNombre();
-                  ICompletionProposal completionProposal_3 = this.createCompletionProposal(_nombre_19, styledString_3, VaryGrammarProposalProvider.typePublic, context);
+                  String _nombre_11 = enumerado.getNombre();
+                  ICompletionProposal completionProposal_3 = this.createCompletionProposal(_nombre_11, styledString_3, VaryGrammarProposalProvider.typePublic, context);
                   acceptor.accept(completionProposal_3);
                 }
               } else {
                 if ((tipo instanceof Subrango)) {
                   Subrango subrango = ((Subrango) tipo);
-                  boolean _and_4 = false;
-                  EList<String> _exporta_tipos_4 = modulo.getExporta_tipos();
-                  String _nombre_20 = subrango.getNombre();
-                  boolean _contains_8 = _exporta_tipos_4.contains(_nombre_20);
-                  if (!_contains_8) {
-                    _and_4 = false;
-                  } else {
-                    String _nombre_21 = subrango.getNombre();
-                    boolean _contains_9 = tiposLocales.contains(_nombre_21);
-                    boolean _not_4 = (!_contains_9);
-                    _and_4 = _not_4;
-                  }
-                  if (_and_4) {
-                    String _nombre_22 = subrango.getNombre();
-                    String _plus_12 = (_nombre_22 + " : ");
+                  if ((modulo.getExporta_tipos().contains(subrango.getNombre()) && (!tiposLocales.contains(subrango.getNombre())))) {
+                    String _nombre_12 = subrango.getNombre();
+                    String _plus_12 = (_nombre_12 + " : ");
                     ResourceBundle _bundle_4 = this.readerKeywords.getBundle();
                     String _string_4 = _bundle_4.getString("KEYWORD_SUBRANGO");
                     String _plus_13 = (_plus_12 + _string_4);
                     StyledString styledString_4 = new StyledString(_plus_13);
-                    String _nombre_23 = modulo.getNombre();
-                    String _plus_14 = (" - " + _nombre_23);
+                    String _nombre_13 = modulo.getNombre();
+                    String _plus_14 = (" - " + _nombre_13);
                     StyledString styledStringAux_4 = new StyledString(_plus_14);
                     int _length_4 = styledStringAux_4.length();
                     styledStringAux_4.setStyle(0, _length_4, StyledString.QUALIFIER_STYLER);
                     styledString_4.append(styledStringAux_4);
-                    String _nombre_24 = subrango.getNombre();
-                    ICompletionProposal completionProposal_4 = this.createCompletionProposal(_nombre_24, styledString_4, VaryGrammarProposalProvider.typePublic, context);
+                    String _nombre_14 = subrango.getNombre();
+                    ICompletionProposal completionProposal_4 = this.createCompletionProposal(_nombre_14, styledString_4, VaryGrammarProposalProvider.typePublic, context);
                     acceptor.accept(completionProposal_4);
                   }
                 } else {
                   if ((tipo instanceof Archivo)) {
                     Archivo archivo = ((Archivo) tipo);
-                    boolean _and_5 = false;
-                    EList<String> _exporta_tipos_5 = modulo.getExporta_tipos();
-                    String _nombre_25 = archivo.getNombre();
-                    boolean _contains_10 = _exporta_tipos_5.contains(_nombre_25);
-                    if (!_contains_10) {
-                      _and_5 = false;
-                    } else {
-                      String _nombre_26 = archivo.getNombre();
-                      boolean _contains_11 = tiposLocales.contains(_nombre_26);
-                      boolean _not_5 = (!_contains_11);
-                      _and_5 = _not_5;
-                    }
-                    if (_and_5) {
-                      String _nombre_27 = archivo.getNombre();
-                      String _plus_15 = (_nombre_27 + " : ");
+                    if ((modulo.getExporta_tipos().contains(archivo.getNombre()) && (!tiposLocales.contains(archivo.getNombre())))) {
+                      String _nombre_15 = archivo.getNombre();
+                      String _plus_15 = (_nombre_15 + " : ");
                       ResourceBundle _bundle_5 = this.readerKeywords.getBundle();
                       String _string_5 = _bundle_5.getString("KEYWORD_ARCHIVO");
                       String _plus_16 = (_plus_15 + _string_5);
                       StyledString styledString_5 = new StyledString(_plus_16);
-                      String _nombre_28 = modulo.getNombre();
-                      String _plus_17 = (" - " + _nombre_28);
+                      String _nombre_16 = modulo.getNombre();
+                      String _plus_17 = (" - " + _nombre_16);
                       StyledString styledStringAux_5 = new StyledString(_plus_17);
                       int _length_5 = styledStringAux_5.length();
                       styledStringAux_5.setStyle(0, _length_5, StyledString.QUALIFIER_STYLER);
                       styledString_5.append(styledStringAux_5);
-                      String _nombre_29 = archivo.getNombre();
-                      ICompletionProposal completionProposal_5 = this.createCompletionProposal(_nombre_29, styledString_5, VaryGrammarProposalProvider.typePublic, context);
+                      String _nombre_17 = archivo.getNombre();
+                      ICompletionProposal completionProposal_5 = this.createCompletionProposal(_nombre_17, styledString_5, VaryGrammarProposalProvider.typePublic, context);
                       acceptor.accept(completionProposal_5);
                     }
                   }
@@ -693,31 +621,20 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             DeclaracionVariable declaracionVariable = ((DeclaracionVariable) declaracion);
             EList<Variable> _variable = declaracionVariable.getVariable();
             for (final Variable variable : _variable) {
-              boolean _and = false;
-              String _nombre = variable.getNombre();
-              boolean _contains = variablesLocales.contains(_nombre);
-              boolean _not = (!_contains);
-              if (!_not) {
-                _and = false;
-              } else {
-                String _nombre_1 = variable.getNombre();
-                boolean _contains_1 = variablesPublicas.contains(_nombre_1);
-                _and = _contains_1;
-              }
-              if (_and) {
-                String _nombre_2 = variable.getNombre();
-                String _plus = (_nombre_2 + " : ");
+              if (((!variablesLocales.contains(variable.getNombre())) && variablesPublicas.contains(variable.getNombre()))) {
+                String _nombre = variable.getNombre();
+                String _plus = (_nombre + " : ");
                 String _tipo = declaracionVariable.getTipo();
                 String _plus_1 = (_plus + _tipo);
                 StyledString styledString = new StyledString(_plus_1);
-                String _nombre_3 = modulo.getNombre();
-                String _plus_2 = (" - " + _nombre_3);
+                String _nombre_1 = modulo.getNombre();
+                String _plus_2 = (" - " + _nombre_1);
                 StyledString styledStringAux = new StyledString(_plus_2);
                 int _length = styledStringAux.length();
                 styledStringAux.setStyle(0, _length, StyledString.QUALIFIER_STYLER);
                 styledString.append(styledStringAux);
-                String _nombre_4 = variable.getNombre();
-                ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_4, styledString, VaryGrammarProposalProvider.varPublic, context);
+                String _nombre_2 = variable.getNombre();
+                ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_2, styledString, VaryGrammarProposalProvider.varPublic, context);
                 acceptor.accept(completionProposal);
               }
             }
@@ -726,31 +643,20 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
               DeclaracionPropia declaracionPropia = ((DeclaracionPropia) declaracion);
               EList<Variable> _variable_1 = declaracionPropia.getVariable();
               for (final Variable variable_1 : _variable_1) {
-                boolean _and_1 = false;
-                String _nombre_5 = variable_1.getNombre();
-                boolean _contains_2 = variablesLocales.contains(_nombre_5);
-                boolean _not_1 = (!_contains_2);
-                if (!_not_1) {
-                  _and_1 = false;
-                } else {
-                  String _nombre_6 = variable_1.getNombre();
-                  boolean _contains_3 = variablesPublicas.contains(_nombre_6);
-                  _and_1 = _contains_3;
-                }
-                if (_and_1) {
-                  String _nombre_7 = variable_1.getNombre();
-                  String _plus_3 = (_nombre_7 + " : ");
+                if (((!variablesLocales.contains(variable_1.getNombre())) && variablesPublicas.contains(variable_1.getNombre()))) {
+                  String _nombre_3 = variable_1.getNombre();
+                  String _plus_3 = (_nombre_3 + " : ");
                   String _tipo_1 = declaracionPropia.getTipo();
                   String _plus_4 = (_plus_3 + _tipo_1);
                   StyledString styledString_1 = new StyledString(_plus_4);
-                  String _nombre_8 = modulo.getNombre();
-                  String _plus_5 = (" - " + _nombre_8);
+                  String _nombre_4 = modulo.getNombre();
+                  String _plus_5 = (" - " + _nombre_4);
                   StyledString styledStringAux_1 = new StyledString(_plus_5);
                   int _length_1 = styledStringAux_1.length();
                   styledStringAux_1.setStyle(0, _length_1, StyledString.QUALIFIER_STYLER);
                   styledString_1.append(styledStringAux_1);
-                  String _nombre_9 = variable_1.getNombre();
-                  ICompletionProposal completionProposal_1 = this.createCompletionProposal(_nombre_9, styledString_1, VaryGrammarProposalProvider.varPublic, context);
+                  String _nombre_5 = variable_1.getNombre();
+                  ICompletionProposal completionProposal_1 = this.createCompletionProposal(_nombre_5, styledString_1, VaryGrammarProposalProvider.varPublic, context);
                   acceptor.accept(completionProposal_1);
                 }
               }
@@ -819,15 +725,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       variablesLocales = _registrarVariables;
       EList<Declaracion> _global_1 = algoritmo.getGlobal();
       this.completeAsignacionNormal_OperadorAux(context, acceptor, _global_1);
-      boolean _and = false;
-      boolean _equals = Objects.equal(procedimiento, null);
-      if (!_equals) {
-        _and = false;
-      } else {
-        boolean _equals_1 = Objects.equal(funcion, null);
-        _and = _equals_1;
-      }
-      if (_and) {
+      if ((Objects.equal(procedimiento, null) && Objects.equal(funcion, null))) {
         Inicio _tiene = algoritmo.getTiene();
         EList<Declaracion> _declaracion = _tiene.getDeclaracion();
         this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion);
@@ -1185,67 +1083,53 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           Procedimiento procedimiento = ((Procedimiento) subproceso);
           EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
           for (final CabeceraSubproceso cabeceraFuncion : _exporta_funciones) {
-            boolean _and = false;
-            String _nombre = cabeceraFuncion.getNombre();
-            String _nombre_1 = procedimiento.getNombre();
-            boolean _equals = _nombre.equals(_nombre_1);
-            if (!_equals) {
-              _and = false;
-            } else {
-              EList<ParametroFuncion> _parametrofuncion = cabeceraFuncion.getParametrofuncion();
-              int _size = _parametrofuncion.size();
-              EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
-              int _size_1 = _parametrofuncion_1.size();
-              boolean _equals_1 = (_size == _size_1);
-              _and = _equals_1;
-            }
-            if (_and) {
-              String _nombre_2 = procedimiento.getNombre();
-              String _plus = (_nombre_2 + "(");
+            if ((cabeceraFuncion.getNombre().equals(procedimiento.getNombre()) && (cabeceraFuncion.getParametrofuncion().size() == procedimiento.getParametrofuncion().size()))) {
+              String _nombre = procedimiento.getNombre();
+              String _plus = (_nombre + "(");
               StyledString styledString = new StyledString(_plus);
-              String _nombre_3 = procedimiento.getNombre();
-              String _plus_1 = (_nombre_3 + "(");
+              String _nombre_1 = procedimiento.getNombre();
+              String _plus_1 = (_nombre_1 + "(");
               procedimiento_literal = _plus_1;
-              EList<ParametroFuncion> _parametrofuncion_2 = procedimiento.getParametrofuncion();
-              int _size_2 = _parametrofuncion_2.size();
-              boolean _equals_2 = (_size_2 == 0);
-              if (_equals_2) {
+              EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
+              int _size = _parametrofuncion.size();
+              boolean _equals = (_size == 0);
+              if (_equals) {
                 styledString.append(")");
                 procedimiento_literal = (procedimiento_literal + ")");
               } else {
-                EList<ParametroFuncion> _parametrofuncion_3 = procedimiento.getParametrofuncion();
-                for (final ParametroFuncion p : _parametrofuncion_3) {
-                  EList<ParametroFuncion> _parametrofuncion_4 = procedimiento.getParametrofuncion();
-                  int _indexOf = _parametrofuncion_4.indexOf(p);
-                  EList<ParametroFuncion> _parametrofuncion_5 = procedimiento.getParametrofuncion();
-                  int _size_3 = _parametrofuncion_5.size();
-                  int _minus = (_size_3 - 1);
+                EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
+                for (final ParametroFuncion p : _parametrofuncion_1) {
+                  EList<ParametroFuncion> _parametrofuncion_2 = procedimiento.getParametrofuncion();
+                  int _indexOf = _parametrofuncion_2.indexOf(p);
+                  EList<ParametroFuncion> _parametrofuncion_3 = procedimiento.getParametrofuncion();
+                  int _size_1 = _parametrofuncion_3.size();
+                  int _minus = (_size_1 - 1);
                   boolean _notEquals = (_indexOf != _minus);
                   if (_notEquals) {
                     Variable _variable = p.getVariable();
-                    String _nombre_4 = _variable.getNombre();
-                    String _plus_2 = (_nombre_4 + ",");
+                    String _nombre_2 = _variable.getNombre();
+                    String _plus_2 = (_nombre_2 + ",");
                     styledString.append(_plus_2);
                     Variable _variable_1 = p.getVariable();
-                    String _nombre_5 = _variable_1.getNombre();
-                    String _plus_3 = (procedimiento_literal + _nombre_5);
+                    String _nombre_3 = _variable_1.getNombre();
+                    String _plus_3 = (procedimiento_literal + _nombre_3);
                     String _plus_4 = (_plus_3 + ",");
                     procedimiento_literal = _plus_4;
                   } else {
                     Variable _variable_2 = p.getVariable();
-                    String _nombre_6 = _variable_2.getNombre();
-                    String _plus_5 = (_nombre_6 + ")");
+                    String _nombre_4 = _variable_2.getNombre();
+                    String _plus_5 = (_nombre_4 + ")");
                     styledString.append(_plus_5);
                     Variable _variable_3 = p.getVariable();
-                    String _nombre_7 = _variable_3.getNombre();
-                    String _plus_6 = (procedimiento_literal + _nombre_7);
+                    String _nombre_5 = _variable_3.getNombre();
+                    String _plus_6 = (procedimiento_literal + _nombre_5);
                     String _plus_7 = (_plus_6 + ")");
                     procedimiento_literal = _plus_7;
                   }
                 }
               }
-              String _nombre_8 = modulo.getNombre();
-              String _plus_8 = (" - " + _nombre_8);
+              String _nombre_6 = modulo.getNombre();
+              String _plus_8 = (" - " + _nombre_6);
               StyledString styledStringAux = new StyledString(_plus_8);
               int _length = styledStringAux.length();
               styledStringAux.setStyle(0, _length, StyledString.QUALIFIER_STYLER);
@@ -1271,15 +1155,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
       EList<Declaracion> _global = algoritmo.getGlobal();
       this.completeAsignacionNormal_OperadorAux(context, acceptor, _global);
-      boolean _and = false;
-      boolean _equals = Objects.equal(procedimiento, null);
-      if (!_equals) {
-        _and = false;
-      } else {
-        boolean _equals_1 = Objects.equal(funcion, null);
-        _and = _equals_1;
-      }
-      if (_and) {
+      if ((Objects.equal(procedimiento, null) && Objects.equal(funcion, null))) {
         Inicio _tiene = algoritmo.getTiene();
         EList<Declaracion> _declaracion = _tiene.getDeclaracion();
         this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion);
@@ -1343,15 +1219,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         Funcion funcion = EcoreUtil2.<Funcion>getContainerOfType(valorRegistro, Funcion.class);
         EObject _rootModel_1 = context.getRootModel();
         Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-        boolean _and = false;
-        boolean _equals = Objects.equal(procedimiento, null);
-        if (!_equals) {
-          _and = false;
-        } else {
-          boolean _equals_1 = Objects.equal(funcion, null);
-          _and = _equals_1;
-        }
-        if (_and) {
+        if ((Objects.equal(procedimiento, null) && Objects.equal(funcion, null))) {
           Inicio _tiene = algoritmo.getTiene();
           EList<Declaracion> declaraciones = _tiene.getDeclaracion();
           EList<Declaracion> _global = algoritmo.getGlobal();
@@ -1395,15 +1263,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           Funcion funcion_1 = EcoreUtil2.<Funcion>getContainerOfType(valorVector, Funcion.class);
           EObject _rootModel_2 = context.getRootModel();
           Algoritmo algoritmo_1 = ((Algoritmo) _rootModel_2);
-          boolean _and_1 = false;
-          boolean _equals_2 = Objects.equal(procedimiento_1, null);
-          if (!_equals_2) {
-            _and_1 = false;
-          } else {
-            boolean _equals_3 = Objects.equal(funcion_1, null);
-            _and_1 = _equals_3;
-          }
-          if (_and_1) {
+          if ((Objects.equal(procedimiento_1, null) && Objects.equal(funcion_1, null))) {
             Inicio _tiene_1 = algoritmo_1.getTiene();
             EList<Declaracion> declaraciones_3 = _tiene_1.getDeclaracion();
             EList<Declaracion> _global_3 = algoritmo_1.getGlobal();
@@ -1447,15 +1307,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             Funcion funcion_2 = EcoreUtil2.<Funcion>getContainerOfType(valorMatriz, Funcion.class);
             EObject _rootModel_3 = context.getRootModel();
             Algoritmo algoritmo_2 = ((Algoritmo) _rootModel_3);
-            boolean _and_2 = false;
-            boolean _equals_4 = Objects.equal(procedimiento_2, null);
-            if (!_equals_4) {
-              _and_2 = false;
-            } else {
-              boolean _equals_5 = Objects.equal(funcion_2, null);
-              _and_2 = _equals_5;
-            }
-            if (_and_2) {
+            if ((Objects.equal(procedimiento_2, null) && Objects.equal(funcion_2, null))) {
               Inicio _tiene_2 = algoritmo_2.getTiene();
               EList<Declaracion> declaraciones_6 = _tiene_2.getDeclaracion();
               EList<Declaracion> _global_6 = algoritmo_2.getGlobal();
@@ -1633,15 +1485,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         }
       }
     } else {
-      boolean _or = false;
-      EObject _currentModel_1 = context.getCurrentModel();
-      if ((_currentModel_1 instanceof ValorVector)) {
-        _or = true;
-      } else {
-        EObject _currentModel_2 = context.getCurrentModel();
-        _or = (_currentModel_2 instanceof ValorMatriz);
-      }
-      if (_or) {
+      if (((context.getCurrentModel() instanceof ValorVector) || (context.getCurrentModel() instanceof ValorMatriz))) {
         for (final Declaracion dec_1 : declaraciones) {
           if ((dec_1 instanceof DeclaracionPropia)) {
             DeclaracionPropia decPropia_1 = ((DeclaracionPropia) dec_1);
@@ -1791,15 +1635,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             }
           }
         } else {
-          boolean _or = false;
-          EObject _currentModel_1 = context.getCurrentModel();
-          if ((_currentModel_1 instanceof ValorVector)) {
-            _or = true;
-          } else {
-            EObject _currentModel_2 = context.getCurrentModel();
-            _or = (_currentModel_2 instanceof ValorMatriz);
-          }
-          if (_or) {
+          if (((context.getCurrentModel() instanceof ValorVector) || (context.getCurrentModel() instanceof ValorMatriz))) {
             for (final Declaracion dec_1 : declaraciones) {
               if ((dec_1 instanceof DeclaracionPropia)) {
                 DeclaracionPropia decPropia_1 = ((DeclaracionPropia) dec_1);
@@ -2070,33 +1906,19 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       Implementacion _implementacion = modulo.getImplementacion();
       EList<Constantes> _constantes = _implementacion.getConstantes();
       for (final Constantes constante : _constantes) {
-        boolean _and = false;
-        EList<String> _exporta_constantes = modulo.getExporta_constantes();
-        Variable _variable = constante.getVariable();
-        String _nombre = _variable.getNombre();
-        boolean _contains = _exporta_constantes.contains(_nombre);
-        if (!_contains) {
-          _and = false;
-        } else {
-          Variable _variable_1 = constante.getVariable();
-          String _nombre_1 = _variable_1.getNombre();
-          boolean _contains_1 = constantesLocales.contains(_nombre_1);
-          boolean _not = (!_contains_1);
-          _and = _not;
-        }
-        if (_and) {
-          Variable _variable_2 = constante.getVariable();
-          String _nombre_2 = _variable_2.getNombre();
-          StyledString styledString = new StyledString(_nombre_2);
-          String _nombre_3 = modulo.getNombre();
-          String _plus = (" - " + _nombre_3);
+        if ((modulo.getExporta_constantes().contains(constante.getVariable().getNombre()) && (!constantesLocales.contains(constante.getVariable().getNombre())))) {
+          Variable _variable = constante.getVariable();
+          String _nombre = _variable.getNombre();
+          StyledString styledString = new StyledString(_nombre);
+          String _nombre_1 = modulo.getNombre();
+          String _plus = (" - " + _nombre_1);
           StyledString styledStringAux = new StyledString(_plus);
           int _length = styledStringAux.length();
           styledStringAux.setStyle(0, _length, StyledString.QUALIFIER_STYLER);
           styledString.append(styledStringAux);
-          Variable _variable_3 = constante.getVariable();
-          String _nombre_4 = _variable_3.getNombre();
-          ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_4, styledString, VaryGrammarProposalProvider.constPublic, context);
+          Variable _variable_1 = constante.getVariable();
+          String _nombre_2 = _variable_1.getNombre();
+          ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_2, styledString, VaryGrammarProposalProvider.constPublic, context);
           acceptor.accept(completionProposal);
         }
       }

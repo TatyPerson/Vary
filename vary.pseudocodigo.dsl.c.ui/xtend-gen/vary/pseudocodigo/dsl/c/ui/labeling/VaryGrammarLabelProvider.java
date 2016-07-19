@@ -615,16 +615,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
       if (_notEquals) {
         EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
         for (final CabeceraSubproceso cabecera : _exporta_funciones) {
-          boolean _and = false;
-          String _nombre = cabecera.getNombre();
-          String _nombre_1 = procedimiento.getNombre();
-          boolean _equals = _nombre.equals(_nombre_1);
-          if (!_equals) {
-            _and = false;
-          } else {
-            _and = (cabecera instanceof CabeceraProcedimiento);
-          }
-          if (_and) {
+          if ((cabecera.getNombre().equals(procedimiento.getNombre()) && (cabecera instanceof CabeceraProcedimiento))) {
             return "methpub_obj.gif";
           }
         }
@@ -649,16 +640,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     if (_notEquals) {
       EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
       for (final CabeceraSubproceso cabecera : _exporta_funciones) {
-        boolean _and = false;
-        String _nombre = cabecera.getNombre();
-        String _nombre_1 = funcion.getNombre();
-        boolean _equals = _nombre.equals(_nombre_1);
-        if (!_equals) {
-          _and = false;
-        } else {
-          _and = (cabecera instanceof CabeceraFuncion);
-        }
-        if (_and) {
+        if ((cabecera.getNombre().equals(funcion.getNombre()) && (cabecera instanceof CabeceraFuncion))) {
           return "methpub_obj.gif";
         }
       }
@@ -727,15 +709,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     DeclaracionVariable declaracionVariable = EcoreUtil2.<DeclaracionVariable>getContainerOfType(variable, DeclaracionVariable.class);
     DeclaracionPropia declaracionPropia = EcoreUtil2.<DeclaracionPropia>getContainerOfType(variable, DeclaracionPropia.class);
     Registro registro = EcoreUtil2.<Registro>getContainerOfType(variable, Registro.class);
-    boolean _and = false;
-    boolean _notEquals = (!Objects.equal(declaracionVariable, null));
-    if (!_notEquals) {
-      _and = false;
-    } else {
-      boolean _equals = Objects.equal(registro, null);
-      _and = _equals;
-    }
-    if (_and) {
+    if (((!Objects.equal(declaracionVariable, null)) && Objects.equal(registro, null))) {
       String _nombre = variable.getNombre();
       String _plus = (_nombre + " : ");
       String _tipo = declaracionVariable.getTipo();
@@ -744,15 +718,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
       StyledString.Styler _createXtextStyleAdapterStyler = this.stylerFactory.createXtextStyleAdapterStyler(_declaracionTextStyle);
       return new StyledString(_plus_1, _createXtextStyleAdapterStyler);
     } else {
-      boolean _and_1 = false;
-      boolean _equals_1 = Objects.equal(declaracionVariable, null);
-      if (!_equals_1) {
-        _and_1 = false;
-      } else {
-        boolean _equals_2 = Objects.equal(registro, null);
-        _and_1 = _equals_2;
-      }
-      if (_and_1) {
+      if ((Objects.equal(declaracionVariable, null) && Objects.equal(registro, null))) {
         String _nombre_1 = variable.getNombre();
         String _plus_2 = (_nombre_1 + " : ");
         String _tipo_1 = declaracionPropia.getTipo();
@@ -761,29 +727,13 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
         StyledString.Styler _createXtextStyleAdapterStyler_1 = this.stylerFactory.createXtextStyleAdapterStyler(_declaracionTextStyle_1);
         return new StyledString(_plus_3, _createXtextStyleAdapterStyler_1);
       } else {
-        boolean _and_2 = false;
-        boolean _notEquals_1 = (!Objects.equal(declaracionVariable, null));
-        if (!_notEquals_1) {
-          _and_2 = false;
-        } else {
-          boolean _notEquals_2 = (!Objects.equal(registro, null));
-          _and_2 = _notEquals_2;
-        }
-        if (_and_2) {
+        if (((!Objects.equal(declaracionVariable, null)) && (!Objects.equal(registro, null)))) {
           String _nombre_2 = variable.getNombre();
           String _plus_4 = (_nombre_2 + " : ");
           String _tipo_2 = declaracionVariable.getTipo();
           return (_plus_4 + _tipo_2);
         } else {
-          boolean _and_3 = false;
-          boolean _equals_3 = Objects.equal(declaracionVariable, null);
-          if (!_equals_3) {
-            _and_3 = false;
-          } else {
-            boolean _equals_4 = Objects.equal(registro, null);
-            _and_3 = _equals_4;
-          }
-          if (_and_3) {
+          if ((Objects.equal(declaracionVariable, null) && Objects.equal(registro, null))) {
             String _nombre_3 = variable.getNombre();
             String _plus_5 = (_nombre_3 + " : ");
             String _tipo_3 = declaracionPropia.getTipo();

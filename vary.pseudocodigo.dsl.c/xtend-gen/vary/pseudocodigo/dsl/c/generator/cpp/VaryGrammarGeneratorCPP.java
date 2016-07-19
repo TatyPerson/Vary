@@ -570,21 +570,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                       Procedimiento procedimiento = ((Procedimiento) mySubproceso);
                       _builder.newLineIfNotEmpty();
                       {
-                        boolean _and = false;
-                        String _nombre_11 = cabecera.getNombre();
-                        String _nombre_12 = procedimiento.getNombre();
-                        boolean _equals_8 = _nombre_11.equals(_nombre_12);
-                        if (!_equals_8) {
-                          _and = false;
-                        } else {
-                          EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
-                          int _size = _parametrofuncion.size();
-                          EList<ParametroFuncion> _parametrofuncion_1 = cabecera.getParametrofuncion();
-                          int _size_1 = _parametrofuncion_1.size();
-                          boolean _equals_9 = (_size == _size_1);
-                          _and = _equals_9;
-                        }
-                        if (_and) {
+                        if ((cabecera.getNombre().equals(procedimiento.getNombre()) && (procedimiento.getParametrofuncion().size() == cabecera.getParametrofuncion().size()))) {
                           _builder.append("\t\t");
                           String _cabecerasFuncion = this.cabecerasFuncion(mySubproceso);
                           _builder.append(_cabecerasFuncion, "\t\t");
@@ -603,8 +589,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EClass _eClass_8 = exportaCabecera.eClass();
             String _name_8 = _eClass_8.getName();
-            boolean _equals_10 = _name_8.equals("CabeceraFuncion");
-            if (_equals_10) {
+            boolean _equals_8 = _name_8.equals("CabeceraFuncion");
+            if (_equals_8) {
               _builder.append("\t\t");
               CabeceraFuncion cabecera_1 = ((CabeceraFuncion) exportaCabecera);
               _builder.newLineIfNotEmpty();
@@ -615,27 +601,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   {
                     EClass _eClass_9 = mySubproceso_1.eClass();
                     String _name_9 = _eClass_9.getName();
-                    boolean _equals_11 = _name_9.equals("Funcion");
-                    if (_equals_11) {
+                    boolean _equals_9 = _name_9.equals("Funcion");
+                    if (_equals_9) {
                       _builder.append("\t\t");
                       Funcion funcion = ((Funcion) mySubproceso_1);
                       _builder.newLineIfNotEmpty();
                       {
-                        boolean _and_1 = false;
-                        String _nombre_13 = cabecera_1.getNombre();
-                        String _nombre_14 = funcion.getNombre();
-                        boolean _equals_12 = _nombre_13.equals(_nombre_14);
-                        if (!_equals_12) {
-                          _and_1 = false;
-                        } else {
-                          EList<ParametroFuncion> _parametrofuncion_2 = funcion.getParametrofuncion();
-                          int _size_2 = _parametrofuncion_2.size();
-                          EList<ParametroFuncion> _parametrofuncion_3 = cabecera_1.getParametrofuncion();
-                          int _size_3 = _parametrofuncion_3.size();
-                          boolean _equals_13 = (_size_2 == _size_3);
-                          _and_1 = _equals_13;
-                        }
-                        if (_and_1) {
+                        if ((cabecera_1.getNombre().equals(funcion.getNombre()) && (funcion.getParametrofuncion().size() == cabecera_1.getParametrofuncion().size()))) {
                           _builder.append("\t\t");
                           String _cabecerasFuncion_1 = this.cabecerasFuncion(mySubproceso_1);
                           _builder.append(_cabecerasFuncion_1, "\t\t");
@@ -685,8 +657,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EClass _eClass_10 = mySubproceso_2.eClass();
             String _name_10 = _eClass_10.getName();
-            boolean _equals_14 = _name_10.equals("Procedimiento");
-            if (_equals_14) {
+            boolean _equals_10 = _name_10.equals("Procedimiento");
+            if (_equals_10) {
               _builder.append("\t\t");
               Procedimiento procedimiento_1 = ((Procedimiento) mySubproceso_2);
               _builder.newLineIfNotEmpty();
@@ -705,8 +677,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EClass _eClass_11 = mySubproceso_2.eClass();
             String _name_11 = _eClass_11.getName();
-            boolean _equals_15 = _name_11.equals("Funcion");
-            if (_equals_15) {
+            boolean _equals_11 = _name_11.equals("Funcion");
+            if (_equals_11) {
               _builder.append("\t\t");
               Funcion funcion_1 = ((Funcion) mySubproceso_2);
               _builder.newLineIfNotEmpty();
@@ -728,8 +700,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       _builder.newLine();
       _builder.newLine();
       _builder.append("#endif /* ");
-      String _nombre_15 = myModulo.getNombre();
-      String _upperCase_2 = _nombre_15.toUpperCase();
+      String _nombre_11 = myModulo.getNombre();
+      String _upperCase_2 = _nombre_11.toUpperCase();
       _builder.append(_upperCase_2, "");
       _builder.append("_H */");
       _builder.newLineIfNotEmpty();
@@ -869,44 +841,22 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           String _plus = ((total + "const ") + _generate);
           total = _plus;
         } else {
-          boolean _and = false;
-          String _paso_1 = p.getPaso();
-          ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-          String _string_1 = _bundle_1.getString("TIPO_PASO_ENTRADA_SALIDA");
-          boolean _equals_1 = _paso_1.equals(_string_1);
-          if (!_equals_1) {
-            _and = false;
-          } else {
+          if ((p.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (p.getTipo() instanceof TipoExistente))) {
             Tipo _tipo_1 = p.getTipo();
-            _and = (_tipo_1 instanceof TipoExistente);
-          }
-          if (_and) {
-            Tipo _tipo_2 = p.getTipo();
-            CharSequence _generate_1 = this.generate(_tipo_2);
+            CharSequence _generate_1 = this.generate(_tipo_1);
             String _plus_1 = (total + _generate_1);
             String _plus_2 = (_plus_1 + "*");
             total = _plus_2;
           } else {
-            boolean _and_1 = false;
-            String _paso_2 = p.getPaso();
-            ResourceBundle _bundle_2 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-            String _string_2 = _bundle_2.getString("TIPO_PASO_SALIDA");
-            boolean _equals_2 = _paso_2.equals(_string_2);
-            if (!_equals_2) {
-              _and_1 = false;
-            } else {
-              Tipo _tipo_3 = p.getTipo();
-              _and_1 = (_tipo_3 instanceof TipoExistente);
-            }
-            if (_and_1) {
-              Tipo _tipo_4 = p.getTipo();
-              CharSequence _generate_2 = this.generate(_tipo_4);
+            if ((p.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (p.getTipo() instanceof TipoExistente))) {
+              Tipo _tipo_2 = p.getTipo();
+              CharSequence _generate_2 = this.generate(_tipo_2);
               String _plus_3 = (total + _generate_2);
               String _plus_4 = (_plus_3 + "*");
               total = _plus_4;
             } else {
-              Tipo _tipo_5 = p.getTipo();
-              CharSequence _generate_3 = this.generate(_tipo_5);
+              Tipo _tipo_3 = p.getTipo();
+              CharSequence _generate_3 = this.generate(_tipo_3);
               String _plus_5 = (total + _generate_3);
               total = _plus_5;
             }
@@ -1001,34 +951,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
           for (final ParametroFuncion parametro : _parametrofuncion) {
             {
-              boolean _and = false;
-              String _paso = parametro.getPaso();
-              ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-              String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-              boolean _equals_1 = _paso.equals(_string);
-              if (!_equals_1) {
-                _and = false;
-              } else {
-                Tipo _tipo_1 = parametro.getTipo();
-                _and = (_tipo_1 instanceof TipoExistente);
-              }
-              if (_and) {
+              if ((parametro.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro.getTipo() instanceof TipoExistente))) {
                 String _nombre_6 = funcion.getNombre();
                 ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_6);
                 _get_1.add(Integer.valueOf(numParametro));
               } else {
-                boolean _and_1 = false;
-                String _paso_1 = parametro.getPaso();
-                ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                boolean _equals_2 = _paso_1.equals(_string_1);
-                if (!_equals_2) {
-                  _and_1 = false;
-                } else {
-                  Tipo _tipo_2 = parametro.getTipo();
-                  _and_1 = (_tipo_2 instanceof TipoExistente);
-                }
-                if (_and_1) {
+                if ((parametro.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro.getTipo() instanceof TipoExistente))) {
                   String _nombre_7 = funcion.getNombre();
                   ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_7);
                   _get_2.add(Integer.valueOf(numParametro));
@@ -1053,34 +981,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
             for (final ParametroFuncion parametro_1 : _parametrofuncion_1) {
               {
-                boolean _and = false;
-                String _paso = parametro_1.getPaso();
-                ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-                boolean _equals_2 = _paso.equals(_string);
-                if (!_equals_2) {
-                  _and = false;
-                } else {
-                  Tipo _tipo_1 = parametro_1.getTipo();
-                  _and = (_tipo_1 instanceof TipoExistente);
-                }
-                if (_and) {
+                if ((parametro_1.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro_1.getTipo() instanceof TipoExistente))) {
                   String _nombre_8 = procedimiento.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_8);
                   _get_1.add(Integer.valueOf(numParametro_1));
                 } else {
-                  boolean _and_1 = false;
-                  String _paso_1 = parametro_1.getPaso();
-                  ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                  String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                  boolean _equals_3 = _paso_1.equals(_string_1);
-                  if (!_equals_3) {
-                    _and_1 = false;
-                  } else {
-                    Tipo _tipo_2 = parametro_1.getTipo();
-                    _and_1 = (_tipo_2 instanceof TipoExistente);
-                  }
-                  if (_and_1) {
+                  if ((parametro_1.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro_1.getTipo() instanceof TipoExistente))) {
                     String _nombre_9 = procedimiento.getNombre();
                     ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_9);
                     _get_2.add(Integer.valueOf(numParametro_1));
@@ -1112,34 +1018,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_2 = cabeceraFuncion.getParametrofuncion();
             for (final ParametroFuncion parametro_2 : _parametrofuncion_2) {
               {
-                boolean _and = false;
-                String _paso = parametro_2.getPaso();
-                ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-                boolean _equals_3 = _paso.equals(_string);
-                if (!_equals_3) {
-                  _and = false;
-                } else {
-                  Tipo _tipo_2 = parametro_2.getTipo();
-                  _and = (_tipo_2 instanceof TipoExistente);
-                }
-                if (_and) {
+                if ((parametro_2.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro_2.getTipo() instanceof TipoExistente))) {
                   String _nombre_10 = cabeceraFuncion.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_10);
                   _get_1.add(Integer.valueOf(numParametro_2));
                 } else {
-                  boolean _and_1 = false;
-                  String _paso_1 = parametro_2.getPaso();
-                  ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                  String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                  boolean _equals_4 = _paso_1.equals(_string_1);
-                  if (!_equals_4) {
-                    _and_1 = false;
-                  } else {
-                    Tipo _tipo_3 = parametro_2.getTipo();
-                    _and_1 = (_tipo_3 instanceof TipoExistente);
-                  }
-                  if (_and_1) {
+                  if ((parametro_2.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro_2.getTipo() instanceof TipoExistente))) {
                     String _nombre_11 = cabeceraFuncion.getNombre();
                     ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_11);
                     _get_2.add(Integer.valueOf(numParametro_2));
@@ -1164,34 +1048,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               EList<ParametroFuncion> _parametrofuncion_3 = cabeceraProcedimiento.getParametrofuncion();
               for (final ParametroFuncion parametro_3 : _parametrofuncion_3) {
                 {
-                  boolean _and = false;
-                  String _paso = parametro_3.getPaso();
-                  ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                  String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-                  boolean _equals_4 = _paso.equals(_string);
-                  if (!_equals_4) {
-                    _and = false;
-                  } else {
-                    Tipo _tipo_2 = parametro_3.getTipo();
-                    _and = (_tipo_2 instanceof TipoExistente);
-                  }
-                  if (_and) {
+                  if ((parametro_3.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro_3.getTipo() instanceof TipoExistente))) {
                     String _nombre_12 = cabeceraProcedimiento.getNombre();
                     ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_12);
                     _get_1.add(Integer.valueOf(numParametro_3));
                   }
-                  boolean _and_1 = false;
-                  String _paso_1 = parametro_3.getPaso();
-                  ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                  String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                  boolean _equals_5 = _paso_1.equals(_string_1);
-                  if (!_equals_5) {
-                    _and_1 = false;
-                  } else {
-                    Tipo _tipo_3 = parametro_3.getTipo();
-                    _and_1 = (_tipo_3 instanceof TipoExistente);
-                  }
-                  if (_and_1) {
+                  if ((parametro_3.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro_3.getTipo() instanceof TipoExistente))) {
                     String _nombre_13 = cabeceraProcedimiento.getNombre();
                     ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_13);
                     _get_2.add(Integer.valueOf(numParametro_3));
@@ -1569,23 +1431,9 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   Procedimiento procedimiento_1 = ((Procedimiento) mySubproceso);
                   _builder.newLineIfNotEmpty();
                   {
-                    boolean _and = false;
-                    EList<CabeceraSubproceso> _exporta_funciones_2 = myModulo.getExporta_funciones();
-                    String _nombre_32 = procedimiento_1.getNombre();
-                    boolean _contains_7 = _exporta_funciones_2.contains(_nombre_32);
-                    if (!_contains_7) {
-                      _and = false;
-                    } else {
-                      EList<ParametroFuncion> _parametrofuncion_4 = procedimiento_1.getParametrofuncion();
-                      int _size = _parametrofuncion_4.size();
-                      EList<ParametroFuncion> _parametrofuncion_5 = exportaCabecera.getParametrofuncion();
-                      int _size_1 = _parametrofuncion_5.size();
-                      boolean _equals_18 = (_size == _size_1);
-                      _and = _equals_18;
-                    }
-                    if (_and) {
-                      String _nombre_33 = this.modulo.getNombre();
-                      String _generate_7 = this.generate(procedimiento_1, _nombre_33);
+                    if ((myModulo.getExporta_funciones().contains(procedimiento_1.getNombre()) && (procedimiento_1.getParametrofuncion().size() == exportaCabecera.getParametrofuncion().size()))) {
+                      String _nombre_32 = this.modulo.getNombre();
+                      String _generate_7 = this.generate(procedimiento_1, _nombre_32);
                       _builder.append(_generate_7, "");
                       _builder.newLineIfNotEmpty();
                       this.addProcedimiento(procedimiento_1, procedimientosUsados);
@@ -1597,28 +1445,14 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               {
                 EClass _eClass_18 = mySubproceso.eClass();
                 String _name_18 = _eClass_18.getName();
-                boolean _equals_19 = _name_18.equals("Funcion");
-                if (_equals_19) {
+                boolean _equals_18 = _name_18.equals("Funcion");
+                if (_equals_18) {
                   Funcion funcion_1 = ((Funcion) mySubproceso);
                   _builder.newLineIfNotEmpty();
                   {
-                    boolean _and_1 = false;
-                    EList<CabeceraSubproceso> _exporta_funciones_3 = myModulo.getExporta_funciones();
-                    String _nombre_34 = funcion_1.getNombre();
-                    boolean _contains_8 = _exporta_funciones_3.contains(_nombre_34);
-                    if (!_contains_8) {
-                      _and_1 = false;
-                    } else {
-                      EList<ParametroFuncion> _parametrofuncion_6 = funcion_1.getParametrofuncion();
-                      int _size_2 = _parametrofuncion_6.size();
-                      EList<ParametroFuncion> _parametrofuncion_7 = exportaCabecera.getParametrofuncion();
-                      int _size_3 = _parametrofuncion_7.size();
-                      boolean _equals_20 = (_size_2 == _size_3);
-                      _and_1 = _equals_20;
-                    }
-                    if (_and_1) {
-                      String _nombre_35 = this.modulo.getNombre();
-                      String _generate_8 = this.generate(funcion_1, _nombre_35);
+                    if ((myModulo.getExporta_funciones().contains(funcion_1.getNombre()) && (funcion_1.getParametrofuncion().size() == exportaCabecera.getParametrofuncion().size()))) {
+                      String _nombre_33 = this.modulo.getNombre();
+                      String _generate_8 = this.generate(funcion_1, _nombre_33);
                       _builder.append(_generate_8, "");
                       _builder.newLineIfNotEmpty();
                       this.addFuncion(funcion_1, funcionesUsadas);
@@ -1642,16 +1476,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EClass _eClass_19 = mySubproceso_1.eClass();
             String _name_19 = _eClass_19.getName();
-            boolean _equals_21 = _name_19.equals("Procedimiento");
-            if (_equals_21) {
+            boolean _equals_19 = _name_19.equals("Procedimiento");
+            if (_equals_19) {
               Procedimiento procedimiento_2 = ((Procedimiento) mySubproceso_1);
               _builder.newLineIfNotEmpty();
               {
-                boolean _contains_9 = procedimientosUsados.contains(procedimiento_2);
-                boolean _not_7 = (!_contains_9);
+                boolean _contains_7 = procedimientosUsados.contains(procedimiento_2);
+                boolean _not_7 = (!_contains_7);
                 if (_not_7) {
-                  String _nombre_36 = this.modulo.getNombre();
-                  String _generateStatic = this.generateStatic(procedimiento_2, _nombre_36);
+                  String _nombre_34 = this.modulo.getNombre();
+                  String _generateStatic = this.generateStatic(procedimiento_2, _nombre_34);
                   _builder.append(_generateStatic, "");
                   _builder.newLineIfNotEmpty();
                 }
@@ -1661,16 +1495,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EClass _eClass_20 = mySubproceso_1.eClass();
             String _name_20 = _eClass_20.getName();
-            boolean _equals_22 = _name_20.equals("Funcion");
-            if (_equals_22) {
+            boolean _equals_20 = _name_20.equals("Funcion");
+            if (_equals_20) {
               Funcion funcion_2 = ((Funcion) mySubproceso_1);
               _builder.newLineIfNotEmpty();
               {
-                boolean _contains_10 = funcionesUsadas.contains(funcion_2);
-                boolean _not_8 = (!_contains_10);
+                boolean _contains_8 = funcionesUsadas.contains(funcion_2);
+                boolean _not_8 = (!_contains_8);
                 if (_not_8) {
-                  String _nombre_37 = this.modulo.getNombre();
-                  String _generateStatic_1 = this.generateStatic(funcion_2, _nombre_37);
+                  String _nombre_35 = this.modulo.getNombre();
+                  String _generateStatic_1 = this.generateStatic(funcion_2, _nombre_35);
                   _builder.append(_generateStatic_1, "");
                   _builder.newLineIfNotEmpty();
                 }
@@ -1732,34 +1566,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
           for (final ParametroFuncion parametro : _parametrofuncion) {
             {
-              boolean _and = false;
-              String _paso = parametro.getPaso();
-              ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-              String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-              boolean _equals_1 = _paso.equals(_string);
-              if (!_equals_1) {
-                _and = false;
-              } else {
-                Tipo _tipo_1 = parametro.getTipo();
-                _and = (_tipo_1 instanceof TipoExistente);
-              }
-              if (_and) {
+              if ((parametro.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro.getTipo() instanceof TipoExistente))) {
                 String _nombre_6 = funcion.getNombre();
                 ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_6);
                 _get_1.add(Integer.valueOf(numParametro));
               } else {
-                boolean _and_1 = false;
-                String _paso_1 = parametro.getPaso();
-                ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                boolean _equals_2 = _paso_1.equals(_string_1);
-                if (!_equals_2) {
-                  _and_1 = false;
-                } else {
-                  Tipo _tipo_2 = parametro.getTipo();
-                  _and_1 = (_tipo_2 instanceof TipoExistente);
-                }
-                if (_and_1) {
+                if ((parametro.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro.getTipo() instanceof TipoExistente))) {
                   String _nombre_7 = funcion.getNombre();
                   ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_7);
                   _get_2.add(Integer.valueOf(numParametro));
@@ -1784,34 +1596,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
             for (final ParametroFuncion parametro_1 : _parametrofuncion_1) {
               {
-                boolean _and = false;
-                String _paso = parametro_1.getPaso();
-                ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-                boolean _equals_2 = _paso.equals(_string);
-                if (!_equals_2) {
-                  _and = false;
-                } else {
-                  Tipo _tipo_1 = parametro_1.getTipo();
-                  _and = (_tipo_1 instanceof TipoExistente);
-                }
-                if (_and) {
+                if ((parametro_1.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro_1.getTipo() instanceof TipoExistente))) {
                   String _nombre_8 = procedimiento.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_8);
                   _get_1.add(Integer.valueOf(numParametro_1));
                 } else {
-                  boolean _and_1 = false;
-                  String _paso_1 = parametro_1.getPaso();
-                  ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                  String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                  boolean _equals_3 = _paso_1.equals(_string_1);
-                  if (!_equals_3) {
-                    _and_1 = false;
-                  } else {
-                    Tipo _tipo_2 = parametro_1.getTipo();
-                    _and_1 = (_tipo_2 instanceof TipoExistente);
-                  }
-                  if (_and_1) {
+                  if ((parametro_1.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro_1.getTipo() instanceof TipoExistente))) {
                     String _nombre_9 = procedimiento.getNombre();
                     ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_9);
                     _get_2.add(Integer.valueOf(numParametro_1));
@@ -1843,34 +1633,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<ParametroFuncion> _parametrofuncion_2 = cabeceraFuncion.getParametrofuncion();
             for (final ParametroFuncion parametro_2 : _parametrofuncion_2) {
               {
-                boolean _and = false;
-                String _paso = parametro_2.getPaso();
-                ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-                boolean _equals_3 = _paso.equals(_string);
-                if (!_equals_3) {
-                  _and = false;
-                } else {
-                  Tipo _tipo_2 = parametro_2.getTipo();
-                  _and = (_tipo_2 instanceof TipoExistente);
-                }
-                if (_and) {
+                if ((parametro_2.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro_2.getTipo() instanceof TipoExistente))) {
                   String _nombre_10 = cabeceraFuncion.getNombre();
                   ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_10);
                   _get_1.add(Integer.valueOf(numParametro_2));
                 }
-                boolean _and_1 = false;
-                String _paso_1 = parametro_2.getPaso();
-                ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                boolean _equals_4 = _paso_1.equals(_string_1);
-                if (!_equals_4) {
-                  _and_1 = false;
-                } else {
-                  Tipo _tipo_3 = parametro_2.getTipo();
-                  _and_1 = (_tipo_3 instanceof TipoExistente);
-                }
-                if (_and_1) {
+                if ((parametro_2.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro_2.getTipo() instanceof TipoExistente))) {
                   String _nombre_11 = cabeceraFuncion.getNombre();
                   ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_11);
                   _get_2.add(Integer.valueOf(numParametro_2));
@@ -1894,34 +1662,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               EList<ParametroFuncion> _parametrofuncion_3 = cabeceraProcedimiento.getParametrofuncion();
               for (final ParametroFuncion parametro_3 : _parametrofuncion_3) {
                 {
-                  boolean _and = false;
-                  String _paso = parametro_3.getPaso();
-                  ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                  String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-                  boolean _equals_4 = _paso.equals(_string);
-                  if (!_equals_4) {
-                    _and = false;
-                  } else {
-                    Tipo _tipo_2 = parametro_3.getTipo();
-                    _and = (_tipo_2 instanceof TipoExistente);
-                  }
-                  if (_and) {
+                  if ((parametro_3.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametro_3.getTipo() instanceof TipoExistente))) {
                     String _nombre_12 = cabeceraProcedimiento.getNombre();
                     ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_12);
                     _get_1.add(Integer.valueOf(numParametro_3));
                   } else {
-                    boolean _and_1 = false;
-                    String _paso_1 = parametro_3.getPaso();
-                    ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-                    String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-                    boolean _equals_5 = _paso_1.equals(_string_1);
-                    if (!_equals_5) {
-                      _and_1 = false;
-                    } else {
-                      Tipo _tipo_3 = parametro_3.getTipo();
-                      _and_1 = (_tipo_3 instanceof TipoExistente);
-                    }
-                    if (_and_1) {
+                    if ((parametro_3.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametro_3.getTipo() instanceof TipoExistente))) {
                       String _nombre_13 = cabeceraProcedimiento.getNombre();
                       ArrayList<Integer> _get_2 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_13);
                       _get_2.add(Integer.valueOf(numParametro_3));
@@ -2608,23 +2354,13 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   public String generaSubrangoEnumerado(final String limite_inf, final String limite_sup) {
     String concat = new String();
     for (final String nombre : VaryGrammarGeneratorCPP.enumerados) {
-      boolean _and = false;
-      ArrayList<String> _get = VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre);
-      boolean _contains = _get.contains(limite_inf);
-      if (!_contains) {
-        _and = false;
-      } else {
+      if ((VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre).contains(limite_inf) && VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre).contains(limite_sup))) {
+        ArrayList<String> _get = VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre);
+        int index_limite_inf = _get.indexOf(limite_inf);
         ArrayList<String> _get_1 = VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre);
-        boolean _contains_1 = _get_1.contains(limite_sup);
-        _and = _contains_1;
-      }
-      if (_and) {
+        int index_limite_sup = _get_1.indexOf(limite_sup);
         ArrayList<String> _get_2 = VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre);
-        int index_limite_inf = _get_2.indexOf(limite_inf);
-        ArrayList<String> _get_3 = VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre);
-        int index_limite_sup = _get_3.indexOf(limite_sup);
-        ArrayList<String> _get_4 = VaryGrammarGeneratorCPP.variablesEnumerados.get(nombre);
-        List<String> sublista = _get_4.subList(index_limite_inf, index_limite_sup);
+        List<String> sublista = _get_2.subList(index_limite_inf, index_limite_sup);
         for (final String aux : sublista) {
           concat = ((concat + aux) + ", ");
         }
@@ -2753,20 +2489,9 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           String _plus_2 = (_plus_1 + _nombre);
           total = _plus_2;
         } else {
-          boolean _and = false;
-          String _paso_1 = p.getPaso();
-          ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-          String _string_1 = _bundle_1.getString("TIPO_PASO_ENTRADA_SALIDA");
-          boolean _equals_1 = _paso_1.equals(_string_1);
-          if (!_equals_1) {
-            _and = false;
-          } else {
+          if ((p.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (p.getTipo() instanceof TipoExistente))) {
             Tipo _tipo_1 = p.getTipo();
-            _and = (_tipo_1 instanceof TipoExistente);
-          }
-          if (_and) {
-            Tipo _tipo_2 = p.getTipo();
-            CharSequence _generate_1 = this.generate(_tipo_2);
+            CharSequence _generate_1 = this.generate(_tipo_1);
             String _plus_3 = (total + _generate_1);
             String _plus_4 = (_plus_3 + "* ");
             Variable _variable_1 = p.getVariable();
@@ -2774,20 +2499,9 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             String _plus_5 = (_plus_4 + _nombre_1);
             total = _plus_5;
           } else {
-            boolean _and_1 = false;
-            String _paso_2 = p.getPaso();
-            ResourceBundle _bundle_2 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-            String _string_2 = _bundle_2.getString("TIPO_PASO_SALIDA");
-            boolean _equals_2 = _paso_2.equals(_string_2);
-            if (!_equals_2) {
-              _and_1 = false;
-            } else {
-              Tipo _tipo_3 = p.getTipo();
-              _and_1 = (_tipo_3 instanceof TipoExistente);
-            }
-            if (_and_1) {
-              Tipo _tipo_4 = p.getTipo();
-              CharSequence _generate_2 = this.generate(_tipo_4);
+            if ((p.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (p.getTipo() instanceof TipoExistente))) {
+              Tipo _tipo_2 = p.getTipo();
+              CharSequence _generate_2 = this.generate(_tipo_2);
               String _plus_6 = (total + _generate_2);
               String _plus_7 = (_plus_6 + " *");
               Variable _variable_2 = p.getVariable();
@@ -2795,8 +2509,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               String _plus_8 = (_plus_7 + _nombre_2);
               total = _plus_8;
             } else {
-              Tipo _tipo_5 = p.getTipo();
-              CharSequence _generate_3 = this.generate(_tipo_5);
+              Tipo _tipo_3 = p.getTipo();
+              CharSequence _generate_3 = this.generate(_tipo_3);
               String _plus_9 = (total + _generate_3);
               String _plus_10 = (_plus_9 + " ");
               Variable _variable_3 = p.getVariable();
@@ -2827,34 +2541,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     ArrayList<String> punteros = new ArrayList<String>();
     EList<ParametroFuncion> _parametrofuncion_1 = myFun.getParametrofuncion();
     for (final ParametroFuncion parametroFuncion : _parametrofuncion_1) {
-      boolean _and = false;
-      String _paso = parametroFuncion.getPaso();
-      ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-      String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-      boolean _equals = _paso.equals(_string);
-      if (!_equals) {
-        _and = false;
-      } else {
-        Tipo _tipo_1 = parametroFuncion.getTipo();
-        _and = (_tipo_1 instanceof TipoExistente);
-      }
-      if (_and) {
+      if ((parametroFuncion.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametroFuncion.getTipo() instanceof TipoExistente))) {
         Variable _variable = parametroFuncion.getVariable();
         String _nombre_1 = _variable.getNombre();
         punteros.add(_nombre_1);
       } else {
-        boolean _and_1 = false;
-        String _paso_1 = parametroFuncion.getPaso();
-        ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-        String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-        boolean _equals_1 = _paso_1.equals(_string_1);
-        if (!_equals_1) {
-          _and_1 = false;
-        } else {
-          Tipo _tipo_2 = parametroFuncion.getTipo();
-          _and_1 = (_tipo_2 instanceof TipoExistente);
-        }
-        if (_and_1) {
+        if ((parametroFuncion.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametroFuncion.getTipo() instanceof TipoExistente))) {
           Variable _variable_1 = parametroFuncion.getVariable();
           String _nombre_2 = _variable_1.getNombre();
           punteros.add(_nombre_2);
@@ -2869,8 +2561,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       funcionDeclarada = _plus_5;
     }
     int _size = punteros.size();
-    boolean _equals_2 = (_size == 0);
-    if (_equals_2) {
+    boolean _equals = (_size == 0);
+    if (_equals) {
       EList<Sentencias> _sentencias = myFun.getSentencias();
       for (final Sentencias mySentencia : _sentencias) {
         CharSequence _generate_2 = this.generate(mySentencia);
@@ -2925,34 +2617,12 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     ArrayList<String> punteros = new ArrayList<String>();
     EList<ParametroFuncion> _parametrofuncion_1 = myFun.getParametrofuncion();
     for (final ParametroFuncion parametroFuncion : _parametrofuncion_1) {
-      boolean _and = false;
-      String _paso = parametroFuncion.getPaso();
-      ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-      String _string = _bundle.getString("TIPO_PASO_ENTRADA_SALIDA");
-      boolean _equals = _paso.equals(_string);
-      if (!_equals) {
-        _and = false;
-      } else {
-        Tipo _tipo_1 = parametroFuncion.getTipo();
-        _and = (_tipo_1 instanceof TipoExistente);
-      }
-      if (_and) {
+      if ((parametroFuncion.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_ENTRADA_SALIDA")) && (parametroFuncion.getTipo() instanceof TipoExistente))) {
         Variable _variable = parametroFuncion.getVariable();
         String _nombre_1 = _variable.getNombre();
         punteros.add(_nombre_1);
       } else {
-        boolean _and_1 = false;
-        String _paso_1 = parametroFuncion.getPaso();
-        ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
-        String _string_1 = _bundle_1.getString("TIPO_PASO_SALIDA");
-        boolean _equals_1 = _paso_1.equals(_string_1);
-        if (!_equals_1) {
-          _and_1 = false;
-        } else {
-          Tipo _tipo_2 = parametroFuncion.getTipo();
-          _and_1 = (_tipo_2 instanceof TipoExistente);
-        }
-        if (_and_1) {
+        if ((parametroFuncion.getPaso().equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_PASO_SALIDA")) && (parametroFuncion.getTipo() instanceof TipoExistente))) {
           Variable _variable_1 = parametroFuncion.getVariable();
           String _nombre_2 = _variable_1.getNombre();
           punteros.add(_nombre_2);
@@ -2967,8 +2637,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       funcionDeclarada = _plus_7;
     }
     int _size = punteros.size();
-    boolean _equals_2 = (_size == 0);
-    if (_equals_2) {
+    boolean _equals = (_size == 0);
+    if (_equals) {
       EList<Sentencias> _sentencias = myFun.getSentencias();
       for (final Sentencias mySentencia : _sentencias) {
         CharSequence _generate_2 = this.generate(mySentencia);
@@ -4864,44 +4534,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           for (final CabeceraSubproceso cabecera : _exporta_funciones) {
             if ((cabecera instanceof CabeceraProcedimiento)) {
               CabeceraProcedimiento cabeceraProc = ((CabeceraProcedimiento) cabecera);
-              boolean _and = false;
-              String _nombre = fun.getNombre();
-              String _nombre_1 = cabeceraProc.getNombre();
-              boolean _equals = _nombre.equals(_nombre_1);
-              if (!_equals) {
-                _and = false;
-              } else {
-                EList<operacion> _operadores = fun.getOperadores();
-                int _size = _operadores.size();
-                EList<ParametroFuncion> _parametrofuncion = cabeceraProc.getParametrofuncion();
-                int _size_1 = _parametrofuncion.size();
-                boolean _equals_1 = (_size == _size_1);
-                _and = _equals_1;
-              }
-              if (_and) {
-                String _nombre_2 = m.getNombre();
-                nombreModulo = _nombre_2;
+              if ((fun.getNombre().equals(cabeceraProc.getNombre()) && (fun.getOperadores().size() == cabeceraProc.getParametrofuncion().size()))) {
+                String _nombre = m.getNombre();
+                nombreModulo = _nombre;
               }
             } else {
               if ((cabecera instanceof CabeceraFuncion)) {
                 CabeceraFuncion cabeceraFun = ((CabeceraFuncion) cabecera);
-                boolean _and_1 = false;
-                String _nombre_3 = fun.getNombre();
-                String _nombre_4 = cabeceraFun.getNombre();
-                boolean _equals_2 = _nombre_3.equals(_nombre_4);
-                if (!_equals_2) {
-                  _and_1 = false;
-                } else {
-                  EList<operacion> _operadores_1 = fun.getOperadores();
-                  int _size_2 = _operadores_1.size();
-                  EList<ParametroFuncion> _parametrofuncion_1 = cabeceraFun.getParametrofuncion();
-                  int _size_3 = _parametrofuncion_1.size();
-                  boolean _equals_3 = (_size_2 == _size_3);
-                  _and_1 = _equals_3;
-                }
-                if (_and_1) {
-                  String _nombre_5 = m.getNombre();
-                  nombreModulo = _nombre_5;
+                if ((fun.getNombre().equals(cabeceraFun.getNombre()) && (fun.getOperadores().size() == cabeceraFun.getParametrofuncion().size()))) {
+                  String _nombre_1 = m.getNombre();
+                  nombreModulo = _nombre_1;
                 }
               }
             }
@@ -4916,44 +4558,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             for (final CabeceraSubproceso cabecera_1 : _exporta_funciones_1) {
               if ((cabecera_1 instanceof CabeceraProcedimiento)) {
                 CabeceraProcedimiento cabeceraProc_1 = ((CabeceraProcedimiento) cabecera_1);
-                boolean _and_2 = false;
-                String _nombre_6 = fun.getNombre();
-                String _nombre_7 = cabeceraProc_1.getNombre();
-                boolean _equals_4 = _nombre_6.equals(_nombre_7);
-                if (!_equals_4) {
-                  _and_2 = false;
-                } else {
-                  EList<operacion> _operadores_2 = fun.getOperadores();
-                  int _size_4 = _operadores_2.size();
-                  EList<ParametroFuncion> _parametrofuncion_2 = cabeceraProc_1.getParametrofuncion();
-                  int _size_5 = _parametrofuncion_2.size();
-                  boolean _equals_5 = (_size_4 == _size_5);
-                  _and_2 = _equals_5;
-                }
-                if (_and_2) {
-                  String _nombre_8 = m_1.getNombre();
-                  nombreModulo = _nombre_8;
+                if ((fun.getNombre().equals(cabeceraProc_1.getNombre()) && (fun.getOperadores().size() == cabeceraProc_1.getParametrofuncion().size()))) {
+                  String _nombre_2 = m_1.getNombre();
+                  nombreModulo = _nombre_2;
                 }
               } else {
                 if ((cabecera_1 instanceof CabeceraFuncion)) {
                   CabeceraFuncion cabeceraFun_1 = ((CabeceraFuncion) cabecera_1);
-                  boolean _and_3 = false;
-                  String _nombre_9 = fun.getNombre();
-                  String _nombre_10 = cabeceraFun_1.getNombre();
-                  boolean _equals_6 = _nombre_9.equals(_nombre_10);
-                  if (!_equals_6) {
-                    _and_3 = false;
-                  } else {
-                    EList<operacion> _operadores_3 = fun.getOperadores();
-                    int _size_6 = _operadores_3.size();
-                    EList<ParametroFuncion> _parametrofuncion_3 = cabeceraFun_1.getParametrofuncion();
-                    int _size_7 = _parametrofuncion_3.size();
-                    boolean _equals_7 = (_size_6 == _size_7);
-                    _and_3 = _equals_7;
-                  }
-                  if (_and_3) {
-                    String _nombre_11 = m_1.getNombre();
-                    nombreModulo = _nombre_11;
+                  if ((fun.getNombre().equals(cabeceraFun_1.getNombre()) && (fun.getOperadores().size() == cabeceraFun_1.getParametrofuncion().size()))) {
+                    String _nombre_3 = m_1.getNombre();
+                    nombreModulo = _nombre_3;
                   }
                 }
               }
@@ -4963,28 +4577,28 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       }
       StringConcatenation _builder = new StringConcatenation();
       {
-        boolean _equals_8 = nombreModulo.equals("");
-        boolean _not = (!_equals_8);
+        boolean _equals = nombreModulo.equals("");
+        boolean _not = (!_equals);
         if (_not) {
           _builder.newLineIfNotEmpty();
           _builder.append("ref");
           _builder.append(nombreModulo, "");
           _builder.append(".");
-          String _nombre_12 = fun.getNombre();
-          _builder.append(_nombre_12, "");
+          String _nombre_4 = fun.getNombre();
+          _builder.append(_nombre_4, "");
           {
-            String _nombre_13 = fun.getNombre();
-            ArrayList<Integer> _get = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_13);
-            int _size_8 = _get.size();
-            boolean _equals_9 = (_size_8 == 0);
-            if (_equals_9) {
-              EList<operacion> _operadores_4 = fun.getOperadores();
-              String _generaParametros = this.generaParametros(_operadores_4);
+            String _nombre_5 = fun.getNombre();
+            ArrayList<Integer> _get = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_5);
+            int _size = _get.size();
+            boolean _equals_1 = (_size == 0);
+            if (_equals_1) {
+              EList<operacion> _operadores = fun.getOperadores();
+              String _generaParametros = this.generaParametros(_operadores);
               _builder.append(_generaParametros, "");
             } else {
-              EList<operacion> _operadores_5 = fun.getOperadores();
-              String _nombre_14 = fun.getNombre();
-              String _generaParametrosPunteros = this.generaParametrosPunteros(_operadores_5, _nombre_14);
+              EList<operacion> _operadores_1 = fun.getOperadores();
+              String _nombre_6 = fun.getNombre();
+              String _generaParametrosPunteros = this.generaParametrosPunteros(_operadores_1, _nombre_6);
               _builder.append(_generaParametrosPunteros, "");
             }
           }
@@ -4996,21 +4610,21 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           }
           _builder.newLineIfNotEmpty();
         } else {
-          String _nombre_15 = fun.getNombre();
-          _builder.append(_nombre_15, "");
+          String _nombre_7 = fun.getNombre();
+          _builder.append(_nombre_7, "");
           {
-            String _nombre_16 = fun.getNombre();
-            ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_16);
-            int _size_9 = _get_1.size();
-            boolean _equals_10 = (_size_9 == 0);
-            if (_equals_10) {
-              EList<operacion> _operadores_6 = fun.getOperadores();
-              String _generaParametros_1 = this.generaParametros(_operadores_6);
+            String _nombre_8 = fun.getNombre();
+            ArrayList<Integer> _get_1 = VaryGrammarGeneratorCPP.subprocesosConPunteros.get(_nombre_8);
+            int _size_1 = _get_1.size();
+            boolean _equals_2 = (_size_1 == 0);
+            if (_equals_2) {
+              EList<operacion> _operadores_2 = fun.getOperadores();
+              String _generaParametros_1 = this.generaParametros(_operadores_2);
               _builder.append(_generaParametros_1, "");
             } else {
-              EList<operacion> _operadores_7 = fun.getOperadores();
-              String _nombre_17 = fun.getNombre();
-              String _generaParametrosPunteros_1 = this.generaParametrosPunteros(_operadores_7, _nombre_17);
+              EList<operacion> _operadores_3 = fun.getOperadores();
+              String _nombre_9 = fun.getNombre();
+              String _generaParametrosPunteros_1 = this.generaParametrosPunteros(_operadores_3, _nombre_9);
               _builder.append(_generaParametrosPunteros_1, "");
             }
           }

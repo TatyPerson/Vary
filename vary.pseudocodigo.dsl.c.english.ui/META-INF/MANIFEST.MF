@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: vary.pseudocodigo.dsl.c.english.ui
 Bundle-Vendor: UCA
-Bundle-Version: 1.0.5
+Bundle-Version: 1.0.6
 Bundle-SymbolicName: vary.pseudocodigo.dsl.c.english.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: vary.pseudocodigo.dsl.c.english;visibility:=reexport,
  org.eclipse.xtext.ui,
- org.eclipse.ui.editors;bundle-version="3.5.0",
- org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui.editors,
+ org.eclipse.ui.ide,
  org.eclipse.xtext.ui.shared,
  org.eclipse.ui,
  org.eclipse.xtext.builder,
@@ -21,8 +21,8 @@ Require-Bundle: vary.pseudocodigo.dsl.c.english;visibility:=reexport,
  org.eclipse.xtext.ui.codetemplates.ui,
  org.eclipse.compare,
  org.eclipse.cdt.managedbuilder.core;bundle-version="8.3.0",
- org.eclipse.cdt.core;bundle-version="5.6.0",
- org.eclipse.cdt.ui;bundle-version="5.7.0",
+ org.eclipse.cdt.core;bundle-version="5.11.0",
+ org.eclipse.cdt.ui;bundle-version="5.11.0",
  vary.pseudocodigo.dsl.c.ui,
  org.eclipse.xtext.xbase.lib
 Import-Package: diagramapseudocodigo,
