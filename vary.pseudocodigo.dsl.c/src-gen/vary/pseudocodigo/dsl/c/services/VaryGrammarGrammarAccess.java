@@ -1680,13 +1680,10 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEscribirKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cOperadorAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cOperadorPrimariaParserRuleCall_1_0 = (RuleCall)cOperadorAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cCommaKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cOperadorAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final RuleCall cOperadorPrimariaParserRuleCall_2_0_1_0 = (RuleCall)cOperadorAssignment_2_0_1.eContents().get(0);
-		private final Assignment cOperadorAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cOperadorOperacionParserRuleCall_2_1_0 = (RuleCall)cOperadorAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cOperadorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cOperadorOperacionCompletaParserRuleCall_2_1_0 = (RuleCall)cOperadorAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		////AsignacionCompleja returns AsignacionCompleja:
@@ -1696,11 +1693,11 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		////	operadores+=Primaria;
 		//Escribir:
 		//	'escribir('
-		//	operador+=Primaria ("," operador+=Primaria | operador+=operacion)*
+		//	operador+=Primaria ("," operador+=OperacionCompleta)*
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//'escribir(' operador+=Primaria ("," operador+=Primaria | operador+=operacion)* ')'
+		//'escribir(' operador+=Primaria ("," operador+=OperacionCompleta)* ')'
 		public Group getGroup() { return cGroup; }
 
 		//'escribir('
@@ -1712,26 +1709,17 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//Primaria
 		public RuleCall getOperadorPrimariaParserRuleCall_1_0() { return cOperadorPrimariaParserRuleCall_1_0; }
 
-		//("," operador+=Primaria | operador+=operacion)*
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-
-		//"," operador+=Primaria
-		public Group getGroup_2_0() { return cGroup_2_0; }
+		//("," operador+=OperacionCompleta)*
+		public Group getGroup_2() { return cGroup_2; }
 
 		//","
-		public Keyword getCommaKeyword_2_0_0() { return cCommaKeyword_2_0_0; }
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
 
-		//operador+=Primaria
-		public Assignment getOperadorAssignment_2_0_1() { return cOperadorAssignment_2_0_1; }
-
-		//Primaria
-		public RuleCall getOperadorPrimariaParserRuleCall_2_0_1_0() { return cOperadorPrimariaParserRuleCall_2_0_1_0; }
-
-		//operador+=operacion
+		//operador+=OperacionCompleta
 		public Assignment getOperadorAssignment_2_1() { return cOperadorAssignment_2_1; }
 
-		//operacion
-		public RuleCall getOperadorOperacionParserRuleCall_2_1_0() { return cOperadorOperacionParserRuleCall_2_1_0; }
+		//OperacionCompleta
+		public RuleCall getOperadorOperacionCompletaParserRuleCall_2_1_0() { return cOperadorOperacionCompletaParserRuleCall_2_1_0; }
 
 		//')'
 		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
@@ -4866,7 +4854,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	////	operadores+=Primaria;
 	//Escribir:
 	//	'escribir('
-	//	operador+=Primaria ("," operador+=Primaria | operador+=operacion)*
+	//	operador+=Primaria ("," operador+=OperacionCompleta)*
 	//	')';
 	public EscribirElements getEscribirAccess() {
 		return pEscribir;

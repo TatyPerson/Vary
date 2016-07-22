@@ -215,7 +215,7 @@ AsignacionCompleja returns AsignacionCompleja:
 
 Escribir returns Escribir:
 	'escribir('
-		 operador+=Primaria ( "," operador+=Primaria | operador+=operacion)* 
+		 operador+=Primaria ( "," operador+=OperacionCompleta)* 
 	')';
 
 Leer returns Leer:

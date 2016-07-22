@@ -7610,12 +7610,12 @@ protected class AsignacionCompleja_OperadorAssignment_2 extends AssignmentToken 
  * //	operadores+=Primaria;
  * Escribir:
  * 	'escribir('
- * 	operador+=Primaria ("," operador+=Primaria | operador+=operacion)*
+ * 	operador+=Primaria ("," operador+=OperacionCompleta)*
  * 	')';
  *
  **/
 
-// 'escribir(' operador+=Primaria ("," operador+=Primaria | operador+=operacion)* ')'
+// 'escribir(' operador+=Primaria ("," operador+=OperacionCompleta)* ')'
 protected class Escribir_Group extends GroupToken {
 	
 	public Escribir_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7711,45 +7711,22 @@ protected class Escribir_OperadorAssignment_1 extends AssignmentToken  {
 	}	
 }
 
-// ("," operador+=Primaria | operador+=operacion)*
-protected class Escribir_Alternatives_2 extends AlternativesToken {
-
-	public Escribir_Alternatives_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
+// ("," operador+=OperacionCompleta)*
+protected class Escribir_Group_2 extends GroupToken {
 	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getEscribirAccess().getAlternatives_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Escribir_Group_2_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Escribir_OperadorAssignment_2_1(lastRuleCallOrigin, this, 1, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// "," operador+=Primaria
-protected class Escribir_Group_2_0 extends GroupToken {
-	
-	public Escribir_Group_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Escribir_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Group getGrammarElement() {
-		return grammarAccess.getEscribirAccess().getGroup_2_0();
+		return grammarAccess.getEscribirAccess().getGroup_2();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Escribir_OperadorAssignment_2_0_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Escribir_OperadorAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -7757,21 +7734,21 @@ protected class Escribir_Group_2_0 extends GroupToken {
 }
 
 // ","
-protected class Escribir_CommaKeyword_2_0_0 extends KeywordToken  {
+protected class Escribir_CommaKeyword_2_0 extends KeywordToken  {
 	
-	public Escribir_CommaKeyword_2_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Escribir_CommaKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getEscribirAccess().getCommaKeyword_2_0_0();
+		return grammarAccess.getEscribirAccess().getCommaKeyword_2_0();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Escribir_Alternatives_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Escribir_Group_2(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Escribir_OperadorAssignment_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
@@ -7779,54 +7756,7 @@ protected class Escribir_CommaKeyword_2_0_0 extends KeywordToken  {
 
 }
 
-// operador+=Primaria
-protected class Escribir_OperadorAssignment_2_0_1 extends AssignmentToken  {
-	
-	public Escribir_OperadorAssignment_2_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getEscribirAccess().getOperadorAssignment_2_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Primaria_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("operador",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("operador");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getPrimariaRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getEscribirAccess().getOperadorPrimariaParserRuleCall_2_0_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new Escribir_CommaKeyword_2_0_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-// operador+=operacion
+// operador+=OperacionCompleta
 protected class Escribir_OperadorAssignment_2_1 extends AssignmentToken  {
 	
 	public Escribir_OperadorAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7841,20 +7771,20 @@ protected class Escribir_OperadorAssignment_2_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Operacion_OrParserRuleCall(this, this, 0, inst);
+			case 0: return new OperacionCompleta_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("operador",true)) == null) return null;
+		if((value = eObjectConsumer.getConsumable("operador",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("operador");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getOperacionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getOperacionCompletaRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getEscribirAccess().getOperadorOperacionParserRuleCall_2_1_0(); 
+				element = grammarAccess.getEscribirAccess().getOperadorOperacionCompletaParserRuleCall_2_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -7866,8 +7796,7 @@ protected class Escribir_OperadorAssignment_2_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Escribir_Alternatives_2(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new Escribir_OperadorAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Escribir_CommaKeyword_2_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -7889,7 +7818,7 @@ protected class Escribir_RightParenthesisKeyword_3 extends KeywordToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Escribir_Alternatives_2(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Escribir_Group_2(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Escribir_OperadorAssignment_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	

@@ -47,7 +47,7 @@ public class VaryConfigurationModel extends AbstractConfigurationModel {
   @Override
   public Parser<? extends Grammar> doGetParser() {
     SquidAstVisitorContext<Grammar> context
-      = new SquidAstVisitorContextImpl<>(new SourceProject(""));
+      = new SquidAstVisitorContextImpl<Grammar>(new SourceProject(""));
     return VaryParser.create(context, getConfiguration());
   }
 

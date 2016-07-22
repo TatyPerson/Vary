@@ -2812,16 +2812,16 @@ ruleEscribir returns [EObject current=null]
 	    }
 
 )
-)((	otherlv_2=',' 
+)(	otherlv_2=',' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getEscribirAccess().getCommaKeyword_2_0_0());
+    	newLeafNode(otherlv_2, grammarAccess.getEscribirAccess().getCommaKeyword_2_0());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEscribirAccess().getOperadorPrimariaParserRuleCall_2_0_1_0()); 
+	        newCompositeNode(grammarAccess.getEscribirAccess().getOperadorOperacionCompletaParserRuleCall_2_1_0()); 
 	    }
-		lv_operador_3_0=rulePrimaria		{
+		lv_operador_3_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEscribirRule());
 	        }
@@ -2829,33 +2829,14 @@ ruleEscribir returns [EObject current=null]
        			$current, 
        			"operador",
         		lv_operador_3_0, 
-        		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))
-    |(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getEscribirAccess().getOperadorOperacionParserRuleCall_2_1_0()); 
-	    }
-		lv_operador_4_0=ruleoperacion		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getEscribirRule());
-	        }
-       		add(
-       			$current, 
-       			"operador",
-        		lv_operador_4_0, 
-        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacion");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*	otherlv_5=')' 
+))*	otherlv_4=')' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getEscribirAccess().getRightParenthesisKeyword_3());
+    	newLeafNode(otherlv_4, grammarAccess.getEscribirAccess().getRightParenthesisKeyword_3());
     }
 )
 ;

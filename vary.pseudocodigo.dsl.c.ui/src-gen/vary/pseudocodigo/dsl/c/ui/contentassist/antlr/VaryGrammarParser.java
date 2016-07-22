@@ -51,7 +51,6 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSubrangoAccess().getAlternatives(), "rule__Subrango__Alternatives");
 					put(grammarAccess.getEStringAccess().getAlternatives(), "rule__EString__Alternatives");
 					put(grammarAccess.getAsignacionAccess().getAlternatives(), "rule__Asignacion__Alternatives");
-					put(grammarAccess.getEscribirAccess().getAlternatives_2(), "rule__Escribir__Alternatives_2");
 					put(grammarAccess.getSiAccess().getAlternatives_0(), "rule__Si__Alternatives_0");
 					put(grammarAccess.getMientrasAccess().getAlternatives_0(), "rule__Mientras__Alternatives_0");
 					put(grammarAccess.getRepetirAccess().getAlternatives_2(), "rule__Repetir__Alternatives_2");
@@ -117,7 +116,7 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAsignacionNormalAccess().getGroup(), "rule__AsignacionNormal__Group__0");
 					put(grammarAccess.getAsignacionComplejaAccess().getGroup(), "rule__AsignacionCompleja__Group__0");
 					put(grammarAccess.getEscribirAccess().getGroup(), "rule__Escribir__Group__0");
-					put(grammarAccess.getEscribirAccess().getGroup_2_0(), "rule__Escribir__Group_2_0__0");
+					put(grammarAccess.getEscribirAccess().getGroup_2(), "rule__Escribir__Group_2__0");
 					put(grammarAccess.getLeerAccess().getGroup(), "rule__Leer__Group__0");
 					put(grammarAccess.getLeerAccess().getGroup_2(), "rule__Leer__Group_2__0");
 					put(grammarAccess.getSiAccess().getGroup(), "rule__Si__Group__0");
@@ -272,7 +271,6 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAsignacionComplejaAccess().getValor_asignacionAssignment_0(), "rule__AsignacionCompleja__Valor_asignacionAssignment_0");
 					put(grammarAccess.getAsignacionComplejaAccess().getOperadorAssignment_2(), "rule__AsignacionCompleja__OperadorAssignment_2");
 					put(grammarAccess.getEscribirAccess().getOperadorAssignment_1(), "rule__Escribir__OperadorAssignment_1");
-					put(grammarAccess.getEscribirAccess().getOperadorAssignment_2_0_1(), "rule__Escribir__OperadorAssignment_2_0_1");
 					put(grammarAccess.getEscribirAccess().getOperadorAssignment_2_1(), "rule__Escribir__OperadorAssignment_2_1");
 					put(grammarAccess.getLeerAccess().getVariableAssignment_1(), "rule__Leer__VariableAssignment_1");
 					put(grammarAccess.getLeerAccess().getVariableAssignment_2_1(), "rule__Leer__VariableAssignment_2_1");
