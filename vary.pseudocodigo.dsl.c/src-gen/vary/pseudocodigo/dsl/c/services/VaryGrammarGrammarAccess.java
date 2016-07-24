@@ -838,8 +838,8 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLongitudKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		private final Keyword cConcatenaKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
 		
-		//NombreInterna NombreInterna:
-		//	'cos(' | 'cuadrado(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'longitud(' | 'concatena('
+		//NombreInterna:
+		//	'cos(' | 'cuadrado(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'longitud(' | 'concatena(';
 		@Override public ParserRule getRule() { return rule; }
 
 		//'cos(' | 'cuadrado(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'longitud(' | 'concatena('
@@ -4594,8 +4594,8 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return tNOMBRE_FUN;
 	} 
 
-	//NombreInterna NombreInterna:
-	//	'cos(' | 'cuadrado(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'longitud(' | 'concatena('
+	//NombreInterna:
+	//	'cos(' | 'cuadrado(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'longitud(' | 'concatena(';
 	public NombreInternaElements getNombreInternaAccess() {
 		return pNombreInterna;
 	}

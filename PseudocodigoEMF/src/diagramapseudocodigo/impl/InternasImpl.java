@@ -4,7 +4,6 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Internas;
-import diagramapseudocodigo.NombreInterna;
 import diagramapseudocodigo.Sentencias;
 import diagramapseudocodigo.operacion;
 import java.util.Collection;
@@ -71,7 +70,7 @@ public class InternasImpl extends valorImpl implements Internas {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final NombreInterna NOMBRE_EDEFAULT = NombreInterna.COS;
+	protected static final String NOMBRE_EDEFAULT = null;
 	/**
 	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -80,7 +79,7 @@ public class InternasImpl extends valorImpl implements Internas {
 	 * @generated
 	 * @ordered
 	 */
-	protected NombreInterna nombre = NOMBRE_EDEFAULT;
+	protected String nombre = NOMBRE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getOperadores() <em>Operadores</em>}' containment reference list.
@@ -177,7 +176,7 @@ public class InternasImpl extends valorImpl implements Internas {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NombreInterna getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
@@ -186,9 +185,9 @@ public class InternasImpl extends valorImpl implements Internas {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNombre(NombreInterna newNombre) {
-		NombreInterna oldNombre = nombre;
-		nombre = newNombre == null ? NOMBRE_EDEFAULT : newNombre;
+	public void setNombre(String newNombre) {
+		String oldNombre = nombre;
+		nombre = newNombre;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.INTERNAS__NOMBRE, oldNombre, nombre));
 	}
@@ -263,7 +262,7 @@ public class InternasImpl extends valorImpl implements Internas {
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.INTERNAS__NOMBRE:
-				setNombre((NombreInterna)newValue);
+				setNombre((String)newValue);
 				return;
 			case DiagramapseudocodigoPackage.INTERNAS__OPERADORES:
 				getOperadores().clear();
@@ -315,7 +314,7 @@ public class InternasImpl extends valorImpl implements Internas {
 			case DiagramapseudocodigoPackage.INTERNAS__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
 			case DiagramapseudocodigoPackage.INTERNAS__NOMBRE:
-				return nombre != NOMBRE_EDEFAULT;
+				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case DiagramapseudocodigoPackage.INTERNAS__OPERADORES:
 				return operadores != null && !operadores.isEmpty();
 		}

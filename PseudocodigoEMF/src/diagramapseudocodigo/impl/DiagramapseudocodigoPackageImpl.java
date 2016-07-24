@@ -44,7 +44,6 @@ import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.ModoApertura;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.NombreInterna;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
 import diagramapseudocodigo.OperacionCompleta;
@@ -643,13 +642,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EEnum signoEEnum = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum nombreInternaEEnum = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2713,15 +2705,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getNombreInterna() {
-		return nombreInternaEEnum;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getModoApertura() {
 		return modoAperturaEEnum;
 	}
@@ -3053,7 +3036,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		// Create enums
 		signoEEnum = createEEnum(SIGNO);
-		nombreInternaEEnum = createEEnum(NOMBRE_INTERNA);
 		modoAperturaEEnum = createEEnum(MODO_APERTURA);
 	}
 
@@ -3259,7 +3241,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEAttribute(getCaracter_Contenido(), ecorePackage.getEString(), "contenido", null, 1, 1, Caracter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(internasEClass, Internas.class, "Internas", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getInternas_Nombre(), this.getNombreInterna(), "nombre", null, 0, 1, Internas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInternas_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, Internas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInternas_Operadores(), this.getoperacion(), null, "operadores", null, 0, -1, Internas.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(segunEClass, segun.class, "segun", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3471,17 +3453,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		addEEnumLiteral(signoEEnum, signo.OR);
 		addEEnumLiteral(signoEEnum, signo.MOD);
 		addEEnumLiteral(signoEEnum, signo.DIV_REAL);
-
-		initEEnum(nombreInternaEEnum, NombreInterna.class, "NombreInterna");
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.COS);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.CUADRADO);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.EXP);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.LN);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.LOG);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.SEN);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.SQRT);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.LONGITUD);
-		addEEnumLiteral(nombreInternaEEnum, NombreInterna.CONCATENA);
 
 		initEEnum(modoAperturaEEnum, ModoApertura.class, "ModoApertura");
 		addEEnumLiteral(modoAperturaEEnum, ModoApertura.ESCRITURA);

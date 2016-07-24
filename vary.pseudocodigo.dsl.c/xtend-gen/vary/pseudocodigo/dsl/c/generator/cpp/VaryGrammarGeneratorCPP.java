@@ -40,7 +40,6 @@ import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.ModoApertura;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.NombreInterna;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
 import diagramapseudocodigo.OperacionCompleta;
@@ -4187,8 +4186,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   @Override
   public CharSequence generate(final Internas i) {
     CharSequence _xifexpression = null;
-    NombreInterna _nombre = i.getNombre();
-    boolean _equals = Objects.equal(_nombre, NombreInterna.COS);
+    String _nombre = i.getNombre();
+    boolean _equals = _nombre.equals("cos(");
     if (_equals) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("cos(");
@@ -4200,8 +4199,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       _xifexpression = _builder;
     } else {
       CharSequence _xifexpression_1 = null;
-      NombreInterna _nombre_1 = i.getNombre();
-      boolean _equals_1 = Objects.equal(_nombre_1, NombreInterna.SEN);
+      String _nombre_1 = i.getNombre();
+      boolean _equals_1 = _nombre_1.equals("sen(");
       if (_equals_1) {
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("sin(");
@@ -4213,8 +4212,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
         _xifexpression_1 = _builder_1;
       } else {
         CharSequence _xifexpression_2 = null;
-        NombreInterna _nombre_2 = i.getNombre();
-        boolean _equals_2 = Objects.equal(_nombre_2, NombreInterna.CUADRADO);
+        String _nombre_2 = i.getNombre();
+        boolean _equals_2 = _nombre_2.equals("cuadrado(");
         if (_equals_2) {
           StringConcatenation _builder_2 = new StringConcatenation();
           _builder_2.append("pow(");
@@ -4228,8 +4227,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           _xifexpression_2 = _builder_2;
         } else {
           CharSequence _xifexpression_3 = null;
-          NombreInterna _nombre_3 = i.getNombre();
-          boolean _equals_3 = Objects.equal(_nombre_3, NombreInterna.EXP);
+          String _nombre_3 = i.getNombre();
+          boolean _equals_3 = _nombre_3.equals("exp(");
           if (_equals_3) {
             StringConcatenation _builder_3 = new StringConcatenation();
             _builder_3.append("exp2(");
@@ -4241,8 +4240,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             _xifexpression_3 = _builder_3;
           } else {
             CharSequence _xifexpression_4 = null;
-            NombreInterna _nombre_4 = i.getNombre();
-            boolean _equals_4 = Objects.equal(_nombre_4, NombreInterna.LN);
+            String _nombre_4 = i.getNombre();
+            boolean _equals_4 = _nombre_4.equals("ln(");
             if (_equals_4) {
               StringConcatenation _builder_4 = new StringConcatenation();
               _builder_4.append("log(");
@@ -4254,8 +4253,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               _xifexpression_4 = _builder_4;
             } else {
               CharSequence _xifexpression_5 = null;
-              NombreInterna _nombre_5 = i.getNombre();
-              boolean _equals_5 = Objects.equal(_nombre_5, NombreInterna.LOG);
+              String _nombre_5 = i.getNombre();
+              boolean _equals_5 = _nombre_5.equals("log(");
               if (_equals_5) {
                 StringConcatenation _builder_5 = new StringConcatenation();
                 _builder_5.append("log10(");
@@ -4267,8 +4266,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                 _xifexpression_5 = _builder_5;
               } else {
                 CharSequence _xifexpression_6 = null;
-                NombreInterna _nombre_6 = i.getNombre();
-                boolean _equals_6 = Objects.equal(_nombre_6, NombreInterna.SQRT);
+                String _nombre_6 = i.getNombre();
+                boolean _equals_6 = _nombre_6.equals("sqrt(");
                 if (_equals_6) {
                   StringConcatenation _builder_6 = new StringConcatenation();
                   _builder_6.append("sqrt(");
@@ -4280,8 +4279,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   _xifexpression_6 = _builder_6;
                 } else {
                   CharSequence _xifexpression_7 = null;
-                  NombreInterna _nombre_7 = i.getNombre();
-                  boolean _equals_7 = Objects.equal(_nombre_7, NombreInterna.LONGITUD);
+                  String _nombre_7 = i.getNombre();
+                  boolean _equals_7 = _nombre_7.equals("sqrt(");
                   if (_equals_7) {
                     StringConcatenation _builder_7 = new StringConcatenation();
                     _builder_7.append("strlen(");
@@ -4293,8 +4292,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                     _xifexpression_7 = _builder_7;
                   } else {
                     CharSequence _xifexpression_8 = null;
-                    NombreInterna _nombre_8 = i.getNombre();
-                    boolean _equals_8 = Objects.equal(_nombre_8, NombreInterna.CONCATENA);
+                    String _nombre_8 = i.getNombre();
+                    boolean _equals_8 = _nombre_8.equals("concatena(");
                     if (_equals_8) {
                       StringConcatenation _builder_8 = new StringConcatenation();
                       _builder_8.append("strcat(");

@@ -6,7 +6,6 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Internas;
-import diagramapseudocodigo.NombreInterna;
 import java.util.Collection;
 import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -191,8 +190,7 @@ public class InternasItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		NombreInterna labelValue = ((Internas)object).getNombre();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Internas)object).getNombre();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Internas_type") :
 			getString("_UI_Internas_type") + " " + label;

@@ -53,6 +53,7 @@ import diagramapseudocodigo.FuncionFicheroCerrar;
 import diagramapseudocodigo.Igualdad;
 import diagramapseudocodigo.Implementacion;
 import diagramapseudocodigo.Inicio;
+import diagramapseudocodigo.Internas;
 import diagramapseudocodigo.Leer;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
@@ -63,6 +64,7 @@ import diagramapseudocodigo.Negacion;
 import diagramapseudocodigo.Negativa;
 import diagramapseudocodigo.NumeroDecimal;
 import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
 import diagramapseudocodigo.ParametroFuncion;
@@ -4275,6 +4277,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	//Función auxiliar para evitar la repetición de código (DRY)
 	private void checkAsignacionesAux(Asignacion a, String tipo, operacion op, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,Map<String,String>> registrosCamposTipados) {
 					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(op instanceof NumeroEntero)) {
+						System.out.println("La clase es: " + op.getClass().getName());
 						if(op instanceof NumeroDecimal) {
 							errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 						}
@@ -4301,6 +4304,13 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							}
 							else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
 								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+							}
+						} else if(op instanceof Internas) {
+							Internas internas = (Internas) op;
+							if(internas.getNombre().equals("cuadrado(") || internas.getNombre().equals("sqrt(") || internas.getNombre().equals("cos(") || internas.getNombre().equals("sen(") || internas.getNombre().equals("exp(") || internas.getNombre().equals("ln(") || internas.getNombre().equals("log(")) {
+								errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+							} else {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 						else if(op instanceof VariableID) {
@@ -4368,6 +4378,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
 								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
+						} else if(op instanceof Internas) {
+							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 						/*else if(op instanceof unaria) {
 							unaria u = (unaria) op;
@@ -4434,6 +4446,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
+						 else if(op instanceof Internas) {
+							Internas internas = (Internas) op;
+							if(!internas.getNombre().equals("cuadrado(") && !internas.getNombre().equals("sqrt(") && !internas.getNombre().equals("cos(") && !internas.getNombre().equals("sen(") && !internas.getNombre().equals("exp(") && !internas.getNombre().equals("ln(") && !internas.getNombre().equals("log(")) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							} 
+						 }
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
 							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && variables.containsKey(v.getNombre())) {
@@ -4486,6 +4504,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
+						else if(op instanceof Internas) {
+							Internas internas = (Internas) op;
+							if(!internas.getNombre().equals("concatena(")) {
+								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							} 
+						 }
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
 							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && variables.containsKey(v.getNombre())) {
@@ -4538,6 +4562,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
+						else if(op instanceof Internas) {
+							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						}
 						else if(op instanceof VariableID) {
 							VariableID v = (VariableID) op;
 							if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && variables.containsKey(v.getNombre())) {
@@ -4580,7 +4607,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(a instanceof AsignacionNormal) {
 					AsignacionNormal an = (AsignacionNormal) a;
 					String tipo = variablesTipadas.get(an.getValor_asignacion());
-					checkAsignacionesAux(a, tipo, an.getOperador(), variablesTipadas, registros, nombresRegistros,funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					if(an.getOperador() instanceof OperacionCompleta) {
+						OperacionCompleta operacionCompleta = (OperacionCompleta) an.getOperador();
+						checkAsignacionesAux(a, tipo, operacionCompleta.getValor_operacion(), variablesTipadas, registros, nombresRegistros,funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					} else {
+						checkAsignacionesAux(a, tipo, an.getOperador(), variablesTipadas, registros, nombresRegistros,funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					}
 				}
 				else if(a instanceof AsignacionCompleja) {
 					AsignacionCompleja ac = (AsignacionCompleja) a;

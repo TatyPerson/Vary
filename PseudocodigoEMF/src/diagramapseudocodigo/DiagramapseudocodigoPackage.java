@@ -4401,17 +4401,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int SIGNO = 77;
 
 	/**
-	 * The meta object id for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see diagramapseudocodigo.NombreInterna
-	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
-	 * @generated
-	 */
-	int NOMBRE_INTERNA = 78;
-
-
-	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.ModoApertura <em>Modo Apertura</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4419,7 +4408,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 79;
+	int MODO_APERTURA = 78;
 
 
 	/**
@@ -6776,16 +6765,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EEnum getsigno();
 
 	/**
-	 * Returns the meta object for enum '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for enum '<em>Nombre Interna</em>'.
-	 * @see diagramapseudocodigo.NombreInterna
-	 * @generated
-	 */
-	EEnum getNombreInterna();
-
-	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.ModoApertura <em>Modo Apertura</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8740,16 +8719,6 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum SIGNO = eINSTANCE.getsigno();
-
-		/**
-		 * The meta object literal for the '{@link diagramapseudocodigo.NombreInterna <em>Nombre Interna</em>}' enum.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see diagramapseudocodigo.NombreInterna
-		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getNombreInterna()
-		 * @generated
-		 */
-		EEnum NOMBRE_INTERNA = eINSTANCE.getNombreInterna();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.ModoApertura <em>Modo Apertura</em>}' enum.

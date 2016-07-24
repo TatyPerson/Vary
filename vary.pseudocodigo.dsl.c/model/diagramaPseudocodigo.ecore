@@ -147,20 +147,9 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Internas" eSuperTypes="#//valor #//operacion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="#//NombreInterna"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operadores" upperBound="-1"
         eType="#//operacion" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="NombreInterna">
-    <eLiterals name="cos"/>
-    <eLiterals name="cuadrado" value="1"/>
-    <eLiterals name="exp" value="2"/>
-    <eLiterals name="ln" value="3"/>
-    <eLiterals name="log" value="4"/>
-    <eLiterals name="sen" value="5"/>
-    <eLiterals name="sqrt" value="6"/>
-    <eLiterals name="longitud" value="7"/>
-    <eLiterals name="concatena" value="8"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="segun" eSuperTypes="#//Bloque">
     <eStructuralFeatures xsi:type="ecore:EReference" name="caso" upperBound="-1" eType="#//Caso"

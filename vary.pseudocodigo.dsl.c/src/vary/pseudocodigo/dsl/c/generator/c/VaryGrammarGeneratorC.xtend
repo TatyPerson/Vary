@@ -2080,23 +2080,23 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(Internas i) {
-		if (i.nombre == NombreInterna::COS) {
+		if (i.nombre.equals("cos(")) {
 			'''cos(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::SEN) {
+		} else if (i.nombre.equals("sen(")) {
 			'''sin(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::CUADRADO) {
+		} else if (i.nombre.equals("cuadrado(")) {
 			'''pow(«i.operadores.get(0).generate»,«2.0»)'''
-		} else if (i.nombre == NombreInterna::EXP) {
+		} else if (i.nombre.equals("exp(")) {
 			'''exp2(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::LN) {
+		} else if (i.nombre.equals("ln(")) {
 			'''log(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::LOG) {
+		} else if (i.nombre.equals("log(")) {
 			'''log10(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::SQRT) {
+		} else if (i.nombre.equals("sqrt(")) {
 			'''sqrt(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::LONGITUD) {
+		} else if (i.nombre.equals("sqrt(")) {
 			'''strlen(«i.operadores.get(0).generate»)'''
-		} else if (i.nombre == NombreInterna::CONCATENA) {
+		} else if (i.nombre.equals("concatena(")) {
 			'''strcat(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)'''
 		} 
 	}

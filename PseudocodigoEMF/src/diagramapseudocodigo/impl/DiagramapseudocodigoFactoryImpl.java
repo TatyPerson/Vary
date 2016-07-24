@@ -144,8 +144,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eDataType.getClassifierID()) {
 			case DiagramapseudocodigoPackage.SIGNO:
 				return createsignoFromString(eDataType, initialValue);
-			case DiagramapseudocodigoPackage.NOMBRE_INTERNA:
-				return createNombreInternaFromString(eDataType, initialValue);
 			case DiagramapseudocodigoPackage.MODO_APERTURA:
 				return createModoAperturaFromString(eDataType, initialValue);
 			default:
@@ -163,8 +161,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eDataType.getClassifierID()) {
 			case DiagramapseudocodigoPackage.SIGNO:
 				return convertsignoToString(eDataType, instanceValue);
-			case DiagramapseudocodigoPackage.NOMBRE_INTERNA:
-				return convertNombreInternaToString(eDataType, instanceValue);
 			case DiagramapseudocodigoPackage.MODO_APERTURA:
 				return convertModoAperturaToString(eDataType, instanceValue);
 			default:
@@ -909,26 +905,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * @generated
 	 */
 	public String convertsignoToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NombreInterna createNombreInternaFromString(EDataType eDataType, String initialValue) {
-		NombreInterna result = NombreInterna.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertNombreInternaToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -611,53 +611,6 @@
     <element xmi:type="ecore:EClass" href="diagramaPseudocodigo.ecore#//Internas"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AeYumfy1EeS1g8BfuAAiGQ" x="356" y="636"/>
   </children>
-  <children xmi:type="notation:Node" xmi:id="_AeZVcPy1EeS1g8BfuAAiGQ" type="1005">
-    <children xmi:type="notation:Node" xmi:id="_AeZVcfy1EeS1g8BfuAAiGQ" type="4010"/>
-    <children xmi:type="notation:Node" xmi:id="_AeZVcvy1EeS1g8BfuAAiGQ" type="5008">
-      <children xmi:type="notation:Node" xmi:id="_AeZVc_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/cos"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVdPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVdfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/cuadrado"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVdvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVd_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/exp"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVePy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVefy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/ln"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVevy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVe_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/log"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVfPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVffy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/sen"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVfvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVf_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/sqrt"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVgPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVgfy1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/longitud"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVgvy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <children xmi:type="notation:Node" xmi:id="_AeZVg_y1EeS1g8BfuAAiGQ" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="diagramaPseudocodigo.ecore#//NombreInterna/concatena"/>
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_AeZVhPy1EeS1g8BfuAAiGQ"/>
-      </children>
-      <styles xmi:type="notation:DrawerStyle" xmi:id="_AeZVhfy1EeS1g8BfuAAiGQ"/>
-      <styles xmi:type="notation:SortingStyle" xmi:id="_AeZVhvy1EeS1g8BfuAAiGQ"/>
-      <styles xmi:type="notation:FilteringStyle" xmi:id="_AeZVh_y1EeS1g8BfuAAiGQ"/>
-    </children>
-    <styles xmi:type="notation:ShapeStyle" xmi:id="_AeZViPy1EeS1g8BfuAAiGQ" fontColor="4210752" fontName="Times New Roman" fontHeight="12" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="diagramaPseudocodigo.ecore#//NombreInterna"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AeZVify1EeS1g8BfuAAiGQ" x="545" y="635"/>
-  </children>
   <children xmi:type="notation:Node" xmi:id="_AeZVivy1EeS1g8BfuAAiGQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_AeZVi_y1EeS1g8BfuAAiGQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_AeZVjPy1EeS1g8BfuAAiGQ" type="5001">

@@ -27,6 +27,7 @@ import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.Igualdad;
 import diagramapseudocodigo.Inicio;
+import diagramapseudocodigo.Internas;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Mod;
@@ -593,7 +594,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	}
 	
 	protected boolean esOperacion(valor v) {
-		if(v instanceof OperacionCompleta || v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof Division || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof Negativa || v instanceof Negacion) {
+		if(v instanceof OperacionCompleta || v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof Division || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof Negativa || v instanceof Negacion || v instanceof OperacionParentesis) {
 			return true;
 		}
 		else {
@@ -985,7 +986,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	
 	
 	protected boolean esValorSimple(valor v) {
-		return !(v instanceof VariableID) && !(v instanceof LlamadaFuncion) && !(v instanceof ValorRegistro) && !(v instanceof ValorVector) && !(v instanceof ValorMatriz) && !esOperacion(v);
+		return !(v instanceof VariableID) && !(v instanceof LlamadaFuncion) && !(v instanceof ValorRegistro) && !(v instanceof ValorVector) && !(v instanceof ValorMatriz) && !esOperacion(v) && !(v instanceof Internas);
 	}
 	
 	protected int asignacionOperacionVariable(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, ReadMessagesValidatorInterface readerMessages) {
@@ -1029,7 +1030,25 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 							return 3;
 						}
 					}
-
+				} else if(v instanceof Internas) {
+					Internas internas = (Internas) v;
+					if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						if(internas.getNombre().equals("cuadrado(") || internas.getNombre().equals("sqrt(") || internas.getNombre().equals("cos(") || internas.getNombre().equals("sen(") || internas.getNombre().equals("exp(") || internas.getNombre().equals("ln(") || internas.getNombre().equals("log(")) {
+							check = 2;
+						} else {
+							return 3;
+						}
+					} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						if(!internas.getNombre().equals("cuadrado(") && !internas.getNombre().equals("sqrt(") && !internas.getNombre().equals("cos(") && !internas.getNombre().equals("sen(") && !internas.getNombre().equals("exp(") && !internas.getNombre().equals("ln(") && !internas.getNombre().equals("log(")) {
+							return 3;
+						}
+					} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						if(!internas.getNombre().equals("concatena(")) {
+							return 3;
+						}
+					} else {
+						return 3;
+					}
 				}
 			}
 		return check;
