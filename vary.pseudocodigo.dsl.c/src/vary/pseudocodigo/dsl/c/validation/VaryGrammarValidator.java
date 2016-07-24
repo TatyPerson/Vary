@@ -1734,154 +1734,165 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 	}
 	
-	@Check
-	//Función que se encarga de comprobar si la operación de la condición de la estructura "Si" es de tipo lógico
-	protected void checkCondicionesSi(Si si) {
-		if(si.getValor() instanceof  Suma) {
-			Suma suma = (Suma) si.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
-		}
-		else if(si.getValor() instanceof Resta) {
-			Resta resta = (Resta) si.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
-		}
-		else if(si.getValor() instanceof Multiplicacion) {
-			Multiplicacion multiplicacion = (Multiplicacion) si.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
-		}
-		else if(si.getValor() instanceof Division) {
-			Division division = (Division) si.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
-		}
-		else if(si.getValor() instanceof Negativa) {
-			//Negativa negativa = (Negativa) si.getValor();
-			//error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
-		}
-		else if(si.getValor() instanceof Or) {
-			Or or = (Or) si.getValor();
-			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+	private void checkCondicionesAux(operacion op, Map<String, String> variables, Map<String,HashMap<Integer,String>> subprocesos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
+		if(op instanceof OperacionCompleta) {
+			OperacionCompleta operacionCompleta = (OperacionCompleta) op;
+			if(operacionCompleta.getValor_operacion() instanceof  Suma) {
+				Suma suma = (Suma) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(suma))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
+				}
 			}
-		}
-		else if(si.getValor() instanceof And) {
-			And and = (And) si.getValor();
-			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof Resta) {
+				Resta resta = (Resta) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(resta))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
+				}
 			}
-		}
-		else if(si.getValor() instanceof Comparacion) {
-			Comparacion comp = (Comparacion) si.getValor();
-			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof Multiplicacion) {
+				Multiplicacion multiplicacion = (Multiplicacion) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(multiplicacion))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
+				}
 			}
-		}
-		else if(si.getValor() instanceof Igualdad) {
-			Igualdad igualdad = (Igualdad) si.getValor();
-			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof Division) {
+				Division division = (Division) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(division))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+				}
 			}
-		}
-	}
-
-	@Check
-	//Función que se encarga de comprobar si la operación de la condición de la estructura "Mientras" es de tipo lógico
-	protected void checkCondicionesMientras(mientras miMientras) {
-		if(miMientras.getValor() instanceof  Suma) {
-			Suma suma = (Suma) miMientras.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
-		}
-		else if(miMientras.getValor() instanceof Resta) {
-			Resta resta = (Resta) miMientras.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
-		}
-		else if(miMientras.getValor() instanceof Multiplicacion) {
-			Multiplicacion multiplicacion = (Multiplicacion) miMientras.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
-		}
-		else if(miMientras.getValor() instanceof Division) {
-			Division division = (Division) miMientras.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
-		}
-		else if(miMientras.getValor() instanceof Negativa) {
-			//Negativa negativa = (Negativa) miMientras.getValor();
-			//error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
-		}
-		else if(miMientras.getValor() instanceof Or) {
-			Or or = (Or) miMientras.getValor();
-			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof Or) {
+				Or or = (Or) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(or))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
+				}
 			}
-		}
-		else if(miMientras.getValor() instanceof And) {
-			And and = (And) miMientras.getValor();
-			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof And) {
+				And and = (And) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(and))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
+				}
 			}
-		}
-		else if(miMientras.getValor() instanceof Comparacion) {
-			Comparacion comp = (Comparacion) miMientras.getValor();
-			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof Comparacion) {
+				Comparacion comp = (Comparacion) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(comp))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
+				}
 			}
-		}
-		else if(miMientras.getValor() instanceof Igualdad) {
-			Igualdad igualdad = (Igualdad) miMientras.getValor();
-			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
-			}
-		}
-	}
-	
-	
-	@Check
-	//Función que se encarga de comprobar si la operación de la condición de la estructura "Repetir" es de tipo lógico
-	protected void checkCondicionesRepetir(repetir miRepetir) {
-		if(miRepetir.getValor() instanceof  Suma) {
-			Suma suma = (Suma) miRepetir.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), suma, DiagramapseudocodigoPackage.Literals.SUMA__SIGNO_OP);
-		}
-		else if(miRepetir.getValor() instanceof Resta) {
-			Resta resta = (Resta) miRepetir.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), resta, DiagramapseudocodigoPackage.Literals.RESTA__SIGNO_OP);
-		}
-		else if(miRepetir.getValor() instanceof Multiplicacion) {
-			Multiplicacion multiplicacion = (Multiplicacion) miRepetir.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
-		}
-		else if(miRepetir.getValor() instanceof Division) {
-			Division division = (Division) miRepetir.getValor();
-			error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
-		}
-		else if(miRepetir.getValor() instanceof Negativa) {
-			//Negativa negativa = (Negativa) miRepetir.getValor();
-			//error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), negativa, DiagramapseudocodigoPackage.Literals.NEGATIVA__VALOR_OPERACION);
-		}
-		else if(miRepetir.getValor() instanceof Or) {
-			Or or = (Or) miRepetir.getValor();
-			if(!(funciones.checkOperacionLogica(or.getLeft())) || !(funciones.checkOperacionLogica(or.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), or, DiagramapseudocodigoPackage.Literals.OR__SIGNO_OP);
-			}
-		}
-		else if(miRepetir.getValor() instanceof And) {
-			And and = (And) miRepetir.getValor();
-			if(!(funciones.checkOperacionLogica(and.getLeft())) || !(funciones.checkOperacionLogica(and.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), and, DiagramapseudocodigoPackage.Literals.AND__SIGNO_OP);
-			}
-		}
-		else if(miRepetir.getValor() instanceof Comparacion) {
-			Comparacion comp = (Comparacion) miRepetir.getValor();
-			if(!(funciones.checkOperacionLogica(comp.getLeft())) || !(funciones.checkOperacionLogica(comp.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), comp, DiagramapseudocodigoPackage.Literals.COMPARACION__SIGNO_OP);
-			}
-		}
-		else if(miRepetir.getValor() instanceof Igualdad) {
-			Igualdad igualdad = (Igualdad) miRepetir.getValor();
-			if(!(funciones.checkOperacionLogica(igualdad.getLeft())) || !(funciones.checkOperacionLogica(igualdad.getRight()))) {
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+			else if(operacionCompleta.getValor_operacion() instanceof Igualdad) {
+				Igualdad igualdad = (Igualdad) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(igualdad))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
+				}
+			} else if(operacionCompleta.getValor_operacion() instanceof NumeroEntero) {
+				NumeroEntero entero = (NumeroEntero) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), entero, DiagramapseudocodigoPackage.Literals.NUMERO_ENTERO__VALOR);
+			} else if(operacionCompleta.getValor_operacion() instanceof NumeroDecimal) {
+				NumeroDecimal real = (NumeroDecimal) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), real, DiagramapseudocodigoPackage.Literals.NUMERO_DECIMAL__VALOR);
+			} else if(operacionCompleta.getValor_operacion() instanceof ConstCadena) {
+				ConstCadena cadena = (ConstCadena) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), cadena, DiagramapseudocodigoPackage.Literals.CONST_CADENA__CONTENIDO);
+			} else if(operacionCompleta.getValor_operacion() instanceof Caracter) {
+				Caracter caracter = (Caracter) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), caracter, DiagramapseudocodigoPackage.Literals.CARACTER__CONTENIDO);
+			} else if(operacionCompleta.getValor_operacion() instanceof VariableID) {
+				VariableID variable = (VariableID) operacionCompleta.getValor_operacion();
+				if(variables.containsKey(variable.getNombre())) {
+					if(!variables.get(variable.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+						error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), variable, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					}
+				}
+			} else if(operacionCompleta.getValor_operacion() instanceof LlamadaFuncion) {
+				LlamadaFuncion llamada = (LlamadaFuncion) operacionCompleta.getValor_operacion();
+				if(subprocesos.containsKey(llamada.getNombre()) && subprocesos.get(llamada.getNombre()).containsKey(llamada.getOperadores().size())) {
+					if(!subprocesos.get(llamada.getNombre()).get(llamada.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+						error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), llamada, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+					}
+				}
+			} else if(operacionCompleta.getValor_operacion() instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacionCompleta.getValor_operacion();
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+							error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+						}
+					}
+				}
+			} else if(operacionCompleta.getValor_operacion() instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacionCompleta.getValor_operacion();
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+				}
+			} else if(operacionCompleta.getValor_operacion() instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacionCompleta.getValor_operacion();
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+				}
+			} else if(operacionCompleta.getValor_operacion() instanceof Internas) {
+				Internas interna = (Internas) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), interna, DiagramapseudocodigoPackage.Literals.INTERNAS__NOMBRE);
 			}
 		}
 	}
 	
+	protected void checkCondicionesSentenciasAux(List<Sentencias> sentencias, Map<String, String> variables, Map<String,HashMap<Integer,String>> subprocesos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
+		for(Sentencias s: sentencias) {
+			if(s instanceof Si) {
+				Si si = (Si) s;
+				checkCondicionesAux(si.getValor(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+				checkCondicionesSentenciasAux(si.getSentencias(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+				if(si.getSino() != null) {
+					checkCondicionesSentenciasAux(si.getSino().getSentencias(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+				}
+			} else if(s instanceof mientras) {
+				mientras m = (mientras) s;
+				checkCondicionesAux(m.getValor(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+				checkCondicionesSentenciasAux(m.getSentencias(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+			} else if(s instanceof repetir) {
+				repetir r = (repetir) s;
+				checkCondicionesAux(r.getValor(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+				checkCondicionesSentenciasAux(r.getSentencias(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+			}
+		}
+	}
+	
+	@Check
+	//Función que se encarga de comprobar si las condiciones son de tipo lógico.
+	protected void checkCondiciones(Algoritmo algoritmo) {
+		Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+		Map<String,HashMap<Integer,String>> subprocesos = new HashMap<String,HashMap<Integer,String>>();
+		funciones.prepararColeccionFunciones(algoritmo.getFuncion(), subprocesos);
+		Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
+		Map<String,String> vectores = new HashMap<String,String>();
+		List<String> nombresRegistros = new ArrayList<String>();
+		Map<String,String> matrices = new HashMap<String,String>();
+		funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+		checkCondicionesSentenciasAux(algoritmo.getTiene().getTiene(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+		
+		for(Subproceso s: algoritmo.getFuncion()) {
+			variables = funciones.registrarVariablesTipadas(s.getDeclaracion());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+			checkCondicionesSentenciasAux(s.getSentencias(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+		}
+	}
+	
+	@Check
+	protected void checkCondiciones(Modulo modulo) {
+		for(Subproceso s: modulo.getImplementacion().getFuncion()) {
+			Map<String, String> variables = funciones.registrarVariablesTipadas(s.getDeclaracion());
+			variables.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal()));
+			Map<String,HashMap<Integer,String>> subprocesos = new HashMap<String,HashMap<Integer,String>>();
+			funciones.prepararColeccionFunciones(modulo.getImplementacion().getFuncion(), subprocesos);
+			Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
+			Map<String,String> vectores = new HashMap<String,String>();
+			List<String> nombresRegistros = new ArrayList<String>();
+			Map<String,String> matrices = new HashMap<String,String>();
+			funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+			checkCondicionesSentenciasAux(s.getSentencias(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
+		}
+	}
 	
 	@Check
 	//Función que se encarga de comprobar que no existan dos variables declaradas en un registro con el mismo nombre
@@ -2849,6 +2860,99 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		checkVariablesGlobalesAux(algoritmo.getGlobal());
 	}
 	
+	private void checkVariablesUsadasOperacionAux(operacion o, List<String> variables) {
+		ArrayList<valor> valores = new ArrayList<valor>();
+		valores = funciones.registrarValoresOperacion(o, valores);
+		
+		List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
+		if(variablesRegistroNoDeclaradas.size() != 0) {
+			for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
+				error(readerMessages.getString("VARIABLE_NO_DECLARADA", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
+			}
+		}
+		List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
+		if(variablesNoDeclaradas.size() != 0) {
+			for(VariableID v: variablesNoDeclaradas) {
+				error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+			}
+		}
+		List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
+		if(variablesVectorNoDeclaradas.size() != 0) {
+			for(ValorVector v: variablesVectorNoDeclaradas) {
+				error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
+			}
+		}
+		List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
+		if(variablesMatrizNoDeclaradas.size() != 0) {
+			for(ValorMatriz m: variablesMatrizNoDeclaradas) {
+				error(readerMessages.getString("VARIABLE_NO_DECLARADA", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+			}
+		}
+		
+		for(valor v: valores) {
+			if(v instanceof ValorVector) {
+				ValorVector vector = (ValorVector) v;
+				if(vector.getIndice() instanceof VariableID) {
+					VariableID var = (VariableID) vector.getIndice();
+					if(!variables.contains(var.getNombre())){
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+					}
+				}
+			}
+			else if(v instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) v;
+				ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+				indicesMatriz.add(m.getPrimerIndice());
+				indicesMatriz.add(m.getSegundoIndice());
+				for(operacion op: indicesMatriz) {
+					if(op instanceof VariableID) {
+						VariableID var = (VariableID) op;
+						if(!variables.contains(var.getNombre())) {
+							error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+						}
+					}
+				}
+			}
+			else if(v instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) v;
+				for(valor val: f.getOperadores()) {
+					if(val instanceof Operador) {
+						Operador op = (Operador) val;
+						if(op instanceof VariableID) {
+							VariableID var = (VariableID) op;
+							if(!variables.contains(var.getNombre())) {
+								error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+							}
+						}
+						else if(op instanceof ValorVector) {
+							ValorVector vector = (ValorVector) op;
+							if(vector.getIndice() instanceof VariableID) {
+								VariableID var = (VariableID) vector.getIndice();
+								if(!variables.contains(var.getNombre())) {
+									error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+								}
+							}
+						}
+						else if(op instanceof ValorMatriz) {
+							ValorMatriz m = (ValorMatriz) op;
+							ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+							indicesMatriz.add(m.getPrimerIndice());
+							indicesMatriz.add(m.getSegundoIndice());
+							for(operacion operacionAux: indicesMatriz) {
+								if(operacionAux instanceof VariableID) {
+									VariableID var = (VariableID) operacionAux;
+									if(!variables.contains(var.getNombre())){
+										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+									}
+								}
+							}
+						}
+					}	
+				}
+			}
+		}
+	}
+	
 	
 	private void checkVariablesUsadasAux(List<Sentencias> sentencias, List<String> variables) {
 		for(Sentencias sen: sentencias) {
@@ -2865,8 +2969,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						}
 					}
 				}
-			}
-			else if(sen instanceof Leer) {
+			} else if(sen instanceof Leer) {
 				Leer l = (Leer) sen;
 				if(l.getVariable() instanceof VariableID) {
 					VariableID v = (VariableID) l.getVariable();
@@ -2874,9 +2977,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 					}
 				}
-			}
-			
-			else if(sen instanceof Escribir) {
+			} else if(sen instanceof Escribir) {
 				Escribir e = (Escribir) sen;
 				for(operacion o: e.getOperador()) {
 					if(o instanceof VariableID) {
@@ -2886,9 +2987,22 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						}
 					}
 				}
-			}
-			
-			else if(sen instanceof Asignacion) {
+			} else if(sen instanceof Si) {
+				Si si = (Si) sen;
+				checkVariablesUsadasAux(si.getSentencias(), variables);
+				checkVariablesUsadasOperacionAux(si.getValor(), variables);
+				if(si.getSino() != null) {
+					checkVariablesUsadasAux(si.getSino().getSentencias(), variables);
+				}
+			} else if(sen instanceof mientras) {
+				mientras m = (mientras) sen;
+				checkVariablesUsadasAux(m.getSentencias(), variables);
+				checkVariablesUsadasOperacionAux(m.getValor(), variables);
+			} else if(sen instanceof repetir) {
+				repetir r = (repetir) sen;
+				checkVariablesUsadasAux(r.getSentencias(), variables);
+				checkVariablesUsadasOperacionAux(r.getValor(), variables);
+			} else if(sen instanceof Asignacion) {
 				Asignacion a = (Asignacion) sen;
 				if(a instanceof AsignacionNormal) {
 					AsignacionNormal as = (AsignacionNormal) a;
@@ -2913,96 +3027,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}*/
 					else if(as.getOperador() instanceof operacion) {
 						operacion o = (operacion) as.getOperador();
-						ArrayList<valor> valores = new ArrayList<valor>();
-						valores = funciones.registrarValoresOperacion(o, valores);
+						checkVariablesUsadasOperacionAux(o, variables);
 						
-						List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
-						if(variablesRegistroNoDeclaradas.size() != 0) {
-							for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
-							}
-						}
-						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
-						if(variablesNoDeclaradas.size() != 0) {
-							for(VariableID v: variablesNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-							}
-						}
-						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
-						if(variablesVectorNoDeclaradas.size() != 0) {
-							for(ValorVector v: variablesVectorNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-							}
-						}
-						List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
-						if(variablesMatrizNoDeclaradas.size() != 0) {
-							for(ValorMatriz m: variablesMatrizNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-							}
-						}
-						
-						for(valor v: valores) {
-							if(v instanceof ValorVector) {
-								ValorVector vector = (ValorVector) v;
-								if(vector.getIndice() instanceof VariableID) {
-									VariableID var = (VariableID) vector.getIndice();
-									if(!variables.contains(var.getNombre())){
-										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-									}
-								}
-							}
-							else if(v instanceof ValorMatriz) {
-								ValorMatriz m = (ValorMatriz) v;
-								ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
-								indicesMatriz.add(m.getPrimerIndice());
-								indicesMatriz.add(m.getSegundoIndice());
-								for(operacion op: indicesMatriz) {
-									if(op instanceof VariableID) {
-										VariableID var = (VariableID) op;
-										if(!variables.contains(var.getNombre())) {
-											error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-										}
-									}
-								}
-							}
-							else if(v instanceof LlamadaFuncion) {
-								LlamadaFuncion f = (LlamadaFuncion) v;
-								for(valor val: f.getOperadores()) {
-									if(val instanceof Operador) {
-										Operador op = (Operador) val;
-										if(op instanceof VariableID) {
-											VariableID var = (VariableID) op;
-											if(!variables.contains(var.getNombre())) {
-												error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-											}
-										}
-										else if(op instanceof ValorVector) {
-											ValorVector vector = (ValorVector) op;
-											if(vector.getIndice() instanceof VariableID) {
-												VariableID var = (VariableID) vector.getIndice();
-												if(!variables.contains(var.getNombre())) {
-													error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-												}
-											}
-										}
-										else if(op instanceof ValorMatriz) {
-											ValorMatriz m = (ValorMatriz) op;
-											ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
-											indicesMatriz.add(m.getPrimerIndice());
-											indicesMatriz.add(m.getSegundoIndice());
-											for(operacion operacionAux: indicesMatriz) {
-												if(operacionAux instanceof VariableID) {
-													VariableID var = (VariableID) operacionAux;
-													if(!variables.contains(var.getNombre())){
-														error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-													}
-												}
-											}
-										}
-									}	
-								}
-							}
-						}
 					}
 					else if(as.getOperador() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) as.getOperador();
@@ -3113,96 +3139,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}*/
 					else if(ac.getOperador() instanceof operacion) {
 						operacion o = (operacion) ac.getOperador();
-						ArrayList<valor> valores = new ArrayList<valor>();
-						valores = funciones.registrarValoresOperacion(o, valores);
-						
-						List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
-						if(variablesRegistroNoDeclaradas.size() != 0) {
-							for(ValorRegistro vr: variablesRegistroNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", vr.getNombre_registro()), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
-							}
-						}
-						List<VariableID> variablesNoDeclaradas = funciones.variablesDeclaradas(valores, variables);
-						if(variablesNoDeclaradas.size() != 0) {
-							for(VariableID v: variablesNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-							}
-						}
-						List<ValorVector> variablesVectorNoDeclaradas = funciones.variablesVectorDeclaradas(valores, variables);
-						if(variablesVectorNoDeclaradas.size() != 0) {
-							for(ValorVector v: variablesVectorNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre_vector()), v, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__NOMBRE_VECTOR);
-							}
-						}
-						List<ValorMatriz> variablesMatrizNoDeclaradas = funciones.variablesMatrizDeclaradas(valores, variables);
-						if(variablesMatrizNoDeclaradas.size() != 0) {
-							for(ValorMatriz m: variablesMatrizNoDeclaradas) {
-								error(readerMessages.getString("VARIABLE_NO_DECLARADA", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
-							}
-						}
-						
-						for(valor v: valores) {
-							if(v instanceof ValorVector) {
-								ValorVector vector = (ValorVector) v;
-								if(vector.getIndice() instanceof VariableID) {
-									VariableID var = (VariableID) vector.getIndice();
-									if(!variables.contains(var.getNombre())) {
-										error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-									}
-								}
-							}
-							else if(v instanceof ValorMatriz) {
-								ValorMatriz m = (ValorMatriz) v;
-								ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
-								indicesMatriz.add(m.getPrimerIndice());
-								indicesMatriz.add(m.getSegundoIndice());
-								for(operacion op: indicesMatriz) {
-									if(op instanceof VariableID) {
-										VariableID var = (VariableID) op;
-										if(!variables.contains(var.getNombre())) {
-											error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-										}
-									}
-								}
-							}
-							else if(v instanceof LlamadaFuncion) {
-								LlamadaFuncion f = (LlamadaFuncion) v;
-								for(valor val: f.getOperadores()) {
-									if(val instanceof Operador) {
-										Operador op = (Operador) val;
-										if(op instanceof VariableID) {
-											VariableID var = (VariableID) op;
-											if(!variables.contains(var.getNombre())) {
-												error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-											}
-										}
-										else if(op instanceof ValorVector) {
-											ValorVector vector = (ValorVector) op;
-											if(vector.getIndice() instanceof VariableID) {
-												VariableID var = (VariableID) vector.getIndice();
-												if(!variables.contains(var.getNombre())) {
-													error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-												}
-											}
-										}
-										else if(op instanceof ValorMatriz) {
-											ValorMatriz m = (ValorMatriz) op;
-											ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
-											indicesMatriz.add(m.getPrimerIndice());
-											indicesMatriz.add(m.getSegundoIndice());
-											for(operacion operacionAux: indicesMatriz) {
-												if(operacionAux instanceof VariableID) {
-													VariableID var = (VariableID) operacionAux;
-													if(!variables.contains(var.getNombre())) {
-														error(readerMessages.getString("VARIABLE_NO_DECLARADA", var.getNombre()), var, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-													}
-												}
-											}
-										}
-									}	
-								}
-							}
-						}
+						checkVariablesUsadasOperacionAux(o, variables);
 					}
 					else if(ac.getOperador() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) ac.getOperador();
@@ -4277,7 +4214,6 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	//Función auxiliar para evitar la repetición de código (DRY)
 	private void checkAsignacionesAux(Asignacion a, String tipo, operacion op, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,Map<String,String>> registrosCamposTipados) {
 					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(op instanceof NumeroEntero)) {
-						System.out.println("La clase es: " + op.getClass().getName());
 						if(op instanceof NumeroDecimal) {
 							errorAsignacion(a, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 						}

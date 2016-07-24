@@ -836,87 +836,26 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	//Función que devuelve true cuando hay almenos una operación que no sea lógica en la condición de un si
 	protected boolean checkOperacionLogica(operacion op) {
 		if(op instanceof  Suma) {
-			return false;
+			Suma suma = (Suma) op;
+			return checkOperacionLogica(suma.getLeft()) || checkOperacionLogica(suma.getRight());
 		}
 		else if(op instanceof Resta) {
-			return false;
+			Resta resta = (Resta) op;
+			return checkOperacionLogica(resta.getLeft()) || checkOperacionLogica(resta.getRight());
 		}
 		else if(op instanceof Multiplicacion) {
-			return false;
+			Multiplicacion multiplicacion = (Multiplicacion) op;
+			return checkOperacionLogica(multiplicacion.getLeft()) || checkOperacionLogica(multiplicacion.getRight());
 		}
 		else if(op instanceof Division) {
-			return false;
+			Division division = (Division) op;
+			return checkOperacionLogica(division.getLeft()) || checkOperacionLogica(division.getRight());
 		}
-		else if(op instanceof Negativa) {
-			return false;
-		}
-		else if(op instanceof Or) {
-			Or or = (Or) op;
-			if(or.getLeft() instanceof operacion && or.getRight() instanceof operacion) {
-				return checkOperacionLogica(or.getLeft()) && checkOperacionLogica(or.getRight());
-			}
-			else if(!(or.getLeft() instanceof operacion) && or.getRight() instanceof operacion) {
-				return checkOperacionLogica(or.getRight());
-			}
-			else if(or.getLeft() instanceof operacion && !(or.getRight() instanceof operacion)) {
-				return checkOperacionLogica(or.getLeft());
-			}
-			else {
-				return true;
-			}
-		}
-		else if(op instanceof And) {
-			And and = (And) op;
-			if(and.getLeft() instanceof operacion && and.getRight() instanceof operacion) {
-				return checkOperacionLogica(and.getLeft()) && checkOperacionLogica(and.getRight());
-			}
-			else if(!(and.getLeft() instanceof operacion) && and.getRight() instanceof operacion) {
-				return checkOperacionLogica(and.getRight());
-			}
-			else if(and.getLeft() instanceof operacion && !(and.getRight() instanceof operacion)) {
-				return checkOperacionLogica(and.getLeft());
-			}
-			else {
-				return true;
-			}
-		}
-		else if(op instanceof Comparacion) {
-			Comparacion comp = (Comparacion) op;
-			if(comp.getLeft() instanceof operacion && comp.getRight() instanceof operacion) {
-				return checkOperacionLogica(comp.getLeft()) && checkOperacionLogica(comp.getRight());
-			}
-			else if(!(comp.getLeft() instanceof operacion) && comp.getRight() instanceof operacion) {
-				return checkOperacionLogica(comp.getRight());
-			}
-			else if(comp.getLeft() instanceof operacion && !(comp.getRight() instanceof operacion)) {
-				return checkOperacionLogica(comp.getLeft());
-			}
-			else {
-				return true;
-			}
-		}
-		else if(op instanceof Igualdad) {
-			Igualdad igualdad = (Igualdad) op;
-			if(igualdad.getLeft() instanceof operacion && igualdad.getRight() instanceof operacion) {
-				return checkOperacionLogica(igualdad.getLeft()) && checkOperacionLogica(igualdad.getRight());
-			}
-			else if(!(igualdad.getLeft() instanceof operacion) && igualdad.getRight() instanceof operacion) {
-				return checkOperacionLogica(igualdad.getRight());
-			}
-			else if(igualdad.getLeft() instanceof operacion && !(igualdad.getRight() instanceof operacion)) {
-				return checkOperacionLogica(igualdad.getLeft());
-			}
-			else {
-				return true;
-			}
-		}
-		else if(op instanceof Negacion) {
-			//Lo pasamos por alto también porque lo validamos en otra función
+		else if(op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad) {
 			return true;
 		}
 		else {
-			//Lo pasamos por alto y lo validamos en otra función
-			return true;
+			return false;
 		}
 	}
 	
