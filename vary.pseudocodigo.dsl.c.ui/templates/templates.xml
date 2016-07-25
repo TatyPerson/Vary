@@ -28,7 +28,7 @@ var
 principal	
 var
 inicio 	
-fin_inicio
+fin_principal
 
 fin_algoritmo</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Archivo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Archivo" deleted="false" description="Plantilla para crear un archivo" enabled="true" name="Archivo">archivo de ${tipoArchivo}: ${nombreArchivo}</template>
@@ -42,7 +42,6 @@ fin_desde</template>
 var
 inicio
 devolver ${a}
-fin_inicio
 fin_funcion
 </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" context="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" deleted="false" description="Plantilla para crear una matriz" enabled="true" name="Matriz">matriz [${dimension1}][${dimension2}] de ${tipoMatriz}: ${nombreMatriz}</template>
@@ -80,7 +79,6 @@ fin_modulo</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" context="vary.pseudocodigo.dsl.c.VaryGrammar.Procedimiento" deleted="false" description="Plantilla para crear un procedimiento" enabled="true" name="Procedimiento">procedimiento ${nombre_procedimiento}(${E} ${entero}: a)
 var
 inicio
-fin_inicio
 fin_procedimiento</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" context="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" deleted="false" description="Plantilla para definir un registro" enabled="true" name="Registro">registro: ${NombreRegistro}
 	${tipoCampo}: ${nombreCampo}

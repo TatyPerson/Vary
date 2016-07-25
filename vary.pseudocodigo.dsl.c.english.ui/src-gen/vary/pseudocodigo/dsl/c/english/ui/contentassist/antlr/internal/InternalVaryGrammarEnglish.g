@@ -2811,11 +2811,11 @@ rule__NombreInterna__Alternatives
 )
 
     |(
-{ before(grammarAccess.getNombreInternaAccess().getSenKeyword_5()); }
+{ before(grammarAccess.getNombreInternaAccess().getSinKeyword_5()); }
 
-	'sen(' 
+	'sin(' 
 
-{ after(grammarAccess.getNombreInternaAccess().getSenKeyword_5()); }
+{ after(grammarAccess.getNombreInternaAccess().getSinKeyword_5()); }
 )
 
     |(

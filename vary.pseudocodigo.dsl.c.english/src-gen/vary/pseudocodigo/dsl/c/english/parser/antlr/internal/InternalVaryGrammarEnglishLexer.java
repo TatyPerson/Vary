@@ -137,15 +137,15 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g"; }
+    public String getGrammarFileName() { return "InternalVaryGrammarEnglish.g"; }
 
     // $ANTLR start "T__15"
     public final void mT__15() throws RecognitionException {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:11:7: ( 'Algorithm' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:11:9: 'Algorithm'
+            // InternalVaryGrammarEnglish.g:11:7: ( 'Algorithm' )
+            // InternalVaryGrammarEnglish.g:11:9: 'Algorithm'
             {
             match("Algorithm"); 
 
@@ -165,8 +165,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:12:7: ( 'import' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:12:9: 'import'
+            // InternalVaryGrammarEnglish.g:12:7: ( 'import' )
+            // InternalVaryGrammarEnglish.g:12:9: 'import'
             {
             match("import"); 
 
@@ -186,8 +186,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:13:7: ( 'end_import' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:13:9: 'end_import'
+            // InternalVaryGrammarEnglish.g:13:7: ( 'end_import' )
+            // InternalVaryGrammarEnglish.g:13:9: 'end_import'
             {
             match("end_import"); 
 
@@ -207,8 +207,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:14:7: ( 'const' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:14:9: 'const'
+            // InternalVaryGrammarEnglish.g:14:7: ( 'const' )
+            // InternalVaryGrammarEnglish.g:14:9: 'const'
             {
             match("const"); 
 
@@ -228,8 +228,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:15:7: ( 'type' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:15:9: 'type'
+            // InternalVaryGrammarEnglish.g:15:7: ( 'type' )
+            // InternalVaryGrammarEnglish.g:15:9: 'type'
             {
             match("type"); 
 
@@ -249,8 +249,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:16:7: ( 'var' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:16:9: 'var'
+            // InternalVaryGrammarEnglish.g:16:7: ( 'var' )
+            // InternalVaryGrammarEnglish.g:16:9: 'var'
             {
             match("var"); 
 
@@ -270,8 +270,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:17:7: ( 'end_algorithm' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:17:9: 'end_algorithm'
+            // InternalVaryGrammarEnglish.g:17:7: ( 'end_algorithm' )
+            // InternalVaryGrammarEnglish.g:17:9: 'end_algorithm'
             {
             match("end_algorithm"); 
 
@@ -291,8 +291,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:18:7: ( 'Module' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:18:9: 'Module'
+            // InternalVaryGrammarEnglish.g:18:7: ( 'Module' )
+            // InternalVaryGrammarEnglish.g:18:9: 'Module'
             {
             match("Module"); 
 
@@ -312,8 +312,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:19:7: ( 'export' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:19:9: 'export'
+            // InternalVaryGrammarEnglish.g:19:7: ( 'export' )
+            // InternalVaryGrammarEnglish.g:19:9: 'export'
             {
             match("export"); 
 
@@ -333,8 +333,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:20:7: ( 'end_export' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:20:9: 'end_export'
+            // InternalVaryGrammarEnglish.g:20:7: ( 'end_export' )
+            // InternalVaryGrammarEnglish.g:20:9: 'end_export'
             {
             match("end_export"); 
 
@@ -354,8 +354,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:21:7: ( 'end_module' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:21:9: 'end_module'
+            // InternalVaryGrammarEnglish.g:21:7: ( 'end_module' )
+            // InternalVaryGrammarEnglish.g:21:9: 'end_module'
             {
             match("end_module"); 
 
@@ -375,8 +375,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:22:7: ( 'implementation' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:22:9: 'implementation'
+            // InternalVaryGrammarEnglish.g:22:7: ( 'implementation' )
+            // InternalVaryGrammarEnglish.g:22:9: 'implementation'
             {
             match("implementation"); 
 
@@ -396,8 +396,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:23:7: ( 'end_implementation' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:23:9: 'end_implementation'
+            // InternalVaryGrammarEnglish.g:23:7: ( 'end_implementation' )
+            // InternalVaryGrammarEnglish.g:23:9: 'end_implementation'
             {
             match("end_implementation"); 
 
@@ -417,8 +417,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:24:7: ( 'procedure' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:24:9: 'procedure'
+            // InternalVaryGrammarEnglish.g:24:7: ( 'procedure' )
+            // InternalVaryGrammarEnglish.g:24:9: 'procedure'
             {
             match("procedure"); 
 
@@ -438,8 +438,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:25:7: ( ',' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:25:9: ','
+            // InternalVaryGrammarEnglish.g:25:7: ( ',' )
+            // InternalVaryGrammarEnglish.g:25:9: ','
             {
             match(','); 
 
@@ -458,8 +458,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:26:7: ( ')' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:26:9: ')'
+            // InternalVaryGrammarEnglish.g:26:7: ( ')' )
+            // InternalVaryGrammarEnglish.g:26:9: ')'
             {
             match(')'); 
 
@@ -478,8 +478,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:27:7: ( 'function' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:27:9: 'function'
+            // InternalVaryGrammarEnglish.g:27:7: ( 'function' )
+            // InternalVaryGrammarEnglish.g:27:9: 'function'
             {
             match("function"); 
 
@@ -499,8 +499,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:28:7: ( 'open' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:28:9: 'open'
+            // InternalVaryGrammarEnglish.g:28:7: ( 'open' )
+            // InternalVaryGrammarEnglish.g:28:9: 'open'
             {
             match("open"); 
 
@@ -520,8 +520,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:29:7: ( '(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:29:9: '('
+            // InternalVaryGrammarEnglish.g:29:7: ( '(' )
+            // InternalVaryGrammarEnglish.g:29:9: '('
             {
             match('('); 
 
@@ -540,8 +540,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:30:7: ( 'close' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:30:9: 'close'
+            // InternalVaryGrammarEnglish.g:30:7: ( 'close' )
+            // InternalVaryGrammarEnglish.g:30:9: 'close'
             {
             match("close"); 
 
@@ -561,8 +561,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:31:7: ( 'writing' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:31:9: 'writing'
+            // InternalVaryGrammarEnglish.g:31:7: ( 'writing' )
+            // InternalVaryGrammarEnglish.g:31:9: 'writing'
             {
             match("writing"); 
 
@@ -582,8 +582,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:32:7: ( 'reading' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:32:9: 'reading'
+            // InternalVaryGrammarEnglish.g:32:7: ( 'reading' )
+            // InternalVaryGrammarEnglish.g:32:9: 'reading'
             {
             match("reading"); 
 
@@ -603,8 +603,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:33:7: ( 'cos(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:33:9: 'cos('
+            // InternalVaryGrammarEnglish.g:33:7: ( 'cos(' )
+            // InternalVaryGrammarEnglish.g:33:9: 'cos('
             {
             match("cos("); 
 
@@ -624,8 +624,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:34:7: ( 'square(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:34:9: 'square('
+            // InternalVaryGrammarEnglish.g:34:7: ( 'square(' )
+            // InternalVaryGrammarEnglish.g:34:9: 'square('
             {
             match("square("); 
 
@@ -645,8 +645,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:35:7: ( 'exp(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:35:9: 'exp('
+            // InternalVaryGrammarEnglish.g:35:7: ( 'exp(' )
+            // InternalVaryGrammarEnglish.g:35:9: 'exp('
             {
             match("exp("); 
 
@@ -666,8 +666,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:36:7: ( 'ln(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:36:9: 'ln('
+            // InternalVaryGrammarEnglish.g:36:7: ( 'ln(' )
+            // InternalVaryGrammarEnglish.g:36:9: 'ln('
             {
             match("ln("); 
 
@@ -687,8 +687,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:37:7: ( 'log(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:37:9: 'log('
+            // InternalVaryGrammarEnglish.g:37:7: ( 'log(' )
+            // InternalVaryGrammarEnglish.g:37:9: 'log('
             {
             match("log("); 
 
@@ -708,10 +708,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:38:7: ( 'sen(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:38:9: 'sen('
+            // InternalVaryGrammarEnglish.g:38:7: ( 'sin(' )
+            // InternalVaryGrammarEnglish.g:38:9: 'sin('
             {
-            match("sen("); 
+            match("sin("); 
 
 
             }
@@ -729,8 +729,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:39:7: ( 'sqrt(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:39:9: 'sqrt('
+            // InternalVaryGrammarEnglish.g:39:7: ( 'sqrt(' )
+            // InternalVaryGrammarEnglish.g:39:9: 'sqrt('
             {
             match("sqrt("); 
 
@@ -750,8 +750,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:40:7: ( 'length(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:40:9: 'length('
+            // InternalVaryGrammarEnglish.g:40:7: ( 'length(' )
+            // InternalVaryGrammarEnglish.g:40:9: 'length('
             {
             match("length("); 
 
@@ -771,8 +771,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:41:7: ( 'concatena(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:41:9: 'concatena('
+            // InternalVaryGrammarEnglish.g:41:7: ( 'concatena(' )
+            // InternalVaryGrammarEnglish.g:41:9: 'concatena('
             {
             match("concatena("); 
 
@@ -792,8 +792,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:42:7: ( '.' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:42:9: '.'
+            // InternalVaryGrammarEnglish.g:42:7: ( '.' )
+            // InternalVaryGrammarEnglish.g:42:9: '.'
             {
             match('.'); 
 
@@ -812,8 +812,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:43:7: ( 'E' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:43:9: 'E'
+            // InternalVaryGrammarEnglish.g:43:7: ( 'E' )
+            // InternalVaryGrammarEnglish.g:43:9: 'E'
             {
             match('E'); 
 
@@ -832,8 +832,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:44:7: ( 'e' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:44:9: 'e'
+            // InternalVaryGrammarEnglish.g:44:7: ( 'e' )
+            // InternalVaryGrammarEnglish.g:44:9: 'e'
             {
             match('e'); 
 
@@ -852,8 +852,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:45:7: ( '+' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:45:9: '+'
+            // InternalVaryGrammarEnglish.g:45:7: ( '+' )
+            // InternalVaryGrammarEnglish.g:45:9: '+'
             {
             match('+'); 
 
@@ -872,8 +872,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:46:7: ( '-' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:46:9: '-'
+            // InternalVaryGrammarEnglish.g:46:7: ( '-' )
+            // InternalVaryGrammarEnglish.g:46:9: '-'
             {
             match('-'); 
 
@@ -892,8 +892,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:47:7: ( '=' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:47:9: '='
+            // InternalVaryGrammarEnglish.g:47:7: ( '=' )
+            // InternalVaryGrammarEnglish.g:47:9: '='
             {
             match('='); 
 
@@ -912,8 +912,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:48:7: ( 'vector' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:48:9: 'vector'
+            // InternalVaryGrammarEnglish.g:48:7: ( 'vector' )
+            // InternalVaryGrammarEnglish.g:48:9: 'vector'
             {
             match("vector"); 
 
@@ -933,8 +933,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:49:7: ( '[' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:49:9: '['
+            // InternalVaryGrammarEnglish.g:49:7: ( '[' )
+            // InternalVaryGrammarEnglish.g:49:9: '['
             {
             match('['); 
 
@@ -953,8 +953,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:50:7: ( ']' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:50:9: ']'
+            // InternalVaryGrammarEnglish.g:50:7: ( ']' )
+            // InternalVaryGrammarEnglish.g:50:9: ']'
             {
             match(']'); 
 
@@ -973,8 +973,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:51:7: ( 'of' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:51:9: 'of'
+            // InternalVaryGrammarEnglish.g:51:7: ( 'of' )
+            // InternalVaryGrammarEnglish.g:51:9: 'of'
             {
             match("of"); 
 
@@ -994,8 +994,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:52:7: ( ': ' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:52:9: ': '
+            // InternalVaryGrammarEnglish.g:52:7: ( ': ' )
+            // InternalVaryGrammarEnglish.g:52:9: ': '
             {
             match(": "); 
 
@@ -1015,8 +1015,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:53:7: ( 'matrix' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:53:9: 'matrix'
+            // InternalVaryGrammarEnglish.g:53:7: ( 'matrix' )
+            // InternalVaryGrammarEnglish.g:53:9: 'matrix'
             {
             match("matrix"); 
 
@@ -1036,8 +1036,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:54:7: ( '][' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:54:9: ']['
+            // InternalVaryGrammarEnglish.g:54:7: ( '][' )
+            // InternalVaryGrammarEnglish.g:54:9: ']['
             {
             match("]["); 
 
@@ -1057,8 +1057,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:55:7: ( 'registry:' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:55:9: 'registry:'
+            // InternalVaryGrammarEnglish.g:55:7: ( 'registry:' )
+            // InternalVaryGrammarEnglish.g:55:9: 'registry:'
             {
             match("registry:"); 
 
@@ -1078,8 +1078,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:56:7: ( 'end_registry' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:56:9: 'end_registry'
+            // InternalVaryGrammarEnglish.g:56:7: ( 'end_registry' )
+            // InternalVaryGrammarEnglish.g:56:9: 'end_registry'
             {
             match("end_registry"); 
 
@@ -1099,8 +1099,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:57:7: ( 'archive of ' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:57:9: 'archive of '
+            // InternalVaryGrammarEnglish.g:57:7: ( 'archive of ' )
+            // InternalVaryGrammarEnglish.g:57:9: 'archive of '
             {
             match("archive of "); 
 
@@ -1120,8 +1120,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:58:7: ( '{' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:58:9: '{'
+            // InternalVaryGrammarEnglish.g:58:7: ( '{' )
+            // InternalVaryGrammarEnglish.g:58:9: '{'
             {
             match('{'); 
 
@@ -1140,8 +1140,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:59:7: ( '}' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:59:9: '}'
+            // InternalVaryGrammarEnglish.g:59:7: ( '}' )
+            // InternalVaryGrammarEnglish.g:59:9: '}'
             {
             match('}'); 
 
@@ -1160,8 +1160,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:60:7: ( '..' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:60:9: '..'
+            // InternalVaryGrammarEnglish.g:60:7: ( '..' )
+            // InternalVaryGrammarEnglish.g:60:9: '..'
             {
             match(".."); 
 
@@ -1181,8 +1181,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:61:7: ( 'main' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:61:9: 'main'
+            // InternalVaryGrammarEnglish.g:61:7: ( 'main' )
+            // InternalVaryGrammarEnglish.g:61:9: 'main'
             {
             match("main"); 
 
@@ -1202,8 +1202,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:62:7: ( 'initiation' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:62:9: 'initiation'
+            // InternalVaryGrammarEnglish.g:62:7: ( 'initiation' )
+            // InternalVaryGrammarEnglish.g:62:9: 'initiation'
             {
             match("initiation"); 
 
@@ -1223,8 +1223,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:63:7: ( 'end_main' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:63:9: 'end_main'
+            // InternalVaryGrammarEnglish.g:63:7: ( 'end_main' )
+            // InternalVaryGrammarEnglish.g:63:9: 'end_main'
             {
             match("end_main"); 
 
@@ -1244,8 +1244,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:64:7: ( '<-' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:64:9: '<-'
+            // InternalVaryGrammarEnglish.g:64:7: ( '<-' )
+            // InternalVaryGrammarEnglish.g:64:9: '<-'
             {
             match("<-"); 
 
@@ -1265,8 +1265,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:65:7: ( 'write(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:65:9: 'write('
+            // InternalVaryGrammarEnglish.g:65:7: ( 'write(' )
+            // InternalVaryGrammarEnglish.g:65:9: 'write('
             {
             match("write("); 
 
@@ -1286,8 +1286,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:66:7: ( 'read(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:66:9: 'read('
+            // InternalVaryGrammarEnglish.g:66:7: ( 'read(' )
+            // InternalVaryGrammarEnglish.g:66:9: 'read('
             {
             match("read("); 
 
@@ -1307,8 +1307,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:67:7: ( 'if' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:67:9: 'if'
+            // InternalVaryGrammarEnglish.g:67:7: ( 'if' )
+            // InternalVaryGrammarEnglish.g:67:9: 'if'
             {
             match("if"); 
 
@@ -1328,8 +1328,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:68:7: ( 'if(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:68:9: 'if('
+            // InternalVaryGrammarEnglish.g:68:7: ( 'if(' )
+            // InternalVaryGrammarEnglish.g:68:9: 'if('
             {
             match("if("); 
 
@@ -1349,8 +1349,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:69:7: ( 'then' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:69:9: 'then'
+            // InternalVaryGrammarEnglish.g:69:7: ( 'then' )
+            // InternalVaryGrammarEnglish.g:69:9: 'then'
             {
             match("then"); 
 
@@ -1370,8 +1370,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:70:7: ( 'end_if' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:70:9: 'end_if'
+            // InternalVaryGrammarEnglish.g:70:7: ( 'end_if' )
+            // InternalVaryGrammarEnglish.g:70:9: 'end_if'
             {
             match("end_if"); 
 
@@ -1391,8 +1391,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:71:7: ( 'while' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:71:9: 'while'
+            // InternalVaryGrammarEnglish.g:71:7: ( 'while' )
+            // InternalVaryGrammarEnglish.g:71:9: 'while'
             {
             match("while"); 
 
@@ -1412,8 +1412,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:72:7: ( 'while(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:72:9: 'while('
+            // InternalVaryGrammarEnglish.g:72:7: ( 'while(' )
+            // InternalVaryGrammarEnglish.g:72:9: 'while('
             {
             match("while("); 
 
@@ -1433,8 +1433,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:73:7: ( 'do' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:73:9: 'do'
+            // InternalVaryGrammarEnglish.g:73:7: ( 'do' )
+            // InternalVaryGrammarEnglish.g:73:9: 'do'
             {
             match("do"); 
 
@@ -1454,8 +1454,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:74:7: ( 'end_while' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:74:9: 'end_while'
+            // InternalVaryGrammarEnglish.g:74:7: ( 'end_while' )
+            // InternalVaryGrammarEnglish.g:74:9: 'end_while'
             {
             match("end_while"); 
 
@@ -1475,8 +1475,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:75:7: ( 'repeat' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:75:9: 'repeat'
+            // InternalVaryGrammarEnglish.g:75:7: ( 'repeat' )
+            // InternalVaryGrammarEnglish.g:75:9: 'repeat'
             {
             match("repeat"); 
 
@@ -1496,8 +1496,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:76:7: ( 'until' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:76:9: 'until'
+            // InternalVaryGrammarEnglish.g:76:7: ( 'until' )
+            // InternalVaryGrammarEnglish.g:76:9: 'until'
             {
             match("until"); 
 
@@ -1517,8 +1517,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:77:7: ( 'until(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:77:9: 'until('
+            // InternalVaryGrammarEnglish.g:77:7: ( 'until(' )
+            // InternalVaryGrammarEnglish.g:77:9: 'until('
             {
             match("until("); 
 
@@ -1538,8 +1538,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:78:7: ( 'for' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:78:9: 'for'
+            // InternalVaryGrammarEnglish.g:78:7: ( 'for' )
+            // InternalVaryGrammarEnglish.g:78:9: 'for'
             {
             match("for"); 
 
@@ -1559,8 +1559,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:79:7: ( 'to' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:79:9: 'to'
+            // InternalVaryGrammarEnglish.g:79:7: ( 'to' )
+            // InternalVaryGrammarEnglish.g:79:9: 'to'
             {
             match("to"); 
 
@@ -1580,8 +1580,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:80:7: ( 'end_for' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:80:9: 'end_for'
+            // InternalVaryGrammarEnglish.g:80:7: ( 'end_for' )
+            // InternalVaryGrammarEnglish.g:80:9: 'end_for'
             {
             match("end_for"); 
 
@@ -1601,8 +1601,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:81:7: ( 'case' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:81:9: 'case'
+            // InternalVaryGrammarEnglish.g:81:7: ( 'case' )
+            // InternalVaryGrammarEnglish.g:81:9: 'case'
             {
             match("case"); 
 
@@ -1622,8 +1622,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:82:7: ( 'according_to' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:82:9: 'according_to'
+            // InternalVaryGrammarEnglish.g:82:7: ( 'according_to' )
+            // InternalVaryGrammarEnglish.g:82:9: 'according_to'
             {
             match("according_to"); 
 
@@ -1643,8 +1643,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:83:7: ( 'according_to(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:83:9: 'according_to('
+            // InternalVaryGrammarEnglish.g:83:7: ( 'according_to(' )
+            // InternalVaryGrammarEnglish.g:83:9: 'according_to('
             {
             match("according_to("); 
 
@@ -1664,8 +1664,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:84:7: ( 'otherwise:' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:84:9: 'otherwise:'
+            // InternalVaryGrammarEnglish.g:84:7: ( 'otherwise:' )
+            // InternalVaryGrammarEnglish.g:84:9: 'otherwise:'
             {
             match("otherwise:"); 
 
@@ -1685,8 +1685,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:85:7: ( 'end_according_to' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:85:9: 'end_according_to'
+            // InternalVaryGrammarEnglish.g:85:7: ( 'end_according_to' )
+            // InternalVaryGrammarEnglish.g:85:9: 'end_according_to'
             {
             match("end_according_to"); 
 
@@ -1706,8 +1706,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:86:7: ( 'integer' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:86:9: 'integer'
+            // InternalVaryGrammarEnglish.g:86:7: ( 'integer' )
+            // InternalVaryGrammarEnglish.g:86:9: 'integer'
             {
             match("integer"); 
 
@@ -1727,8 +1727,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:87:7: ( 'character' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:87:9: 'character'
+            // InternalVaryGrammarEnglish.g:87:7: ( 'character' )
+            // InternalVaryGrammarEnglish.g:87:9: 'character'
             {
             match("character"); 
 
@@ -1748,8 +1748,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:88:7: ( 'real' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:88:9: 'real'
+            // InternalVaryGrammarEnglish.g:88:7: ( 'real' )
+            // InternalVaryGrammarEnglish.g:88:9: 'real'
             {
             match("real"); 
 
@@ -1769,8 +1769,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:89:7: ( 'boolean' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:89:9: 'boolean'
+            // InternalVaryGrammarEnglish.g:89:7: ( 'boolean' )
+            // InternalVaryGrammarEnglish.g:89:9: 'boolean'
             {
             match("boolean"); 
 
@@ -1790,8 +1790,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:90:7: ( 'string' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:90:9: 'string'
+            // InternalVaryGrammarEnglish.g:90:7: ( 'string' )
+            // InternalVaryGrammarEnglish.g:90:9: 'string'
             {
             match("string"); 
 
@@ -1811,8 +1811,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:91:7: ( 'or' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:91:9: 'or'
+            // InternalVaryGrammarEnglish.g:91:7: ( 'or' )
+            // InternalVaryGrammarEnglish.g:91:9: 'or'
             {
             match("or"); 
 
@@ -1832,8 +1832,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:92:7: ( 'and' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:92:9: 'and'
+            // InternalVaryGrammarEnglish.g:92:7: ( 'and' )
+            // InternalVaryGrammarEnglish.g:92:9: 'and'
             {
             match("and"); 
 
@@ -1853,8 +1853,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:93:7: ( '!=' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:93:9: '!='
+            // InternalVaryGrammarEnglish.g:93:7: ( '!=' )
+            // InternalVaryGrammarEnglish.g:93:9: '!='
             {
             match("!="); 
 
@@ -1874,8 +1874,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:94:7: ( '<' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:94:9: '<'
+            // InternalVaryGrammarEnglish.g:94:7: ( '<' )
+            // InternalVaryGrammarEnglish.g:94:9: '<'
             {
             match('<'); 
 
@@ -1894,8 +1894,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:95:7: ( '>' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:95:9: '>'
+            // InternalVaryGrammarEnglish.g:95:7: ( '>' )
+            // InternalVaryGrammarEnglish.g:95:9: '>'
             {
             match('>'); 
 
@@ -1914,8 +1914,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:96:8: ( '>=' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:96:10: '>='
+            // InternalVaryGrammarEnglish.g:96:8: ( '>=' )
+            // InternalVaryGrammarEnglish.g:96:10: '>='
             {
             match(">="); 
 
@@ -1935,8 +1935,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:97:8: ( '<=' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:97:10: '<='
+            // InternalVaryGrammarEnglish.g:97:8: ( '<=' )
+            // InternalVaryGrammarEnglish.g:97:10: '<='
             {
             match("<="); 
 
@@ -1956,8 +1956,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__102;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:98:8: ( '*' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:98:10: '*'
+            // InternalVaryGrammarEnglish.g:98:8: ( '*' )
+            // InternalVaryGrammarEnglish.g:98:10: '*'
             {
             match('*'); 
 
@@ -1976,8 +1976,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__103;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:99:8: ( '/' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:99:10: '/'
+            // InternalVaryGrammarEnglish.g:99:8: ( '/' )
+            // InternalVaryGrammarEnglish.g:99:10: '/'
             {
             match('/'); 
 
@@ -1996,8 +1996,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__104;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:100:8: ( 'mod' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:100:10: 'mod'
+            // InternalVaryGrammarEnglish.g:100:8: ( 'mod' )
+            // InternalVaryGrammarEnglish.g:100:10: 'mod'
             {
             match("mod"); 
 
@@ -2017,8 +2017,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__105;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:101:8: ( 'div' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:101:10: 'div'
+            // InternalVaryGrammarEnglish.g:101:8: ( 'div' )
+            // InternalVaryGrammarEnglish.g:101:10: 'div'
             {
             match("div"); 
 
@@ -2038,8 +2038,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__106;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:102:8: ( 'no' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:102:10: 'no'
+            // InternalVaryGrammarEnglish.g:102:8: ( 'no' )
+            // InternalVaryGrammarEnglish.g:102:10: 'no'
             {
             match("no"); 
 
@@ -2059,8 +2059,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__107;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:103:8: ( 'else' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:103:10: 'else'
+            // InternalVaryGrammarEnglish.g:103:8: ( 'else' )
+            // InternalVaryGrammarEnglish.g:103:10: 'else'
             {
             match("else"); 
 
@@ -2080,8 +2080,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__108;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:104:8: ( 'return' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:104:10: 'return'
+            // InternalVaryGrammarEnglish.g:104:8: ( 'return' )
+            // InternalVaryGrammarEnglish.g:104:10: 'return'
             {
             match("return"); 
 
@@ -2101,8 +2101,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__109;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:105:8: ( 'end_function' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:105:10: 'end_function'
+            // InternalVaryGrammarEnglish.g:105:8: ( 'end_function' )
+            // InternalVaryGrammarEnglish.g:105:10: 'end_function'
             {
             match("end_function"); 
 
@@ -2122,8 +2122,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__110;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:106:8: ( 'end_procedure' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:106:10: 'end_procedure'
+            // InternalVaryGrammarEnglish.g:106:8: ( 'end_procedure' )
+            // InternalVaryGrammarEnglish.g:106:10: 'end_procedure'
             {
             match("end_procedure"); 
 
@@ -2143,8 +2143,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__111;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:107:8: ( 'I' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:107:10: 'I'
+            // InternalVaryGrammarEnglish.g:107:8: ( 'I' )
+            // InternalVaryGrammarEnglish.g:107:10: 'I'
             {
             match('I'); 
 
@@ -2163,8 +2163,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__112;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:108:8: ( 'I/O' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:108:10: 'I/O'
+            // InternalVaryGrammarEnglish.g:108:8: ( 'I/O' )
+            // InternalVaryGrammarEnglish.g:108:10: 'I/O'
             {
             match("I/O"); 
 
@@ -2184,8 +2184,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__113;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:109:8: ( 'O' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:109:10: 'O'
+            // InternalVaryGrammarEnglish.g:109:8: ( 'O' )
+            // InternalVaryGrammarEnglish.g:109:10: 'O'
             {
             match('O'); 
 
@@ -2204,8 +2204,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__114;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:110:8: ( 'true' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:110:10: 'true'
+            // InternalVaryGrammarEnglish.g:110:8: ( 'true' )
+            // InternalVaryGrammarEnglish.g:110:10: 'true'
             {
             match("true"); 
 
@@ -2225,8 +2225,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = T__115;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:111:8: ( 'false' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:111:10: 'false'
+            // InternalVaryGrammarEnglish.g:111:8: ( 'false' )
+            // InternalVaryGrammarEnglish.g:111:10: 'false'
             {
             match("false"); 
 
@@ -2246,12 +2246,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalVaryGrammarEnglish.g:6778:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalVaryGrammarEnglish.g:6778:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalVaryGrammarEnglish.g:6778:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -2264,7 +2264,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalVaryGrammarEnglish.g:6778:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2284,7 +2284,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 }
             } while (true);
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:40: ( ( '\\r' )? '\\n' )?
+            // InternalVaryGrammarEnglish.g:6778:40: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2293,9 +2293,9 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:41: ( '\\r' )? '\\n'
+                    // InternalVaryGrammarEnglish.g:6778:41: ( '\\r' )? '\\n'
                     {
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:41: ( '\\r' )?
+                    // InternalVaryGrammarEnglish.g:6778:41: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2304,7 +2304,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6778:41: '\\r'
+                            // InternalVaryGrammarEnglish.g:6778:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2336,10 +2336,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_NOMBRE_FUN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6780:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6780:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
+            // InternalVaryGrammarEnglish.g:6780:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
+            // InternalVaryGrammarEnglish.g:6780:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6780:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // InternalVaryGrammarEnglish.g:6780:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop4:
             do {
                 int alt4=2;
@@ -2352,7 +2352,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:
+            	    // InternalVaryGrammarEnglish.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -2389,11 +2389,11 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_CAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6782:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6782:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
+            // InternalVaryGrammarEnglish.g:6782:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"' )
+            // InternalVaryGrammarEnglish.g:6782:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )* '\"'
             {
             match('\"'); 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6782:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
+            // InternalVaryGrammarEnglish.g:6782:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' )*
             loop5:
             do {
                 int alt5=2;
@@ -2406,7 +2406,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:
+            	    // InternalVaryGrammarEnglish.g:
             	    {
             	    if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>=',' && input.LA(1)<='.')||(input.LA(1)>='0' && input.LA(1)<=':')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -2443,8 +2443,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_CAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6784:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6784:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
+            // InternalVaryGrammarEnglish.g:6784:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
+            // InternalVaryGrammarEnglish.g:6784:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
             {
             match('\''); 
             if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2473,12 +2473,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_COMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6786:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6786:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
+            // InternalVaryGrammarEnglish.g:6786:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
+            // InternalVaryGrammarEnglish.g:6786:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6786:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
+            // InternalVaryGrammarEnglish.g:6786:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -2491,7 +2491,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:
+            	    // InternalVaryGrammarEnglish.g:
             	    {
             	    if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -2529,10 +2529,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6788:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6788:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVaryGrammarEnglish.g:6788:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalVaryGrammarEnglish.g:6788:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6788:11: ( '^' )?
+            // InternalVaryGrammarEnglish.g:6788:11: ( '^' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2541,7 +2541,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6788:11: '^'
+                    // InternalVaryGrammarEnglish.g:6788:11: '^'
                     {
                     match('^'); 
 
@@ -2559,7 +2559,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6788:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVaryGrammarEnglish.g:6788:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop8:
             do {
                 int alt8=2;
@@ -2572,7 +2572,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:
+            	    // InternalVaryGrammarEnglish.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -2608,10 +2608,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6790:10: ( ( '0' .. '9' )+ )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6790:12: ( '0' .. '9' )+
+            // InternalVaryGrammarEnglish.g:6790:10: ( ( '0' .. '9' )+ )
+            // InternalVaryGrammarEnglish.g:6790:12: ( '0' .. '9' )+
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6790:12: ( '0' .. '9' )+
+            // InternalVaryGrammarEnglish.g:6790:12: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -2625,7 +2625,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6790:13: '0' .. '9'
+            	    // InternalVaryGrammarEnglish.g:6790:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2657,10 +2657,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalVaryGrammarEnglish.g:6792:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalVaryGrammarEnglish.g:6792:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalVaryGrammarEnglish.g:6792:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2678,10 +2678,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalVaryGrammarEnglish.g:6792:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalVaryGrammarEnglish.g:6792:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2697,7 +2697,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:21: '\\\\' .
+                    	    // InternalVaryGrammarEnglish.g:6792:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2705,7 +2705,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalVaryGrammarEnglish.g:6792:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2730,10 +2730,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalVaryGrammarEnglish.g:6792:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalVaryGrammarEnglish.g:6792:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2749,7 +2749,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:54: '\\\\' .
+                    	    // InternalVaryGrammarEnglish.g:6792:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2757,7 +2757,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6792:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalVaryGrammarEnglish.g:6792:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2800,12 +2800,12 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6794:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6794:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalVaryGrammarEnglish.g:6794:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalVaryGrammarEnglish.g:6794:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6794:24: ( options {greedy=false; } : . )*
+            // InternalVaryGrammarEnglish.g:6794:24: ( options {greedy=false; } : . )*
             loop13:
             do {
                 int alt13=2;
@@ -2830,7 +2830,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6794:52: .
+            	    // InternalVaryGrammarEnglish.g:6794:52: .
             	    {
             	    matchAny(); 
 
@@ -2860,10 +2860,10 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6796:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6796:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVaryGrammarEnglish.g:6796:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalVaryGrammarEnglish.g:6796:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6796:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVaryGrammarEnglish.g:6796:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -2877,7 +2877,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
 
                 switch (alt14) {
             	case 1 :
-            	    // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:
+            	    // InternalVaryGrammarEnglish.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -2917,8 +2917,8 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6798:16: ( . )
-            // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:6798:18: .
+            // InternalVaryGrammarEnglish.g:6798:16: ( . )
+            // InternalVaryGrammarEnglish.g:6798:18: .
             {
             matchAny(); 
 
@@ -2933,789 +2933,789 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:8: ( T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | RULE_SL_COMMENT | RULE_NOMBRE_FUN | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalVaryGrammarEnglish.g:1:8: ( T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | T__103 | T__104 | T__105 | T__106 | T__107 | T__108 | T__109 | T__110 | T__111 | T__112 | T__113 | T__114 | T__115 | RULE_SL_COMMENT | RULE_NOMBRE_FUN | RULE_CAD | RULE_CAR | RULE_COMENT | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt15=112;
         alt15 = dfa15.predict(input);
         switch (alt15) {
             case 1 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:10: T__15
+                // InternalVaryGrammarEnglish.g:1:10: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
             case 2 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:16: T__16
+                // InternalVaryGrammarEnglish.g:1:16: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
             case 3 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:22: T__17
+                // InternalVaryGrammarEnglish.g:1:22: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
             case 4 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:28: T__18
+                // InternalVaryGrammarEnglish.g:1:28: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
             case 5 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:34: T__19
+                // InternalVaryGrammarEnglish.g:1:34: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
             case 6 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:40: T__20
+                // InternalVaryGrammarEnglish.g:1:40: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
             case 7 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:46: T__21
+                // InternalVaryGrammarEnglish.g:1:46: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
             case 8 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:52: T__22
+                // InternalVaryGrammarEnglish.g:1:52: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
             case 9 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:58: T__23
+                // InternalVaryGrammarEnglish.g:1:58: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
             case 10 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:64: T__24
+                // InternalVaryGrammarEnglish.g:1:64: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
             case 11 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:70: T__25
+                // InternalVaryGrammarEnglish.g:1:70: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
             case 12 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:76: T__26
+                // InternalVaryGrammarEnglish.g:1:76: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
             case 13 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:82: T__27
+                // InternalVaryGrammarEnglish.g:1:82: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
             case 14 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:88: T__28
+                // InternalVaryGrammarEnglish.g:1:88: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
             case 15 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:94: T__29
+                // InternalVaryGrammarEnglish.g:1:94: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
             case 16 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:100: T__30
+                // InternalVaryGrammarEnglish.g:1:100: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
             case 17 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:106: T__31
+                // InternalVaryGrammarEnglish.g:1:106: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
             case 18 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:112: T__32
+                // InternalVaryGrammarEnglish.g:1:112: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
             case 19 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:118: T__33
+                // InternalVaryGrammarEnglish.g:1:118: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
             case 20 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:124: T__34
+                // InternalVaryGrammarEnglish.g:1:124: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
             case 21 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:130: T__35
+                // InternalVaryGrammarEnglish.g:1:130: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
             case 22 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:136: T__36
+                // InternalVaryGrammarEnglish.g:1:136: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
             case 23 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:142: T__37
+                // InternalVaryGrammarEnglish.g:1:142: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
             case 24 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:148: T__38
+                // InternalVaryGrammarEnglish.g:1:148: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
             case 25 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:154: T__39
+                // InternalVaryGrammarEnglish.g:1:154: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
             case 26 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:160: T__40
+                // InternalVaryGrammarEnglish.g:1:160: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
             case 27 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:166: T__41
+                // InternalVaryGrammarEnglish.g:1:166: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
             case 28 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:172: T__42
+                // InternalVaryGrammarEnglish.g:1:172: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
             case 29 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:178: T__43
+                // InternalVaryGrammarEnglish.g:1:178: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
             case 30 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:184: T__44
+                // InternalVaryGrammarEnglish.g:1:184: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
             case 31 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:190: T__45
+                // InternalVaryGrammarEnglish.g:1:190: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
             case 32 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:196: T__46
+                // InternalVaryGrammarEnglish.g:1:196: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
             case 33 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:202: T__47
+                // InternalVaryGrammarEnglish.g:1:202: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
             case 34 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:208: T__48
+                // InternalVaryGrammarEnglish.g:1:208: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
             case 35 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:214: T__49
+                // InternalVaryGrammarEnglish.g:1:214: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
             case 36 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:220: T__50
+                // InternalVaryGrammarEnglish.g:1:220: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
             case 37 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:226: T__51
+                // InternalVaryGrammarEnglish.g:1:226: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
             case 38 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:232: T__52
+                // InternalVaryGrammarEnglish.g:1:232: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
             case 39 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:238: T__53
+                // InternalVaryGrammarEnglish.g:1:238: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
             case 40 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:244: T__54
+                // InternalVaryGrammarEnglish.g:1:244: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
             case 41 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:250: T__55
+                // InternalVaryGrammarEnglish.g:1:250: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
             case 42 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:256: T__56
+                // InternalVaryGrammarEnglish.g:1:256: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
             case 43 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:262: T__57
+                // InternalVaryGrammarEnglish.g:1:262: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
             case 44 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:268: T__58
+                // InternalVaryGrammarEnglish.g:1:268: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
             case 45 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:274: T__59
+                // InternalVaryGrammarEnglish.g:1:274: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
             case 46 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:280: T__60
+                // InternalVaryGrammarEnglish.g:1:280: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
             case 47 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:286: T__61
+                // InternalVaryGrammarEnglish.g:1:286: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
             case 48 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:292: T__62
+                // InternalVaryGrammarEnglish.g:1:292: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
             case 49 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:298: T__63
+                // InternalVaryGrammarEnglish.g:1:298: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
             case 50 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:304: T__64
+                // InternalVaryGrammarEnglish.g:1:304: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
             case 51 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:310: T__65
+                // InternalVaryGrammarEnglish.g:1:310: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
             case 52 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:316: T__66
+                // InternalVaryGrammarEnglish.g:1:316: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
             case 53 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:322: T__67
+                // InternalVaryGrammarEnglish.g:1:322: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
             case 54 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:328: T__68
+                // InternalVaryGrammarEnglish.g:1:328: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
             case 55 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:334: T__69
+                // InternalVaryGrammarEnglish.g:1:334: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
             case 56 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:340: T__70
+                // InternalVaryGrammarEnglish.g:1:340: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
             case 57 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:346: T__71
+                // InternalVaryGrammarEnglish.g:1:346: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
             case 58 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:352: T__72
+                // InternalVaryGrammarEnglish.g:1:352: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
             case 59 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:358: T__73
+                // InternalVaryGrammarEnglish.g:1:358: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
             case 60 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:364: T__74
+                // InternalVaryGrammarEnglish.g:1:364: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
             case 61 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:370: T__75
+                // InternalVaryGrammarEnglish.g:1:370: T__75
                 {
                 mT__75(); 
 
                 }
                 break;
             case 62 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:376: T__76
+                // InternalVaryGrammarEnglish.g:1:376: T__76
                 {
                 mT__76(); 
 
                 }
                 break;
             case 63 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:382: T__77
+                // InternalVaryGrammarEnglish.g:1:382: T__77
                 {
                 mT__77(); 
 
                 }
                 break;
             case 64 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:388: T__78
+                // InternalVaryGrammarEnglish.g:1:388: T__78
                 {
                 mT__78(); 
 
                 }
                 break;
             case 65 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:394: T__79
+                // InternalVaryGrammarEnglish.g:1:394: T__79
                 {
                 mT__79(); 
 
                 }
                 break;
             case 66 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:400: T__80
+                // InternalVaryGrammarEnglish.g:1:400: T__80
                 {
                 mT__80(); 
 
                 }
                 break;
             case 67 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:406: T__81
+                // InternalVaryGrammarEnglish.g:1:406: T__81
                 {
                 mT__81(); 
 
                 }
                 break;
             case 68 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:412: T__82
+                // InternalVaryGrammarEnglish.g:1:412: T__82
                 {
                 mT__82(); 
 
                 }
                 break;
             case 69 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:418: T__83
+                // InternalVaryGrammarEnglish.g:1:418: T__83
                 {
                 mT__83(); 
 
                 }
                 break;
             case 70 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:424: T__84
+                // InternalVaryGrammarEnglish.g:1:424: T__84
                 {
                 mT__84(); 
 
                 }
                 break;
             case 71 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:430: T__85
+                // InternalVaryGrammarEnglish.g:1:430: T__85
                 {
                 mT__85(); 
 
                 }
                 break;
             case 72 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:436: T__86
+                // InternalVaryGrammarEnglish.g:1:436: T__86
                 {
                 mT__86(); 
 
                 }
                 break;
             case 73 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:442: T__87
+                // InternalVaryGrammarEnglish.g:1:442: T__87
                 {
                 mT__87(); 
 
                 }
                 break;
             case 74 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:448: T__88
+                // InternalVaryGrammarEnglish.g:1:448: T__88
                 {
                 mT__88(); 
 
                 }
                 break;
             case 75 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:454: T__89
+                // InternalVaryGrammarEnglish.g:1:454: T__89
                 {
                 mT__89(); 
 
                 }
                 break;
             case 76 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:460: T__90
+                // InternalVaryGrammarEnglish.g:1:460: T__90
                 {
                 mT__90(); 
 
                 }
                 break;
             case 77 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:466: T__91
+                // InternalVaryGrammarEnglish.g:1:466: T__91
                 {
                 mT__91(); 
 
                 }
                 break;
             case 78 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:472: T__92
+                // InternalVaryGrammarEnglish.g:1:472: T__92
                 {
                 mT__92(); 
 
                 }
                 break;
             case 79 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:478: T__93
+                // InternalVaryGrammarEnglish.g:1:478: T__93
                 {
                 mT__93(); 
 
                 }
                 break;
             case 80 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:484: T__94
+                // InternalVaryGrammarEnglish.g:1:484: T__94
                 {
                 mT__94(); 
 
                 }
                 break;
             case 81 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:490: T__95
+                // InternalVaryGrammarEnglish.g:1:490: T__95
                 {
                 mT__95(); 
 
                 }
                 break;
             case 82 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:496: T__96
+                // InternalVaryGrammarEnglish.g:1:496: T__96
                 {
                 mT__96(); 
 
                 }
                 break;
             case 83 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:502: T__97
+                // InternalVaryGrammarEnglish.g:1:502: T__97
                 {
                 mT__97(); 
 
                 }
                 break;
             case 84 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:508: T__98
+                // InternalVaryGrammarEnglish.g:1:508: T__98
                 {
                 mT__98(); 
 
                 }
                 break;
             case 85 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:514: T__99
+                // InternalVaryGrammarEnglish.g:1:514: T__99
                 {
                 mT__99(); 
 
                 }
                 break;
             case 86 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:520: T__100
+                // InternalVaryGrammarEnglish.g:1:520: T__100
                 {
                 mT__100(); 
 
                 }
                 break;
             case 87 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:527: T__101
+                // InternalVaryGrammarEnglish.g:1:527: T__101
                 {
                 mT__101(); 
 
                 }
                 break;
             case 88 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:534: T__102
+                // InternalVaryGrammarEnglish.g:1:534: T__102
                 {
                 mT__102(); 
 
                 }
                 break;
             case 89 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:541: T__103
+                // InternalVaryGrammarEnglish.g:1:541: T__103
                 {
                 mT__103(); 
 
                 }
                 break;
             case 90 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:548: T__104
+                // InternalVaryGrammarEnglish.g:1:548: T__104
                 {
                 mT__104(); 
 
                 }
                 break;
             case 91 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:555: T__105
+                // InternalVaryGrammarEnglish.g:1:555: T__105
                 {
                 mT__105(); 
 
                 }
                 break;
             case 92 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:562: T__106
+                // InternalVaryGrammarEnglish.g:1:562: T__106
                 {
                 mT__106(); 
 
                 }
                 break;
             case 93 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:569: T__107
+                // InternalVaryGrammarEnglish.g:1:569: T__107
                 {
                 mT__107(); 
 
                 }
                 break;
             case 94 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:576: T__108
+                // InternalVaryGrammarEnglish.g:1:576: T__108
                 {
                 mT__108(); 
 
                 }
                 break;
             case 95 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:583: T__109
+                // InternalVaryGrammarEnglish.g:1:583: T__109
                 {
                 mT__109(); 
 
                 }
                 break;
             case 96 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:590: T__110
+                // InternalVaryGrammarEnglish.g:1:590: T__110
                 {
                 mT__110(); 
 
                 }
                 break;
             case 97 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:597: T__111
+                // InternalVaryGrammarEnglish.g:1:597: T__111
                 {
                 mT__111(); 
 
                 }
                 break;
             case 98 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:604: T__112
+                // InternalVaryGrammarEnglish.g:1:604: T__112
                 {
                 mT__112(); 
 
                 }
                 break;
             case 99 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:611: T__113
+                // InternalVaryGrammarEnglish.g:1:611: T__113
                 {
                 mT__113(); 
 
                 }
                 break;
             case 100 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:618: T__114
+                // InternalVaryGrammarEnglish.g:1:618: T__114
                 {
                 mT__114(); 
 
                 }
                 break;
             case 101 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:625: T__115
+                // InternalVaryGrammarEnglish.g:1:625: T__115
                 {
                 mT__115(); 
 
                 }
                 break;
             case 102 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:632: RULE_SL_COMMENT
+                // InternalVaryGrammarEnglish.g:1:632: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 103 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:648: RULE_NOMBRE_FUN
+                // InternalVaryGrammarEnglish.g:1:648: RULE_NOMBRE_FUN
                 {
                 mRULE_NOMBRE_FUN(); 
 
                 }
                 break;
             case 104 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:664: RULE_CAD
+                // InternalVaryGrammarEnglish.g:1:664: RULE_CAD
                 {
                 mRULE_CAD(); 
 
                 }
                 break;
             case 105 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:673: RULE_CAR
+                // InternalVaryGrammarEnglish.g:1:673: RULE_CAR
                 {
                 mRULE_CAR(); 
 
                 }
                 break;
             case 106 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:682: RULE_COMENT
+                // InternalVaryGrammarEnglish.g:1:682: RULE_COMENT
                 {
                 mRULE_COMENT(); 
 
                 }
                 break;
             case 107 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:694: RULE_ID
+                // InternalVaryGrammarEnglish.g:1:694: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 108 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:702: RULE_INT
+                // InternalVaryGrammarEnglish.g:1:702: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 109 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:711: RULE_STRING
+                // InternalVaryGrammarEnglish.g:1:711: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 110 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:723: RULE_ML_COMMENT
+                // InternalVaryGrammarEnglish.g:1:723: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 111 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:739: RULE_WS
+                // InternalVaryGrammarEnglish.g:1:739: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 112 :
-                // ../vary.pseudocodigo.dsl.c.english/src-gen/vary/pseudocodigo/dsl/c/english/parser/antlr/internal/InternalVaryGrammarEnglish.g:1:747: RULE_ANY_OTHER
+                // InternalVaryGrammarEnglish.g:1:747: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3757,7 +3757,7 @@ public class InternalVaryGrammarEnglishLexer extends Lexer {
             "",
             "\1\63\7\uffff\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\7\62\1\122\11\62\1\121\10\62",
             "\1\63\7\uffff\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\4\62\1\123\25\62",
-            "\1\63\7\uffff\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\4\62\1\125\13\62\1\124\2\62\1\126\6\62",
+            "\1\63\7\uffff\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\10\62\1\125\7\62\1\124\2\62\1\126\6\62",
             "\1\63\7\uffff\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\4\62\1\131\10\62\1\127\1\130\13\62",
             "\1\132",
             "\1\63\7\uffff\12\62\7\uffff\32\62\4\uffff\1\62\1\uffff\32\62",

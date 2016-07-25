@@ -33,4 +33,5 @@ Bundle-Activator: vary.pseudocodigo.dsl.c.english.ui.internal.VaryGrammarEnglish
 Export-Package: vary.pseudocodigo.dsl.c.english.ui.internal,
  vary.pseudocodigo.dsl.c.english.ui.quickfix,
  vary.pseudocodigo.dsl.c.english.ui.contentassist,
- vary.pseudocodigo.dsl.c.english.ui.contentassist.antlr
+ vary.pseudocodigo.dsl.c.english.ui.contentassist.antlr,
+ vary.pseudocodigo.dsl.c.english.ui.contentassist.antlr.internal

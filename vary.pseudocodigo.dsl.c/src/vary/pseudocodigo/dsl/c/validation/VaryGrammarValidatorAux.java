@@ -1,6 +1,7 @@
 package vary.pseudocodigo.dsl.c.validation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -302,30 +303,31 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return parametrosDeclarados;
 	}
 	
-	private String prioridadTipoOperacion(String tipo1, String tipo2, ReadMessagesValidatorInterface readerMessages) {
-		String salida = "";
-		if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-			salida = tipo1;
+	private String prioridadTipoOperacion(List<String> tipos, ReadMessagesValidatorInterface readerMessages) {
+		if(Collections.frequency(tipos, readerMessages.getBundle().getString("TIPO_ENTERO")) == tipos.size()) {
+			return readerMessages.getBundle().getString("TIPO_ENTERO");
+		} else if(Collections.frequency(tipos, readerMessages.getBundle().getString("TIPO_REAL")) == tipos.size()) {
+			return readerMessages.getBundle().getString("TIPO_REAL");
+		} else if(Collections.frequency(tipos, readerMessages.getBundle().getString("TIPO_LOGICO")) == tipos.size()) {
+			return readerMessages.getBundle().getString("TIPO_LOGICO");
+		} else if(Collections.frequency(tipos, readerMessages.getBundle().getString("TIPO_CADENA")) == tipos.size()) {
+			return readerMessages.getBundle().getString("TIPO_CADENA");
+		} else if(Collections.frequency(tipos, readerMessages.getBundle().getString("TIPO_CARACTER")) == tipos.size()) {
+			return readerMessages.getBundle().getString("TIPO_CARACTER");
+		} else {
+			//En otro caso, devolvemos por prioridades
+			if(tipos.contains(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+				return readerMessages.getBundle().getString("TIPO_CADENA");
+			} else if(tipos.contains(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+				return readerMessages.getBundle().getString("TIPO_LOGICO");
+			} else if(tipos.contains(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+				return readerMessages.getBundle().getString("TIPO_CARACTER");
+			} else if(tipos.contains(readerMessages.getBundle().getString("TIPO_REAL"))) {
+				return readerMessages.getBundle().getString("TIPO_REAL");
+			} else {
+				return readerMessages.getBundle().getString("TIPO_ENTERO");
+			}
 		}
-		else if(tipo2.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-			salida = tipo2;
-		}
-		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			salida = tipo1;
-		}
-		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-			salida = tipo2;
-		}
-		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			salida = tipo2;
-		}
-		else if(tipo2.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && tipo1.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo1.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			salida = tipo1;
-		}
-		else if(tipo1.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && tipo2.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || tipo2.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			salida = tipo2;
-		}
-		return salida;
 	}
 	
 	private String getValorTotalOperacion(List<valor> valores, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, ReadMessagesValidatorInterface readerMessages) {
@@ -384,8 +386,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				}
 			}
 		}
-		//Por ahora solo 2 operadores
-		return prioridadTipoOperacion(tipos.get(0), tipos.get(1), readerMessages);
+		return prioridadTipoOperacion(tipos, readerMessages);
 	}
 
 	protected void registrarParametros(List<operacion> operaciones, List<String> nombresVariables, Map<String,String> nombresVariablesCampos, List<String> tiposNativos, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, List<String> nombresValoresComplejos, ReadMessagesValidatorInterface readerMessages) {

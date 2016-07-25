@@ -3336,6 +3336,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					error(readerMessages.getString("FUNCION_NO_DECLARADA", l.getNombre()), l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 				}
 				else if(!parametros.get(funciones.indexOf(l.getNombre())).contains(l.getOperadores().size())) {
+					System.out.println("Numero de parametros raro");
 					error(readerMessages.getString("FUNCION_NUMERO_PARAMETROS", parametros.get(funciones.indexOf(l.getNombre()))), l, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
 				}
 			}
@@ -3343,13 +3344,16 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				Asignacion a = (Asignacion) s;
 				if(a instanceof AsignacionNormal) {
 					AsignacionNormal an = (AsignacionNormal) a;
-					if(an.getOperador() instanceof LlamadaFuncion) {
-						LlamadaFuncion f = (LlamadaFuncion) an.getOperador();
-						if(!funciones.contains(f.getNombre())) {
-							error(readerMessages.getString("FUNCION_NO_DECLARADA", f.getNombre()), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
-						}
-						else if(!parametros.get(funciones.indexOf(f.getNombre())).contains(f.getOperadores().size())) {
-							error(readerMessages.getString("FUNCION_NUMERO_PARAMETROS", parametros.get(funciones.indexOf(f.getNombre()))), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+					if(an.getOperador() instanceof OperacionCompleta) {
+						OperacionCompleta op = (OperacionCompleta) an.getOperador();
+						if(op.getValor_operacion() instanceof LlamadaFuncion) {
+							LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
+							if(!funciones.contains(f.getNombre())) {
+								error(readerMessages.getString("FUNCION_NO_DECLARADA", f.getNombre()), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+							}
+							else if(!parametros.get(funciones.indexOf(f.getNombre())).contains(f.getOperadores().size())) {
+								error(readerMessages.getString("FUNCION_NUMERO_PARAMETROS", parametros.get(funciones.indexOf(f.getNombre()))), f, DiagramapseudocodigoPackage.Literals.LLAMADA_FUNCION__NOMBRE);
+							}
 						}
 					}
 				}
@@ -3967,24 +3971,54 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		if(s instanceof Funcion) {
 			Funcion f = (Funcion) s;
 			String tipoDevuelve = f.getTipo();
-			if(f.getDevuelve().getDevuelve() instanceof VariableID) {
-				VariableID v = (VariableID) f.getDevuelve().getDevuelve();
-				String nombreVar = v.getNombre();
-				//Buscamos las variables en las declaraciones y en los parametros para averiguar de que tipo es
-				Map<String,String> variables = funciones.registrarVariablesTipadas(f.getDeclaracion());
-				//Registramos los parámetros
-				funciones.getTiposCabecera(f.getParametrofuncion(), variables);
-				
-				//Comprobamos que la variable que se quiere devolver este definida y sea del tipo correcto.
-				if(!variables.containsKey(nombreVar)) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
-				}
-				else if(!variables.get(nombreVar).equals(tipoDevuelve)) {
-					if(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-						warning(readerMessages.getBundle().getString("PERDIDA_PRECISION"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+			if(f.getDevuelve().getDevuelve() instanceof OperacionCompleta) {
+				OperacionCompleta op = (OperacionCompleta) f.getDevuelve().getDevuelve();
+				if(op.getValor_operacion() instanceof VariableID) {
+					VariableID v = (VariableID) op.getValor_operacion();
+					String nombreVar = v.getNombre();
+					//Buscamos las variables en las declaraciones y en los parametros para averiguar de que tipo es
+					Map<String,String> variables = funciones.registrarVariablesTipadas(f.getDeclaracion());
+					//Registramos los parámetros
+					funciones.getTiposCabecera(f.getParametrofuncion(), variables);
+					
+					//Comprobamos que la variable que se quiere devolver este definida y sea del tipo correcto.
+					if(!variables.containsKey(nombreVar)) {
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
 					}
-					else if(!(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_ENTERO")))  || !(tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+					else if(!variables.get(nombreVar).equals(tipoDevuelve)) {
+						if(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+							warning(readerMessages.getBundle().getString("PERDIDA_PRECISION"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+						else if(!(variables.get(nombreVar).equals(readerMessages.getBundle().getString("TIPO_ENTERO")))  || !(tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+							error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
+						}
+					}
+				} else if(op.getValor_operacion() instanceof NumeroEntero) {
+					NumeroEntero entero = (NumeroEntero) op.getValor_operacion();
+					if(!tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), entero, DiagramapseudocodigoPackage.Literals.NUMERO_ENTERO__VALOR);
+					}
+				} else if(op.getValor_operacion() instanceof NumeroDecimal) {
+					NumeroDecimal real = (NumeroDecimal) op.getValor_operacion();
+					if(!tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_REAL")) && tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						warning(readerMessages.getBundle().getString("PERDIDA_PRECISION"), real, DiagramapseudocodigoPackage.Literals.NUMERO_DECIMAL__VALOR);
+					} else if(!tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), real, DiagramapseudocodigoPackage.Literals.NUMERO_DECIMAL__VALOR);
+					}
+				} else if(op.getValor_operacion() instanceof ConstCadena) {
+					ConstCadena cadena = (ConstCadena) op.getValor_operacion();
+					if(!tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), cadena, DiagramapseudocodigoPackage.Literals.CONST_CADENA__CONTENIDO);
+					}
+				} else if(op.getValor_operacion() instanceof ValorBooleano) {
+					ValorBooleano logico = (ValorBooleano) op.getValor_operacion();
+					if(!tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), logico, DiagramapseudocodigoPackage.Literals.VALOR_BOOLEANO__VALOR);
+					}
+				} else if(op.getValor_operacion() instanceof Caracter) {
+					Caracter caracter = (Caracter) op.getValor_operacion();
+					if(!tipoDevuelve.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+						error(readerMessages.getBundle().getString("TIPOS_INCOMPATIBLES"), caracter, DiagramapseudocodigoPackage.Literals.CARACTER__CONTENIDO);
 					}
 				}
 			}

@@ -107,8 +107,8 @@ ModoApertura returns ModoApertura:
 
 terminal NOMBRE_FUN: ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ('(');
 
-NombreInterna returns NombreInterna:
-	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sen(' | 'sqrt(' | 'length(' | 'concatena(';
+NombreInterna returns ecore::EString:
+	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'concatena(';
 
 
 EInt returns ecore::EInt:
