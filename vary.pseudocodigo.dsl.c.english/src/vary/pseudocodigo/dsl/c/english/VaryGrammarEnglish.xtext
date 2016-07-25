@@ -157,7 +157,7 @@ Registro returns Registro:
 	'end_registry';
 	
 Archivo returns Archivo:
-	'archive of ' tipo=Tipo': ' nombre=EString;
+	'file of ' tipo=Tipo': ' nombre=EString;
 	
 
 Enumerado returns Enumerado:

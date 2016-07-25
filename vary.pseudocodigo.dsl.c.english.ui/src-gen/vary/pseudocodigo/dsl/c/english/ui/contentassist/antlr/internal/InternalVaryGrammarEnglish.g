@@ -7118,11 +7118,11 @@ rule__Archivo__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getArchivoAccess().getArchiveOfKeyword_0()); }
+{ before(grammarAccess.getArchivoAccess().getFileOfKeyword_0()); }
 
-	'archive of ' 
+	'file of ' 
 
-{ after(grammarAccess.getArchivoAccess().getArchiveOfKeyword_0()); }
+{ after(grammarAccess.getArchivoAccess().getFileOfKeyword_0()); }
 )
 
 ;

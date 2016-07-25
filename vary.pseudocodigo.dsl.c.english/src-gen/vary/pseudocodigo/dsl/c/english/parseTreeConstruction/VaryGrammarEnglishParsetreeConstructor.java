@@ -5424,11 +5424,11 @@ protected class Registro_End_registryKeyword_3 extends KeywordToken  {
 /************ begin Rule Archivo ****************
  *
  * Archivo:
- * 	'archive of ' tipo=Tipo ': ' nombre=EString;
+ * 	'file of ' tipo=Tipo ': ' nombre=EString;
  *
  **/
 
-// 'archive of ' tipo=Tipo ': ' nombre=EString
+// 'file of ' tipo=Tipo ': ' nombre=EString
 protected class Archivo_Group extends GroupToken {
 	
 	public Archivo_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5457,16 +5457,16 @@ protected class Archivo_Group extends GroupToken {
 
 }
 
-// 'archive of '
-protected class Archivo_ArchiveOfKeyword_0 extends KeywordToken  {
+// 'file of '
+protected class Archivo_FileOfKeyword_0 extends KeywordToken  {
 	
-	public Archivo_ArchiveOfKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Archivo_FileOfKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getArchivoAccess().getArchiveOfKeyword_0();
+		return grammarAccess.getArchivoAccess().getFileOfKeyword_0();
 	}
 
     @Override
@@ -5518,7 +5518,7 @@ protected class Archivo_TipoAssignment_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Archivo_ArchiveOfKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Archivo_FileOfKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	

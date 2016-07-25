@@ -2005,9 +2005,9 @@ ruleArchivo returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='archive of ' 
+(	otherlv_0='file of ' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getArchivoAccess().getArchiveOfKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getArchivoAccess().getFileOfKeyword_0());
     }
 (
 (

@@ -1212,7 +1212,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	public class ArchivoElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cArchiveOfKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFileOfKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cTipoAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTipoTipoParserRuleCall_1_0 = (RuleCall)cTipoAssignment_1.eContents().get(0);
 		private final Keyword cColonSpaceKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -1220,14 +1220,14 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cNombreEStringParserRuleCall_3_0 = (RuleCall)cNombreAssignment_3.eContents().get(0);
 		
 		//Archivo:
-		//	'archive of ' tipo=Tipo ': ' nombre=EString;
+		//	'file of ' tipo=Tipo ': ' nombre=EString;
 		@Override public ParserRule getRule() { return rule; }
 
-		//'archive of ' tipo=Tipo ': ' nombre=EString
+		//'file of ' tipo=Tipo ': ' nombre=EString
 		public Group getGroup() { return cGroup; }
 
-		//'archive of '
-		public Keyword getArchiveOfKeyword_0() { return cArchiveOfKeyword_0; }
+		//'file of '
+		public Keyword getFileOfKeyword_0() { return cFileOfKeyword_0; }
 
 		//tipo=Tipo
 		public Assignment getTipoAssignment_1() { return cTipoAssignment_1; }
@@ -4762,7 +4762,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//Archivo:
-	//	'archive of ' tipo=Tipo ': ' nombre=EString;
+	//	'file of ' tipo=Tipo ': ' nombre=EString;
 	public ArchivoElements getArchivoAccess() {
 		return pArchivo;
 	}

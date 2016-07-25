@@ -34,7 +34,7 @@ initiation //Body main algorithm
 end_initiation
 
 end_algorithm</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo" deleted="false" description="Template to create a archive" enabled="true" name="Archive">archive of ${typeArchive}: ${nameArchive}</template>
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo" deleted="false" description="Template to create a file" enabled="true" name="File">file of ${typeFile}: ${nameFile}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Asignacion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Asignacion" deleted="false" description="Template to create an assignment" enabled="true" name="Assignment">${nameVariable} &lt;- ${nameVariable2} </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Declaracion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Declaracion" deleted="false" description="Template to declare a variable" enabled="true" name="Variable Declaration">${nameType}: ${nameVariable}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.desde" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.desde" deleted="false" description="Template to define a for loop" enabled="true" name="For">for ${iterador} &lt;- ${InitialValue} to ${top} do

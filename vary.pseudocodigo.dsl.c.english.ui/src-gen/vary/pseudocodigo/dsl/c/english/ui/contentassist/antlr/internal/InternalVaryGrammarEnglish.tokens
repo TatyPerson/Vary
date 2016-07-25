@@ -27,7 +27,6 @@
 'according_to'=111
 'according_to('=40
 'and'=16
-'archive of '=87
 'boolean'=44
 'case'=108
 'character'=42
@@ -56,6 +55,7 @@
 'exp('=27
 'export'=65
 'false'=56
+'file of '=87
 'for'=105
 'function'=73
 'if'=99
