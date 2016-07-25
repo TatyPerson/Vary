@@ -112,7 +112,7 @@ public interface VaryGeneratorInterface {
 	CharSequence generate(VariableID variable);
 	CharSequence generate(Leer leer);
 	CharSequence generate(Escribir escribir);
-	CharSequence generate(Internas internas);
+	CharSequence generate(Internas internas, boolean sentencia);
 	CharSequence generate(LlamadaFuncion llamada, boolean condicion);
 	CharSequence generate(Operador operador);
 	CharSequence generate(operacion operacion);

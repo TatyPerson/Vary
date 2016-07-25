@@ -3311,6 +3311,21 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                   _xblockexpression_12 = this.generate(prueba);
                                 }
                                 _xifexpression_13 = _xblockexpression_12;
+                              } else {
+                                CharSequence _xifexpression_14 = null;
+                                EClass _eClass_14 = mySent.eClass();
+                                String _name_14 = _eClass_14.getName();
+                                boolean _equals_14 = _name_14.equals("Internas");
+                                if (_equals_14) {
+                                  CharSequence _xblockexpression_13 = null;
+                                  {
+                                    Internas prueba = new InternasImpl();
+                                    prueba = ((Internas) mySent);
+                                    _xblockexpression_13 = this.generate(prueba, true);
+                                  }
+                                  _xifexpression_14 = _xblockexpression_13;
+                                }
+                                _xifexpression_13 = _xifexpression_14;
                               }
                               _xifexpression_12 = _xifexpression_13;
                             }
@@ -3807,7 +3822,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                       {
                         Internas prueba = new InternasImpl();
                         prueba = ((Internas) myVal);
-                        _xblockexpression_8 = this.generate(prueba);
+                        _xblockexpression_8 = this.generate(prueba, false);
                       }
                       _xifexpression_8 = _xblockexpression_8;
                     } else {
@@ -4184,7 +4199,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   }
   
   @Override
-  public CharSequence generate(final Internas i) {
+  public CharSequence generate(final Internas i, final boolean sentencia) {
     CharSequence _xifexpression = null;
     String _nombre = i.getNombre();
     boolean _equals = _nombre.equals("cos(");
@@ -4196,6 +4211,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       CharSequence _generate = this.generate(_get);
       _builder.append(_generate, "");
       _builder.append(")");
+      {
+        if (sentencia) {
+          _builder.append(";");
+        }
+      }
       _xifexpression = _builder;
     } else {
       CharSequence _xifexpression_1 = null;
@@ -4209,6 +4229,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
         CharSequence _generate_1 = this.generate(_get_1);
         _builder_1.append(_generate_1, "");
         _builder_1.append(")");
+        {
+          if (sentencia) {
+            _builder_1.append(";");
+          }
+        }
         _xifexpression_1 = _builder_1;
       } else {
         CharSequence _xifexpression_2 = null;
@@ -4224,6 +4249,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           _builder_2.append(",");
           _builder_2.append(2.0, "");
           _builder_2.append(")");
+          {
+            if (sentencia) {
+              _builder_2.append(";");
+            }
+          }
           _xifexpression_2 = _builder_2;
         } else {
           CharSequence _xifexpression_3 = null;
@@ -4237,6 +4267,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             CharSequence _generate_3 = this.generate(_get_3);
             _builder_3.append(_generate_3, "");
             _builder_3.append(")");
+            {
+              if (sentencia) {
+                _builder_3.append(";");
+              }
+            }
             _xifexpression_3 = _builder_3;
           } else {
             CharSequence _xifexpression_4 = null;
@@ -4250,6 +4285,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
               CharSequence _generate_4 = this.generate(_get_4);
               _builder_4.append(_generate_4, "");
               _builder_4.append(")");
+              {
+                if (sentencia) {
+                  _builder_4.append(";");
+                }
+              }
               _xifexpression_4 = _builder_4;
             } else {
               CharSequence _xifexpression_5 = null;
@@ -4263,6 +4303,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                 CharSequence _generate_5 = this.generate(_get_5);
                 _builder_5.append(_generate_5, "");
                 _builder_5.append(")");
+                {
+                  if (sentencia) {
+                    _builder_5.append(";");
+                  }
+                }
                 _xifexpression_5 = _builder_5;
               } else {
                 CharSequence _xifexpression_6 = null;
@@ -4276,6 +4321,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   CharSequence _generate_6 = this.generate(_get_6);
                   _builder_6.append(_generate_6, "");
                   _builder_6.append(")");
+                  {
+                    if (sentencia) {
+                      _builder_6.append(";");
+                    }
+                  }
                   _xifexpression_6 = _builder_6;
                 } else {
                   CharSequence _xifexpression_7 = null;
@@ -4289,6 +4339,11 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                     CharSequence _generate_7 = this.generate(_get_7);
                     _builder_7.append(_generate_7, "");
                     _builder_7.append(")");
+                    {
+                      if (sentencia) {
+                        _builder_7.append(";");
+                      }
+                    }
                     _xifexpression_7 = _builder_7;
                   } else {
                     CharSequence _xifexpression_8 = null;
@@ -4296,18 +4351,49 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                     boolean _equals_8 = _nombre_8.equals("concatena(");
                     if (_equals_8) {
                       StringConcatenation _builder_8 = new StringConcatenation();
-                      _builder_8.append("strcat(");
                       EList<operacion> _operadores_8 = i.getOperadores();
                       operacion _get_8 = _operadores_8.get(0);
                       CharSequence _generate_8 = this.generate(_get_8);
                       _builder_8.append(_generate_8, "");
-                      _builder_8.append(",");
+                      _builder_8.append(" = ");
                       EList<operacion> _operadores_9 = i.getOperadores();
-                      operacion _get_9 = _operadores_9.get(1);
+                      operacion _get_9 = _operadores_9.get(0);
                       CharSequence _generate_9 = this.generate(_get_9);
                       _builder_8.append(_generate_9, "");
-                      _builder_8.append(")");
+                      _builder_8.append(" + ");
+                      EList<operacion> _operadores_10 = i.getOperadores();
+                      operacion _get_10 = _operadores_10.get(1);
+                      CharSequence _generate_10 = this.generate(_get_10);
+                      _builder_8.append(_generate_10, "");
+                      {
+                        if (sentencia) {
+                          _builder_8.append(";");
+                        }
+                      }
                       _xifexpression_8 = _builder_8;
+                    } else {
+                      CharSequence _xifexpression_9 = null;
+                      String _nombre_9 = i.getNombre();
+                      boolean _equals_9 = _nombre_9.equals("copiar(");
+                      if (_equals_9) {
+                        StringConcatenation _builder_9 = new StringConcatenation();
+                        EList<operacion> _operadores_11 = i.getOperadores();
+                        operacion _get_11 = _operadores_11.get(0);
+                        CharSequence _generate_11 = this.generate(_get_11);
+                        _builder_9.append(_generate_11, "");
+                        _builder_9.append(" = ");
+                        EList<operacion> _operadores_12 = i.getOperadores();
+                        operacion _get_12 = _operadores_12.get(1);
+                        CharSequence _generate_12 = this.generate(_get_12);
+                        _builder_9.append(_generate_12, "");
+                        {
+                          if (sentencia) {
+                            _builder_9.append(";");
+                          }
+                        }
+                        _xifexpression_9 = _builder_9;
+                      }
+                      _xifexpression_8 = _xifexpression_9;
                     }
                     _xifexpression_7 = _xifexpression_8;
                   }
@@ -5064,7 +5150,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                           {
                             Internas prueba = new InternasImpl();
                             prueba = ((Internas) op);
-                            _xblockexpression_10 = this.generate(prueba);
+                            _xblockexpression_10 = this.generate(prueba, false);
                           }
                           _xifexpression_10 = _xblockexpression_10;
                         } else {
@@ -5421,7 +5507,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                           {
                             Internas prueba = new InternasImpl();
                             prueba = ((Internas) op);
-                            _xblockexpression_10 = this.generate(prueba);
+                            _xblockexpression_10 = this.generate(prueba, false);
                           }
                           _xifexpression_10 = _xblockexpression_10;
                         } else {
@@ -5776,7 +5862,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                           {
                             Internas prueba = new InternasImpl();
                             prueba = ((Internas) op);
-                            _xblockexpression_10 = this.generate(prueba);
+                            _xblockexpression_10 = this.generate(prueba, false);
                           }
                           _xifexpression_10 = _xblockexpression_10;
                         } else {

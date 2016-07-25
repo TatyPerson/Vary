@@ -1457,7 +1457,11 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 			var FuncionFicheroCerrar prueba = new FuncionFicheroCerrarImpl
 			prueba = mySent as FuncionFicheroCerrar
 			prueba.generate
-		}	
+		} else if (mySent.eClass.name.equals("Internas")) {
+			var Internas prueba = new InternasImpl
+			prueba = mySent as Internas
+			prueba.generate(true)
+		}
 	}
 
 	def pintarVariables(EList<Variable> v) '''
@@ -1623,7 +1627,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		} else if (myVal.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = myVal as Internas
-			prueba.generate
+			prueba.generate(false)
 		} else if (myVal.eClass.name.equals("unaria")) {
 			//var unaria prueba = new unariaImpl
 			//prueba = myVal as unaria
@@ -1813,26 +1817,28 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		return false;
 	}
 
-	override generate(Internas i) {
+	override generate(Internas i, boolean sentencia) {
 		if (i.nombre.equals("cos(")) {
-			'''cos(«i.operadores.get(0).generate»)'''
+			'''cos(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("sen(")) {
-			'''sin(«i.operadores.get(0).generate»)'''
+			'''sin(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("cuadrado(")) {
-			'''pow(«i.operadores.get(0).generate»,«2.0»)'''
+			'''pow(«i.operadores.get(0).generate»,«2.0»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("exp(")) {
-			'''exp2(«i.operadores.get(0).generate»)'''
+			'''exp2(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("ln(")) {
-			'''log(«i.operadores.get(0).generate»)'''
+			'''log(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("log(")) {
-			'''log10(«i.operadores.get(0).generate»)'''
+			'''log10(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("sqrt(")) {
-			'''sqrt(«i.operadores.get(0).generate»)'''
+			'''sqrt(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("sqrt(")) {
-			'''strlen(«i.operadores.get(0).generate»)'''
+			'''strlen(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("concatena(")) {
-			'''strcat(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)'''
-		} 
+			'''«i.operadores.get(0).generate» = «i.operadores.get(0).generate» + «i.operadores.get(1).generate»«IF sentencia»;«ENDIF»'''
+		} else if (i.nombre.equals("copiar(")) {
+			'''«i.operadores.get(0).generate» = «i.operadores.get(1).generate»«IF sentencia»;«ENDIF»'''
+		}
 	}
 
 	def coutOperadores(EList<operacion> operaciones) {
@@ -2140,7 +2146,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.generate
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl
@@ -2258,7 +2264,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.generate
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl
@@ -2375,7 +2381,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.generate
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl

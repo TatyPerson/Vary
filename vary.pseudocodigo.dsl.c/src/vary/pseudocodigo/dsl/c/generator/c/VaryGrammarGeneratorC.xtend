@@ -323,6 +323,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		«FOR myConstante:myAlgoritmo.constantes»
 			«myConstante.generate»
 		«ENDFOR»
+		typedef char cadena[100];
 		«FOR myComplejo:myAlgoritmo.tipocomplejo»
 			«myComplejo.generate»
 		«ENDFOR»
@@ -742,6 +743,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			«myComentario.generate»
 		«ENDFOR»
 		«IF !cabeceras»
+			typedef char cadena[100];
 			«FOR myConstante:algoritmo.constantes»
 				«myConstante.generate»
 			«ENDFOR»
@@ -924,7 +926,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) return "char";
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) return "float";
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) return "int";
-		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) return "char *";
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) return "cadena";
 	}
 
 	override generate(EList<ParametroFuncion> parametros) {
@@ -1397,10 +1399,15 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			prueba = mySent as FuncionFicheroCerrar
 			prueba.generate
 		}
+		else if (mySent.eClass.name.equals("Internas")) {
+			var Internas prueba = new InternasImpl
+			prueba = mySent as Internas
+			prueba.generate(true)
+		}
 	}
 
 	def pintarVariables(EList<Variable> v) '''
-		«v.get(0).nombre»«FOR matri:v.get(0).mat»«matri.toString»«ENDFOR»«FOR id:v»«IF id.nombre != v.get(0).nombre», «id.nombre»«FOR matri2:id.mat»«matri2.toString»«ENDFOR»«ENDIF»«ENDFOR»;	
+		«v.get(0).nombre»«FOR matri:v.get(0).mat»«matri.toString»«ENDFOR»«FOR id:v»«IF id.nombre != v.get(0).nombre», «id.nombre»«FOR matri2:id.mat»«matri2.toString»«ENDFOR»«ENDIF»«ENDFOR»;
 	'''
 	def pintarVariablesCadena(EList<Variable> v) {
 		var resultado = v.get(0).nombre;
@@ -1432,7 +1439,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(DeclaracionVariable myDec) {
-		return myDec.tipo.tipoVariableC + " " + pintarVariables(myDec.variable);
+		return myDec.tipo.tipoVariableC + " " + pintarVariables(myDec.variable);	
 	}
 
 	override generate(DeclaracionPropia myDec) '''
@@ -1560,7 +1567,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		} else if (myVal.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = myVal as Internas
-			prueba.generate
+			prueba.generate(false)
 		} else if (myVal.eClass.name.equals("unaria")) {
 			//var unaria prueba = new unariaImpl
 			//prueba = myVal as unaria
@@ -2079,26 +2086,28 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 
-	override generate(Internas i) {
+	override generate(Internas i, boolean sentencia) {
 		if (i.nombre.equals("cos(")) {
-			'''cos(«i.operadores.get(0).generate»)'''
+			'''cos(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("sen(")) {
-			'''sin(«i.operadores.get(0).generate»)'''
+			'''sin(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("cuadrado(")) {
-			'''pow(«i.operadores.get(0).generate»,«2.0»)'''
+			'''pow(«i.operadores.get(0).generate»,«2.0»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("exp(")) {
-			'''exp2(«i.operadores.get(0).generate»)'''
+			'''exp2(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("ln(")) {
-			'''log(«i.operadores.get(0).generate»)'''
+			'''log(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("log(")) {
-			'''log10(«i.operadores.get(0).generate»)'''
+			'''log10(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("sqrt(")) {
-			'''sqrt(«i.operadores.get(0).generate»)'''
+			'''sqrt(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("sqrt(")) {
-			'''strlen(«i.operadores.get(0).generate»)'''
+			'''strlen(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		} else if (i.nombre.equals("concatena(")) {
-			'''strcat(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)'''
-		} 
+			'''strcat(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)«IF sentencia»;«ENDIF»'''
+		} else if (i.nombre.equals("copiar(")) {
+			'''strcpy(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)«IF sentencia»;«ENDIF»'''
+		}
 	}
 	
 	def coutOperadoresC(EList<operacion> operaciones) {
@@ -3313,7 +3322,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.generate
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl
@@ -3431,7 +3440,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.generate
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl
@@ -3544,7 +3553,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("Internas")) {
 			var Internas prueba = new InternasImpl
 			prueba = op as Internas
-			prueba.generate
+			prueba.generate(false)
 		}
 		else if (op.eClass.name.equals("Suma")) {
 			var Suma prueba = new SumaImpl

@@ -4455,8 +4455,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !(op instanceof ConstCadena)) {
-						if(funciones.esOperacion(op)) {
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) /*&& !(op instanceof ConstCadena)*/) {
+						errorAsignacion(a, readerMessages.getBundle().getString("NO_ASIGNACION_CADENA"), true);
+						/*if(funciones.esOperacion(op)) {
 							ArrayList<valor> valores = new ArrayList<valor>();
 							valores = funciones.registrarValoresOperacion(op, valores);
 							//Primero buscamos las dificultades en la operación
@@ -4566,7 +4567,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						}
 						else {
 							errorAsignacion(a, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-						}
+						}*/
 				}
 	}
 	

@@ -108,7 +108,7 @@ ModoApertura returns ModoApertura:
 terminal NOMBRE_FUN: ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ('(');
 
 NombreInterna returns ecore::EString:
-	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'concatena(';
+	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'concatena(' | 'copy(';
 
 
 EInt returns ecore::EInt:
@@ -401,8 +401,8 @@ OperacionParentesis returns operacion:
 	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=operacion ')';
 	
 Funciones returns operacion:
-	({LlamadaFuncion} (nombre=NOMBRE_FUN) (('-')* ('no')* operadores+=operacion ( ','  ('-')* ('no')* operadores+=operacion)* )? ')') |
-	({Internas} (nombre=NombreInterna) (('-')* ('no')* operadores+=operacion ( ',' ('-')* ('no')* operadores+=operacion)* )? ')');
+	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ','  operadores+=OperacionCompleta)* )? ')') |
+	({Internas} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
 	
 VariablesComplejas returns operacion:
 	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?

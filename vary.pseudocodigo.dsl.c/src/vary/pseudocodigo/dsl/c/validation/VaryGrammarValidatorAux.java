@@ -324,8 +324,10 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				return readerMessages.getBundle().getString("TIPO_CARACTER");
 			} else if(tipos.contains(readerMessages.getBundle().getString("TIPO_REAL"))) {
 				return readerMessages.getBundle().getString("TIPO_REAL");
-			} else {
+			} else if(tipos.contains(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 				return readerMessages.getBundle().getString("TIPO_ENTERO");
+			} else {
+				return tipos.get(0);
 			}
 		}
 	}

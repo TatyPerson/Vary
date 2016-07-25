@@ -172,10 +172,10 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOperacionParentesisAccess().getGroup(), "rule__OperacionParentesis__Group__0");
 					put(grammarAccess.getFuncionesAccess().getGroup_0(), "rule__Funciones__Group_0__0");
 					put(grammarAccess.getFuncionesAccess().getGroup_0_2(), "rule__Funciones__Group_0_2__0");
-					put(grammarAccess.getFuncionesAccess().getGroup_0_2_3(), "rule__Funciones__Group_0_2_3__0");
+					put(grammarAccess.getFuncionesAccess().getGroup_0_2_1(), "rule__Funciones__Group_0_2_1__0");
 					put(grammarAccess.getFuncionesAccess().getGroup_1(), "rule__Funciones__Group_1__0");
 					put(grammarAccess.getFuncionesAccess().getGroup_1_2(), "rule__Funciones__Group_1_2__0");
-					put(grammarAccess.getFuncionesAccess().getGroup_1_2_3(), "rule__Funciones__Group_1_2_3__0");
+					put(grammarAccess.getFuncionesAccess().getGroup_1_2_1(), "rule__Funciones__Group_1_2_1__0");
 					put(grammarAccess.getVariablesComplejasAccess().getGroup_0(), "rule__VariablesComplejas__Group_0__0");
 					put(grammarAccess.getVariablesComplejasAccess().getGroup_0_1(), "rule__VariablesComplejas__Group_0_1__0");
 					put(grammarAccess.getVariablesComplejasAccess().getGroup_0_2(), "rule__VariablesComplejas__Group_0_2__0");
@@ -348,11 +348,11 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOperacionParentesisAccess().getNegacionesFinalesAssignment_3(), "rule__OperacionParentesis__NegacionesFinalesAssignment_3");
 					put(grammarAccess.getOperacionParentesisAccess().getValor_operacionAssignment_4(), "rule__OperacionParentesis__Valor_operacionAssignment_4");
 					put(grammarAccess.getFuncionesAccess().getNombreAssignment_0_1(), "rule__Funciones__NombreAssignment_0_1");
-					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_0_2_2(), "rule__Funciones__OperadoresAssignment_0_2_2");
-					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_0_2_3_3(), "rule__Funciones__OperadoresAssignment_0_2_3_3");
+					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_0_2_0(), "rule__Funciones__OperadoresAssignment_0_2_0");
+					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_0_2_1_1(), "rule__Funciones__OperadoresAssignment_0_2_1_1");
 					put(grammarAccess.getFuncionesAccess().getNombreAssignment_1_1(), "rule__Funciones__NombreAssignment_1_1");
-					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_1_2_2(), "rule__Funciones__OperadoresAssignment_1_2_2");
-					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_1_2_3_3(), "rule__Funciones__OperadoresAssignment_1_2_3_3");
+					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_1_2_0(), "rule__Funciones__OperadoresAssignment_1_2_0");
+					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_1_2_1_1(), "rule__Funciones__OperadoresAssignment_1_2_1_1");
 					put(grammarAccess.getVariablesComplejasAccess().getNombre_vectorAssignment_0_1_0(), "rule__VariablesComplejas__Nombre_vectorAssignment_0_1_0");
 					put(grammarAccess.getVariablesComplejasAccess().getIndiceAssignment_0_1_2(), "rule__VariablesComplejas__IndiceAssignment_0_1_2");
 					put(grammarAccess.getVariablesComplejasAccess().getCampoAssignment_0_2_1(), "rule__VariablesComplejas__CampoAssignment_0_2_1");
