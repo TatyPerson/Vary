@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PseudocodigoEMF
 Bundle-SymbolicName: PseudocodigoEMF;singleton:=true
-Bundle-Version: 1.0.6
+Bundle-Version: 1.0.7
 Bundle-ClassPath: .
 Bundle-Vendor: UCA
 Bundle-Localization: plugin
