@@ -2357,38 +2357,41 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		String nombre = null;
 		if(se != null) {
 			//Siempre es una variable
-			VariableID v = (VariableID) se.getValor();
-			nombre = v.getNombre();
-			
-			//Después seleccionamos el tipo de la variable de entrada del segun_sea (damos por hecho que esta declarada porque hay otra función que lo comprueba)
-			
-			DeclaracionVariable parametro = null;
-			
-			for(Declaracion d: i.getDeclaracion()) {
-				if(d instanceof DeclaracionVariable) {
-					DeclaracionVariable dec = (DeclaracionVariable) d;
-					for(Variable var: dec.getVariable()) {
-						if(var.getNombre() == nombre) {
-							parametro = dec;
+			if(se.getValor() instanceof OperacionCompleta) {
+				OperacionCompleta op = (OperacionCompleta) se.getValor();
+				VariableID v = (VariableID) op.getValor_operacion();
+				nombre = v.getNombre();
+				
+				//Después seleccionamos el tipo de la variable de entrada del segun_sea (damos por hecho que esta declarada porque hay otra función que lo comprueba)
+				
+				DeclaracionVariable parametro = null;
+				
+				for(Declaracion d: i.getDeclaracion()) {
+					if(d instanceof DeclaracionVariable) {
+						DeclaracionVariable dec = (DeclaracionVariable) d;
+						for(Variable var: dec.getVariable()) {
+							if(var.getNombre() == nombre) {
+								parametro = dec;
+							}
 						}
 					}
 				}
-			}
-			int cont = 0;
-			boolean valido = true;
-			
-			if(parametro.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-				//Comprobamos que las variables de los casos sean todas del mismo tipo
-				for(Caso c: se.getCaso()) {
-					if(!(c.getOperador() instanceof NumeroEntero)) {
-						valido = false;
+				int cont = 0;
+				boolean valido = true;
+				
+				if(parametro.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					//Comprobamos que las variables de los casos sean todas del mismo tipo
+					for(Caso c: se.getCaso()) {
+						if(!(c.getOperador() instanceof NumeroEntero)) {
+							valido = false;
+						}
+						cont++;
 					}
-					cont++;
 				}
-			}
-			
-			if(!valido) {
-				warning(readerMessages.getBundle().getString("PARAMETROS_SEGUN"), DiagramapseudocodigoPackage.Literals.SEGUN__CASO,cont);
+				
+				if(!valido) {
+					warning(readerMessages.getBundle().getString("PARAMETROS_SEGUN"), DiagramapseudocodigoPackage.Literals.SEGUN__CASO,cont);
+				}
 			}
 		}
 		

@@ -1846,6 +1846,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							perteneceInicio = contienenExpresionLeer(c.sentencias, l);
 						}
 					}
+					if(perteneceInicio == false) {
+						perteneceInicio = contienenExpresionLeer(segun.sentencias, l);
+					}
 				}
 		 	}
 		}
@@ -2045,6 +2048,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(perteneceSubproceso == false) {
 								perteneceSubproceso = contienenExpresionLeer(c.sentencias, l);
 							}
+						}
+						if(perteneceInicio == false) {
+							perteneceInicio = contienenExpresionLeer(segun.sentencias, l);
 						}
 					}
 		 		}
@@ -3075,6 +3081,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						if(perteneceInicio == false) {
 							perteneceInicio = contienenExpresionEscribir(c.sentencias, a);
 						}
+					}
+					if(perteneceInicio == false) {
+						perteneceInicio = contienenExpresionEscribir(segun.sentencias, a);
 					}
 				}
 		 	}
