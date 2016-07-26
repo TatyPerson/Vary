@@ -137,6 +137,7 @@ import diagramapseudocodigo.OperacionParentesis
 import diagramapseudocodigo.impl.OperacionParentesisImpl
 import diagramapseudocodigo.OperacionCompleta
 import diagramapseudocodigo.impl.OperacionCompletaImpl
+import diagramapseudocodigo.EscribirFichero
 
 /**
  * Generates code from your model files on save.
@@ -149,6 +150,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	static Map<String,String> vectoresMatrices = new HashMap<String,String>();
 	static Map<String, Map<String,String>> registros = new HashMap<String, Map<String,String>>();
 	static Map<String, ArrayList<String>> variablesEnumerados = new HashMap<String, ArrayList<String>>();
+	static ArrayList<String> archivos = new ArrayList<String>();
 	static Map<String, String> funciones = new HashMap<String,String>();
 	static ArrayList<String> enumerados = new ArrayList<String>();
 	Algoritmo algoritmo;
@@ -518,6 +520,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 			}
 		}
+		else if(t.eClass.name.equals("Archivo")) {
+			var a = t as Archivo
+			archivos.add(a.nombre)
+		}
 	}
 		
 		'''
@@ -721,6 +727,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 				}
 			}
+		} else if(t.eClass.name.equals("Archivo")) {
+			var a = t as Archivo
+			archivos.add(a.nombre)
 		}
 	}
 	
@@ -864,11 +873,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(FuncionFicheroAbrir myFuncionFicheroAbrir) '''
-		«myFuncionFicheroAbrir.variable.get(0).generate» = fopen(«myFuncionFicheroAbrir.variable.get(1).generate»,"«obtenerModo(myFuncionFicheroAbrir.modo.getName)»")
+		«myFuncionFicheroAbrir.variable.get(0).generate» = fopen(«myFuncionFicheroAbrir.variable.get(1).generate»,"«obtenerModo(myFuncionFicheroAbrir.modo.getName)»");
 	'''
 	
 	override generate(FuncionFicheroCerrar myFuncionFicheroCerrar)'''
-		fclose(«myFuncionFicheroCerrar.variable.generate»)
+		fclose(«myFuncionFicheroCerrar.variable.generate»);
 	'''
 
 	def generaSubrango(int limite_inf,int limite_sup) {
@@ -1843,6 +1852,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		if(algoritmo.tiene.tiene.contains(l) || perteneceInicio) {
 			var tipo = "";
 			var resultado = "";
+			var archivo = false;
+			var variableArchivo = "";
 			for(operacion op: l.variable) {
 				if(op.eClass.name.equals("VariableID")) {
 				var varID = op as VariableID;
@@ -1875,69 +1886,129 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
 				}
 			}
-			if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+			if(archivos.contains(tipo)) {
+				archivo = true;
+				variableArchivo = op.generate.toString;
+			}
+			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%i", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%i", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%i", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%i", &«op.generate»);'''
+						}
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%c", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%c", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%c", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%c", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%c", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%c", &«op.generate»);'''
+						}
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%s", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%s", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%s", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%s", &«op.generate»);'''
+						}
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%f", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%f", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%f", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%f", &«op.generate»);'''
+						}
 					}
 		 		}
 		 		else if(vectoresMatrices.containsKey(tipo)) {
 					var tipoAux = vectoresMatrices.get(tipo);
 					if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						if(resultado == "") {
-							resultado = '''scanf("%i", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%i", &«op.generate»);'''
+							}
 						}
 						else {
 							resultado = resultado + "\n";
-							resultado = resultado + '''scanf("%i", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%i", &«op.generate»);'''
+							}
 						}
 					}
 					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 						if(resultado == "") {
-							resultado = '''scanf("%s", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%s", &«op.generate»);'''
+							}
 						}
 						else {
 							resultado = resultado + "\n";
-							resultado = resultado + '''scanf("%s", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%s", &«op.generate»);'''
+							}
 						}
 					}
 					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 						if(resultado == "") {
-							resultado = '''scanf("%f", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%f", &«op.generate»);'''
+							}
 						}
 						else {
 							resultado = resultado + "\n";
-							resultado = resultado + '''scanf("%f", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%f", &«op.generate»);'''
+							}
 						}
 					}
 				}
@@ -1981,6 +2052,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		 	if(s.sentencias.contains(l) || perteneceSubproceso) {
 		 		var tipo = "";
 		 		var resultado = "";
+		 		var archivo = false;
+				var variableArchivo = "";
 		 		for(operacion op: l.variable) {
 		 			if(op.eClass.name.equals("VariableID")) {
 						var varID = op as VariableID;
@@ -2013,69 +2086,130 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
 					}
 				}
+				if(archivos.contains(tipo)) {
+					archivo = true;
+					variableArchivo = op.generate.toString;
+				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%i", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%i", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%i", &«op.generate»);'''
+						}
 						resultado = resultado + '''scanf("%i", &«op.generate»);'''
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%c", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%c", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%c", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%c", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%c", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%c", &«op.generate»);'''
+						}
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%s", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%s", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%s", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%s", &«op.generate»);'''
+						}
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 					if(resultado == "") {
-						resultado = '''scanf("%f", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%f", &«op.generate»);'''
+						}
 					}
 					else {
 						resultado = resultado + "\n";
-						resultado = resultado + '''scanf("%f", &«op.generate»);'''
+						if(archivo) {
+							resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+						} else {
+							resultado = '''scanf("%f", &«op.generate»);'''
+						}
 					}
 		 		}
 		 		else if(vectoresMatrices.containsKey(tipo)) {
 					var tipoAux = vectoresMatrices.get(tipo);
 					if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						if(resultado == "") {
-							resultado = '''scanf("%i", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%i", &«op.generate»);'''
+							}
 						}
 						else {
 							resultado = resultado + "\n";
-							resultado = resultado + '''scanf("%i", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%i", &«op.generate»);'''
+							}
 						}
 					}
 					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
 						if(resultado == "") {
-							resultado = '''scanf("%s", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%s", &«op.generate»);'''
+							}
 						}
 						else {
 							resultado = resultado + "\n";
-							resultado = resultado + '''scanf("%s", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%s", &«op.generate»);'''
+							}
 						}
 					}
 					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 						if(resultado == "") {
-							resultado = '''scanf("%f", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%f", &«op.generate»);'''
+							}
 						}
 						else {
 							resultado = resultado + "\n";
-							resultado = resultado + '''scanf("%f", &«op.generate»);'''
+							if(archivo) {
+								resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+							} else {
+								resultado = '''scanf("%f", &«op.generate»);'''
+							}
 						}
 					}
 				}
@@ -2122,6 +2256,27 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 			numero = numero + 1;
 		}
+		return resultado;
+	}
+	
+	def coutOperadoresCArchivo(EList<operacion> operaciones) {
+		var resultado = "";
+		var numero = 0;
+		/*for (op : operaciones) {
+			//Nos saltamos el primero porque es la variable tipo Archivo
+			if(operaciones.indexOf(op) != 0) {
+				if(numero < operaciones.size) {
+					resultado = resultado + op.generate + " , ";
+				}
+				else {
+					resultado = resultado + op.generate;
+				}
+				numero = numero + 1;	
+			} else {
+				numero = numero + 1;	
+			}
+		}*/
+		resultado = resultado + operaciones.get(1).generate;
 		return resultado;
 	}
 	
@@ -2892,6 +3047,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	
 	override generate(Escribir a) {
 		var perteneceInicio = false;
+		var archivo = false;
 		if(!algoritmo.tiene.tiene.contains(a)) {
 			for(Sentencias s: algoritmo.tiene.tiene) {
 				if(s.eClass.name.equals("mientras") && perteneceInicio == false) {
@@ -2924,7 +3080,6 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		 	}
 		}
 		if(algoritmo.tiene.tiene.contains(a) || (perteneceInicio && a.operador.size() > 0)) {
-			var iterador = 0;
 			var cadena = new String();
 			if(a.operador.get(0).eClass.name.equals("ConstCadena")) {
 				//En este caso el usuario ha introducido un texto
@@ -2932,7 +3087,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				cadena = primero.contenido;
 				cadena = cadena.substring(0, cadena.length()-1);
 			}
-			
+			if(archivos.contains(a.operador.get(0).getTipoOperador)) {
+				archivo = true;
+				cadena = cadena + a.operador.get(0).generate + ", \"";
+			}
 			if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
 				cadena = cadena + "\"";
 			}
@@ -2941,7 +3099,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				cadena = cadena + " \\n\"";
 			}
 			for(o: a.operador) {
-				if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") || a.operador.indexOf(o) != 0) {
+				if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") && !archivos.contains(a.operador.get(0).getTipoOperador) || a.operador.indexOf(o) != 0) {
 					var tipo = o.getTipoOperador;
 			
 					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
@@ -3007,10 +3165,18 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
 				cadena = cadena + ", " + a.operador.coutOperadoresC;
-				return '''printf(«cadena»);'''	
+				if(archivo) {
+					return '''fprintf(«cadena»);'''
+				} else {
+					return '''printf(«cadena»);'''
+				}	
 			}
 			else {
-				return '''printf(«cadena»);'''
+				if(archivo) {
+					return '''fprintf(«cadena»);'''
+				} else {
+					return '''printf(«cadena»);'''
+				}	
 			}
 		}
 		else {
@@ -3059,7 +3225,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
 				}
-				
+				if(archivos.contains(a.operador.get(0).getTipoOperador)) {
+					archivo = true;
+					cadena = cadena + a.operador.get(0).generate + ", \"";
+				}
 				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
 					cadena = cadena + "\"";
 				}
@@ -3135,15 +3304,22 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
 				cadena = cadena + ", " + a.operador.coutOperadoresC;
-				return '''printf(«cadena»);'''	
+				if(archivo) {
+					return '''fprintf(«cadena»);'''
+				} else {
+					return '''printf(«cadena»);'''
+				}	
 			}
 			else {
-				return '''printf(«cadena»);'''
+				if(archivo) {
+					return '''fprintf(«cadena»);'''
+				} else {
+					return '''printf(«cadena»);'''
+				}	
 			}
 		}	
 	}
 	}
-	
 	}
 
 	def generaParametros(EList<operacion> operaciones) {

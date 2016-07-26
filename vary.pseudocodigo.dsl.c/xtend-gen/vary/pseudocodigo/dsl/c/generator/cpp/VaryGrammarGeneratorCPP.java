@@ -166,6 +166,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   private static Map<String, String> vectoresMatrices = new HashMap<String, String>();
   
+  private static List<String> archivos = new ArrayList<String>();
+  
   private static Map<String, Map<String, String>> registros = new HashMap<String, Map<String, String>>();
   
   private static Map<String, ArrayList<String>> variablesEnumerados = new HashMap<String, ArrayList<String>>();
@@ -1226,6 +1228,15 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   }
                 }
               }
+            } else {
+              EClass _eClass_11 = t_1.eClass();
+              String _name_11 = _eClass_11.getName();
+              boolean _equals_11 = _name_11.equals("Archivo");
+              if (_equals_11) {
+                Archivo a = ((Archivo) t_1);
+                String _nombre_21 = a.getNombre();
+                VaryGrammarGeneratorCPP.archivos.add(_nombre_21);
+              }
             }
           }
         }
@@ -1240,8 +1251,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       _builder.append("#include <cmath>");
       _builder.newLine();
       _builder.append("#include \"");
-      String _nombre_21 = myModulo.getNombre();
-      _builder.append(_nombre_21, "");
+      String _nombre_22 = myModulo.getNombre();
+      _builder.append(_nombre_22, "");
       _builder.append(".h\"");
       _builder.newLineIfNotEmpty();
       _builder.newLine();
@@ -1253,14 +1264,14 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       {
         EList<Modulo> _importaciones_1 = myModulo.getImportaciones();
         for(final Modulo myRefModulo : _importaciones_1) {
-          String _nombre_22 = myRefModulo.getNombre();
-          _builder.append(_nombre_22, "");
-          _builder.append(" ref");
           String _nombre_23 = myRefModulo.getNombre();
           _builder.append(_nombre_23, "");
-          _builder.append(" = ");
+          _builder.append(" ref");
           String _nombre_24 = myRefModulo.getNombre();
           _builder.append(_nombre_24, "");
+          _builder.append(" = ");
+          String _nombre_25 = myRefModulo.getNombre();
+          _builder.append(_nombre_25, "");
           _builder.append("();");
           _builder.newLineIfNotEmpty();
         }
@@ -1273,8 +1284,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
           {
             EList<String> _exporta_constantes = myModulo.getExporta_constantes();
             Variable _variable_3 = myConstante.getVariable();
-            String _nombre_25 = _variable_3.getNombre();
-            boolean _contains = _exporta_constantes.contains(_nombre_25);
+            String _nombre_26 = _variable_3.getNombre();
+            boolean _contains = _exporta_constantes.contains(_nombre_26);
             boolean _not = (!_contains);
             if (_not) {
               CharSequence _generate = this.generate(myConstante);
@@ -1290,16 +1301,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
         EList<TipoComplejo> _tipocomplejo_2 = _implementacion_5.getTipocomplejo();
         for(final TipoComplejo myTipo : _tipocomplejo_2) {
           {
-            EClass _eClass_11 = myTipo.eClass();
-            String _name_11 = _eClass_11.getName();
-            boolean _equals_11 = _name_11.equals("Vector");
-            if (_equals_11) {
+            EClass _eClass_12 = myTipo.eClass();
+            String _name_12 = _eClass_12.getName();
+            boolean _equals_12 = _name_12.equals("Vector");
+            if (_equals_12) {
               Vector vector = ((Vector) myTipo);
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos = myModulo.getExporta_tipos();
-                String _nombre_26 = vector.getNombre();
-                boolean _contains_1 = _exporta_tipos.contains(_nombre_26);
+                String _nombre_27 = vector.getNombre();
+                boolean _contains_1 = _exporta_tipos.contains(_nombre_27);
                 boolean _not_1 = (!_contains_1);
                 if (_not_1) {
                   CharSequence _generate_1 = this.generate(vector);
@@ -1310,16 +1321,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             }
           }
           {
-            EClass _eClass_12 = myTipo.eClass();
-            String _name_12 = _eClass_12.getName();
-            boolean _equals_12 = _name_12.equals("Matriz");
-            if (_equals_12) {
+            EClass _eClass_13 = myTipo.eClass();
+            String _name_13 = _eClass_13.getName();
+            boolean _equals_13 = _name_13.equals("Matriz");
+            if (_equals_13) {
               Matriz matriz = ((Matriz) myTipo);
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_1 = myModulo.getExporta_tipos();
-                String _nombre_27 = matriz.getNombre();
-                boolean _contains_2 = _exporta_tipos_1.contains(_nombre_27);
+                String _nombre_28 = matriz.getNombre();
+                boolean _contains_2 = _exporta_tipos_1.contains(_nombre_28);
                 boolean _not_2 = (!_contains_2);
                 if (_not_2) {
                   CharSequence _generate_2 = this.generate(matriz);
@@ -1330,16 +1341,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             }
           }
           {
-            EClass _eClass_13 = myTipo.eClass();
-            String _name_13 = _eClass_13.getName();
-            boolean _equals_13 = _name_13.equals("Registro");
-            if (_equals_13) {
+            EClass _eClass_14 = myTipo.eClass();
+            String _name_14 = _eClass_14.getName();
+            boolean _equals_14 = _name_14.equals("Registro");
+            if (_equals_14) {
               Registro registro = ((Registro) myTipo);
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_2 = myModulo.getExporta_tipos();
-                String _nombre_28 = registro.getNombre();
-                boolean _contains_3 = _exporta_tipos_2.contains(_nombre_28);
+                String _nombre_29 = registro.getNombre();
+                boolean _contains_3 = _exporta_tipos_2.contains(_nombre_29);
                 boolean _not_3 = (!_contains_3);
                 if (_not_3) {
                   CharSequence _generate_3 = this.generate(registro);
@@ -1350,16 +1361,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             }
           }
           {
-            EClass _eClass_14 = myTipo.eClass();
-            String _name_14 = _eClass_14.getName();
-            boolean _equals_14 = _name_14.equals("Archivo");
-            if (_equals_14) {
+            EClass _eClass_15 = myTipo.eClass();
+            String _name_15 = _eClass_15.getName();
+            boolean _equals_15 = _name_15.equals("Archivo");
+            if (_equals_15) {
               Archivo archivo = ((Archivo) myTipo);
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_3 = myModulo.getExporta_tipos();
-                String _nombre_29 = archivo.getNombre();
-                boolean _contains_4 = _exporta_tipos_3.contains(_nombre_29);
+                String _nombre_30 = archivo.getNombre();
+                boolean _contains_4 = _exporta_tipos_3.contains(_nombre_30);
                 boolean _not_4 = (!_contains_4);
                 if (_not_4) {
                   CharSequence _generate_4 = this.generate(archivo);
@@ -1370,16 +1381,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             }
           }
           {
-            EClass _eClass_15 = myTipo.eClass();
-            String _name_15 = _eClass_15.getName();
-            boolean _equals_15 = _name_15.equals("Enumerado");
-            if (_equals_15) {
+            EClass _eClass_16 = myTipo.eClass();
+            String _name_16 = _eClass_16.getName();
+            boolean _equals_16 = _name_16.equals("Enumerado");
+            if (_equals_16) {
               Enumerado enumerado_1 = ((Enumerado) myTipo);
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_4 = myModulo.getExporta_tipos();
-                String _nombre_30 = enumerado_1.getNombre();
-                boolean _contains_5 = _exporta_tipos_4.contains(_nombre_30);
+                String _nombre_31 = enumerado_1.getNombre();
+                boolean _contains_5 = _exporta_tipos_4.contains(_nombre_31);
                 boolean _not_5 = (!_contains_5);
                 if (_not_5) {
                   CharSequence _generate_5 = this.generate(enumerado_1);
@@ -1390,16 +1401,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             }
           }
           {
-            EClass _eClass_16 = myTipo.eClass();
-            String _name_16 = _eClass_16.getName();
-            boolean _equals_16 = _name_16.equals("Subrango");
-            if (_equals_16) {
+            EClass _eClass_17 = myTipo.eClass();
+            String _name_17 = _eClass_17.getName();
+            boolean _equals_17 = _name_17.equals("Subrango");
+            if (_equals_17) {
               Subrango subrango = ((Subrango) myTipo);
               _builder.newLineIfNotEmpty();
               {
                 EList<String> _exporta_tipos_5 = myModulo.getExporta_tipos();
-                String _nombre_31 = subrango.getNombre();
-                boolean _contains_6 = _exporta_tipos_5.contains(_nombre_31);
+                String _nombre_32 = subrango.getNombre();
+                boolean _contains_6 = _exporta_tipos_5.contains(_nombre_32);
                 boolean _not_6 = (!_contains_6);
                 if (_not_6) {
                   CharSequence _generate_6 = this.generate(subrango);
@@ -1423,16 +1434,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<Subproceso> _funcion_2 = _implementacion_6.getFuncion();
             for(final Subproceso mySubproceso : _funcion_2) {
               {
-                EClass _eClass_17 = mySubproceso.eClass();
-                String _name_17 = _eClass_17.getName();
-                boolean _equals_17 = _name_17.equals("Procedimiento");
-                if (_equals_17) {
+                EClass _eClass_18 = mySubproceso.eClass();
+                String _name_18 = _eClass_18.getName();
+                boolean _equals_18 = _name_18.equals("Procedimiento");
+                if (_equals_18) {
                   Procedimiento procedimiento_1 = ((Procedimiento) mySubproceso);
                   _builder.newLineIfNotEmpty();
                   {
                     if ((myModulo.getExporta_funciones().contains(procedimiento_1.getNombre()) && (procedimiento_1.getParametrofuncion().size() == exportaCabecera.getParametrofuncion().size()))) {
-                      String _nombre_32 = this.modulo.getNombre();
-                      String _generate_7 = this.generate(procedimiento_1, _nombre_32);
+                      String _nombre_33 = this.modulo.getNombre();
+                      String _generate_7 = this.generate(procedimiento_1, _nombre_33);
                       _builder.append(_generate_7, "");
                       _builder.newLineIfNotEmpty();
                       this.addProcedimiento(procedimiento_1, procedimientosUsados);
@@ -1442,16 +1453,16 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                 }
               }
               {
-                EClass _eClass_18 = mySubproceso.eClass();
-                String _name_18 = _eClass_18.getName();
-                boolean _equals_18 = _name_18.equals("Funcion");
-                if (_equals_18) {
+                EClass _eClass_19 = mySubproceso.eClass();
+                String _name_19 = _eClass_19.getName();
+                boolean _equals_19 = _name_19.equals("Funcion");
+                if (_equals_19) {
                   Funcion funcion_1 = ((Funcion) mySubproceso);
                   _builder.newLineIfNotEmpty();
                   {
                     if ((myModulo.getExporta_funciones().contains(funcion_1.getNombre()) && (funcion_1.getParametrofuncion().size() == exportaCabecera.getParametrofuncion().size()))) {
-                      String _nombre_33 = this.modulo.getNombre();
-                      String _generate_8 = this.generate(funcion_1, _nombre_33);
+                      String _nombre_34 = this.modulo.getNombre();
+                      String _generate_8 = this.generate(funcion_1, _nombre_34);
                       _builder.append(_generate_8, "");
                       _builder.newLineIfNotEmpty();
                       this.addFuncion(funcion_1, funcionesUsadas);
@@ -1473,18 +1484,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
         EList<Subproceso> _funcion_3 = _implementacion_7.getFuncion();
         for(final Subproceso mySubproceso_1 : _funcion_3) {
           {
-            EClass _eClass_19 = mySubproceso_1.eClass();
-            String _name_19 = _eClass_19.getName();
-            boolean _equals_19 = _name_19.equals("Procedimiento");
-            if (_equals_19) {
+            EClass _eClass_20 = mySubproceso_1.eClass();
+            String _name_20 = _eClass_20.getName();
+            boolean _equals_20 = _name_20.equals("Procedimiento");
+            if (_equals_20) {
               Procedimiento procedimiento_2 = ((Procedimiento) mySubproceso_1);
               _builder.newLineIfNotEmpty();
               {
                 boolean _contains_7 = procedimientosUsados.contains(procedimiento_2);
                 boolean _not_7 = (!_contains_7);
                 if (_not_7) {
-                  String _nombre_34 = this.modulo.getNombre();
-                  String _generateStatic = this.generateStatic(procedimiento_2, _nombre_34);
+                  String _nombre_35 = this.modulo.getNombre();
+                  String _generateStatic = this.generateStatic(procedimiento_2, _nombre_35);
                   _builder.append(_generateStatic, "");
                   _builder.newLineIfNotEmpty();
                 }
@@ -1492,18 +1503,18 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             }
           }
           {
-            EClass _eClass_20 = mySubproceso_1.eClass();
-            String _name_20 = _eClass_20.getName();
-            boolean _equals_20 = _name_20.equals("Funcion");
-            if (_equals_20) {
+            EClass _eClass_21 = mySubproceso_1.eClass();
+            String _name_21 = _eClass_21.getName();
+            boolean _equals_21 = _name_21.equals("Funcion");
+            if (_equals_21) {
               Funcion funcion_2 = ((Funcion) mySubproceso_1);
               _builder.newLineIfNotEmpty();
               {
                 boolean _contains_8 = funcionesUsadas.contains(funcion_2);
                 boolean _not_8 = (!_contains_8);
                 if (_not_8) {
-                  String _nombre_35 = this.modulo.getNombre();
-                  String _generateStatic_1 = this.generateStatic(funcion_2, _nombre_35);
+                  String _nombre_36 = this.modulo.getNombre();
+                  String _generateStatic_1 = this.generateStatic(funcion_2, _nombre_36);
                   _builder.append(_generateStatic_1, "");
                   _builder.newLineIfNotEmpty();
                 }
@@ -1862,6 +1873,15 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                   }
                 }
               }
+            } else {
+              EClass _eClass_11 = t_1.eClass();
+              String _name_11 = _eClass_11.getName();
+              boolean _equals_11 = _name_11.equals("Archivo");
+              if (_equals_11) {
+                Archivo a = ((Archivo) t_1);
+                String _nombre_23 = a.getNombre();
+                VaryGrammarGeneratorCPP.archivos.add(_nombre_23);
+              }
             }
           }
         }
@@ -1876,8 +1896,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       {
         if (VaryGrammarGeneratorCPP.cabeceras) {
           _builder.append("#include \"");
-          String _nombre_23 = this.algoritmo.getNombre();
-          _builder.append(_nombre_23, "");
+          String _nombre_24 = this.algoritmo.getNombre();
+          _builder.append(_nombre_24, "");
           _builder.append(".h\"\t\t");
           _builder.newLineIfNotEmpty();
         }
@@ -1889,8 +1909,8 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
             EList<Modulo> _importaciones_1 = this.algoritmo.getImportaciones();
             for(final Modulo myRefModulo : _importaciones_1) {
               _builder.append("#include \"");
-              String _nombre_24 = myRefModulo.getNombre();
-              _builder.append(_nombre_24, "");
+              String _nombre_25 = myRefModulo.getNombre();
+              _builder.append(_nombre_25, "");
               _builder.append(".h\"");
               _builder.newLineIfNotEmpty();
             }
@@ -1905,14 +1925,14 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
       {
         EList<Modulo> _importaciones_2 = this.algoritmo.getImportaciones();
         for(final Modulo myRefModulo_1 : _importaciones_2) {
-          String _nombre_25 = myRefModulo_1.getNombre();
-          _builder.append(_nombre_25, "");
-          _builder.append(" ref");
           String _nombre_26 = myRefModulo_1.getNombre();
           _builder.append(_nombre_26, "");
-          _builder.append(" = ");
+          _builder.append(" ref");
           String _nombre_27 = myRefModulo_1.getNombre();
           _builder.append(_nombre_27, "");
+          _builder.append(" = ");
+          String _nombre_28 = myRefModulo_1.getNombre();
+          _builder.append(_nombre_28, "");
           _builder.append("();");
           _builder.newLineIfNotEmpty();
         }
@@ -2320,7 +2340,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     String _name = _modo.getName();
     String _obtenerModo = this.obtenerModo(_name);
     _builder.append(_obtenerModo, "");
-    _builder.append("\")");
+    _builder.append("\");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -2332,7 +2352,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     operacion _variable = myFuncionFicheroCerrar.getVariable();
     CharSequence _generate = this.generate(_variable);
     _builder.append(_generate, "");
-    _builder.append(")");
+    _builder.append(");");
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -4058,18 +4078,329 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   @Override
   public CharSequence generate(final Leer l) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<operacion> _variable = l.getVariable();
-      for(final operacion op : _variable) {
-        _builder.append("cin >> ");
-        CharSequence _generate = this.generate(op);
-        _builder.append(_generate, "");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
+    EList<operacion> _variable = l.getVariable();
+    operacion _get = _variable.get(0);
+    String _tipoOperador = this.getTipoOperador(_get);
+    boolean _contains = VaryGrammarGeneratorCPP.archivos.contains(_tipoOperador);
+    if (_contains) {
+      String tipo = "";
+      String resultado = "";
+      String variableArchivo = "";
+      EList<operacion> _variable_1 = l.getVariable();
+      for (final operacion op : _variable_1) {
+        {
+          EClass _eClass = op.eClass();
+          String _name = _eClass.getName();
+          boolean _equals = _name.equals("VariableID");
+          if (_equals) {
+            VariableID varID = ((VariableID) op);
+            String _nombre = varID.getNombre();
+            String _get_1 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre);
+            tipo = _get_1;
+          } else {
+            EClass _eClass_1 = op.eClass();
+            String _name_1 = _eClass_1.getName();
+            boolean _equals_1 = _name_1.equals("ValorVector");
+            if (_equals_1) {
+              ValorVector vector = ((ValorVector) op);
+              EList<CampoRegistro> _campo = vector.getCampo();
+              int _size = _campo.size();
+              boolean _equals_2 = (_size == 0);
+              if (_equals_2) {
+                String _nombre_vector = vector.getNombre_vector();
+                String _get_2 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_vector);
+                String _get_3 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_2);
+                tipo = _get_3;
+              } else {
+                String _nombre_vector_1 = vector.getNombre_vector();
+                String _get_4 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_vector_1);
+                String _get_5 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_4);
+                Map<String, String> _get_6 = VaryGrammarGeneratorCPP.registros.get(_get_5);
+                EList<CampoRegistro> _campo_1 = vector.getCampo();
+                CampoRegistro _get_7 = _campo_1.get(0);
+                String _nombre_campo = _get_7.getNombre_campo();
+                String _get_8 = _get_6.get(_nombre_campo);
+                tipo = _get_8;
+              }
+            } else {
+              EClass _eClass_2 = op.eClass();
+              String _name_2 = _eClass_2.getName();
+              boolean _equals_3 = _name_2.equals("ValorMatriz");
+              if (_equals_3) {
+                ValorMatriz matriz = ((ValorMatriz) op);
+                EList<CampoRegistro> _campo_2 = matriz.getCampo();
+                int _size_1 = _campo_2.size();
+                boolean _equals_4 = (_size_1 == 0);
+                if (_equals_4) {
+                  String _nombre_matriz = matriz.getNombre_matriz();
+                  String _get_9 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_matriz);
+                  String _get_10 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_9);
+                  tipo = _get_10;
+                } else {
+                  String _nombre_matriz_1 = matriz.getNombre_matriz();
+                  String _get_11 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_matriz_1);
+                  String _get_12 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_11);
+                  Map<String, String> _get_13 = VaryGrammarGeneratorCPP.registros.get(_get_12);
+                  EList<CampoRegistro> _campo_3 = matriz.getCampo();
+                  CampoRegistro _get_14 = _campo_3.get(0);
+                  String _nombre_campo_1 = _get_14.getNombre_campo();
+                  String _get_15 = _get_13.get(_nombre_campo_1);
+                  tipo = _get_15;
+                }
+              } else {
+                EClass _eClass_3 = op.eClass();
+                String _name_3 = _eClass_3.getName();
+                boolean _equals_5 = _name_3.equals("ValorRegistro");
+                if (_equals_5) {
+                  ValorRegistro registro = ((ValorRegistro) op);
+                  EList<CampoRegistro> _campo_4 = registro.getCampo();
+                  int _size_2 = _campo_4.size();
+                  boolean _equals_6 = (_size_2 == 1);
+                  if (_equals_6) {
+                    String _nombre_registro = registro.getNombre_registro();
+                    String _get_16 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_registro);
+                    Map<String, String> _get_17 = VaryGrammarGeneratorCPP.registros.get(_get_16);
+                    EList<CampoRegistro> _campo_5 = registro.getCampo();
+                    CampoRegistro _get_18 = _campo_5.get(0);
+                    String _nombre_campo_2 = _get_18.getNombre_campo();
+                    String _get_19 = _get_17.get(_nombre_campo_2);
+                    tipo = _get_19;
+                  } else {
+                    String _nombre_registro_1 = registro.getNombre_registro();
+                    String _get_20 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_registro_1);
+                    Map<String, String> _get_21 = VaryGrammarGeneratorCPP.registros.get(_get_20);
+                    EList<CampoRegistro> _campo_6 = registro.getCampo();
+                    EList<CampoRegistro> _campo_7 = registro.getCampo();
+                    int _size_3 = _campo_7.size();
+                    int _minus = (_size_3 - 2);
+                    CampoRegistro _get_22 = _campo_6.get(_minus);
+                    String _nombre_campo_3 = _get_22.getNombre_campo();
+                    String tipoRegistro = _get_21.get(_nombre_campo_3);
+                    Map<String, String> _get_23 = VaryGrammarGeneratorCPP.registros.get(tipoRegistro);
+                    EList<CampoRegistro> _campo_8 = registro.getCampo();
+                    EList<CampoRegistro> _campo_9 = registro.getCampo();
+                    int _size_4 = _campo_9.size();
+                    int _minus_1 = (_size_4 - 1);
+                    CampoRegistro _get_24 = _campo_8.get(_minus_1);
+                    String _nombre_campo_4 = _get_24.getNombre_campo();
+                    String _get_25 = _get_23.get(_nombre_campo_4);
+                    tipo = _get_25;
+                  }
+                }
+              }
+            }
+          }
+          boolean _contains_1 = VaryGrammarGeneratorCPP.archivos.contains(tipo);
+          if (_contains_1) {
+            CharSequence _generate = this.generate(op);
+            String _string = _generate.toString();
+            variableArchivo = _string;
+          } else {
+            ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+            String _string_1 = _bundle.getString("TIPO_ENTERO");
+            boolean _equals_7 = tipo.equals(_string_1);
+            if (_equals_7) {
+              boolean _equals_8 = Objects.equal(resultado, "");
+              if (_equals_8) {
+                StringConcatenation _builder = new StringConcatenation();
+                _builder.append("fscanf(");
+                _builder.append(variableArchivo, "");
+                _builder.append(",\"%i\", &");
+                CharSequence _generate_1 = this.generate(op);
+                _builder.append(_generate_1, "");
+                _builder.append(");");
+                resultado = _builder.toString();
+              } else {
+                resultado = (resultado + "\n");
+                StringConcatenation _builder_1 = new StringConcatenation();
+                _builder_1.append("fscanf(");
+                _builder_1.append(variableArchivo, "");
+                _builder_1.append(",\"%i\", &");
+                CharSequence _generate_2 = this.generate(op);
+                _builder_1.append(_generate_2, "");
+                _builder_1.append(");");
+                resultado = _builder_1.toString();
+              }
+            } else {
+              ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+              String _string_2 = _bundle_1.getString("TIPO_CARACTER");
+              boolean _equals_9 = tipo.equals(_string_2);
+              if (_equals_9) {
+                boolean _equals_10 = Objects.equal(resultado, "");
+                if (_equals_10) {
+                  StringConcatenation _builder_2 = new StringConcatenation();
+                  _builder_2.append("fscanf(");
+                  _builder_2.append(variableArchivo, "");
+                  _builder_2.append(",\"%c\", &");
+                  CharSequence _generate_3 = this.generate(op);
+                  _builder_2.append(_generate_3, "");
+                  _builder_2.append(");");
+                  resultado = _builder_2.toString();
+                } else {
+                  resultado = (resultado + "\n");
+                  StringConcatenation _builder_3 = new StringConcatenation();
+                  _builder_3.append("fscanf(");
+                  _builder_3.append(variableArchivo, "");
+                  _builder_3.append(",\"%c\", &");
+                  CharSequence _generate_4 = this.generate(op);
+                  _builder_3.append(_generate_4, "");
+                  _builder_3.append(");");
+                  resultado = _builder_3.toString();
+                }
+              } else {
+                ResourceBundle _bundle_2 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                String _string_3 = _bundle_2.getString("TIPO_CADENA");
+                boolean _equals_11 = tipo.equals(_string_3);
+                if (_equals_11) {
+                  boolean _equals_12 = Objects.equal(resultado, "");
+                  if (_equals_12) {
+                    StringConcatenation _builder_4 = new StringConcatenation();
+                    _builder_4.append("fscanf(");
+                    _builder_4.append(variableArchivo, "");
+                    _builder_4.append(",\"%s\", &");
+                    CharSequence _generate_5 = this.generate(op);
+                    _builder_4.append(_generate_5, "");
+                    _builder_4.append(");");
+                    resultado = _builder_4.toString();
+                  } else {
+                    resultado = (resultado + "\n");
+                    StringConcatenation _builder_5 = new StringConcatenation();
+                    _builder_5.append("fscanf(");
+                    _builder_5.append(variableArchivo, "");
+                    _builder_5.append(",\"%s\", &");
+                    CharSequence _generate_6 = this.generate(op);
+                    _builder_5.append(_generate_6, "");
+                    _builder_5.append(");");
+                    resultado = _builder_5.toString();
+                  }
+                } else {
+                  ResourceBundle _bundle_3 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                  String _string_4 = _bundle_3.getString("TIPO_REAL");
+                  boolean _equals_13 = tipo.equals(_string_4);
+                  if (_equals_13) {
+                    boolean _equals_14 = Objects.equal(resultado, "");
+                    if (_equals_14) {
+                      StringConcatenation _builder_6 = new StringConcatenation();
+                      _builder_6.append("fscanf(");
+                      _builder_6.append(variableArchivo, "");
+                      _builder_6.append(",\"%f\", &");
+                      CharSequence _generate_7 = this.generate(op);
+                      _builder_6.append(_generate_7, "");
+                      _builder_6.append(");");
+                      resultado = _builder_6.toString();
+                    } else {
+                      resultado = (resultado + "\n");
+                      StringConcatenation _builder_7 = new StringConcatenation();
+                      _builder_7.append("fscanf(");
+                      _builder_7.append(variableArchivo, "");
+                      _builder_7.append(",\"%f\", &");
+                      CharSequence _generate_8 = this.generate(op);
+                      _builder_7.append(_generate_8, "");
+                      _builder_7.append(");");
+                      resultado = _builder_7.toString();
+                    }
+                  } else {
+                    boolean _containsKey = VaryGrammarGeneratorCPP.vectoresMatrices.containsKey(tipo);
+                    if (_containsKey) {
+                      String tipoAux = VaryGrammarGeneratorCPP.vectoresMatrices.get(tipo);
+                      ResourceBundle _bundle_4 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                      String _string_5 = _bundle_4.getString("TIPO_ENTERO");
+                      boolean _equals_15 = tipoAux.equals(_string_5);
+                      if (_equals_15) {
+                        boolean _equals_16 = Objects.equal(resultado, "");
+                        if (_equals_16) {
+                          StringConcatenation _builder_8 = new StringConcatenation();
+                          _builder_8.append("fscanf(");
+                          _builder_8.append(variableArchivo, "");
+                          _builder_8.append(",\"%i\", &");
+                          CharSequence _generate_9 = this.generate(op);
+                          _builder_8.append(_generate_9, "");
+                          _builder_8.append(");");
+                          resultado = _builder_8.toString();
+                        } else {
+                          resultado = (resultado + "\n");
+                          StringConcatenation _builder_9 = new StringConcatenation();
+                          _builder_9.append("fscanf(");
+                          _builder_9.append(variableArchivo, "");
+                          _builder_9.append(",\"%i\", &");
+                          CharSequence _generate_10 = this.generate(op);
+                          _builder_9.append(_generate_10, "");
+                          _builder_9.append(");");
+                          resultado = _builder_9.toString();
+                        }
+                      } else {
+                        if ((tipoAux.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+                          boolean _equals_17 = Objects.equal(resultado, "");
+                          if (_equals_17) {
+                            StringConcatenation _builder_10 = new StringConcatenation();
+                            _builder_10.append("fscanf(");
+                            _builder_10.append(variableArchivo, "");
+                            _builder_10.append(",\"%s\", &");
+                            CharSequence _generate_11 = this.generate(op);
+                            _builder_10.append(_generate_11, "");
+                            _builder_10.append(");");
+                            resultado = _builder_10.toString();
+                          } else {
+                            resultado = (resultado + "\n");
+                            StringConcatenation _builder_11 = new StringConcatenation();
+                            _builder_11.append("fscanf(");
+                            _builder_11.append(variableArchivo, "");
+                            _builder_11.append(",\"%s\", &");
+                            CharSequence _generate_12 = this.generate(op);
+                            _builder_11.append(_generate_12, "");
+                            _builder_11.append(");");
+                            resultado = _builder_11.toString();
+                          }
+                        } else {
+                          ResourceBundle _bundle_5 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                          String _string_6 = _bundle_5.getString("TIPO_REAL");
+                          boolean _equals_18 = tipoAux.equals(_string_6);
+                          if (_equals_18) {
+                            boolean _equals_19 = Objects.equal(resultado, "");
+                            if (_equals_19) {
+                              StringConcatenation _builder_12 = new StringConcatenation();
+                              _builder_12.append("fscanf(");
+                              _builder_12.append(variableArchivo, "");
+                              _builder_12.append(",\"%f\", &");
+                              CharSequence _generate_13 = this.generate(op);
+                              _builder_12.append(_generate_13, "");
+                              _builder_12.append(");");
+                              resultado = _builder_12.toString();
+                            } else {
+                              resultado = (resultado + "\n");
+                              StringConcatenation _builder_13 = new StringConcatenation();
+                              _builder_13.append("fscanf(");
+                              _builder_13.append(variableArchivo, "");
+                              _builder_13.append(",\"%f\", &");
+                              CharSequence _generate_14 = this.generate(op);
+                              _builder_13.append(_generate_14, "");
+                              _builder_13.append(");");
+                              resultado = _builder_13.toString();
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
+      return resultado;
+    } else {
+      String resultado_1 = "";
+      EList<operacion> _variable_2 = l.getVariable();
+      for (final operacion op_1 : _variable_2) {
+        CharSequence _generate = this.generate(op_1);
+        String _plus = ((resultado_1 + "cin >> ") + _generate);
+        String _plus_1 = (_plus + ";");
+        String _plus_2 = (_plus_1 + "\n");
+        resultado_1 = _plus_2;
+      }
+      return resultado_1;
     }
-    return _builder;
   }
   
   public Object contienenExpresionLeer(final EList<Sentencias> sentencias, final Leer l) {
@@ -4552,14 +4883,982 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   @Override
   public CharSequence generate(final Escribir a) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("cout");
     EList<operacion> _operador = a.getOperador();
-    String _coutOperadores = this.coutOperadores(_operador);
-    _builder.append(_coutOperadores, "");
-    _builder.append(" << endl;");
-    _builder.newLineIfNotEmpty();
-    return _builder;
+    operacion _get = _operador.get(0);
+    String _tipoOperador = this.getTipoOperador(_get);
+    boolean _contains = VaryGrammarGeneratorCPP.archivos.contains(_tipoOperador);
+    if (_contains) {
+      String cadena = "";
+      EList<operacion> _operador_1 = a.getOperador();
+      operacion _get_1 = _operador_1.get(0);
+      CharSequence _generate = this.generate(_get_1);
+      String _plus = (cadena + _generate);
+      String _plus_1 = (_plus + ", \"");
+      cadena = _plus_1;
+      EList<operacion> _operador_2 = a.getOperador();
+      for (final operacion o : _operador_2) {
+        if (((((a.getOperador().indexOf(o) == 0) && (!o.eClass().getName().equals("ConstCadena"))) && (!VaryGrammarGeneratorCPP.archivos.contains(this.getTipoOperador(a.getOperador().get(0))))) || (a.getOperador().indexOf(o) != 0))) {
+          String tipo = this.getTipoOperador(o);
+          if ((tipo.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass().getName().equals("NumeroEntero"))) {
+            EList<operacion> _operador_3 = a.getOperador();
+            int _indexOf = _operador_3.indexOf(o);
+            EList<operacion> _operador_4 = a.getOperador();
+            int _size = _operador_4.size();
+            int _minus = (_size - 1);
+            boolean _equals = (_indexOf == _minus);
+            if (_equals) {
+              cadena = (cadena + " %i \\n \"");
+            } else {
+              cadena = (cadena + " %i");
+            }
+          } else {
+            if ((tipo.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CARACTER")) || o.eClass().getName().equals("Caracter"))) {
+              EList<operacion> _operador_5 = a.getOperador();
+              int _indexOf_1 = _operador_5.indexOf(o);
+              EList<operacion> _operador_6 = a.getOperador();
+              int _size_1 = _operador_6.size();
+              int _minus_1 = (_size_1 - 1);
+              boolean _equals_1 = (_indexOf_1 == _minus_1);
+              if (_equals_1) {
+                cadena = (cadena + " %c \\n \"");
+              } else {
+                cadena = (cadena + " %c");
+              }
+            } else {
+              if ((tipo.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || o.eClass().getName().equals("ConstCadena"))) {
+                EList<operacion> _operador_7 = a.getOperador();
+                int _indexOf_2 = _operador_7.indexOf(o);
+                EList<operacion> _operador_8 = a.getOperador();
+                int _size_2 = _operador_8.size();
+                int _minus_2 = (_size_2 - 1);
+                boolean _equals_2 = (_indexOf_2 == _minus_2);
+                if (_equals_2) {
+                  cadena = (cadena + " %s \\n \"");
+                } else {
+                  cadena = (cadena + " %s");
+                }
+              } else {
+                if ((tipo.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || o.eClass().getName().equals("NumeroDecimal"))) {
+                  EList<operacion> _operador_9 = a.getOperador();
+                  int _indexOf_3 = _operador_9.indexOf(o);
+                  EList<operacion> _operador_10 = a.getOperador();
+                  int _size_3 = _operador_10.size();
+                  int _minus_3 = (_size_3 - 1);
+                  boolean _equals_3 = (_indexOf_3 == _minus_3);
+                  if (_equals_3) {
+                    cadena = (cadena + " %f \\n \"");
+                  } else {
+                    cadena = (cadena + " %f");
+                  }
+                } else {
+                  boolean _containsKey = VaryGrammarGeneratorCPP.vectoresMatrices.containsKey(tipo);
+                  if (_containsKey) {
+                    String tipoAux = VaryGrammarGeneratorCPP.vectoresMatrices.get(tipo);
+                    if ((tipoAux.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass().getName().equals("NumeroEntero"))) {
+                      EList<operacion> _operador_11 = a.getOperador();
+                      int _indexOf_4 = _operador_11.indexOf(o);
+                      EList<operacion> _operador_12 = a.getOperador();
+                      int _size_4 = _operador_12.size();
+                      int _minus_4 = (_size_4 - 1);
+                      boolean _equals_4 = (_indexOf_4 == _minus_4);
+                      if (_equals_4) {
+                        cadena = (cadena + " %i \\n \"");
+                      } else {
+                        cadena = (cadena + " %i");
+                      }
+                    } else {
+                      if ((tipoAux.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+                        EList<operacion> _operador_13 = a.getOperador();
+                        int _indexOf_5 = _operador_13.indexOf(o);
+                        EList<operacion> _operador_14 = a.getOperador();
+                        int _size_5 = _operador_14.size();
+                        int _minus_5 = (_size_5 - 1);
+                        boolean _equals_5 = (_indexOf_5 == _minus_5);
+                        if (_equals_5) {
+                          cadena = (cadena + " %s \\n \"");
+                        } else {
+                          cadena = (cadena + " %s");
+                        }
+                      } else {
+                        ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                        String _string = _bundle.getString("TIPO_REAL");
+                        boolean _equals_6 = tipoAux.equals(_string);
+                        if (_equals_6) {
+                          EList<operacion> _operador_15 = a.getOperador();
+                          int _indexOf_6 = _operador_15.indexOf(o);
+                          EList<operacion> _operador_16 = a.getOperador();
+                          int _size_6 = _operador_16.size();
+                          int _minus_6 = (_size_6 - 1);
+                          boolean _equals_7 = (_indexOf_6 == _minus_6);
+                          if (_equals_7) {
+                            cadena = (cadena + " %f \\n \"");
+                          } else {
+                            cadena = (cadena + " %f");
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      if (((a.getOperador().size() > 1) || ((a.getOperador().size() == 1) && (!a.getOperador().get(0).eClass().getName().equals("ConstCadena"))))) {
+        EList<operacion> _operador_17 = a.getOperador();
+        String _coutOperadoresC = this.coutOperadoresC(_operador_17);
+        String _plus_2 = ((cadena + ", ") + _coutOperadoresC);
+        cadena = _plus_2;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("fprintf(");
+        _builder.append(cadena, "");
+        _builder.append(");");
+        return _builder;
+      } else {
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("fprintf(");
+        _builder_1.append(cadena, "");
+        _builder_1.append(");");
+        return _builder_1;
+      }
+    } else {
+      EList<operacion> _operador_18 = a.getOperador();
+      String _coutOperadores = this.coutOperadores(_operador_18);
+      String _plus_3 = ("cout" + _coutOperadores);
+      return (_plus_3 + " << endl;");
+    }
+  }
+  
+  public String coutOperadoresC(final EList<operacion> operaciones) {
+    String resultado = "";
+    int numero = 1;
+    for (final operacion op : operaciones) {
+      {
+        if ((((operaciones.size() > 1) && (numero < operaciones.size())) && (numero != 1))) {
+          if ((this.getTipoOperador(op).equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) && (!this.generate(op).toString().contains("\"")))) {
+            CharSequence _generate = this.generate(op);
+            String _plus = (resultado + _generate);
+            String _plus_1 = (_plus + ".c_str() , ");
+            resultado = _plus_1;
+          } else {
+            CharSequence _generate_1 = this.generate(op);
+            String _plus_2 = (resultado + _generate_1);
+            String _plus_3 = (_plus_2 + " , ");
+            resultado = _plus_3;
+          }
+        } else {
+          if (((numero != 1) || (operaciones.size() == 1))) {
+            if ((this.getTipoOperador(op).equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) && (!this.generate(op).toString().contains("\"")))) {
+              CharSequence _generate_2 = this.generate(op);
+              String _plus_4 = (resultado + _generate_2);
+              String _plus_5 = (_plus_4 + ".c_str()");
+              resultado = _plus_5;
+            } else {
+              CharSequence _generate_3 = this.generate(op);
+              String _plus_6 = (resultado + _generate_3);
+              resultado = _plus_6;
+            }
+          }
+        }
+        numero = (numero + 1);
+      }
+    }
+    return resultado;
+  }
+  
+  public String getTipoOperador(final operacion o) {
+    EClass _eClass = o.eClass();
+    String _name = _eClass.getName();
+    boolean _equals = _name.equals("OperacionCompleta");
+    if (_equals) {
+      OperacionCompleta operacionCompleta = ((OperacionCompleta) o);
+      operacion op = operacionCompleta.getValor_operacion();
+      EClass _eClass_1 = op.eClass();
+      String _name_1 = _eClass_1.getName();
+      boolean _equals_1 = _name_1.equals("VariableID");
+      if (_equals_1) {
+        VariableID varID = ((VariableID) op);
+        String _nombre = varID.getNombre();
+        return VaryGrammarGeneratorCPP.variablesInicio.get(_nombre);
+      } else {
+        EClass _eClass_2 = op.eClass();
+        String _name_2 = _eClass_2.getName();
+        boolean _equals_2 = _name_2.equals("ValorVector");
+        if (_equals_2) {
+          ValorVector vector = ((ValorVector) op);
+          EList<CampoRegistro> _campo = vector.getCampo();
+          int _size = _campo.size();
+          boolean _equals_3 = (_size == 0);
+          if (_equals_3) {
+            String _nombre_vector = vector.getNombre_vector();
+            String _get = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_vector);
+            return VaryGrammarGeneratorCPP.vectoresMatrices.get(_get);
+          } else {
+            String _nombre_vector_1 = vector.getNombre_vector();
+            String _get_1 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_vector_1);
+            String _get_2 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_1);
+            Map<String, String> _get_3 = VaryGrammarGeneratorCPP.registros.get(_get_2);
+            EList<CampoRegistro> _campo_1 = vector.getCampo();
+            CampoRegistro _get_4 = _campo_1.get(0);
+            String _nombre_campo = _get_4.getNombre_campo();
+            return _get_3.get(_nombre_campo);
+          }
+        } else {
+          EClass _eClass_3 = op.eClass();
+          String _name_3 = _eClass_3.getName();
+          boolean _equals_4 = _name_3.equals("ValorMatriz");
+          if (_equals_4) {
+            ValorMatriz matriz = ((ValorMatriz) op);
+            EList<CampoRegistro> _campo_2 = matriz.getCampo();
+            int _size_1 = _campo_2.size();
+            boolean _equals_5 = (_size_1 == 0);
+            if (_equals_5) {
+              String _nombre_matriz = matriz.getNombre_matriz();
+              String _get_5 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_matriz);
+              return VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_5);
+            } else {
+              String _nombre_matriz_1 = matriz.getNombre_matriz();
+              String _get_6 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_matriz_1);
+              String _get_7 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_6);
+              Map<String, String> _get_8 = VaryGrammarGeneratorCPP.registros.get(_get_7);
+              EList<CampoRegistro> _campo_3 = matriz.getCampo();
+              CampoRegistro _get_9 = _campo_3.get(0);
+              String _nombre_campo_1 = _get_9.getNombre_campo();
+              return _get_8.get(_nombre_campo_1);
+            }
+          } else {
+            EClass _eClass_4 = op.eClass();
+            String _name_4 = _eClass_4.getName();
+            boolean _equals_6 = _name_4.equals("ValorRegistro");
+            if (_equals_6) {
+              ValorRegistro registro = ((ValorRegistro) op);
+              EList<CampoRegistro> _campo_4 = registro.getCampo();
+              int _size_2 = _campo_4.size();
+              boolean _equals_7 = (_size_2 == 1);
+              if (_equals_7) {
+                String _nombre_registro = registro.getNombre_registro();
+                String _get_10 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_registro);
+                Map<String, String> _get_11 = VaryGrammarGeneratorCPP.registros.get(_get_10);
+                EList<CampoRegistro> _campo_5 = registro.getCampo();
+                CampoRegistro _get_12 = _campo_5.get(0);
+                String _nombre_campo_2 = _get_12.getNombre_campo();
+                return _get_11.get(_nombre_campo_2);
+              } else {
+                String _nombre_registro_1 = registro.getNombre_registro();
+                String _get_13 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_registro_1);
+                Map<String, String> _get_14 = VaryGrammarGeneratorCPP.registros.get(_get_13);
+                EList<CampoRegistro> _campo_6 = registro.getCampo();
+                EList<CampoRegistro> _campo_7 = registro.getCampo();
+                int _size_3 = _campo_7.size();
+                int _minus = (_size_3 - 2);
+                CampoRegistro _get_15 = _campo_6.get(_minus);
+                String _nombre_campo_3 = _get_15.getNombre_campo();
+                String tipoRegistro = _get_14.get(_nombre_campo_3);
+                Map<String, String> _get_16 = VaryGrammarGeneratorCPP.registros.get(tipoRegistro);
+                EList<CampoRegistro> _campo_8 = registro.getCampo();
+                EList<CampoRegistro> _campo_9 = registro.getCampo();
+                int _size_4 = _campo_9.size();
+                int _minus_1 = (_size_4 - 1);
+                CampoRegistro _get_17 = _campo_8.get(_minus_1);
+                String _nombre_campo_4 = _get_17.getNombre_campo();
+                return _get_16.get(_nombre_campo_4);
+              }
+            } else {
+              EClass _eClass_5 = op.eClass();
+              String _name_5 = _eClass_5.getName();
+              boolean _equals_8 = _name_5.equals("LlamadaFuncion");
+              if (_equals_8) {
+                LlamadaFuncion llamadaFuncion = ((LlamadaFuncion) op);
+                String _nombre_1 = llamadaFuncion.getNombre();
+                return VaryGrammarGeneratorCPP.funciones.get(_nombre_1);
+              } else {
+                if ((op.eClass().getName().equals("NumeroEntero") || op.eClass().getName().equals("ValorBooleano"))) {
+                  ResourceBundle _bundle = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                  return _bundle.getString("TIPO_ENTERO");
+                } else {
+                  EClass _eClass_6 = op.eClass();
+                  String _name_6 = _eClass_6.getName();
+                  boolean _equals_9 = _name_6.equals("ConstCadena");
+                  if (_equals_9) {
+                    ResourceBundle _bundle_1 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                    return _bundle_1.getString("TIPO_CADENA");
+                  } else {
+                    EClass _eClass_7 = op.eClass();
+                    String _name_7 = _eClass_7.getName();
+                    boolean _equals_10 = _name_7.equals("Caracter");
+                    if (_equals_10) {
+                      ResourceBundle _bundle_2 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                      return _bundle_2.getString("TIPO_CARACTER");
+                    } else {
+                      EClass _eClass_8 = op.eClass();
+                      String _name_8 = _eClass_8.getName();
+                      boolean _equals_11 = _name_8.equals("NumeroDecimal");
+                      if (_equals_11) {
+                        ResourceBundle _bundle_3 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                        return _bundle_3.getString("TIPO_REAL");
+                      } else {
+                        EClass _eClass_9 = op.eClass();
+                        String _name_9 = _eClass_9.getName();
+                        boolean _equals_12 = _name_9.equals("Suma");
+                        if (_equals_12) {
+                          Suma suma = ((Suma) op);
+                          operacion _right = suma.getRight();
+                          String tipoRight = this.getTipoOperador(_right);
+                          operacion _left = suma.getLeft();
+                          String tipoLeft = this.getTipoOperador(_left);
+                          boolean _equals_13 = tipoRight.equals(tipoLeft);
+                          if (_equals_13) {
+                            return tipoRight;
+                          } else {
+                            if ((tipoRight.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                              ResourceBundle _bundle_4 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                              return _bundle_4.getString("TIPO_CADENA");
+                            } else {
+                              if ((tipoRight.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                ResourceBundle _bundle_5 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                return _bundle_5.getString("TIPO_REAL");
+                              }
+                            }
+                          }
+                        } else {
+                          EClass _eClass_10 = op.eClass();
+                          String _name_10 = _eClass_10.getName();
+                          boolean _equals_14 = _name_10.equals("Resta");
+                          if (_equals_14) {
+                            Resta resta = ((Resta) op);
+                            operacion _right_1 = resta.getRight();
+                            String tipoRight_1 = this.getTipoOperador(_right_1);
+                            operacion _left_1 = resta.getLeft();
+                            String tipoLeft_1 = this.getTipoOperador(_left_1);
+                            boolean _equals_15 = tipoRight_1.equals(tipoLeft_1);
+                            if (_equals_15) {
+                              return tipoRight_1;
+                            } else {
+                              if ((tipoRight_1.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_1.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                ResourceBundle _bundle_6 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                return _bundle_6.getString("TIPO_CADENA");
+                              } else {
+                                if ((tipoRight_1.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_1.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                  ResourceBundle _bundle_7 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                  return _bundle_7.getString("TIPO_REAL");
+                                }
+                              }
+                            }
+                          } else {
+                            EClass _eClass_11 = op.eClass();
+                            String _name_11 = _eClass_11.getName();
+                            boolean _equals_16 = _name_11.equals("Multiplicacion");
+                            if (_equals_16) {
+                              Multiplicacion multiplicacion = ((Multiplicacion) op);
+                              operacion _right_2 = multiplicacion.getRight();
+                              String tipoRight_2 = this.getTipoOperador(_right_2);
+                              operacion _left_2 = multiplicacion.getLeft();
+                              String tipoLeft_2 = this.getTipoOperador(_left_2);
+                              boolean _equals_17 = tipoRight_2.equals(tipoLeft_2);
+                              if (_equals_17) {
+                                return tipoRight_2;
+                              } else {
+                                if ((tipoRight_2.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_2.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                  ResourceBundle _bundle_8 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                  return _bundle_8.getString("TIPO_CADENA");
+                                } else {
+                                  if ((tipoRight_2.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_2.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                    ResourceBundle _bundle_9 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                    return _bundle_9.getString("TIPO_REAL");
+                                  }
+                                }
+                              }
+                            } else {
+                              EClass _eClass_12 = op.eClass();
+                              String _name_12 = _eClass_12.getName();
+                              boolean _equals_18 = _name_12.equals("Division");
+                              if (_equals_18) {
+                                Division division = ((Division) op);
+                                operacion _right_3 = division.getRight();
+                                String tipoRight_3 = this.getTipoOperador(_right_3);
+                                operacion _left_3 = division.getLeft();
+                                String tipoLeft_3 = this.getTipoOperador(_left_3);
+                                boolean _equals_19 = tipoRight_3.equals(tipoLeft_3);
+                                if (_equals_19) {
+                                  return tipoRight_3;
+                                } else {
+                                  if ((tipoRight_3.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_3.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                    ResourceBundle _bundle_10 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                    return _bundle_10.getString("TIPO_CADENA");
+                                  } else {
+                                    if ((tipoRight_3.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_3.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                      ResourceBundle _bundle_11 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                      return _bundle_11.getString("TIPO_REAL");
+                                    }
+                                  }
+                                }
+                              } else {
+                                EClass _eClass_13 = op.eClass();
+                                String _name_13 = _eClass_13.getName();
+                                boolean _equals_20 = _name_13.equals("Div");
+                                if (_equals_20) {
+                                  Div div = ((Div) op);
+                                  operacion _right_4 = div.getRight();
+                                  String tipoRight_4 = this.getTipoOperador(_right_4);
+                                  operacion _left_4 = div.getLeft();
+                                  String tipoLeft_4 = this.getTipoOperador(_left_4);
+                                  boolean _equals_21 = tipoRight_4.equals(tipoLeft_4);
+                                  if (_equals_21) {
+                                    return tipoRight_4;
+                                  } else {
+                                    if ((tipoRight_4.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_4.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                      ResourceBundle _bundle_12 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                      return _bundle_12.getString("TIPO_CADENA");
+                                    } else {
+                                      if ((tipoRight_4.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_4.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                        ResourceBundle _bundle_13 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                        return _bundle_13.getString("TIPO_REAL");
+                                      }
+                                    }
+                                  }
+                                } else {
+                                  EClass _eClass_14 = op.eClass();
+                                  String _name_14 = _eClass_14.getName();
+                                  boolean _equals_22 = _name_14.equals("Mod");
+                                  if (_equals_22) {
+                                    Mod mod = ((Mod) op);
+                                    operacion _right_5 = mod.getRight();
+                                    String tipoRight_5 = this.getTipoOperador(_right_5);
+                                    operacion _left_5 = mod.getLeft();
+                                    String tipoLeft_5 = this.getTipoOperador(_left_5);
+                                    boolean _equals_23 = tipoRight_5.equals(tipoLeft_5);
+                                    if (_equals_23) {
+                                      return tipoRight_5;
+                                    } else {
+                                      if ((tipoRight_5.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_5.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                        ResourceBundle _bundle_14 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                        return _bundle_14.getString("TIPO_CADENA");
+                                      } else {
+                                        if ((tipoRight_5.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_5.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                          ResourceBundle _bundle_15 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                          return _bundle_15.getString("TIPO_REAL");
+                                        }
+                                      }
+                                    }
+                                  } else {
+                                    EClass _eClass_15 = op.eClass();
+                                    String _name_15 = _eClass_15.getName();
+                                    boolean _equals_24 = _name_15.equals("Or");
+                                    if (_equals_24) {
+                                      Or or = ((Or) op);
+                                      operacion _right_6 = or.getRight();
+                                      String tipoRight_6 = this.getTipoOperador(_right_6);
+                                      operacion _left_6 = or.getLeft();
+                                      String tipoLeft_6 = this.getTipoOperador(_left_6);
+                                      boolean _equals_25 = tipoRight_6.equals(tipoLeft_6);
+                                      if (_equals_25) {
+                                        return tipoRight_6;
+                                      } else {
+                                        if ((tipoRight_6.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_6.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                          ResourceBundle _bundle_16 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                          return _bundle_16.getString("TIPO_CADENA");
+                                        } else {
+                                          if ((tipoRight_6.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_6.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                            ResourceBundle _bundle_17 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                            return _bundle_17.getString("TIPO_REAL");
+                                          }
+                                        }
+                                      }
+                                    } else {
+                                      EClass _eClass_16 = op.eClass();
+                                      String _name_16 = _eClass_16.getName();
+                                      boolean _equals_26 = _name_16.equals("And");
+                                      if (_equals_26) {
+                                        And and = ((And) op);
+                                        operacion _right_7 = and.getRight();
+                                        String tipoRight_7 = this.getTipoOperador(_right_7);
+                                        operacion _left_7 = and.getLeft();
+                                        String tipoLeft_7 = this.getTipoOperador(_left_7);
+                                        boolean _equals_27 = tipoRight_7.equals(tipoLeft_7);
+                                        if (_equals_27) {
+                                          return tipoRight_7;
+                                        } else {
+                                          if ((tipoRight_7.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_7.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                            ResourceBundle _bundle_18 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                            return _bundle_18.getString("TIPO_CADENA");
+                                          } else {
+                                            if ((tipoRight_7.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_7.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                              ResourceBundle _bundle_19 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                              return _bundle_19.getString("TIPO_REAL");
+                                            }
+                                          }
+                                        }
+                                      } else {
+                                        EClass _eClass_17 = op.eClass();
+                                        String _name_17 = _eClass_17.getName();
+                                        boolean _equals_28 = _name_17.equals("Comparacion");
+                                        if (_equals_28) {
+                                          Comparacion comparacion = ((Comparacion) op);
+                                          operacion _right_8 = comparacion.getRight();
+                                          String tipoRight_8 = this.getTipoOperador(_right_8);
+                                          operacion _left_8 = comparacion.getLeft();
+                                          String tipoLeft_8 = this.getTipoOperador(_left_8);
+                                          boolean _equals_29 = tipoRight_8.equals(tipoLeft_8);
+                                          if (_equals_29) {
+                                            return tipoRight_8;
+                                          } else {
+                                            if ((tipoRight_8.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_8.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                              ResourceBundle _bundle_20 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                              return _bundle_20.getString("TIPO_CADENA");
+                                            } else {
+                                              if ((tipoRight_8.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_8.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                                ResourceBundle _bundle_21 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                                return _bundle_21.getString("TIPO_REAL");
+                                              }
+                                            }
+                                          }
+                                        } else {
+                                          EClass _eClass_18 = op.eClass();
+                                          String _name_18 = _eClass_18.getName();
+                                          boolean _equals_30 = _name_18.equals("Igualdad");
+                                          if (_equals_30) {
+                                            Igualdad igualdad = ((Igualdad) op);
+                                            operacion _right_9 = igualdad.getRight();
+                                            String tipoRight_9 = this.getTipoOperador(_right_9);
+                                            operacion _left_9 = igualdad.getLeft();
+                                            String tipoLeft_9 = this.getTipoOperador(_left_9);
+                                            boolean _equals_31 = tipoRight_9.equals(tipoLeft_9);
+                                            if (_equals_31) {
+                                              return tipoRight_9;
+                                            } else {
+                                              if ((tipoRight_9.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_9.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                                ResourceBundle _bundle_22 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                                return _bundle_22.getString("TIPO_CADENA");
+                                              } else {
+                                                if ((tipoRight_9.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_9.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                                  ResourceBundle _bundle_23 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                                  return _bundle_23.getString("TIPO_REAL");
+                                                }
+                                              }
+                                            }
+                                          } else {
+                                            EClass _eClass_19 = op.eClass();
+                                            String _name_19 = _eClass_19.getName();
+                                            boolean _equals_32 = _name_19.equals("OperacionParentesis");
+                                            if (_equals_32) {
+                                              OperacionParentesis operacionParentesis = ((OperacionParentesis) op);
+                                              operacion _valor_operacion = operacionParentesis.getValor_operacion();
+                                              return this.getTipoOperador(_valor_operacion);
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    } else {
+      EClass _eClass_20 = o.eClass();
+      String _name_20 = _eClass_20.getName();
+      boolean _equals_33 = _name_20.equals("VariableID");
+      if (_equals_33) {
+        VariableID varID_1 = ((VariableID) o);
+        String _nombre_2 = varID_1.getNombre();
+        return VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_2);
+      } else {
+        EClass _eClass_21 = o.eClass();
+        String _name_21 = _eClass_21.getName();
+        boolean _equals_34 = _name_21.equals("ValorVector");
+        if (_equals_34) {
+          ValorVector vector_1 = ((ValorVector) o);
+          EList<CampoRegistro> _campo_10 = vector_1.getCampo();
+          int _size_5 = _campo_10.size();
+          boolean _equals_35 = (_size_5 == 0);
+          if (_equals_35) {
+            String _nombre_vector_2 = vector_1.getNombre_vector();
+            String _get_18 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_vector_2);
+            return VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_18);
+          } else {
+            String _nombre_vector_3 = vector_1.getNombre_vector();
+            String _get_19 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_vector_3);
+            String _get_20 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_19);
+            Map<String, String> _get_21 = VaryGrammarGeneratorCPP.registros.get(_get_20);
+            EList<CampoRegistro> _campo_11 = vector_1.getCampo();
+            CampoRegistro _get_22 = _campo_11.get(0);
+            String _nombre_campo_5 = _get_22.getNombre_campo();
+            return _get_21.get(_nombre_campo_5);
+          }
+        } else {
+          EClass _eClass_22 = o.eClass();
+          String _name_22 = _eClass_22.getName();
+          boolean _equals_36 = _name_22.equals("ValorMatriz");
+          if (_equals_36) {
+            ValorMatriz matriz_1 = ((ValorMatriz) o);
+            EList<CampoRegistro> _campo_12 = matriz_1.getCampo();
+            int _size_6 = _campo_12.size();
+            boolean _equals_37 = (_size_6 == 0);
+            if (_equals_37) {
+              String _nombre_matriz_2 = matriz_1.getNombre_matriz();
+              String _get_23 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_matriz_2);
+              return VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_23);
+            } else {
+              String _nombre_matriz_3 = matriz_1.getNombre_matriz();
+              String _get_24 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_matriz_3);
+              String _get_25 = VaryGrammarGeneratorCPP.vectoresMatrices.get(_get_24);
+              Map<String, String> _get_26 = VaryGrammarGeneratorCPP.registros.get(_get_25);
+              EList<CampoRegistro> _campo_13 = matriz_1.getCampo();
+              CampoRegistro _get_27 = _campo_13.get(0);
+              String _nombre_campo_6 = _get_27.getNombre_campo();
+              return _get_26.get(_nombre_campo_6);
+            }
+          } else {
+            EClass _eClass_23 = o.eClass();
+            String _name_23 = _eClass_23.getName();
+            boolean _equals_38 = _name_23.equals("ValorRegistro");
+            if (_equals_38) {
+              ValorRegistro registro_1 = ((ValorRegistro) o);
+              EList<CampoRegistro> _campo_14 = registro_1.getCampo();
+              int _size_7 = _campo_14.size();
+              boolean _equals_39 = (_size_7 == 1);
+              if (_equals_39) {
+                String _nombre_registro_2 = registro_1.getNombre_registro();
+                String _get_28 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_registro_2);
+                Map<String, String> _get_29 = VaryGrammarGeneratorCPP.registros.get(_get_28);
+                EList<CampoRegistro> _campo_15 = registro_1.getCampo();
+                CampoRegistro _get_30 = _campo_15.get(0);
+                String _nombre_campo_7 = _get_30.getNombre_campo();
+                return _get_29.get(_nombre_campo_7);
+              } else {
+                String _nombre_registro_3 = registro_1.getNombre_registro();
+                String _get_31 = VaryGrammarGeneratorCPP.variablesInicio.get(_nombre_registro_3);
+                Map<String, String> _get_32 = VaryGrammarGeneratorCPP.registros.get(_get_31);
+                EList<CampoRegistro> _campo_16 = registro_1.getCampo();
+                EList<CampoRegistro> _campo_17 = registro_1.getCampo();
+                int _size_8 = _campo_17.size();
+                int _minus_2 = (_size_8 - 2);
+                CampoRegistro _get_33 = _campo_16.get(_minus_2);
+                String _nombre_campo_8 = _get_33.getNombre_campo();
+                String tipoRegistro_1 = _get_32.get(_nombre_campo_8);
+                Map<String, String> _get_34 = VaryGrammarGeneratorCPP.registros.get(tipoRegistro_1);
+                EList<CampoRegistro> _campo_18 = registro_1.getCampo();
+                EList<CampoRegistro> _campo_19 = registro_1.getCampo();
+                int _size_9 = _campo_19.size();
+                int _minus_3 = (_size_9 - 1);
+                CampoRegistro _get_35 = _campo_18.get(_minus_3);
+                String _nombre_campo_9 = _get_35.getNombre_campo();
+                return _get_34.get(_nombre_campo_9);
+              }
+            } else {
+              EClass _eClass_24 = o.eClass();
+              String _name_24 = _eClass_24.getName();
+              boolean _equals_40 = _name_24.equals("LlamadaFuncion");
+              if (_equals_40) {
+                LlamadaFuncion llamadaFuncion_1 = ((LlamadaFuncion) o);
+                String _nombre_3 = llamadaFuncion_1.getNombre();
+                return VaryGrammarGeneratorCPP.funciones.get(_nombre_3);
+              } else {
+                if ((o.eClass().getName().equals("NumeroEntero") || o.eClass().getName().equals("ValorBooleano"))) {
+                  ResourceBundle _bundle_24 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                  return _bundle_24.getString("TIPO_ENTERO");
+                } else {
+                  EClass _eClass_25 = o.eClass();
+                  String _name_25 = _eClass_25.getName();
+                  boolean _equals_41 = _name_25.equals("ConstCadena");
+                  if (_equals_41) {
+                    ResourceBundle _bundle_25 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                    return _bundle_25.getString("TIPO_CADENA");
+                  } else {
+                    EClass _eClass_26 = o.eClass();
+                    String _name_26 = _eClass_26.getName();
+                    boolean _equals_42 = _name_26.equals("Caracter");
+                    if (_equals_42) {
+                      ResourceBundle _bundle_26 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                      return _bundle_26.getString("TIPO_CARACTER");
+                    } else {
+                      EClass _eClass_27 = o.eClass();
+                      String _name_27 = _eClass_27.getName();
+                      boolean _equals_43 = _name_27.equals("NumeroDecimal");
+                      if (_equals_43) {
+                        ResourceBundle _bundle_27 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                        return _bundle_27.getString("TIPO_REAL");
+                      } else {
+                        EClass _eClass_28 = o.eClass();
+                        String _name_28 = _eClass_28.getName();
+                        boolean _equals_44 = _name_28.equals("Suma");
+                        if (_equals_44) {
+                          Suma suma_1 = ((Suma) o);
+                          operacion _right_10 = suma_1.getRight();
+                          String tipoRight_10 = this.getTipoOperador(_right_10);
+                          operacion _left_10 = suma_1.getLeft();
+                          String tipoLeft_10 = this.getTipoOperador(_left_10);
+                          boolean _equals_45 = tipoRight_10.equals(tipoLeft_10);
+                          if (_equals_45) {
+                            return tipoRight_10;
+                          } else {
+                            if ((tipoRight_10.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_10.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                              ResourceBundle _bundle_28 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                              return _bundle_28.getString("TIPO_CADENA");
+                            } else {
+                              if ((tipoRight_10.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_10.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                ResourceBundle _bundle_29 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                return _bundle_29.getString("TIPO_REAL");
+                              }
+                            }
+                          }
+                        } else {
+                          EClass _eClass_29 = o.eClass();
+                          String _name_29 = _eClass_29.getName();
+                          boolean _equals_46 = _name_29.equals("Resta");
+                          if (_equals_46) {
+                            Resta resta_1 = ((Resta) o);
+                            operacion _right_11 = resta_1.getRight();
+                            String tipoRight_11 = this.getTipoOperador(_right_11);
+                            operacion _left_11 = resta_1.getLeft();
+                            String tipoLeft_11 = this.getTipoOperador(_left_11);
+                            boolean _equals_47 = tipoRight_11.equals(tipoLeft_11);
+                            if (_equals_47) {
+                              return tipoRight_11;
+                            } else {
+                              if ((tipoRight_11.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_11.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                ResourceBundle _bundle_30 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                return _bundle_30.getString("TIPO_CADENA");
+                              } else {
+                                if ((tipoRight_11.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_11.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                  ResourceBundle _bundle_31 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                  return _bundle_31.getString("TIPO_REAL");
+                                }
+                              }
+                            }
+                          } else {
+                            EClass _eClass_30 = o.eClass();
+                            String _name_30 = _eClass_30.getName();
+                            boolean _equals_48 = _name_30.equals("Multiplicacion");
+                            if (_equals_48) {
+                              Multiplicacion multiplicacion_1 = ((Multiplicacion) o);
+                              operacion _right_12 = multiplicacion_1.getRight();
+                              String tipoRight_12 = this.getTipoOperador(_right_12);
+                              operacion _left_12 = multiplicacion_1.getLeft();
+                              String tipoLeft_12 = this.getTipoOperador(_left_12);
+                              boolean _equals_49 = tipoRight_12.equals(tipoLeft_12);
+                              if (_equals_49) {
+                                return tipoRight_12;
+                              } else {
+                                if ((tipoRight_12.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_12.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                  ResourceBundle _bundle_32 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                  return _bundle_32.getString("TIPO_CADENA");
+                                } else {
+                                  if ((tipoRight_12.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_12.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                    ResourceBundle _bundle_33 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                    return _bundle_33.getString("TIPO_REAL");
+                                  }
+                                }
+                              }
+                            } else {
+                              EClass _eClass_31 = o.eClass();
+                              String _name_31 = _eClass_31.getName();
+                              boolean _equals_50 = _name_31.equals("Division");
+                              if (_equals_50) {
+                                Division division_1 = ((Division) o);
+                                operacion _right_13 = division_1.getRight();
+                                String tipoRight_13 = this.getTipoOperador(_right_13);
+                                operacion _left_13 = division_1.getLeft();
+                                String tipoLeft_13 = this.getTipoOperador(_left_13);
+                                boolean _equals_51 = tipoRight_13.equals(tipoLeft_13);
+                                if (_equals_51) {
+                                  return tipoRight_13;
+                                } else {
+                                  if ((tipoRight_13.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_13.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                    ResourceBundle _bundle_34 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                    return _bundle_34.getString("TIPO_CADENA");
+                                  } else {
+                                    if ((tipoRight_13.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_13.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                      ResourceBundle _bundle_35 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                      return _bundle_35.getString("TIPO_REAL");
+                                    }
+                                  }
+                                }
+                              } else {
+                                EClass _eClass_32 = o.eClass();
+                                String _name_32 = _eClass_32.getName();
+                                boolean _equals_52 = _name_32.equals("Div");
+                                if (_equals_52) {
+                                  Div div_1 = ((Div) o);
+                                  operacion _right_14 = div_1.getRight();
+                                  String tipoRight_14 = this.getTipoOperador(_right_14);
+                                  operacion _left_14 = div_1.getLeft();
+                                  String tipoLeft_14 = this.getTipoOperador(_left_14);
+                                  boolean _equals_53 = tipoRight_14.equals(tipoLeft_14);
+                                  if (_equals_53) {
+                                    return tipoRight_14;
+                                  } else {
+                                    if ((tipoRight_14.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_14.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                      ResourceBundle _bundle_36 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                      return _bundle_36.getString("TIPO_CADENA");
+                                    } else {
+                                      if ((tipoRight_14.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_14.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                        ResourceBundle _bundle_37 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                        return _bundle_37.getString("TIPO_REAL");
+                                      }
+                                    }
+                                  }
+                                } else {
+                                  EClass _eClass_33 = o.eClass();
+                                  String _name_33 = _eClass_33.getName();
+                                  boolean _equals_54 = _name_33.equals("Mod");
+                                  if (_equals_54) {
+                                    Mod mod_1 = ((Mod) o);
+                                    operacion _right_15 = mod_1.getRight();
+                                    String tipoRight_15 = this.getTipoOperador(_right_15);
+                                    operacion _left_15 = mod_1.getLeft();
+                                    String tipoLeft_15 = this.getTipoOperador(_left_15);
+                                    boolean _equals_55 = tipoRight_15.equals(tipoLeft_15);
+                                    if (_equals_55) {
+                                      return tipoRight_15;
+                                    } else {
+                                      if ((tipoRight_15.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_15.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                        ResourceBundle _bundle_38 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                        return _bundle_38.getString("TIPO_CADENA");
+                                      } else {
+                                        if ((tipoRight_15.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_15.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                          ResourceBundle _bundle_39 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                          return _bundle_39.getString("TIPO_REAL");
+                                        }
+                                      }
+                                    }
+                                  } else {
+                                    EClass _eClass_34 = o.eClass();
+                                    String _name_34 = _eClass_34.getName();
+                                    boolean _equals_56 = _name_34.equals("Or");
+                                    if (_equals_56) {
+                                      Or or_1 = ((Or) o);
+                                      operacion _right_16 = or_1.getRight();
+                                      String tipoRight_16 = this.getTipoOperador(_right_16);
+                                      operacion _left_16 = or_1.getLeft();
+                                      String tipoLeft_16 = this.getTipoOperador(_left_16);
+                                      boolean _equals_57 = tipoRight_16.equals(tipoLeft_16);
+                                      if (_equals_57) {
+                                        return tipoRight_16;
+                                      } else {
+                                        if ((tipoRight_16.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_16.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                          ResourceBundle _bundle_40 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                          return _bundle_40.getString("TIPO_CADENA");
+                                        } else {
+                                          if ((tipoRight_16.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_16.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                            ResourceBundle _bundle_41 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                            return _bundle_41.getString("TIPO_REAL");
+                                          }
+                                        }
+                                      }
+                                    } else {
+                                      EClass _eClass_35 = o.eClass();
+                                      String _name_35 = _eClass_35.getName();
+                                      boolean _equals_58 = _name_35.equals("And");
+                                      if (_equals_58) {
+                                        And and_1 = ((And) o);
+                                        operacion _right_17 = and_1.getRight();
+                                        String tipoRight_17 = this.getTipoOperador(_right_17);
+                                        operacion _left_17 = and_1.getLeft();
+                                        String tipoLeft_17 = this.getTipoOperador(_left_17);
+                                        boolean _equals_59 = tipoRight_17.equals(tipoLeft_17);
+                                        if (_equals_59) {
+                                          return tipoRight_17;
+                                        } else {
+                                          if ((tipoRight_17.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_17.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                            ResourceBundle _bundle_42 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                            return _bundle_42.getString("TIPO_CADENA");
+                                          } else {
+                                            if ((tipoRight_17.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_17.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                              ResourceBundle _bundle_43 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                              return _bundle_43.getString("TIPO_REAL");
+                                            }
+                                          }
+                                        }
+                                      } else {
+                                        EClass _eClass_36 = o.eClass();
+                                        String _name_36 = _eClass_36.getName();
+                                        boolean _equals_60 = _name_36.equals("Comparacion");
+                                        if (_equals_60) {
+                                          Comparacion comparacion_1 = ((Comparacion) o);
+                                          operacion _right_18 = comparacion_1.getRight();
+                                          String tipoRight_18 = this.getTipoOperador(_right_18);
+                                          operacion _left_18 = comparacion_1.getLeft();
+                                          String tipoLeft_18 = this.getTipoOperador(_left_18);
+                                          boolean _equals_61 = tipoRight_18.equals(tipoLeft_18);
+                                          if (_equals_61) {
+                                            return tipoRight_18;
+                                          } else {
+                                            if ((tipoRight_18.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_18.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                              ResourceBundle _bundle_44 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                              return _bundle_44.getString("TIPO_CADENA");
+                                            } else {
+                                              if ((tipoRight_18.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_18.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                                ResourceBundle _bundle_45 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                                return _bundle_45.getString("TIPO_REAL");
+                                              }
+                                            }
+                                          }
+                                        } else {
+                                          EClass _eClass_37 = o.eClass();
+                                          String _name_37 = _eClass_37.getName();
+                                          boolean _equals_62 = _name_37.equals("Igualdad");
+                                          if (_equals_62) {
+                                            Igualdad igualdad_1 = ((Igualdad) o);
+                                            operacion _right_19 = igualdad_1.getRight();
+                                            String tipoRight_19 = this.getTipoOperador(_right_19);
+                                            operacion _left_19 = igualdad_1.getLeft();
+                                            String tipoLeft_19 = this.getTipoOperador(_left_19);
+                                            boolean _equals_63 = tipoRight_19.equals(tipoLeft_19);
+                                            if (_equals_63) {
+                                              return tipoRight_19;
+                                            } else {
+                                              if ((tipoRight_19.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft_19.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_CADENA")))) {
+                                                ResourceBundle _bundle_46 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                                return _bundle_46.getString("TIPO_CADENA");
+                                              } else {
+                                                if ((tipoRight_19.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft_19.equals(VaryGrammarGeneratorCPP.readerMessages.getBundle().getString("TIPO_REAL")))) {
+                                                  ResourceBundle _bundle_47 = VaryGrammarGeneratorCPP.readerMessages.getBundle();
+                                                  return _bundle_47.getString("TIPO_REAL");
+                                                }
+                                              }
+                                            }
+                                          } else {
+                                            EClass _eClass_38 = o.eClass();
+                                            String _name_38 = _eClass_38.getName();
+                                            boolean _equals_64 = _name_38.equals("OperacionParentesis");
+                                            if (_equals_64) {
+                                              OperacionParentesis operacionParentesis_1 = ((OperacionParentesis) o);
+                                              operacion _valor_operacion_1 = operacionParentesis_1.getValor_operacion();
+                                              return this.getTipoOperador(_valor_operacion_1);
+                                            }
+                                          }
+                                        }
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    return null;
   }
   
   public String generaParametros(final EList<operacion> operaciones) {

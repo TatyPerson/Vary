@@ -713,96 +713,86 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.VaryGrammar.FuncionFicheroAbrir");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cAbrirKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cVariableAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cVariablePrimariaParserRuleCall_2_0_0 = (RuleCall)cVariableAssignment_2_0.eContents().get(0);
-		private final Keyword cCommaKeyword_2_1 = (Keyword)cGroup_2.eContents().get(1);
-		private final Assignment cModoAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cModoModoAperturaParserRuleCall_2_2_0 = (RuleCall)cModoAssignment_2_2.eContents().get(0);
-		private final Keyword cCommaKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
-		private final Assignment cVariableAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
-		private final RuleCall cVariablePrimariaParserRuleCall_2_4_0 = (RuleCall)cVariableAssignment_2_4.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Assignment cVariableAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cVariablePrimariaParserRuleCall_1_0_0 = (RuleCall)cVariableAssignment_1_0.eContents().get(0);
+		private final Keyword cCommaKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Assignment cModoAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cModoModoAperturaParserRuleCall_1_2_0 = (RuleCall)cModoAssignment_1_2.eContents().get(0);
+		private final Keyword cCommaKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		private final Assignment cVariableAssignment_1_4 = (Assignment)cGroup_1.eContents().get(4);
+		private final RuleCall cVariablePrimariaParserRuleCall_1_4_0 = (RuleCall)cVariableAssignment_1_4.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//FuncionFicheroAbrir:
-		//	'abrir'
-		//	'(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
+		//	'abrir(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
 		//	')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//'abrir' '(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria) ')'
+		//'abrir(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria) ')'
 		public Group getGroup() { return cGroup; }
 
-		//'abrir'
+		//'abrir('
 		public Keyword getAbrirKeyword_0() { return cAbrirKeyword_0; }
 
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-
 		//(variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
-		public Group getGroup_2() { return cGroup_2; }
+		public Group getGroup_1() { return cGroup_1; }
 
 		//variable+=Primaria
-		public Assignment getVariableAssignment_2_0() { return cVariableAssignment_2_0; }
+		public Assignment getVariableAssignment_1_0() { return cVariableAssignment_1_0; }
 
 		//Primaria
-		public RuleCall getVariablePrimariaParserRuleCall_2_0_0() { return cVariablePrimariaParserRuleCall_2_0_0; }
+		public RuleCall getVariablePrimariaParserRuleCall_1_0_0() { return cVariablePrimariaParserRuleCall_1_0_0; }
 
 		//','
-		public Keyword getCommaKeyword_2_1() { return cCommaKeyword_2_1; }
+		public Keyword getCommaKeyword_1_1() { return cCommaKeyword_1_1; }
 
 		//modo=ModoApertura
-		public Assignment getModoAssignment_2_2() { return cModoAssignment_2_2; }
+		public Assignment getModoAssignment_1_2() { return cModoAssignment_1_2; }
 
 		//ModoApertura
-		public RuleCall getModoModoAperturaParserRuleCall_2_2_0() { return cModoModoAperturaParserRuleCall_2_2_0; }
+		public RuleCall getModoModoAperturaParserRuleCall_1_2_0() { return cModoModoAperturaParserRuleCall_1_2_0; }
 
 		//','
-		public Keyword getCommaKeyword_2_3() { return cCommaKeyword_2_3; }
+		public Keyword getCommaKeyword_1_3() { return cCommaKeyword_1_3; }
 
 		//variable+=Primaria
-		public Assignment getVariableAssignment_2_4() { return cVariableAssignment_2_4; }
+		public Assignment getVariableAssignment_1_4() { return cVariableAssignment_1_4; }
 
 		//Primaria
-		public RuleCall getVariablePrimariaParserRuleCall_2_4_0() { return cVariablePrimariaParserRuleCall_2_4_0; }
+		public RuleCall getVariablePrimariaParserRuleCall_1_4_0() { return cVariablePrimariaParserRuleCall_1_4_0; }
 
 		//')'
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
 
 	public class FuncionFicheroCerrarElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.VaryGrammar.FuncionFicheroCerrar");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCerrarKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cVariableAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cVariablePrimariaParserRuleCall_2_0 = (RuleCall)cVariableAssignment_2.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cVariableAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cVariablePrimariaParserRuleCall_1_0 = (RuleCall)cVariableAssignment_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//FuncionFicheroCerrar:
-		//	'cerrar'
-		//	'('
+		//	'cerrar('
 		//	variable=Primaria ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//'cerrar' '(' variable=Primaria ')'
+		//'cerrar(' variable=Primaria ')'
 		public Group getGroup() { return cGroup; }
 
-		//'cerrar'
+		//'cerrar('
 		public Keyword getCerrarKeyword_0() { return cCerrarKeyword_0; }
 
-		//'('
-		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
-
 		//variable=Primaria
-		public Assignment getVariableAssignment_2() { return cVariableAssignment_2; }
+		public Assignment getVariableAssignment_1() { return cVariableAssignment_1; }
 
 		//Primaria
-		public RuleCall getVariablePrimariaParserRuleCall_2_0() { return cVariablePrimariaParserRuleCall_2_0; }
+		public RuleCall getVariablePrimariaParserRuleCall_1_0() { return cVariablePrimariaParserRuleCall_1_0; }
 
 		//')'
-		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
 	}
 
 	public class ModoAperturaElements extends AbstractParserRuleElementFinder {
@@ -4527,8 +4517,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FuncionFicheroAbrir:
-	//	'abrir'
-	//	'(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
+	//	'abrir(' (variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
 	//	')';
 	public FuncionFicheroAbrirElements getFuncionFicheroAbrirAccess() {
 		return pFuncionFicheroAbrir;
@@ -4539,8 +4528,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FuncionFicheroCerrar:
-	//	'cerrar'
-	//	'('
+	//	'cerrar('
 	//	variable=Primaria ')';
 	public FuncionFicheroCerrarElements getFuncionFicheroCerrarAccess() {
 		return pFuncionFicheroCerrar;

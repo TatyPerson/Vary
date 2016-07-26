@@ -88,15 +88,13 @@ Declaracion returns Declaracion:
 	DeclaracionVariable | DeclaracionPropia;
 	
 FuncionFicheroAbrir returns FuncionFicheroAbrir:
-	'abrir'
-	'('
+	'abrir('
 		(variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
 	')'
 ;
 
 FuncionFicheroCerrar returns FuncionFicheroCerrar:
-	'cerrar'
-	'('
+	'cerrar('
 		(variable=Primaria)
 	')'
 ;

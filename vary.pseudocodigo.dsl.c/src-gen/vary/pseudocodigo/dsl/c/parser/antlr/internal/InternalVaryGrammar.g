@@ -1138,79 +1138,75 @@ ruleFuncionFicheroAbrir returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='abrir' 
+(	otherlv_0='abrir(' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getFuncionFicheroAbrirAccess().getAbrirKeyword_0());
-    }
-	otherlv_1='(' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getFuncionFicheroAbrirAccess().getLeftParenthesisKeyword_1());
     }
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionFicheroAbrirAccess().getVariablePrimariaParserRuleCall_2_0_0()); 
+	        newCompositeNode(grammarAccess.getFuncionFicheroAbrirAccess().getVariablePrimariaParserRuleCall_1_0_0()); 
 	    }
-		lv_variable_2_0=rulePrimaria		{
+		lv_variable_1_0=rulePrimaria		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionFicheroAbrirRule());
 	        }
        		add(
        			$current, 
        			"variable",
-        		lv_variable_2_0, 
+        		lv_variable_1_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3=',' 
+)	otherlv_2=',' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFuncionFicheroAbrirAccess().getCommaKeyword_2_1());
+    	newLeafNode(otherlv_2, grammarAccess.getFuncionFicheroAbrirAccess().getCommaKeyword_1_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionFicheroAbrirAccess().getModoModoAperturaParserRuleCall_2_2_0()); 
+	        newCompositeNode(grammarAccess.getFuncionFicheroAbrirAccess().getModoModoAperturaParserRuleCall_1_2_0()); 
 	    }
-		lv_modo_4_0=ruleModoApertura		{
+		lv_modo_3_0=ruleModoApertura		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionFicheroAbrirRule());
 	        }
        		set(
        			$current, 
        			"modo",
-        		lv_modo_4_0, 
+        		lv_modo_3_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.ModoApertura");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_5=',' 
+)	otherlv_4=',' 
     {
-    	newLeafNode(otherlv_5, grammarAccess.getFuncionFicheroAbrirAccess().getCommaKeyword_2_3());
+    	newLeafNode(otherlv_4, grammarAccess.getFuncionFicheroAbrirAccess().getCommaKeyword_1_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionFicheroAbrirAccess().getVariablePrimariaParserRuleCall_2_4_0()); 
+	        newCompositeNode(grammarAccess.getFuncionFicheroAbrirAccess().getVariablePrimariaParserRuleCall_1_4_0()); 
 	    }
-		lv_variable_6_0=rulePrimaria		{
+		lv_variable_5_0=rulePrimaria		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionFicheroAbrirRule());
 	        }
        		add(
        			$current, 
        			"variable",
-        		lv_variable_6_0, 
+        		lv_variable_5_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))	otherlv_7=')' 
+))	otherlv_6=')' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getFuncionFicheroAbrirAccess().getRightParenthesisKeyword_3());
+    	newLeafNode(otherlv_6, grammarAccess.getFuncionFicheroAbrirAccess().getRightParenthesisKeyword_2());
     }
 )
 ;
@@ -1233,35 +1229,31 @@ ruleFuncionFicheroCerrar returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='cerrar' 
+(	otherlv_0='cerrar(' 
     {
     	newLeafNode(otherlv_0, grammarAccess.getFuncionFicheroCerrarAccess().getCerrarKeyword_0());
-    }
-	otherlv_1='(' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getFuncionFicheroCerrarAccess().getLeftParenthesisKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionFicheroCerrarAccess().getVariablePrimariaParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getFuncionFicheroCerrarAccess().getVariablePrimariaParserRuleCall_1_0()); 
 	    }
-		lv_variable_2_0=rulePrimaria		{
+		lv_variable_1_0=rulePrimaria		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionFicheroCerrarRule());
 	        }
        		set(
        			$current, 
        			"variable",
-        		lv_variable_2_0, 
+        		lv_variable_1_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_3=')' 
+)	otherlv_2=')' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getFuncionFicheroCerrarAccess().getRightParenthesisKeyword_3());
+    	newLeafNode(otherlv_2, grammarAccess.getFuncionFicheroCerrarAccess().getRightParenthesisKeyword_2());
     }
 )
 ;

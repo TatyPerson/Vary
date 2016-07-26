@@ -152,6 +152,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	static Map<String, String> variablesInicio = new HashMap<String,String>();
 	static Map<String, Map<String,String>>variablesSubprocesos = new HashMap<String,Map<String,String>>();
 	static Map<String,String> vectoresMatrices = new HashMap<String,String>();
+	static List<String> archivos = new ArrayList<String>();
 	static Map<String, Map<String,String>> registros = new HashMap<String, Map<String,String>>();
 	static Map<String, ArrayList<String>> variablesEnumerados = new HashMap<String, ArrayList<String>>();
 	static ArrayList<String> enumerados = new ArrayList<String>();
@@ -644,6 +645,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 					}
 				}
 			}
+		} else if(t.eClass.name.equals("Archivo")) {
+			var a = t as Archivo
+			archivos.add(a.nombre)
 		}
 	}
 	
@@ -925,6 +929,9 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 					}
 				}
 			}
+		} else if(t.eClass.name.equals("Archivo")) {
+			var a = t as Archivo
+			archivos.add(a.nombre)
 		}
 	}
 	
@@ -1072,11 +1079,11 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 	
 	override generate(FuncionFicheroAbrir myFuncionFicheroAbrir) '''
-		«myFuncionFicheroAbrir.variable.get(0).generate» = fopen(«myFuncionFicheroAbrir.variable.get(1).generate»,"«obtenerModo(myFuncionFicheroAbrir.modo.getName)»")
+		«myFuncionFicheroAbrir.variable.get(0).generate» = fopen(«myFuncionFicheroAbrir.variable.get(1).generate»,"«obtenerModo(myFuncionFicheroAbrir.modo.getName)»");
 	'''
 	
 	override generate(FuncionFicheroCerrar myFuncionFicheroCerrar)'''
-		fclose(«myFuncionFicheroCerrar.variable.generate»)
+		fclose(«myFuncionFicheroCerrar.variable.generate»);
 	'''
 
 	def generaSubrango(int limite_inf,int limite_sup) {
@@ -1734,12 +1741,124 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		}
 		return leer;
 	}
+	
+	override generate(Leer l) {
+		if(archivos.contains(l.variable.get(0).getTipoOperador)) {
+			var tipo = "";
+			var resultado = "";
+			var variableArchivo = "";
+			for(operacion op: l.variable) {
+				if(op.eClass.name.equals("VariableID")) {
+				var varID = op as VariableID;
+				tipo = variablesInicio.get(varID.nombre);
+			}
+			else if(op.eClass.name.equals("ValorVector")) {
+				var vector = op as ValorVector;
+				if(vector.campo.size() == 0) {
+					tipo = vectoresMatrices.get(variablesInicio.get(vector.nombre_vector));
+				}
+				else {
+					tipo = registros.get(vectoresMatrices.get(variablesInicio.get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
+				}
+			}
+			else if(op.eClass.name.equals("ValorMatriz")) {
+				var matriz = op as ValorMatriz;
+				if(matriz.campo.size() == 0) {
+					tipo = vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz));
+				}
+				else {
+					tipo = registros.get(vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
+				}
+			}
+			else if(op.eClass.name.equals("ValorRegistro")) {
+				var registro = op as ValorRegistro;
+				if(registro.campo.size() == 1) {
+					tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+				} else {
+					var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+					tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+				}
+			}
+			if(archivos.contains(tipo)) {
+				variableArchivo = op.generate.toString;
+			}
+			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(resultado == "") {
+						resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+					}
+				}
+				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+					if(resultado == "") {
+						resultado = '''fscanf(«variableArchivo»,"%c", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = '''fscanf(«variableArchivo»,"%c", &«op.generate»);'''
 
-	override generate(Leer l) '''
-		«FOR op:l.variable»
-			cin >> «op.generate»;
-		«ENDFOR»
-	'''
+					}
+				}
+				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+					if(resultado == "") {
+						resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+					}
+				}
+				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(resultado == "") {
+						resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+					}
+					else {
+						resultado = resultado + "\n";
+						resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+					}
+		 		}
+		 		else if(vectoresMatrices.containsKey(tipo)) {
+					var tipoAux = vectoresMatrices.get(tipo);
+					if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+						if(resultado == "") {			
+							resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = '''fscanf(«variableArchivo»,"%i", &«op.generate»);'''
+						}
+					}
+					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+						if(resultado == "") {
+							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
+						}
+					}
+					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						if(resultado == "") {
+							resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+						}
+						else {
+							resultado = resultado + "\n";
+							resultado = '''fscanf(«variableArchivo»,"%f", &«op.generate»);'''
+						}
+					}
+				}
+			}
+			return resultado;
+		} else {
+			var resultado = "";
+			for(op: l.variable) {
+				resultado = resultado + "cin >> " + op.generate + ";" + "\n"
+			}
+			return resultado;	
+		}
+	}
 	
 	def contienenExpresionLeer(EList<Sentencias> sentencias, Leer l) {
 		if(sentencias.contains(l)) {
@@ -1924,10 +2043,513 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		}
 		return false;
 	}
-
-	override generate(Escribir a) '''
-		cout«a.operador.coutOperadores» << endl;
-	'''
+	
+	override generate(Escribir a) {
+		if(archivos.contains(a.operador.get(0).getTipoOperador)) {
+			var cadena = "";
+			cadena = cadena + a.operador.get(0).generate + ", \"";
+			for(o: a.operador) {
+				if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") && !archivos.contains(a.operador.get(0).getTipoOperador) || a.operador.indexOf(o) != 0) {
+					var tipo = o.getTipoOperador;
+			
+					if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %i \\n \"";
+						}
+						else {
+							cadena = cadena + " %i";
+						}
+					}
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) || o.eClass.name.equals("Caracter")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %c \\n \"";
+						}
+						else {
+							cadena = cadena + " %c";
+						}
+					}
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || o.eClass.name.equals("ConstCadena")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %s \\n \"";
+						}
+						else {
+							cadena = cadena + " %s";
+						}
+					}
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) || o.eClass.name.equals("NumeroDecimal")) {
+						if(a.operador.indexOf(o) == a.operador.size - 1) {
+							cadena = cadena + " %f \\n \"";
+						}
+						else {
+							cadena = cadena + " %f";
+						}
+					}
+					else if(vectoresMatrices.containsKey(tipo)) {
+							var tipoAux = vectoresMatrices.get(tipo);
+							if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) || o.eClass.name.equals("NumeroEntero")) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %i \\n \"";
+								}
+								else {
+									cadena = cadena + " %i";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %s \\n \"";
+								}
+								else {
+									cadena = cadena + " %s";
+								}
+							}
+							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+									cadena = cadena + " %f \\n \"";
+								}	
+								else {
+									cadena = cadena + " %f";
+								}
+							}
+						}
+				}
+			}
+			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
+				cadena = cadena + ", " + a.operador.coutOperadoresC;
+				return '''fprintf(«cadena»);'''
+			}
+			else {
+				return '''fprintf(«cadena»);'''	
+			}
+		} else {
+			return "cout" + a.operador.coutOperadores + " << endl;"	
+		}
+	}
+	
+	def coutOperadoresC(EList<operacion> operaciones) {
+		var resultado = "";
+		var numero = 1;
+		for (op : operaciones) {
+			if(operaciones.size() > 1 && numero < operaciones.size && numero != 1) {
+				if(op.getTipoOperador.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !op.generate.toString.contains("\"")) {
+					resultado = resultado + op.generate + ".c_str() , ";
+				} else {
+					resultado = resultado + op.generate + " , ";	
+				}
+			}
+			else if(numero != 1 || operaciones.size() == 1) {
+				if(op.getTipoOperador.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !op.generate.toString.contains("\"")) {
+					resultado = resultado + op.generate + ".c_str()";
+				} else {
+					resultado = resultado + op.generate;	
+				}
+			}
+			numero = numero + 1;
+		}
+		return resultado;
+	}
+	
+	def String getTipoOperador(operacion o) {
+		if(o.eClass.name.equals("OperacionCompleta")) {
+			var operacionCompleta = o as OperacionCompleta;
+			var op = operacionCompleta.valor_operacion;
+			if(op.eClass.name.equals("VariableID")) {
+				var varID = op as VariableID;
+				return variablesInicio.get(varID.nombre);
+			}
+			else if(op.eClass.name.equals("ValorVector")) {
+				var vector = op as ValorVector;
+				if(vector.campo.size() == 0) {
+					return vectoresMatrices.get(variablesInicio.get(vector.nombre_vector));
+				}
+				else {
+					return registros.get(vectoresMatrices.get(variablesInicio.get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
+				}	
+			}
+			else if(op.eClass.name.equals("ValorMatriz")) {
+				var matriz = op as ValorMatriz;
+				if(matriz.campo.size() == 0) {
+					return vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz));
+				}
+				else {
+					return registros.get(vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
+				}
+			}
+			else if(op.eClass.name.equals("ValorRegistro")) {
+				var registro = op as ValorRegistro;
+				//El último campo nos proporcionará el tipo
+					if(registro.campo.size() == 1) {
+						return registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					} else {
+						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+						return registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+					}	
+			}
+			else if(op.eClass.name.equals("LlamadaFuncion")) {
+				var llamadaFuncion = op as LlamadaFuncion;
+				return funciones.get(llamadaFuncion.nombre);
+			} else if(op.eClass.name.equals("NumeroEntero") || op.eClass.name.equals("ValorBooleano")) {
+				return readerMessages.getBundle().getString("TIPO_ENTERO");	
+			} else if(op.eClass.name.equals("ConstCadena")) {
+				return readerMessages.getBundle().getString("TIPO_CADENA");	
+			} else if(op.eClass.name.equals("Caracter")) {
+				return readerMessages.getBundle().getString("TIPO_CARACTER");
+			} else if(op.eClass.name.equals("NumeroDecimal")) {
+				return readerMessages.getBundle().getString("TIPO_REAL");
+			} else if(op.eClass.name.equals("Suma")) {
+				var suma = op as Suma;
+				var tipoRight = suma.right.getTipoOperador;
+				var tipoLeft = suma.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Resta")) {
+				var resta = op as Resta;
+				
+				var tipoRight = resta.right.getTipoOperador;
+				var tipoLeft = resta.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Multiplicacion")) {
+				var multiplicacion = op as Multiplicacion;
+				
+				var tipoRight = multiplicacion.right.getTipoOperador;
+				var tipoLeft = multiplicacion.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+				
+			} else if(op.eClass.name.equals("Division")) {
+				var division = op as Division;
+				
+				var tipoRight = division.right.getTipoOperador;
+				var tipoLeft = division.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Div")) {
+				var div = op as Div;
+				
+				var tipoRight = div.right.getTipoOperador;
+				var tipoLeft = div.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Mod")) {
+				var mod = op as Mod;
+				
+				var tipoRight = mod.right.getTipoOperador;
+				var tipoLeft = mod.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Or")) {
+				var or = op as Or;
+				
+				var tipoRight = or.right.getTipoOperador;
+				var tipoLeft = or.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("And")) {
+				var and = op as And;
+				
+				var tipoRight = and.right.getTipoOperador;
+				var tipoLeft = and.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Comparacion")) {
+				var comparacion = op as Comparacion;
+				
+				var tipoRight = comparacion.right.getTipoOperador;
+				var tipoLeft = comparacion.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("Igualdad")) {
+				var igualdad = op as Igualdad;
+				
+				var tipoRight = igualdad.right.getTipoOperador;
+				var tipoLeft = igualdad.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(op.eClass.name.equals("OperacionParentesis")) {
+				var operacionParentesis = op as OperacionParentesis;
+				return operacionParentesis.valor_operacion.getTipoOperador;
+			}
+		} else {
+			if(o.eClass.name.equals("VariableID")) {
+				var varID = o as VariableID;
+				return variablesInicio.get(varID.nombre);
+			}
+			else if(o.eClass.name.equals("ValorVector")) {
+				var vector = o as ValorVector;
+				if(vector.campo.size() == 0) {
+					return vectoresMatrices.get(variablesInicio.get(vector.nombre_vector));
+				}
+				else {
+					return registros.get(vectoresMatrices.get(variablesInicio.get(vector.nombre_vector))).get(vector.campo.get(0).nombre_campo);
+				}	
+			}
+			else if(o.eClass.name.equals("ValorMatriz")) {
+				var matriz = o as ValorMatriz;
+				if(matriz.campo.size() == 0) {
+					return vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz));
+				}
+				else {
+					return registros.get(vectoresMatrices.get(variablesInicio.get(matriz.nombre_matriz))).get(matriz.campo.get(0).nombre_campo);
+				}
+			}
+			else if(o.eClass.name.equals("ValorRegistro")) {
+				var registro = o as ValorRegistro;
+				//El último campo nos proporcionará el tipo
+					if(registro.campo.size() == 1) {
+						return registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+					} else {
+						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
+						return registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+					}	
+			}
+			else if(o.eClass.name.equals("LlamadaFuncion")) {
+				var llamadaFuncion = o as LlamadaFuncion;
+				return funciones.get(llamadaFuncion.nombre);
+			}
+			else if(o.eClass.name.equals("NumeroEntero") || o.eClass.name.equals("ValorBooleano")) {
+				return readerMessages.getBundle().getString("TIPO_ENTERO");	
+			} else if(o.eClass.name.equals("ConstCadena")) {
+				return readerMessages.getBundle().getString("TIPO_CADENA");	
+			} else if(o.eClass.name.equals("Caracter")) {
+				return readerMessages.getBundle().getString("TIPO_CARACTER");
+			} else if(o.eClass.name.equals("NumeroDecimal")) {
+				return readerMessages.getBundle().getString("TIPO_REAL");
+			} else if(o.eClass.name.equals("Suma")) {
+				var suma = o as Suma;
+				var tipoRight = suma.right.getTipoOperador;
+				var tipoLeft = suma.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Resta")) {
+				var resta = o as Resta;
+				
+				var tipoRight = resta.right.getTipoOperador;
+				var tipoLeft = resta.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Multiplicacion")) {
+				var multiplicacion = o as Multiplicacion;
+				
+				var tipoRight = multiplicacion.right.getTipoOperador;
+				var tipoLeft = multiplicacion.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+				
+			} else if(o.eClass.name.equals("Division")) {
+				var division = o as Division;
+				
+				var tipoRight = division.right.getTipoOperador;
+				var tipoLeft = division.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Div")) {
+				var div = o as Div;
+				
+				var tipoRight = div.right.getTipoOperador;
+				var tipoLeft = div.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Mod")) {
+				var mod = o as Mod;
+				
+				var tipoRight = mod.right.getTipoOperador;
+				var tipoLeft = mod.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Or")) {
+				var or = o as Or;
+				
+				var tipoRight = or.right.getTipoOperador;
+				var tipoLeft = or.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("And")) {
+				var and = o as And;
+				
+				var tipoRight = and.right.getTipoOperador;
+				var tipoLeft = and.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Comparacion")) {
+				var comparacion = o as Comparacion;
+				
+				var tipoRight = comparacion.right.getTipoOperador;
+				var tipoLeft = comparacion.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("Igualdad")) {
+				var igualdad = o as Igualdad;
+				
+				var tipoRight = igualdad.right.getTipoOperador;
+				var tipoLeft = igualdad.left.getTipoOperador;
+				
+				if(tipoRight.equals(tipoLeft)) {
+					return tipoRight;
+				} else {
+					if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+						return readerMessages.getBundle().getString("TIPO_CADENA");
+					} else if(tipoRight.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipoLeft.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+						return readerMessages.getBundle().getString("TIPO_REAL");
+					}
+				}
+			} else if(o.eClass.name.equals("OperacionParentesis")) {
+				var operacionParentesis = o as OperacionParentesis;
+				return operacionParentesis.valor_operacion.getTipoOperador;
+			}
+		}
+	}
 
 	def generaParametros(EList<operacion> operaciones) {
 		var total = "";
