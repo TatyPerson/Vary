@@ -2318,9 +2318,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		for(Sentencias s: f.getSentencias()) {
 			if(s instanceof segun) {
 				segun se = (segun) s;
-				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
-				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+				if(se.getValor() instanceof OperacionCompleta) {
+					OperacionCompleta op = (OperacionCompleta) se.getValor();
+					VariableID v = (VariableID) op.getValor_operacion(); //Siempre es una variable
+					if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+					}
 				}
 			}
 		}
@@ -2337,9 +2340,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		for(Sentencias s: p.getSentencias()) {
 			if(s instanceof segun) {
 				segun se = (segun) s;
-				VariableID v = (VariableID) se.getValor(); //Siempre es una variable
-				if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
-					error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+				if(se.getValor() instanceof OperacionCompleta) {
+					OperacionCompleta op = (OperacionCompleta) se.getValor();
+					VariableID v = (VariableID) op.getValor_operacion(); //Siempre es una variable
+					if(!variables.contains(v.getNombre()) && !parametros.contains(v.getNombre())) {
+						error(readerMessages.getString("VARIABLE_NO_DECLARADA", v.getNombre()), v, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE, VARIABLE_NO_DEFINIDA);
+					}
 				}
 			}
 		}

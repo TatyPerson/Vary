@@ -6962,7 +6962,7 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
                                                   {
                                                     OperacionCompleta prueba = new OperacionCompletaImpl();
                                                     prueba = ((OperacionCompleta) op);
-                                                    _xblockexpression_22 = this.generate(prueba);
+                                                    _xblockexpression_22 = this.generate(prueba, punteros);
                                                   }
                                                   _xifexpression_22 = _xblockexpression_22;
                                                 }
@@ -7765,6 +7765,15 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
     String _plus = (_generate + " ");
     diagramapseudocodigo.operacion _valor_operacion = operacion.getValor_operacion();
     CharSequence _generate_1 = this.generate(_valor_operacion);
+    return (_plus + _generate_1);
+  }
+  
+  public String generate(final OperacionCompleta operacion, final List<String> punteros) {
+    EList<String> _negacionesIniciales = operacion.getNegacionesIniciales();
+    String _generate = this.generate(_negacionesIniciales);
+    String _plus = (_generate + " ");
+    diagramapseudocodigo.operacion _valor_operacion = operacion.getValor_operacion();
+    Object _generate_1 = this.generate(_valor_operacion, punteros);
     return (_plus + _generate_1);
   }
   

@@ -2250,14 +2250,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 	
-	def coutOperadoresC(EList<operacion> operaciones) {
+	def coutOperadoresC(EList<operacion> operaciones, boolean primeroString) {
 		var resultado = "";
-		var numero = 1;
+		var numero = 0;
 		for (op : operaciones) {
-			if(operaciones.size() > 1 && numero < operaciones.size && numero != 1) {
+			if(numero < operaciones.size - 1 && !primeroString) {
+				resultado = resultado + op.generate + " , ";
+			} else if(numero < operaciones.size - 1 && primeroString && numero != 0) {
 				resultado = resultado + op.generate + " , ";
 			}
-			else if(numero != 1 || operaciones.size() == 1) {
+			else if(numero != 0){
 				resultado = resultado + op.generate;
 			}
 			numero = numero + 1;
@@ -2515,6 +2517,8 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	def generateModulo(Escribir a) {	
 		for(Subproceso s: modulo.implementacion.funcion) {
 			var perteneceSubproceso = false;
+			var archivo = false;
+			var primeroString = false;
 			if(!s.sentencias.contains(a) && a.operador.size() > 0) {
 				for(Sentencias sent: s.sentencias) {
 					if(sent.eClass.name.equals("mientras") && perteneceSubproceso == false) {
@@ -2543,6 +2547,9 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 								perteneceSubproceso = contienenExpresionEscribir(c.sentencias, a);
 							}
 						}
+						if(perteneceSubproceso == false) {
+							perteneceSubproceso = contienenExpresionEscribir(segun.sentencias, a);
+						}
 					}
 		 		}
 		 	}
@@ -2553,9 +2560,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					var primero = a.operador.get(0) as ConstCadena;
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
+					primeroString = true;
 				}
-				
-				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
+				if(archivos.contains(a.operador.get(0).getTipoOperador)) {
+					archivo = true;
+					cadena = cadena + a.operador.get(0).generate + ", \"";
+				}
+				if(!a.operador.get(0).eClass.name.equals("ConstCadena")) {
 					cadena = cadena + "\"";
 				}
 				
@@ -2637,11 +2648,19 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
-				cadena = cadena + ", " + a.operador.coutOperadoresC;
-				return '''printf(«cadena»);'''	
+				cadena = cadena + ", " + a.operador.coutOperadoresC(primeroString);
+				if(archivo) {
+					return '''fprintf(«cadena»);'''
+				} else {
+					return '''printf(«cadena»);'''
+				}	
 			}
 			else {
-				return '''printf(«cadena»);'''
+				if(archivo) {
+					return '''fprintf(«cadena»);'''
+				} else {
+					return '''printf(«cadena»);'''
+				}	
 			}
 		}	
 	}
@@ -3054,6 +3073,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	override generate(Escribir a) {
 		var perteneceInicio = false;
 		var archivo = false;
+		var primeroString = false;
 		if(!algoritmo.tiene.tiene.contains(a)) {
 			for(Sentencias s: algoritmo.tiene.tiene) {
 				if(s.eClass.name.equals("mientras") && perteneceInicio == false) {
@@ -3095,12 +3115,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				var primero = a.operador.get(0) as ConstCadena;
 				cadena = primero.contenido;
 				cadena = cadena.substring(0, cadena.length()-1);
+				primeroString = true;
 			}
 			if(archivos.contains(a.operador.get(0).getTipoOperador)) {
 				archivo = true;
 				cadena = cadena + a.operador.get(0).generate + ", \"";
 			}
-			if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
+			if(!a.operador.get(0).eClass.name.equals("ConstCadena")) {
 				cadena = cadena + "\"";
 			}
 			
@@ -3127,7 +3148,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							cadena = cadena + " %c";
 						}
 					}
-					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || o.eClass.name.equals("ConstCadena")) {
+					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 						if(a.operador.indexOf(o) == a.operador.size - 1) {
 							cadena = cadena + " %s \\n \"";
 						}
@@ -3173,7 +3194,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
-				cadena = cadena + ", " + a.operador.coutOperadoresC;
+				cadena = cadena + ", " + a.operador.coutOperadoresC(primeroString);
 				if(archivo) {
 					return '''fprintf(«cadena»);'''
 				} else {
@@ -3233,12 +3254,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					var primero = a.operador.get(0) as ConstCadena;
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
+					primeroString = true;
 				}
 				if(archivos.contains(a.operador.get(0).getTipoOperador)) {
 					archivo = true;
 					cadena = cadena + a.operador.get(0).generate + ", \"";
 				}
-				if(a.operador.size() == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena")) {
+				if(!a.operador.get(0).eClass.name.equals("ConstCadena")) {
 					cadena = cadena + "\"";
 				}
 				
@@ -3312,7 +3334,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
-				cadena = cadena + ", " + a.operador.coutOperadoresC;
+				cadena = cadena + ", " + a.operador.coutOperadoresC(primeroString);
 				if(archivo) {
 					return '''fprintf(«cadena»);'''
 				} else {
@@ -3685,7 +3707,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("OperacionCompleta")) {
 			var OperacionCompleta prueba = new OperacionCompletaImpl
 			prueba = op as OperacionCompleta
-			prueba.generate
+			prueba.generate(punteros)
 		}
 	}
 
@@ -3914,6 +3936,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	
 	def generate(OperacionCompleta operacion) {
 		return operacion.negacionesIniciales.generate + " " + operacion.valor_operacion.generate;
+	}
+	
+	def generate(OperacionCompleta operacion, List<String> punteros) {
+		return operacion.negacionesIniciales.generate + " " + operacion.valor_operacion.generate(punteros);
 	}
 	
 	def generateSiPunteros(Si mySi, List<String> punteros) '''

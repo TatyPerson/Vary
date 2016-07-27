@@ -2946,7 +2946,7 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 		else if (op.eClass.name.equals("OperacionCompleta")) {
 			var OperacionCompleta prueba = new OperacionCompletaImpl
 			prueba = op as OperacionCompleta
-			prueba.generate
+			prueba.generate(punteros)
 		}
 	}
 	
@@ -3184,6 +3184,10 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	
 	def generate(OperacionCompleta operacion) {
 		return operacion.negacionesIniciales.generate + " " + operacion.valor_operacion.generate;
+	}
+	
+	def generate(OperacionCompleta operacion, List<String> punteros) {
+		return operacion.negacionesIniciales.generate + " " + operacion.valor_operacion.generate(punteros);
 	}
 	
 	def generateSiPunteros(Si mySi, List<String> punteros) '''
