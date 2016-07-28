@@ -45,54 +45,54 @@ protected class ThisRootNode extends RootToken {
 			case 12: return new Declaracion_Alternatives(this, this, 12, inst);
 			case 13: return new FuncionFicheroAbrir_Group(this, this, 13, inst);
 			case 14: return new FuncionFicheroCerrar_Group(this, this, 14, inst);
-			case 15: return new CampoRegistro_Nombre_campoAssignment(this, this, 15, inst);
-			case 16: return new Tipo_Alternatives(this, this, 16, inst);
-			case 17: return new TipoDefinido_TipoAssignment(this, this, 17, inst);
-			case 18: return new TipoExistente_TipoAssignment(this, this, 18, inst);
-			case 19: return new Constantes_Group(this, this, 19, inst);
-			case 20: return new Vector_Group(this, this, 20, inst);
-			case 21: return new Matriz_Group(this, this, 21, inst);
-			case 22: return new Registro_Group(this, this, 22, inst);
-			case 23: return new Archivo_Group(this, this, 23, inst);
-			case 24: return new Enumerado_Group(this, this, 24, inst);
-			case 25: return new Subrango_Alternatives(this, this, 25, inst);
-			case 26: return new SubrangoNumerico_Group(this, this, 26, inst);
-			case 27: return new SubrangoEnumerado_Group(this, this, 27, inst);
-			case 28: return new Inicio_Group(this, this, 28, inst);
-			case 29: return new DeclaracionVariable_Group(this, this, 29, inst);
-			case 30: return new DeclaracionPropia_Group(this, this, 30, inst);
-			case 31: return new Asignacion_Alternatives(this, this, 31, inst);
-			case 32: return new AsignacionNormal_Group(this, this, 32, inst);
-			case 33: return new AsignacionCompleja_Group(this, this, 33, inst);
-			case 34: return new Escribir_Group(this, this, 34, inst);
-			case 35: return new Leer_Group(this, this, 35, inst);
-			case 36: return new Si_Group(this, this, 36, inst);
-			case 37: return new Mientras_Group(this, this, 37, inst);
-			case 38: return new Repetir_Group(this, this, 38, inst);
-			case 39: return new Desde_Group(this, this, 39, inst);
-			case 40: return new Caso_Group(this, this, 40, inst);
-			case 41: return new Segun_Group(this, this, 41, inst);
-			case 42: return new Variable_Group(this, this, 42, inst);
-			case 43: return new Operacion_OrParserRuleCall(this, this, 43, inst);
-			case 44: return new Or_Group(this, this, 44, inst);
-			case 45: return new And_Group(this, this, 45, inst);
-			case 46: return new Mod_Group(this, this, 46, inst);
-			case 47: return new Igualdad_Group(this, this, 47, inst);
-			case 48: return new Comparacion_Group(this, this, 48, inst);
-			case 49: return new SumaResta_Group(this, this, 49, inst);
-			case 50: return new MultiplicacionDivision_Group(this, this, 50, inst);
-			case 51: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 51, inst);
-			case 52: return new OrIndice_Group(this, this, 52, inst);
-			case 53: return new AndIndice_Group(this, this, 53, inst);
-			case 54: return new IgualdadIndice_Group(this, this, 54, inst);
-			case 55: return new ComparacionIndice_Group(this, this, 55, inst);
-			case 56: return new SumaRestaIndice_Group(this, this, 56, inst);
-			case 57: return new MultiplicacionDivisionIndice_Group(this, this, 57, inst);
-			case 58: return new PrimariaIndice_Alternatives(this, this, 58, inst);
-			case 59: return new Primaria_Alternatives(this, this, 59, inst);
-			case 60: return new OperacionCompleta_Group(this, this, 60, inst);
-			case 61: return new OperacionParentesis_Group(this, this, 61, inst);
-			case 62: return new Funciones_Alternatives(this, this, 62, inst);
+			case 15: return new Tipo_Alternatives(this, this, 15, inst);
+			case 16: return new TipoDefinido_TipoAssignment(this, this, 16, inst);
+			case 17: return new TipoExistente_TipoAssignment(this, this, 17, inst);
+			case 18: return new Constantes_Group(this, this, 18, inst);
+			case 19: return new Vector_Group(this, this, 19, inst);
+			case 20: return new Matriz_Group(this, this, 20, inst);
+			case 21: return new Registro_Group(this, this, 21, inst);
+			case 22: return new Archivo_Group(this, this, 22, inst);
+			case 23: return new Enumerado_Group(this, this, 23, inst);
+			case 24: return new Subrango_Alternatives(this, this, 24, inst);
+			case 25: return new SubrangoNumerico_Group(this, this, 25, inst);
+			case 26: return new SubrangoEnumerado_Group(this, this, 26, inst);
+			case 27: return new Inicio_Group(this, this, 27, inst);
+			case 28: return new DeclaracionVariable_Group(this, this, 28, inst);
+			case 29: return new DeclaracionPropia_Group(this, this, 29, inst);
+			case 30: return new Asignacion_Alternatives(this, this, 30, inst);
+			case 31: return new AsignacionNormal_Group(this, this, 31, inst);
+			case 32: return new AsignacionCompleja_Group(this, this, 32, inst);
+			case 33: return new Escribir_Group(this, this, 33, inst);
+			case 34: return new Leer_Group(this, this, 34, inst);
+			case 35: return new Si_Group(this, this, 35, inst);
+			case 36: return new Mientras_Group(this, this, 36, inst);
+			case 37: return new Repetir_Group(this, this, 37, inst);
+			case 38: return new Desde_Group(this, this, 38, inst);
+			case 39: return new Caso_Group(this, this, 39, inst);
+			case 40: return new Segun_Group(this, this, 40, inst);
+			case 41: return new Variable_Group(this, this, 41, inst);
+			case 42: return new Operacion_OrParserRuleCall(this, this, 42, inst);
+			case 43: return new Or_Group(this, this, 43, inst);
+			case 44: return new And_Group(this, this, 44, inst);
+			case 45: return new Mod_Group(this, this, 45, inst);
+			case 46: return new Igualdad_Group(this, this, 46, inst);
+			case 47: return new Comparacion_Group(this, this, 47, inst);
+			case 48: return new SumaResta_Group(this, this, 48, inst);
+			case 49: return new MultiplicacionDivision_Group(this, this, 49, inst);
+			case 50: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 50, inst);
+			case 51: return new OrIndice_Group(this, this, 51, inst);
+			case 52: return new AndIndice_Group(this, this, 52, inst);
+			case 53: return new IgualdadIndice_Group(this, this, 53, inst);
+			case 54: return new ComparacionIndice_Group(this, this, 54, inst);
+			case 55: return new SumaRestaIndice_Group(this, this, 55, inst);
+			case 56: return new MultiplicacionDivisionIndice_Group(this, this, 56, inst);
+			case 57: return new PrimariaIndice_Alternatives(this, this, 57, inst);
+			case 58: return new Primaria_Alternatives(this, this, 58, inst);
+			case 59: return new OperacionCompleta_Group(this, this, 59, inst);
+			case 60: return new OperacionParentesis_Group(this, this, 60, inst);
+			case 61: return new Funciones_Alternatives(this, this, 61, inst);
+			case 62: return new CampoRegistro_Alternatives(this, this, 62, inst);
 			case 63: return new VariablesComplejas_Alternatives(this, this, 63, inst);
 			case 64: return new VariablesBasicas_Alternatives(this, this, 64, inst);
 			case 65: return new Sino_Group(this, this, 65, inst);
@@ -4227,7 +4227,7 @@ protected class FuncionFicheroCerrar_RightParenthesisKeyword_3 extends KeywordTo
 
 
 
-/************ begin Rule CampoRegistro ****************
+/************ begin Rule Tipo ****************
  *
  * //('0'..'9')+ '.' ('0'..'9')* EXPONENT?
  * //|   '.' ('0'..'9')+ EXPONENT?
@@ -4237,51 +4237,6 @@ protected class FuncionFicheroCerrar_RightParenthesisKeyword_3 extends KeywordTo
  * //	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
  * //ValorVector returns ValorVector:
  * //	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
- * CampoRegistro:
- * 	nombre_campo=EString;
- *
- **/
-
-// nombre_campo=EString
-protected class CampoRegistro_Nombre_campoAssignment extends AssignmentToken  {
-	
-	public CampoRegistro_Nombre_campoAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getCampoRegistroRule().getType().getClassifier())
-			return null;
-		if((value = eObjectConsumer.getConsumable("nombre_campo",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("nombre_campo");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-/************ end Rule CampoRegistro ****************/
-
-
-/************ begin Rule Tipo ****************
- *
  * Tipo:
  * 	TipoDefinido | TipoExistente;
  *
@@ -15893,6 +15848,532 @@ protected class Funciones_RightParenthesisKeyword_1_3 extends KeywordToken  {
 /************ end Rule Funciones ****************/
 
 
+/************ begin Rule CampoRegistro ****************
+ *
+ * CampoRegistro:
+ * 	'.' nombre_campo=EString | '.' nombre_campo=EString '[' primerIndice=operacionIndice ']' | '.' nombre_campo=EString
+ * 	'[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']';
+ *
+ **/
+
+// '.' nombre_campo=EString | '.' nombre_campo=EString '[' primerIndice=operacionIndice ']' | '.' nombre_campo=EString '['
+// primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']'
+protected class CampoRegistro_Alternatives extends AlternativesToken {
+
+	public CampoRegistro_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_Group_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new CampoRegistro_Group_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new CampoRegistro_Group_2(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getCampoRegistroRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// '.' nombre_campo=EString
+protected class CampoRegistro_Group_0 extends GroupToken {
+	
+	public CampoRegistro_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getGroup_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_Nombre_campoAssignment_0_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// '.'
+protected class CampoRegistro_FullStopKeyword_0_0 extends KeywordToken  {
+	
+	public CampoRegistro_FullStopKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getFullStopKeyword_0_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// nombre_campo=EString
+protected class CampoRegistro_Nombre_campoAssignment_0_1 extends AssignmentToken  {
+	
+	public CampoRegistro_Nombre_campoAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment_0_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_FullStopKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("nombre_campo",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("nombre_campo");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// '.' nombre_campo=EString '[' primerIndice=operacionIndice ']'
+protected class CampoRegistro_Group_1 extends GroupToken {
+	
+	public CampoRegistro_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getGroup_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_RightSquareBracketKeyword_1_4(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// '.'
+protected class CampoRegistro_FullStopKeyword_1_0 extends KeywordToken  {
+	
+	public CampoRegistro_FullStopKeyword_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getFullStopKeyword_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// nombre_campo=EString
+protected class CampoRegistro_Nombre_campoAssignment_1_1 extends AssignmentToken  {
+	
+	public CampoRegistro_Nombre_campoAssignment_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_FullStopKeyword_1_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("nombre_campo",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("nombre_campo");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_1_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_1_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// '['
+protected class CampoRegistro_LeftSquareBracketKeyword_1_2 extends KeywordToken  {
+	
+	public CampoRegistro_LeftSquareBracketKeyword_1_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getLeftSquareBracketKeyword_1_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_Nombre_campoAssignment_1_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// primerIndice=operacionIndice
+protected class CampoRegistro_PrimerIndiceAssignment_1_3 extends AssignmentToken  {
+	
+	public CampoRegistro_PrimerIndiceAssignment_1_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getPrimerIndiceAssignment_1_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("primerIndice",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("primerIndice");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOperacionIndiceRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getCampoRegistroAccess().getPrimerIndiceOperacionIndiceParserRuleCall_1_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CampoRegistro_LeftSquareBracketKeyword_1_2(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ']'
+protected class CampoRegistro_RightSquareBracketKeyword_1_4 extends KeywordToken  {
+	
+	public CampoRegistro_RightSquareBracketKeyword_1_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getRightSquareBracketKeyword_1_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_PrimerIndiceAssignment_1_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+
+// '.' nombre_campo=EString '[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']'
+protected class CampoRegistro_Group_2 extends GroupToken {
+	
+	public CampoRegistro_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_RightSquareBracketKeyword_2_6(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// '.'
+protected class CampoRegistro_FullStopKeyword_2_0 extends KeywordToken  {
+	
+	public CampoRegistro_FullStopKeyword_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getFullStopKeyword_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// nombre_campo=EString
+protected class CampoRegistro_Nombre_campoAssignment_2_1 extends AssignmentToken  {
+	
+	public CampoRegistro_Nombre_campoAssignment_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_FullStopKeyword_2_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("nombre_campo",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("nombre_campo");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_2_1_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_2_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// '['
+protected class CampoRegistro_LeftSquareBracketKeyword_2_2 extends KeywordToken  {
+	
+	public CampoRegistro_LeftSquareBracketKeyword_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getLeftSquareBracketKeyword_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_Nombre_campoAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// primerIndice=operacionIndice
+protected class CampoRegistro_PrimerIndiceAssignment_2_3 extends AssignmentToken  {
+	
+	public CampoRegistro_PrimerIndiceAssignment_2_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getPrimerIndiceAssignment_2_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("primerIndice",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("primerIndice");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOperacionIndiceRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getCampoRegistroAccess().getPrimerIndiceOperacionIndiceParserRuleCall_2_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CampoRegistro_LeftSquareBracketKeyword_2_2(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ']['
+protected class CampoRegistro_RightSquareBracketLeftSquareBracketKeyword_2_4 extends KeywordToken  {
+	
+	public CampoRegistro_RightSquareBracketLeftSquareBracketKeyword_2_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getRightSquareBracketLeftSquareBracketKeyword_2_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_PrimerIndiceAssignment_2_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// segundoIndice=operacionIndice
+protected class CampoRegistro_SegundoIndiceAssignment_2_5 extends AssignmentToken  {
+	
+	public CampoRegistro_SegundoIndiceAssignment_2_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getSegundoIndiceAssignment_2_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("segundoIndice",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("segundoIndice");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOperacionIndiceRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getCampoRegistroAccess().getSegundoIndiceOperacionIndiceParserRuleCall_2_5_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CampoRegistro_RightSquareBracketLeftSquareBracketKeyword_2_4(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ']'
+protected class CampoRegistro_RightSquareBracketKeyword_2_6 extends KeywordToken  {
+	
+	public CampoRegistro_RightSquareBracketKeyword_2_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCampoRegistroAccess().getRightSquareBracketKeyword_2_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CampoRegistro_SegundoIndiceAssignment_2_5(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+
+
+/************ end Rule CampoRegistro ****************/
+
+
 /************ begin Rule VariablesComplejas ****************
  *
  * VariablesComplejas operacion:
@@ -16200,7 +16681,7 @@ protected class VariablesComplejas_CampoAssignment_0_2_1 extends AssignmentToken
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CampoRegistro_Nombre_campoAssignment(this, this, 0, inst);
+			case 0: return new CampoRegistro_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -16564,7 +17045,7 @@ protected class VariablesComplejas_CampoAssignment_1_2_1 extends AssignmentToken
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CampoRegistro_Nombre_campoAssignment(this, this, 0, inst);
+			case 0: return new CampoRegistro_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -16746,7 +17227,7 @@ protected class VariablesComplejas_CampoAssignment_2_3_0 extends AssignmentToken
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CampoRegistro_Nombre_campoAssignment(this, this, 0, inst);
+			case 0: return new CampoRegistro_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -16837,7 +17318,7 @@ protected class VariablesComplejas_CampoAssignment_2_3_1_1 extends AssignmentTok
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new CampoRegistro_Nombre_campoAssignment(this, this, 0, inst);
+			case 0: return new CampoRegistro_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}

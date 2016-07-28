@@ -68,6 +68,7 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimariaIndiceAccess().getAlternatives(), "rule__PrimariaIndice__Alternatives");
 					put(grammarAccess.getPrimariaAccess().getAlternatives(), "rule__Primaria__Alternatives");
 					put(grammarAccess.getFuncionesAccess().getAlternatives(), "rule__Funciones__Alternatives");
+					put(grammarAccess.getCampoRegistroAccess().getAlternatives(), "rule__CampoRegistro__Alternatives");
 					put(grammarAccess.getVariablesComplejasAccess().getAlternatives(), "rule__VariablesComplejas__Alternatives");
 					put(grammarAccess.getVariablesBasicasAccess().getAlternatives(), "rule__VariablesBasicas__Alternatives");
 					put(grammarAccess.getTipoPasoAccess().getAlternatives(), "rule__TipoPaso__Alternatives");
@@ -177,6 +178,9 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFuncionesAccess().getGroup_1(), "rule__Funciones__Group_1__0");
 					put(grammarAccess.getFuncionesAccess().getGroup_1_2(), "rule__Funciones__Group_1_2__0");
 					put(grammarAccess.getFuncionesAccess().getGroup_1_2_1(), "rule__Funciones__Group_1_2_1__0");
+					put(grammarAccess.getCampoRegistroAccess().getGroup_0(), "rule__CampoRegistro__Group_0__0");
+					put(grammarAccess.getCampoRegistroAccess().getGroup_1(), "rule__CampoRegistro__Group_1__0");
+					put(grammarAccess.getCampoRegistroAccess().getGroup_2(), "rule__CampoRegistro__Group_2__0");
 					put(grammarAccess.getVariablesComplejasAccess().getGroup_0(), "rule__VariablesComplejas__Group_0__0");
 					put(grammarAccess.getVariablesComplejasAccess().getGroup_0_1(), "rule__VariablesComplejas__Group_0_1__0");
 					put(grammarAccess.getVariablesComplejasAccess().getGroup_0_2(), "rule__VariablesComplejas__Group_0_2__0");
@@ -234,7 +238,6 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getModoAssignment_2_2(), "rule__FuncionFicheroAbrir__ModoAssignment_2_2");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getVariableAssignment_2_4(), "rule__FuncionFicheroAbrir__VariableAssignment_2_4");
 					put(grammarAccess.getFuncionFicheroCerrarAccess().getVariableAssignment_2(), "rule__FuncionFicheroCerrar__VariableAssignment_2");
-					put(grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment(), "rule__CampoRegistro__Nombre_campoAssignment");
 					put(grammarAccess.getTipoDefinidoAccess().getTipoAssignment(), "rule__TipoDefinido__TipoAssignment");
 					put(grammarAccess.getTipoExistenteAccess().getTipoAssignment(), "rule__TipoExistente__TipoAssignment");
 					put(grammarAccess.getConstantesAccess().getVariableAssignment_0(), "rule__Constantes__VariableAssignment_0");
@@ -355,6 +358,12 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFuncionesAccess().getNombreAssignment_1_1(), "rule__Funciones__NombreAssignment_1_1");
 					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_1_2_0(), "rule__Funciones__OperadoresAssignment_1_2_0");
 					put(grammarAccess.getFuncionesAccess().getOperadoresAssignment_1_2_1_1(), "rule__Funciones__OperadoresAssignment_1_2_1_1");
+					put(grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment_0_1(), "rule__CampoRegistro__Nombre_campoAssignment_0_1");
+					put(grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment_1_1(), "rule__CampoRegistro__Nombre_campoAssignment_1_1");
+					put(grammarAccess.getCampoRegistroAccess().getPrimerIndiceAssignment_1_3(), "rule__CampoRegistro__PrimerIndiceAssignment_1_3");
+					put(grammarAccess.getCampoRegistroAccess().getNombre_campoAssignment_2_1(), "rule__CampoRegistro__Nombre_campoAssignment_2_1");
+					put(grammarAccess.getCampoRegistroAccess().getPrimerIndiceAssignment_2_3(), "rule__CampoRegistro__PrimerIndiceAssignment_2_3");
+					put(grammarAccess.getCampoRegistroAccess().getSegundoIndiceAssignment_2_5(), "rule__CampoRegistro__SegundoIndiceAssignment_2_5");
 					put(grammarAccess.getVariablesComplejasAccess().getNombre_vectorAssignment_0_1_0(), "rule__VariablesComplejas__Nombre_vectorAssignment_0_1_0");
 					put(grammarAccess.getVariablesComplejasAccess().getIndiceAssignment_0_1_2(), "rule__VariablesComplejas__IndiceAssignment_0_1_2");
 					put(grammarAccess.getVariablesComplejasAccess().getCampoAssignment_0_2_1(), "rule__VariablesComplejas__CampoAssignment_0_2_1");

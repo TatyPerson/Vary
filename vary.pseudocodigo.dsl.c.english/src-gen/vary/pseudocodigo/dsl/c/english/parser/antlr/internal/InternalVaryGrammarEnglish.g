@@ -1496,45 +1496,6 @@ ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-// Entry rule entryRuleCampoRegistro
-entryRuleCampoRegistro returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getCampoRegistroRule()); }
-	 iv_ruleCampoRegistro=ruleCampoRegistro 
-	 { $current=$iv_ruleCampoRegistro.current; } 
-	 EOF 
-;
-
-// Rule CampoRegistro
-ruleCampoRegistro returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0()); 
-	    }
-		lv_nombre_campo_0_0=ruleEString		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
-	        }
-       		set(
-       			$current, 
-       			"nombre_campo",
-        		lv_nombre_campo_0_0, 
-        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.EString");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-;
-
-
-
-
-
 // Entry rule entryRuleTipo
 entryRuleTipo returns [EObject current=null] 
 	:
@@ -5721,6 +5682,169 @@ ruleFunciones returns [EObject current=null]
 ))*)?	otherlv_11=')' 
     {
     	newLeafNode(otherlv_11, grammarAccess.getFuncionesAccess().getRightParenthesisKeyword_1_3());
+    }
+))
+;
+
+
+
+
+
+// Entry rule entryRuleCampoRegistro
+entryRuleCampoRegistro returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCampoRegistroRule()); }
+	 iv_ruleCampoRegistro=ruleCampoRegistro 
+	 { $current=$iv_ruleCampoRegistro.current; } 
+	 EOF 
+;
+
+// Rule CampoRegistro
+ruleCampoRegistro returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((	otherlv_0='.' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getCampoRegistroAccess().getFullStopKeyword_0_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0_1_0()); 
+	    }
+		lv_nombre_campo_1_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"nombre_campo",
+        		lv_nombre_campo_1_0, 
+        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+    |(	otherlv_2='.' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getCampoRegistroAccess().getFullStopKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_1_1_0()); 
+	    }
+		lv_nombre_campo_3_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"nombre_campo",
+        		lv_nombre_campo_3_0, 
+        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_4='[' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getCampoRegistroAccess().getLeftSquareBracketKeyword_1_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getPrimerIndiceOperacionIndiceParserRuleCall_1_3_0()); 
+	    }
+		lv_primerIndice_5_0=ruleoperacionIndice		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"primerIndice",
+        		lv_primerIndice_5_0, 
+        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.operacionIndice");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_6=']' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getCampoRegistroAccess().getRightSquareBracketKeyword_1_4());
+    }
+)
+    |(	otherlv_7='.' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getCampoRegistroAccess().getFullStopKeyword_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_2_1_0()); 
+	    }
+		lv_nombre_campo_8_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"nombre_campo",
+        		lv_nombre_campo_8_0, 
+        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_9='[' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getCampoRegistroAccess().getLeftSquareBracketKeyword_2_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getPrimerIndiceOperacionIndiceParserRuleCall_2_3_0()); 
+	    }
+		lv_primerIndice_10_0=ruleoperacionIndice		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"primerIndice",
+        		lv_primerIndice_10_0, 
+        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.operacionIndice");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_11='][' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getCampoRegistroAccess().getRightSquareBracketLeftSquareBracketKeyword_2_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getSegundoIndiceOperacionIndiceParserRuleCall_2_5_0()); 
+	    }
+		lv_segundoIndice_12_0=ruleoperacionIndice		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"segundoIndice",
+        		lv_segundoIndice_12_0, 
+        		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.operacionIndice");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_13=']' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getCampoRegistroAccess().getRightSquareBracketKeyword_2_6());
     }
 ))
 ;

@@ -939,10 +939,11 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		public RuleCall getINTTerminalRuleCall_3_2() { return cINTTerminalRuleCall_3_2; }
 	}
 
-	public class CampoRegistroElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.CampoRegistro");
-		private final Assignment cNombre_campoAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cNombre_campoEStringParserRuleCall_0 = (RuleCall)cNombre_campoAssignment.eContents().get(0);
+	public class TipoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Tipo");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTipoDefinidoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTipoExistenteParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		////('0'..'9')+ '.' ('0'..'9')* EXPONENT?
 		////|   '.' ('0'..'9')+ EXPONENT?
@@ -952,23 +953,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		////	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
 		////ValorVector returns ValorVector:
 		////	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
-		//CampoRegistro:
-		//	nombre_campo=EString;
-		@Override public ParserRule getRule() { return rule; }
-
-		//nombre_campo=EString
-		public Assignment getNombre_campoAssignment() { return cNombre_campoAssignment; }
-
-		//EString
-		public RuleCall getNombre_campoEStringParserRuleCall_0() { return cNombre_campoEStringParserRuleCall_0; }
-	}
-
-	public class TipoElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Tipo");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTipoDefinidoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cTipoExistenteParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
 		//Tipo:
 		//	TipoDefinido | TipoExistente;
 		@Override public ParserRule getRule() { return rule; }
@@ -3540,6 +3524,112 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
 	}
 
+	public class CampoRegistroElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.CampoRegistro");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cNombre_campoAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cNombre_campoEStringParserRuleCall_0_1_0 = (RuleCall)cNombre_campoAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cNombre_campoAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNombre_campoEStringParserRuleCall_1_1_0 = (RuleCall)cNombre_campoAssignment_1_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cPrimerIndiceAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cPrimerIndiceOperacionIndiceParserRuleCall_1_3_0 = (RuleCall)cPrimerIndiceAssignment_1_3.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Keyword cFullStopKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cNombre_campoAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cNombre_campoEStringParserRuleCall_2_1_0 = (RuleCall)cNombre_campoAssignment_2_1.eContents().get(0);
+		private final Keyword cLeftSquareBracketKeyword_2_2 = (Keyword)cGroup_2.eContents().get(2);
+		private final Assignment cPrimerIndiceAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
+		private final RuleCall cPrimerIndiceOperacionIndiceParserRuleCall_2_3_0 = (RuleCall)cPrimerIndiceAssignment_2_3.eContents().get(0);
+		private final Keyword cRightSquareBracketLeftSquareBracketKeyword_2_4 = (Keyword)cGroup_2.eContents().get(4);
+		private final Assignment cSegundoIndiceAssignment_2_5 = (Assignment)cGroup_2.eContents().get(5);
+		private final RuleCall cSegundoIndiceOperacionIndiceParserRuleCall_2_5_0 = (RuleCall)cSegundoIndiceAssignment_2_5.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_2_6 = (Keyword)cGroup_2.eContents().get(6);
+		
+		//CampoRegistro:
+		//	'.' nombre_campo=EString | '.' nombre_campo=EString '[' primerIndice=operacionIndice ']' | '.' nombre_campo=EString
+		//	'[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']';
+		@Override public ParserRule getRule() { return rule; }
+
+		//'.' nombre_campo=EString | '.' nombre_campo=EString '[' primerIndice=operacionIndice ']' | '.' nombre_campo=EString '['
+		//primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']'
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//'.' nombre_campo=EString
+		public Group getGroup_0() { return cGroup_0; }
+
+		//'.'
+		public Keyword getFullStopKeyword_0_0() { return cFullStopKeyword_0_0; }
+
+		//nombre_campo=EString
+		public Assignment getNombre_campoAssignment_0_1() { return cNombre_campoAssignment_0_1; }
+
+		//EString
+		public RuleCall getNombre_campoEStringParserRuleCall_0_1_0() { return cNombre_campoEStringParserRuleCall_0_1_0; }
+
+		//'.' nombre_campo=EString '[' primerIndice=operacionIndice ']'
+		public Group getGroup_1() { return cGroup_1; }
+
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//nombre_campo=EString
+		public Assignment getNombre_campoAssignment_1_1() { return cNombre_campoAssignment_1_1; }
+
+		//EString
+		public RuleCall getNombre_campoEStringParserRuleCall_1_1_0() { return cNombre_campoEStringParserRuleCall_1_1_0; }
+
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1_2() { return cLeftSquareBracketKeyword_1_2; }
+
+		//primerIndice=operacionIndice
+		public Assignment getPrimerIndiceAssignment_1_3() { return cPrimerIndiceAssignment_1_3; }
+
+		//operacionIndice
+		public RuleCall getPrimerIndiceOperacionIndiceParserRuleCall_1_3_0() { return cPrimerIndiceOperacionIndiceParserRuleCall_1_3_0; }
+
+		//']'
+		public Keyword getRightSquareBracketKeyword_1_4() { return cRightSquareBracketKeyword_1_4; }
+
+		//'.' nombre_campo=EString '[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']'
+		public Group getGroup_2() { return cGroup_2; }
+
+		//'.'
+		public Keyword getFullStopKeyword_2_0() { return cFullStopKeyword_2_0; }
+
+		//nombre_campo=EString
+		public Assignment getNombre_campoAssignment_2_1() { return cNombre_campoAssignment_2_1; }
+
+		//EString
+		public RuleCall getNombre_campoEStringParserRuleCall_2_1_0() { return cNombre_campoEStringParserRuleCall_2_1_0; }
+
+		//'['
+		public Keyword getLeftSquareBracketKeyword_2_2() { return cLeftSquareBracketKeyword_2_2; }
+
+		//primerIndice=operacionIndice
+		public Assignment getPrimerIndiceAssignment_2_3() { return cPrimerIndiceAssignment_2_3; }
+
+		//operacionIndice
+		public RuleCall getPrimerIndiceOperacionIndiceParserRuleCall_2_3_0() { return cPrimerIndiceOperacionIndiceParserRuleCall_2_3_0; }
+
+		//']['
+		public Keyword getRightSquareBracketLeftSquareBracketKeyword_2_4() { return cRightSquareBracketLeftSquareBracketKeyword_2_4; }
+
+		//segundoIndice=operacionIndice
+		public Assignment getSegundoIndiceAssignment_2_5() { return cSegundoIndiceAssignment_2_5; }
+
+		//operacionIndice
+		public RuleCall getSegundoIndiceOperacionIndiceParserRuleCall_2_5_0() { return cSegundoIndiceOperacionIndiceParserRuleCall_2_5_0; }
+
+		//']'
+		public Keyword getRightSquareBracketKeyword_2_6() { return cRightSquareBracketKeyword_2_6; }
+	}
+
 	public class VariablesComplejasElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.VariablesComplejas");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -4231,7 +4321,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private final NombreInternaElements pNombreInterna;
 	private final EIntElements pEInt;
 	private final EFloatElements pEFloat;
-	private final CampoRegistroElements pCampoRegistro;
 	private final TipoElements pTipo;
 	private final TipoDefinidoElements pTipoDefinido;
 	private final TipoExistenteElements pTipoExistente;
@@ -4295,6 +4384,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private final OperacionCompletaElements pOperacionCompleta;
 	private final OperacionParentesisElements pOperacionParentesis;
 	private final FuncionesElements pFunciones;
+	private final CampoRegistroElements pCampoRegistro;
 	private final VariablesComplejasElements pVariablesComplejas;
 	private final VariablesBasicasElements pVariablesBasicas;
 	private final SinoElements pSino;
@@ -4335,7 +4425,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		this.pNombreInterna = new NombreInternaElements();
 		this.pEInt = new EIntElements();
 		this.pEFloat = new EFloatElements();
-		this.pCampoRegistro = new CampoRegistroElements();
 		this.pTipo = new TipoElements();
 		this.pTipoDefinido = new TipoDefinidoElements();
 		this.pTipoExistente = new TipoExistenteElements();
@@ -4399,6 +4488,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		this.pOperacionCompleta = new OperacionCompletaElements();
 		this.pOperacionParentesis = new OperacionParentesisElements();
 		this.pFunciones = new FuncionesElements();
+		this.pCampoRegistro = new CampoRegistroElements();
 		this.pVariablesComplejas = new VariablesComplejasElements();
 		this.pVariablesBasicas = new VariablesBasicasElements();
 		this.pSino = new SinoElements();
@@ -4679,16 +4769,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	////	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
 	////ValorVector returns ValorVector:
 	////	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
-	//CampoRegistro:
-	//	nombre_campo=EString;
-	public CampoRegistroElements getCampoRegistroAccess() {
-		return pCampoRegistro;
-	}
-	
-	public ParserRule getCampoRegistroRule() {
-		return getCampoRegistroAccess().getRule();
-	}
-
 	//Tipo:
 	//	TipoDefinido | TipoExistente;
 	public TipoElements getTipoAccess() {
@@ -5375,6 +5455,17 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	
 	public ParserRule getFuncionesRule() {
 		return getFuncionesAccess().getRule();
+	}
+
+	//CampoRegistro:
+	//	'.' nombre_campo=EString | '.' nombre_campo=EString '[' primerIndice=operacionIndice ']' | '.' nombre_campo=EString
+	//	'[' primerIndice=operacionIndice '][' segundoIndice=operacionIndice ']';
+	public CampoRegistroElements getCampoRegistroAccess() {
+		return pCampoRegistro;
+	}
+	
+	public ParserRule getCampoRegistroRule() {
+		return getCampoRegistroAccess().getRule();
 	}
 
 	//VariablesComplejas operacion:

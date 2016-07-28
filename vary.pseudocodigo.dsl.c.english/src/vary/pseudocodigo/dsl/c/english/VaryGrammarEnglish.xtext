@@ -128,9 +128,6 @@ EFloat returns ecore::EFloat:
 	
 //ValorVector returns ValorVector:
 //	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
-	
-CampoRegistro returns CampoRegistro:
-	nombre_campo=EString;
 
 Tipo returns Tipo:
 	TipoDefinido | TipoExistente;
@@ -403,6 +400,10 @@ OperacionParentesis returns operacion:
 Funciones returns operacion:
 	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ','  operadores+=OperacionCompleta)* )? ')') |
 	({Internas} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
+	
+
+CampoRegistro returns CampoRegistro:
+	'.' nombre_campo=EString | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']' | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']';
 	
 VariablesComplejas returns operacion:
 	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
