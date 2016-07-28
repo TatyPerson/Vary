@@ -1582,9 +1582,13 @@ class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(CampoRegistro myCampo) {
-
-		//Este metodo esta escrito con otra sintaxis diferente porque me generaba un salto de linea innecesario
-		return myCampo.nombre_campo;
+		if(myCampo.primerIndice != null) { //Es un campo de tipo vector
+			return myCampo.nombre_campo + '[' + myCampo.primerIndice.generate + ']';
+		} else if(myCampo.primerIndice != null && myCampo.segundoIndice != null) { //Es un campo de tipo matriz
+			return myCampo.nombre_campo + '[' + myCampo.primerIndice.generate + '][' + myCampo.segundoIndice.generate + ']';
+		} else { //Es un campo de tipo registro
+			return myCampo.nombre_campo;
+		}
 	}
 
 	override generate(ValorMatriz myValor) {

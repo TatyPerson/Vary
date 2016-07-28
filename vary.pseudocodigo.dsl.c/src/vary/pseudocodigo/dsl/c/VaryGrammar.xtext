@@ -127,9 +127,6 @@ EFloat returns ecore::EFloat:
 	
 //ValorVector returns ValorVector:
 //	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
-	
-CampoRegistro returns CampoRegistro:
-	nombre_campo=EString;
 
 Tipo returns Tipo:
 	TipoDefinido | TipoExistente;
@@ -405,10 +402,13 @@ Funciones returns operacion:
 	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')') |
 	({Internas} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
 	
+CampoRegistro returns CampoRegistro:
+	'.' nombre_campo=EString | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']' | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']';
+	
 VariablesComplejas returns operacion:
-	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
-	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
-	| {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
+	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') (campo+=CampoRegistro)*
+	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']') (campo+=CampoRegistro)*
+	| {ValorRegistro} nombre_registro=EString (campo+=CampoRegistro)+;
 	
 VariablesBasicas returns operacion:
 	 {NumeroEntero} valor=EInt

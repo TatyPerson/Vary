@@ -1475,45 +1475,6 @@ ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 
 
 
-// Entry rule entryRuleCampoRegistro
-entryRuleCampoRegistro returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getCampoRegistroRule()); }
-	 iv_ruleCampoRegistro=ruleCampoRegistro 
-	 { $current=$iv_ruleCampoRegistro.current; } 
-	 EOF 
-;
-
-// Rule CampoRegistro
-ruleCampoRegistro returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0()); 
-	    }
-		lv_nombre_campo_0_0=ruleEString		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
-	        }
-       		set(
-       			$current, 
-       			"nombre_campo",
-        		lv_nombre_campo_0_0, 
-        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)
-;
-
-
-
-
-
 // Entry rule entryRuleTipo
 entryRuleTipo returns [EObject current=null] 
 	:
@@ -5689,6 +5650,169 @@ ruleFunciones returns [EObject current=null]
 
 
 
+// Entry rule entryRuleCampoRegistro
+entryRuleCampoRegistro returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCampoRegistroRule()); }
+	 iv_ruleCampoRegistro=ruleCampoRegistro 
+	 { $current=$iv_ruleCampoRegistro.current; } 
+	 EOF 
+;
+
+// Rule CampoRegistro
+ruleCampoRegistro returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+((	otherlv_0='.' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getCampoRegistroAccess().getFullStopKeyword_0_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_0_1_0()); 
+	    }
+		lv_nombre_campo_1_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"nombre_campo",
+        		lv_nombre_campo_1_0, 
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+    |(	otherlv_2='.' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getCampoRegistroAccess().getFullStopKeyword_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_1_1_0()); 
+	    }
+		lv_nombre_campo_3_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"nombre_campo",
+        		lv_nombre_campo_3_0, 
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_4='[' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getCampoRegistroAccess().getLeftSquareBracketKeyword_1_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getPrimerIndiceOperacionIndiceParserRuleCall_1_3_0()); 
+	    }
+		lv_primerIndice_5_0=ruleoperacionIndice		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"primerIndice",
+        		lv_primerIndice_5_0, 
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_6=']' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getCampoRegistroAccess().getRightSquareBracketKeyword_1_4());
+    }
+)
+    |(	otherlv_7='.' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getCampoRegistroAccess().getFullStopKeyword_2_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getNombre_campoEStringParserRuleCall_2_1_0()); 
+	    }
+		lv_nombre_campo_8_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"nombre_campo",
+        		lv_nombre_campo_8_0, 
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_9='[' 
+    {
+    	newLeafNode(otherlv_9, grammarAccess.getCampoRegistroAccess().getLeftSquareBracketKeyword_2_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getPrimerIndiceOperacionIndiceParserRuleCall_2_3_0()); 
+	    }
+		lv_primerIndice_10_0=ruleoperacionIndice		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"primerIndice",
+        		lv_primerIndice_10_0, 
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_11='][' 
+    {
+    	newLeafNode(otherlv_11, grammarAccess.getCampoRegistroAccess().getRightSquareBracketLeftSquareBracketKeyword_2_4());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getCampoRegistroAccess().getSegundoIndiceOperacionIndiceParserRuleCall_2_5_0()); 
+	    }
+		lv_segundoIndice_12_0=ruleoperacionIndice		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getCampoRegistroRule());
+	        }
+       		set(
+       			$current, 
+       			"segundoIndice",
+        		lv_segundoIndice_12_0, 
+        		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)	otherlv_13=']' 
+    {
+    	newLeafNode(otherlv_13, grammarAccess.getCampoRegistroAccess().getRightSquareBracketKeyword_2_6());
+    }
+))
+;
+
+
+
+
+
 // Entry rule entryRuleVariablesComplejas
 entryRuleVariablesComplejas returns [EObject current=null] 
 	:
@@ -5753,29 +5877,25 @@ ruleVariablesComplejas returns [EObject current=null]
     {
     	newLeafNode(otherlv_4, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketKeyword_0_1_3());
     }
-)(	otherlv_5='.' 
-    {
-    	newLeafNode(otherlv_5, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_0_2_0());
-    }
-(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_0_2_1_0()); 
+	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_0_2_0()); 
 	    }
-		lv_campo_6_0=ruleCampoRegistro		{
+		lv_campo_5_0=ruleCampoRegistro		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		add(
        			$current, 
        			"campo",
-        		lv_campo_6_0, 
+        		lv_campo_5_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?)
+)*)
     |((
     {
         $current = forceCreateModelElement(
@@ -5787,90 +5907,86 @@ ruleVariablesComplejas returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getNombre_matrizEStringParserRuleCall_1_1_0_0()); 
 	    }
-		lv_nombre_matriz_8_0=ruleEString		{
+		lv_nombre_matriz_7_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		set(
        			$current, 
        			"nombre_matriz",
-        		lv_nombre_matriz_8_0, 
+        		lv_nombre_matriz_7_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_9='[' 
+)	otherlv_8='[' 
     {
-    	newLeafNode(otherlv_9, grammarAccess.getVariablesComplejasAccess().getLeftSquareBracketKeyword_1_1_1());
+    	newLeafNode(otherlv_8, grammarAccess.getVariablesComplejasAccess().getLeftSquareBracketKeyword_1_1_1());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getPrimerIndiceOperacionIndiceParserRuleCall_1_1_2_0()); 
 	    }
-		lv_primerIndice_10_0=ruleoperacionIndice		{
+		lv_primerIndice_9_0=ruleoperacionIndice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		set(
        			$current, 
        			"primerIndice",
-        		lv_primerIndice_10_0, 
+        		lv_primerIndice_9_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_11='][' 
+)	otherlv_10='][' 
     {
-    	newLeafNode(otherlv_11, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketLeftSquareBracketKeyword_1_1_3());
+    	newLeafNode(otherlv_10, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketLeftSquareBracketKeyword_1_1_3());
     }
 (
 (
 		{ 
 	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getSegundoIndiceOperacionIndiceParserRuleCall_1_1_4_0()); 
 	    }
-		lv_segundoIndice_12_0=ruleoperacionIndice		{
+		lv_segundoIndice_11_0=ruleoperacionIndice		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		set(
        			$current, 
        			"segundoIndice",
-        		lv_segundoIndice_12_0, 
+        		lv_segundoIndice_11_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.operacionIndice");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_13=']' 
+)	otherlv_12=']' 
     {
-    	newLeafNode(otherlv_13, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketKeyword_1_1_5());
+    	newLeafNode(otherlv_12, grammarAccess.getVariablesComplejasAccess().getRightSquareBracketKeyword_1_1_5());
     }
-)(	otherlv_14='.' 
-    {
-    	newLeafNode(otherlv_14, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_1_2_0());
-    }
-(
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_1_2_1_0()); 
+	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_1_2_0()); 
 	    }
-		lv_campo_15_0=ruleCampoRegistro		{
+		lv_campo_13_0=ruleCampoRegistro		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		add(
        			$current, 
        			"campo",
-        		lv_campo_15_0, 
+        		lv_campo_13_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))?)
+)*)
     |((
     {
         $current = forceCreateModelElement(
@@ -5882,64 +5998,38 @@ ruleVariablesComplejas returns [EObject current=null]
 		{ 
 	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getNombre_registroEStringParserRuleCall_2_1_0()); 
 	    }
-		lv_nombre_registro_17_0=ruleEString		{
+		lv_nombre_registro_15_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		set(
        			$current, 
        			"nombre_registro",
-        		lv_nombre_registro_17_0, 
+        		lv_nombre_registro_15_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.EString");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_18='.' 
-    {
-    	newLeafNode(otherlv_18, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_2_2());
-    }
-((
+)(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_3_0_0()); 
+	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_2_0()); 
 	    }
-		lv_campo_19_0=ruleCampoRegistro		{
+		lv_campo_16_0=ruleCampoRegistro		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
 	        }
        		add(
        			$current, 
        			"campo",
-        		lv_campo_19_0, 
+        		lv_campo_16_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)(	otherlv_20='.' 
-    {
-    	newLeafNode(otherlv_20, grammarAccess.getVariablesComplejasAccess().getFullStopKeyword_2_3_1_0());
-    }
-(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getVariablesComplejasAccess().getCampoCampoRegistroParserRuleCall_2_3_1_1_0()); 
-	    }
-		lv_campo_21_0=ruleCampoRegistro		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getVariablesComplejasRule());
-	        }
-       		add(
-       			$current, 
-       			"campo",
-        		lv_campo_21_0, 
-        		"vary.pseudocodigo.dsl.c.VaryGrammar.CampoRegistro");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-))*)))
+)+))
 ;
 
 

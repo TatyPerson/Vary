@@ -2120,6 +2120,33 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getCampoRegistro_EReference0() {
+		return (EReference)campoRegistroEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCampoRegistro_PrimerIndice() {
+		return (EReference)campoRegistroEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCampoRegistro_SegundoIndice() {
+		return (EReference)campoRegistroEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getValorVector() {
 		return valorVectorEClass;
 	}
@@ -2909,6 +2936,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		campoRegistroEClass = createEClass(CAMPO_REGISTRO);
 		createEAttribute(campoRegistroEClass, CAMPO_REGISTRO__NOMBRE_CAMPO);
+		createEReference(campoRegistroEClass, CAMPO_REGISTRO__EREFERENCE0);
+		createEReference(campoRegistroEClass, CAMPO_REGISTRO__PRIMER_INDICE);
+		createEReference(campoRegistroEClass, CAMPO_REGISTRO__SEGUNDO_INDICE);
 
 		valorVectorEClass = createEClass(VALOR_VECTOR);
 		createEAttribute(valorVectorEClass, VALOR_VECTOR__NOMBRE_VECTOR);
@@ -3310,6 +3340,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEClass(campoRegistroEClass, CampoRegistro.class, "CampoRegistro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCampoRegistro_Nombre_campo(), ecorePackage.getEString(), "nombre_campo", null, 1, 1, CampoRegistro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCampoRegistro_EReference0(), this.getCampoRegistro(), null, "EReference0", null, 0, 1, CampoRegistro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCampoRegistro_PrimerIndice(), this.getoperacion(), null, "primerIndice", null, 0, 1, CampoRegistro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCampoRegistro_SegundoIndice(), this.getoperacion(), null, "segundoIndice", null, 0, 1, CampoRegistro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valorVectorEClass, ValorVector.class, "ValorVector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValorVector_Nombre_vector(), ecorePackage.getEString(), "nombre_vector", null, 1, 1, ValorVector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

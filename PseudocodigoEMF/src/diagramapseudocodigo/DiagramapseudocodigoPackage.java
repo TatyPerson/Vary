@@ -2746,13 +2746,40 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int CAMPO_REGISTRO__NOMBRE_CAMPO = 0;
 
 	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMPO_REGISTRO__EREFERENCE0 = 1;
+
+	/**
+	 * The feature id for the '<em><b>Primer Indice</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMPO_REGISTRO__PRIMER_INDICE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Segundo Indice</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMPO_REGISTRO__SEGUNDO_INDICE = 3;
+
+	/**
 	 * The number of structural features of the '<em>Campo Registro</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMPO_REGISTRO_FEATURE_COUNT = 1;
+	int CAMPO_REGISTRO_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Campo Registro</em>' class.
@@ -6068,6 +6095,39 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EAttribute getCampoRegistro_Nombre_campo();
 
 	/**
+	 * Returns the meta object for the reference '{@link diagramapseudocodigo.CampoRegistro#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see diagramapseudocodigo.CampoRegistro#getEReference0()
+	 * @see #getCampoRegistro()
+	 * @generated
+	 */
+	EReference getCampoRegistro_EReference0();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.CampoRegistro#getPrimerIndice <em>Primer Indice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Primer Indice</em>'.
+	 * @see diagramapseudocodigo.CampoRegistro#getPrimerIndice()
+	 * @see #getCampoRegistro()
+	 * @generated
+	 */
+	EReference getCampoRegistro_PrimerIndice();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link diagramapseudocodigo.CampoRegistro#getSegundoIndice <em>Segundo Indice</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Segundo Indice</em>'.
+	 * @see diagramapseudocodigo.CampoRegistro#getSegundoIndice()
+	 * @see #getCampoRegistro()
+	 * @generated
+	 */
+	EReference getCampoRegistro_SegundoIndice();
+
+	/**
 	 * Returns the meta object for class '{@link diagramapseudocodigo.ValorVector <em>Valor Vector</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8223,6 +8283,30 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CAMPO_REGISTRO__NOMBRE_CAMPO = eINSTANCE.getCampoRegistro_Nombre_campo();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAMPO_REGISTRO__EREFERENCE0 = eINSTANCE.getCampoRegistro_EReference0();
+
+		/**
+		 * The meta object literal for the '<em><b>Primer Indice</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAMPO_REGISTRO__PRIMER_INDICE = eINSTANCE.getCampoRegistro_PrimerIndice();
+
+		/**
+		 * The meta object literal for the '<em><b>Segundo Indice</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CAMPO_REGISTRO__SEGUNDO_INDICE = eINSTANCE.getCampoRegistro_SegundoIndice();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.impl.ValorVectorImpl <em>Valor Vector</em>}' class.

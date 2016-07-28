@@ -2817,4 +2817,32 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_NQbrA0lhEeajc56RhNethw" points="[-7, 2, 209, -41]$[-133, 14, 83, -29]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_NQdgMElhEeajc56RhNethw" id="(0.06837606837606838,0.047619047619047616)"/>
   </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_cW3GQFPjEeaQMrKo_Z3KPA" type="3002" source="_Aebxy_y1EeS1g8BfuAAiGQ" target="_AeW5WPy1EeS1g8BfuAAiGQ">
+    <children xmi:type="notation:Node" xmi:id="_cW3GRFPjEeaQMrKo_Z3KPA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_cW3GRVPjEeaQMrKo_Z3KPA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_cW3tUFPjEeaQMrKo_Z3KPA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_cW3tUVPjEeaQMrKo_Z3KPA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_cW3GQVPjEeaQMrKo_Z3KPA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_cW3GQlPjEeaQMrKo_Z3KPA" fontColor="4210752" fontName=".SF NS Text" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//CampoRegistro/primerIndice"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cW3GQ1PjEeaQMrKo_Z3KPA" points="[5, -8, -304, 515]$[310, -497, 1, 26]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cW5igFPjEeaQMrKo_Z3KPA" id="(0.6174496644295302,0.1836734693877551)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cW5igVPjEeaQMrKo_Z3KPA" id="(0.19161676646706588,0.6)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_emzvoFPjEeaQMrKo_Z3KPA" type="3002" source="_Aebxy_y1EeS1g8BfuAAiGQ" target="_AeW5WPy1EeS1g8BfuAAiGQ">
+    <children xmi:type="notation:Node" xmi:id="_emzvpFPjEeaQMrKo_Z3KPA" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_emzvpVPjEeaQMrKo_Z3KPA" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_emzvplPjEeaQMrKo_Z3KPA" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_emzvp1PjEeaQMrKo_Z3KPA" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_emzvoVPjEeaQMrKo_Z3KPA" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_emzvolPjEeaQMrKo_Z3KPA" fontColor="4210752" fontName=".SF NS Text" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="diagramaPseudocodigo.ecore#//CampoRegistro/segundoIndice"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_emzvo1PjEeaQMrKo_Z3KPA" points="[4, -6, -275, 500]$[280, -495, 1, 11]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_em09wFPjEeaQMrKo_Z3KPA" id="(0.7986577181208053,0.14285714285714285)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_em09wVPjEeaQMrKo_Z3KPA" id="(0.17365269461077845,0.8307692307692308)"/>
+  </edges>
 </notation:Diagram>

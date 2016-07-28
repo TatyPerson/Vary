@@ -4,8 +4,11 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.operacion;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
@@ -18,6 +21,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.CampoRegistroImpl#getNombre_campo <em>Nombre campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CampoRegistroImpl#getEReference0 <em>EReference0</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CampoRegistroImpl#getPrimerIndice <em>Primer Indice</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CampoRegistroImpl#getSegundoIndice <em>Segundo Indice</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +48,36 @@ public class CampoRegistroImpl extends MinimalEObjectImpl.Container implements C
 	 * @ordered
 	 */
 	protected String nombre_campo = NOMBRE_CAMPO_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference0()
+	 * @generated
+	 * @ordered
+	 */
+	protected CampoRegistro eReference0;
+
+	/**
+	 * The cached value of the '{@link #getPrimerIndice() <em>Primer Indice</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPrimerIndice()
+	 * @generated
+	 * @ordered
+	 */
+	protected operacion primerIndice;
+
+	/**
+	 * The cached value of the '{@link #getSegundoIndice() <em>Segundo Indice</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSegundoIndice()
+	 * @generated
+	 * @ordered
+	 */
+	protected operacion segundoIndice;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +124,158 @@ public class CampoRegistroImpl extends MinimalEObjectImpl.Container implements C
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CampoRegistro getEReference0() {
+		if (eReference0 != null && eReference0.eIsProxy()) {
+			InternalEObject oldEReference0 = (InternalEObject)eReference0;
+			eReference0 = (CampoRegistro)eResolveProxy(oldEReference0);
+			if (eReference0 != oldEReference0) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiagramapseudocodigoPackage.CAMPO_REGISTRO__EREFERENCE0, oldEReference0, eReference0));
+			}
+		}
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CampoRegistro basicGetEReference0() {
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference0(CampoRegistro newEReference0) {
+		CampoRegistro oldEReference0 = eReference0;
+		eReference0 = newEReference0;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CAMPO_REGISTRO__EREFERENCE0, oldEReference0, eReference0));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public operacion getPrimerIndice() {
+		return primerIndice;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimerIndice(operacion newPrimerIndice, NotificationChain msgs) {
+		operacion oldPrimerIndice = primerIndice;
+		primerIndice = newPrimerIndice;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE, oldPrimerIndice, newPrimerIndice);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPrimerIndice(operacion newPrimerIndice) {
+		if (newPrimerIndice != primerIndice) {
+			NotificationChain msgs = null;
+			if (primerIndice != null)
+				msgs = ((InternalEObject)primerIndice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE, null, msgs);
+			if (newPrimerIndice != null)
+				msgs = ((InternalEObject)newPrimerIndice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE, null, msgs);
+			msgs = basicSetPrimerIndice(newPrimerIndice, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE, newPrimerIndice, newPrimerIndice));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public operacion getSegundoIndice() {
+		return segundoIndice;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSegundoIndice(operacion newSegundoIndice, NotificationChain msgs) {
+		operacion oldSegundoIndice = segundoIndice;
+		segundoIndice = newSegundoIndice;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE, oldSegundoIndice, newSegundoIndice);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSegundoIndice(operacion newSegundoIndice) {
+		if (newSegundoIndice != segundoIndice) {
+			NotificationChain msgs = null;
+			if (segundoIndice != null)
+				msgs = ((InternalEObject)segundoIndice).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE, null, msgs);
+			if (newSegundoIndice != null)
+				msgs = ((InternalEObject)newSegundoIndice).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE, null, msgs);
+			msgs = basicSetSegundoIndice(newSegundoIndice, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE, newSegundoIndice, newSegundoIndice));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE:
+				return basicSetPrimerIndice(null, msgs);
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE:
+				return basicSetSegundoIndice(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__NOMBRE_CAMPO:
 				return getNombre_campo();
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__EREFERENCE0:
+				if (resolve) return getEReference0();
+				return basicGetEReference0();
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE:
+				return getPrimerIndice();
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE:
+				return getSegundoIndice();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,6 +290,15 @@ public class CampoRegistroImpl extends MinimalEObjectImpl.Container implements C
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__NOMBRE_CAMPO:
 				setNombre_campo((String)newValue);
+				return;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__EREFERENCE0:
+				setEReference0((CampoRegistro)newValue);
+				return;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE:
+				setPrimerIndice((operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE:
+				setSegundoIndice((operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,6 +315,15 @@ public class CampoRegistroImpl extends MinimalEObjectImpl.Container implements C
 			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__NOMBRE_CAMPO:
 				setNombre_campo(NOMBRE_CAMPO_EDEFAULT);
 				return;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__EREFERENCE0:
+				setEReference0((CampoRegistro)null);
+				return;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE:
+				setPrimerIndice((operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE:
+				setSegundoIndice((operacion)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,6 +338,12 @@ public class CampoRegistroImpl extends MinimalEObjectImpl.Container implements C
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__NOMBRE_CAMPO:
 				return NOMBRE_CAMPO_EDEFAULT == null ? nombre_campo != null : !NOMBRE_CAMPO_EDEFAULT.equals(nombre_campo);
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__EREFERENCE0:
+				return eReference0 != null;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__PRIMER_INDICE:
+				return primerIndice != null;
+			case DiagramapseudocodigoPackage.CAMPO_REGISTRO__SEGUNDO_INDICE:
+				return segundoIndice != null;
 		}
 		return super.eIsSet(featureID);
 	}

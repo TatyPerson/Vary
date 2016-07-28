@@ -3683,7 +3683,31 @@ public class VaryGrammarGeneratorCPP implements IGenerator, VaryGeneratorInterfa
   
   @Override
   public CharSequence generate(final CampoRegistro myCampo) {
-    return myCampo.getNombre_campo();
+    operacion _primerIndice = myCampo.getPrimerIndice();
+    boolean _notEquals = (!Objects.equal(_primerIndice, null));
+    if (_notEquals) {
+      String _nombre_campo = myCampo.getNombre_campo();
+      String _plus = (_nombre_campo + "[");
+      operacion _primerIndice_1 = myCampo.getPrimerIndice();
+      CharSequence _generate = this.generate(_primerIndice_1);
+      String _plus_1 = (_plus + _generate);
+      return (_plus_1 + "]");
+    } else {
+      if (((!Objects.equal(myCampo.getPrimerIndice(), null)) && (!Objects.equal(myCampo.getSegundoIndice(), null)))) {
+        String _nombre_campo_1 = myCampo.getNombre_campo();
+        String _plus_2 = (_nombre_campo_1 + "[");
+        operacion _primerIndice_2 = myCampo.getPrimerIndice();
+        CharSequence _generate_1 = this.generate(_primerIndice_2);
+        String _plus_3 = (_plus_2 + _generate_1);
+        String _plus_4 = (_plus_3 + "][");
+        operacion _segundoIndice = myCampo.getSegundoIndice();
+        CharSequence _generate_2 = this.generate(_segundoIndice);
+        String _plus_5 = (_plus_4 + _generate_2);
+        return (_plus_5 + "]");
+      } else {
+        return myCampo.getNombre_campo();
+      }
+    }
   }
   
   @Override

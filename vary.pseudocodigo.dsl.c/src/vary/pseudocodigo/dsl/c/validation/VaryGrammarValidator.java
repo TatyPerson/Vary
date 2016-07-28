@@ -4038,11 +4038,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	//Función que comprueba que un campo utilizado de un registro pertenezca realmente a ese tipo de registro
 	protected void checkVariablesRegistroInicio(Algoritmo algoritmo) {
 		//Preparamos todos los campos clasificados por el nombre del registro (utilizado como identificador)
-		Map<String,List<String>> registros = new HashMap<String,List<String>>();
+		Map<String,HashMap<String, String>> registros = new HashMap<String,HashMap<String, String>>();
 		for(TipoComplejo t: algoritmo.getTipocomplejo()) {
 			if(t instanceof Registro) {
 				Registro r = (Registro) t;
-				registros.put(r.getNombre(), funciones.registrarCamposRegistroSinTipo(r.getVariable()));
+				registros.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 			}
 		}
 		
@@ -4054,46 +4054,79 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(a.getValor_asignacion() instanceof ValorRegistro) {
 					ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
 					for(CampoRegistro campo: r.getCampo()) {
-						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
 							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 						}	
 					}
 				}
-				if(a.getOperador() instanceof ValorRegistro) {
-					ValorRegistro r = (ValorRegistro) a.getOperador();
-					for(CampoRegistro campo: r.getCampo()) {
-						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-						}	
+				if(a.getOperador() instanceof OperacionCompleta) {
+					OperacionCompleta op = (OperacionCompleta) a.getOperador();
+					checkVariableRegistroAux(op, registros, variablesTipadas);
+					
+					if(op.getValor_operacion() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
+						for(operacion opAux: f.getOperadores()) {
+							if(opAux instanceof OperacionCompleta) {
+								OperacionCompleta opCompleta = (OperacionCompleta) opAux;
+								checkVariableRegistroAux(opCompleta, registros, variablesTipadas);
+							}
+						}
 					}
 				}
 			}
 			else if(s instanceof AsignacionNormal) {
 				AsignacionNormal a = (AsignacionNormal) s;
-				if(a.getOperador() instanceof LlamadaFuncion) {
-					LlamadaFuncion f = (LlamadaFuncion) a.getOperador();
-					for(valor v: f.getOperadores()) {
-						if(v instanceof Operador) {
-							Operador o = (Operador) v;
-							if(o instanceof ValorRegistro) {
-								ValorRegistro r = (ValorRegistro) o;
-								for(CampoRegistro campo: r.getCampo()) {
-									if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-										error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-									}	
-								}
+				if(a.getOperador() instanceof OperacionCompleta) {
+					OperacionCompleta op = (OperacionCompleta) a.getOperador();
+					checkVariableRegistroAux(op, registros, variablesTipadas);
+					
+					if(op.getValor_operacion() instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
+						for(operacion opAux: f.getOperadores()) {
+							if(opAux instanceof OperacionCompleta) {
+								OperacionCompleta opCompleta = (OperacionCompleta) opAux;
+								checkVariableRegistroAux(opCompleta, registros, variablesTipadas);
 							}
 						}
 					}
 				}
-				if(a.getOperador() instanceof ValorRegistro) {
-					ValorRegistro r = (ValorRegistro) a.getOperador();
-					for(CampoRegistro campo: r.getCampo()) {
-						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-						}	
+			} else if(s instanceof Escribir) {
+				Escribir escribir = (Escribir) s;
+				for(operacion op: escribir.getOperador()) {
+					if(op instanceof OperacionCompleta) {
+						OperacionCompleta opCompleta = (OperacionCompleta) op;
+						checkVariableRegistroAux(opCompleta, registros, variablesTipadas);
 					}
 				}
+			}
+		}
+	}
+	
+	private void checkVariableRegistroAux(OperacionCompleta op, Map<String,HashMap<String, String>> registros, Map<String,String> variablesTipadas) {
+		if(op.getValor_operacion() instanceof ValorRegistro) {
+			ValorRegistro r = (ValorRegistro) op.getValor_operacion();
+			
+			String campoAnterior = "";
+			String registroReferenciado = "";
+			
+			for(CampoRegistro campo: r.getCampo()) {
+				if(r.getCampo().indexOf(campo) == 0) { //El primer campo no tiene anterior
+					if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
+						error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+					}
+				} else {
+					String registroReferenciadoAux = registros.get(variablesTipadas.get(r.getNombre_registro())).get(campoAnterior);
+					
+					if(registroReferenciadoAux != null) {
+						registroReferenciado = registroReferenciadoAux;
+					}
+					
+					if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())
+							&& !registros.get(registroReferenciado).containsKey(campo.getNombre_campo())) {
+						error(readerMessages.getString("CAMPO_REGISTRO_NOREGISTRO", campoAnterior, registroReferenciado), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+					}
+				}
+				campoAnterior = campo.getNombre_campo();
 			}
 		}
 	}
@@ -4219,12 +4252,15 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 								}
 							}
 						}
-						if(a.getOperador() instanceof ValorRegistro) {
-							ValorRegistro r = (ValorRegistro) a.getOperador();
-							for(CampoRegistro campo: r.getCampo()) {
-								if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
-									error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-								}	
+						if(a.getOperador() instanceof OperacionCompleta) {
+							OperacionCompleta op = (OperacionCompleta) a.getOperador();
+							if(op.getValor_operacion() instanceof ValorRegistro) {
+								ValorRegistro r = (ValorRegistro) op.getValor_operacion();
+								for(CampoRegistro campo: r.getCampo()) {
+									if(!registros.get(variablesTipadas.get(r.getNombre_registro())).contains(campo.getNombre_campo())) {
+										error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+									}	
+								}
 							}
 						}
 					}

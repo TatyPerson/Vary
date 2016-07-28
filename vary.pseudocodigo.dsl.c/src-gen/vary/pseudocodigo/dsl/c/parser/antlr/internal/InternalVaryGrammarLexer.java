@@ -2245,12 +2245,12 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6713:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalVaryGrammar.g:6713:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalVaryGrammar.g:6803:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalVaryGrammar.g:6803:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalVaryGrammar.g:6713:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalVaryGrammar.g:6803:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop1:
             do {
                 int alt1=2;
@@ -2263,7 +2263,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalVaryGrammar.g:6713:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalVaryGrammar.g:6803:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2283,7 +2283,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalVaryGrammar.g:6713:40: ( ( '\\r' )? '\\n' )?
+            // InternalVaryGrammar.g:6803:40: ( ( '\\r' )? '\\n' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -2292,9 +2292,9 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalVaryGrammar.g:6713:41: ( '\\r' )? '\\n'
+                    // InternalVaryGrammar.g:6803:41: ( '\\r' )? '\\n'
                     {
-                    // InternalVaryGrammar.g:6713:41: ( '\\r' )?
+                    // InternalVaryGrammar.g:6803:41: ( '\\r' )?
                     int alt2=2;
                     int LA2_0 = input.LA(1);
 
@@ -2303,7 +2303,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     }
                     switch (alt2) {
                         case 1 :
-                            // InternalVaryGrammar.g:6713:41: '\\r'
+                            // InternalVaryGrammar.g:6803:41: '\\r'
                             {
                             match('\r'); 
 
@@ -2335,10 +2335,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_NOMBRE_FUN;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6715:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
-            // InternalVaryGrammar.g:6715:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
+            // InternalVaryGrammar.g:6805:17: ( ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '(' )
+            // InternalVaryGrammar.g:6805:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* '('
             {
-            // InternalVaryGrammar.g:6715:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            // InternalVaryGrammar.g:6805:19: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             loop4:
             do {
                 int alt4=2;
@@ -2388,11 +2388,11 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_CAD;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6717:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"' )
-            // InternalVaryGrammar.g:6717:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"'
+            // InternalVaryGrammar.g:6807:10: ( '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"' )
+            // InternalVaryGrammar.g:6807:12: '\"' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )* '\"'
             {
             match('\"'); 
-            // InternalVaryGrammar.g:6717:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )*
+            // InternalVaryGrammar.g:6807:16: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' | ':' | ',' | '.' | '\\u00E1' | '\\u00E9' | '\\u00ED' | '\\u00F3' | '\\u00FA' | '\\u00F1' | '\\u00C1' | '\\u00C9' | '\\u00CD' | '\\u00D3' | '\\u00DA' | '\\u00D1' )*
             loop5:
             do {
                 int alt5=2;
@@ -2442,8 +2442,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_CAR;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6719:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
-            // InternalVaryGrammar.g:6719:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
+            // InternalVaryGrammar.g:6809:10: ( '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\'' )
+            // InternalVaryGrammar.g:6809:12: '\\'' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' ) '\\''
             {
             match('\''); 
             if ( (input.LA(1)>=' ' && input.LA(1)<='!')||input.LA(1)=='#'||(input.LA(1)>='%' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<=')')||(input.LA(1)>='0' && input.LA(1)<='9')||input.LA(1)=='='||(input.LA(1)>='?' && input.LA(1)<='Z')||input.LA(1)=='\\'||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2472,12 +2472,12 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_COMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6721:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
-            // InternalVaryGrammar.g:6721:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
+            // InternalVaryGrammar.g:6811:13: ( '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/' )
+            // InternalVaryGrammar.g:6811:15: '/*' ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )* '*/'
             {
             match("/*"); 
 
-            // InternalVaryGrammar.g:6721:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
+            // InternalVaryGrammar.g:6811:20: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\\\' | '0' .. '9' )*
             loop6:
             do {
                 int alt6=2;
@@ -2528,10 +2528,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6723:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalVaryGrammar.g:6723:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVaryGrammar.g:6813:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalVaryGrammar.g:6813:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalVaryGrammar.g:6723:11: ( '^' )?
+            // InternalVaryGrammar.g:6813:11: ( '^' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2540,7 +2540,7 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalVaryGrammar.g:6723:11: '^'
+                    // InternalVaryGrammar.g:6813:11: '^'
                     {
                     match('^'); 
 
@@ -2558,7 +2558,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalVaryGrammar.g:6723:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalVaryGrammar.g:6813:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop8:
             do {
                 int alt8=2;
@@ -2607,10 +2607,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6725:10: ( ( '0' .. '9' )+ )
-            // InternalVaryGrammar.g:6725:12: ( '0' .. '9' )+
+            // InternalVaryGrammar.g:6815:10: ( ( '0' .. '9' )+ )
+            // InternalVaryGrammar.g:6815:12: ( '0' .. '9' )+
             {
-            // InternalVaryGrammar.g:6725:12: ( '0' .. '9' )+
+            // InternalVaryGrammar.g:6815:12: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -2624,7 +2624,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalVaryGrammar.g:6725:13: '0' .. '9'
+            	    // InternalVaryGrammar.g:6815:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2656,10 +2656,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6727:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalVaryGrammar.g:6727:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalVaryGrammar.g:6817:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalVaryGrammar.g:6817:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalVaryGrammar.g:6727:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalVaryGrammar.g:6817:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -2677,10 +2677,10 @@ public class InternalVaryGrammarLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalVaryGrammar.g:6727:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalVaryGrammar.g:6817:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalVaryGrammar.g:6727:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalVaryGrammar.g:6817:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop10:
                     do {
                         int alt10=3;
@@ -2696,7 +2696,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // InternalVaryGrammar.g:6727:21: '\\\\' .
+                    	    // InternalVaryGrammar.g:6817:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2704,7 +2704,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalVaryGrammar.g:6727:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalVaryGrammar.g:6817:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2729,10 +2729,10 @@ public class InternalVaryGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalVaryGrammar.g:6727:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalVaryGrammar.g:6817:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalVaryGrammar.g:6727:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalVaryGrammar.g:6817:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop11:
                     do {
                         int alt11=3;
@@ -2748,7 +2748,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                         switch (alt11) {
                     	case 1 :
-                    	    // InternalVaryGrammar.g:6727:54: '\\\\' .
+                    	    // InternalVaryGrammar.g:6817:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -2756,7 +2756,7 @@ public class InternalVaryGrammarLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalVaryGrammar.g:6727:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalVaryGrammar.g:6817:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -2799,12 +2799,12 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6729:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalVaryGrammar.g:6729:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalVaryGrammar.g:6819:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalVaryGrammar.g:6819:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalVaryGrammar.g:6729:24: ( options {greedy=false; } : . )*
+            // InternalVaryGrammar.g:6819:24: ( options {greedy=false; } : . )*
             loop13:
             do {
                 int alt13=2;
@@ -2829,7 +2829,7 @@ public class InternalVaryGrammarLexer extends Lexer {
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalVaryGrammar.g:6729:52: .
+            	    // InternalVaryGrammar.g:6819:52: .
             	    {
             	    matchAny(); 
 
@@ -2859,10 +2859,10 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6731:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalVaryGrammar.g:6731:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVaryGrammar.g:6821:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalVaryGrammar.g:6821:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalVaryGrammar.g:6731:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalVaryGrammar.g:6821:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt14=0;
             loop14:
             do {
@@ -2916,8 +2916,8 @@ public class InternalVaryGrammarLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalVaryGrammar.g:6733:16: ( . )
-            // InternalVaryGrammar.g:6733:18: .
+            // InternalVaryGrammar.g:6823:16: ( . )
+            // InternalVaryGrammar.g:6823:18: .
             {
             matchAny(); 
 

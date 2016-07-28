@@ -1524,9 +1524,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(CampoRegistro myCampo) {
-
-		//Este metodo esta escrito con otra sintaxis diferente porque me generaba un salto de linea innecesario
-		return myCampo.nombre_campo;
+		if(myCampo.primerIndice != null) { //Es un campo de tipo vector
+			return myCampo.nombre_campo + '[' + myCampo.primerIndice.generate + ']';
+		} else if(myCampo.primerIndice != null && myCampo.segundoIndice != null) { //Es un campo de tipo matriz
+			return myCampo.nombre_campo + '[' + myCampo.primerIndice.generate + '][' + myCampo.segundoIndice.generate + ']';
+		} else { //Es un campo de tipo registro
+			return myCampo.nombre_campo;
+		}
 	}
 
 	override generate(ValorMatriz myValor) {
@@ -2250,13 +2254,13 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		}
 	}
 	
-	def coutOperadoresC(EList<operacion> operaciones, boolean primeroString) {
+	def coutOperadoresC(EList<operacion> operaciones, boolean saltarPrimero) {
 		var resultado = "";
 		var numero = 0;
 		for (op : operaciones) {
-			if(numero < operaciones.size - 1 && !primeroString) {
+			if(numero < operaciones.size - 1 && !saltarPrimero) {
 				resultado = resultado + op.generate + " , ";
-			} else if(numero < operaciones.size - 1 && primeroString && numero != 0) {
+			} else if(numero < operaciones.size - 1 && saltarPrimero && numero != 0) {
 				resultado = resultado + op.generate + " , ";
 			}
 			else if(numero != 0){
@@ -2518,7 +2522,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 		for(Subproceso s: modulo.implementacion.funcion) {
 			var perteneceSubproceso = false;
 			var archivo = false;
-			var primeroString = false;
+			var saltarPrimero = false;
 			if(!s.sentencias.contains(a) && a.operador.size() > 0) {
 				for(Sentencias sent: s.sentencias) {
 					if(sent.eClass.name.equals("mientras") && perteneceSubproceso == false) {
@@ -2560,9 +2564,10 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					var primero = a.operador.get(0) as ConstCadena;
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
-					primeroString = true;
+					saltarPrimero = true;
 				}
 				if(archivos.contains(a.operador.get(0).getTipoOperador)) {
+					saltarPrimero = true;
 					archivo = true;
 					cadena = cadena + a.operador.get(0).generate + ", \"";
 				}
@@ -2630,12 +2635,21 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							}
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-							if(a.operador.indexOf(o) == a.operador.size - 1) {
-								cadena = cadena + " %s \\n \"";
-							}
-							else {
-								cadena = cadena + " %s";
-							}
+							if(o.generate.toString.endsWith("]")) { //Se requiere un caracter de la cadena (un elemento del vector)
+								if(a.operador.indexOf(o) == a.operador.size - 1) {
+										cadena = cadena + " %c \\n \"";
+									}
+									else {
+										cadena = cadena + " %c";
+									}
+								} else {
+									if(a.operador.indexOf(o) == a.operador.size - 1) {
+										cadena = cadena + " %s \\n \"";
+									}
+									else {
+										cadena = cadena + " %s";
+									}
+								}
 						}
 						else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
 							if(a.operador.indexOf(o) == a.operador.size - 1) {
@@ -2648,7 +2662,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
-				cadena = cadena + ", " + a.operador.coutOperadoresC(primeroString);
+				cadena = cadena + ", " + a.operador.coutOperadoresC(saltarPrimero);
 				if(archivo) {
 					return '''fprintf(«cadena»);'''
 				} else {
@@ -3073,7 +3087,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	override generate(Escribir a) {
 		var perteneceInicio = false;
 		var archivo = false;
-		var primeroString = false;
+		var saltarPrimero = false;
 		if(!algoritmo.tiene.tiene.contains(a)) {
 			for(Sentencias s: algoritmo.tiene.tiene) {
 				if(s.eClass.name.equals("mientras") && perteneceInicio == false) {
@@ -3115,11 +3129,12 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				var primero = a.operador.get(0) as ConstCadena;
 				cadena = primero.contenido;
 				cadena = cadena.substring(0, cadena.length()-1);
-				primeroString = true;
+				saltarPrimero = true;
 			}
 			if(archivos.contains(a.operador.get(0).getTipoOperador)) {
 				archivo = true;
-				cadena = cadena + a.operador.get(0).generate + ", \"";
+				saltarPrimero = true;
+				cadena = cadena + a.operador.get(0).generate + ", ";
 			}
 			if(!a.operador.get(0).eClass.name.equals("ConstCadena")) {
 				cadena = cadena + "\"";
@@ -3128,6 +3143,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 			if(a.operador.size() == 1 && a.operador.get(0).eClass.name.equals("ConstCadena")) {
 				cadena = cadena + " \\n\"";
 			}
+			
 			for(o: a.operador) {
 				if(a.operador.indexOf(o) == 0 && !o.eClass.name.equals("ConstCadena") && !archivos.contains(a.operador.get(0).getTipoOperador) || a.operador.indexOf(o) != 0) {
 					var tipo = o.getTipoOperador;
@@ -3175,11 +3191,20 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 								}
 							}
 							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-								if(a.operador.indexOf(o) == a.operador.size - 1) {
-									cadena = cadena + " %s \\n \"";
-								}
-								else {
-									cadena = cadena + " %s";
+								if(o.generate.toString.endsWith("]")) { //Se requiere un caracter de la cadena (un elemento del vector)
+									if(a.operador.indexOf(o) == a.operador.size - 1) {
+										cadena = cadena + " %c \\n \"";
+									}
+									else {
+										cadena = cadena + " %c";
+									}
+								} else {
+									if(a.operador.indexOf(o) == a.operador.size - 1) {
+										cadena = cadena + " %s \\n \"";
+									}
+									else {
+										cadena = cadena + " %s";
+									}
 								}
 							}
 							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -3194,7 +3219,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
-				cadena = cadena + ", " + a.operador.coutOperadoresC(primeroString);
+				cadena = cadena + ", " + a.operador.coutOperadoresC(saltarPrimero);
 				if(archivo) {
 					return '''fprintf(«cadena»);'''
 				} else {
@@ -3254,10 +3279,11 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					var primero = a.operador.get(0) as ConstCadena;
 					cadena = primero.contenido;
 					cadena = cadena.substring(0, cadena.length()-1);
-					primeroString = true;
+					saltarPrimero = true;
 				}
 				if(archivos.contains(a.operador.get(0).getTipoOperador)) {
 					archivo = true;
+					saltarPrimero = true;
 					cadena = cadena + a.operador.get(0).generate + ", \"";
 				}
 				if(!a.operador.get(0).eClass.name.equals("ConstCadena")) {
@@ -3315,11 +3341,20 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 								}
 							}
 							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-								if(a.operador.indexOf(o) == a.operador.size - 1) {
-									cadena = cadena + " %s \\n \"";
-								}
-								else {
-									cadena = cadena + " %s";
+								if(o.generate.toString.endsWith("]")) { //Se requiere un caracter de la cadena (un elemento del vector)
+									if(a.operador.indexOf(o) == a.operador.size - 1) {
+										cadena = cadena + " %c \\n \"";
+									}
+									else {
+										cadena = cadena + " %c";
+									}
+								} else {
+									if(a.operador.indexOf(o) == a.operador.size - 1) {
+										cadena = cadena + " %s \\n \"";
+									}
+									else {
+										cadena = cadena + " %s";
+									}
 								}
 							}
 							else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -3334,7 +3369,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					}
 			}
 			if(a.operador.size > 1 || (a.operador.size == 1 && !a.operador.get(0).eClass.name.equals("ConstCadena"))) {
-				cadena = cadena + ", " + a.operador.coutOperadoresC(primeroString);
+				cadena = cadena + ", " + a.operador.coutOperadoresC(saltarPrimero);
 				if(archivo) {
 					return '''fprintf(«cadena»);'''
 				} else {
