@@ -332,6 +332,30 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		}
 	}
 	
+	protected List<String> registrarVectores(List<TipoComplejo> complejos) {
+		List<String> vectores = new ArrayList<String>();
+		
+		for(TipoComplejo complejo: complejos) {
+			if(complejo instanceof Vector) {
+				Vector vector = (Vector) complejo;
+				vectores.add(vector.getNombre());
+			} 
+		}
+		return vectores;
+	}
+	
+	protected List<String> registrarMatrices(List<TipoComplejo> complejos) {
+		List<String> matrices = new ArrayList<String>();
+		
+		for(TipoComplejo complejo: complejos) {
+			if(complejo instanceof Matriz) {
+				Matriz matriz = (Matriz) complejo;
+				matrices.add(matriz.getNombre());
+			}
+		}
+		return matrices;
+	}
+	
 	private String getValorTotalOperacion(List<valor> valores, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, ReadMessagesValidatorInterface readerMessages) {
 		List<String> tipos = new ArrayList<String>();
 		for(valor v: valores) {

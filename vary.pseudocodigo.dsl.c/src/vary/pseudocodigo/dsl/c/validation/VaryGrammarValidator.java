@@ -4047,6 +4047,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 		
 		Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
+		List<String> vectores = funciones.registrarVectores(algoritmo.getTipocomplejo());
+		List<String> matrices = funciones.registrarMatrices(algoritmo.getTipocomplejo());
 		
 		for(Sentencias s: algoritmo.getTiene().getTiene()) {
 			if(s instanceof AsignacionCompleja) {
@@ -4061,14 +4063,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 				if(a.getOperador() instanceof OperacionCompleta) {
 					OperacionCompleta op = (OperacionCompleta) a.getOperador();
-					checkVariableRegistroAux(op, registros, variablesTipadas);
+					checkVariableRegistroAux(op, registros, variablesTipadas, vectores, matrices);
 					
 					if(op.getValor_operacion() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
 						for(operacion opAux: f.getOperadores()) {
 							if(opAux instanceof OperacionCompleta) {
 								OperacionCompleta opCompleta = (OperacionCompleta) opAux;
-								checkVariableRegistroAux(opCompleta, registros, variablesTipadas);
+								checkVariableRegistroAux(opCompleta, registros, variablesTipadas, vectores, matrices);
 							}
 						}
 					}
@@ -4078,14 +4080,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				AsignacionNormal a = (AsignacionNormal) s;
 				if(a.getOperador() instanceof OperacionCompleta) {
 					OperacionCompleta op = (OperacionCompleta) a.getOperador();
-					checkVariableRegistroAux(op, registros, variablesTipadas);
+					checkVariableRegistroAux(op, registros, variablesTipadas, vectores, matrices);
 					
 					if(op.getValor_operacion() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
 						for(operacion opAux: f.getOperadores()) {
 							if(opAux instanceof OperacionCompleta) {
 								OperacionCompleta opCompleta = (OperacionCompleta) opAux;
-								checkVariableRegistroAux(opCompleta, registros, variablesTipadas);
+								checkVariableRegistroAux(opCompleta, registros, variablesTipadas, vectores, matrices);
 							}
 						}
 					}
@@ -4095,14 +4097,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				for(operacion op: escribir.getOperador()) {
 					if(op instanceof OperacionCompleta) {
 						OperacionCompleta opCompleta = (OperacionCompleta) op;
-						checkVariableRegistroAux(opCompleta, registros, variablesTipadas);
+						checkVariableRegistroAux(opCompleta, registros, variablesTipadas, vectores, matrices);
 					}
 				}
 			}
 		}
 	}
 	
-	private void checkVariableRegistroAux(OperacionCompleta op, Map<String,HashMap<String, String>> registros, Map<String,String> variablesTipadas) {
+	private void checkVariableRegistroAux(OperacionCompleta op, Map<String,HashMap<String, String>> registros, Map<String,String> variablesTipadas, List<String> vectores, List<String> matrices) {
 		if(op.getValor_operacion() instanceof ValorRegistro) {
 			ValorRegistro r = (ValorRegistro) op.getValor_operacion();
 			
@@ -4114,6 +4116,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
 						error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 					}
+					else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() != null && !matrices.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))) { //Se usa como una matriz pero no es del tipo matriz
+						error(readerMessages.getString("CAMPO_REGISTRO_NOMATRIZ", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+					} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() == null && !vectores.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))) { //Se usa como un vector pero no es del tipo vector
+						error(readerMessages.getString("CAMPO_REGISTRO_NOVECTOR", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+					}
 				} else {
 					String registroReferenciadoAux = registros.get(variablesTipadas.get(r.getNombre_registro())).get(campoAnterior);
 					
@@ -4124,6 +4131,13 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())
 							&& !registros.get(registroReferenciado).containsKey(campo.getNombre_campo())) {
 						error(readerMessages.getString("CAMPO_REGISTRO_NOREGISTRO", campoAnterior, registroReferenciado), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+					}
+					else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() != null && !matrices.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))
+							&& !matrices.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))) { //Se usa como una matriz pero no es del tipo matriz
+						error(readerMessages.getString("CAMPO_REGISTRO_NOMATRIZ", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+					} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() == null && !vectores.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))
+							&& !vectores.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))) { //Se usa como un vector pero no es del tipo vector
+						error(readerMessages.getString("CAMPO_REGISTRO_NOVECTOR", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 					}
 				}
 				campoAnterior = campo.getNombre_campo();
