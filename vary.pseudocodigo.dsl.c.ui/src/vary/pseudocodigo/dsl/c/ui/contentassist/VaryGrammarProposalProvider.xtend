@@ -893,6 +893,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		}
 	}
 	
+	//Revisar proposal
 	def void completeCampoRegistro_Nombre_campoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Declaracion> declaraciones, List<TipoComplejo> complejos, String nombreVariable) {
 		var tipo = new String()
 		if(context.getCurrentModel instanceof ValorRegistro) {

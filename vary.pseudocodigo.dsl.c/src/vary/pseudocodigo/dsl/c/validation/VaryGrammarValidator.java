@@ -4055,22 +4055,24 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				AsignacionCompleja a = (AsignacionCompleja) s;
 				if(a.getValor_asignacion() instanceof ValorRegistro) {
 					ValorRegistro r = (ValorRegistro) a.getValor_asignacion();
-					for(CampoRegistro campo: r.getCampo()) {
-						if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
-							error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-						}	
-					}
+					checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
 				}
 				if(a.getOperador() instanceof OperacionCompleta) {
 					OperacionCompleta op = (OperacionCompleta) a.getOperador();
-					checkVariableRegistroAux(op, registros, variablesTipadas, vectores, matrices);
+					if(op.getValor_operacion() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) op.getValor_operacion();
+						checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
+					}
 					
 					if(op.getValor_operacion() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
 						for(operacion opAux: f.getOperadores()) {
 							if(opAux instanceof OperacionCompleta) {
 								OperacionCompleta opCompleta = (OperacionCompleta) opAux;
-								checkVariableRegistroAux(opCompleta, registros, variablesTipadas, vectores, matrices);
+								if(opCompleta.getValor_operacion() instanceof ValorRegistro) {
+									ValorRegistro r = (ValorRegistro) opCompleta.getValor_operacion();
+									checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
+								}
 							}
 						}
 					}
@@ -4080,14 +4082,20 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				AsignacionNormal a = (AsignacionNormal) s;
 				if(a.getOperador() instanceof OperacionCompleta) {
 					OperacionCompleta op = (OperacionCompleta) a.getOperador();
-					checkVariableRegistroAux(op, registros, variablesTipadas, vectores, matrices);
+					if(op.getValor_operacion() instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) op.getValor_operacion();
+						checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
+					}
 					
 					if(op.getValor_operacion() instanceof LlamadaFuncion) {
 						LlamadaFuncion f = (LlamadaFuncion) op.getValor_operacion();
 						for(operacion opAux: f.getOperadores()) {
 							if(opAux instanceof OperacionCompleta) {
 								OperacionCompleta opCompleta = (OperacionCompleta) opAux;
-								checkVariableRegistroAux(opCompleta, registros, variablesTipadas, vectores, matrices);
+								if(opCompleta.getValor_operacion() instanceof ValorRegistro) {
+									ValorRegistro r = (ValorRegistro) opCompleta.getValor_operacion();
+									checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
+								}
 							}
 						}
 					}
@@ -4097,51 +4105,69 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				for(operacion op: escribir.getOperador()) {
 					if(op instanceof OperacionCompleta) {
 						OperacionCompleta opCompleta = (OperacionCompleta) op;
-						checkVariableRegistroAux(opCompleta, registros, variablesTipadas, vectores, matrices);
+						if(opCompleta.getValor_operacion() instanceof ValorRegistro) {
+							ValorRegistro r = (ValorRegistro) opCompleta.getValor_operacion();
+							checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
+						}
+					} else if(op instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) op;
+						checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
+					}
+				}
+			} else if(s instanceof Leer) {
+				Leer leer = (Leer) s;
+				for(operacion op: leer.getVariable()) {
+					if(op instanceof ValorRegistro) {
+						ValorRegistro r = (ValorRegistro) op;
+						checkVariableRegistroAux(r, registros, variablesTipadas, vectores, matrices);
 					}
 				}
 			}
 		}
 	}
 	
-	private void checkVariableRegistroAux(OperacionCompleta op, Map<String,HashMap<String, String>> registros, Map<String,String> variablesTipadas, List<String> vectores, List<String> matrices) {
-		if(op.getValor_operacion() instanceof ValorRegistro) {
-			ValorRegistro r = (ValorRegistro) op.getValor_operacion();
-			
-			String campoAnterior = "";
-			String registroReferenciado = "";
-			
-			for(CampoRegistro campo: r.getCampo()) {
-				if(r.getCampo().indexOf(campo) == 0) { //El primer campo no tiene anterior
-					if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
-						error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-					}
-					else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() != null && !matrices.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))) { //Se usa como una matriz pero no es del tipo matriz
-						error(readerMessages.getString("CAMPO_REGISTRO_NOMATRIZ", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-					} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() == null && !vectores.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))) { //Se usa como un vector pero no es del tipo vector
-						error(readerMessages.getString("CAMPO_REGISTRO_NOVECTOR", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-					}
-				} else {
-					String registroReferenciadoAux = registros.get(variablesTipadas.get(r.getNombre_registro())).get(campoAnterior);
-					
-					if(registroReferenciadoAux != null) {
-						registroReferenciado = registroReferenciadoAux;
-					}
-					
-					if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())
-							&& !registros.get(registroReferenciado).containsKey(campo.getNombre_campo())) {
-						error(readerMessages.getString("CAMPO_REGISTRO_NOREGISTRO", campoAnterior, registroReferenciado), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-					}
-					else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() != null && !matrices.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))
-							&& !matrices.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))) { //Se usa como una matriz pero no es del tipo matriz
-						error(readerMessages.getString("CAMPO_REGISTRO_NOMATRIZ", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-					} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() == null && !vectores.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))
-							&& !vectores.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))) { //Se usa como un vector pero no es del tipo vector
-						error(readerMessages.getString("CAMPO_REGISTRO_NOVECTOR", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
-					}
+	private void checkVariableRegistroAux(ValorRegistro r, Map<String,HashMap<String, String>> registros, Map<String,String> variablesTipadas, List<String> vectores, List<String> matrices) {	
+		String campoAnterior = "";
+		String registroReferenciado = "";
+		
+		for(CampoRegistro campo: r.getCampo()) {
+			if(r.getCampo().indexOf(campo) == 0) { //El primer campo no tiene anterior
+				if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
+					error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 				}
-				campoAnterior = campo.getNombre_campo();
+				else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() != null && !matrices.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))) { //Se usa como una matriz pero no es del tipo matriz
+					error(readerMessages.getString("CAMPO_REGISTRO_NOMATRIZ", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+				} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() == null && !vectores.contains(registros.get(variablesTipadas.get(r.getNombre_registro())).get(campo.getNombre_campo()))) { //Se usa como un vector pero no es del tipo vector
+					error(readerMessages.getString("CAMPO_REGISTRO_NOVECTOR", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+				}
+			} else {
+				String registroReferenciadoAux = "";
+				
+				if(registroReferenciado != "") {
+					registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+				} else {
+					registroReferenciadoAux = registros.get(variablesTipadas.get(r.getNombre_registro())).get(campoAnterior);
+				}
+				
+				if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+						&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+						!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+					registroReferenciado = registroReferenciadoAux;
+				}
+				
+				if(registroReferenciadoAux != registroReferenciado) { //Un campo de tipo nativo no puede contener otros campos (tipoNativo.unCampo)
+					error(readerMessages.getString("CAMPO_REGISTRO_NOREGISTRO", campoAnterior, registroReferenciado), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+				} else if(!registros.get(registroReferenciado).containsKey(campo.getNombre_campo())) {
+					error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), registroReferenciado), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+				} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() != null && !matrices.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))
+						&& !matrices.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))) { //Se usa como una matriz pero no es del tipo matriz
+					error(readerMessages.getString("CAMPO_REGISTRO_NOMATRIZ", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+				} else if(campo.getPrimerIndice() != null && campo.getSegundoIndice() == null && !vectores.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))
+						&& !vectores.contains(registros.get(registroReferenciado).get(campo.getNombre_campo()))) { //Se usa como un vector pero no es del tipo vector
+					error(readerMessages.getString("CAMPO_REGISTRO_NOVECTOR", campo.getNombre_campo()), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
+				}
 			}
+			campoAnterior = campo.getNombre_campo();
 		}
 	}
 	

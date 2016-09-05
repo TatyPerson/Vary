@@ -1774,8 +1774,31 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					if(registro.campo.size() == 1) {
 						tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 					} else {
-						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-						tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+						var campoAnterior = "";
+						var registroReferenciado = "";
+						
+						for(campo: registro.campo) {
+							if(registro.campo.indexOf(campo) != 0) {
+								var registroReferenciadoAux = "";
+								
+								if(registroReferenciado != "") {
+									registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+								} else {
+									registroReferenciadoAux = registros.get(variablesInicio.get(registro.nombre_registro)).get(campoAnterior);
+								}
+								
+								if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+									&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+										!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+											registroReferenciado = registroReferenciadoAux;
+								}
+								
+							}
+							
+							campoAnterior = campo.getNombre_campo();
+						}
+						
+						tipo = registros.get(registroReferenciado).get(campoAnterior);
 					}
 				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
@@ -1889,8 +1912,31 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				if(registro.campo.size() == 1) {
 					tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 				} else {
-					var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-					tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+					var campoAnterior = "";
+					var registroReferenciado = "";
+					
+					for(campo: registro.campo) {
+						if(registro.campo.indexOf(campo) != 0) {
+							var registroReferenciadoAux = "";
+							
+							if(registroReferenciado != "") {
+								registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+							} else {
+								registroReferenciadoAux = registros.get(variablesInicio.get(registro.nombre_registro)).get(campoAnterior);
+							}
+							
+							if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+								&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+									!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+										registroReferenciado = registroReferenciadoAux;
+							}
+							
+						}
+						
+						campoAnterior = campo.getNombre_campo();
+					}
+					
+					tipo = registros.get(registroReferenciado).get(campoAnterior);
 				}
 			}
 			if(archivos.contains(tipo)) {
@@ -2090,10 +2136,33 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				else if(op.eClass.name.equals("ValorRegistro")) {
 					var registro = op as ValorRegistro;
 					if(registro.campo.size() == 1) {
-						tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
+						tipo = registros.get(variablesSubprocesos.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 					} else {
-						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-						tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+						var campoAnterior = "";
+						var registroReferenciado = "";
+						
+						for(campo: registro.campo) {
+							if(registro.campo.indexOf(campo) != 0) {
+								var registroReferenciadoAux = "";
+								
+								if(registroReferenciado != "") {
+									registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+								} else {
+									registroReferenciadoAux = registros.get(variablesInicio.get(registro.nombre_registro)).get(campoAnterior);
+								}
+								
+								if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+									&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+										!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+											registroReferenciado = registroReferenciadoAux;
+								}
+								
+							}
+							
+							campoAnterior = campo.getNombre_campo();
+						}
+						
+						tipo = registros.get(registroReferenciado).get(campoAnterior);
 					}
 				}
 				if(archivos.contains(tipo)) {
@@ -2256,17 +2325,27 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	
 	def coutOperadoresC(EList<operacion> operaciones, boolean saltarPrimero) {
 		var resultado = "";
-		var numero = 0;
+		//var numero = 0;
 		for (op : operaciones) {
-			if(numero < operaciones.size - 1 && !saltarPrimero) {
+			/*if(numero < operaciones.size - 1 && !saltarPrimero) {
 				resultado = resultado + op.generate + " , ";
 			} else if(numero < operaciones.size - 1 && saltarPrimero && numero != 0) {
 				resultado = resultado + op.generate + " , ";
 			}
-			else if(numero != 0){
+			else if(numero != 0 || (operaciones.size == 1 && !saltarPrimero)){
+				resultado = resultado + op.generate;
+			} 
+			numero = numero + 1;*/
+			
+			if((operaciones.indexOf(op) < operaciones.size - 1 && !saltarPrimero) || 
+				(operaciones.indexOf(op) < operaciones.size - 1 && saltarPrimero && operaciones.indexOf(op) != 0)) {
+				resultado = resultado + op.generate + " , ";
+			} else if(operaciones.indexOf(op) != 0 || (operaciones.size == 1 && !saltarPrimero)) {
 				resultado = resultado + op.generate;
 			}
-			numero = numero + 1;
+			
+			//numero = numero + 1;
+			
 		}
 		return resultado;
 	}
@@ -2465,8 +2544,31 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(registro.campo.size() == 1) {
 								tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 							} else {
-								var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-								tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+								var campoAnterior = "";
+								var registroReferenciado = "";
+								
+								for(campo: registro.campo) {
+									if(registro.campo.indexOf(campo) != 0) {
+										var registroReferenciadoAux = "";
+										
+										if(registroReferenciado != "") {
+											registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+										} else {
+											registroReferenciadoAux = registros.get(variablesInicio.get(registro.nombre_registro)).get(campoAnterior);
+										}
+										
+										if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+											&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+												!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+													registroReferenciado = registroReferenciadoAux;
+										}
+										
+									}
+									
+									campoAnterior = campo.getNombre_campo();
+								}
+								
+								return registros.get(registroReferenciado).get(campoAnterior);
 							}
 						}
 						else if(o.eClass.name.equals("LlamadaFuncion")) {
@@ -2610,8 +2712,31 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(registro.campo.size() == 1) {
 								tipo = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 							} else {
-								var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-								tipo = registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+								var campoAnterior = "";
+								var registroReferenciado = "";
+								
+								for(campo: registro.campo) {
+									if(registro.campo.indexOf(campo) != 0) {
+										var registroReferenciadoAux = "";
+										
+										if(registroReferenciado != "") {
+											registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+										} else {
+											registroReferenciadoAux = registros.get(variablesSubprocesos.get(registro.nombre_registro)).get(campoAnterior);
+										}
+										
+										if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+											&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+												!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+													registroReferenciado = registroReferenciadoAux;
+										}
+										
+									}
+									
+									campoAnterior = campo.getNombre_campo();
+								}
+								
+								return registros.get(registroReferenciado).get(campoAnterior);
 							}
 						}
 						else if(o.eClass.name.equals("LlamadaFuncion")) {
@@ -2713,8 +2838,31 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					if(registro.campo.size() == 1) {
 						return registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 					} else {
-						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-						return registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+						var campoAnterior = "";
+						var registroReferenciado = "";
+						
+						for(campo: registro.campo) {
+							if(registro.campo.indexOf(campo) != 0) {
+								var registroReferenciadoAux = "";
+								
+								if(registroReferenciado != "") {
+									registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+								} else {
+									registroReferenciadoAux = registros.get(variablesInicio.get(registro.nombre_registro)).get(campoAnterior);
+								}
+								
+								if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+									&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+										!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+											registroReferenciado = registroReferenciadoAux;
+								}
+								
+							}
+							
+							campoAnterior = campo.getNombre_campo();
+						}
+						
+						return registros.get(registroReferenciado).get(campoAnterior);
 					}	
 			}
 			else if(op.eClass.name.equals("LlamadaFuncion")) {
@@ -2911,8 +3059,31 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 					if(registro.campo.size() == 1) {
 						return registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(0).nombre_campo);
 					} else {
-						var tipoRegistro = registros.get(variablesInicio.get(registro.nombre_registro)).get(registro.campo.get(registro.campo.size() - 2).nombre_campo);
-						return registros.get(tipoRegistro).get(registro.campo.get(registro.campo.size() - 1).nombre_campo);
+						var campoAnterior = "";
+						var registroReferenciado = "";
+						
+						for(campo: registro.campo) {
+							if(registro.campo.indexOf(campo) != 0) {
+								var registroReferenciadoAux = "";
+								
+								if(registroReferenciado != "") {
+									registroReferenciadoAux = registros.get(registroReferenciado).get(campoAnterior);
+								} else {
+									registroReferenciadoAux = registros.get(variablesInicio.get(registro.nombre_registro)).get(campoAnterior);
+								}
+								
+								if(registroReferenciadoAux != null && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_REAL")) 
+									&& !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && !registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) &&
+										!registroReferenciadoAux.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+											registroReferenciado = registroReferenciadoAux;
+								}
+								
+							}
+							
+							campoAnterior = campo.getNombre_campo();
+						}
+						
+						return registros.get(registroReferenciado).get(campoAnterior);
 					}	
 			}
 			else if(o.eClass.name.equals("LlamadaFuncion")) {
