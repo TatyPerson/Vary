@@ -1982,7 +1982,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						if(archivo) {
 							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
 						} else {
-							resultado = '''scanf("%s", &«op.generate»);'''
+							resultado = '''scanf("%s", «op.generate»);'''
 						}
 					}
 					else {
@@ -2035,7 +2035,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(archivo) {
 								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
 							} else {
-								resultado = '''scanf("%s", &«op.generate»);'''
+								resultado = '''scanf("%s", «op.generate»);'''
 							}
 						}
 						else {
@@ -2043,7 +2043,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(archivo) {
 								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
 							} else {
-								resultado = '''scanf("%s", &«op.generate»);'''
+								resultado = '''scanf("%s", «op.generate»);'''
 							}
 						}
 					}
@@ -2209,7 +2209,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 						if(archivo) {
 							resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
 						} else {
-							resultado = '''scanf("%s", &«op.generate»);'''
+							resultado = '''scanf("%s", «op.generate»);'''
 						}
 					}
 					else {
@@ -2262,7 +2262,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(archivo) {
 								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
 							} else {
-								resultado = '''scanf("%s", &«op.generate»);'''
+								resultado = '''scanf("%s", «op.generate»);'''
 							}
 						}
 						else {
@@ -2270,7 +2270,7 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 							if(archivo) {
 								resultado = '''fscanf(«variableArchivo»,"%s", &«op.generate»);'''
 							} else {
-								resultado = '''scanf("%s", &«op.generate»);'''
+								resultado = '''scanf("%s", «op.generate»);'''
 							}
 						}
 					}

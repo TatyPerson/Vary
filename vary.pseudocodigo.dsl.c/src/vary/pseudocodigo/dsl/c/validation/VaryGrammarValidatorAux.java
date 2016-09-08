@@ -32,6 +32,7 @@ import diagramapseudocodigo.Internas;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Mod;
+import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
 import diagramapseudocodigo.Negacion;
 import diagramapseudocodigo.Negativa;
@@ -817,8 +818,41 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			else {
 				valores.add(negativa.getValor_operacion());
 			}
-		} 
+		} else if(op instanceof VariableID) {
+			valores.add(op);
+		}
 		return valores;
+	}
+	
+	protected Map<String, ArrayList<Integer>> registrarFuncionesConNumeroParametros(List<Subproceso> subprocesos) {
+		Map<String, ArrayList<Integer>> funciones = new HashMap<String, ArrayList<Integer>>();
+		for(Subproceso s: subprocesos) {
+			if(!funciones.containsKey(s.getNombre())) {
+				//Si todavia no hay ninguna que se llame así, la registramos
+				funciones.put(s.getNombre(), new ArrayList<Integer>());
+				funciones.get(s.getNombre()).add(s.getParametrofuncion().size());
+			}
+			else {
+				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
+				funciones.get(s.getNombre()).add(s.getParametrofuncion().size());
+			}
+		}
+		return funciones;
+	}
+	
+	protected  List<Subproceso> registrarSubprocesosExportados(List<Modulo> importaciones) {
+		List<Subproceso> subprocesosExportados = new ArrayList<Subproceso>();
+		
+		for(Modulo m: importaciones) {
+			for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+				for(Subproceso s: m.getImplementacion().getFuncion()) {
+					if(cabecera.getNombre().equals(s.getNombre()) && cabecera.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+						subprocesosExportados.add(s);
+					}
+				}
+			}
+		}
+		return subprocesosExportados;
 	}
 	
 	
