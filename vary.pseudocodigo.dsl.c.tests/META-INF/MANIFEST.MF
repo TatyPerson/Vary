@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: vary.pseudocodigo.dsl.c.tests
 Bundle-Vendor: UCA
-Bundle-Version: 1.0.7
+Bundle-Version: 1.0.8
 Bundle-SymbolicName: vary.pseudocodigo.dsl.c.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: vary.pseudocodigo.dsl.c.ui,

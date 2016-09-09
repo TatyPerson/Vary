@@ -2763,9 +2763,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		} else if(algoritmo != null && subproceso != null) {
 			variables = funciones.registrarVariables(subproceso.getDeclaracion());
 			variables.addAll(funciones.registrarVariables(algoritmo.getGlobal()));
+			variables.addAll(funciones.registrarParametros(subproceso.getParametrofuncion()));
 		} else {
 			variables = funciones.registrarVariables(subproceso.getDeclaracion());
 			variables.addAll(funciones.registrarVariables(modulo.getImplementacion().getGlobal()));
+			variables.addAll(funciones.registrarParametros(subproceso.getParametrofuncion()));
 		}
 		
 		if(!variables.contains(asignacion.getValor_asignacion())) {
