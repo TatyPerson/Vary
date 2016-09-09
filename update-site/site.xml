@@ -3,7 +3,7 @@
    <description name="Vary update site">
       Update site for Vary plugins.
    </description>
-   <feature url="features/vary.pseudocodigo.dsl.feature_1.0.6.jar" id="vary.pseudocodigo.dsl.feature" version="1.0.7">
+   <feature url="features/vary.pseudocodigo.dsl.feature_1.0.8.jar" id="vary.pseudocodigo.dsl.feature" version="1.0.8">
       <category name="Vary"/>
    </feature>
    <category-def name="Vary" label="Vary">
