@@ -37,7 +37,7 @@ type
 main	
 var
 
-initiation //Body main algorithm	
+start //Body main algorithm	
 
 end_main
 

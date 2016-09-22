@@ -593,28 +593,24 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.VaryGrammar.Comentario");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cComentarioAction_0 = (Action)cGroup.eContents().get(0);
-		private final RuleCall cSL_COMMENTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
-		private final Assignment cMensajeAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMensajeCOMENTTerminalRuleCall_2_0 = (RuleCall)cMensajeAssignment_2.eContents().get(0);
+		private final Assignment cMensajeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cMensajeCOMENTTerminalRuleCall_1_0 = (RuleCall)cMensajeAssignment_1.eContents().get(0);
 		
 		//Comentario:
-		//	{Comentario} SL_COMMENT mensaje=COMENT;
+		//	{Comentario} mensaje=COMENT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Comentario} SL_COMMENT mensaje=COMENT
+		//{Comentario} mensaje=COMENT
 		public Group getGroup() { return cGroup; }
 
 		//{Comentario}
 		public Action getComentarioAction_0() { return cComentarioAction_0; }
 
-		/// * ML_COMMENT | * / SL_COMMENT
-		public RuleCall getSL_COMMENTTerminalRuleCall_1() { return cSL_COMMENTTerminalRuleCall_1; }
-
-		//mensaje=COMENT
-		public Assignment getMensajeAssignment_2() { return cMensajeAssignment_2; }
+		/// * ML_COMMENT | SL_COMMENT * / mensaje=COMENT
+		public Assignment getMensajeAssignment_1() { return cMensajeAssignment_1; }
 
 		//COMENT
-		public RuleCall getMensajeCOMENTTerminalRuleCall_2_0() { return cMensajeCOMENTTerminalRuleCall_2_0; }
+		public RuleCall getMensajeCOMENTTerminalRuleCall_1_0() { return cMensajeCOMENTTerminalRuleCall_1_0; }
 	}
 
 	public class SentenciasElements extends AbstractParserRuleElementFinder {
@@ -2204,19 +2200,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.VaryGrammar.signoOr");
 		private final Keyword cOKeyword = (Keyword)rule.eContents().get(1);
 		
-		////terminal MAT: 
-		////'[' ('a'..'z'|'A'..'Z'|'0'..'9')*('--'|'++')? ']' ;
-		////ConstCadena returns ConstCadena:
-		////	{ConstCadena} contenido=CAD;
-		////NumeroEntero returns NumeroEntero:
-		////	 {NumeroEntero} valor=INTEGER;
-		////NumeroDecimal returns NumeroDecimal:
-		////	 {NumeroDecimal} valor=FLOAT;
-		////ValorBooleano returns ValorBooleano:
-		////	 {ValorBooleano} valor=booleano;
-		////signo returns signo:
-		////('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod' | 'div');
-		/// * TODO: implement this rule and an appropriate IValueConverter * / signoOr signo:
+		//signoOr signo:
 		//	'o'
 		@Override public ParserRule getRule() { return rule; }
 
@@ -3810,21 +3794,19 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSinoAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSi_noKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
-		private final Assignment cSentenciasAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final RuleCall cSentenciasSentenciasParserRuleCall_2_0_0 = (RuleCall)cSentenciasAssignment_2_0.eContents().get(0);
-		private final Assignment cSentenciasAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cSentenciasSentenciasParserRuleCall_2_1_0 = (RuleCall)cSentenciasAssignment_2_1.eContents().get(0);
+		private final Assignment cSentenciasAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cSentenciasSentenciasParserRuleCall_2_0 = (RuleCall)cSentenciasAssignment_2.eContents().get(0);
 		private final Assignment cDevuelveAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDevuelveDevolverParserRuleCall_3_0 = (RuleCall)cDevuelveAssignment_3.eContents().get(0);
 		
 		//Sino:
 		//	{Sino}
-		//	'si_no' (sentencias+=Sentencias sentencias+=Sentencias*)?
+		//	'si_no'
+		//	sentencias+=Sentencias*
 		//	devuelve=Devolver?;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Sino} 'si_no' (sentencias+=Sentencias sentencias+=Sentencias*)? devuelve=Devolver?
+		//{Sino} 'si_no' sentencias+=Sentencias* devuelve=Devolver?
 		public Group getGroup() { return cGroup; }
 
 		//{Sino}
@@ -3833,20 +3815,11 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		//'si_no'
 		public Keyword getSi_noKeyword_1() { return cSi_noKeyword_1; }
 
-		//(sentencias+=Sentencias sentencias+=Sentencias*)?
-		public Group getGroup_2() { return cGroup_2; }
-
-		//sentencias+=Sentencias
-		public Assignment getSentenciasAssignment_2_0() { return cSentenciasAssignment_2_0; }
-
-		//Sentencias
-		public RuleCall getSentenciasSentenciasParserRuleCall_2_0_0() { return cSentenciasSentenciasParserRuleCall_2_0_0; }
-
 		//sentencias+=Sentencias*
-		public Assignment getSentenciasAssignment_2_1() { return cSentenciasAssignment_2_1; }
+		public Assignment getSentenciasAssignment_2() { return cSentenciasAssignment_2; }
 
 		//Sentencias
-		public RuleCall getSentenciasSentenciasParserRuleCall_2_1_0() { return cSentenciasSentenciasParserRuleCall_2_1_0; }
+		public RuleCall getSentenciasSentenciasParserRuleCall_2_0() { return cSentenciasSentenciasParserRuleCall_2_0; }
 
 		//devuelve=Devolver?
 		public Assignment getDevuelveAssignment_3() { return cDevuelveAssignment_3; }
@@ -3895,8 +3868,6 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVariableAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cVariableVariableParserRuleCall_3_0 = (RuleCall)cVariableAssignment_3.eContents().get(0);
 		
-		////neg returns neg:
-		////	"no" / * TODO: implement this rule and an appropriate IValueConverter * /;
 		//ParametroFuncion:
 		//	paso=TipoPaso
 		//	tipo=Tipo ": "
@@ -4527,7 +4498,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//Comentario:
-	//	{Comentario} SL_COMMENT mensaje=COMENT;
+	//	{Comentario} mensaje=COMENT;
 	public ComentarioElements getComentarioAccess() {
 		return pComentario;
 	}
@@ -5001,19 +4972,7 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return tCOMENT;
 	} 
 
-	////terminal MAT: 
-	////'[' ('a'..'z'|'A'..'Z'|'0'..'9')*('--'|'++')? ']' ;
-	////ConstCadena returns ConstCadena:
-	////	{ConstCadena} contenido=CAD;
-	////NumeroEntero returns NumeroEntero:
-	////	 {NumeroEntero} valor=INTEGER;
-	////NumeroDecimal returns NumeroDecimal:
-	////	 {NumeroDecimal} valor=FLOAT;
-	////ValorBooleano returns ValorBooleano:
-	////	 {ValorBooleano} valor=booleano;
-	////signo returns signo:
-	////('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod' | 'div');
-	/// * TODO: implement this rule and an appropriate IValueConverter * / signoOr signo:
+	//signoOr signo:
 	//	'o'
 	public SignoOrElements getSignoOrAccess() {
 		return pSignoOr;
@@ -5374,7 +5333,8 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Sino:
 	//	{Sino}
-	//	'si_no' (sentencias+=Sentencias sentencias+=Sentencias*)?
+	//	'si_no'
+	//	sentencias+=Sentencias*
 	//	devuelve=Devolver?;
 	public SinoElements getSinoAccess() {
 		return pSino;
@@ -5395,8 +5355,6 @@ public class VaryGrammarGrammarAccess extends AbstractGrammarElementFinder {
 		return getDevolverAccess().getRule();
 	}
 
-	////neg returns neg:
-	////	"no" / * TODO: implement this rule and an appropriate IValueConverter * /;
 	//ParametroFuncion:
 	//	paso=TipoPaso
 	//	tipo=Tipo ": "

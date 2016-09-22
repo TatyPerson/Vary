@@ -44,7 +44,7 @@ type
 integer function sumFun(E integer: a, E integer:  b)
 var //Declaration of variables
 	integer:  result
-initiation //Body Function
+start //Body Function
 	result <- a + b
 	return result
 end_function
@@ -55,7 +55,7 @@ end_function
 //Postcondition: returns a + b
 procedure sumProc(E integer: a, E integer: b, S integer: res)
 var
-initiation //Body Procedure
+start //Body Procedure
 	res <- a +b
 end_procedure
 
@@ -65,7 +65,7 @@ end_procedure
 procedure readVector(S tVect: v, E integer: n)
 var
     integer: i
-initiation
+start
    for i <- 1 to n do
       read(v[i])
    end_for
@@ -77,7 +77,7 @@ end_procedure
 integer function scalarProduct(E tVect: v, E integer: n)
 var
     integer: res, i
-initiation
+start
     i <- 1
     res <- 0
     //While loop example.  
@@ -93,7 +93,7 @@ end_function
 procedure writeVector(E tVect: v, E integer: n)
 var
     integer: i
-initiation
+start
     for i <- 1 to n do
         write(v[i])
     end_for
@@ -105,7 +105,7 @@ end_procedure
 procedure calculation_scalarProduct()
 var
     tVect: v    
-initiation
+start
    
 	write("Enter the vector elements: ")
 	readVector(v, DIM)
@@ -121,7 +121,7 @@ end_procedure
 integer function menu()
 var
     integer: value
-initiation
+start
     repeat 
        write("Choose one: ")
        write("1: Add two operands to a function.")
@@ -135,7 +135,7 @@ procedure operation(E integer: option)
 var
     tVect: vect
 	integer: a, b, result
-initiation
+start
     write("Enter the value of adding a.")
 	read(a)
 	write("Enter the value of adding b.")
@@ -156,7 +156,7 @@ end_procedure
 main	
 var
     integer: option
-initiation //Body main algorithm	
+start //Body main algorithm	
 
 	//Calls to subalgorithms to start the trace of the algorithm
 	
@@ -189,11 +189,10 @@ implementation
 	procedure leerVector(S tVect: v, E integer: n)
 		var
     	integer: i
-		initiation
+		start
    			for i <- 1 to n do
       		read(v[i])
    			end_for
-   		end_initiation
 	end_procedure
 end_implementation
 

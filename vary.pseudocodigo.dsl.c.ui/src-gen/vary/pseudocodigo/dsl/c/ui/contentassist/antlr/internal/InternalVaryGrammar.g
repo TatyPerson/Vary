@@ -15995,9 +15995,9 @@ rule__Sino__Group__2__Impl
     }
 :
 (
-{ before(grammarAccess.getSinoAccess().getGroup_2()); }
-(rule__Sino__Group_2__0)?
-{ after(grammarAccess.getSinoAccess().getGroup_2()); }
+{ before(grammarAccess.getSinoAccess().getSentenciasAssignment_2()); }
+(rule__Sino__SentenciasAssignment_2)*
+{ after(grammarAccess.getSinoAccess().getSentenciasAssignment_2()); }
 )
 
 ;
@@ -16036,67 +16036,6 @@ finally {
 
 
 
-
-
-
-
-
-
-rule__Sino__Group_2__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Sino__Group_2__0__Impl
-	rule__Sino__Group_2__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Sino__Group_2__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSinoAccess().getSentenciasAssignment_2_0()); }
-(rule__Sino__SentenciasAssignment_2_0)
-{ after(grammarAccess.getSinoAccess().getSentenciasAssignment_2_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__Sino__Group_2__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Sino__Group_2__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Sino__Group_2__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSinoAccess().getSentenciasAssignment_2_1()); }
-(rule__Sino__SentenciasAssignment_2_1)*
-{ after(grammarAccess.getSinoAccess().getSentenciasAssignment_2_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
 
 
 
@@ -19959,29 +19898,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Sino__SentenciasAssignment_2_0
+rule__Sino__SentenciasAssignment_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0_0()); }
-	ruleSentencias{ after(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Sino__SentenciasAssignment_2_1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_1_0()); }
-	ruleSentencias{ after(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_1_0()); }
+{ before(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0()); }
+	ruleSentencias{ after(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0()); }
 )
 
 ;

@@ -153,7 +153,7 @@ public class AlgoritmoNewWizard extends Wizard implements INewWizard {
 			"var" + '\n' + '\n' +
 			"main" + '\n' +	
 			"var" + '\n' +
-			"initiation" + '\n' +	
+			"start" + '\n' +	
 			"end_main" + '\n' +
 			"end_algorithm";
 		}

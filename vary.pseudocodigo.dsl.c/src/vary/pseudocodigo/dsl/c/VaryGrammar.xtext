@@ -282,26 +282,6 @@ Variable returns Variable:
 terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ')* '"';
 terminal CAR: "'" ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9') "'";
 terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9')* '*/';
-
-//terminal MAT: 
-//'[' ('a'..'z'|'A'..'Z'|'0'..'9')*('--'|'++')? ']' ;
-
-
-//ConstCadena returns ConstCadena:
-//	{ConstCadena} contenido=CAD;
-
-//NumeroEntero returns NumeroEntero:
-//	 {NumeroEntero} valor=INTEGER;
-
-//NumeroDecimal returns NumeroDecimal:
-//	 {NumeroDecimal} valor=FLOAT;
-
-//ValorBooleano returns ValorBooleano:
-//	 {ValorBooleano} valor=booleano;
-
-//signo returns signo:
-	//('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod' | 'div');
- /* TODO: implement this rule and an appropriate IValueConverter */
  
 signoOr returns signo:
 	'o';
@@ -427,9 +407,6 @@ Sino returns Sino:
 Devolver returns Devolver:
 	{Devolver}
 	'devolver' devuelve=OperacionCompleta;
-
-//neg returns neg:
-//	"no" /* TODO: implement this rule and an appropriate IValueConverter */;
 	
 ParametroFuncion returns ParametroFuncion:
 	paso=TipoPaso

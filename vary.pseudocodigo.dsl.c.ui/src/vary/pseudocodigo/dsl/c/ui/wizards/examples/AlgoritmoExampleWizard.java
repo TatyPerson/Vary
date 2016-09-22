@@ -300,7 +300,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					"integer function sumFun(I integer: a, I integer:  b)" + '\n' +
 					'\t' + "var //Declaration of variables" + '\n' +
 					'\t' + '\t' + "integer:  result" + '\n' +
-					'\t' + "initiation //Body Function" + '\n' +
+					'\t' + "start //Body Function" + '\n' +
 					'\t' + '\t' + "result <- a + b" + '\n' +
 					'\t' + '\t' + "return result" + '\n' +
 					"end_function" + '\n' + '\n' +
@@ -311,7 +311,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					"//Postcondition: returns a + b" + '\n' +
 					"procedure sumProc(I integer: a, I integer: b, O integer: res)" + '\n' +
 					'\t' + "var" + '\n' +
-					'\t' + "initiation //Body Procedure" + '\n' +
+					'\t' + "start //Body Procedure" + '\n' +
 					'\t' + '\t' + "res <- a + b" + '\n' +
 					"end_procedure" + '\n' + '\n' +
 
@@ -321,7 +321,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					"procedure readVector(O tVect: v, I integer: n)" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: i" + '\n' +
-				    '\t' + "initiation" + '\n' + '\n' +
+				    '\t' + "start" + '\n' + '\n' +
 				    '\t' + '\t' + "for i <- 1 to n do" + '\n' +
 				    '\t' + '\t' + '\t' + "read(v[i])" + '\n' +
 				   	'\t' + '\t' + "end_for" + '\n' +
@@ -333,7 +333,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				   	"integer function scalarProduct(I tVect: v, I integer: n)" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: res, i" + '\n' +
-				    '\t' + "initiation" + '\n' +
+				    '\t' + "start" + '\n' +
 				    '\t' + '\t' + "i <- 1" + '\n' +
 				    '\t' + '\t' + "res <- 0" + '\n' +
 				    '\t' + '\t' + "//While loop example." + '\n' +
@@ -349,7 +349,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    "procedure writeVector(I tVect: v, I integer: n)" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: i" + '\n' +
-				    '\t' + "initiation" + '\n' +
+				    '\t' + "start" + '\n' +
 				    '\t' + '\t' + "for i <- 1 to n do" + '\n' +
 				    '\t' + '\t' + '\t' + "write(v[i])" + '\n' +
 				    '\t' + '\t' + "end_for" + '\n' +
@@ -361,7 +361,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    "procedure calculation_scalarProduct()" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t'+ '\t' + "tVect: v" + '\n' +  
-				    '\t' + "initiation" + '\n' +
+				    '\t' + "start" + '\n' +
 					'\t' + '\t' + "write(\"Enter the vector elements: \")" + '\n' +
 					'\t' + '\t' + "readVector(v, DIM)" + '\n' +
 					'\t' + '\t' + "write(\"The scalar product of the vector: \")" + '\n' +
@@ -375,7 +375,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    "integer function menu()" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: value" + '\n' +
-				    '\t' + "initiation" + '\n' + 
+				    '\t' + "start" + '\n' + 
 				    '\t' + '\t' + "repeat" + '\n' +
 				    '\t' + '\t' + '\t' + "write(\"Choose one: \")" + '\n' +
 				    '\t' + '\t' + '\t' + "write(\"1: Add two operands to a function.\")" + '\n' +
@@ -389,7 +389,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 				    '\t' + "var" + '\n' +
 				    '\t' + '\t' + "tVect: vect" + '\n' +
 					'\t' + '\t' + "integer: a, b, result" + '\n' +
-					'\t' + "initiation" + '\n' +
+					'\t' + "start" + '\n' +
 				    '\t' + '\t' + "write(\"Enter the value of adding a\")" + '\n' +
 					'\t' + '\t' + "read(a)" + '\n' +
 					'\t' + '\t' + "write(\"Enter the value of adding b\")" + '\n' +
@@ -409,7 +409,7 @@ public class AlgoritmoExampleWizard extends Wizard implements INewWizard {
 					"main" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "integer: option" + '\n' +
-				    '\t' + "initiation //Body main algorithm" + '\n' +
+				    '\t' + "start //Body main algorithm" + '\n' +
 					"//Calls to subalgorithms to start the trace of the algorithm" + '\n' +
 					"//In this example the menu call operation is performed subsequently." + '\n' +
 					'\t' + '\t' + "option <- menu()" + '\n' +

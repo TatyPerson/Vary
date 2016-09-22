@@ -6230,10 +6230,10 @@ ruleSino returns [EObject current=null]
     {
     	newLeafNode(otherlv_1, grammarAccess.getSinoAccess().getSi_noKeyword_1());
     }
-((
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0_0()); 
+	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0()); 
 	    }
 		lv_sentencias_2_0=ruleSentencias		{
 	        if ($current==null) {
@@ -6248,37 +6248,19 @@ ruleSino returns [EObject current=null]
 	    }
 
 )
-)(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_1_0()); 
-	    }
-		lv_sentencias_3_0=ruleSentencias		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getSinoRule());
-	        }
-       		add(
-       			$current, 
-       			"sentencias",
-        		lv_sentencias_3_0, 
-        		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
-)*)?(
+)*(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSinoAccess().getDevuelveDevolverParserRuleCall_3_0()); 
 	    }
-		lv_devuelve_4_0=ruleDevolver		{
+		lv_devuelve_3_0=ruleDevolver		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSinoRule());
 	        }
        		set(
        			$current, 
        			"devuelve",
-        		lv_devuelve_4_0, 
+        		lv_devuelve_3_0, 
         		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
 	        afterParserOrEnumRuleCall();
 	    }

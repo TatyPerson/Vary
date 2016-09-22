@@ -202,18 +202,16 @@ public class ModuloExampleWizard extends Wizard implements INewWizard {
 					"procedure readVector(S tVect: v, E integer: n)" + '\n' +
 						'\t' + "var" + '\n' +
 				    	'\t' + '\t' + "integer: i" + '\n' +
-						'\t' + "initiation" + '\n' +
+						'\t' + "start" + '\n' +
 				   			'\t' + '\t' + "for i <- 1 to n do" + '\n' +
 				      		'\t' + '\t' + '\t' + "readElement(v,i)" + '\n' +
 				   			'\t' + '\t' + "end_for" + '\n' +
-				   		'\t' + "end_initiation" + '\n' +
 				   	"end_procedure" + '\n' + '\n' +
 				   	
 				   	"procedure readElement(E tVect: v, E integer: i)" + '\n' +
 				   	'\t' + "var" + '\n' +
-				   	'\t' + "initiation" + '\n' +
+				   	'\t' + "start" + '\n' +
 				   	'\t' + '\t' + "read(v[i])" + '\n' +
-				   	'\t' + "end_initiation" + '\n' +
 				   	"end_procedure" + '\n' +
 				   	"end_implementation" + '\n' + '\n' +
 				   	"end_module";

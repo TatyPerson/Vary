@@ -16525,26 +16525,24 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSino"
-    // InternalVaryGrammar.g:6219:1: ruleSino returns [EObject current=null] : ( () otherlv_1= 'si_no' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? ) ;
+    // InternalVaryGrammar.g:6219:1: ruleSino returns [EObject current=null] : ( () otherlv_1= 'si_no' ( (lv_sentencias_2_0= ruleSentencias ) )* ( (lv_devuelve_3_0= ruleDevolver ) )? ) ;
     public final EObject ruleSino() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_1=null;
         EObject lv_sentencias_2_0 = null;
 
-        EObject lv_sentencias_3_0 = null;
-
-        EObject lv_devuelve_4_0 = null;
+        EObject lv_devuelve_3_0 = null;
 
 
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6222:28: ( ( () otherlv_1= 'si_no' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? ) )
-            // InternalVaryGrammar.g:6223:1: ( () otherlv_1= 'si_no' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? )
+            // InternalVaryGrammar.g:6222:28: ( ( () otherlv_1= 'si_no' ( (lv_sentencias_2_0= ruleSentencias ) )* ( (lv_devuelve_3_0= ruleDevolver ) )? ) )
+            // InternalVaryGrammar.g:6223:1: ( () otherlv_1= 'si_no' ( (lv_sentencias_2_0= ruleSentencias ) )* ( (lv_devuelve_3_0= ruleDevolver ) )? )
             {
-            // InternalVaryGrammar.g:6223:1: ( () otherlv_1= 'si_no' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )? )
-            // InternalVaryGrammar.g:6223:2: () otherlv_1= 'si_no' ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )? ( (lv_devuelve_4_0= ruleDevolver ) )?
+            // InternalVaryGrammar.g:6223:1: ( () otherlv_1= 'si_no' ( (lv_sentencias_2_0= ruleSentencias ) )* ( (lv_devuelve_3_0= ruleDevolver ) )? )
+            // InternalVaryGrammar.g:6223:2: () otherlv_1= 'si_no' ( (lv_sentencias_2_0= ruleSentencias ) )* ( (lv_devuelve_3_0= ruleDevolver ) )?
             {
             // InternalVaryGrammar.g:6223:2: ()
             // InternalVaryGrammar.g:6224:5: 
@@ -16561,122 +16559,74 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_1, grammarAccess.getSinoAccess().getSi_noKeyword_1());
                 
-            // InternalVaryGrammar.g:6233:1: ( ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )* )?
+            // InternalVaryGrammar.g:6233:1: ( (lv_sentencias_2_0= ruleSentencias ) )*
+            loop118:
+            do {
+                int alt118=2;
+                int LA118_0 = input.LA(1);
+
+                if ( ((LA118_0>=RULE_ID && LA118_0<=RULE_NOMBRE_FUN)||LA118_0==RULE_STRING||(LA118_0>=32 && LA118_0<=33)||(LA118_0>=36 && LA118_0<=45)||(LA118_0>=67 && LA118_0<=69)||LA118_0==71||(LA118_0>=74 && LA118_0<=75)||LA118_0==78||LA118_0==81||(LA118_0>=85 && LA118_0<=86)) ) {
+                    alt118=1;
+                }
+
+
+                switch (alt118) {
+            	case 1 :
+            	    // InternalVaryGrammar.g:6234:1: (lv_sentencias_2_0= ruleSentencias )
+            	    {
+            	    // InternalVaryGrammar.g:6234:1: (lv_sentencias_2_0= ruleSentencias )
+            	    // InternalVaryGrammar.g:6235:3: lv_sentencias_2_0= ruleSentencias
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0()); 
+            	    	    
+            	    pushFollow(FollowSets000.FOLLOW_63);
+            	    lv_sentencias_2_0=ruleSentencias();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getSinoRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"sentencias",
+            	            		lv_sentencias_2_0, 
+            	            		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop118;
+                }
+            } while (true);
+
+            // InternalVaryGrammar.g:6251:3: ( (lv_devuelve_3_0= ruleDevolver ) )?
             int alt119=2;
             int LA119_0 = input.LA(1);
 
-            if ( ((LA119_0>=RULE_ID && LA119_0<=RULE_NOMBRE_FUN)||LA119_0==RULE_STRING||(LA119_0>=32 && LA119_0<=33)||(LA119_0>=36 && LA119_0<=45)||(LA119_0>=67 && LA119_0<=69)||LA119_0==71||(LA119_0>=74 && LA119_0<=75)||LA119_0==78||LA119_0==81||(LA119_0>=85 && LA119_0<=86)) ) {
+            if ( (LA119_0==109) ) {
                 alt119=1;
             }
             switch (alt119) {
                 case 1 :
-                    // InternalVaryGrammar.g:6233:2: ( (lv_sentencias_2_0= ruleSentencias ) ) ( (lv_sentencias_3_0= ruleSentencias ) )*
+                    // InternalVaryGrammar.g:6252:1: (lv_devuelve_3_0= ruleDevolver )
                     {
-                    // InternalVaryGrammar.g:6233:2: ( (lv_sentencias_2_0= ruleSentencias ) )
-                    // InternalVaryGrammar.g:6234:1: (lv_sentencias_2_0= ruleSentencias )
-                    {
-                    // InternalVaryGrammar.g:6234:1: (lv_sentencias_2_0= ruleSentencias )
-                    // InternalVaryGrammar.g:6235:3: lv_sentencias_2_0= ruleSentencias
-                    {
-                     
-                    	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_0_0()); 
-                    	    
-                    pushFollow(FollowSets000.FOLLOW_63);
-                    lv_sentencias_2_0=ruleSentencias();
-
-                    state._fsp--;
-
-
-                    	        if (current==null) {
-                    	            current = createModelElementForParent(grammarAccess.getSinoRule());
-                    	        }
-                           		add(
-                           			current, 
-                           			"sentencias",
-                            		lv_sentencias_2_0, 
-                            		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
-                    	        afterParserOrEnumRuleCall();
-                    	    
-
-                    }
-
-
-                    }
-
-                    // InternalVaryGrammar.g:6251:2: ( (lv_sentencias_3_0= ruleSentencias ) )*
-                    loop118:
-                    do {
-                        int alt118=2;
-                        int LA118_0 = input.LA(1);
-
-                        if ( ((LA118_0>=RULE_ID && LA118_0<=RULE_NOMBRE_FUN)||LA118_0==RULE_STRING||(LA118_0>=32 && LA118_0<=33)||(LA118_0>=36 && LA118_0<=45)||(LA118_0>=67 && LA118_0<=69)||LA118_0==71||(LA118_0>=74 && LA118_0<=75)||LA118_0==78||LA118_0==81||(LA118_0>=85 && LA118_0<=86)) ) {
-                            alt118=1;
-                        }
-
-
-                        switch (alt118) {
-                    	case 1 :
-                    	    // InternalVaryGrammar.g:6252:1: (lv_sentencias_3_0= ruleSentencias )
-                    	    {
-                    	    // InternalVaryGrammar.g:6252:1: (lv_sentencias_3_0= ruleSentencias )
-                    	    // InternalVaryGrammar.g:6253:3: lv_sentencias_3_0= ruleSentencias
-                    	    {
-                    	     
-                    	    	        newCompositeNode(grammarAccess.getSinoAccess().getSentenciasSentenciasParserRuleCall_2_1_0()); 
-                    	    	    
-                    	    pushFollow(FollowSets000.FOLLOW_63);
-                    	    lv_sentencias_3_0=ruleSentencias();
-
-                    	    state._fsp--;
-
-
-                    	    	        if (current==null) {
-                    	    	            current = createModelElementForParent(grammarAccess.getSinoRule());
-                    	    	        }
-                    	           		add(
-                    	           			current, 
-                    	           			"sentencias",
-                    	            		lv_sentencias_3_0, 
-                    	            		"vary.pseudocodigo.dsl.c.VaryGrammar.Sentencias");
-                    	    	        afterParserOrEnumRuleCall();
-                    	    	    
-
-                    	    }
-
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop118;
-                        }
-                    } while (true);
-
-
-                    }
-                    break;
-
-            }
-
-            // InternalVaryGrammar.g:6269:5: ( (lv_devuelve_4_0= ruleDevolver ) )?
-            int alt120=2;
-            int LA120_0 = input.LA(1);
-
-            if ( (LA120_0==109) ) {
-                alt120=1;
-            }
-            switch (alt120) {
-                case 1 :
-                    // InternalVaryGrammar.g:6270:1: (lv_devuelve_4_0= ruleDevolver )
-                    {
-                    // InternalVaryGrammar.g:6270:1: (lv_devuelve_4_0= ruleDevolver )
-                    // InternalVaryGrammar.g:6271:3: lv_devuelve_4_0= ruleDevolver
+                    // InternalVaryGrammar.g:6252:1: (lv_devuelve_3_0= ruleDevolver )
+                    // InternalVaryGrammar.g:6253:3: lv_devuelve_3_0= ruleDevolver
                     {
                      
                     	        newCompositeNode(grammarAccess.getSinoAccess().getDevuelveDevolverParserRuleCall_3_0()); 
                     	    
                     pushFollow(FollowSets000.FOLLOW_2);
-                    lv_devuelve_4_0=ruleDevolver();
+                    lv_devuelve_3_0=ruleDevolver();
 
                     state._fsp--;
 
@@ -16687,7 +16637,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                            		set(
                            			current, 
                            			"devuelve",
-                            		lv_devuelve_4_0, 
+                            		lv_devuelve_3_0, 
                             		"vary.pseudocodigo.dsl.c.VaryGrammar.Devolver");
                     	        afterParserOrEnumRuleCall();
                     	    
@@ -16721,7 +16671,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDevolver"
-    // InternalVaryGrammar.g:6295:1: entryRuleDevolver returns [EObject current=null] : iv_ruleDevolver= ruleDevolver EOF ;
+    // InternalVaryGrammar.g:6277:1: entryRuleDevolver returns [EObject current=null] : iv_ruleDevolver= ruleDevolver EOF ;
     public final EObject entryRuleDevolver() throws RecognitionException {
         EObject current = null;
 
@@ -16729,8 +16679,8 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVaryGrammar.g:6296:2: (iv_ruleDevolver= ruleDevolver EOF )
-            // InternalVaryGrammar.g:6297:2: iv_ruleDevolver= ruleDevolver EOF
+            // InternalVaryGrammar.g:6278:2: (iv_ruleDevolver= ruleDevolver EOF )
+            // InternalVaryGrammar.g:6279:2: iv_ruleDevolver= ruleDevolver EOF
             {
              newCompositeNode(grammarAccess.getDevolverRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -16757,7 +16707,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDevolver"
-    // InternalVaryGrammar.g:6304:1: ruleDevolver returns [EObject current=null] : ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) ) ;
+    // InternalVaryGrammar.g:6286:1: ruleDevolver returns [EObject current=null] : ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) ) ;
     public final EObject ruleDevolver() throws RecognitionException {
         EObject current = null;
 
@@ -16768,14 +16718,14 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6307:28: ( ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) ) )
-            // InternalVaryGrammar.g:6308:1: ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) )
+            // InternalVaryGrammar.g:6289:28: ( ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) ) )
+            // InternalVaryGrammar.g:6290:1: ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) )
             {
-            // InternalVaryGrammar.g:6308:1: ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) )
-            // InternalVaryGrammar.g:6308:2: () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) )
+            // InternalVaryGrammar.g:6290:1: ( () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) ) )
+            // InternalVaryGrammar.g:6290:2: () otherlv_1= 'devolver' ( (lv_devuelve_2_0= ruleOperacionCompleta ) )
             {
-            // InternalVaryGrammar.g:6308:2: ()
-            // InternalVaryGrammar.g:6309:5: 
+            // InternalVaryGrammar.g:6290:2: ()
+            // InternalVaryGrammar.g:6291:5: 
             {
 
                     current = forceCreateModelElement(
@@ -16789,11 +16739,11 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_1, grammarAccess.getDevolverAccess().getDevolverKeyword_1());
                 
-            // InternalVaryGrammar.g:6318:1: ( (lv_devuelve_2_0= ruleOperacionCompleta ) )
-            // InternalVaryGrammar.g:6319:1: (lv_devuelve_2_0= ruleOperacionCompleta )
+            // InternalVaryGrammar.g:6300:1: ( (lv_devuelve_2_0= ruleOperacionCompleta ) )
+            // InternalVaryGrammar.g:6301:1: (lv_devuelve_2_0= ruleOperacionCompleta )
             {
-            // InternalVaryGrammar.g:6319:1: (lv_devuelve_2_0= ruleOperacionCompleta )
-            // InternalVaryGrammar.g:6320:3: lv_devuelve_2_0= ruleOperacionCompleta
+            // InternalVaryGrammar.g:6301:1: (lv_devuelve_2_0= ruleOperacionCompleta )
+            // InternalVaryGrammar.g:6302:3: lv_devuelve_2_0= ruleOperacionCompleta
             {
              
             	        newCompositeNode(grammarAccess.getDevolverAccess().getDevuelveOperacionCompletaParserRuleCall_2_0()); 
@@ -16841,7 +16791,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleParametroFuncion"
-    // InternalVaryGrammar.g:6344:1: entryRuleParametroFuncion returns [EObject current=null] : iv_ruleParametroFuncion= ruleParametroFuncion EOF ;
+    // InternalVaryGrammar.g:6326:1: entryRuleParametroFuncion returns [EObject current=null] : iv_ruleParametroFuncion= ruleParametroFuncion EOF ;
     public final EObject entryRuleParametroFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -16849,8 +16799,8 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVaryGrammar.g:6345:2: (iv_ruleParametroFuncion= ruleParametroFuncion EOF )
-            // InternalVaryGrammar.g:6346:2: iv_ruleParametroFuncion= ruleParametroFuncion EOF
+            // InternalVaryGrammar.g:6327:2: (iv_ruleParametroFuncion= ruleParametroFuncion EOF )
+            // InternalVaryGrammar.g:6328:2: iv_ruleParametroFuncion= ruleParametroFuncion EOF
             {
              newCompositeNode(grammarAccess.getParametroFuncionRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -16877,7 +16827,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParametroFuncion"
-    // InternalVaryGrammar.g:6353:1: ruleParametroFuncion returns [EObject current=null] : ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) ;
+    // InternalVaryGrammar.g:6335:1: ruleParametroFuncion returns [EObject current=null] : ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) ;
     public final EObject ruleParametroFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -16892,17 +16842,17 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6356:28: ( ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) )
-            // InternalVaryGrammar.g:6357:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
+            // InternalVaryGrammar.g:6338:28: ( ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) ) )
+            // InternalVaryGrammar.g:6339:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
             {
-            // InternalVaryGrammar.g:6357:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
-            // InternalVaryGrammar.g:6357:2: ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) )
+            // InternalVaryGrammar.g:6339:1: ( ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) ) )
+            // InternalVaryGrammar.g:6339:2: ( (lv_paso_0_0= ruleTipoPaso ) ) ( (lv_tipo_1_0= ruleTipo ) ) otherlv_2= ': ' ( (lv_variable_3_0= ruleVariable ) )
             {
-            // InternalVaryGrammar.g:6357:2: ( (lv_paso_0_0= ruleTipoPaso ) )
-            // InternalVaryGrammar.g:6358:1: (lv_paso_0_0= ruleTipoPaso )
+            // InternalVaryGrammar.g:6339:2: ( (lv_paso_0_0= ruleTipoPaso ) )
+            // InternalVaryGrammar.g:6340:1: (lv_paso_0_0= ruleTipoPaso )
             {
-            // InternalVaryGrammar.g:6358:1: (lv_paso_0_0= ruleTipoPaso )
-            // InternalVaryGrammar.g:6359:3: lv_paso_0_0= ruleTipoPaso
+            // InternalVaryGrammar.g:6340:1: (lv_paso_0_0= ruleTipoPaso )
+            // InternalVaryGrammar.g:6341:3: lv_paso_0_0= ruleTipoPaso
             {
              
             	        newCompositeNode(grammarAccess.getParametroFuncionAccess().getPasoTipoPasoParserRuleCall_0_0()); 
@@ -16929,11 +16879,11 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVaryGrammar.g:6375:2: ( (lv_tipo_1_0= ruleTipo ) )
-            // InternalVaryGrammar.g:6376:1: (lv_tipo_1_0= ruleTipo )
+            // InternalVaryGrammar.g:6357:2: ( (lv_tipo_1_0= ruleTipo ) )
+            // InternalVaryGrammar.g:6358:1: (lv_tipo_1_0= ruleTipo )
             {
-            // InternalVaryGrammar.g:6376:1: (lv_tipo_1_0= ruleTipo )
-            // InternalVaryGrammar.g:6377:3: lv_tipo_1_0= ruleTipo
+            // InternalVaryGrammar.g:6358:1: (lv_tipo_1_0= ruleTipo )
+            // InternalVaryGrammar.g:6359:3: lv_tipo_1_0= ruleTipo
             {
              
             	        newCompositeNode(grammarAccess.getParametroFuncionAccess().getTipoTipoParserRuleCall_1_0()); 
@@ -16964,11 +16914,11 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_2, grammarAccess.getParametroFuncionAccess().getColonSpaceKeyword_2());
                 
-            // InternalVaryGrammar.g:6397:1: ( (lv_variable_3_0= ruleVariable ) )
-            // InternalVaryGrammar.g:6398:1: (lv_variable_3_0= ruleVariable )
+            // InternalVaryGrammar.g:6379:1: ( (lv_variable_3_0= ruleVariable ) )
+            // InternalVaryGrammar.g:6380:1: (lv_variable_3_0= ruleVariable )
             {
-            // InternalVaryGrammar.g:6398:1: (lv_variable_3_0= ruleVariable )
-            // InternalVaryGrammar.g:6399:3: lv_variable_3_0= ruleVariable
+            // InternalVaryGrammar.g:6380:1: (lv_variable_3_0= ruleVariable )
+            // InternalVaryGrammar.g:6381:3: lv_variable_3_0= ruleVariable
             {
              
             	        newCompositeNode(grammarAccess.getParametroFuncionAccess().getVariableVariableParserRuleCall_3_0()); 
@@ -17016,7 +16966,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFuncion"
-    // InternalVaryGrammar.g:6423:1: entryRuleFuncion returns [EObject current=null] : iv_ruleFuncion= ruleFuncion EOF ;
+    // InternalVaryGrammar.g:6405:1: entryRuleFuncion returns [EObject current=null] : iv_ruleFuncion= ruleFuncion EOF ;
     public final EObject entryRuleFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -17024,8 +16974,8 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVaryGrammar.g:6424:2: (iv_ruleFuncion= ruleFuncion EOF )
-            // InternalVaryGrammar.g:6425:2: iv_ruleFuncion= ruleFuncion EOF
+            // InternalVaryGrammar.g:6406:2: (iv_ruleFuncion= ruleFuncion EOF )
+            // InternalVaryGrammar.g:6407:2: iv_ruleFuncion= ruleFuncion EOF
             {
              newCompositeNode(grammarAccess.getFuncionRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -17052,7 +17002,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFuncion"
-    // InternalVaryGrammar.g:6432:1: ruleFuncion returns [EObject current=null] : ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' ) ;
+    // InternalVaryGrammar.g:6414:1: ruleFuncion returns [EObject current=null] : ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' ) ;
     public final EObject ruleFuncion() throws RecognitionException {
         EObject current = null;
 
@@ -17079,17 +17029,17 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6435:28: ( ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' ) )
-            // InternalVaryGrammar.g:6436:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' )
+            // InternalVaryGrammar.g:6417:28: ( ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' ) )
+            // InternalVaryGrammar.g:6418:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' )
             {
-            // InternalVaryGrammar.g:6436:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' )
-            // InternalVaryGrammar.g:6436:2: ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion'
+            // InternalVaryGrammar.g:6418:1: ( ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion' )
+            // InternalVaryGrammar.g:6418:2: ( (lv_tipo_0_0= ruleTipoVariable ) ) otherlv_1= 'funcion' ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )? otherlv_6= ')' (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )? otherlv_9= 'inicio' ( (lv_sentencias_10_0= ruleSentencias ) )* ( (lv_devuelve_11_0= ruleDevolver ) )? otherlv_12= 'fin_funcion'
             {
-            // InternalVaryGrammar.g:6436:2: ( (lv_tipo_0_0= ruleTipoVariable ) )
-            // InternalVaryGrammar.g:6437:1: (lv_tipo_0_0= ruleTipoVariable )
+            // InternalVaryGrammar.g:6418:2: ( (lv_tipo_0_0= ruleTipoVariable ) )
+            // InternalVaryGrammar.g:6419:1: (lv_tipo_0_0= ruleTipoVariable )
             {
-            // InternalVaryGrammar.g:6437:1: (lv_tipo_0_0= ruleTipoVariable )
-            // InternalVaryGrammar.g:6438:3: lv_tipo_0_0= ruleTipoVariable
+            // InternalVaryGrammar.g:6419:1: (lv_tipo_0_0= ruleTipoVariable )
+            // InternalVaryGrammar.g:6420:3: lv_tipo_0_0= ruleTipoVariable
             {
              
             	        newCompositeNode(grammarAccess.getFuncionAccess().getTipoTipoVariableParserRuleCall_0_0()); 
@@ -17120,11 +17070,11 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_1, grammarAccess.getFuncionAccess().getFuncionKeyword_1());
                 
-            // InternalVaryGrammar.g:6458:1: ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) )
-            // InternalVaryGrammar.g:6459:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
+            // InternalVaryGrammar.g:6440:1: ( (lv_nombre_2_0= RULE_NOMBRE_FUN ) )
+            // InternalVaryGrammar.g:6441:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
             {
-            // InternalVaryGrammar.g:6459:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
-            // InternalVaryGrammar.g:6460:3: lv_nombre_2_0= RULE_NOMBRE_FUN
+            // InternalVaryGrammar.g:6441:1: (lv_nombre_2_0= RULE_NOMBRE_FUN )
+            // InternalVaryGrammar.g:6442:3: lv_nombre_2_0= RULE_NOMBRE_FUN
             {
             lv_nombre_2_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_25); 
 
@@ -17146,22 +17096,22 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVaryGrammar.g:6476:2: ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )?
-            int alt122=2;
-            int LA122_0 = input.LA(1);
+            // InternalVaryGrammar.g:6458:2: ( ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )* )?
+            int alt121=2;
+            int LA121_0 = input.LA(1);
 
-            if ( (LA122_0==47||(LA122_0>=112 && LA122_0<=113)) ) {
-                alt122=1;
+            if ( (LA121_0==47||(LA121_0>=112 && LA121_0<=113)) ) {
+                alt121=1;
             }
-            switch (alt122) {
+            switch (alt121) {
                 case 1 :
-                    // InternalVaryGrammar.g:6476:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
+                    // InternalVaryGrammar.g:6458:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) ) (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
                     {
-                    // InternalVaryGrammar.g:6476:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) )
-                    // InternalVaryGrammar.g:6477:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
+                    // InternalVaryGrammar.g:6458:3: ( (lv_parametrofuncion_3_0= ruleParametroFuncion ) )
+                    // InternalVaryGrammar.g:6459:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
                     {
-                    // InternalVaryGrammar.g:6477:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
-                    // InternalVaryGrammar.g:6478:3: lv_parametrofuncion_3_0= ruleParametroFuncion
+                    // InternalVaryGrammar.g:6459:1: (lv_parametrofuncion_3_0= ruleParametroFuncion )
+                    // InternalVaryGrammar.g:6460:3: lv_parametrofuncion_3_0= ruleParametroFuncion
                     {
                      
                     	        newCompositeNode(grammarAccess.getFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_3_0_0()); 
@@ -17188,30 +17138,30 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalVaryGrammar.g:6494:2: (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
-                    loop121:
+                    // InternalVaryGrammar.g:6476:2: (otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) ) )*
+                    loop120:
                     do {
-                        int alt121=2;
-                        int LA121_0 = input.LA(1);
+                        int alt120=2;
+                        int LA120_0 = input.LA(1);
 
-                        if ( (LA121_0==29) ) {
-                            alt121=1;
+                        if ( (LA120_0==29) ) {
+                            alt120=1;
                         }
 
 
-                        switch (alt121) {
+                        switch (alt120) {
                     	case 1 :
-                    	    // InternalVaryGrammar.g:6494:4: otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
+                    	    // InternalVaryGrammar.g:6476:4: otherlv_4= ',' ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
                     	    {
                     	    otherlv_4=(Token)match(input,29,FollowSets000.FOLLOW_27); 
 
                     	        	newLeafNode(otherlv_4, grammarAccess.getFuncionAccess().getCommaKeyword_3_1_0());
                     	        
-                    	    // InternalVaryGrammar.g:6498:1: ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
-                    	    // InternalVaryGrammar.g:6499:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
+                    	    // InternalVaryGrammar.g:6480:1: ( (lv_parametrofuncion_5_0= ruleParametroFuncion ) )
+                    	    // InternalVaryGrammar.g:6481:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
                     	    {
-                    	    // InternalVaryGrammar.g:6499:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
-                    	    // InternalVaryGrammar.g:6500:3: lv_parametrofuncion_5_0= ruleParametroFuncion
+                    	    // InternalVaryGrammar.g:6481:1: (lv_parametrofuncion_5_0= ruleParametroFuncion )
+                    	    // InternalVaryGrammar.g:6482:3: lv_parametrofuncion_5_0= ruleParametroFuncion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getFuncionAccess().getParametrofuncionParametroFuncionParserRuleCall_3_1_1_0()); 
@@ -17243,7 +17193,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop121;
+                    	    break loop120;
                         }
                     } while (true);
 
@@ -17257,38 +17207,38 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_6, grammarAccess.getFuncionAccess().getRightParenthesisKeyword_4());
                 
-            // InternalVaryGrammar.g:6520:1: (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )?
-            int alt124=2;
-            int LA124_0 = input.LA(1);
+            // InternalVaryGrammar.g:6502:1: (otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )* )?
+            int alt123=2;
+            int LA123_0 = input.LA(1);
 
-            if ( (LA124_0==20) ) {
-                alt124=1;
+            if ( (LA123_0==20) ) {
+                alt123=1;
             }
-            switch (alt124) {
+            switch (alt123) {
                 case 1 :
-                    // InternalVaryGrammar.g:6520:3: otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )*
+                    // InternalVaryGrammar.g:6502:3: otherlv_7= 'var' ( (lv_declaracion_8_0= ruleDeclaracion ) )*
                     {
                     otherlv_7=(Token)match(input,20,FollowSets000.FOLLOW_48); 
 
                         	newLeafNode(otherlv_7, grammarAccess.getFuncionAccess().getVarKeyword_5_0());
                         
-                    // InternalVaryGrammar.g:6524:1: ( (lv_declaracion_8_0= ruleDeclaracion ) )*
-                    loop123:
+                    // InternalVaryGrammar.g:6506:1: ( (lv_declaracion_8_0= ruleDeclaracion ) )*
+                    loop122:
                     do {
-                        int alt123=2;
-                        int LA123_0 = input.LA(1);
+                        int alt122=2;
+                        int LA122_0 = input.LA(1);
 
-                        if ( (LA123_0==RULE_ID||LA123_0==RULE_STRING||(LA123_0>=89 && LA123_0<=93)) ) {
-                            alt123=1;
+                        if ( (LA122_0==RULE_ID||LA122_0==RULE_STRING||(LA122_0>=89 && LA122_0<=93)) ) {
+                            alt122=1;
                         }
 
 
-                        switch (alt123) {
+                        switch (alt122) {
                     	case 1 :
-                    	    // InternalVaryGrammar.g:6525:1: (lv_declaracion_8_0= ruleDeclaracion )
+                    	    // InternalVaryGrammar.g:6507:1: (lv_declaracion_8_0= ruleDeclaracion )
                     	    {
-                    	    // InternalVaryGrammar.g:6525:1: (lv_declaracion_8_0= ruleDeclaracion )
-                    	    // InternalVaryGrammar.g:6526:3: lv_declaracion_8_0= ruleDeclaracion
+                    	    // InternalVaryGrammar.g:6507:1: (lv_declaracion_8_0= ruleDeclaracion )
+                    	    // InternalVaryGrammar.g:6508:3: lv_declaracion_8_0= ruleDeclaracion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getFuncionAccess().getDeclaracionDeclaracionParserRuleCall_5_1_0()); 
@@ -17317,7 +17267,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop123;
+                    	    break loop122;
                         }
                     } while (true);
 
@@ -17331,23 +17281,23 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_9, grammarAccess.getFuncionAccess().getInicioKeyword_6());
                 
-            // InternalVaryGrammar.g:6546:1: ( (lv_sentencias_10_0= ruleSentencias ) )*
-            loop125:
+            // InternalVaryGrammar.g:6528:1: ( (lv_sentencias_10_0= ruleSentencias ) )*
+            loop124:
             do {
-                int alt125=2;
-                int LA125_0 = input.LA(1);
+                int alt124=2;
+                int LA124_0 = input.LA(1);
 
-                if ( ((LA125_0>=RULE_ID && LA125_0<=RULE_NOMBRE_FUN)||LA125_0==RULE_STRING||(LA125_0>=32 && LA125_0<=33)||(LA125_0>=36 && LA125_0<=45)||(LA125_0>=67 && LA125_0<=69)||LA125_0==71||(LA125_0>=74 && LA125_0<=75)||LA125_0==78||LA125_0==81||(LA125_0>=85 && LA125_0<=86)) ) {
-                    alt125=1;
+                if ( ((LA124_0>=RULE_ID && LA124_0<=RULE_NOMBRE_FUN)||LA124_0==RULE_STRING||(LA124_0>=32 && LA124_0<=33)||(LA124_0>=36 && LA124_0<=45)||(LA124_0>=67 && LA124_0<=69)||LA124_0==71||(LA124_0>=74 && LA124_0<=75)||LA124_0==78||LA124_0==81||(LA124_0>=85 && LA124_0<=86)) ) {
+                    alt124=1;
                 }
 
 
-                switch (alt125) {
+                switch (alt124) {
             	case 1 :
-            	    // InternalVaryGrammar.g:6547:1: (lv_sentencias_10_0= ruleSentencias )
+            	    // InternalVaryGrammar.g:6529:1: (lv_sentencias_10_0= ruleSentencias )
             	    {
-            	    // InternalVaryGrammar.g:6547:1: (lv_sentencias_10_0= ruleSentencias )
-            	    // InternalVaryGrammar.g:6548:3: lv_sentencias_10_0= ruleSentencias
+            	    // InternalVaryGrammar.g:6529:1: (lv_sentencias_10_0= ruleSentencias )
+            	    // InternalVaryGrammar.g:6530:3: lv_sentencias_10_0= ruleSentencias
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getFuncionAccess().getSentenciasSentenciasParserRuleCall_7_0()); 
@@ -17376,23 +17326,23 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop125;
+            	    break loop124;
                 }
             } while (true);
 
-            // InternalVaryGrammar.g:6564:3: ( (lv_devuelve_11_0= ruleDevolver ) )?
-            int alt126=2;
-            int LA126_0 = input.LA(1);
+            // InternalVaryGrammar.g:6546:3: ( (lv_devuelve_11_0= ruleDevolver ) )?
+            int alt125=2;
+            int LA125_0 = input.LA(1);
 
-            if ( (LA126_0==109) ) {
-                alt126=1;
+            if ( (LA125_0==109) ) {
+                alt125=1;
             }
-            switch (alt126) {
+            switch (alt125) {
                 case 1 :
-                    // InternalVaryGrammar.g:6565:1: (lv_devuelve_11_0= ruleDevolver )
+                    // InternalVaryGrammar.g:6547:1: (lv_devuelve_11_0= ruleDevolver )
                     {
-                    // InternalVaryGrammar.g:6565:1: (lv_devuelve_11_0= ruleDevolver )
-                    // InternalVaryGrammar.g:6566:3: lv_devuelve_11_0= ruleDevolver
+                    // InternalVaryGrammar.g:6547:1: (lv_devuelve_11_0= ruleDevolver )
+                    // InternalVaryGrammar.g:6548:3: lv_devuelve_11_0= ruleDevolver
                     {
                      
                     	        newCompositeNode(grammarAccess.getFuncionAccess().getDevuelveDevolverParserRuleCall_8_0()); 
@@ -17447,7 +17397,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleProcedimiento"
-    // InternalVaryGrammar.g:6594:1: entryRuleProcedimiento returns [EObject current=null] : iv_ruleProcedimiento= ruleProcedimiento EOF ;
+    // InternalVaryGrammar.g:6576:1: entryRuleProcedimiento returns [EObject current=null] : iv_ruleProcedimiento= ruleProcedimiento EOF ;
     public final EObject entryRuleProcedimiento() throws RecognitionException {
         EObject current = null;
 
@@ -17455,8 +17405,8 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVaryGrammar.g:6595:2: (iv_ruleProcedimiento= ruleProcedimiento EOF )
-            // InternalVaryGrammar.g:6596:2: iv_ruleProcedimiento= ruleProcedimiento EOF
+            // InternalVaryGrammar.g:6577:2: (iv_ruleProcedimiento= ruleProcedimiento EOF )
+            // InternalVaryGrammar.g:6578:2: iv_ruleProcedimiento= ruleProcedimiento EOF
             {
              newCompositeNode(grammarAccess.getProcedimientoRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -17483,7 +17433,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProcedimiento"
-    // InternalVaryGrammar.g:6603:1: ruleProcedimiento returns [EObject current=null] : (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' ) ;
+    // InternalVaryGrammar.g:6585:1: ruleProcedimiento returns [EObject current=null] : (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' ) ;
     public final EObject ruleProcedimiento() throws RecognitionException {
         EObject current = null;
 
@@ -17506,21 +17456,21 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6606:28: ( (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' ) )
-            // InternalVaryGrammar.g:6607:1: (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' )
+            // InternalVaryGrammar.g:6588:28: ( (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' ) )
+            // InternalVaryGrammar.g:6589:1: (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' )
             {
-            // InternalVaryGrammar.g:6607:1: (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' )
-            // InternalVaryGrammar.g:6607:3: otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento'
+            // InternalVaryGrammar.g:6589:1: (otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento' )
+            // InternalVaryGrammar.g:6589:3: otherlv_0= 'procedimiento' ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) ) ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )? otherlv_5= ')' (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )? otherlv_8= 'inicio' ( (lv_sentencias_9_0= ruleSentencias ) )* otherlv_10= 'fin_procedimiento'
             {
             otherlv_0=(Token)match(input,28,FollowSets000.FOLLOW_24); 
 
                 	newLeafNode(otherlv_0, grammarAccess.getProcedimientoAccess().getProcedimientoKeyword_0());
                 
-            // InternalVaryGrammar.g:6611:1: ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) )
-            // InternalVaryGrammar.g:6612:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
+            // InternalVaryGrammar.g:6593:1: ( (lv_nombre_1_0= RULE_NOMBRE_FUN ) )
+            // InternalVaryGrammar.g:6594:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
             {
-            // InternalVaryGrammar.g:6612:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
-            // InternalVaryGrammar.g:6613:3: lv_nombre_1_0= RULE_NOMBRE_FUN
+            // InternalVaryGrammar.g:6594:1: (lv_nombre_1_0= RULE_NOMBRE_FUN )
+            // InternalVaryGrammar.g:6595:3: lv_nombre_1_0= RULE_NOMBRE_FUN
             {
             lv_nombre_1_0=(Token)match(input,RULE_NOMBRE_FUN,FollowSets000.FOLLOW_25); 
 
@@ -17542,22 +17492,22 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalVaryGrammar.g:6629:2: ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )?
-            int alt128=2;
-            int LA128_0 = input.LA(1);
+            // InternalVaryGrammar.g:6611:2: ( ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )* )?
+            int alt127=2;
+            int LA127_0 = input.LA(1);
 
-            if ( (LA128_0==47||(LA128_0>=112 && LA128_0<=113)) ) {
-                alt128=1;
+            if ( (LA127_0==47||(LA127_0>=112 && LA127_0<=113)) ) {
+                alt127=1;
             }
-            switch (alt128) {
+            switch (alt127) {
                 case 1 :
-                    // InternalVaryGrammar.g:6629:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
+                    // InternalVaryGrammar.g:6611:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) ) (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
                     {
-                    // InternalVaryGrammar.g:6629:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) )
-                    // InternalVaryGrammar.g:6630:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
+                    // InternalVaryGrammar.g:6611:3: ( (lv_parametrofuncion_2_0= ruleParametroFuncion ) )
+                    // InternalVaryGrammar.g:6612:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
                     {
-                    // InternalVaryGrammar.g:6630:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
-                    // InternalVaryGrammar.g:6631:3: lv_parametrofuncion_2_0= ruleParametroFuncion
+                    // InternalVaryGrammar.g:6612:1: (lv_parametrofuncion_2_0= ruleParametroFuncion )
+                    // InternalVaryGrammar.g:6613:3: lv_parametrofuncion_2_0= ruleParametroFuncion
                     {
                      
                     	        newCompositeNode(grammarAccess.getProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_2_0_0()); 
@@ -17584,30 +17534,30 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalVaryGrammar.g:6647:2: (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
-                    loop127:
+                    // InternalVaryGrammar.g:6629:2: (otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) ) )*
+                    loop126:
                     do {
-                        int alt127=2;
-                        int LA127_0 = input.LA(1);
+                        int alt126=2;
+                        int LA126_0 = input.LA(1);
 
-                        if ( (LA127_0==29) ) {
-                            alt127=1;
+                        if ( (LA126_0==29) ) {
+                            alt126=1;
                         }
 
 
-                        switch (alt127) {
+                        switch (alt126) {
                     	case 1 :
-                    	    // InternalVaryGrammar.g:6647:4: otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
+                    	    // InternalVaryGrammar.g:6629:4: otherlv_3= ',' ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
                     	    {
                     	    otherlv_3=(Token)match(input,29,FollowSets000.FOLLOW_27); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getProcedimientoAccess().getCommaKeyword_2_1_0());
                     	        
-                    	    // InternalVaryGrammar.g:6651:1: ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
-                    	    // InternalVaryGrammar.g:6652:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
+                    	    // InternalVaryGrammar.g:6633:1: ( (lv_parametrofuncion_4_0= ruleParametroFuncion ) )
+                    	    // InternalVaryGrammar.g:6634:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
                     	    {
-                    	    // InternalVaryGrammar.g:6652:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
-                    	    // InternalVaryGrammar.g:6653:3: lv_parametrofuncion_4_0= ruleParametroFuncion
+                    	    // InternalVaryGrammar.g:6634:1: (lv_parametrofuncion_4_0= ruleParametroFuncion )
+                    	    // InternalVaryGrammar.g:6635:3: lv_parametrofuncion_4_0= ruleParametroFuncion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getProcedimientoAccess().getParametrofuncionParametroFuncionParserRuleCall_2_1_1_0()); 
@@ -17639,7 +17589,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop127;
+                    	    break loop126;
                         }
                     } while (true);
 
@@ -17653,38 +17603,38 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_5, grammarAccess.getProcedimientoAccess().getRightParenthesisKeyword_3());
                 
-            // InternalVaryGrammar.g:6673:1: (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )?
-            int alt130=2;
-            int LA130_0 = input.LA(1);
+            // InternalVaryGrammar.g:6655:1: (otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )* )?
+            int alt129=2;
+            int LA129_0 = input.LA(1);
 
-            if ( (LA130_0==20) ) {
-                alt130=1;
+            if ( (LA129_0==20) ) {
+                alt129=1;
             }
-            switch (alt130) {
+            switch (alt129) {
                 case 1 :
-                    // InternalVaryGrammar.g:6673:3: otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )*
+                    // InternalVaryGrammar.g:6655:3: otherlv_6= 'var' ( (lv_declaracion_7_0= ruleDeclaracion ) )*
                     {
                     otherlv_6=(Token)match(input,20,FollowSets000.FOLLOW_48); 
 
                         	newLeafNode(otherlv_6, grammarAccess.getProcedimientoAccess().getVarKeyword_4_0());
                         
-                    // InternalVaryGrammar.g:6677:1: ( (lv_declaracion_7_0= ruleDeclaracion ) )*
-                    loop129:
+                    // InternalVaryGrammar.g:6659:1: ( (lv_declaracion_7_0= ruleDeclaracion ) )*
+                    loop128:
                     do {
-                        int alt129=2;
-                        int LA129_0 = input.LA(1);
+                        int alt128=2;
+                        int LA128_0 = input.LA(1);
 
-                        if ( (LA129_0==RULE_ID||LA129_0==RULE_STRING||(LA129_0>=89 && LA129_0<=93)) ) {
-                            alt129=1;
+                        if ( (LA128_0==RULE_ID||LA128_0==RULE_STRING||(LA128_0>=89 && LA128_0<=93)) ) {
+                            alt128=1;
                         }
 
 
-                        switch (alt129) {
+                        switch (alt128) {
                     	case 1 :
-                    	    // InternalVaryGrammar.g:6678:1: (lv_declaracion_7_0= ruleDeclaracion )
+                    	    // InternalVaryGrammar.g:6660:1: (lv_declaracion_7_0= ruleDeclaracion )
                     	    {
-                    	    // InternalVaryGrammar.g:6678:1: (lv_declaracion_7_0= ruleDeclaracion )
-                    	    // InternalVaryGrammar.g:6679:3: lv_declaracion_7_0= ruleDeclaracion
+                    	    // InternalVaryGrammar.g:6660:1: (lv_declaracion_7_0= ruleDeclaracion )
+                    	    // InternalVaryGrammar.g:6661:3: lv_declaracion_7_0= ruleDeclaracion
                     	    {
                     	     
                     	    	        newCompositeNode(grammarAccess.getProcedimientoAccess().getDeclaracionDeclaracionParserRuleCall_4_1_0()); 
@@ -17713,7 +17663,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     	    break;
 
                     	default :
-                    	    break loop129;
+                    	    break loop128;
                         }
                     } while (true);
 
@@ -17727,23 +17677,23 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_8, grammarAccess.getProcedimientoAccess().getInicioKeyword_5());
                 
-            // InternalVaryGrammar.g:6699:1: ( (lv_sentencias_9_0= ruleSentencias ) )*
-            loop131:
+            // InternalVaryGrammar.g:6681:1: ( (lv_sentencias_9_0= ruleSentencias ) )*
+            loop130:
             do {
-                int alt131=2;
-                int LA131_0 = input.LA(1);
+                int alt130=2;
+                int LA130_0 = input.LA(1);
 
-                if ( ((LA131_0>=RULE_ID && LA131_0<=RULE_NOMBRE_FUN)||LA131_0==RULE_STRING||(LA131_0>=32 && LA131_0<=33)||(LA131_0>=36 && LA131_0<=45)||(LA131_0>=67 && LA131_0<=69)||LA131_0==71||(LA131_0>=74 && LA131_0<=75)||LA131_0==78||LA131_0==81||(LA131_0>=85 && LA131_0<=86)) ) {
-                    alt131=1;
+                if ( ((LA130_0>=RULE_ID && LA130_0<=RULE_NOMBRE_FUN)||LA130_0==RULE_STRING||(LA130_0>=32 && LA130_0<=33)||(LA130_0>=36 && LA130_0<=45)||(LA130_0>=67 && LA130_0<=69)||LA130_0==71||(LA130_0>=74 && LA130_0<=75)||LA130_0==78||LA130_0==81||(LA130_0>=85 && LA130_0<=86)) ) {
+                    alt130=1;
                 }
 
 
-                switch (alt131) {
+                switch (alt130) {
             	case 1 :
-            	    // InternalVaryGrammar.g:6700:1: (lv_sentencias_9_0= ruleSentencias )
+            	    // InternalVaryGrammar.g:6682:1: (lv_sentencias_9_0= ruleSentencias )
             	    {
-            	    // InternalVaryGrammar.g:6700:1: (lv_sentencias_9_0= ruleSentencias )
-            	    // InternalVaryGrammar.g:6701:3: lv_sentencias_9_0= ruleSentencias
+            	    // InternalVaryGrammar.g:6682:1: (lv_sentencias_9_0= ruleSentencias )
+            	    // InternalVaryGrammar.g:6683:3: lv_sentencias_9_0= ruleSentencias
             	    {
             	     
             	    	        newCompositeNode(grammarAccess.getProcedimientoAccess().getSentenciasSentenciasParserRuleCall_6_0()); 
@@ -17772,7 +17722,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    break loop131;
+            	    break loop130;
                 }
             } while (true);
 
@@ -17801,7 +17751,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTipoPaso"
-    // InternalVaryGrammar.g:6729:1: entryRuleTipoPaso returns [String current=null] : iv_ruleTipoPaso= ruleTipoPaso EOF ;
+    // InternalVaryGrammar.g:6711:1: entryRuleTipoPaso returns [String current=null] : iv_ruleTipoPaso= ruleTipoPaso EOF ;
     public final String entryRuleTipoPaso() throws RecognitionException {
         String current = null;
 
@@ -17809,8 +17759,8 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVaryGrammar.g:6730:2: (iv_ruleTipoPaso= ruleTipoPaso EOF )
-            // InternalVaryGrammar.g:6731:2: iv_ruleTipoPaso= ruleTipoPaso EOF
+            // InternalVaryGrammar.g:6712:2: (iv_ruleTipoPaso= ruleTipoPaso EOF )
+            // InternalVaryGrammar.g:6713:2: iv_ruleTipoPaso= ruleTipoPaso EOF
             {
              newCompositeNode(grammarAccess.getTipoPasoRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -17837,7 +17787,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTipoPaso"
-    // InternalVaryGrammar.g:6738:1: ruleTipoPaso returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'E' | kw= 'E/S' | kw= 'S' ) ;
+    // InternalVaryGrammar.g:6720:1: ruleTipoPaso returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'E' | kw= 'E/S' | kw= 'S' ) ;
     public final AntlrDatatypeRuleToken ruleTipoPaso() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -17846,37 +17796,37 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6741:28: ( (kw= 'E' | kw= 'E/S' | kw= 'S' ) )
-            // InternalVaryGrammar.g:6742:1: (kw= 'E' | kw= 'E/S' | kw= 'S' )
+            // InternalVaryGrammar.g:6723:28: ( (kw= 'E' | kw= 'E/S' | kw= 'S' ) )
+            // InternalVaryGrammar.g:6724:1: (kw= 'E' | kw= 'E/S' | kw= 'S' )
             {
-            // InternalVaryGrammar.g:6742:1: (kw= 'E' | kw= 'E/S' | kw= 'S' )
-            int alt132=3;
+            // InternalVaryGrammar.g:6724:1: (kw= 'E' | kw= 'E/S' | kw= 'S' )
+            int alt131=3;
             switch ( input.LA(1) ) {
             case 47:
                 {
-                alt132=1;
+                alt131=1;
                 }
                 break;
             case 112:
                 {
-                alt132=2;
+                alt131=2;
                 }
                 break;
             case 113:
                 {
-                alt132=3;
+                alt131=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 132, 0, input);
+                    new NoViableAltException("", 131, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt132) {
+            switch (alt131) {
                 case 1 :
-                    // InternalVaryGrammar.g:6743:2: kw= 'E'
+                    // InternalVaryGrammar.g:6725:2: kw= 'E'
                     {
                     kw=(Token)match(input,47,FollowSets000.FOLLOW_2); 
 
@@ -17887,7 +17837,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVaryGrammar.g:6750:2: kw= 'E/S'
+                    // InternalVaryGrammar.g:6732:2: kw= 'E/S'
                     {
                     kw=(Token)match(input,112,FollowSets000.FOLLOW_2); 
 
@@ -17898,7 +17848,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalVaryGrammar.g:6757:2: kw= 'S'
+                    // InternalVaryGrammar.g:6739:2: kw= 'S'
                     {
                     kw=(Token)match(input,113,FollowSets000.FOLLOW_2); 
 
@@ -17929,7 +17879,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleano"
-    // InternalVaryGrammar.g:6770:1: entryRuleBooleano returns [String current=null] : iv_ruleBooleano= ruleBooleano EOF ;
+    // InternalVaryGrammar.g:6752:1: entryRuleBooleano returns [String current=null] : iv_ruleBooleano= ruleBooleano EOF ;
     public final String entryRuleBooleano() throws RecognitionException {
         String current = null;
 
@@ -17937,8 +17887,8 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalVaryGrammar.g:6771:2: (iv_ruleBooleano= ruleBooleano EOF )
-            // InternalVaryGrammar.g:6772:2: iv_ruleBooleano= ruleBooleano EOF
+            // InternalVaryGrammar.g:6753:2: (iv_ruleBooleano= ruleBooleano EOF )
+            // InternalVaryGrammar.g:6754:2: iv_ruleBooleano= ruleBooleano EOF
             {
              newCompositeNode(grammarAccess.getBooleanoRule()); 
             pushFollow(FollowSets000.FOLLOW_1);
@@ -17965,7 +17915,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleano"
-    // InternalVaryGrammar.g:6779:1: ruleBooleano returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'verdadero' | kw= 'falso' ) ;
+    // InternalVaryGrammar.g:6761:1: ruleBooleano returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'verdadero' | kw= 'falso' ) ;
     public final AntlrDatatypeRuleToken ruleBooleano() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -17974,28 +17924,28 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // InternalVaryGrammar.g:6782:28: ( (kw= 'verdadero' | kw= 'falso' ) )
-            // InternalVaryGrammar.g:6783:1: (kw= 'verdadero' | kw= 'falso' )
+            // InternalVaryGrammar.g:6764:28: ( (kw= 'verdadero' | kw= 'falso' ) )
+            // InternalVaryGrammar.g:6765:1: (kw= 'verdadero' | kw= 'falso' )
             {
-            // InternalVaryGrammar.g:6783:1: (kw= 'verdadero' | kw= 'falso' )
-            int alt133=2;
-            int LA133_0 = input.LA(1);
+            // InternalVaryGrammar.g:6765:1: (kw= 'verdadero' | kw= 'falso' )
+            int alt132=2;
+            int LA132_0 = input.LA(1);
 
-            if ( (LA133_0==114) ) {
-                alt133=1;
+            if ( (LA132_0==114) ) {
+                alt132=1;
             }
-            else if ( (LA133_0==115) ) {
-                alt133=2;
+            else if ( (LA132_0==115) ) {
+                alt132=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 133, 0, input);
+                    new NoViableAltException("", 132, 0, input);
 
                 throw nvae;
             }
-            switch (alt133) {
+            switch (alt132) {
                 case 1 :
-                    // InternalVaryGrammar.g:6784:2: kw= 'verdadero'
+                    // InternalVaryGrammar.g:6766:2: kw= 'verdadero'
                     {
                     kw=(Token)match(input,114,FollowSets000.FOLLOW_2); 
 
@@ -18006,7 +17956,7 @@ public class InternalVaryGrammarParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalVaryGrammar.g:6791:2: kw= 'falso'
+                    // InternalVaryGrammar.g:6773:2: kw= 'falso'
                     {
                     kw=(Token)match(input,115,FollowSets000.FOLLOW_2); 
 

@@ -192,7 +192,6 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariablesBasicasAccess().getGroup_4(), "rule__VariablesBasicas__Group_4__0");
 					put(grammarAccess.getVariablesBasicasAccess().getGroup_5(), "rule__VariablesBasicas__Group_5__0");
 					put(grammarAccess.getSinoAccess().getGroup(), "rule__Sino__Group__0");
-					put(grammarAccess.getSinoAccess().getGroup_2(), "rule__Sino__Group_2__0");
 					put(grammarAccess.getDevolverAccess().getGroup(), "rule__Devolver__Group__0");
 					put(grammarAccess.getParametroFuncionAccess().getGroup(), "rule__ParametroFuncion__Group__0");
 					put(grammarAccess.getFuncionAccess().getGroup(), "rule__Funcion__Group__0");
@@ -228,7 +227,7 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCabeceraFuncionAccess().getNombreAssignment_2(), "rule__CabeceraFuncion__NombreAssignment_2");
 					put(grammarAccess.getCabeceraFuncionAccess().getParametrofuncionAssignment_3_0(), "rule__CabeceraFuncion__ParametrofuncionAssignment_3_0");
 					put(grammarAccess.getCabeceraFuncionAccess().getParametrofuncionAssignment_3_1_1(), "rule__CabeceraFuncion__ParametrofuncionAssignment_3_1_1");
-					put(grammarAccess.getComentarioAccess().getMensajeAssignment_2(), "rule__Comentario__MensajeAssignment_2");
+					put(grammarAccess.getComentarioAccess().getMensajeAssignment_1(), "rule__Comentario__MensajeAssignment_1");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getVariableAssignment_1_0(), "rule__FuncionFicheroAbrir__VariableAssignment_1_0");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getModoAssignment_1_2(), "rule__FuncionFicheroAbrir__ModoAssignment_1_2");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getVariableAssignment_1_4(), "rule__FuncionFicheroAbrir__VariableAssignment_1_4");
@@ -373,8 +372,7 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVariablesBasicasAccess().getContenidoAssignment_3_1(), "rule__VariablesBasicas__ContenidoAssignment_3_1");
 					put(grammarAccess.getVariablesBasicasAccess().getValorAssignment_4_1(), "rule__VariablesBasicas__ValorAssignment_4_1");
 					put(grammarAccess.getVariablesBasicasAccess().getNombreAssignment_5_1(), "rule__VariablesBasicas__NombreAssignment_5_1");
-					put(grammarAccess.getSinoAccess().getSentenciasAssignment_2_0(), "rule__Sino__SentenciasAssignment_2_0");
-					put(grammarAccess.getSinoAccess().getSentenciasAssignment_2_1(), "rule__Sino__SentenciasAssignment_2_1");
+					put(grammarAccess.getSinoAccess().getSentenciasAssignment_2(), "rule__Sino__SentenciasAssignment_2");
 					put(grammarAccess.getSinoAccess().getDevuelveAssignment_3(), "rule__Sino__DevuelveAssignment_3");
 					put(grammarAccess.getDevolverAccess().getDevuelveAssignment_2(), "rule__Devolver__DevuelveAssignment_2");
 					put(grammarAccess.getParametroFuncionAccess().getPasoAssignment_0(), "rule__ParametroFuncion__PasoAssignment_0");

@@ -13,11 +13,11 @@ Algoritmo returns Algoritmo:
 	(importaciones+=[Modulo])*
 	'end_import')?
 	('const'
-		(constantes+=Constantes)* )?
+		(constantes+=Constantes)* )? 
 	('type'
 		(tipocomplejo+=TipoComplejo)* )?
 	('var'
-		(global+=Declaracion)* )?
+		(global+=Declaracion)* )? 
 	(funcion+=Subproceso)*
 	tiene=Inicio
 	'end_algorithm';
@@ -25,31 +25,31 @@ Algoritmo returns Algoritmo:
 Modulo returns Modulo:
 	'Module' nombre=ID
 	'import'
-	(importaciones+=[Modulo])*
+	(importaciones+=[Modulo])* 
 	'end_import'
-	'export'
+	('export'
 	('const'
-	(exporta_constantes+=EString)* )?
+		(exporta_constantes+=EString)* )? 
 	('type'
-	(exporta_tipos+=EString)* )? 
+		(exporta_tipos+=EString)* )?
 	('var'
 		(exporta_global+=Declaracion)* )? 
 	(exporta_funciones+=CabeceraSubproceso)* 
-	'end_export'
+	'end_export')
 	implementacion=Implementacion
 	'end_module';
 
 Implementacion returns Implementacion:
 	{Implementacion}
-	'implementation'
+	('implementation'
 	('const'
-		(constantes+=Constantes)* )? 
+		(constantes+=Constantes)* )?
 	('type'
 		(tipocomplejo+=TipoComplejo)* )?
 	('var'
-		(global+=Declaracion)* )? 
-	(funcion+=Subproceso)* 
-	'end_implementation'
+		(global+=Declaracion)* )?
+	(funcion+=Subproceso)*
+	'end_implementation')
 ;
 
 CabeceraSubproceso returns CabeceraSubproceso:
@@ -64,7 +64,6 @@ CabeceraFuncion returns CabeceraFuncion:
 	tipo=TipoVariable 'function'
 	nombre=NOMBRE_FUN
 	(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
-
 	
 TipoComplejo returns TipoComplejo:
 	Vector | Matriz | Registro | Archivo | Enumerado | Subrango;
@@ -77,7 +76,7 @@ Subproceso returns Subproceso:
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
 
 Comentario returns Comentario:
-	{Comentario}/* ML_COMMENT | */ SL_COMMENT mensaje= COMENT;
+	{Comentario} /* ML_COMMENT | SL_COMMENT */ mensaje= COMENT;
 
 Sentencias returns Sentencias:
 	 Escribir | Leer | Bloque | FuncionFicheroAbrir | FuncionFicheroCerrar | Asignacion | Funciones;
@@ -89,23 +88,23 @@ Declaracion returns Declaracion:
 	DeclaracionVariable | DeclaracionPropia;
 	
 FuncionFicheroAbrir returns FuncionFicheroAbrir:
-	'open'
-	'('
+	'open('
 		(variable+=Primaria ',' modo=ModoApertura ',' variable+=Primaria)
 	')'
 ;
 
 FuncionFicheroCerrar returns FuncionFicheroCerrar:
-	'close'
-	'('
+	'close('
 		(variable=Primaria)
 	')'
 ;
 	
 ModoApertura returns ModoApertura:
 	'writing' | 'reading';
+	
 
 terminal NOMBRE_FUN: ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* ('(');
+
 
 NombreInterna returns ecore::EString:
 	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'join(' | 'copy(';
@@ -117,7 +116,7 @@ EInt returns ecore::EInt:
 //terminal EXPONENT: ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 
 EFloat returns ecore::EFloat:
-	INT '.' INT (('E'|'e') ('+'|'-')? INT)?;   
+	INT '.' INT (('E'|'e') INT)?;   
 	//('0'..'9')+ '.' ('0'..'9')* EXPONENT?
     //|   '.' ('0'..'9')+ EXPONENT?
     //|   ('0'..'9')+ EXPONENT
@@ -174,7 +173,7 @@ Inicio returns Inicio:
 	{Inicio}
 	'var'
 	(declaracion+=Declaracion)*
-	'initiation'
+	'start'
 		(tiene+=Sentencias)*
 	'end_main';
 
@@ -211,18 +210,17 @@ AsignacionCompleja returns AsignacionCompleja:
 
 Escribir returns Escribir:
 	'write('
-		 operador+=Primaria ( "," operador+=Primaria | operador+=operacion)* 
+		 operador+=Primaria ( "," operador+=OperacionCompleta)* 
 	')';
 
 Leer returns Leer:
-	'read('
+	'read(' 
 		variable+=Primaria ( "," variable+=Primaria)*
 	')';
 
 Si returns Si:
 	('if' 
-	'(' | 'if(')
-	valor=OperacionCompleta
+	'(' | 'if(') valor=OperacionCompleta
 	')' 'then'
 		(sentencias+=Sentencias)*
 		(devuelve=Devolver)?
@@ -240,17 +238,17 @@ mientras returns mientras:
 repetir returns repetir:
 	'repeat'
 		(sentencias+=Sentencias)*
-	 ('until' 
-	 '(' | 'until(')
-	 valor=OperacionCompleta ')';
+	 ('until' '(' | 'until(')
+	 valor=OperacionCompleta
+	 ')';
 
 desde returns desde:
 	'for' asignacion=AsignacionNormal 'to' valor=OperacionCompleta 'do'
-		(sentencias+=Sentencias)* 
+		(sentencias+=Sentencias)*
 	'end_for';
 	
 Caso returns Caso:
-	'case' operador=Primaria ': ' ( sentencias+=Sentencias )*
+	'case' operador=Primaria ': ' (sentencias+=Sentencias )* 
 	(devuelve=Devolver)?
 ;
 	
@@ -258,7 +256,7 @@ segun returns segun:
 	('according_to''(' | 'according_to(') valor=OperacionCompleta')' 'do'
 		(caso+=Caso )*
 		'otherwise:'
-		( sentencias+=Sentencias )*
+		(sentencias+=Sentencias )*
 		(devuelve=Devolver)?
 	'end_according_to';
 
@@ -281,29 +279,9 @@ Variable returns Variable:
 //	{VariableID} nombre=EString;
 	//Mat+=MAT*;
 
-terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.')* '"';
+terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ')* '"';
 terminal CAR: "'" ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9') "'";
 terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9')* '*/';
-
-//terminal MAT: 
-//'[' ('a'..'z'|'A'..'Z'|'0'..'9')*('--'|'++')? ']' ;
-
-
-//ConstCadena returns ConstCadena:
-//	{ConstCadena} contenido=CAD;
-
-//NumeroEntero returns NumeroEntero:
-//	 {NumeroEntero} valor=INTEGER;
-
-//NumeroDecimal returns NumeroDecimal:
-//	 {NumeroDecimal} valor=FLOAT;
-
-//ValorBooleano returns ValorBooleano:
-//	 {ValorBooleano} valor=booleano;
-
-signo returns signo:
-	('+' | '-' | '*' | '/' | '<' | '>' | '>=' | '<=' | 'y' | 'o' | '=' | '!=' | 'mod' | 'div')
- /* TODO: implement this rule and an appropriate IValueConverter */;
  
 signoOr returns signo:
 	'or';
@@ -319,7 +297,7 @@ signoComparacion returns signo:
 
 signoSuma returns signo:
 	'+';
-	
+		
 signoResta returns signo:
 	'-';
 	
@@ -334,6 +312,9 @@ signoModulo returns signo:
 	
 signoDiv returns signo:
 	'div';
+	
+signoNo returns signo:
+	'no';
 
 operacion returns operacion:
 	Or;
@@ -398,17 +379,16 @@ OperacionParentesis returns operacion:
 	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=operacion ')';
 	
 Funciones returns operacion:
-	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ','  operadores+=OperacionCompleta)* )? ')') |
+	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')') |
 	({Internas} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
 	
-
 CampoRegistro returns CampoRegistro:
 	'.' nombre_campo=EString | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']' | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']';
 	
 VariablesComplejas returns operacion:
-	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
-	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']') ('.' (campo+=CampoRegistro) )?
-	| {ValorRegistro} nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
+	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') (campo+=CampoRegistro)*
+	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']') (campo+=CampoRegistro)*
+	| {ValorRegistro} nombre_registro=EString (campo+=CampoRegistro)+;
 	
 VariablesBasicas returns operacion:
 	 {NumeroEntero} valor=EInt
@@ -421,15 +401,12 @@ VariablesBasicas returns operacion:
 Sino returns Sino:
 	{Sino}
 	'else'
-	(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
+	(sentencias+=Sentencias)*
 	(devuelve=Devolver)?;
 
 Devolver returns Devolver:
 	{Devolver}
 	'return' devuelve=OperacionCompleta;
-
-//neg returns neg:
-//	"no" /* TODO: implement this rule and an appropriate IValueConverter */;
 	
 ParametroFuncion returns ParametroFuncion:
 	paso=TipoPaso
@@ -441,9 +418,9 @@ Funcion returns Funcion:
 	'function'
 	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
 	('var'
-	(declaracion+=Declaracion)* )?
-	'initiation'
-	(sentencias+=Sentencias)* 
+	(declaracion+=Declaracion)* )? 
+	'start'
+	(sentencias+=Sentencias)*
 	(devuelve=Devolver)?
 	'end_function';
 	
@@ -452,7 +429,7 @@ Procedimiento returns Procedimiento:
 	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
 	('var'
 	(declaracion+=Declaracion)* )?
-	'initiation'
+	'start'
 	(sentencias+=Sentencias)*
 	'end_procedure';
 	

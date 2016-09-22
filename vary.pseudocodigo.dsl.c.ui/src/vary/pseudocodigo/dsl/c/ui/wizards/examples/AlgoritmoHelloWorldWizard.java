@@ -174,7 +174,7 @@ public class AlgoritmoHelloWorldWizard extends Wizard implements INewWizard {
 					"main" + '\n' +
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "string: greeting" + '\n' +
-				    '\t' + "initiation //Body main algorithm" + '\n' +
+				    '\t' + "start //Body main algorithm" + '\n' +
 				    '\t' + '\t' + "greeting <- \"Hello!\"" + '\n' +
 					'\t' + '\t' + "write(greeting)" + '\n' +
 					"end_main" + '\n' + '\n' +
