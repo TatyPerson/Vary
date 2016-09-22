@@ -2835,11 +2835,11 @@ rule__NombreInterna__Alternatives
 )
 
     |(
-{ before(grammarAccess.getNombreInternaAccess().getConcatenaKeyword_8()); }
+{ before(grammarAccess.getNombreInternaAccess().getJoinKeyword_8()); }
 
-	'concatena(' 
+	'join(' 
 
-{ after(grammarAccess.getNombreInternaAccess().getConcatenaKeyword_8()); }
+{ after(grammarAccess.getNombreInternaAccess().getJoinKeyword_8()); }
 )
 
     |(

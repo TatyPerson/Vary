@@ -829,14 +829,14 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cSinKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		private final Keyword cSqrtKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
 		private final Keyword cLengthKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cConcatenaKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cJoinKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
 		private final Keyword cCopyKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
 		
 		//NombreInterna:
-		//	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'concatena(' | 'copy(';
+		//	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'join(' | 'copy(';
 		@Override public ParserRule getRule() { return rule; }
 
-		//'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'concatena(' | 'copy('
+		//'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'join(' | 'copy('
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//'cos('
@@ -863,8 +863,8 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		//'length('
 		public Keyword getLengthKeyword_7() { return cLengthKeyword_7; }
 
-		//'concatena('
-		public Keyword getConcatenaKeyword_8() { return cConcatenaKeyword_8; }
+		//'join('
+		public Keyword getJoinKeyword_8() { return cJoinKeyword_8; }
 
 		//'copy('
 		public Keyword getCopyKeyword_9() { return cCopyKeyword_9; }
@@ -4731,7 +4731,7 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	} 
 
 	//NombreInterna:
-	//	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'concatena(' | 'copy(';
+	//	'cos(' | 'square(' | 'exp(' | 'ln(' | 'log(' | 'sin(' | 'sqrt(' | 'length(' | 'join(' | 'copy(';
 	public NombreInternaElements getNombreInternaAccess() {
 		return pNombreInterna;
 	}

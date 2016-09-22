@@ -1375,10 +1375,10 @@ ruleNombreInterna returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
     }
 
     |
-	kw='concatena(' 
+	kw='join(' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getNombreInternaAccess().getConcatenaKeyword_8()); 
+        newLeafNode(kw, grammarAccess.getNombreInternaAccess().getJoinKeyword_8()); 
     }
 
     |

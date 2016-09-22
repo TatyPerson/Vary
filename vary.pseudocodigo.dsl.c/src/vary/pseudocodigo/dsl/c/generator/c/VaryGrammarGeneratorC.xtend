@@ -2300,26 +2300,26 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 	}
 
 	override generate(Internas i, boolean sentencia) {
-		if (i.nombre.equals("cos(")) {
+		if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COS") + '(')) {
 			'''cos(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("sen(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SEN") + '(')) {
 			'''sin(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("cuadrado(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO") + '(')) {
 			'''pow(«i.operadores.get(0).generate»,«2.0»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("exp(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_EXP") + '(')) {
 			'''exp2(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("ln(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LN") + '(')) {
 			'''log(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("log(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LOG") + '(')) {
 			'''log10(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("sqrt(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SQRT") + '(')) {
 			'''sqrt(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("sqrt(")) {
-			'''strlen(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("concatena(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA") + '(')) {
 			'''strcat(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)«IF sentencia»;«ENDIF»'''
-		} else if (i.nombre.equals("copiar(")) {
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COPIAR") + '(')) {
 			'''strcpy(«i.operadores.get(0).generate»,«i.operadores.get(1).generate»)«IF sentencia»;«ENDIF»'''
+		} else if (i.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LONGITUD") + '(')) {
+			'''strlen(«i.operadores.get(0).generate»)«IF sentencia»;«ENDIF»'''
 		}
 	}
 	
@@ -2876,6 +2876,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				return readerMessages.getBundle().getString("TIPO_CARACTER");
 			} else if(op.eClass.name.equals("NumeroDecimal")) {
 				return readerMessages.getBundle().getString("TIPO_REAL");
+			} else if(op.eClass.name.equals("Internas")) {
+				var interna = op as Internas;
+				if(interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA") + '(') 
+					|| interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COPIAR") + '(')) {
+					return readerMessages.getBundle().getString("TIPO_CADENA");	
+				} else if(interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LONGITUD") + '(')) {
+					return readerMessages.getBundle().getString("TIPO_ENTERO");	
+				} else {
+					return readerMessages.getBundle().getString("TIPO_REAL");
+				}
 			} else if(op.eClass.name.equals("Suma")) {
 				var suma = op as Suma;
 				var tipoRight = suma.right.getTipoOperador;
@@ -3098,6 +3108,16 @@ class VaryGrammarGeneratorC implements IGenerator, VaryGeneratorInterface {
 				return readerMessages.getBundle().getString("TIPO_CARACTER");
 			} else if(o.eClass.name.equals("NumeroDecimal")) {
 				return readerMessages.getBundle().getString("TIPO_REAL");
+			} else if(o.eClass.name.equals("Internas")) {
+				var interna = o as Internas;
+				if(interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA") + '(') 
+					|| interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COPIAR") + '(')) {
+					return readerMessages.getBundle().getString("TIPO_CADENA");	
+				} else if(interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LONGITUD") + '(')) {
+					return readerMessages.getBundle().getString("TIPO_ENTERO");	
+				} else {
+					return readerMessages.getBundle().getString("TIPO_REAL");
+				}
 			} else if(o.eClass.name.equals("Suma")) {
 				var suma = o as Suma;
 				var tipoRight = suma.right.getTipoOperador;

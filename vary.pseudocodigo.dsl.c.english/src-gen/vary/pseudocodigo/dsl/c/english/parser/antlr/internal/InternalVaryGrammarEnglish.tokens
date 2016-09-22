@@ -31,7 +31,6 @@
 'case'=86
 'character'=92
 'close'=34
-'concatena('=45
 'const'=18
 'copy('=46
 'cos('=37
@@ -64,6 +63,7 @@
 'import'=16
 'initiation'=67
 'integer'=91
+'join('=45
 'length('=44
 'ln('=40
 'log('=41

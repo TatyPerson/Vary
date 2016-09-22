@@ -76,7 +76,7 @@ Subproceso returns Subproceso:
 terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
 
 Comentario returns Comentario:
-	{Comentario}/* ML_COMMENT | */ SL_COMMENT mensaje= COMENT;
+	{Comentario} /* ML_COMMENT | SL_COMMENT */ mensaje= COMENT;
 
 Sentencias returns Sentencias:
 	 Escribir | Leer | Bloque | FuncionFicheroAbrir | FuncionFicheroCerrar | Asignacion | Funciones;
@@ -421,7 +421,7 @@ VariablesBasicas returns operacion:
 Sino returns Sino:
 	{Sino}
 	'si_no'
-	(sentencias+=Sentencias ( sentencias+=Sentencias)* )?
+	(sentencias+=Sentencias)*
 	(devuelve=Devolver)?;
 
 Devolver returns Devolver:

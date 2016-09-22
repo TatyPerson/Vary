@@ -21,7 +21,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_NOMBRE_FUN", "RULE_INT", "RULE_STRING", "RULE_CAD", "RULE_CAR", "RULE_SL_COMMENT", "RULE_COMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Algorithm'", "'import'", "'end_import'", "'const'", "'type'", "'var'", "'end_algorithm'", "'Module'", "'export'", "'end_export'", "'end_module'", "'implementation'", "'end_implementation'", "'procedure'", "','", "')'", "'function'", "'open'", "'('", "'close'", "'writing'", "'reading'", "'cos('", "'square('", "'exp('", "'ln('", "'log('", "'sin('", "'sqrt('", "'length('", "'concatena('", "'copy('", "'.'", "'E'", "'e'", "'+'", "'-'", "'='", "'vector'", "'['", "']'", "'of'", "': '", "'matrix'", "']['", "'registry:'", "'end_registry'", "'file of '", "'{'", "'}'", "'..'", "'main'", "'initiation'", "'end_main'", "'<-'", "'write('", "'read('", "'if'", "'if('", "'then'", "'end_if'", "'while'", "'while('", "'do'", "'end_while'", "'repeat'", "'until'", "'until('", "'for'", "'to'", "'end_for'", "'case'", "'according_to'", "'according_to('", "'otherwise:'", "'end_according_to'", "'integer'", "'character'", "'real'", "'boolean'", "'string'", "'or'", "'and'", "'!='", "'<'", "'>'", "'>='", "'<='", "'*'", "'/'", "'mod'", "'div'", "'no'", "'else'", "'return'", "'end_function'", "'end_procedure'", "'I'", "'I/O'", "'O'", "'true'", "'false'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_NOMBRE_FUN", "RULE_INT", "RULE_STRING", "RULE_CAD", "RULE_CAR", "RULE_SL_COMMENT", "RULE_COMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'Algorithm'", "'import'", "'end_import'", "'const'", "'type'", "'var'", "'end_algorithm'", "'Module'", "'export'", "'end_export'", "'end_module'", "'implementation'", "'end_implementation'", "'procedure'", "','", "')'", "'function'", "'open'", "'('", "'close'", "'writing'", "'reading'", "'cos('", "'square('", "'exp('", "'ln('", "'log('", "'sin('", "'sqrt('", "'length('", "'join('", "'copy('", "'.'", "'E'", "'e'", "'+'", "'-'", "'='", "'vector'", "'['", "']'", "'of'", "': '", "'matrix'", "']['", "'registry:'", "'end_registry'", "'file of '", "'{'", "'}'", "'..'", "'main'", "'initiation'", "'end_main'", "'<-'", "'write('", "'read('", "'if'", "'if('", "'then'", "'end_if'", "'while'", "'while('", "'do'", "'end_while'", "'repeat'", "'until'", "'until('", "'for'", "'to'", "'end_for'", "'case'", "'according_to'", "'according_to('", "'otherwise:'", "'end_according_to'", "'integer'", "'character'", "'real'", "'boolean'", "'string'", "'or'", "'and'", "'!='", "'<'", "'>'", "'>='", "'<='", "'*'", "'/'", "'mod'", "'div'", "'no'", "'else'", "'return'", "'end_function'", "'end_procedure'", "'I'", "'I/O'", "'O'", "'true'", "'false'"
     };
     public static final int RULE_NOMBRE_FUN=5;
     public static final int T__50=50;
@@ -3776,7 +3776,7 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
 
 
     // $ANTLR start "ruleNombreInterna"
-    // InternalVaryGrammarEnglish.g:1317:1: ruleNombreInterna returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'concatena(' | kw= 'copy(' ) ;
+    // InternalVaryGrammarEnglish.g:1317:1: ruleNombreInterna returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'join(' | kw= 'copy(' ) ;
     public final AntlrDatatypeRuleToken ruleNombreInterna() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -3785,10 +3785,10 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
          enterRule(); 
             
         try {
-            // InternalVaryGrammarEnglish.g:1320:28: ( (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'concatena(' | kw= 'copy(' ) )
-            // InternalVaryGrammarEnglish.g:1321:1: (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'concatena(' | kw= 'copy(' )
+            // InternalVaryGrammarEnglish.g:1320:28: ( (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'join(' | kw= 'copy(' ) )
+            // InternalVaryGrammarEnglish.g:1321:1: (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'join(' | kw= 'copy(' )
             {
-            // InternalVaryGrammarEnglish.g:1321:1: (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'concatena(' | kw= 'copy(' )
+            // InternalVaryGrammarEnglish.g:1321:1: (kw= 'cos(' | kw= 'square(' | kw= 'exp(' | kw= 'ln(' | kw= 'log(' | kw= 'sin(' | kw= 'sqrt(' | kw= 'length(' | kw= 'join(' | kw= 'copy(' )
             int alt37=10;
             switch ( input.LA(1) ) {
             case 37:
@@ -3938,12 +3938,12 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalAntlrParse
                     }
                     break;
                 case 9 :
-                    // InternalVaryGrammarEnglish.g:1378:2: kw= 'concatena('
+                    // InternalVaryGrammarEnglish.g:1378:2: kw= 'join('
                     {
                     kw=(Token)match(input,45,FollowSets000.FOLLOW_2); 
 
                             current.merge(kw);
-                            newLeafNode(kw, grammarAccess.getNombreInternaAccess().getConcatenaKeyword_8()); 
+                            newLeafNode(kw, grammarAccess.getNombreInternaAccess().getJoinKeyword_8()); 
                         
 
                     }

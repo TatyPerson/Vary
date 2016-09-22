@@ -5,8 +5,6 @@ package vary.pseudocodigo.dsl.c;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.google.inject.Module;
-
 import org.eclipse.xtext.junit4.GlobalRegistries;
 import org.eclipse.xtext.junit4.GlobalRegistries.GlobalStateMemento;
 import org.eclipse.xtext.junit4.IInjectorProvider;

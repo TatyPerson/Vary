@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalVaryGrammarEnglishParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_NOMBRE_FUN", "RULE_CAD", "RULE_CAR", "RULE_SL_COMMENT", "RULE_COMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'or'", "'and'", "'+'", "'-'", "'*'", "'/'", "'mod'", "'div'", "'writing'", "'reading'", "'cos('", "'square('", "'exp('", "'ln('", "'log('", "'sin('", "'sqrt('", "'length('", "'concatena('", "'copy('", "'E'", "'e'", "'if('", "'while('", "'until('", "'according_to('", "'integer'", "'character'", "'real'", "'boolean'", "'string'", "'='", "'!='", "'<'", "'>'", "'>='", "'<='", "'I'", "'I/O'", "'O'", "'true'", "'false'", "'Algorithm'", "'end_algorithm'", "'import'", "'end_import'", "'const'", "'type'", "'var'", "'Module'", "'export'", "'end_export'", "'end_module'", "'implementation'", "'end_implementation'", "'procedure'", "')'", "','", "'function'", "'open'", "'('", "'close'", "'.'", "'vector'", "'['", "']'", "'of'", "': '", "'matrix'", "']['", "'registry:'", "'end_registry'", "'file of '", "'{'", "'}'", "'..'", "'main'", "'initiation'", "'end_main'", "'<-'", "'write('", "'read('", "'then'", "'end_if'", "'if'", "'do'", "'end_while'", "'while'", "'repeat'", "'until'", "'for'", "'to'", "'end_for'", "'case'", "'otherwise:'", "'end_according_to'", "'according_to'", "'else'", "'return'", "'end_function'", "'end_procedure'", "'no'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_INT", "RULE_STRING", "RULE_ID", "RULE_NOMBRE_FUN", "RULE_CAD", "RULE_CAR", "RULE_SL_COMMENT", "RULE_COMENT", "RULE_ML_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'or'", "'and'", "'+'", "'-'", "'*'", "'/'", "'mod'", "'div'", "'writing'", "'reading'", "'cos('", "'square('", "'exp('", "'ln('", "'log('", "'sin('", "'sqrt('", "'length('", "'join('", "'copy('", "'E'", "'e'", "'if('", "'while('", "'until('", "'according_to('", "'integer'", "'character'", "'real'", "'boolean'", "'string'", "'='", "'!='", "'<'", "'>'", "'>='", "'<='", "'I'", "'I/O'", "'O'", "'true'", "'false'", "'Algorithm'", "'end_algorithm'", "'import'", "'end_import'", "'const'", "'type'", "'var'", "'Module'", "'export'", "'end_export'", "'end_module'", "'implementation'", "'end_implementation'", "'procedure'", "')'", "','", "'function'", "'open'", "'('", "'close'", "'.'", "'vector'", "'['", "']'", "'of'", "': '", "'matrix'", "']['", "'registry:'", "'end_registry'", "'file of '", "'{'", "'}'", "'..'", "'main'", "'initiation'", "'end_main'", "'<-'", "'write('", "'read('", "'then'", "'end_if'", "'if'", "'do'", "'end_while'", "'while'", "'repeat'", "'until'", "'for'", "'to'", "'end_for'", "'case'", "'otherwise:'", "'end_according_to'", "'according_to'", "'else'", "'return'", "'end_function'", "'end_procedure'", "'no'"
     };
     public static final int RULE_NOMBRE_FUN=7;
     public static final int T__50=50;
@@ -7682,13 +7682,13 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalContentAss
 
 
     // $ANTLR start "rule__NombreInterna__Alternatives"
-    // InternalVaryGrammarEnglish.g:2768:1: rule__NombreInterna__Alternatives : ( ( 'cos(' ) | ( 'square(' ) | ( 'exp(' ) | ( 'ln(' ) | ( 'log(' ) | ( 'sin(' ) | ( 'sqrt(' ) | ( 'length(' ) | ( 'concatena(' ) | ( 'copy(' ) );
+    // InternalVaryGrammarEnglish.g:2768:1: rule__NombreInterna__Alternatives : ( ( 'cos(' ) | ( 'square(' ) | ( 'exp(' ) | ( 'ln(' ) | ( 'log(' ) | ( 'sin(' ) | ( 'sqrt(' ) | ( 'length(' ) | ( 'join(' ) | ( 'copy(' ) );
     public final void rule__NombreInterna__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalVaryGrammarEnglish.g:2772:1: ( ( 'cos(' ) | ( 'square(' ) | ( 'exp(' ) | ( 'ln(' ) | ( 'log(' ) | ( 'sin(' ) | ( 'sqrt(' ) | ( 'length(' ) | ( 'concatena(' ) | ( 'copy(' ) )
+            // InternalVaryGrammarEnglish.g:2772:1: ( ( 'cos(' ) | ( 'square(' ) | ( 'exp(' ) | ( 'ln(' ) | ( 'log(' ) | ( 'sin(' ) | ( 'sqrt(' ) | ( 'length(' ) | ( 'join(' ) | ( 'copy(' ) )
             int alt9=10;
             switch ( input.LA(1) ) {
             case 25:
@@ -7870,14 +7870,14 @@ public class InternalVaryGrammarEnglishParser extends AbstractInternalContentAss
                     }
                     break;
                 case 9 :
-                    // InternalVaryGrammarEnglish.g:2837:6: ( 'concatena(' )
+                    // InternalVaryGrammarEnglish.g:2837:6: ( 'join(' )
                     {
-                    // InternalVaryGrammarEnglish.g:2837:6: ( 'concatena(' )
-                    // InternalVaryGrammarEnglish.g:2838:1: 'concatena('
+                    // InternalVaryGrammarEnglish.g:2837:6: ( 'join(' )
+                    // InternalVaryGrammarEnglish.g:2838:1: 'join('
                     {
-                     before(grammarAccess.getNombreInternaAccess().getConcatenaKeyword_8()); 
+                     before(grammarAccess.getNombreInternaAccess().getJoinKeyword_8()); 
                     match(input,33,FollowSets000.FOLLOW_2); 
-                     after(grammarAccess.getNombreInternaAccess().getConcatenaKeyword_8()); 
+                     after(grammarAccess.getNombreInternaAccess().getJoinKeyword_8()); 
 
                     }
 
