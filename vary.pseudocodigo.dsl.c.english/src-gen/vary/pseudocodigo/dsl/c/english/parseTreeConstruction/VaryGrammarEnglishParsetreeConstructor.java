@@ -39,7 +39,7 @@ protected class ThisRootNode extends RootToken {
 			case 6: return new CabeceraFuncion_Group(this, this, 6, inst);
 			case 7: return new TipoComplejo_Alternatives(this, this, 7, inst);
 			case 8: return new Subproceso_Alternatives(this, this, 8, inst);
-			case 9: return new Comentario_Group(this, this, 9, inst);
+			case 9: return new Comentario_Alternatives(this, this, 9, inst);
 			case 10: return new Sentencias_Alternatives(this, this, 10, inst);
 			case 11: return new Bloque_Alternatives(this, this, 11, inst);
 			case 12: return new Declaracion_Alternatives(this, this, 12, inst);
@@ -3038,49 +3038,50 @@ protected class Subproceso_ProcedimientoParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule Comentario ****************
  *
  * Comentario:
- * 	{Comentario} mensaje=COMENT;
+ * 	mensaje=SL_COMMENT | mensaje=ML_COMMENT;
  *
  **/
 
-// {Comentario} mensaje=COMENT
-protected class Comentario_Group extends GroupToken {
-	
-	public Comentario_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// mensaje=SL_COMMENT | mensaje=ML_COMMENT
+protected class Comentario_Alternatives extends AlternativesToken {
+
+	public Comentario_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getComentarioAccess().getGroup();
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getComentarioAccess().getAlternatives();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Comentario_MensajeAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Comentario_MensajeAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Comentario_MensajeAssignment_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getComentarioAccess().getComentarioAction_0().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getComentarioRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
 	}
 
 }
 
-// {Comentario}
-protected class Comentario_ComentarioAction_0 extends ActionToken  {
-
-	public Comentario_ComentarioAction_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+// mensaje=SL_COMMENT
+protected class Comentario_MensajeAssignment_0 extends AssignmentToken  {
+	
+	public Comentario_MensajeAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Action getGrammarElement() {
-		return grammarAccess.getComentarioAccess().getComentarioAction_0();
+	public Assignment getGrammarElement() {
+		return grammarAccess.getComentarioAccess().getMensajeAssignment_0();
 	}
 
     @Override
@@ -3090,14 +3091,21 @@ protected class Comentario_ComentarioAction_0 extends ActionToken  {
 		}	
 	}
 
-    @Override
+    @Override	
 	public IEObjectConsumer tryConsume() {
-		if(!eObjectConsumer.isConsumed()) return null;
-		return eObjectConsumer;
+		if((value = eObjectConsumer.getConsumable("mensaje",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("mensaje");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getComentarioAccess().getMensajeSL_COMMENTTerminalRuleCall_0_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getComentarioAccess().getMensajeSL_COMMENTTerminalRuleCall_0_0();
+			return obj;
+		}
+		return null;
 	}
+
 }
 
-// / * ML_COMMENT | SL_COMMENT * / mensaje=COMENT
+// mensaje=ML_COMMENT
 protected class Comentario_MensajeAssignment_1 extends AssignmentToken  {
 	
 	public Comentario_MensajeAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3112,8 +3120,7 @@ protected class Comentario_MensajeAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Comentario_ComentarioAction_0(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
 		}	
 	}
 
@@ -3121,9 +3128,9 @@ protected class Comentario_MensajeAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("mensaje",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("mensaje");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getComentarioAccess().getMensajeCOMENTTerminalRuleCall_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getComentarioAccess().getMensajeML_COMMENTTerminalRuleCall_1_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getComentarioAccess().getMensajeCOMENTTerminalRuleCall_1_0();
+			element = grammarAccess.getComentarioAccess().getMensajeML_COMMENTTerminalRuleCall_1_0();
 			return obj;
 		}
 		return null;

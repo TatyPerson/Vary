@@ -41,6 +41,7 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCabeceraSubprocesoAccess().getAlternatives(), "rule__CabeceraSubproceso__Alternatives");
 					put(grammarAccess.getTipoComplejoAccess().getAlternatives(), "rule__TipoComplejo__Alternatives");
 					put(grammarAccess.getSubprocesoAccess().getAlternatives(), "rule__Subproceso__Alternatives");
+					put(grammarAccess.getComentarioAccess().getAlternatives(), "rule__Comentario__Alternatives");
 					put(grammarAccess.getSentenciasAccess().getAlternatives(), "rule__Sentencias__Alternatives");
 					put(grammarAccess.getBloqueAccess().getAlternatives(), "rule__Bloque__Alternatives");
 					put(grammarAccess.getDeclaracionAccess().getAlternatives(), "rule__Declaracion__Alternatives");
@@ -91,7 +92,6 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCabeceraFuncionAccess().getGroup(), "rule__CabeceraFuncion__Group__0");
 					put(grammarAccess.getCabeceraFuncionAccess().getGroup_3(), "rule__CabeceraFuncion__Group_3__0");
 					put(grammarAccess.getCabeceraFuncionAccess().getGroup_3_1(), "rule__CabeceraFuncion__Group_3_1__0");
-					put(grammarAccess.getComentarioAccess().getGroup(), "rule__Comentario__Group__0");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getGroup(), "rule__FuncionFicheroAbrir__Group__0");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getGroup_1(), "rule__FuncionFicheroAbrir__Group_1__0");
 					put(grammarAccess.getFuncionFicheroCerrarAccess().getGroup(), "rule__FuncionFicheroCerrar__Group__0");
@@ -227,6 +227,7 @@ public class VaryGrammarParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCabeceraFuncionAccess().getNombreAssignment_2(), "rule__CabeceraFuncion__NombreAssignment_2");
 					put(grammarAccess.getCabeceraFuncionAccess().getParametrofuncionAssignment_3_0(), "rule__CabeceraFuncion__ParametrofuncionAssignment_3_0");
 					put(grammarAccess.getCabeceraFuncionAccess().getParametrofuncionAssignment_3_1_1(), "rule__CabeceraFuncion__ParametrofuncionAssignment_3_1_1");
+					put(grammarAccess.getComentarioAccess().getMensajeAssignment_0(), "rule__Comentario__MensajeAssignment_0");
 					put(grammarAccess.getComentarioAccess().getMensajeAssignment_1(), "rule__Comentario__MensajeAssignment_1");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getVariableAssignment_1_0(), "rule__FuncionFicheroAbrir__VariableAssignment_1_0");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getModoAssignment_1_2(), "rule__FuncionFicheroAbrir__ModoAssignment_1_2");

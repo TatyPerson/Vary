@@ -591,26 +591,30 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 
 	public class ComentarioElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Comentario");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cComentarioAction_0 = (Action)cGroup.eContents().get(0);
-		private final Assignment cMensajeAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMensajeCOMENTTerminalRuleCall_1_0 = (RuleCall)cMensajeAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cMensajeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cMensajeSL_COMMENTTerminalRuleCall_0_0 = (RuleCall)cMensajeAssignment_0.eContents().get(0);
+		private final Assignment cMensajeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cMensajeML_COMMENTTerminalRuleCall_1_0 = (RuleCall)cMensajeAssignment_1.eContents().get(0);
 		
 		//Comentario:
-		//	{Comentario} mensaje=COMENT;
+		//	mensaje=SL_COMMENT | mensaje=ML_COMMENT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Comentario} mensaje=COMENT
-		public Group getGroup() { return cGroup; }
+		//mensaje=SL_COMMENT | mensaje=ML_COMMENT
+		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{Comentario}
-		public Action getComentarioAction_0() { return cComentarioAction_0; }
+		//mensaje=SL_COMMENT
+		public Assignment getMensajeAssignment_0() { return cMensajeAssignment_0; }
 
-		/// * ML_COMMENT | SL_COMMENT * / mensaje=COMENT
+		//SL_COMMENT
+		public RuleCall getMensajeSL_COMMENTTerminalRuleCall_0_0() { return cMensajeSL_COMMENTTerminalRuleCall_0_0; }
+
+		//mensaje=ML_COMMENT
 		public Assignment getMensajeAssignment_1() { return cMensajeAssignment_1; }
 
-		//COMENT
-		public RuleCall getMensajeCOMENTTerminalRuleCall_1_0() { return cMensajeCOMENTTerminalRuleCall_1_0; }
+		//ML_COMMENT
+		public RuleCall getMensajeML_COMMENTTerminalRuleCall_1_0() { return cMensajeML_COMMENTTerminalRuleCall_1_0; }
 	}
 
 	public class SentenciasElements extends AbstractParserRuleElementFinder {
@@ -4159,7 +4163,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private final CabeceraFuncionElements pCabeceraFuncion;
 	private final TipoComplejoElements pTipoComplejo;
 	private final SubprocesoElements pSubproceso;
-	private final TerminalRule tSL_COMMENT;
 	private final ComentarioElements pComentario;
 	private final SentenciasElements pSentencias;
 	private final BloqueElements pBloque;
@@ -4202,7 +4205,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private final VariableElements pVariable;
 	private final TerminalRule tCAD;
 	private final TerminalRule tCAR;
-	private final TerminalRule tCOMENT;
 	private final SignoOrElements pSignoOr;
 	private final SignoAndElements pSignoAnd;
 	private final SignoIgualdadElements pSignoIgualdad;
@@ -4263,7 +4265,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		this.pCabeceraFuncion = new CabeceraFuncionElements();
 		this.pTipoComplejo = new TipoComplejoElements();
 		this.pSubproceso = new SubprocesoElements();
-		this.tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.SL_COMMENT");
 		this.pComentario = new ComentarioElements();
 		this.pSentencias = new SentenciasElements();
 		this.pBloque = new BloqueElements();
@@ -4306,7 +4307,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		this.pVariable = new VariableElements();
 		this.tCAD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.CAD");
 		this.tCAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.CAR");
-		this.tCOMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.COMENT");
 		this.pSignoOr = new SignoOrElements();
 		this.pSignoAnd = new SignoAndElements();
 		this.pSignoIgualdad = new SignoIgualdadElements();
@@ -4491,14 +4491,8 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		return getSubprocesoAccess().getRule();
 	}
 
-	//terminal SL_COMMENT:
-	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
-	public TerminalRule getSL_COMMENTRule() {
-		return tSL_COMMENT;
-	} 
-
 	//Comentario:
-	//	{Comentario} mensaje=COMENT;
+	//	mensaje=SL_COMMENT | mensaje=ML_COMMENT;
 	public ComentarioElements getComentarioAccess() {
 		return pComentario;
 	}
@@ -4964,12 +4958,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	//	"'" ('a'..'z' | 'A'..'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\' | '0'..'9') "'";
 	public TerminalRule getCARRule() {
 		return tCAR;
-	} 
-
-	//terminal COMENT:
-	//	'/ *' ('a'..'z' | 'A'..'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\' | '0'..'9')* '* /';
-	public TerminalRule getCOMENTRule() {
-		return tCOMENT;
 	} 
 
 	//signoOr signo:
@@ -5441,6 +5429,12 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	//	'/ *'->'* /';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
+	} 
+
+	//terminal SL_COMMENT:
+	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
+	public TerminalRule getSL_COMMENTRule() {
+		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:

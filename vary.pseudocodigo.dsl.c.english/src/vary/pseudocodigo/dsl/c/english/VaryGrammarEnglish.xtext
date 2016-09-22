@@ -72,11 +72,8 @@ TipoComplejo returns TipoComplejo:
 Subproceso returns Subproceso:
 	Funcion | Procedimiento;
 
-//terminal ML_COMMENT : '/*' (!'*') -> '*/' ;
-terminal SL_COMMENT : '//' !('\n'|'\r')* ('\r'? '\n')? ;
-
 Comentario returns Comentario:
-	{Comentario} /* ML_COMMENT | SL_COMMENT */ mensaje= COMENT;
+	mensaje=SL_COMMENT | mensaje=ML_COMMENT;
 
 Sentencias returns Sentencias:
 	 Escribir | Leer | Bloque | FuncionFicheroAbrir | FuncionFicheroCerrar | Asignacion | Funciones;
@@ -281,7 +278,6 @@ Variable returns Variable:
 
 terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ')* '"';
 terminal CAR: "'" ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9') "'";
-terminal COMENT: '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9')* '*/';
  
 signoOr returns signo:
 	'or';

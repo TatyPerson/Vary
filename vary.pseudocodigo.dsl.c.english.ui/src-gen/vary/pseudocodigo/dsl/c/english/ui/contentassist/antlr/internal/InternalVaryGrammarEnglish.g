@@ -2625,6 +2625,7 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+
 rule__Sentencias__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -5693,7 +5694,6 @@ rule__CabeceraFuncion__Group_3_1__1__Impl
 finally {
 	restoreStackSize(stackSize);
 }
-
 
 
 
@@ -17594,6 +17594,7 @@ finally {
 }
 
 
+
 rule__FuncionFicheroAbrir__VariableAssignment_1_0
     @init {
 		int stackSize = keepStackSize();
@@ -20169,15 +20170,11 @@ finally {
 }
 
 
-RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
-
 RULE_NOMBRE_FUN : ('a'..'z'|'A'..'Z'|'0'..'9'|'_')* '(';
 
 RULE_CAD : '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'\u00E1'|'\u00E9'|'\u00ED'|'\u00F3'|'\u00FA'|'\u00F1'|'\u00C1'|'\u00C9'|'\u00CD'|'\u00D3'|'\u00DA'|'\u00D1')* '"';
 
 RULE_CAR : '\'' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9') '\'';
-
-RULE_COMENT : '/*' ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9')* '*/';
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
@@ -20186,6 +20183,8 @@ RULE_INT : ('0'..'9')+;
 RULE_STRING : ('"' ('\\' .|~(('\\'|'"')))* '"'|'\'' ('\\' .|~(('\\'|'\'')))* '\'');
 
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
+
+RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
