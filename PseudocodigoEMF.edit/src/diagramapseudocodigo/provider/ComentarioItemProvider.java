@@ -5,6 +5,7 @@ package diagramapseudocodigo.provider;
 
 import diagramapseudocodigo.Comentario;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -30,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComentarioItemProvider
+public class ComentarioItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -110,6 +111,7 @@ public class ComentarioItemProvider
 			getString("_UI_Comentario_type") :
 			getString("_UI_Comentario_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

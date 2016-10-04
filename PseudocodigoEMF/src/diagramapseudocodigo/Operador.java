@@ -13,5 +13,5 @@ package diagramapseudocodigo;
  * @model abstract="true"
  * @generated
  */
-public interface Operador extends valor {
+public interface Operador extends Valor {
 } // Operador

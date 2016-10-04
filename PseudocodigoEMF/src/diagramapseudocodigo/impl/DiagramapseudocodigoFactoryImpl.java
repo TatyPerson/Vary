@@ -59,42 +59,42 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 		switch (eClass.getClassifierID()) {
 			case DiagramapseudocodigoPackage.ALGORITMO: return createAlgoritmo();
 			case DiagramapseudocodigoPackage.INICIO: return createInicio();
-			case DiagramapseudocodigoPackage.DECLARACION_VARIABLE: return createDeclaracionVariable();
+			case DiagramapseudocodigoPackage.DECLARACION_BASICA: return createDeclaracionBasica();
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION: return createLlamadaFuncion();
 			case DiagramapseudocodigoPackage.VARIABLE_ID: return createVariableID();
 			case DiagramapseudocodigoPackage.CADENA: return createcadena();
-			case DiagramapseudocodigoPackage.CONST_CADENA: return createConstCadena();
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES: return createCadenaCaracteres();
 			case DiagramapseudocodigoPackage.VARIABLE: return createVariable();
-			case DiagramapseudocodigoPackage.NUMERO_ENTERO: return createNumeroEntero();
+			case DiagramapseudocodigoPackage.ENTERO: return createEntero();
 			case DiagramapseudocodigoPackage.ASIGNACION: return createAsignacion();
 			case DiagramapseudocodigoPackage.ESCRIBIR: return createEscribir();
 			case DiagramapseudocodigoPackage.FUNCION: return createFuncion();
-			case DiagramapseudocodigoPackage.PARAMETRO_FUNCION: return createParametroFuncion();
+			case DiagramapseudocodigoPackage.PARAMETRO: return createParametro();
 			case DiagramapseudocodigoPackage.LEER: return createLeer();
-			case DiagramapseudocodigoPackage.NUMERO_DECIMAL: return createNumeroDecimal();
-			case DiagramapseudocodigoPackage.OPERACION: return createoperacion();
-			case DiagramapseudocodigoPackage.VALOR_BOOLEANO: return createValorBooleano();
+			case DiagramapseudocodigoPackage.REAL: return createReal();
+			case DiagramapseudocodigoPackage.OPERACION: return createOperacion();
+			case DiagramapseudocodigoPackage.LOGICO: return createLogico();
 			case DiagramapseudocodigoPackage.SI: return createSi();
 			case DiagramapseudocodigoPackage.SINO: return createSino();
-			case DiagramapseudocodigoPackage.MIENTRAS: return createmientras();
-			case DiagramapseudocodigoPackage.REPETIR: return createrepetir();
-			case DiagramapseudocodigoPackage.DESDE: return createdesde();
+			case DiagramapseudocodigoPackage.MIENTRAS: return createMientras();
+			case DiagramapseudocodigoPackage.REPETIR: return createRepetir();
+			case DiagramapseudocodigoPackage.DESDE: return createDesde();
 			case DiagramapseudocodigoPackage.PROCEDIMIENTO: return createProcedimiento();
 			case DiagramapseudocodigoPackage.CARACTER: return createCaracter();
-			case DiagramapseudocodigoPackage.INTERNAS: return createInternas();
-			case DiagramapseudocodigoPackage.SEGUN: return createsegun();
+			case DiagramapseudocodigoPackage.FUNCION_INTERNA: return createFuncionInterna();
+			case DiagramapseudocodigoPackage.SEGUN: return createSegun();
 			case DiagramapseudocodigoPackage.DEVOLVER: return createDevolver();
 			case DiagramapseudocodigoPackage.CASO: return createCaso();
-			case DiagramapseudocodigoPackage.CONSTANTES: return createConstantes();
+			case DiagramapseudocodigoPackage.CONSTANTE: return createConstante();
 			case DiagramapseudocodigoPackage.VECTOR: return createVector();
-			case DiagramapseudocodigoPackage.DECLARACION_PROPIA: return createDeclaracionPropia();
+			case DiagramapseudocodigoPackage.DECLARACION_DEFINIDA: return createDeclaracionDefinida();
 			case DiagramapseudocodigoPackage.DECLARACION: return createDeclaracion();
 			case DiagramapseudocodigoPackage.MATRIZ: return createMatriz();
 			case DiagramapseudocodigoPackage.TIPO_COMPLEJO: return createTipoComplejo();
 			case DiagramapseudocodigoPackage.REGISTRO: return createRegistro();
 			case DiagramapseudocodigoPackage.TIPO: return createTipo();
 			case DiagramapseudocodigoPackage.TIPO_DEFINIDO: return createTipoDefinido();
-			case DiagramapseudocodigoPackage.TIPO_EXISTENTE: return createTipoExistente();
+			case DiagramapseudocodigoPackage.TIPO_BASICO: return createTipoBasico();
 			case DiagramapseudocodigoPackage.ARCHIVO: return createArchivo();
 			case DiagramapseudocodigoPackage.ENUMERADO: return createEnumerado();
 			case DiagramapseudocodigoPackage.SUBRANGO: return createSubrango();
@@ -109,7 +109,7 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.SUMA: return createSuma();
 			case DiagramapseudocodigoPackage.RESTA: return createResta();
 			case DiagramapseudocodigoPackage.MULTIPLICACION: return createMultiplicacion();
-			case DiagramapseudocodigoPackage.DIVISION: return createDivision();
+			case DiagramapseudocodigoPackage.DIVISION_ENTERA: return createDivisionEntera();
 			case DiagramapseudocodigoPackage.OR: return createOr();
 			case DiagramapseudocodigoPackage.AND: return createAnd();
 			case DiagramapseudocodigoPackage.COMPARACION: return createComparacion();
@@ -125,7 +125,7 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.CABECERA_PROCEDIMIENTO: return createCabeceraProcedimiento();
 			case DiagramapseudocodigoPackage.CABECERA_FUNCION: return createCabeceraFuncion();
 			case DiagramapseudocodigoPackage.MOD: return createMod();
-			case DiagramapseudocodigoPackage.DIV: return createDiv();
+			case DiagramapseudocodigoPackage.DIVISION_REAL: return createDivisionReal();
 			case DiagramapseudocodigoPackage.OPERACION_PARENTESIS: return createOperacionParentesis();
 			case DiagramapseudocodigoPackage.UNARIA: return createUnaria();
 			case DiagramapseudocodigoPackage.OPERACION_COMPLETA: return createOperacionCompleta();
@@ -183,116 +183,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Codigo createCodigo() {
-		CodigoImpl codigo = new CodigoImpl();
-		return codigo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Modulo createModulo() {
-		ModuloImpl modulo = new ModuloImpl();
-		return modulo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CabeceraSubproceso createCabeceraSubproceso() {
-		CabeceraSubprocesoImpl cabeceraSubproceso = new CabeceraSubprocesoImpl();
-		return cabeceraSubproceso;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Implementacion createImplementacion() {
-		ImplementacionImpl implementacion = new ImplementacionImpl();
-		return implementacion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CabeceraProcedimiento createCabeceraProcedimiento() {
-		CabeceraProcedimientoImpl cabeceraProcedimiento = new CabeceraProcedimientoImpl();
-		return cabeceraProcedimiento;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CabeceraFuncion createCabeceraFuncion() {
-		CabeceraFuncionImpl cabeceraFuncion = new CabeceraFuncionImpl();
-		return cabeceraFuncion;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Mod createMod() {
-		ModImpl mod = new ModImpl();
-		return mod;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Div createDiv() {
-		DivImpl div = new DivImpl();
-		return div;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OperacionParentesis createOperacionParentesis() {
-		OperacionParentesisImpl operacionParentesis = new OperacionParentesisImpl();
-		return operacionParentesis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Unaria createUnaria() {
-		UnariaImpl unaria = new UnariaImpl();
-		return unaria;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public OperacionCompleta createOperacionCompleta() {
-		OperacionCompletaImpl operacionCompleta = new OperacionCompletaImpl();
-		return operacionCompleta;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Inicio createInicio() {
 		InicioImpl inicio = new InicioImpl();
 		return inicio;
@@ -303,9 +193,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeclaracionVariable createDeclaracionVariable() {
-		DeclaracionVariableImpl declaracionVariable = new DeclaracionVariableImpl();
-		return declaracionVariable;
+	public DeclaracionBasica createDeclaracionBasica() {
+		DeclaracionBasicaImpl declaracionBasica = new DeclaracionBasicaImpl();
+		return declaracionBasica;
 	}
 
 	/**
@@ -343,9 +233,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ConstCadena createConstCadena() {
-		ConstCadenaImpl constCadena = new ConstCadenaImpl();
-		return constCadena;
+	public CadenaCaracteres createCadenaCaracteres() {
+		CadenaCaracteresImpl cadenaCaracteres = new CadenaCaracteresImpl();
+		return cadenaCaracteres;
 	}
 
 	/**
@@ -363,9 +253,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NumeroEntero createNumeroEntero() {
-		NumeroEnteroImpl numeroEntero = new NumeroEnteroImpl();
-		return numeroEntero;
+	public Entero createEntero() {
+		EnteroImpl entero = new EnteroImpl();
+		return entero;
 	}
 
 	/**
@@ -403,9 +293,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParametroFuncion createParametroFuncion() {
-		ParametroFuncionImpl parametroFuncion = new ParametroFuncionImpl();
-		return parametroFuncion;
+	public Parametro createParametro() {
+		ParametroImpl parametro = new ParametroImpl();
+		return parametro;
 	}
 
 	/**
@@ -423,9 +313,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NumeroDecimal createNumeroDecimal() {
-		NumeroDecimalImpl numeroDecimal = new NumeroDecimalImpl();
-		return numeroDecimal;
+	public Real createReal() {
+		RealImpl real = new RealImpl();
+		return real;
 	}
 
 	/**
@@ -433,8 +323,8 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion createoperacion() {
-		operacionImpl operacion = new operacionImpl();
+	public Operacion createOperacion() {
+		OperacionImpl operacion = new OperacionImpl();
 		return operacion;
 	}
 
@@ -443,9 +333,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValorBooleano createValorBooleano() {
-		ValorBooleanoImpl valorBooleano = new ValorBooleanoImpl();
-		return valorBooleano;
+	public Logico createLogico() {
+		LogicoImpl logico = new LogicoImpl();
+		return logico;
 	}
 
 	/**
@@ -473,8 +363,8 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public mientras createmientras() {
-		mientrasImpl mientras = new mientrasImpl();
+	public Mientras createMientras() {
+		MientrasImpl mientras = new MientrasImpl();
 		return mientras;
 	}
 
@@ -483,8 +373,8 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public repetir createrepetir() {
-		repetirImpl repetir = new repetirImpl();
+	public Repetir createRepetir() {
+		RepetirImpl repetir = new RepetirImpl();
 		return repetir;
 	}
 
@@ -493,8 +383,8 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public desde createdesde() {
-		desdeImpl desde = new desdeImpl();
+	public Desde createDesde() {
+		DesdeImpl desde = new DesdeImpl();
 		return desde;
 	}
 
@@ -523,9 +413,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Internas createInternas() {
-		InternasImpl internas = new InternasImpl();
-		return internas;
+	public FuncionInterna createFuncionInterna() {
+		FuncionInternaImpl funcionInterna = new FuncionInternaImpl();
+		return funcionInterna;
 	}
 
 	/**
@@ -533,8 +423,8 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public segun createsegun() {
-		segunImpl segun = new segunImpl();
+	public Segun createSegun() {
+		SegunImpl segun = new SegunImpl();
 		return segun;
 	}
 
@@ -563,9 +453,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Constantes createConstantes() {
-		ConstantesImpl constantes = new ConstantesImpl();
-		return constantes;
+	public Constante createConstante() {
+		ConstanteImpl constante = new ConstanteImpl();
+		return constante;
 	}
 
 	/**
@@ -583,9 +473,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DeclaracionPropia createDeclaracionPropia() {
-		DeclaracionPropiaImpl declaracionPropia = new DeclaracionPropiaImpl();
-		return declaracionPropia;
+	public DeclaracionDefinida createDeclaracionDefinida() {
+		DeclaracionDefinidaImpl declaracionDefinida = new DeclaracionDefinidaImpl();
+		return declaracionDefinida;
 	}
 
 	/**
@@ -653,9 +543,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TipoExistente createTipoExistente() {
-		TipoExistenteImpl tipoExistente = new TipoExistenteImpl();
-		return tipoExistente;
+	public TipoBasico createTipoBasico() {
+		TipoBasicoImpl tipoBasico = new TipoBasicoImpl();
+		return tipoBasico;
 	}
 
 	/**
@@ -803,9 +693,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Division createDivision() {
-		DivisionImpl division = new DivisionImpl();
-		return division;
+	public DivisionEntera createDivisionEntera() {
+		DivisionEnteraImpl divisionEntera = new DivisionEnteraImpl();
+		return divisionEntera;
 	}
 
 	/**
@@ -886,6 +776,116 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public AsignacionCompleja createAsignacionCompleja() {
 		AsignacionComplejaImpl asignacionCompleja = new AsignacionComplejaImpl();
 		return asignacionCompleja;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Codigo createCodigo() {
+		CodigoImpl codigo = new CodigoImpl();
+		return codigo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Modulo createModulo() {
+		ModuloImpl modulo = new ModuloImpl();
+		return modulo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CabeceraSubproceso createCabeceraSubproceso() {
+		CabeceraSubprocesoImpl cabeceraSubproceso = new CabeceraSubprocesoImpl();
+		return cabeceraSubproceso;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Implementacion createImplementacion() {
+		ImplementacionImpl implementacion = new ImplementacionImpl();
+		return implementacion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CabeceraProcedimiento createCabeceraProcedimiento() {
+		CabeceraProcedimientoImpl cabeceraProcedimiento = new CabeceraProcedimientoImpl();
+		return cabeceraProcedimiento;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CabeceraFuncion createCabeceraFuncion() {
+		CabeceraFuncionImpl cabeceraFuncion = new CabeceraFuncionImpl();
+		return cabeceraFuncion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Mod createMod() {
+		ModImpl mod = new ModImpl();
+		return mod;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DivisionReal createDivisionReal() {
+		DivisionRealImpl divisionReal = new DivisionRealImpl();
+		return divisionReal;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperacionParentesis createOperacionParentesis() {
+		OperacionParentesisImpl operacionParentesis = new OperacionParentesisImpl();
+		return operacionParentesis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Unaria createUnaria() {
+		UnariaImpl unaria = new UnariaImpl();
+		return unaria;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public OperacionCompleta createOperacionCompleta() {
+		OperacionCompletaImpl operacionCompleta = new OperacionCompletaImpl();
+		return operacionCompleta;
 	}
 
 	/**

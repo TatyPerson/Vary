@@ -5,13 +5,19 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Inicio;
-import diagramapseudocodigo.Sentencias;
+import diagramapseudocodigo.Sentencia;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -23,32 +29,32 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.InicioImpl#getTiene <em>Tiene</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.InicioImpl#getDeclaracion <em>Declaracion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.InicioImpl#getSentencias <em>Sentencias</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.InicioImpl#getDeclaraciones <em>Declaraciones</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	/**
-	 * The cached value of the '{@link #getTiene() <em>Tiene</em>}' containment reference list.
+	 * The cached value of the '{@link #getSentencias() <em>Sentencias</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTiene()
+	 * @see #getSentencias()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sentencias> tiene;
+	protected EList<Sentencia> sentencias;
 
 	/**
-	 * The cached value of the '{@link #getDeclaracion() <em>Declaracion</em>}' containment reference list.
+	 * The cached value of the '{@link #getDeclaraciones() <em>Declaraciones</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDeclaracion()
+	 * @see #getDeclaraciones()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Declaracion> declaracion;
+	protected EList<Declaracion> declaraciones;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,11 +80,11 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sentencias> getTiene() {
-		if (tiene == null) {
-			tiene = new EObjectContainmentEList<Sentencias>(Sentencias.class, this, DiagramapseudocodigoPackage.INICIO__TIENE);
+	public EList<Sentencia> getSentencias() {
+		if (sentencias == null) {
+			sentencias = new EObjectContainmentEList<Sentencia>(Sentencia.class, this, DiagramapseudocodigoPackage.INICIO__SENTENCIAS);
 		}
-		return tiene;
+		return sentencias;
 	}
 
 	/**
@@ -86,11 +92,11 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Declaracion> getDeclaracion() {
-		if (declaracion == null) {
-			declaracion = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.INICIO__DECLARACION);
+	public EList<Declaracion> getDeclaraciones() {
+		if (declaraciones == null) {
+			declaraciones = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.INICIO__DECLARACIONES);
 		}
-		return declaracion;
+		return declaraciones;
 	}
 
 	/**
@@ -101,10 +107,10 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.INICIO__TIENE:
-				return ((InternalEList<?>)getTiene()).basicRemove(otherEnd, msgs);
-			case DiagramapseudocodigoPackage.INICIO__DECLARACION:
-				return ((InternalEList<?>)getDeclaracion()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.INICIO__SENTENCIAS:
+				return ((InternalEList<?>)getSentencias()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.INICIO__DECLARACIONES:
+				return ((InternalEList<?>)getDeclaraciones()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -117,10 +123,10 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.INICIO__TIENE:
-				return getTiene();
-			case DiagramapseudocodigoPackage.INICIO__DECLARACION:
-				return getDeclaracion();
+			case DiagramapseudocodigoPackage.INICIO__SENTENCIAS:
+				return getSentencias();
+			case DiagramapseudocodigoPackage.INICIO__DECLARACIONES:
+				return getDeclaraciones();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -134,13 +140,13 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.INICIO__TIENE:
-				getTiene().clear();
-				getTiene().addAll((Collection<? extends Sentencias>)newValue);
+			case DiagramapseudocodigoPackage.INICIO__SENTENCIAS:
+				getSentencias().clear();
+				getSentencias().addAll((Collection<? extends Sentencia>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.INICIO__DECLARACION:
-				getDeclaracion().clear();
-				getDeclaracion().addAll((Collection<? extends Declaracion>)newValue);
+			case DiagramapseudocodigoPackage.INICIO__DECLARACIONES:
+				getDeclaraciones().clear();
+				getDeclaraciones().addAll((Collection<? extends Declaracion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -154,11 +160,11 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.INICIO__TIENE:
-				getTiene().clear();
+			case DiagramapseudocodigoPackage.INICIO__SENTENCIAS:
+				getSentencias().clear();
 				return;
-			case DiagramapseudocodigoPackage.INICIO__DECLARACION:
-				getDeclaracion().clear();
+			case DiagramapseudocodigoPackage.INICIO__DECLARACIONES:
+				getDeclaraciones().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -172,10 +178,10 @@ public class InicioImpl extends MinimalEObjectImpl.Container implements Inicio {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.INICIO__TIENE:
-				return tiene != null && !tiene.isEmpty();
-			case DiagramapseudocodigoPackage.INICIO__DECLARACION:
-				return declaracion != null && !declaracion.isEmpty();
+			case DiagramapseudocodigoPackage.INICIO__SENTENCIAS:
+				return sentencias != null && !sentencias.isEmpty();
+			case DiagramapseudocodigoPackage.INICIO__DECLARACIONES:
+				return declaraciones != null && !declaraciones.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

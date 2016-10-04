@@ -4,12 +4,15 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Mod;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.signo;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -27,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class ModImpl extends operacionImpl implements Mod {
+public class ModImpl extends OperacionImpl implements Mod {
 	/**
 	 * The default value of the '{@link #getSigno_op() <em>Signo op</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -56,7 +59,7 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion right;
+	protected Operacion right;
 
 	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -66,7 +69,7 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion left;
+	protected Operacion left;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,7 +116,7 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getRight() {
+	public Operacion getRight() {
 		return right;
 	}
 
@@ -122,8 +125,8 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRight(operacion newRight, NotificationChain msgs) {
-		operacion oldRight = right;
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
 		right = newRight;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MOD__RIGHT, oldRight, newRight);
@@ -137,7 +140,7 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRight(operacion newRight) {
+	public void setRight(Operacion newRight) {
 		if (newRight != right) {
 			NotificationChain msgs = null;
 			if (right != null)
@@ -156,7 +159,7 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getLeft() {
+	public Operacion getLeft() {
 		return left;
 	}
 
@@ -165,8 +168,8 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeft(operacion newLeft, NotificationChain msgs) {
-		operacion oldLeft = left;
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
 		left = newLeft;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MOD__LEFT, oldLeft, newLeft);
@@ -180,7 +183,7 @@ public class ModImpl extends operacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(operacion newLeft) {
+	public void setLeft(Operacion newLeft) {
 		if (newLeft != left) {
 			NotificationChain msgs = null;
 			if (left != null)
@@ -240,10 +243,10 @@ public class ModImpl extends operacionImpl implements Mod {
 				setSigno_op((signo)newValue);
 				return;
 			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				setRight((operacion)newValue);
+				setRight((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.MOD__LEFT:
-				setLeft((operacion)newValue);
+				setLeft((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -261,10 +264,10 @@ public class ModImpl extends operacionImpl implements Mod {
 				setSigno_op(SIGNO_OP_EDEFAULT);
 				return;
 			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				setRight((operacion)null);
+				setRight((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.MOD__LEFT:
-				setLeft((operacion)null);
+				setLeft((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);

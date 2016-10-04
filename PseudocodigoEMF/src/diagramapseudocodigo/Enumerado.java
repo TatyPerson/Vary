@@ -50,7 +50,7 @@ public interface Enumerado extends TipoComplejo {
 
 	/**
 	 * Returns the value of the '<em><b>Valor</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.operacion}.
+	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Valor</em>' containment reference list isn't clear,
@@ -62,6 +62,6 @@ public interface Enumerado extends TipoComplejo {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<operacion> getValor();
+	EList<Operacion> getValor();
 
 } // Enumerado

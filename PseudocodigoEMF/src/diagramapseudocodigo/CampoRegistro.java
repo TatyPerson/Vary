@@ -85,12 +85,12 @@ public interface CampoRegistro extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primer Indice</em>' containment reference.
-	 * @see #setPrimerIndice(operacion)
+	 * @see #setPrimerIndice(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getCampoRegistro_PrimerIndice()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getPrimerIndice();
+	Operacion getPrimerIndice();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.CampoRegistro#getPrimerIndice <em>Primer Indice</em>}' containment reference.
@@ -100,7 +100,7 @@ public interface CampoRegistro extends EObject {
 	 * @see #getPrimerIndice()
 	 * @generated
 	 */
-	void setPrimerIndice(operacion value);
+	void setPrimerIndice(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Segundo Indice</b></em>' containment reference.
@@ -111,12 +111,12 @@ public interface CampoRegistro extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Segundo Indice</em>' containment reference.
-	 * @see #setSegundoIndice(operacion)
+	 * @see #setSegundoIndice(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getCampoRegistro_SegundoIndice()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getSegundoIndice();
+	Operacion getSegundoIndice();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.CampoRegistro#getSegundoIndice <em>Segundo Indice</em>}' containment reference.
@@ -126,6 +126,6 @@ public interface CampoRegistro extends EObject {
 	 * @see #getSegundoIndice()
 	 * @generated
 	 */
-	void setSegundoIndice(operacion value);
+	void setSegundoIndice(Operacion value);
 
 } // CampoRegistro

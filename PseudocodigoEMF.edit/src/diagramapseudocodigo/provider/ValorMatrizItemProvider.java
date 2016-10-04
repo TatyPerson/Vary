@@ -6,11 +6,15 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ValorMatriz;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -22,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValorMatrizItemProvider
-	extends ValorComplejoItemProvider {
+public class ValorMatrizItemProvider extends ValorComplejoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +87,7 @@ public class ValorMatrizItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__CAMPO);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__CAMPOS);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE);
 		}
@@ -128,6 +131,7 @@ public class ValorMatrizItemProvider
 			getString("_UI_ValorMatriz_type") :
 			getString("_UI_ValorMatriz_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -144,7 +148,7 @@ public class ValorMatrizItemProvider
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__NOMBRE_MATRIZ:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO:
+			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS:
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE:
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -166,7 +170,7 @@ public class ValorMatrizItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__CAMPO,
+				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__CAMPOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCampoRegistro()));
 
 		newChildDescriptors.add
@@ -182,27 +186,27 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -212,7 +216,7 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -252,7 +256,7 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -282,7 +286,7 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -312,27 +316,27 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -342,7 +346,7 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -382,7 +386,7 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -412,7 +416,7 @@ public class ValorMatrizItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter

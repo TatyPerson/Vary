@@ -5,14 +5,20 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.FuncionFicheroAbrir;
 import diagramapseudocodigo.ModoApertura;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FuncionFicheroAbrirImpl extends SentenciasImpl implements FuncionFicheroAbrir {
+public class FuncionFicheroAbrirImpl extends SentenciaImpl implements FuncionFicheroAbrir {
 	/**
 	 * The default value of the '{@link #getModo() <em>Modo</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -59,7 +65,7 @@ public class FuncionFicheroAbrirImpl extends SentenciasImpl implements FuncionFi
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<operacion> variable;
+	protected EList<Operacion> variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,9 +112,9 @@ public class FuncionFicheroAbrirImpl extends SentenciasImpl implements FuncionFi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<operacion> getVariable() {
+	public EList<Operacion> getVariable() {
 		if (variable == null) {
-			variable = new EObjectContainmentEList<operacion>(operacion.class, this, DiagramapseudocodigoPackage.FUNCION_FICHERO_ABRIR__VARIABLE);
+			variable = new EObjectContainmentEList<Operacion>(Operacion.class, this, DiagramapseudocodigoPackage.FUNCION_FICHERO_ABRIR__VARIABLE);
 		}
 		return variable;
 	}
@@ -157,7 +163,7 @@ public class FuncionFicheroAbrirImpl extends SentenciasImpl implements FuncionFi
 				return;
 			case DiagramapseudocodigoPackage.FUNCION_FICHERO_ABRIR__VARIABLE:
 				getVariable().clear();
-				getVariable().addAll((Collection<? extends operacion>)newValue);
+				getVariable().addAll((Collection<? extends Operacion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

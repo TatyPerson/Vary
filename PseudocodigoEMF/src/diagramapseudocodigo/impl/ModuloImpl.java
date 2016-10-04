@@ -7,13 +7,19 @@ import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Implementacion;
 import diagramapseudocodigo.Modulo;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -30,10 +36,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getImplementacion <em>Implementacion</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getImportaciones <em>Importaciones</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_global <em>Exporta global</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_globales <em>Exporta globales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_tipos <em>Exporta tipos</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_constantes <em>Exporta constantes</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_funciones <em>Exporta funciones</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ModuloImpl#getExporta_subprocesos <em>Exporta subprocesos</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,14 +86,14 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 	protected EList<Modulo> importaciones;
 
 	/**
-	 * The cached value of the '{@link #getExporta_global() <em>Exporta global</em>}' containment reference list.
+	 * The cached value of the '{@link #getExporta_globales() <em>Exporta globales</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExporta_global()
+	 * @see #getExporta_globales()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Declaracion> exporta_global;
+	protected EList<Declaracion> exporta_globales;
 
 	/**
 	 * The cached value of the '{@link #getExporta_tipos() <em>Exporta tipos</em>}' attribute list.
@@ -110,14 +116,14 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 	protected EList<String> exporta_constantes;
 
 	/**
-	 * The cached value of the '{@link #getExporta_funciones() <em>Exporta funciones</em>}' containment reference list.
+	 * The cached value of the '{@link #getExporta_subprocesos() <em>Exporta subprocesos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExporta_funciones()
+	 * @see #getExporta_subprocesos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CabeceraSubproceso> exporta_funciones;
+	protected EList<CabeceraSubproceso> exporta_subprocesos;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -157,66 +163,6 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 		nombre = newNombre;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MODULO__NOMBRE, oldNombre, nombre));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Modulo> getImportaciones() {
-		if (importaciones == null) {
-			importaciones = new EObjectResolvingEList<Modulo>(Modulo.class, this, DiagramapseudocodigoPackage.MODULO__IMPORTACIONES);
-		}
-		return importaciones;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<Declaracion> getExporta_global() {
-		if (exporta_global == null) {
-			exporta_global = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL);
-		}
-		return exporta_global;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getExporta_tipos() {
-		if (exporta_tipos == null) {
-			exporta_tipos = new EDataTypeEList<String>(String.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS);
-		}
-		return exporta_tipos;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<String> getExporta_constantes() {
-		if (exporta_constantes == null) {
-			exporta_constantes = new EDataTypeEList<String>(String.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES);
-		}
-		return exporta_constantes;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<CabeceraSubproceso> getExporta_funciones() {
-		if (exporta_funciones == null) {
-			exporta_funciones = new EObjectContainmentEList<CabeceraSubproceso>(CabeceraSubproceso.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES);
-		}
-		return exporta_funciones;
 	}
 
 	/**
@@ -267,15 +213,75 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Modulo> getImportaciones() {
+		if (importaciones == null) {
+			importaciones = new EObjectResolvingEList<Modulo>(Modulo.class, this, DiagramapseudocodigoPackage.MODULO__IMPORTACIONES);
+		}
+		return importaciones;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<Declaracion> getExporta_globales() {
+		if (exporta_globales == null) {
+			exporta_globales = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES);
+		}
+		return exporta_globales;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getExporta_tipos() {
+		if (exporta_tipos == null) {
+			exporta_tipos = new EDataTypeEList<String>(String.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS);
+		}
+		return exporta_tipos;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getExporta_constantes() {
+		if (exporta_constantes == null) {
+			exporta_constantes = new EDataTypeEList<String>(String.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES);
+		}
+		return exporta_constantes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<CabeceraSubproceso> getExporta_subprocesos() {
+		if (exporta_subprocesos == null) {
+			exporta_subprocesos = new EObjectContainmentEList<CabeceraSubproceso>(CabeceraSubproceso.class, this, DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS);
+		}
+		return exporta_subprocesos;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.MODULO__IMPLEMENTACION:
 				return basicSetImplementacion(null, msgs);
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
-				return ((InternalEList<?>)getExporta_global()).basicRemove(otherEnd, msgs);
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
-				return ((InternalEList<?>)getExporta_funciones()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+				return ((InternalEList<?>)getExporta_globales()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS:
+				return ((InternalEList<?>)getExporta_subprocesos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -294,14 +300,14 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 				return getImplementacion();
 			case DiagramapseudocodigoPackage.MODULO__IMPORTACIONES:
 				return getImportaciones();
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
-				return getExporta_global();
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+				return getExporta_globales();
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS:
 				return getExporta_tipos();
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES:
 				return getExporta_constantes();
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
-				return getExporta_funciones();
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS:
+				return getExporta_subprocesos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -325,9 +331,9 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 				getImportaciones().clear();
 				getImportaciones().addAll((Collection<? extends Modulo>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
-				getExporta_global().clear();
-				getExporta_global().addAll((Collection<? extends Declaracion>)newValue);
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+				getExporta_globales().clear();
+				getExporta_globales().addAll((Collection<? extends Declaracion>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS:
 				getExporta_tipos().clear();
@@ -337,9 +343,9 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 				getExporta_constantes().clear();
 				getExporta_constantes().addAll((Collection<? extends String>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
-				getExporta_funciones().clear();
-				getExporta_funciones().addAll((Collection<? extends CabeceraSubproceso>)newValue);
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS:
+				getExporta_subprocesos().clear();
+				getExporta_subprocesos().addAll((Collection<? extends CabeceraSubproceso>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -362,8 +368,8 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 			case DiagramapseudocodigoPackage.MODULO__IMPORTACIONES:
 				getImportaciones().clear();
 				return;
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
-				getExporta_global().clear();
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+				getExporta_globales().clear();
 				return;
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS:
 				getExporta_tipos().clear();
@@ -371,8 +377,8 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES:
 				getExporta_constantes().clear();
 				return;
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
-				getExporta_funciones().clear();
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS:
+				getExporta_subprocesos().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -392,14 +398,14 @@ public class ModuloImpl extends CodigoImpl implements Modulo {
 				return implementacion != null;
 			case DiagramapseudocodigoPackage.MODULO__IMPORTACIONES:
 				return importaciones != null && !importaciones.isEmpty();
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
-				return exporta_global != null && !exporta_global.isEmpty();
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+				return exporta_globales != null && !exporta_globales.isEmpty();
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_TIPOS:
 				return exporta_tipos != null && !exporta_tipos.isEmpty();
 			case DiagramapseudocodigoPackage.MODULO__EXPORTA_CONSTANTES:
 				return exporta_constantes != null && !exporta_constantes.isEmpty();
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
-				return exporta_funciones != null && !exporta_funciones.isEmpty();
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS:
+				return exporta_subprocesos != null && !exporta_subprocesos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

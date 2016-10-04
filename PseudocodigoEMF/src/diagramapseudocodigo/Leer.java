@@ -4,7 +4,6 @@ package diagramapseudocodigo;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Leer</b></em>'.
@@ -21,13 +20,13 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Leer extends Sentencias {
+public interface Leer extends Sentencia {
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.operacion}.
+	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Variable</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Variable</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -36,6 +35,6 @@ public interface Leer extends Sentencias {
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<operacion> getVariable();
+	EList<Operacion> getVariable();
 
 } // Leer

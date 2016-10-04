@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ValorRegistro#getNombre_registro <em>Nombre registro</em>}</li>
- *   <li>{@link diagramapseudocodigo.ValorRegistro#getCampo <em>Campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.ValorRegistro#getCampos <em>Campos</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorRegistro()
@@ -49,19 +49,19 @@ public interface ValorRegistro extends ValorComplejo {
 	void setNombre_registro(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Campo</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Campos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.CampoRegistro}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Campo</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Campos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Campo</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorRegistro_Campo()
+	 * @return the value of the '<em>Campos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorRegistro_Campos()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<CampoRegistro> getCampo();
+	EList<CampoRegistro> getCampos();
 
 } // ValorRegistro

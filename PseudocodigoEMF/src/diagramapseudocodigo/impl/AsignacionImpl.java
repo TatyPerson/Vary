@@ -4,6 +4,7 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.Asignacion;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**
@@ -13,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class AsignacionImpl extends SentenciasImpl implements Asignacion {
+public class AsignacionImpl extends SentenciaImpl implements Asignacion {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

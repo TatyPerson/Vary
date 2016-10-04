@@ -23,8 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TipoDefinidoItemProvider
-	extends TipoItemProvider {
+public class TipoDefinidoItemProvider extends TipoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -97,6 +96,7 @@ public class TipoDefinidoItemProvider
 			getString("_UI_TipoDefinido_type") :
 			getString("_UI_TipoDefinido_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -4,6 +4,7 @@ package diagramapseudocodigo.tests;
 
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.Vector;
+
 import junit.textui.TestRunner;
 
 /**

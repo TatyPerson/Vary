@@ -4,15 +4,21 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.ValorVector;
-import diagramapseudocodigo.operacion;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -25,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ValorVectorImpl#getNombre_vector <em>Nombre vector</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ValorVectorImpl#getCampo <em>Campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ValorVectorImpl#getCampos <em>Campos</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorVectorImpl#getIndice <em>Indice</em>}</li>
  * </ul>
  *
@@ -53,14 +59,14 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	protected String nombre_vector = NOMBRE_VECTOR_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCampo() <em>Campo</em>}' containment reference list.
+	 * The cached value of the '{@link #getCampos() <em>Campos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCampo()
+	 * @see #getCampos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CampoRegistro> campo;
+	protected EList<CampoRegistro> campos;
 
 	/**
 	 * The cached value of the '{@link #getIndice() <em>Indice</em>}' containment reference.
@@ -70,7 +76,7 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion indice;
+	protected Operacion indice;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,11 +123,11 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CampoRegistro> getCampo() {
-		if (campo == null) {
-			campo = new EObjectContainmentEList<CampoRegistro>(CampoRegistro.class, this, DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPO);
+	public EList<CampoRegistro> getCampos() {
+		if (campos == null) {
+			campos = new EObjectContainmentEList<CampoRegistro>(CampoRegistro.class, this, DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPOS);
 		}
-		return campo;
+		return campos;
 	}
 
 	/**
@@ -129,7 +135,7 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getIndice() {
+	public Operacion getIndice() {
 		return indice;
 	}
 
@@ -138,8 +144,8 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIndice(operacion newIndice, NotificationChain msgs) {
-		operacion oldIndice = indice;
+	public NotificationChain basicSetIndice(Operacion newIndice, NotificationChain msgs) {
+		Operacion oldIndice = indice;
 		indice = newIndice;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_VECTOR__INDICE, oldIndice, newIndice);
@@ -153,7 +159,7 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setIndice(operacion newIndice) {
+	public void setIndice(Operacion newIndice) {
 		if (newIndice != indice) {
 			NotificationChain msgs = null;
 			if (indice != null)
@@ -175,8 +181,8 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPO:
-				return ((InternalEList<?>)getCampo()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPOS:
+				return ((InternalEList<?>)getCampos()).basicRemove(otherEnd, msgs);
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__INDICE:
 				return basicSetIndice(null, msgs);
 		}
@@ -193,8 +199,8 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__NOMBRE_VECTOR:
 				return getNombre_vector();
-			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPO:
-				return getCampo();
+			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPOS:
+				return getCampos();
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__INDICE:
 				return getIndice();
 		}
@@ -213,12 +219,12 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__NOMBRE_VECTOR:
 				setNombre_vector((String)newValue);
 				return;
-			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPO:
-				getCampo().clear();
-				getCampo().addAll((Collection<? extends CampoRegistro>)newValue);
+			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPOS:
+				getCampos().clear();
+				getCampos().addAll((Collection<? extends CampoRegistro>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__INDICE:
-				setIndice((operacion)newValue);
+				setIndice((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,11 +241,11 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__NOMBRE_VECTOR:
 				setNombre_vector(NOMBRE_VECTOR_EDEFAULT);
 				return;
-			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPO:
-				getCampo().clear();
+			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPOS:
+				getCampos().clear();
 				return;
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__INDICE:
-				setIndice((operacion)null);
+				setIndice((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -255,8 +261,8 @@ public class ValorVectorImpl extends ValorComplejoImpl implements ValorVector {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__NOMBRE_VECTOR:
 				return NOMBRE_VECTOR_EDEFAULT == null ? nombre_vector != null : !NOMBRE_VECTOR_EDEFAULT.equals(nombre_vector);
-			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPO:
-				return campo != null && !campo.isEmpty();
+			case DiagramapseudocodigoPackage.VALOR_VECTOR__CAMPOS:
+				return campos != null && !campos.isEmpty();
 			case DiagramapseudocodigoPackage.VALOR_VECTOR__INDICE:
 				return indice != null;
 		}

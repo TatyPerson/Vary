@@ -13,13 +13,13 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Algoritmo#getTiene <em>Tiene</em>}</li>
- *   <li>{@link diagramapseudocodigo.Algoritmo#getFuncion <em>Funcion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Algoritmo#getInicio <em>Inicio</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Algoritmo#getSubprocesos <em>Subprocesos</em>}</li>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getConstantes <em>Constantes</em>}</li>
- *   <li>{@link diagramapseudocodigo.Algoritmo#getTipocomplejo <em>Tipocomplejo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Algoritmo#getComplejos <em>Complejos</em>}</li>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getComentarios <em>Comentarios</em>}</li>
- *   <li>{@link diagramapseudocodigo.Algoritmo#getGlobal <em>Global</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Algoritmo#getGlobales <em>Globales</em>}</li>
  *   <li>{@link diagramapseudocodigo.Algoritmo#getImportaciones <em>Importaciones</em>}</li>
  * </ul>
  *
@@ -29,46 +29,46 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Algoritmo extends Codigo {
 	/**
-	 * Returns the value of the '<em><b>Tiene</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Inicio</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tiene</em>' containment reference isn't clear,
+	 * If the meaning of the '<em>Inicio</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tiene</em>' containment reference.
-	 * @see #setTiene(Inicio)
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Tiene()
+	 * @return the value of the '<em>Inicio</em>' containment reference.
+	 * @see #setInicio(Inicio)
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Inicio()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	Inicio getTiene();
+	Inicio getInicio();
 
 	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Algoritmo#getTiene <em>Tiene</em>}' containment reference.
+	 * Sets the value of the '{@link diagramapseudocodigo.Algoritmo#getInicio <em>Inicio</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Tiene</em>' containment reference.
-	 * @see #getTiene()
+	 * @param value the new value of the '<em>Inicio</em>' containment reference.
+	 * @see #getInicio()
 	 * @generated
 	 */
-	void setTiene(Inicio value);
+	void setInicio(Inicio value);
 
 	/**
-	 * Returns the value of the '<em><b>Funcion</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Subprocesos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Subproceso}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Funcion</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Subprocesos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Funcion</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Funcion()
+	 * @return the value of the '<em>Subprocesos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Subprocesos()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Subproceso> getFuncion();
+	EList<Subproceso> getSubprocesos();
 
 	/**
 	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
@@ -98,7 +98,7 @@ public interface Algoritmo extends Codigo {
 
 	/**
 	 * Returns the value of the '<em><b>Constantes</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Constantes}.
+	 * The list contents are of type {@link diagramapseudocodigo.Constante}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Constantes</em>' containment reference list isn't clear,
@@ -110,23 +110,23 @@ public interface Algoritmo extends Codigo {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Constantes> getConstantes();
+	EList<Constante> getConstantes();
 
 	/**
-	 * Returns the value of the '<em><b>Tipocomplejo</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Complejos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.TipoComplejo}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tipocomplejo</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Complejos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tipocomplejo</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Tipocomplejo()
+	 * @return the value of the '<em>Complejos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Complejos()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TipoComplejo> getTipocomplejo();
+	EList<TipoComplejo> getComplejos();
 
 	/**
 	 * Returns the value of the '<em><b>Comentarios</b></em>' containment reference list.
@@ -145,27 +145,27 @@ public interface Algoritmo extends Codigo {
 	EList<Comentario> getComentarios();
 
 	/**
-	 * Returns the value of the '<em><b>Global</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Globales</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Declaracion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Global</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Globales</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Global</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Global()
+	 * @return the value of the '<em>Globales</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAlgoritmo_Globales()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Declaracion> getGlobal();
+	EList<Declaracion> getGlobales();
 
 	/**
 	 * Returns the value of the '<em><b>Importaciones</b></em>' reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Modulo}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Importaciones</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Importaciones</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->

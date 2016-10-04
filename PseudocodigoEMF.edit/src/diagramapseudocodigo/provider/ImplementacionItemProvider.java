@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ImplementacionItemProvider
+public class ImplementacionItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -77,10 +77,10 @@ public class ImplementacionItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__FUNCION);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__SUBPROCESOS);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBALES);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS);
 		}
 		return childrenFeatures;
 	}
@@ -119,6 +119,7 @@ public class ImplementacionItemProvider
 	public String getText(Object object) {
 		return getString("_UI_Implementacion_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -132,10 +133,10 @@ public class ImplementacionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Implementacion.class)) {
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION:
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL:
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS:
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES:
 			case DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES:
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO:
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -155,77 +156,77 @@ public class ImplementacionItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__FUNCION,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__FUNCION,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createProcedimiento()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBALES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBALES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionBasica()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBAL,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__GLOBALES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionDefinida()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__CONSTANTES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstantes()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createConstante()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createTipoComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createArchivo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createEnumerado()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrango()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrangoNumerico()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrangoEnumerado()));
 	}
 

@@ -76,12 +76,12 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createInicioAdapter();
 			}
 			@Override
-			public Adapter caseSentencias(Sentencias object) {
-				return createSentenciasAdapter();
+			public Adapter caseSentencia(Sentencia object) {
+				return createSentenciaAdapter();
 			}
 			@Override
-			public Adapter caseDeclaracionVariable(DeclaracionVariable object) {
-				return createDeclaracionVariableAdapter();
+			public Adapter caseDeclaracionBasica(DeclaracionBasica object) {
+				return createDeclaracionBasicaAdapter();
 			}
 			@Override
 			public Adapter caseLlamadaFuncion(LlamadaFuncion object) {
@@ -96,8 +96,8 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createcadenaAdapter();
 			}
 			@Override
-			public Adapter caseConstCadena(ConstCadena object) {
-				return createConstCadenaAdapter();
+			public Adapter caseCadenaCaracteres(CadenaCaracteres object) {
+				return createCadenaCaracteresAdapter();
 			}
 			@Override
 			public Adapter caseVariable(Variable object) {
@@ -108,8 +108,8 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createOperadorAdapter();
 			}
 			@Override
-			public Adapter caseNumeroEntero(NumeroEntero object) {
-				return createNumeroEnteroAdapter();
+			public Adapter caseEntero(Entero object) {
+				return createEnteroAdapter();
 			}
 			@Override
 			public Adapter caseAsignacion(Asignacion object) {
@@ -124,28 +124,28 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createFuncionAdapter();
 			}
 			@Override
-			public Adapter caseParametroFuncion(ParametroFuncion object) {
-				return createParametroFuncionAdapter();
+			public Adapter caseParametro(Parametro object) {
+				return createParametroAdapter();
 			}
 			@Override
 			public Adapter caseLeer(Leer object) {
 				return createLeerAdapter();
 			}
 			@Override
-			public Adapter caseNumeroDecimal(NumeroDecimal object) {
-				return createNumeroDecimalAdapter();
+			public Adapter caseReal(Real object) {
+				return createRealAdapter();
 			}
 			@Override
-			public Adapter casevalor(valor object) {
-				return createvalorAdapter();
+			public Adapter caseValor(Valor object) {
+				return createValorAdapter();
 			}
 			@Override
-			public Adapter caseoperacion(operacion object) {
-				return createoperacionAdapter();
+			public Adapter caseOperacion(Operacion object) {
+				return createOperacionAdapter();
 			}
 			@Override
-			public Adapter caseValorBooleano(ValorBooleano object) {
-				return createValorBooleanoAdapter();
+			public Adapter caseLogico(Logico object) {
+				return createLogicoAdapter();
 			}
 			@Override
 			public Adapter caseSi(Si object) {
@@ -160,16 +160,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createBloqueAdapter();
 			}
 			@Override
-			public Adapter casemientras(mientras object) {
-				return createmientrasAdapter();
+			public Adapter caseMientras(Mientras object) {
+				return createMientrasAdapter();
 			}
 			@Override
-			public Adapter caserepetir(repetir object) {
-				return createrepetirAdapter();
+			public Adapter caseRepetir(Repetir object) {
+				return createRepetirAdapter();
 			}
 			@Override
-			public Adapter casedesde(desde object) {
-				return createdesdeAdapter();
+			public Adapter caseDesde(Desde object) {
+				return createDesdeAdapter();
 			}
 			@Override
 			public Adapter caseSubproceso(Subproceso object) {
@@ -184,12 +184,12 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createCaracterAdapter();
 			}
 			@Override
-			public Adapter caseInternas(Internas object) {
-				return createInternasAdapter();
+			public Adapter caseFuncionInterna(FuncionInterna object) {
+				return createFuncionInternaAdapter();
 			}
 			@Override
-			public Adapter casesegun(segun object) {
-				return createsegunAdapter();
+			public Adapter caseSegun(Segun object) {
+				return createSegunAdapter();
 			}
 			@Override
 			public Adapter caseDevolver(Devolver object) {
@@ -200,16 +200,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createCasoAdapter();
 			}
 			@Override
-			public Adapter caseConstantes(Constantes object) {
-				return createConstantesAdapter();
+			public Adapter caseConstante(Constante object) {
+				return createConstanteAdapter();
 			}
 			@Override
 			public Adapter caseVector(Vector object) {
 				return createVectorAdapter();
 			}
 			@Override
-			public Adapter caseDeclaracionPropia(DeclaracionPropia object) {
-				return createDeclaracionPropiaAdapter();
+			public Adapter caseDeclaracionDefinida(DeclaracionDefinida object) {
+				return createDeclaracionDefinidaAdapter();
 			}
 			@Override
 			public Adapter caseDeclaracion(Declaracion object) {
@@ -236,8 +236,8 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createTipoDefinidoAdapter();
 			}
 			@Override
-			public Adapter caseTipoExistente(TipoExistente object) {
-				return createTipoExistenteAdapter();
+			public Adapter caseTipoBasico(TipoBasico object) {
+				return createTipoBasicoAdapter();
 			}
 			@Override
 			public Adapter caseArchivo(Archivo object) {
@@ -296,8 +296,8 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createMultiplicacionAdapter();
 			}
 			@Override
-			public Adapter caseDivision(Division object) {
-				return createDivisionAdapter();
+			public Adapter caseDivisionEntera(DivisionEntera object) {
+				return createDivisionEnteraAdapter();
 			}
 			@Override
 			public Adapter caseOr(Or object) {
@@ -360,8 +360,8 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createModAdapter();
 			}
 			@Override
-			public Adapter caseDiv(Div object) {
-				return createDivAdapter();
+			public Adapter caseDivisionReal(DivisionReal object) {
+				return createDivisionRealAdapter();
 			}
 			@Override
 			public Adapter caseOperacionParentesis(OperacionParentesis object) {
@@ -410,160 +410,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Codigo <em>Codigo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Codigo
-	 * @generated
-	 */
-	public Adapter createCodigoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Modulo <em>Modulo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Modulo
-	 * @generated
-	 */
-	public Adapter createModuloAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CabeceraSubproceso <em>Cabecera Subproceso</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.CabeceraSubproceso
-	 * @generated
-	 */
-	public Adapter createCabeceraSubprocesoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Implementacion <em>Implementacion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Implementacion
-	 * @generated
-	 */
-	public Adapter createImplementacionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CabeceraProcedimiento <em>Cabecera Procedimiento</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.CabeceraProcedimiento
-	 * @generated
-	 */
-	public Adapter createCabeceraProcedimientoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CabeceraFuncion <em>Cabecera Funcion</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.CabeceraFuncion
-	 * @generated
-	 */
-	public Adapter createCabeceraFuncionAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Mod <em>Mod</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Mod
-	 * @generated
-	 */
-	public Adapter createModAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Div <em>Div</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Div
-	 * @generated
-	 */
-	public Adapter createDivAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.OperacionParentesis <em>Operacion Parentesis</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.OperacionParentesis
-	 * @generated
-	 */
-	public Adapter createOperacionParentesisAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Unaria <em>Unaria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Unaria
-	 * @generated
-	 */
-	public Adapter createUnariaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.OperacionCompleta <em>Operacion Completa</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.OperacionCompleta
-	 * @generated
-	 */
-	public Adapter createOperacionCompletaAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Inicio <em>Inicio</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -578,30 +424,30 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Sentencias <em>Sentencias</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Sentencia <em>Sentencia</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Sentencias
+	 * @see diagramapseudocodigo.Sentencia
 	 * @generated
 	 */
-	public Adapter createSentenciasAdapter() {
+	public Adapter createSentenciaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.DeclaracionVariable <em>Declaracion Variable</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.DeclaracionBasica <em>Declaracion Basica</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.DeclaracionVariable
+	 * @see diagramapseudocodigo.DeclaracionBasica
 	 * @generated
 	 */
-	public Adapter createDeclaracionVariableAdapter() {
+	public Adapter createDeclaracionBasicaAdapter() {
 		return null;
 	}
 
@@ -648,16 +494,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.ConstCadena <em>Const Cadena</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CadenaCaracteres <em>Cadena Caracteres</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.ConstCadena
+	 * @see diagramapseudocodigo.CadenaCaracteres
 	 * @generated
 	 */
-	public Adapter createConstCadenaAdapter() {
+	public Adapter createCadenaCaracteresAdapter() {
 		return null;
 	}
 
@@ -690,16 +536,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.NumeroEntero <em>Numero Entero</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Entero <em>Entero</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.NumeroEntero
+	 * @see diagramapseudocodigo.Entero
 	 * @generated
 	 */
-	public Adapter createNumeroEnteroAdapter() {
+	public Adapter createEnteroAdapter() {
 		return null;
 	}
 
@@ -746,16 +592,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.ParametroFuncion <em>Parametro Funcion</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Parametro <em>Parametro</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.ParametroFuncion
+	 * @see diagramapseudocodigo.Parametro
 	 * @generated
 	 */
-	public Adapter createParametroFuncionAdapter() {
+	public Adapter createParametroAdapter() {
 		return null;
 	}
 
@@ -774,58 +620,58 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.NumeroDecimal <em>Numero Decimal</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Real <em>Real</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.NumeroDecimal
+	 * @see diagramapseudocodigo.Real
 	 * @generated
 	 */
-	public Adapter createNumeroDecimalAdapter() {
+	public Adapter createRealAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.valor <em>valor</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Valor <em>Valor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.valor
+	 * @see diagramapseudocodigo.Valor
 	 * @generated
 	 */
-	public Adapter createvalorAdapter() {
+	public Adapter createValorAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.operacion <em>operacion</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Operacion <em>Operacion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.operacion
+	 * @see diagramapseudocodigo.Operacion
 	 * @generated
 	 */
-	public Adapter createoperacionAdapter() {
+	public Adapter createOperacionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.ValorBooleano <em>Valor Booleano</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Logico <em>Logico</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.ValorBooleano
+	 * @see diagramapseudocodigo.Logico
 	 * @generated
 	 */
-	public Adapter createValorBooleanoAdapter() {
+	public Adapter createLogicoAdapter() {
 		return null;
 	}
 
@@ -872,44 +718,44 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.mientras <em>mientras</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Mientras <em>Mientras</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.mientras
+	 * @see diagramapseudocodigo.Mientras
 	 * @generated
 	 */
-	public Adapter createmientrasAdapter() {
+	public Adapter createMientrasAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.repetir <em>repetir</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Repetir <em>Repetir</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.repetir
+	 * @see diagramapseudocodigo.Repetir
 	 * @generated
 	 */
-	public Adapter createrepetirAdapter() {
+	public Adapter createRepetirAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.desde <em>desde</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Desde <em>Desde</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.desde
+	 * @see diagramapseudocodigo.Desde
 	 * @generated
 	 */
-	public Adapter createdesdeAdapter() {
+	public Adapter createDesdeAdapter() {
 		return null;
 	}
 
@@ -956,30 +802,30 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Internas <em>Internas</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.FuncionInterna <em>Funcion Interna</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Internas
+	 * @see diagramapseudocodigo.FuncionInterna
 	 * @generated
 	 */
-	public Adapter createInternasAdapter() {
+	public Adapter createFuncionInternaAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.segun <em>segun</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Segun <em>Segun</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.segun
+	 * @see diagramapseudocodigo.Segun
 	 * @generated
 	 */
-	public Adapter createsegunAdapter() {
+	public Adapter createSegunAdapter() {
 		return null;
 	}
 
@@ -1012,16 +858,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Constantes <em>Constantes</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Constante <em>Constante</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Constantes
+	 * @see diagramapseudocodigo.Constante
 	 * @generated
 	 */
-	public Adapter createConstantesAdapter() {
+	public Adapter createConstanteAdapter() {
 		return null;
 	}
 
@@ -1040,16 +886,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.DeclaracionPropia <em>Declaracion Propia</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.DeclaracionDefinida <em>Declaracion Definida</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.DeclaracionPropia
+	 * @see diagramapseudocodigo.DeclaracionDefinida
 	 * @generated
 	 */
-	public Adapter createDeclaracionPropiaAdapter() {
+	public Adapter createDeclaracionDefinidaAdapter() {
 		return null;
 	}
 
@@ -1138,16 +984,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.TipoExistente <em>Tipo Existente</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.TipoBasico <em>Tipo Basico</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.TipoExistente
+	 * @see diagramapseudocodigo.TipoBasico
 	 * @generated
 	 */
-	public Adapter createTipoExistenteAdapter() {
+	public Adapter createTipoBasicoAdapter() {
 		return null;
 	}
 
@@ -1348,16 +1194,16 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Division <em>Division</em>}'.
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.DivisionEntera <em>Division Entera</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Division
+	 * @see diagramapseudocodigo.DivisionEntera
 	 * @generated
 	 */
-	public Adapter createDivisionAdapter() {
+	public Adapter createDivisionEnteraAdapter() {
 		return null;
 	}
 
@@ -1470,6 +1316,160 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createAsignacionComplejaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Codigo <em>Codigo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.Codigo
+	 * @generated
+	 */
+	public Adapter createCodigoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Modulo <em>Modulo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.Modulo
+	 * @generated
+	 */
+	public Adapter createModuloAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CabeceraSubproceso <em>Cabecera Subproceso</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.CabeceraSubproceso
+	 * @generated
+	 */
+	public Adapter createCabeceraSubprocesoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Implementacion <em>Implementacion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.Implementacion
+	 * @generated
+	 */
+	public Adapter createImplementacionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CabeceraProcedimiento <em>Cabecera Procedimiento</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.CabeceraProcedimiento
+	 * @generated
+	 */
+	public Adapter createCabeceraProcedimientoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.CabeceraFuncion <em>Cabecera Funcion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.CabeceraFuncion
+	 * @generated
+	 */
+	public Adapter createCabeceraFuncionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Mod <em>Mod</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.Mod
+	 * @generated
+	 */
+	public Adapter createModAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.DivisionReal <em>Division Real</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.DivisionReal
+	 * @generated
+	 */
+	public Adapter createDivisionRealAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.OperacionParentesis <em>Operacion Parentesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.OperacionParentesis
+	 * @generated
+	 */
+	public Adapter createOperacionParentesisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Unaria <em>Unaria</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.Unaria
+	 * @generated
+	 */
+	public Adapter createUnariaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.OperacionCompleta <em>Operacion Completa</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.OperacionCompleta
+	 * @generated
+	 */
+	public Adapter createOperacionCompletaAdapter() {
 		return null;
 	}
 

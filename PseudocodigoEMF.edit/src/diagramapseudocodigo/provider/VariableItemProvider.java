@@ -31,7 +31,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class VariableItemProvider
+public class VariableItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -134,6 +134,7 @@ public class VariableItemProvider
 			getString("_UI_Variable_type") :
 			getString("_UI_Variable_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -38,33 +38,33 @@ import diagramapseudocodigo.Caracter;
 import diagramapseudocodigo.Caso;
 import diagramapseudocodigo.Codigo;
 import diagramapseudocodigo.Comparacion;
-import diagramapseudocodigo.ConstCadena;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.CadenaCaracteres;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.DeclaracionDefinida;
+import diagramapseudocodigo.DeclaracionBasica;
 import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Div;
-import diagramapseudocodigo.Division;
+import diagramapseudocodigo.DivisionReal;
+import diagramapseudocodigo.DivisionEntera;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.FuncionFicheroAbrir;
 import diagramapseudocodigo.FuncionFicheroCerrar;
 import diagramapseudocodigo.Igualdad;
-import diagramapseudocodigo.Internas;
+import diagramapseudocodigo.FuncionInterna;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.NumeroDecimal;
-import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.Real;
+import diagramapseudocodigo.Entero;
 import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Parametro;
 import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Resta;
 import diagramapseudocodigo.Subproceso;
@@ -74,7 +74,7 @@ import diagramapseudocodigo.SubrangoNumerico;
 import diagramapseudocodigo.Suma;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.ValorBooleano;
+import diagramapseudocodigo.Logico;
 import diagramapseudocodigo.ValorComplejo;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
@@ -82,10 +82,10 @@ import diagramapseudocodigo.ValorVector;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.desde;
-import diagramapseudocodigo.operacion;
-import diagramapseudocodigo.segun;
-import diagramapseudocodigo.valor;
+import diagramapseudocodigo.Desde;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Segun;
+import diagramapseudocodigo.Valor;
 
 public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	public static final String INVALID_VAR_NAME = "xtext.workshop.advanced.quickfix.InvalidTypeName";
@@ -130,32 +130,32 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			//Preparamos todos los campos clasificados por el nombre del registro (utilizado como identificador)
 			Map<String,HashMap<String, String>> registros = new HashMap<String,HashMap<String, String>>();
 			
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registros.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 				}
 			}
 			
-			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-			List<String> vectores = funciones.registrarVectores(algoritmo.getTipocomplejo());
-			List<String> matrices = funciones.registrarMatrices(algoritmo.getTipocomplejo());
+			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones());
+			List<String> vectores = funciones.registrarVectores(algoritmo.getComplejos());
+			List<String> matrices = funciones.registrarMatrices(algoritmo.getComplejos());
 			
 			checkAux(valorRegistro, registros, variablesTipadas, vectores, matrices);
 		} else if(modulo != null) {
 			//Preparamos todos los campos clasificados por el nombre del registro (utilizado como identificador)
 			Map<String,HashMap<String, String>> registros = new HashMap<String,HashMap<String, String>>();
 			
-			for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			for(TipoComplejo t: modulo.getImplementacion().getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registros.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 				}
 			}
 			
-			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
-			List<String> vectores = funciones.registrarVectores(modulo.getImplementacion().getTipocomplejo());
-			List<String> matrices = funciones.registrarMatrices(modulo.getImplementacion().getTipocomplejo());
+			Map<String,String> variablesTipadas = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
+			List<String> vectores = funciones.registrarVectores(modulo.getImplementacion().getComplejos());
+			List<String> matrices = funciones.registrarMatrices(modulo.getImplementacion().getComplejos());
 			
 			checkAux(valorRegistro, registros, variablesTipadas, vectores, matrices);
 		}
@@ -168,8 +168,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		String campoAnterior = "";
 		String registroReferenciado = "";
 		
-		for(CampoRegistro campo: r.getCampo()) {
-			if(r.getCampo().indexOf(campo) == 0) { //El primer campo no tiene anterior
+		for(CampoRegistro campo: r.getCampos()) {
+			if(r.getCampos().indexOf(campo) == 0) { //El primer campo no tiene anterior
 				if(!registros.get(variablesTipadas.get(r.getNombre_registro())).containsKey(campo.getNombre_campo())) {
 					error(readerMessages.getString("CAMPO_REGISTRO_NO_VALIDO", campo.getNombre_campo(), variablesTipadas.get(r.getNombre_registro())), campo, DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__NOMBRE_CAMPO);
 				}
@@ -214,55 +214,54 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * Función que se encarga de validar si la variable utilizada en un bucle desde ha sido previamente declarada y es de tipo entero
 	 * @param d
 	 */
-	protected void check(desde dsd) {
-		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(dsd, Algoritmo.class);
-		Modulo modulo = EcoreUtil2.getContainerOfType(dsd, Modulo.class);
-		Subproceso subproceso =  EcoreUtil2.getContainerOfType(dsd, Subproceso.class);
+	protected void check(Desde desde) {
+		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(desde, Algoritmo.class);
+		Modulo modulo = EcoreUtil2.getContainerOfType(desde, Modulo.class);
+		Subproceso subproceso =  EcoreUtil2.getContainerOfType(desde, Subproceso.class);
 		
 		if(algoritmo != null && subproceso == null) {
-			List<Declaracion> declaraciones = algoritmo.getTiene().getDeclaracion();
-			declaraciones.addAll(algoritmo.getGlobal());
+			List<Declaracion> declaraciones = algoritmo.getInicio().getDeclaraciones();
+			declaraciones.addAll(algoritmo.getGlobales());
 			Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
-			checkAux(dsd, declaraciones, constantesTipadas);
+			checkAux(desde, declaraciones, constantesTipadas);
 		} else if(algoritmo != null && subproceso != null) {
-			List<Declaracion> declaraciones = subproceso.getDeclaracion();
-			declaraciones.addAll(algoritmo.getGlobal());
+			List<Declaracion> declaraciones = subproceso.getDeclaraciones();
+			declaraciones.addAll(algoritmo.getGlobales());
 			Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
-			checkAux(dsd, declaraciones, constantesTipadas);
+			checkAux(desde, declaraciones, constantesTipadas);
 		} else {
-			List<Declaracion> declaraciones = modulo.getImplementacion().getGlobal();
-			declaraciones.addAll(subproceso.getDeclaracion());
+			List<Declaracion> declaraciones = modulo.getImplementacion().getGlobales();
+			declaraciones.addAll(subproceso.getDeclaraciones());
 			for(Modulo m: modulo.getImportaciones()) {
-				declaraciones.addAll(m.getExporta_global());
+				declaraciones.addAll(m.getExporta_globales());
 			}
 			Map<String,String> constantesTipadas = funciones.registrarConstantesTipadas(modulo.getImplementacion().getConstantes(), readerMessages);
-			checkAux(dsd, declaraciones, constantesTipadas);
+			checkAux(desde, declaraciones, constantesTipadas);
 		} 
 	}
 	
 	/*
 	 * Función auxiliar de check(Desde) // Principio DRY.
 	 */
-	private void checkAux(desde dsd, List<Declaracion> declaraciones, Map<String,String> constantesTipadas) {
+	private void checkAux(Desde desde, List<Declaracion> declaraciones, Map<String,String> constantesTipadas) {
 		boolean ok = false;
 		
-		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionVariable) {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+		for(Declaracion declaracion: declaraciones) {
+			if(declaracion instanceof DeclaracionBasica) {
+				DeclaracionBasica declaracionBasica = (DeclaracionBasica) declaracion;
+				for(Variable variable: declaracionBasica.getVariables()) {
 					//Iterador:
-					if(v.getNombre().equals(dsd.getAsignacion().getValor_asignacion()) && dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(variable.getNombre().equals(desde.getAsignacion().getValor_asignacion()) && declaracionBasica.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						ok = true;
-					}
-					else if(v.getNombre().equals(dsd.getAsignacion().getValor_asignacion()) && !dec.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					} else if(variable.getNombre().equals(desde.getAsignacion().getValor_asignacion()) && !declaracionBasica.getTipo().equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						ok = true;
-						error(readerMessages.getString("VARIABLE_DESDE_ENTERO", v.getNombre()), dsd, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
+						error(readerMessages.getString("VARIABLE_DESDE_ENTERO", variable.getNombre()), desde, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION);
 					}
 				}
 			}
 		}
 		if(!ok) {
-			error(readerMessages.getString("VARIABLE_NO_DECLARADA", dsd.getAsignacion().getValor_asignacion()), dsd, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION, VARIABLE_NO_DEFINIDA);
+			error(readerMessages.getString("VARIABLE_NO_DECLARADA", desde.getAsignacion().getValor_asignacion()), desde, DiagramapseudocodigoPackage.Literals.DESDE__ASIGNACION, VARIABLE_NO_DEFINIDA);
 		}
 	}
 	
@@ -277,31 +276,31 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		Subproceso subproceso =  EcoreUtil2.getContainerOfType(operacion, Subproceso.class);
 		
 		if(algoritmo != null && subproceso == null) {
-			List<String> variables = funciones.registrarVariables(algoritmo.getTiene().getDeclaracion());
-			variables.addAll(funciones.registrarVariables(algoritmo.getGlobal()));
+			List<String> variables = funciones.registrarVariables(algoritmo.getInicio().getDeclaraciones());
+			variables.addAll(funciones.registrarVariables(algoritmo.getGlobales()));
 			variables.addAll(funciones.registrarConstantes(algoritmo.getConstantes()));
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.addAll(funciones.registrarVariables(m.getExporta_global()));
+				variables.addAll(funciones.registrarVariables(m.getExporta_globales()));
 				variables.addAll(m.getExporta_constantes());
 			}
 			checkAux(operacion.getValor_operacion(), variables);
 		} else if(algoritmo != null && subproceso != null) {
-			List<String> variables = funciones.registrarVariables(subproceso.getDeclaracion());
-			variables.addAll(funciones.registrarVariables(algoritmo.getGlobal()));
+			List<String> variables = funciones.registrarVariables(subproceso.getDeclaraciones());
+			variables.addAll(funciones.registrarVariables(algoritmo.getGlobales()));
 			variables.addAll(funciones.registrarConstantes(algoritmo.getConstantes()));
-			variables.addAll(funciones.registrarParametros(subproceso.getParametrofuncion()));
+			variables.addAll(funciones.registrarParametros(subproceso.getParametros()));
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.addAll(funciones.registrarVariables(m.getExporta_global()));
+				variables.addAll(funciones.registrarVariables(m.getExporta_globales()));
 				variables.addAll(m.getExporta_constantes());
 			}
 			checkAux(operacion.getValor_operacion(), variables);
 		} else {
-			List<String> variables = funciones.registrarVariables(modulo.getImplementacion().getGlobal());
+			List<String> variables = funciones.registrarVariables(modulo.getImplementacion().getGlobales());
 			variables.addAll(funciones.registrarConstantes(modulo.getImplementacion().getConstantes()));
-			variables.addAll(funciones.registrarVariables(subproceso.getDeclaracion()));
-			variables.addAll(funciones.registrarParametros(subproceso.getParametrofuncion()));
+			variables.addAll(funciones.registrarVariables(subproceso.getDeclaraciones()));
+			variables.addAll(funciones.registrarParametros(subproceso.getParametros()));
 			for(Modulo m: modulo.getImportaciones()) {
-				variables.addAll(funciones.registrarVariables(m.getExporta_global()));
+				variables.addAll(funciones.registrarVariables(m.getExporta_globales()));
 				variables.addAll(m.getExporta_constantes());
 			}
 			checkAux(operacion.getValor_operacion(), variables);
@@ -311,9 +310,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/*
 	 * Función auxiliar de check(OperacionCompleta) // Principio DRY.
 	 */
-	private void checkAux(operacion o, List<String> variables) {
-		ArrayList<valor> valores = new ArrayList<valor>();
-		valores = funciones.registrarValoresOperacion(o, valores);
+	private void checkAux(Operacion operacion, List<String> variables) {
+		ArrayList<Valor> valores = new ArrayList<Valor>();
+		valores = funciones.registrarValoresOperacion(operacion, valores);
 		
 		List<ValorRegistro> variablesRegistroNoDeclaradas = funciones.variablesRegistroDeclaradas(valores, variables);
 		if(variablesRegistroNoDeclaradas.size() != 0) {
@@ -340,9 +339,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			}
 		}
 		
-		for(valor v: valores) {
-			if(v instanceof ValorVector) {
-				ValorVector vector = (ValorVector) v;
+		for(Valor valor: valores) {
+			if(valor instanceof ValorVector) {
+				ValorVector vector = (ValorVector) valor;
 				if(vector.getIndice() instanceof VariableID) {
 					VariableID var = (VariableID) vector.getIndice();
 					if(!variables.contains(var.getNombre())){
@@ -350,12 +349,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 				}
 			}
-			else if(v instanceof ValorMatriz) {
-				ValorMatriz m = (ValorMatriz) v;
-				ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+			else if(valor instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) valor;
+				ArrayList<Operacion> indicesMatriz = new ArrayList<Operacion>();
 				indicesMatriz.add(m.getPrimerIndice());
 				indicesMatriz.add(m.getSegundoIndice());
-				for(operacion op: indicesMatriz) {
+				for(Operacion op: indicesMatriz) {
 					if(op instanceof VariableID) {
 						VariableID var = (VariableID) op;
 						if(!variables.contains(var.getNombre())) {
@@ -364,9 +363,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					}
 				}
 			}
-			else if(v instanceof LlamadaFuncion) {
-				LlamadaFuncion f = (LlamadaFuncion) v;
-				for(valor val: f.getOperadores()) {
+			else if(valor instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) valor;
+				for(Valor val: f.getOperadores()) {
 					if(val instanceof Operador) {
 						Operador op = (Operador) val;
 						if(op instanceof VariableID) {
@@ -386,10 +385,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 						}
 						else if(op instanceof ValorMatriz) {
 							ValorMatriz m = (ValorMatriz) op;
-							ArrayList<operacion> indicesMatriz = new ArrayList<operacion>();
+							ArrayList<Operacion> indicesMatriz = new ArrayList<Operacion>();
 							indicesMatriz.add(m.getPrimerIndice());
 							indicesMatriz.add(m.getSegundoIndice());
-							for(operacion operacionAux: indicesMatriz) {
+							for(Operacion operacionAux: indicesMatriz) {
 								if(operacionAux instanceof VariableID) {
 									VariableID var = (VariableID) operacionAux;
 									if(!variables.contains(var.getNombre())){
@@ -410,47 +409,47 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * @param bloque
 	 */
 	protected void check(Bloque bloque) {
-		if(!(bloque instanceof desde) && !(bloque instanceof segun)) {  //El bloque desde no contiene expresiones lógicas solo iteradores y el bloque segun puede aceptar otros valores.
+		if(!(bloque instanceof Desde) && !(bloque instanceof Segun)) {  //El bloque desde no contiene expresiones lógicas solo iteradores y el bloque segun puede aceptar otros valores.
 			Algoritmo algoritmo = EcoreUtil2.getContainerOfType(bloque, Algoritmo.class);
 			Modulo modulo = EcoreUtil2.getContainerOfType(bloque, Modulo.class);
 			Subproceso subproceso =  EcoreUtil2.getContainerOfType(bloque, Subproceso.class);
 			
 			if(algoritmo != null && subproceso == null) {
-				Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-				variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+				Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones());
+				variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobales()));
 				Map<String,HashMap<Integer,String>> subprocesos = new HashMap<String,HashMap<Integer,String>>();
-				funciones.prepararColeccionFunciones(algoritmo.getFuncion(), subprocesos);
+				funciones.prepararColeccionFunciones(algoritmo.getSubprocesos(), subprocesos);
 				Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
 				Map<String,String> vectores = new HashMap<String,String>();
 				List<String> nombresRegistros = new ArrayList<String>();
 				Map<String,String> matrices = new HashMap<String,String>();
-				funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+				funciones.prepararColeccionesTiposComplejos(algoritmo.getComplejos(), registros, nombresRegistros, vectores, matrices);
 				
 				checkAux(bloque.getValor(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
 			} else if(algoritmo != null && subproceso != null) {
-				Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-				variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
-				variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+				Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+				variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobales()));
+				variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 				Map<String,HashMap<Integer,String>> subprocesos = new HashMap<String,HashMap<Integer,String>>();
-				funciones.prepararColeccionFunciones(algoritmo.getFuncion(), subprocesos);
+				funciones.prepararColeccionFunciones(algoritmo.getSubprocesos(), subprocesos);
 				Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
 				Map<String,String> vectores = new HashMap<String,String>();
 				List<String> nombresRegistros = new ArrayList<String>();
 				Map<String,String> matrices = new HashMap<String,String>();
-				funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+				funciones.prepararColeccionesTiposComplejos(algoritmo.getComplejos(), registros, nombresRegistros, vectores, matrices);
 				
 				checkAux(bloque.getValor(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
 			} else {
-				Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-				variables.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal()));
-				variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+				Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+				variables.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales()));
+				variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 				Map<String,HashMap<Integer,String>> subprocesos = new HashMap<String,HashMap<Integer,String>>();
-				funciones.prepararColeccionFunciones(modulo.getImplementacion().getFuncion(), subprocesos);
+				funciones.prepararColeccionFunciones(modulo.getImplementacion().getSubprocesos(), subprocesos);
 				Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
 				Map<String,String> vectores = new HashMap<String,String>();
 				List<String> nombresRegistros = new ArrayList<String>();
 				Map<String,String> matrices = new HashMap<String,String>();
-				funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
+				funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getComplejos(), registros, nombresRegistros, vectores, matrices);
 				
 				checkAux(bloque.getValor(), variables, subprocesos, registros, nombresRegistros, vectores, matrices);
 			} 
@@ -460,9 +459,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/*
 	 * Función auxiliar de check(Bloque) // Principio DRY.
 	 */
-	private void checkAux(operacion op, Map<String, String> variables, Map<String,HashMap<Integer,String>> subprocesos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
-		if(op instanceof OperacionCompleta) {
-			OperacionCompleta operacionCompleta = (OperacionCompleta) op;
+	private void checkAux(Operacion operacion, Map<String, String> variables, Map<String,HashMap<Integer,String>> subprocesos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
+		if(operacion instanceof OperacionCompleta) {
+			OperacionCompleta operacionCompleta = (OperacionCompleta) operacion;
 			if(operacionCompleta.getValor_operacion() instanceof  Suma) {
 				Suma suma = (Suma) operacionCompleta.getValor_operacion();
 				if(!(funciones.checkOperacionLogica(suma))) {
@@ -481,10 +480,16 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), multiplicacion, DiagramapseudocodigoPackage.Literals.MULTIPLICACION__SIGNO_OP);
 				}
 			}
-			else if(operacionCompleta.getValor_operacion() instanceof Division) {
-				Division division = (Division) operacionCompleta.getValor_operacion();
+			else if(operacionCompleta.getValor_operacion() instanceof DivisionEntera) {
+				DivisionEntera division = (DivisionEntera) operacionCompleta.getValor_operacion();
 				if(!(funciones.checkOperacionLogica(division))) {
-					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
+				}
+			}
+			else if(operacionCompleta.getValor_operacion() instanceof DivisionReal) {
+				DivisionReal division = (DivisionReal) operacionCompleta.getValor_operacion();
+				if(!(funciones.checkOperacionLogica(division))) {
+					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), division, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 				}
 			}
 			else if(operacionCompleta.getValor_operacion() instanceof Or) {
@@ -510,18 +515,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(!(funciones.checkOperacionLogica(igualdad))) {
 					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), igualdad, DiagramapseudocodigoPackage.Literals.IGUALDAD__SIGNO_OP);
 				}
-			} else if(operacionCompleta.getValor_operacion() instanceof NumeroEntero) {
-				NumeroEntero entero = (NumeroEntero) operacionCompleta.getValor_operacion();
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), entero, DiagramapseudocodigoPackage.Literals.NUMERO_ENTERO__VALOR);
-			} else if(operacionCompleta.getValor_operacion() instanceof NumeroDecimal) {
-				NumeroDecimal real = (NumeroDecimal) operacionCompleta.getValor_operacion();
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), real, DiagramapseudocodigoPackage.Literals.NUMERO_DECIMAL__VALOR);
-			} else if(operacionCompleta.getValor_operacion() instanceof ConstCadena) {
-				ConstCadena cadena = (ConstCadena) operacionCompleta.getValor_operacion();
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), cadena, DiagramapseudocodigoPackage.Literals.CONST_CADENA__CONTENIDO);
+			} else if(operacionCompleta.getValor_operacion() instanceof Entero) {
+				Entero entero = (Entero) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), entero, DiagramapseudocodigoPackage.Literals.ENTERO__VALOR);
+			} else if(operacionCompleta.getValor_operacion() instanceof Real) {
+				Real real = (Real) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), real, DiagramapseudocodigoPackage.Literals.REAL__VALOR);
+			} else if(operacionCompleta.getValor_operacion() instanceof CadenaCaracteres) {
+				CadenaCaracteres cadena = (CadenaCaracteres) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), cadena, DiagramapseudocodigoPackage.Literals.CADENA_CARACTERES__VALOR);
 			} else if(operacionCompleta.getValor_operacion() instanceof Caracter) {
 				Caracter caracter = (Caracter) operacionCompleta.getValor_operacion();
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), caracter, DiagramapseudocodigoPackage.Literals.CARACTER__CONTENIDO);
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), caracter, DiagramapseudocodigoPackage.Literals.CARACTER__VALOR);
 			} else if(operacionCompleta.getValor_operacion() instanceof VariableID) {
 				VariableID variable = (VariableID) operacionCompleta.getValor_operacion();
 				if(variables.containsKey(variable.getNombre())) {
@@ -540,7 +545,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				ValorRegistro vr = (ValorRegistro) operacionCompleta.getValor_operacion();
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-						if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
 							error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), vr, DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__NOMBRE_REGISTRO);
 						}
 					}
@@ -555,9 +560,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
 					error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
 				}
-			} else if(operacionCompleta.getValor_operacion() instanceof Internas) {
-				Internas interna = (Internas) operacionCompleta.getValor_operacion();
-				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), interna, DiagramapseudocodigoPackage.Literals.INTERNAS__NOMBRE);
+			} else if(operacionCompleta.getValor_operacion() instanceof FuncionInterna) {
+				FuncionInterna interna = (FuncionInterna) operacionCompleta.getValor_operacion();
+				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), interna, DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__NOMBRE);
 			}
 		}
 	}
@@ -573,44 +578,44 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		Subproceso subproceso =  EcoreUtil2.getContainerOfType(llamadaFuncion, Subproceso.class);
 		
 		if(algoritmo != null && subproceso == null) {
-			Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getTipocomplejo());
-			Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getTipocomplejo());
-			Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion()));
+			Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getComplejos());
+			Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getComplejos());
+			Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones());
+			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobales(), algoritmo.getInicio().getDeclaraciones()));
 			//Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_global()));
+				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_globales()));
 			}
 			List<Subproceso> subprocesosTotales = funciones.registrarSubprocesosExportados(algoritmo.getImportaciones());
-			subprocesosTotales.addAll(algoritmo.getFuncion());
+			subprocesosTotales.addAll(algoritmo.getSubprocesos());
 			Map<String, ArrayList<Integer>> funcionesParametros = funciones.registrarFuncionesConNumeroParametros(subprocesosTotales);
 			checkAux(llamadaFuncion, subprocesosTotales, variables, tiposVectoresMatrices, tiposRegistros, funcionesParametros);
 		} else if(algoritmo != null && subproceso != null) {
-			Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getTipocomplejo());
-			Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getTipocomplejo());
-			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(algoritmo.getComplejos());
+			Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(algoritmo.getComplejos());
+			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobales(), subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			//Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_global()));
+				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_globales()));
 			}
 			List<Subproceso> subprocesosTotales = funciones.registrarSubprocesosExportados(algoritmo.getImportaciones());
-			subprocesosTotales.addAll(algoritmo.getFuncion());
+			subprocesosTotales.addAll(algoritmo.getSubprocesos());
 			Map<String, ArrayList<Integer>> funcionesParametros = funciones.registrarFuncionesConNumeroParametros(subprocesosTotales);
 			checkAux(llamadaFuncion, subprocesosTotales, variables, tiposVectoresMatrices, tiposRegistros, funcionesParametros);
 		} else {
-			Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(modulo.getImplementacion().getTipocomplejo());
-			Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(modulo.getImplementacion().getTipocomplejo());
-			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobal(), subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String,String> tiposVectoresMatrices = funciones.registrarTiposNativosdeComplejos(modulo.getImplementacion().getComplejos());
+			Map<String,HashMap<String,String>> tiposRegistros = funciones.registrarTiposNativosRegistros(modulo.getImplementacion().getComplejos());
+			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobales(), subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			//Map<String,String> constantes = funciones.registrarConstantesTipadas(algoritmo.getConstantes(), readerMessages);
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_global()));
+				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_globales()));
 			}
 			List<Subproceso> subprocesosTotales = funciones.registrarSubprocesosExportados(modulo.getImportaciones());
-			subprocesosTotales.addAll(modulo.getImplementacion().getFuncion());
+			subprocesosTotales.addAll(modulo.getImplementacion().getSubprocesos());
 			Map<String, ArrayList<Integer>> funcionesParametros = funciones.registrarFuncionesConNumeroParametros(subprocesosTotales);
 			checkAux(llamadaFuncion, subprocesosTotales, variables, tiposVectoresMatrices, tiposRegistros, funcionesParametros);
 		} 
@@ -621,9 +626,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 */
 	private void checkAux(LlamadaFuncion llamadaFuncion, List<Subproceso> subprocesos, Map<String,String> variables, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, Map<String, ArrayList<Integer>> funcionesParametros) {
 		for(Subproceso s: subprocesos) {
-			List<String> tipos = funciones.getTiposCabecera(s.getParametrofuncion());
+			List<String> tipos = funciones.getTiposCabecera(s.getParametros());
 			String nombre = s.getNombre();
-			int parametros = s.getParametrofuncion().size();
+			int parametros = s.getParametros().size();
 			if(llamadaFuncion.getNombre().equals(nombre) && llamadaFuncion.getOperadores().size() == parametros) {
 				List<String> nombresVariables = new ArrayList<String>();
 				Map<String,String> nombresVariablesCampos = new HashMap<String,String>();
@@ -653,64 +658,64 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/* 6) */ @Check /* -------------------------------------------------------------------------------------------------------------- */
 	/**
 	 * Función que se encarga de comprobar que al menos uno de los dos operadores utilizados en la división real sea de tipo real.
-	 * @param divReal
+	 * @param divisionReal
 	 */
-	protected void check(Div divReal) {
-		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(divReal, Algoritmo.class);
-		Modulo modulo = EcoreUtil2.getContainerOfType(divReal, Modulo.class);
-		Subproceso subproceso =  EcoreUtil2.getContainerOfType(divReal, Subproceso.class);
+	protected void check(DivisionReal divisionReal) {
+		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(divisionReal, Algoritmo.class);
+		Modulo modulo = EcoreUtil2.getContainerOfType(divisionReal, Modulo.class);
+		Subproceso subproceso =  EcoreUtil2.getContainerOfType(divisionReal, Subproceso.class);
 		
 		if(algoritmo != null && subproceso == null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
-			checkAux(divReal, variables);
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones()));
+			checkAux(divisionReal, variables);
 		} else if(algoritmo != null && subproceso != null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			checkAux(divReal, variables);
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			checkAux(divisionReal, variables);
 		} else {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			checkAux(divReal, variables);
+			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			checkAux(divisionReal, variables);
 		} 
 	}
 	
 	/*
-	 * Función auxiliar de check(DivReal) // Principio DRY.
+	 * Función auxiliar de check(DivisionReal) // Principio DRY.
 	 */
-	private void checkAux(Div divReal, Map<String, String> variables) {
-		if(divReal.getLeft() instanceof NumeroEntero && divReal.getRight() instanceof NumeroEntero) {
-			error(readerMessages.getString("DIV_REAL"), divReal, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+	private void checkAux(DivisionReal divisionReal, Map<String, String> variables) {
+		if(divisionReal.getLeft() instanceof Entero && divisionReal.getRight() instanceof Entero) {
+			error(readerMessages.getString("DIV_REAL"), divisionReal, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 		}
-		else if(divReal.getLeft() instanceof VariableID && divReal.getRight() instanceof VariableID) {
-			VariableID left = (VariableID) divReal.getLeft();
-			VariableID right = (VariableID) divReal.getRight();
+		else if(divisionReal.getLeft() instanceof VariableID && divisionReal.getRight() instanceof VariableID) {
+			VariableID left = (VariableID) divisionReal.getLeft();
+			VariableID right = (VariableID) divisionReal.getRight();
 			if(variables.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")) && variables.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
-				error(readerMessages.getString("DIV_REAL"), divReal, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+				error(readerMessages.getString("DIV_REAL"), divisionReal, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 			}
 		}
-		else if(divReal.getLeft() instanceof VariableID && divReal.getRight() instanceof NumeroEntero) {
-			VariableID left = (VariableID) divReal.getLeft();
+		else if(divisionReal.getLeft() instanceof VariableID && divisionReal.getRight() instanceof Entero) {
+			VariableID left = (VariableID) divisionReal.getLeft();
 			if(variables.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
-				error(readerMessages.getString("DIV_REAL"), divReal, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+				error(readerMessages.getString("DIV_REAL"), divisionReal, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 			}
 		}
-		else if(divReal.getLeft() instanceof NumeroEntero && divReal.getRight() instanceof VariableID) {
-			VariableID right = (VariableID) divReal.getRight();
+		else if(divisionReal.getLeft() instanceof Entero && divisionReal.getRight() instanceof VariableID) {
+			VariableID right = (VariableID) divisionReal.getRight();
 			if(variables.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
-				error(readerMessages.getString("DIV_REAL"), divReal, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+				error(readerMessages.getString("DIV_REAL"), divisionReal, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 			}
 		}
-		else if(divReal.getLeft() instanceof Suma || divReal.getLeft() instanceof Resta || divReal.getLeft() instanceof Multiplicacion ||
-				divReal.getLeft() instanceof Division || divReal.getLeft() instanceof Div || divReal.getLeft() instanceof OperacionParentesis) {
-			ArrayList<valor> valoresOperacion = new ArrayList<valor>();
-			funciones.registrarValoresOperacion(divReal.getLeft(), valoresOperacion);
+		else if(divisionReal.getLeft() instanceof Suma || divisionReal.getLeft() instanceof Resta || divisionReal.getLeft() instanceof Multiplicacion ||
+				divisionReal.getLeft() instanceof DivisionEntera || divisionReal.getLeft() instanceof DivisionReal || divisionReal.getLeft() instanceof OperacionParentesis) {
+			ArrayList<Valor> valoresOperacion = new ArrayList<Valor>();
+			funciones.registrarValoresOperacion(divisionReal.getLeft(), valoresOperacion);
 			int cuentaReales = 0;
 			
-			for(valor v: valoresOperacion) {
-				if(v instanceof NumeroDecimal) {
+			for(Valor v: valoresOperacion) {
+				if(v instanceof Real) {
 					cuentaReales += 1;
 				}
 				else if(v instanceof VariableID) {
@@ -721,17 +726,17 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}	
 			if(cuentaReales == 0) {
-				error(readerMessages.getString("DIV_REAL"), divReal, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+				error(readerMessages.getString("DIV_REAL"), divisionReal, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 			}
 		}
-		else if(divReal.getRight() instanceof Suma || divReal.getRight() instanceof Resta || divReal.getRight() instanceof Multiplicacion || 
-				divReal.getRight() instanceof Division || divReal.getRight() instanceof Div || divReal.getRight() instanceof OperacionParentesis) {
-			ArrayList<valor> valoresOperacion = new ArrayList<valor>();
-			funciones.registrarValoresOperacion(divReal.getRight(), valoresOperacion);
+		else if(divisionReal.getRight() instanceof Suma || divisionReal.getRight() instanceof Resta || divisionReal.getRight() instanceof Multiplicacion || 
+				divisionReal.getRight() instanceof DivisionEntera || divisionReal.getRight() instanceof DivisionReal || divisionReal.getRight() instanceof OperacionParentesis) {
+			ArrayList<Valor> valoresOperacion = new ArrayList<Valor>();
+			funciones.registrarValoresOperacion(divisionReal.getRight(), valoresOperacion);
 			int cuentaReales = 0;
 			
-			for(valor v: valoresOperacion) {
-				if(v instanceof NumeroDecimal) {
+			for(Valor v: valoresOperacion) {
+				if(v instanceof Real) {
 					cuentaReales += 1;
 				}
 				else if(v instanceof VariableID) {
@@ -742,7 +747,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}	
 			if(cuentaReales == 0) {
-				error(readerMessages.getString("DIV_REAL"), divReal, DiagramapseudocodigoPackage.Literals.DIV__SIGNO_OP);
+				error(readerMessages.getString("DIV_REAL"), divisionReal, DiagramapseudocodigoPackage.Literals.DIVISION_REAL__SIGNO_OP);
 			}
 		}
 	}
@@ -750,68 +755,68 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/* 7) */ @Check /* -------------------------------------------------------------------------------------------------------------- */
 	/**
 	 * Función que se encarga de comprobar que todos los operadores utilizados en la división entera sean de tipo entero.
-	 * @param divEntera
+	 * @param divisionEntera
 	 */
-	protected void check(Division divEntera) {
-		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(divEntera, Algoritmo.class);
-		Modulo modulo = EcoreUtil2.getContainerOfType(divEntera, Modulo.class);
-		Subproceso subproceso =  EcoreUtil2.getContainerOfType(divEntera, Subproceso.class);
+	protected void check(DivisionEntera divisionEntera) {
+		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(divisionEntera, Algoritmo.class);
+		Modulo modulo = EcoreUtil2.getContainerOfType(divisionEntera, Modulo.class);
+		Subproceso subproceso =  EcoreUtil2.getContainerOfType(divisionEntera, Subproceso.class);
 		
 		if(algoritmo != null && subproceso == null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
-			checkAux(divEntera, variables);
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones()));
+			checkAux(divisionEntera, variables);
 		} else if(algoritmo != null && subproceso != null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			checkAux(divEntera, variables);
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			checkAux(divisionEntera, variables);
 		} else {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			checkAux(divEntera, variables);
+			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			checkAux(divisionEntera, variables);
 		}
 	}
 	
 	/*
-	 * Función auxiliar de check(DivEntera) // Principio DRY.
+	 * Función auxiliar de check(DivisionEntera) // Principio DRY.
 	 */
-	private void checkAux(Division divEntera, Map<String, String> variables) {
-		if((!(divEntera.getLeft() instanceof NumeroEntero) || !(divEntera.getRight() instanceof NumeroEntero)) && (!(divEntera.getLeft() instanceof VariableID) && !(divEntera.getRight() instanceof VariableID))
-				&& (!(divEntera.getLeft() instanceof OperacionParentesis) && !(divEntera.getRight() instanceof OperacionParentesis))) {
-			error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+	private void checkAux(DivisionEntera divisionEntera, Map<String, String> variables) {
+		if((!(divisionEntera.getLeft() instanceof Entero) || !(divisionEntera.getRight() instanceof Entero)) && (!(divisionEntera.getLeft() instanceof VariableID) && !(divisionEntera.getRight() instanceof VariableID))
+				&& (!(divisionEntera.getLeft() instanceof OperacionParentesis) && !(divisionEntera.getRight() instanceof OperacionParentesis))) {
+			error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 		}
-		else if(divEntera.getLeft() instanceof NumeroDecimal || divEntera.getRight() instanceof NumeroDecimal) {
-			error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+		else if(divisionEntera.getLeft() instanceof Real || divisionEntera.getRight() instanceof Real) {
+			error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 		}
-		else if(divEntera.getLeft() instanceof VariableID && divEntera.getRight() instanceof VariableID) {
-			VariableID left = (VariableID) divEntera.getLeft();
-			VariableID right = (VariableID) divEntera.getRight();
+		else if(divisionEntera.getLeft() instanceof VariableID && divisionEntera.getRight() instanceof VariableID) {
+			VariableID left = (VariableID) divisionEntera.getLeft();
+			VariableID right = (VariableID) divisionEntera.getRight();
 			if(!(variables.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) || !(variables.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO")))) {
-				error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+				error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 			}
 		}
-		else if(divEntera.getLeft() instanceof VariableID && divEntera.getRight() instanceof NumeroEntero) {
-			VariableID left = (VariableID) divEntera.getLeft();
+		else if(divisionEntera.getLeft() instanceof VariableID && divisionEntera.getRight() instanceof Entero) {
+			VariableID left = (VariableID) divisionEntera.getLeft();
 			if(!variables.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
-				error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+				error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 			}
 		}
-		else if(divEntera.getLeft() instanceof NumeroEntero && divEntera.getRight() instanceof VariableID) {
-			VariableID right = (VariableID) divEntera.getRight();
+		else if(divisionEntera.getLeft() instanceof Entero && divisionEntera.getRight() instanceof VariableID) {
+			VariableID right = (VariableID) divisionEntera.getRight();
 			if(!variables.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
-				error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+				error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 			}
 		}
-		else if(divEntera.getLeft() instanceof Suma || divEntera.getLeft() instanceof Resta || divEntera.getLeft() instanceof Multiplicacion ||
-				divEntera.getLeft() instanceof Division || divEntera.getLeft() instanceof Div || divEntera.getLeft() instanceof OperacionParentesis) {
-			ArrayList<valor> valoresOperacion = new ArrayList<valor>();
-			funciones.registrarValoresOperacion(divEntera.getLeft(), valoresOperacion);
+		else if(divisionEntera.getLeft() instanceof Suma || divisionEntera.getLeft() instanceof Resta || divisionEntera.getLeft() instanceof Multiplicacion ||
+				divisionEntera.getLeft() instanceof DivisionEntera || divisionEntera.getLeft() instanceof DivisionReal || divisionEntera.getLeft() instanceof OperacionParentesis) {
+			ArrayList<Valor> valoresOperacion = new ArrayList<Valor>();
+			funciones.registrarValoresOperacion(divisionEntera.getLeft(), valoresOperacion);
 			int cuentaReales = 0;
 			
-			for(valor v: valoresOperacion) {
-				if(v instanceof NumeroDecimal) {
+			for(Valor v: valoresOperacion) {
+				if(v instanceof Real) {
 					cuentaReales += 1;
 				}
 				else if(v instanceof VariableID) {
@@ -822,17 +827,17 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}	
 			if(cuentaReales > 0) {
-				error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+				error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 			}
 		}
-		else if(divEntera.getRight() instanceof Suma || divEntera.getRight() instanceof Resta || divEntera.getRight() instanceof Multiplicacion || 
-				divEntera.getRight() instanceof Division || divEntera.getRight() instanceof Div || divEntera.getRight() instanceof OperacionParentesis) {
-			ArrayList<valor> valoresOperacion = new ArrayList<valor>();
-			funciones.registrarValoresOperacion(divEntera.getRight(), valoresOperacion);
+		else if(divisionEntera.getRight() instanceof Suma || divisionEntera.getRight() instanceof Resta || divisionEntera.getRight() instanceof Multiplicacion || 
+				divisionEntera.getRight() instanceof DivisionEntera || divisionEntera.getRight() instanceof DivisionReal || divisionEntera.getRight() instanceof OperacionParentesis) {
+			ArrayList<Valor> valoresOperacion = new ArrayList<Valor>();
+			funciones.registrarValoresOperacion(divisionEntera.getRight(), valoresOperacion);
 			int cuentaReales = 0;
 			
-			for(valor v: valoresOperacion) {
-				if(v instanceof NumeroDecimal) {
+			for(Valor v: valoresOperacion) {
+				if(v instanceof Real) {
 					cuentaReales += 1;
 				}
 				else if(v instanceof VariableID) {
@@ -843,7 +848,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}	
 			if(cuentaReales > 0) {
-				error(readerMessages.getString("DIV_ENTERA"), divEntera, DiagramapseudocodigoPackage.Literals.DIVISION__SIGNO_OP);
+				error(readerMessages.getString("DIV_ENTERA"), divisionEntera, DiagramapseudocodigoPackage.Literals.DIVISION_ENTERA__SIGNO_OP);
 			}
 		}
 	}
@@ -859,18 +864,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		Subproceso subproceso =  EcoreUtil2.getContainerOfType(moduloOp, Subproceso.class);
 		
 		if(algoritmo != null && subproceso == null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones()));
 			checkAux(moduloOp, variables);
 		} else if(algoritmo != null && subproceso != null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			checkAux(moduloOp, variables);
 		} else {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			checkAux(moduloOp, variables);
 		}
 	}
@@ -879,11 +884,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * Función auxiliar de check(ModuloOp) // Principio DRY.
 	 */
 	private void checkAux(Mod moduloOp, Map<String, String> variables) {
-		if((!(moduloOp.getLeft() instanceof NumeroEntero) || !(moduloOp.getRight() instanceof NumeroEntero)) && (!(moduloOp.getLeft() instanceof VariableID) && !(moduloOp.getRight() instanceof VariableID))
+		if((!(moduloOp.getLeft() instanceof Entero) || !(moduloOp.getRight() instanceof Entero)) && (!(moduloOp.getLeft() instanceof VariableID) && !(moduloOp.getRight() instanceof VariableID))
 				&& (!(moduloOp.getLeft() instanceof OperacionParentesis) && !(moduloOp.getRight() instanceof OperacionParentesis))) {
 			error(readerMessages.getString("MOD"), moduloOp, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
 		}
-		else if(moduloOp.getLeft() instanceof NumeroDecimal || moduloOp.getRight() instanceof NumeroDecimal) {
+		else if(moduloOp.getLeft() instanceof Real || moduloOp.getRight() instanceof Real) {
 			error(readerMessages.getString("MOD"), moduloOp, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
 		}
 		else if(moduloOp.getLeft() instanceof VariableID && moduloOp.getRight() instanceof VariableID) {
@@ -893,26 +898,26 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				error(readerMessages.getString("MOD"), moduloOp, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
 			}
 		}
-		else if(moduloOp.getLeft() instanceof VariableID && moduloOp.getRight() instanceof NumeroEntero) {
+		else if(moduloOp.getLeft() instanceof VariableID && moduloOp.getRight() instanceof Entero) {
 			VariableID left = (VariableID) moduloOp.getLeft();
 			if(!variables.get(left.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
 				error(readerMessages.getString("MOD"), moduloOp, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
 			}
 		}
-		else if(moduloOp.getLeft() instanceof NumeroEntero && moduloOp.getRight() instanceof VariableID) {
+		else if(moduloOp.getLeft() instanceof Entero && moduloOp.getRight() instanceof VariableID) {
 			VariableID right = (VariableID) moduloOp.getRight();
 			if(!variables.get(right.getNombre()).equals(readerMessages.getString("TIPO_ENTERO"))) {
 				error(readerMessages.getString("MOD"), moduloOp, DiagramapseudocodigoPackage.Literals.MOD__SIGNO_OP);
 			}
 		}
 		else if(moduloOp.getLeft() instanceof Suma || moduloOp.getLeft() instanceof Resta || moduloOp.getLeft() instanceof Multiplicacion || 
-				moduloOp.getLeft() instanceof Division || moduloOp.getLeft() instanceof Div || moduloOp.getLeft() instanceof OperacionParentesis) {
-			ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+				moduloOp.getLeft() instanceof DivisionEntera || moduloOp.getLeft() instanceof DivisionReal || moduloOp.getLeft() instanceof OperacionParentesis) {
+			ArrayList<Valor> valoresOperacion = new ArrayList<Valor>();
 			funciones.registrarValoresOperacion(moduloOp.getLeft(), valoresOperacion);
 			int cuentaReales = 0;
 			
-			for(valor v: valoresOperacion) {
-				if(v instanceof NumeroDecimal) {
+			for(Valor v: valoresOperacion) {
+				if(v instanceof Real) {
 					cuentaReales += 1;
 				}
 				else if(v instanceof VariableID) {
@@ -927,13 +932,13 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			}
 		}
 		else if(moduloOp.getRight() instanceof Suma || moduloOp.getRight() instanceof Resta || moduloOp.getRight() instanceof Multiplicacion || 
-				moduloOp.getRight() instanceof Division || moduloOp.getRight() instanceof Div || moduloOp.getRight() instanceof OperacionParentesis) {
-			ArrayList<valor> valoresOperacion = new ArrayList<valor>();
+				moduloOp.getRight() instanceof DivisionEntera || moduloOp.getRight() instanceof DivisionReal || moduloOp.getRight() instanceof OperacionParentesis) {
+			ArrayList<Valor> valoresOperacion = new ArrayList<Valor>();
 			funciones.registrarValoresOperacion(moduloOp.getRight(), valoresOperacion);
 			int cuentaReales = 0;
 			
-			for(valor v: valoresOperacion) {
-				if(v instanceof NumeroDecimal) {
+			for(Valor v: valoresOperacion) {
+				if(v instanceof Real) {
 					cuentaReales += 1;
 				}
 				else if(v instanceof VariableID) {
@@ -961,38 +966,38 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		
 		if(algoritmo != null && subproceso == null) {
 			List<String> nombresFicheros = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Archivo) {
 					Archivo a = (Archivo) t;
 					nombresFicheros.add(a.getNombre());
 				}
 			}
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones()));
 			checkAux(funcionFicheroAbrir, nombresFicheros, variables);
 		} else if(algoritmo != null && subproceso != null) {
 			List<String> nombresFicheros = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Archivo) {
 					Archivo a = (Archivo) t;
 					nombresFicheros.add(a.getNombre());
 				}
 			}
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			checkAux(funcionFicheroAbrir, nombresFicheros, variables);
 		} else {
 			List<String> nombresFicheros = new ArrayList<String>();
-			for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			for(TipoComplejo t: modulo.getImplementacion().getComplejos()) {
 				if(t instanceof Archivo) {
 					Archivo a = (Archivo) t;
 					nombresFicheros.add(a.getNombre());
 				}
 			}
-			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			checkAux(funcionFicheroAbrir, nombresFicheros, variables);
 		}
 	}
@@ -1014,7 +1019,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 					error(readerMessages.getString("VARIABLE_TIPO_CADENA", v.getNombre()), funcionFicheroAbrir, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
 				}
 			}
-			else if(!(funcionFicheroAbrir.getVariable().get(1) instanceof ConstCadena) && !(funcionFicheroAbrir.getVariable().get(1) instanceof Caracter)) {
+			else if(!(funcionFicheroAbrir.getVariable().get(1) instanceof CadenaCaracteres) && !(funcionFicheroAbrir.getVariable().get(1) instanceof Caracter)) {
 				error(readerMessages.getBundle().getString("ENTRADA_TIPO_CADENA"), funcionFicheroAbrir, DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE, 1);
 			}
 		} 
@@ -1032,38 +1037,38 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		
 		if(algoritmo != null && subproceso == null) {
 			List<String> nombresFicheros = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Archivo) {
 					Archivo a = (Archivo) t;
 					nombresFicheros.add(a.getNombre());
 				}
 			}
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones()));
 			checkAux(funcionFicheroCerrar, nombresFicheros, variables);
 		} else if(algoritmo != null && subproceso != null) {
 			List<String> nombresFicheros = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Archivo) {
 					Archivo a = (Archivo) t;
 					nombresFicheros.add(a.getNombre());
 				}
 			}
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			checkAux(funcionFicheroCerrar, nombresFicheros, variables);
 		} else {
 			List<String> nombresFicheros = new ArrayList<String>();
-			for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			for(TipoComplejo t: modulo.getImplementacion().getComplejos()) {
 				if(t instanceof Archivo) {
 					Archivo a = (Archivo) t;
 					nombresFicheros.add(a.getNombre());
 				}
 			}
-			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
-			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaracion()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
+			variables.putAll(funciones.registrarVariablesTipadas(subproceso.getDeclaraciones()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			checkAux(funcionFicheroCerrar, nombresFicheros, variables);
 		}
 	}
@@ -1096,13 +1101,13 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> vectores = new HashMap<String,String>();
 			List<String> nombresRegistros = new ArrayList<String>();
 			Map<String,String> matrices = new HashMap<String,String>();
-			funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
-			Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+			funciones.prepararColeccionesTiposComplejos(algoritmo.getComplejos(), registros, nombresRegistros, vectores, matrices);
+			Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones());
+			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
 			
 			//Añadimos las variables globales si no hay una variable local que se llame igual
 			
-			List<String> nombresGlobales = funciones.registrarVariables(algoritmo.getGlobal());
+			List<String> nombresGlobales = funciones.registrarVariables(algoritmo.getGlobales());
 			
 			for(String nombre: nombresGlobales) {
 				if(!variables.containsKey(nombre)) {
@@ -1113,14 +1118,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
 			Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
 			
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 				}
 			}
 			
-			funciones.prepararColeccionFunciones(algoritmo.getFuncion(), funcionesTipadas);
+			funciones.prepararColeccionFunciones(algoritmo.getSubprocesos(), funcionesTipadas);
 			checkAux(asignacion, variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 			
 		} else if(algoritmo != null && subproceso != null) {
@@ -1128,14 +1133,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> vectores = new HashMap<String,String>();
 			List<String> nombresRegistros = new ArrayList<String>();
 			Map<String,String> matrices = new HashMap<String,String>();
-			funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
-			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+			funciones.prepararColeccionesTiposComplejos(algoritmo.getComplejos(), registros, nombresRegistros, vectores, matrices);
+			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
 			
 			//Añadimos las variables globales si no hay una variable local que se llame igual
 			
-			List<String> nombresGlobales = funciones.registrarVariables(algoritmo.getGlobal());
+			List<String> nombresGlobales = funciones.registrarVariables(algoritmo.getGlobales());
 			
 			for(String nombre: nombresGlobales) {
 				if(!variables.containsKey(nombre)) {
@@ -1146,28 +1151,28 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
 			Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
 			
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 				}
 			}
 			
-			funciones.prepararColeccionFunciones(algoritmo.getFuncion(), funcionesTipadas);
+			funciones.prepararColeccionFunciones(algoritmo.getSubprocesos(), funcionesTipadas);
 			checkAux(asignacion, variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 		} else {
 			Map<String,HashMap<String,String>> registros = new HashMap<String,HashMap<String,String>>();
 			Map<String,String> vectores = new HashMap<String,String>();
 			List<String> nombresRegistros = new ArrayList<String>();
 			Map<String,String> matrices = new HashMap<String,String>();
-			funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
-			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
+			funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getComplejos(), registros, nombresRegistros, vectores, matrices);
+			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
 			
 			//Añadimos las variables globales si no hay una variable local que se llame igual
 			
-			List<String> nombresGlobales = funciones.registrarVariables(modulo.getImplementacion().getGlobal());
+			List<String> nombresGlobales = funciones.registrarVariables(modulo.getImplementacion().getGlobales());
 			
 			for(String nombre: nombresGlobales) {
 				if(!variables.containsKey(nombre)) {
@@ -1178,14 +1183,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
 			Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
 			
-			for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			for(TipoComplejo t: modulo.getImplementacion().getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 				}
 			}
 			
-			funciones.prepararColeccionFunciones(modulo.getImplementacion().getFuncion(), funcionesTipadas);
+			funciones.prepararColeccionFunciones(modulo.getImplementacion().getSubprocesos(), funcionesTipadas);
 			checkAux(asignacion, variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 		}
 	}
@@ -1209,33 +1214,33 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			AsignacionCompleja ac = (AsignacionCompleja) asignacion;
 			if(ac.getValor_asignacion() instanceof ValorRegistro) {
 				ValorRegistro r = (ValorRegistro) ac.getValor_asignacion();
-				for(CampoRegistro campo: r.getCampo()) {
+				for(CampoRegistro campo: r.getCampos()) {
 					String tipo = registros.get(variables.get(r.getNombre_registro())).get(campo.getNombre_campo());
 					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 				}
 			}
 			else if(ac.getValor_asignacion() instanceof ValorVector) {
 				ValorVector v = (ValorVector) ac.getValor_asignacion();
-				if(v.getCampo().size() == 0) {
+				if(v.getCampos().size() == 0) {
 					String tipo = vectores.get(variables.get(v.getNombre_vector()));
 					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 				}
 				else {
 					//Cogemos el último campo:
-					String campo = v.getCampo().get(v.getCampo().size()-1).getNombre_campo();
+					String campo = v.getCampos().get(v.getCampos().size()-1).getNombre_campo();
 					String tipo = registrosCamposTipados.get(vectores.get(variables.get(v.getNombre_vector()))).get(campo);
 					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 				}
 			}
 			else if(ac.getValor_asignacion() instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) ac.getValor_asignacion();
-				if(m.getCampo().size() == 0) {
+				if(m.getCampos().size() == 0) {
 					String tipo = matrices.get(variables.get(m.getNombre_matriz()));
 					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 				}
 				else {
 					//Cogemos el último campo:
-					String campo = m.getCampo().get(m.getCampo().size()-1).getNombre_campo();
+					String campo = m.getCampos().get(m.getCampos().size()-1).getNombre_campo();
 					String tipo = registrosCamposTipados.get(matrices.get(variables.get(m.getNombre_matriz()))).get(campo);
 					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 				}
@@ -1246,318 +1251,322 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/*
 	 * Función auxiliar de check(Asignacion) // Principio DRY. (2)
 	 */
-	private void checkAux(Asignacion a, Devolver d, String tipo, operacion op, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,Map<String,String>> registrosCamposTipados) {
-			if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(op instanceof NumeroEntero)) {
-				if(op instanceof NumeroDecimal) {
-					errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+	private void checkAux(Asignacion asignacion, Devolver devolver, String tipo, Operacion operacion, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,Map<String,String>> registrosCamposTipados) {
+			if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(operacion instanceof Entero)) {
+				if(operacion instanceof Real) {
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 				}
-				else if(funciones.esOperacion(op)) {
-					ArrayList<valor> valores = new ArrayList<valor>();
-					valores = funciones.registrarValoresOperacion(op, valores);
+				else if(funciones.esOperacion(operacion)) {
+					ArrayList<Valor> valores = new ArrayList<Valor>();
+					valores = funciones.registrarValoresOperacion(operacion, valores);
 					//Primero buscamos las dificultades en la operación
-					List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valores, readerMessages);
+					List<Valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valores, readerMessages);
 					//Preparamos los tipos validos
 					ArrayList<String> tiposValidos = new ArrayList<String>();
 					tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_ENTERO")); 
 					tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_REAL"));
 					if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 					else if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 2 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 2 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 2 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 2 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 2) {
-						errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					}
 				}
-				else if(op instanceof LlamadaFuncion) {
-					LlamadaFuncion f = (LlamadaFuncion) op;
+				else if(operacion instanceof LlamadaFuncion) {
+					LlamadaFuncion f = (LlamadaFuncion) operacion;
 					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 					else if(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-						errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					}
-				} else if(op instanceof Internas) {
-					Internas internas = (Internas) op;
-					if(internas.getNombre().equals("cuadrado(") || internas.getNombre().equals("sqrt(") || internas.getNombre().equals("cos(") || internas.getNombre().equals("sen(") || internas.getNombre().equals("exp(") || internas.getNombre().equals("ln(") || internas.getNombre().equals("log(")) {
-						errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+				} else if(operacion instanceof FuncionInterna) {
+					FuncionInterna interna = (FuncionInterna) operacion;
+					if(interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) 
+							|| interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					} else {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof VariableID) {
-					VariableID v = (VariableID) op;
+				else if(operacion instanceof VariableID) {
+					VariableID v = (VariableID) operacion;
 					if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && variables.containsKey(v.getNombre())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						
 					}
 					else if(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && variables.containsKey(v.getNombre())) {
-						errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					}
 				}
-				else if(op instanceof ValorRegistro) {
-					ValorRegistro vr = (ValorRegistro) op;
+				else if(operacion instanceof ValorRegistro) {
+					ValorRegistro vr = (ValorRegistro) operacion;
 					//Buscamos el registro del que proviene esa variable
 					for(String nombre: nombresRegistros) {
 						if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-								errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+								errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
-							else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-								errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+							else if(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+								errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							}
 						}
 					}
 				}
-				else if(op instanceof ValorVector) {
-					ValorVector v = (ValorVector) op;
+				else if(operacion instanceof ValorVector) {
+					ValorVector v = (ValorVector) operacion;
 					if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 					else if(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-						errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					}
 				}
-				else if(op instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) op;
+				else if(operacion instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) operacion;
 					if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 					else {
-						errorAux(a, d, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					}
 				}
 				
 				else {
-					errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				}
 			}
-			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !(op instanceof ValorBooleano)) {
-				if(funciones.esOperacion(op)) {
-					ArrayList<valor> valores = new ArrayList<valor>();
-					valores = funciones.registrarValoresOperacion(op, valores);
+			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !(operacion instanceof Logico)) {
+				if(funciones.esOperacion(operacion)) {
+					ArrayList<Valor> valores = new ArrayList<Valor>();
+					valores = funciones.registrarValoresOperacion(operacion, valores);
 					//Primero buscamos las dificultades en la operación
-					List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_LOGICO"), valores, readerMessages);
+					List<Valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_LOGICO"), valores, readerMessages);
 					//Preparamos los tipos validos
 					ArrayList<String> tiposValidos = new ArrayList<String>();
 					tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_LOGICO")); 
-					if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
+							funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+							funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof LlamadaFuncion) {
-					LlamadaFuncion f = (LlamadaFuncion) op;
+				else if(operacion instanceof LlamadaFuncion) {
+					LlamadaFuncion f = (LlamadaFuncion) operacion;
 					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
-				} else if(op instanceof Internas) {
-					errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				} else if(operacion instanceof FuncionInterna) {
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				}
-				else if(op instanceof VariableID) {
-					VariableID v = (VariableID) op;
+				else if(operacion instanceof VariableID) {
+					VariableID v = (VariableID) operacion;
 					if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(v.getNombre())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof ValorRegistro) {
-					ValorRegistro vr = (ValorRegistro) op;
+				else if(operacion instanceof ValorRegistro) {
+					ValorRegistro vr = (ValorRegistro) operacion;
 					//Buscamos el registro del que proviene esa variable
 					for(String nombre: nombresRegistros) {
 						if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-								errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+								errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 					}
 				}
-				else if(op instanceof ValorVector) {
-					ValorVector v = (ValorVector) op;
+				else if(operacion instanceof ValorVector) {
+					ValorVector v = (ValorVector) operacion;
 					if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) op;
+				else if(operacion instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) operacion;
 					if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
 				else {
-					errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				}
 			}
-			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !(op instanceof NumeroEntero) && !(op instanceof NumeroDecimal)) {
-				if(funciones.esOperacion(op)) {
-					ArrayList<valor> valores = new ArrayList<valor>();
-					valores = funciones.registrarValoresOperacion(op, valores);
+			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !(operacion instanceof Entero) && !(operacion instanceof Real)) {
+				if(funciones.esOperacion(operacion)) {
+					ArrayList<Valor> valores = new ArrayList<Valor>();
+					valores = funciones.registrarValoresOperacion(operacion, valores);
 					//Primero buscamos las dificultades en la operación
-					List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_REAL"), valores, readerMessages);
+					List<Valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_REAL"), valores, readerMessages);
 					//Preparamos los tipos validos
 					ArrayList<String> tiposValidos = new ArrayList<String>();
 					tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_REAL")); 
 					tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_ENTERO"));
 					if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof LlamadaFuncion) {
-					LlamadaFuncion f = (LlamadaFuncion) op;
+				else if(operacion instanceof LlamadaFuncion) {
+					LlamadaFuncion f = (LlamadaFuncion) operacion;
 					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				 else if(op instanceof Internas) {
-					Internas internas = (Internas) op;
-					if(!internas.getNombre().equals("cuadrado(") && !internas.getNombre().equals("sqrt(") && !internas.getNombre().equals("cos(") && !internas.getNombre().equals("sen(") && !internas.getNombre().equals("exp(") && !internas.getNombre().equals("ln(") && !internas.getNombre().equals("log(")) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				 else if(operacion instanceof FuncionInterna) {
+					FuncionInterna interna = (FuncionInterna) operacion;
+					if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) &&
+							!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					} 
 				 }
-				else if(op instanceof VariableID) {
-					VariableID v = (VariableID) op;
+				else if(operacion instanceof VariableID) {
+					VariableID v = (VariableID) operacion;
 					if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && variables.containsKey(v.getNombre())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof ValorRegistro) {
-					ValorRegistro vr = (ValorRegistro) op;
+				else if(operacion instanceof ValorRegistro) {
+					ValorRegistro vr = (ValorRegistro) operacion;
 					//Buscamos el registro del que proviene esa variable
 					for(String nombre: nombresRegistros) {
 						if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-								errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+								errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 					}
 				}
-				else if(op instanceof ValorVector) {
-					ValorVector v = (ValorVector) op;
+				else if(operacion instanceof ValorVector) {
+					ValorVector v = (ValorVector) operacion;
 					if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) op;
+				else if(operacion instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) operacion;
 					if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
 				else {
-					errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				}
 			}
-			else if((tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && a != null) || (tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) &&
-					!(op instanceof ConstCadena) && a == null)) {
-				if(a != null) {
-					errorAux(a, d, readerMessages.getBundle().getString("NO_ASIGNACION_CADENA"), true);
+			else if((tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && asignacion != null) || (tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) &&
+					!(operacion instanceof CadenaCaracteres) && asignacion == null)) {
+				if(asignacion != null) {
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("NO_ASIGNACION_CADENA"), true);
 				} else {
-					if(funciones.esOperacion(op)) {
-						ArrayList<valor> valores = new ArrayList<valor>();
-						valores = funciones.registrarValoresOperacion(op, valores);
+					if(funciones.esOperacion(operacion)) {
+						ArrayList<Valor> valores = new ArrayList<Valor>();
+						valores = funciones.registrarValoresOperacion(operacion, valores);
 						//Primero buscamos las dificultades en la operación
-						List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_CADENA"), valores, readerMessages);
+						List<Valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_CADENA"), valores, readerMessages);
 						//Preparamos los tipos validos
 						ArrayList<String> tiposValidos = new ArrayList<String>();
 						tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CADENA")); 
 						if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
-							errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(op instanceof LlamadaFuncion) {
-						LlamadaFuncion f = (LlamadaFuncion) op;
+					else if(operacion instanceof LlamadaFuncion) {
+						LlamadaFuncion f = (LlamadaFuncion) operacion;
 						if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-							errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(op instanceof Internas) {
-						Internas internas = (Internas) op;
-						if(!internas.getNombre().equals("concatena(")) {
-							errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					else if(operacion instanceof FuncionInterna) {
+						FuncionInterna interna = (FuncionInterna) operacion;
+						if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA"))) {
+							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						} 
 					 }
-					else if(op instanceof VariableID) {
-						VariableID v = (VariableID) op;
+					else if(operacion instanceof VariableID) {
+						VariableID v = (VariableID) operacion;
 						if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && variables.containsKey(v.getNombre())) {
-							errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(op instanceof ValorRegistro) {
-						ValorRegistro vr = (ValorRegistro) op;
+					else if(operacion instanceof ValorRegistro) {
+						ValorRegistro vr = (ValorRegistro) operacion;
 						for(String nombre: nombresRegistros) {
 							if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-								if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-									errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+								if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
+									errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 								}
 							}
 						}
 					}
-					else if(op instanceof ValorVector) {
-						ValorVector v = (ValorVector) op;
+					else if(operacion instanceof ValorVector) {
+						ValorVector v = (ValorVector) operacion;
 						if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-							errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
-					else if(op instanceof ValorMatriz) {
-						ValorMatriz m = (ValorMatriz) op;
+					else if(operacion instanceof ValorMatriz) {
+						ValorMatriz m = (ValorMatriz) operacion;
 						if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-							errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 						}
 					}
 					else {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
 			}
-			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !(op instanceof Caracter)) {
-				if(funciones.esOperacion(op)) {
-					ArrayList<valor> valores = new ArrayList<valor>();
-					valores = funciones.registrarValoresOperacion(op, valores);
+			else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !(operacion instanceof Caracter)) {
+				if(funciones.esOperacion(operacion)) {
+					ArrayList<Valor> valores = new ArrayList<Valor>();
+					valores = funciones.registrarValoresOperacion(operacion, valores);
 					//Primero buscamos las dificultades en la operación
-					List<valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_CARACTER"), valores, readerMessages);
+					List<Valor> valoresProblem = funciones.buscarProblemasOperacion(readerMessages.getBundle().getString("TIPO_CARACTER"), valores, readerMessages);
 					//Preparamos los tipos validos
 					ArrayList<String> tiposValidos = new ArrayList<String>();
 					tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CARACTER")); 
 					if(funciones.asignacionOperacionVariable(valoresProblem, variables, tiposValidos, readerMessages) == 3 || funciones.asignacionOperacionFuncion(valoresProblem, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || funciones.asignacionOperacionRegistro(valoresProblem, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || funciones.asignacionOperacionVector(valoresProblem, variables, tiposValidos, vectores, readerMessages) == 3 || funciones.asignacionOperacionMatriz(valoresProblem, variables, tiposValidos, matrices, readerMessages) == 3) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof LlamadaFuncion) {
-					LlamadaFuncion f = (LlamadaFuncion) op;
+				else if(operacion instanceof LlamadaFuncion) {
+					LlamadaFuncion f = (LlamadaFuncion) operacion;
 					if(!(funcionesTipadas.get(f.getNombre()).get(f.getOperadores().size()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getOperadores().size())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof Internas) {
-					errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				else if(operacion instanceof FuncionInterna) {
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				}
-				else if(op instanceof VariableID) {
-					VariableID v = (VariableID) op;
+				else if(operacion instanceof VariableID) {
+					VariableID v = (VariableID) operacion;
 					if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && variables.containsKey(v.getNombre())) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof ValorRegistro) {
-					ValorRegistro vr = (ValorRegistro) op;
+				else if(operacion instanceof ValorRegistro) {
+					ValorRegistro vr = (ValorRegistro) operacion;
 					//Buscamos el registro del que proviene esa variable
 					for(String nombre: nombresRegistros) {
 						if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-								errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+								errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							}
 						}
 					}
 				}
-				else if(op instanceof ValorVector) {
-					ValorVector v = (ValorVector) op;
+				else if(operacion instanceof ValorVector) {
+					ValorVector v = (ValorVector) operacion;
 					if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
-				else if(op instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) op;
+				else if(operacion instanceof ValorMatriz) {
+					ValorMatriz m = (ValorMatriz) operacion;
 					if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-						errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					}
 				}
 				else {
-					errorAux(a, d, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				}		
 		}
 	}
@@ -1610,7 +1619,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			List<String> nombresRegistros = new ArrayList<String>();
 			List<String> nombresVectores = new ArrayList<String>();
 			List<String> nombresMatrices = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					nombresRegistros.add(r.getNombre());
@@ -1625,8 +1634,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			
-			Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), algoritmo.getTiene().getDeclaracion()));
+			Map<String,String> variables = funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones());
+			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobales(), algoritmo.getInicio().getDeclaraciones()));
 			checkAux(valorComplejo, variables, nombresRegistros, nombresVectores, nombresMatrices);
 		} else if(algoritmo != null && subproceso != null) {
 			//Recogemos todos los registros, con los nombres nos vale porque ya tenemos una función que se encarga de
@@ -1634,7 +1643,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			List<String> nombresRegistros = new ArrayList<String>();
 			List<String> nombresVectores = new ArrayList<String>();
 			List<String> nombresMatrices = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					nombresRegistros.add(r.getNombre());
@@ -1649,9 +1658,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			
-			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
-			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobal(), subproceso.getDeclaracion()));
+			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
+			variables.putAll(funciones.registrarGlobalesTipadas(algoritmo.getGlobales(), subproceso.getDeclaraciones()));
 			checkAux(valorComplejo, variables, nombresRegistros, nombresVectores, nombresMatrices);
 		} else {
 			//Recogemos todos los registros, con los nombres nos vale porque ya tenemos una función que se encarga de
@@ -1659,7 +1668,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			List<String> nombresRegistros = new ArrayList<String>();
 			List<String> nombresVectores = new ArrayList<String>();
 			List<String> nombresMatrices = new ArrayList<String>();
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					nombresRegistros.add(r.getNombre());
@@ -1674,8 +1683,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			
-			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobal(), subproceso.getDeclaracion()));
+			Map<String,String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarGlobalesTipadas(modulo.getImplementacion().getGlobales(), subproceso.getDeclaraciones()));
 			checkAux(valorComplejo, variables, nombresRegistros, nombresVectores, nombresMatrices);
 		}
 	}
@@ -1713,68 +1722,68 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	protected void check(Codigo codigo) {
 		if(codigo instanceof Algoritmo) {
 			Algoritmo algoritmo = (Algoritmo) codigo;
-			checkAux(algoritmo.getGlobal());
-			checkAux2(algoritmo.getFuncion());
-			checkAux3(algoritmo.getTipocomplejo());
+			checkAux(algoritmo.getGlobales());
+			checkAux2(algoritmo.getSubprocesos());
+			checkAux3(algoritmo.getComplejos());
 			checkAux4(algoritmo.getConstantes());
-			checkAux(funciones.registrarConstantes(algoritmo.getConstantes()), algoritmo.getTipocomplejo());
-			checkAux6(algoritmo.getTiene().getDeclaracion(), new ArrayList<String>());
+			checkAux(funciones.registrarConstantes(algoritmo.getConstantes()), algoritmo.getComplejos());
+			checkAux6(algoritmo.getInicio().getDeclaraciones(), new ArrayList<String>());
 			List<String> tiposDefinidos = new ArrayList<String>();
 			for(Modulo m: algoritmo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
-			tiposDefinidos.addAll(funciones.registrarTipos(algoritmo.getTipocomplejo()));
-			checkAux7(tiposDefinidos, algoritmo.getTiene().getDeclaracion());
-			checkAux7(tiposDefinidos, algoritmo.getGlobal());
-			for(Subproceso s: algoritmo.getFuncion()) {
-				List<String> parametros = funciones.registrarParametros(s.getParametrofuncion());
-				checkAux6(s.getDeclaracion(), parametros);
-				checkAux7(tiposDefinidos, s.getDeclaracion());
+			tiposDefinidos.addAll(funciones.registrarTipos(algoritmo.getComplejos()));
+			checkAux7(tiposDefinidos, algoritmo.getInicio().getDeclaraciones());
+			checkAux7(tiposDefinidos, algoritmo.getGlobales());
+			for(Subproceso s: algoritmo.getSubprocesos()) {
+				List<String> parametros = funciones.registrarParametros(s.getParametros());
+				checkAux6(s.getDeclaraciones(), parametros);
+				checkAux7(tiposDefinidos, s.getDeclaraciones());
 			}
-			checkAux15(algoritmo.getGlobal(), algoritmo.getImportaciones(), true);
-			checkAux16(algoritmo.getImportaciones(), algoritmo.getFuncion());
-			checkAux17(algoritmo.getTipocomplejo(), algoritmo.getImportaciones(), true);
+			checkAux15(algoritmo.getGlobales(), algoritmo.getImportaciones(), true);
+			checkAux16(algoritmo.getImportaciones(), algoritmo.getSubprocesos());
+			checkAux17(algoritmo.getComplejos(), algoritmo.getImportaciones(), true);
 			checkAux18(algoritmo.getConstantes(), algoritmo.getImportaciones(), true);
 			checkAux19(algoritmo.getImportaciones(), true);
 			checkAux20(algoritmo.getImportaciones(), true);
 			checkAux21(algoritmo.getImportaciones(), true);
 		} else if(codigo instanceof Modulo) {
 			Modulo modulo = (Modulo) codigo;
-			checkAux(modulo.getImplementacion().getGlobal());
-			checkAux2(modulo.getImplementacion().getFuncion());
-			checkAux3(modulo.getImplementacion().getTipocomplejo());
+			checkAux(modulo.getImplementacion().getGlobales());
+			checkAux2(modulo.getImplementacion().getSubprocesos());
+			checkAux3(modulo.getImplementacion().getComplejos());
 			checkAux4(modulo.getImplementacion().getConstantes());
-			checkAux(funciones.registrarConstantes(modulo.getImplementacion().getConstantes()), modulo.getImplementacion().getTipocomplejo());
+			checkAux(funciones.registrarConstantes(modulo.getImplementacion().getConstantes()), modulo.getImplementacion().getComplejos());
 			List<String> tiposDefinidos = new ArrayList<String>();
 			for(Modulo m: modulo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
-			tiposDefinidos.addAll(funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo()));
-			checkAux7(tiposDefinidos, modulo.getImplementacion().getGlobal());
-			for(Subproceso s: modulo.getImplementacion().getFuncion()) {
-				List<String> parametros = funciones.registrarParametros(s.getParametrofuncion());
-				checkAux6(s.getDeclaracion(), parametros);
+			tiposDefinidos.addAll(funciones.registrarTipos(modulo.getImplementacion().getComplejos()));
+			checkAux7(tiposDefinidos, modulo.getImplementacion().getGlobales());
+			for(Subproceso s: modulo.getImplementacion().getSubprocesos()) {
+				List<String> parametros = funciones.registrarParametros(s.getParametros());
+				checkAux6(s.getDeclaraciones(), parametros);
 			}
 			for(String tipoExportado: modulo.getExporta_tipos()) {
 				if(!tiposDefinidos.contains(tipoExportado)) {
 					error(readerMessages.getString("TIPO_NO_DEFINIDO", tipoExportado), modulo, DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_TIPOS, modulo.getExporta_tipos().indexOf(tipoExportado));
 				}
 			}
-			checkAux8(funciones.registrarVariables(modulo.getExporta_global()));
+			checkAux8(funciones.registrarVariables(modulo.getExporta_globales()));
 			checkAux9(funciones.registrarConstantes(modulo.getImplementacion().getConstantes()), modulo.getExporta_constantes());
-			checkAux10(funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo()), modulo.getExporta_tipos());
+			checkAux10(funciones.registrarTipos(modulo.getImplementacion().getComplejos()), modulo.getExporta_tipos());
 			checkAux11(modulo.getExporta_tipos());
 			checkAux12(modulo.getExporta_constantes());
-			checkAux13(modulo.getImplementacion().getFuncion(), modulo.getExporta_funciones());
-			checkAux14(modulo.getExporta_funciones());
-			checkAux15(modulo.getImplementacion().getGlobal(), modulo.getImportaciones(), false);
-			checkAux16(modulo.getImportaciones(), modulo.getImplementacion().getFuncion());
-			checkAux17(modulo.getImplementacion().getTipocomplejo(), modulo.getImportaciones(), false);
+			checkAux13(modulo.getImplementacion().getSubprocesos(), modulo.getExporta_subprocesos());
+			checkAux14(modulo.getExporta_subprocesos());
+			checkAux15(modulo.getImplementacion().getGlobales(), modulo.getImportaciones(), false);
+			checkAux16(modulo.getImportaciones(), modulo.getImplementacion().getSubprocesos());
+			checkAux17(modulo.getImplementacion().getComplejos(), modulo.getImportaciones(), false);
 			checkAux18(modulo.getImplementacion().getConstantes(), modulo.getImportaciones(), false);
 			checkAux19(modulo.getImportaciones(), false);
 			checkAux20(modulo.getImportaciones(), false);
 			checkAux21(modulo.getImportaciones(), false);
-			checkAux22(modulo.getExporta_global(), modulo.getImplementacion().getGlobal());
+			checkAux22(modulo.getExporta_globales(), modulo.getImplementacion().getGlobales());
 		}
 	}
 	
@@ -1784,10 +1793,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	private void checkAux(List<Declaracion> globales) {
 		List<String> variables = new ArrayList<String>();
 		for(Declaracion d: globales) {
-			if(d instanceof DeclaracionVariable) {
+			if(d instanceof DeclaracionBasica) {
 				//Si la actual se ha instanciado como una subclase de tipo DeclaracionVariable
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
+				for(Variable v: dec.getVariables()) {
 					if(!variables.contains(v.getNombre())) {
 						//Si no esta repetida la registramos
 						variables.add(v.getNombre());
@@ -1800,8 +1809,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			}
 			else {
 				//Si la actual se ha instanciado como una subclase del tipo DeclaracionPropia
-				DeclaracionPropia dec = (DeclaracionPropia) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
+				for(Variable v: dec.getVariables()) {
 					if(!variables.contains(v.getNombre())) {
 						//Si no esta repetida la registramos
 						variables.add(v.getNombre());
@@ -1827,11 +1836,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				//Si todavia no hay ninguna que se llame así, la registramos
 				nombres.add(s.getNombre());
 				parametros.add(new ArrayList<Integer>());
-				parametros.get(nombres.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+				parametros.get(nombres.indexOf(s.getNombre())).add(s.getParametros().size());
 			}
-			else if(nombres.contains(s.getNombre()) && !parametros.get(nombres.indexOf(s.getNombre())).contains(s.getParametrofuncion().size())) {
+			else if(nombres.contains(s.getNombre()) && !parametros.get(nombres.indexOf(s.getNombre())).contains(s.getParametros().size())) {
 				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
-				parametros.get(nombres.indexOf(s.getNombre())).add(s.getParametrofuncion().size());
+				parametros.get(nombres.indexOf(s.getNombre())).add(s.getParametros().size());
 				
 			}
 			else {
@@ -1909,9 +1918,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/*
 	 * Función auxiliar de check(Codigo) // Principio DRY. (4)
 	 */
-	private void checkAux4(List<Constantes> constantes) {
+	private void checkAux4(List<Constante> constantes) {
 		List<String> nombresConstantes = new ArrayList<String>();
-		for(Constantes constante: constantes) {
+		for(Constante constante: constantes) {
 			if(nombresConstantes.contains(constante.getVariable().getNombre())) {
 				error(readerMessages.getString("CONSTANTE_REPETIDA",  constante.getVariable().getNombre()), constante.getVariable(), DiagramapseudocodigoPackage.Literals.VARIABLE__NOMBRE);
 			}
@@ -1958,9 +1967,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 */
 	private void checkAux6(List<Declaracion> declaraciones, List<String> variables) {
 		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionVariable) {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+			if(d instanceof DeclaracionBasica) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
+				for(Variable v: dec.getVariables()) {
 					if(!variables.contains(v.getNombre())) {
 						variables.add(v.getNombre());
 					}
@@ -1970,8 +1979,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			else {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
+				for(Variable v: dec.getVariables()) {
 					if(!variables.contains(v.getNombre())) {
 						variables.add(v.getNombre());
 					}
@@ -1988,11 +1997,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 */
 	private void checkAux7(List<String> tiposDefinidos, List<Declaracion> declaraciones) {
 		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionPropia) {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
+			if(d instanceof DeclaracionDefinida) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
 				if(!tiposDefinidos.contains(dec.getTipo())) {
 					//Si el tipo no existe entonces lanzamos el error
-					error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), dec, DiagramapseudocodigoPackage.Literals.DECLARACION_PROPIA__TIPO);
+					error(readerMessages.getString("TIPO_NO_DEFINIDO", dec.getTipo()), dec, DiagramapseudocodigoPackage.Literals.DECLARACION_DEFINIDA__TIPO);
 				}
 			}
 		}
@@ -2005,7 +2014,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> nombresGlobales = new ArrayList<String>();		
 		for(String nombre: variablesExportadas) {
 			if(nombresGlobales.contains(nombre)) {
-				error(readerMessages.getString("VARIABLE_EXPORTADA_REPETIDA",  nombre), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, variablesExportadas.indexOf(nombre));
+				error(readerMessages.getString("VARIABLE_EXPORTADA_REPETIDA",  nombre), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, variablesExportadas.indexOf(nombre));
 			}
 			else {
 				nombresGlobales.add(nombre);
@@ -2072,7 +2081,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		boolean funcionDefinida = false;
 		for(CabeceraSubproceso cabecera: funcionesExportadas) {
 			for(Subproceso s: subprocesosDefinidos) {
-				if(cabecera.getNombre().equals(s.getNombre()) && cabecera.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+				if(cabecera.getNombre().equals(s.getNombre()) && cabecera.getParametros().size() == s.getParametros().size()) {
 					funcionDefinida = true;
 				}
 			}
@@ -2095,7 +2104,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		int repeticiones = 0;
 		for(CabeceraSubproceso cabecera1: funcionesExportadas) {
 			for(CabeceraSubproceso cabecera2: funcionesExportadas) {
-				if(cabecera1.getNombre().equals(cabecera2.getNombre()) && cabecera1.getParametrofuncion().size() == cabecera2.getParametrofuncion().size()) {
+				if(cabecera1.getNombre().equals(cabecera2.getNombre()) && cabecera1.getParametros().size() == cabecera2.getParametros().size()) {
 					repeticiones++;
 				}
 			}
@@ -2119,10 +2128,10 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> nombresVariablesModulos = new ArrayList<String>();
 		
 		for(Modulo m: importaciones) {
-			nombresVariablesModulos = funciones.registrarVariables(m.getExporta_global());
+			nombresVariablesModulos = funciones.registrarVariables(m.getExporta_globales());
 			for(String nombreVariable: nombresVariablesModulos) {
 				if(variablesGlobales.containsKey(nombreVariable)) {
-					error(readerMessages.getString("VARIABLE_REPETIDA_MODULO", nombreVariable, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL, globales.indexOf(variablesGlobales.get(nombreVariable)));
+					error(readerMessages.getString("VARIABLE_REPETIDA_MODULO", nombreVariable, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBALES, globales.indexOf(variablesGlobales.get(nombreVariable)));
 				}
 			}
 			
@@ -2135,16 +2144,16 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	private void checkAux16(List<Modulo> importaciones, List<Subproceso> subprocesos) {
 		for(Modulo m: importaciones) {
 			for(Subproceso s: subprocesos) {
-				for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
+				for(CabeceraSubproceso cabecera: m.getExporta_subprocesos()) {
 					if(cabecera instanceof CabeceraFuncion) {
 						CabeceraFuncion cabeceraFuncion = (CabeceraFuncion) cabecera;
-						if(cabeceraFuncion.getNombre().equals(s.getNombre()) && cabeceraFuncion.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+						if(cabeceraFuncion.getNombre().equals(s.getNombre()) && cabeceraFuncion.getParametros().size() == s.getParametros().size()) {
 							error(readerMessages.getString("FUNCION_REPETIDA", s.getNombre(), m.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
 						}
 					}
 					else if(cabecera instanceof CabeceraSubproceso) {
 						CabeceraProcedimiento cabeceraProcedimiento = (CabeceraProcedimiento) cabecera;
-						if(cabeceraProcedimiento.getNombre().equals(s.getNombre()) && cabeceraProcedimiento.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+						if(cabeceraProcedimiento.getNombre().equals(s.getNombre()) && cabeceraProcedimiento.getParametros().size() == s.getParametros().size()) {
 							error(readerMessages.getString("PROCEDIMIENTO_REPETIDO", s.getNombre(), m.getNombre()), s, DiagramapseudocodigoPackage.Literals.SUBPROCESO__NOMBRE);
 						}
 					}
@@ -2164,9 +2173,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			for(String nombreTipo: m.getExporta_tipos()) {
 				if(nombreTipos.contains(nombreTipo)) {
 					if(algoritmo) {
-						error(readerMessages.getString("TIPO_REPETIDO_MODULO", nombreTipo, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO, nombreTipos.indexOf(nombreTipo));
+						error(readerMessages.getString("TIPO_REPETIDO_MODULO", nombreTipo, m.getNombre()), DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS, nombreTipos.indexOf(nombreTipo));
 					} else {
-						error(readerMessages.getString("TIPO_REPETIDO_MODULO", nombreTipo, m.getNombre()), m.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__TIPOCOMPLEJO, nombreTipos.indexOf(nombreTipo));
+						error(readerMessages.getString("TIPO_REPETIDO_MODULO", nombreTipo, m.getNombre()), m.getImplementacion(), DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS, nombreTipos.indexOf(nombreTipo));
 					}
 				}
 			}
@@ -2177,7 +2186,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * Función auxiliar de check(Codigo) // Principio DRY. (18)
 	 * Función que se encarga de comprobar que el módulo importado no exporte una constante con el mismo nombre que una de las definidas.
 	 */
-	private void checkAux18(List<Constantes> constantes, List<Modulo> importaciones, boolean algoritmo) {
+	private void checkAux18(List<Constante> constantes, List<Modulo> importaciones, boolean algoritmo) {
 		List<String> nombreConstantes = funciones.registrarConstantes(constantes);
 		
 		for(Modulo m: importaciones) {
@@ -2203,8 +2212,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		for(Modulo m: importaciones) {
 			for(Modulo m2: importaciones) {
 				if(!m.getNombre().equals(m2.getNombre())) {
-					variablesModulo1 = funciones.registrarVariables(m.getExporta_global());
-					variablesModulo2 = funciones.registrarVariables(m2.getExporta_global());
+					variablesModulo1 = funciones.registrarVariables(m.getExporta_globales());
+					variablesModulo2 = funciones.registrarVariables(m2.getExporta_globales());
 					for(String nombreVariable: variablesModulo1) {
 						if(variablesModulo2.contains(nombreVariable)) {
 							if(algoritmo) {
@@ -2273,7 +2282,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		
 		for(String nombreExportada: nombresExportadas) {
 			if(!nombresDefinidas.contains(nombreExportada)) {
-				error(readerMessages.getString("VARIABLE_NO_DECLARADA", nombreExportada), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL, nombresExportadas.indexOf(nombreExportada));
+				error(readerMessages.getString("VARIABLE_NO_DECLARADA", nombreExportada), DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES, nombresExportadas.indexOf(nombreExportada));
 			}
 		}
 	}
@@ -2289,12 +2298,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> tiposDefinidos = new ArrayList<String>();
 		
 		if(algoritmo != null) {
-			tiposDefinidos = funciones.registrarTipos(algoritmo.getTipocomplejo());
+			tiposDefinidos = funciones.registrarTipos(algoritmo.getComplejos());
 			for(Modulo m: algoritmo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
 		} else {
-			tiposDefinidos = funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo());
+			tiposDefinidos = funciones.registrarTipos(modulo.getImplementacion().getComplejos());
 			for(Modulo m: modulo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
@@ -2319,12 +2328,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> tiposDefinidos = new ArrayList<String>();
 		
 		if(algoritmo != null) {
-			tiposDefinidos = funciones.registrarTipos(algoritmo.getTipocomplejo());
+			tiposDefinidos = funciones.registrarTipos(algoritmo.getComplejos());
 			for(Modulo m: algoritmo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
 		} else {
-			tiposDefinidos = funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo());
+			tiposDefinidos = funciones.registrarTipos(modulo.getImplementacion().getComplejos());
 			for(Modulo m: modulo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
@@ -2350,9 +2359,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> tiposDefinidos = new ArrayList<String>();
 		
 		for(Declaracion d: registro.getVariable()) {
-			if(d instanceof DeclaracionPropia) {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
-				for(Variable v: dec.getVariable()) {
+			if(d instanceof DeclaracionDefinida) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
+				for(Variable v: dec.getVariables()) {
 					if(!variables.contains(v.getNombre())) {
 						variables.add(v.getNombre());
 					}
@@ -2362,8 +2371,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			else {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
+				for(Variable v: dec.getVariables()) {
 					if(!variables.contains(v.getNombre())) {
 						variables.add(v.getNombre());
 					}
@@ -2375,12 +2384,12 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		}
 		
 		if(algoritmo != null) {
-			tiposDefinidos = funciones.registrarTipos(algoritmo.getTipocomplejo());
+			tiposDefinidos = funciones.registrarTipos(algoritmo.getComplejos());
 			for(Modulo m: algoritmo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
 		} else {
-			tiposDefinidos = funciones.registrarTipos(modulo.getImplementacion().getTipocomplejo());
+			tiposDefinidos = funciones.registrarTipos(modulo.getImplementacion().getComplejos());
 			for(Modulo m: modulo.getImportaciones()) {
 				tiposDefinidos.addAll(m.getExporta_tipos());
 			}
@@ -2399,7 +2408,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		
 		if(subproceso != null) {
 			List<String> parametrosTipoS = new ArrayList<String>();
-			for(ParametroFuncion p: subproceso.getParametrofuncion()) {
+			for(Parametro p: subproceso.getParametros()) {
 				if(p.getPaso().equals(readerMessages.getBundle().getString("TIPO_PASO_SALIDA"))) {
 					parametrosTipoS.add(p.getVariable().getNombre());
 				}
@@ -2468,91 +2477,91 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * Función que se encarga de comprobar que no existen casos repetidos en la estructura segun_sea y los tipos usados en los casos sean adecuados.
 	 * @param bloqueSegun
 	 */
-	protected void check(segun bloqueSegun) {
+	protected void check(Segun segun) {
 		List<String> casos = new ArrayList<String>();
-		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(bloqueSegun, Algoritmo.class);
-		Modulo modulo = EcoreUtil2.getContainerOfType(bloqueSegun, Modulo.class);
-		Subproceso subproceso =  EcoreUtil2.getContainerOfType(bloqueSegun, Subproceso.class);
+		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(segun, Algoritmo.class);
+		Modulo modulo = EcoreUtil2.getContainerOfType(segun, Modulo.class);
+		Subproceso subproceso =  EcoreUtil2.getContainerOfType(segun, Subproceso.class);
 		int enteros = 0, reales = 0, cadenas = 0, caracteres = 0, logicos = 0;
 		
-		for(Caso caso: bloqueSegun.getCaso()) {
-			if(caso.getOperador() instanceof NumeroEntero) {
-				NumeroEntero numero = (NumeroEntero) caso.getOperador();
+		for(Caso caso: segun.getCasos()) {
+			if(caso.getOperador() instanceof Entero) {
+				Entero numero = (Entero) caso.getOperador();
 				if(!casos.contains(Integer.toString(numero.getValor()))) {
 					casos.add(Integer.toString(numero.getValor()));
 				} else {
-					error(readerMessages.getString("CASO_REPETIDO", numero.getValor()), numero, DiagramapseudocodigoPackage.Literals.NUMERO_ENTERO__VALOR);
+					error(readerMessages.getString("CASO_REPETIDO", numero.getValor()), numero, DiagramapseudocodigoPackage.Literals.ENTERO__VALOR);
 				}
 				enteros += 1;
-			} else if(caso.getOperador() instanceof NumeroDecimal) {
-				NumeroDecimal numero = (NumeroDecimal) caso.getOperador();
+			} else if(caso.getOperador() instanceof Real) {
+				Real numero = (Real) caso.getOperador();
 				if(!casos.contains(Double.toString(numero.getValor()))) {
 					casos.add(Double.toString(numero.getValor()));
 				} else {
-					error(readerMessages.getString("CASO_REPETIDO", numero.getValor()), numero, DiagramapseudocodigoPackage.Literals.NUMERO_DECIMAL__VALOR);
+					error(readerMessages.getString("CASO_REPETIDO", numero.getValor()), numero, DiagramapseudocodigoPackage.Literals.REAL__VALOR);
 				}
 				reales += 1;
-			} else if(caso.getOperador() instanceof ConstCadena) {
-				ConstCadena cadena = (ConstCadena) caso.getOperador();
-				if(!casos.contains(cadena.getContenido())) {
-					casos.add(cadena.getContenido());
+			} else if(caso.getOperador() instanceof CadenaCaracteres) {
+				CadenaCaracteres cadena = (CadenaCaracteres) caso.getOperador();
+				if(!casos.contains(cadena.getValor())) {
+					casos.add(cadena.getValor());
 				} else {
-					error(readerMessages.getString("CASO_REPETIDO", cadena.getContenido()), cadena, DiagramapseudocodigoPackage.Literals.CONST_CADENA__CONTENIDO);
+					error(readerMessages.getString("CASO_REPETIDO", cadena.getValor()), cadena, DiagramapseudocodigoPackage.Literals.CADENA_CARACTERES__VALOR);
 				}
 				cadenas += 1;
 			} else if(caso.getOperador() instanceof Caracter) {
 				Caracter caracter = (Caracter) caso.getOperador();
-				if(!casos.contains(caracter.getContenido())) {
-					casos.add(caracter.getContenido());
+				if(!casos.contains(caracter.getValor())) {
+					casos.add(caracter.getValor());
 				} else {
-					error(readerMessages.getString("CASO_REPETIDO", caracter.getContenido()), caracter, DiagramapseudocodigoPackage.Literals.CARACTER__CONTENIDO);
+					error(readerMessages.getString("CASO_REPETIDO", caracter.getValor()), caracter, DiagramapseudocodigoPackage.Literals.CARACTER__VALOR);
 				}
 				caracteres += 1;
-			} else if(caso.getOperador() instanceof ValorBooleano) {
-				ValorBooleano logico = (ValorBooleano) caso.getOperador();
+			} else if(caso.getOperador() instanceof Logico) {
+				Logico logico = (Logico) caso.getOperador();
 				if(!casos.contains(logico.getValor())) {
 					casos.add(logico.getValor());
 				} else {
-					error(readerMessages.getString("CASO_REPETIDO", logico.getValor()), logico, DiagramapseudocodigoPackage.Literals.VALOR_BOOLEANO__VALOR);
+					error(readerMessages.getString("CASO_REPETIDO", logico.getValor()), logico, DiagramapseudocodigoPackage.Literals.LOGICO__VALOR);
 				}
 				logicos += 1;
 			}
 		}
 		
 		if(algoritmo != null && subproceso == null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getTiene().getDeclaracion());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(algoritmo.getInicio().getDeclaraciones());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobales()));
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_global()));
+				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_globales()));
 			}
-			OperacionCompleta opCompleta = (OperacionCompleta) bloqueSegun.getValor();
+			OperacionCompleta opCompleta = (OperacionCompleta) segun.getValor();
 			if(opCompleta.getValor_operacion() instanceof VariableID) {
 				VariableID variableID = (VariableID) opCompleta.getValor_operacion();
-				checkAux(variables.get(variableID.getNombre()), variableID, enteros, reales, cadenas, caracteres, logicos, bloqueSegun.getCaso().size());
+				checkAux(variables.get(variableID.getNombre()), variableID, enteros, reales, cadenas, caracteres, logicos, segun.getCasos().size());
 			}
 		} else if(algoritmo != null && subproceso != null) {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobal()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarVariablesTipadas(algoritmo.getGlobales()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_global()));
+				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_globales()));
 			}
-			OperacionCompleta opCompleta = (OperacionCompleta) bloqueSegun.getValor();
+			OperacionCompleta opCompleta = (OperacionCompleta) segun.getValor();
 			if(opCompleta.getValor_operacion() instanceof VariableID) {
 				VariableID variableID = (VariableID) opCompleta.getValor_operacion();
-				checkAux(variables.get(variableID.getNombre()), variableID, enteros, reales, cadenas, caracteres, logicos, bloqueSegun.getCaso().size());
+				checkAux(variables.get(variableID.getNombre()), variableID, enteros, reales, cadenas, caracteres, logicos, segun.getCasos().size());
 			}
 		} else {
-			Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaracion());
-			variables.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal()));
-			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametrofuncion()));
+			Map<String, String> variables = funciones.registrarVariablesTipadas(subproceso.getDeclaraciones());
+			variables.putAll(funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales()));
+			variables.putAll(funciones.registrarParametrosTipados(subproceso.getParametros()));
 			for(Modulo m: algoritmo.getImportaciones()) {
-				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_global()));
+				variables.putAll(funciones.registrarVariablesTipadas(m.getExporta_globales()));
 			}
-			OperacionCompleta opCompleta = (OperacionCompleta) bloqueSegun.getValor();
+			OperacionCompleta opCompleta = (OperacionCompleta) segun.getValor();
 			if(opCompleta.getValor_operacion() instanceof VariableID) {
 				VariableID variableID = (VariableID) opCompleta.getValor_operacion();
-				checkAux(variables.get(variableID.getNombre()), variableID, enteros, reales, cadenas, caracteres, logicos, bloqueSegun.getCaso().size());
+				checkAux(variables.get(variableID.getNombre()), variableID, enteros, reales, cadenas, caracteres, logicos, segun.getCasos().size());
 			}
 		}
 	}
@@ -2599,14 +2608,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> vectores = new HashMap<String,String>();
 			List<String> nombresRegistros = new ArrayList<String>();
 			Map<String,String> matrices = new HashMap<String,String>();
-			funciones.prepararColeccionesTiposComplejos(algoritmo.getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
-			Map<String,String> variables = funciones.registrarVariablesTipadas(funcion.getDeclaracion());
-			variables.putAll(funciones.registrarParametrosTipados(funcion.getParametrofuncion()));
-			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobal());
+			funciones.prepararColeccionesTiposComplejos(algoritmo.getComplejos(), registros, nombresRegistros, vectores, matrices);
+			Map<String,String> variables = funciones.registrarVariablesTipadas(funcion.getDeclaraciones());
+			variables.putAll(funciones.registrarParametrosTipados(funcion.getParametros()));
+			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(algoritmo.getGlobales());
 			
 			//Añadimos las variables globales si no hay una variable local que se llame igual
 			
-			List<String> nombresGlobales = funciones.registrarVariables(algoritmo.getGlobal());
+			List<String> nombresGlobales = funciones.registrarVariables(algoritmo.getGlobales());
 			
 			for(String nombre: nombresGlobales) {
 				if(!variables.containsKey(nombre)) {
@@ -2617,7 +2626,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
 			Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
 			
-			for(TipoComplejo t: algoritmo.getTipocomplejo()) {
+			for(TipoComplejo t: algoritmo.getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
@@ -2631,14 +2640,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> vectores = new HashMap<String,String>();
 			List<String> nombresRegistros = new ArrayList<String>();
 			Map<String,String> matrices = new HashMap<String,String>();
-			funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getTipocomplejo(), registros, nombresRegistros, vectores, matrices);
-			Map<String,String> variables = funciones.registrarVariablesTipadas(funcion.getDeclaracion());
-			variables.putAll(funciones.registrarParametrosTipados(funcion.getParametrofuncion()));
-			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobal());
+			funciones.prepararColeccionesTiposComplejos(modulo.getImplementacion().getComplejos(), registros, nombresRegistros, vectores, matrices);
+			Map<String,String> variables = funciones.registrarVariablesTipadas(funcion.getDeclaraciones());
+			variables.putAll(funciones.registrarParametrosTipados(funcion.getParametros()));
+			Map<String,String> variablesGlobales = funciones.registrarVariablesTipadas(modulo.getImplementacion().getGlobales());
 			
 			//Añadimos las variables globales si no hay una variable local que se llame igual
 			
-			List<String> nombresGlobales = funciones.registrarVariables(modulo.getImplementacion().getGlobal());
+			List<String> nombresGlobales = funciones.registrarVariables(modulo.getImplementacion().getGlobales());
 			
 			for(String nombre: nombresGlobales) {
 				if(!variables.containsKey(nombre)) {
@@ -2649,14 +2658,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,HashMap<Integer,String>> funcionesTipadas = new HashMap<String,HashMap<Integer,String>>();
 			Map<String, Map<String,String>> registrosCamposTipados = new HashMap<String,Map<String,String>>();
 			
-			for(TipoComplejo t: modulo.getImplementacion().getTipocomplejo()) {
+			for(TipoComplejo t: modulo.getImplementacion().getComplejos()) {
 				if(t instanceof Registro) {
 					Registro r = (Registro) t;
 					registrosCamposTipados.put(r.getNombre(), funciones.registrarCamposRegistro(r.getVariable()));
 				}
 			}
 			
-			funciones.prepararColeccionFunciones(modulo.getImplementacion().getFuncion(), funcionesTipadas);
+			funciones.prepararColeccionFunciones(modulo.getImplementacion().getSubprocesos(), funcionesTipadas);
 			OperacionCompleta opCompleta = (OperacionCompleta) devolver.getDevuelve();
 			checkAux(null, devolver, funcion.getTipo(), opCompleta.getValor_operacion(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
 		}
@@ -2669,7 +2678,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 */
 	protected void check(Subproceso subproceso) {
 		List<String> parametros = new ArrayList<String>();
-		for(ParametroFuncion p: subproceso.getParametrofuncion()) {
+		for(Parametro p: subproceso.getParametros()) {
 			if(!parametros.contains(p.getVariable().getNombre())) {
 				parametros.add(p.getVariable().getNombre());
 			}
@@ -2707,9 +2716,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		Map<String, ArrayList<String>> variablesEnumerados = new HashMap<String, ArrayList<String>>();
 		
 		if(algoritmo != null) {
-			complejos = algoritmo.getTipocomplejo();
+			complejos = algoritmo.getComplejos();
 		} else {
-			complejos = modulo.getImplementacion().getTipocomplejo();
+			complejos = modulo.getImplementacion().getComplejos();
 		}
 		
 		for(TipoComplejo t: complejos) {
@@ -2717,7 +2726,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				Enumerado enumerado = (Enumerado) t;
 				enumerados.add(enumerado.getNombre());
 				variablesEnumerados.put(enumerado.getNombre(), new ArrayList<String>());
-				for(valor v: enumerado.getValor()) {
+				for(Valor v: enumerado.getValor()) {
 					if(v instanceof Operador) {
 						Operador op = (Operador) v;
 						if(op instanceof VariableID) {
@@ -2758,16 +2767,16 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 		List<String> variables;
 		
 		if(algoritmo != null && subproceso == null) {
-			variables = funciones.registrarVariables(algoritmo.getTiene().getDeclaracion());
-			variables.addAll(funciones.registrarVariables(algoritmo.getGlobal()));
+			variables = funciones.registrarVariables(algoritmo.getInicio().getDeclaraciones());
+			variables.addAll(funciones.registrarVariables(algoritmo.getGlobales()));
 		} else if(algoritmo != null && subproceso != null) {
-			variables = funciones.registrarVariables(subproceso.getDeclaracion());
-			variables.addAll(funciones.registrarVariables(algoritmo.getGlobal()));
-			variables.addAll(funciones.registrarParametros(subproceso.getParametrofuncion()));
+			variables = funciones.registrarVariables(subproceso.getDeclaraciones());
+			variables.addAll(funciones.registrarVariables(algoritmo.getGlobales()));
+			variables.addAll(funciones.registrarParametros(subproceso.getParametros()));
 		} else {
-			variables = funciones.registrarVariables(subproceso.getDeclaracion());
-			variables.addAll(funciones.registrarVariables(modulo.getImplementacion().getGlobal()));
-			variables.addAll(funciones.registrarParametros(subproceso.getParametrofuncion()));
+			variables = funciones.registrarVariables(subproceso.getDeclaraciones());
+			variables.addAll(funciones.registrarVariables(modulo.getImplementacion().getGlobales()));
+			variables.addAll(funciones.registrarParametros(subproceso.getParametros()));
 		}
 		
 		if(!variables.contains(asignacion.getValor_asignacion())) {

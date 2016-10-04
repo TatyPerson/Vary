@@ -6,11 +6,15 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ValorRegistro;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -22,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValorRegistroItemProvider
-	extends ValorComplejoItemProvider {
+public class ValorRegistroItemProvider extends ValorComplejoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -84,7 +87,7 @@ public class ValorRegistroItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__CAMPO);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__CAMPOS);
 		}
 		return childrenFeatures;
 	}
@@ -126,6 +129,7 @@ public class ValorRegistroItemProvider
 			getString("_UI_ValorRegistro_type") :
 			getString("_UI_ValorRegistro_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -142,7 +146,7 @@ public class ValorRegistroItemProvider
 			case DiagramapseudocodigoPackage.VALOR_REGISTRO__NOMBRE_REGISTRO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO:
+			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -162,7 +166,7 @@ public class ValorRegistroItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__CAMPO,
+				(DiagramapseudocodigoPackage.Literals.VALOR_REGISTRO__CAMPOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCampoRegistro()));
 	}
 

@@ -26,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AsignacionNormalItemProvider
-	extends AsignacionItemProvider {
+public class AsignacionNormalItemProvider extends AsignacionItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -153,6 +152,7 @@ public class AsignacionNormalItemProvider
 			getString("_UI_AsignacionNormal_type") :
 			getString("_UI_AsignacionNormal_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -201,27 +201,27 @@ public class AsignacionNormalItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -231,7 +231,7 @@ public class AsignacionNormalItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -271,7 +271,7 @@ public class AsignacionNormalItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -301,7 +301,7 @@ public class AsignacionNormalItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_NORMAL__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter

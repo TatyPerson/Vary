@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SinoItemProvider
+public class SinoItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -117,6 +117,7 @@ public class SinoItemProvider
 	public String getText(Object object) {
 		return getString("_UI_Sino_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -162,12 +163,12 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -187,17 +188,17 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -207,17 +208,17 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createmientras()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createMientras()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createrepetir()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createRepetir()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createdesde()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDesde()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -227,12 +228,12 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createsegun()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createSegun()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -282,7 +283,7 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -322,7 +323,7 @@ public class SinoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SINO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter

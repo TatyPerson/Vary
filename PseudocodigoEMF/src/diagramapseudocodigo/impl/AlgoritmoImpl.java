@@ -4,20 +4,26 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.Algoritmo;
 import diagramapseudocodigo.Comentario;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.TipoComplejo;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -30,13 +36,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getTiene <em>Tiene</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getFuncion <em>Funcion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getInicio <em>Inicio</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getSubprocesos <em>Subprocesos</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getConstantes <em>Constantes</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getTipocomplejo <em>Tipocomplejo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getComplejos <em>Complejos</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getComentarios <em>Comentarios</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getGlobal <em>Global</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getGlobales <em>Globales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.AlgoritmoImpl#getImportaciones <em>Importaciones</em>}</li>
  * </ul>
  *
@@ -44,24 +50,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	/**
-	 * The cached value of the '{@link #getTiene() <em>Tiene</em>}' containment reference.
+	 * The cached value of the '{@link #getInicio() <em>Inicio</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTiene()
+	 * @see #getInicio()
 	 * @generated
 	 * @ordered
 	 */
-	protected Inicio tiene;
+	protected Inicio inicio;
 
 	/**
-	 * The cached value of the '{@link #getFuncion() <em>Funcion</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubprocesos() <em>Subprocesos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFuncion()
+	 * @see #getSubprocesos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Subproceso> funcion;
+	protected EList<Subproceso> subprocesos;
 
 	/**
 	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
@@ -91,17 +97,17 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constantes> constantes;
+	protected EList<Constante> constantes;
 
 	/**
-	 * The cached value of the '{@link #getTipocomplejo() <em>Tipocomplejo</em>}' containment reference list.
+	 * The cached value of the '{@link #getComplejos() <em>Complejos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTipocomplejo()
+	 * @see #getComplejos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TipoComplejo> tipocomplejo;
+	protected EList<TipoComplejo> complejos;
 
 	/**
 	 * The cached value of the '{@link #getComentarios() <em>Comentarios</em>}' containment reference list.
@@ -114,14 +120,14 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	protected EList<Comentario> comentarios;
 
 	/**
-	 * The cached value of the '{@link #getGlobal() <em>Global</em>}' containment reference list.
+	 * The cached value of the '{@link #getGlobales() <em>Globales</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlobal()
+	 * @see #getGlobales()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Declaracion> global;
+	protected EList<Declaracion> globales;
 
 	/**
 	 * The cached value of the '{@link #getImportaciones() <em>Importaciones</em>}' reference list.
@@ -157,8 +163,8 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Inicio getTiene() {
-		return tiene;
+	public Inicio getInicio() {
+		return inicio;
 	}
 
 	/**
@@ -166,11 +172,11 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTiene(Inicio newTiene, NotificationChain msgs) {
-		Inicio oldTiene = tiene;
-		tiene = newTiene;
+	public NotificationChain basicSetInicio(Inicio newInicio, NotificationChain msgs) {
+		Inicio oldInicio = inicio;
+		inicio = newInicio;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ALGORITMO__TIENE, oldTiene, newTiene);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ALGORITMO__INICIO, oldInicio, newInicio);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -181,18 +187,18 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setTiene(Inicio newTiene) {
-		if (newTiene != tiene) {
+	public void setInicio(Inicio newInicio) {
+		if (newInicio != inicio) {
 			NotificationChain msgs = null;
-			if (tiene != null)
-				msgs = ((InternalEObject)tiene).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.ALGORITMO__TIENE, null, msgs);
-			if (newTiene != null)
-				msgs = ((InternalEObject)newTiene).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.ALGORITMO__TIENE, null, msgs);
-			msgs = basicSetTiene(newTiene, msgs);
+			if (inicio != null)
+				msgs = ((InternalEObject)inicio).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.ALGORITMO__INICIO, null, msgs);
+			if (newInicio != null)
+				msgs = ((InternalEObject)newInicio).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.ALGORITMO__INICIO, null, msgs);
+			msgs = basicSetInicio(newInicio, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ALGORITMO__TIENE, newTiene, newTiene));
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ALGORITMO__INICIO, newInicio, newInicio));
 	}
 
 	/**
@@ -200,11 +206,11 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Subproceso> getFuncion() {
-		if (funcion == null) {
-			funcion = new EObjectContainmentEList<Subproceso>(Subproceso.class, this, DiagramapseudocodigoPackage.ALGORITMO__FUNCION);
+	public EList<Subproceso> getSubprocesos() {
+		if (subprocesos == null) {
+			subprocesos = new EObjectContainmentEList<Subproceso>(Subproceso.class, this, DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS);
 		}
-		return funcion;
+		return subprocesos;
 	}
 
 	/**
@@ -233,9 +239,9 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constantes> getConstantes() {
+	public EList<Constante> getConstantes() {
 		if (constantes == null) {
-			constantes = new EObjectContainmentEList<Constantes>(Constantes.class, this, DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES);
+			constantes = new EObjectContainmentEList<Constante>(Constante.class, this, DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES);
 		}
 		return constantes;
 	}
@@ -245,11 +251,11 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TipoComplejo> getTipocomplejo() {
-		if (tipocomplejo == null) {
-			tipocomplejo = new EObjectContainmentEList<TipoComplejo>(TipoComplejo.class, this, DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO);
+	public EList<TipoComplejo> getComplejos() {
+		if (complejos == null) {
+			complejos = new EObjectContainmentEList<TipoComplejo>(TipoComplejo.class, this, DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS);
 		}
-		return tipocomplejo;
+		return complejos;
 	}
 
 	/**
@@ -269,11 +275,11 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Declaracion> getGlobal() {
-		if (global == null) {
-			global = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.ALGORITMO__GLOBAL);
+	public EList<Declaracion> getGlobales() {
+		if (globales == null) {
+			globales = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.ALGORITMO__GLOBALES);
 		}
-		return global;
+		return globales;
 	}
 
 	/**
@@ -296,18 +302,18 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ALGORITMO__TIENE:
-				return basicSetTiene(null, msgs);
-			case DiagramapseudocodigoPackage.ALGORITMO__FUNCION:
-				return ((InternalEList<?>)getFuncion()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.ALGORITMO__INICIO:
+				return basicSetInicio(null, msgs);
+			case DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS:
+				return ((InternalEList<?>)getSubprocesos()).basicRemove(otherEnd, msgs);
 			case DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES:
 				return ((InternalEList<?>)getConstantes()).basicRemove(otherEnd, msgs);
-			case DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO:
-				return ((InternalEList<?>)getTipocomplejo()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS:
+				return ((InternalEList<?>)getComplejos()).basicRemove(otherEnd, msgs);
 			case DiagramapseudocodigoPackage.ALGORITMO__COMENTARIOS:
 				return ((InternalEList<?>)getComentarios()).basicRemove(otherEnd, msgs);
-			case DiagramapseudocodigoPackage.ALGORITMO__GLOBAL:
-				return ((InternalEList<?>)getGlobal()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.ALGORITMO__GLOBALES:
+				return ((InternalEList<?>)getGlobales()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -320,20 +326,20 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ALGORITMO__TIENE:
-				return getTiene();
-			case DiagramapseudocodigoPackage.ALGORITMO__FUNCION:
-				return getFuncion();
+			case DiagramapseudocodigoPackage.ALGORITMO__INICIO:
+				return getInicio();
+			case DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS:
+				return getSubprocesos();
 			case DiagramapseudocodigoPackage.ALGORITMO__NOMBRE:
 				return getNombre();
 			case DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES:
 				return getConstantes();
-			case DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO:
-				return getTipocomplejo();
+			case DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS:
+				return getComplejos();
 			case DiagramapseudocodigoPackage.ALGORITMO__COMENTARIOS:
 				return getComentarios();
-			case DiagramapseudocodigoPackage.ALGORITMO__GLOBAL:
-				return getGlobal();
+			case DiagramapseudocodigoPackage.ALGORITMO__GLOBALES:
+				return getGlobales();
 			case DiagramapseudocodigoPackage.ALGORITMO__IMPORTACIONES:
 				return getImportaciones();
 		}
@@ -349,31 +355,31 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ALGORITMO__TIENE:
-				setTiene((Inicio)newValue);
+			case DiagramapseudocodigoPackage.ALGORITMO__INICIO:
+				setInicio((Inicio)newValue);
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__FUNCION:
-				getFuncion().clear();
-				getFuncion().addAll((Collection<? extends Subproceso>)newValue);
+			case DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS:
+				getSubprocesos().clear();
+				getSubprocesos().addAll((Collection<? extends Subproceso>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__NOMBRE:
 				setNombre((String)newValue);
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES:
 				getConstantes().clear();
-				getConstantes().addAll((Collection<? extends Constantes>)newValue);
+				getConstantes().addAll((Collection<? extends Constante>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO:
-				getTipocomplejo().clear();
-				getTipocomplejo().addAll((Collection<? extends TipoComplejo>)newValue);
+			case DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS:
+				getComplejos().clear();
+				getComplejos().addAll((Collection<? extends TipoComplejo>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__COMENTARIOS:
 				getComentarios().clear();
 				getComentarios().addAll((Collection<? extends Comentario>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__GLOBAL:
-				getGlobal().clear();
-				getGlobal().addAll((Collection<? extends Declaracion>)newValue);
+			case DiagramapseudocodigoPackage.ALGORITMO__GLOBALES:
+				getGlobales().clear();
+				getGlobales().addAll((Collection<? extends Declaracion>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__IMPORTACIONES:
 				getImportaciones().clear();
@@ -391,11 +397,11 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ALGORITMO__TIENE:
-				setTiene((Inicio)null);
+			case DiagramapseudocodigoPackage.ALGORITMO__INICIO:
+				setInicio((Inicio)null);
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__FUNCION:
-				getFuncion().clear();
+			case DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS:
+				getSubprocesos().clear();
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__NOMBRE:
 				setNombre(NOMBRE_EDEFAULT);
@@ -403,14 +409,14 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 			case DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES:
 				getConstantes().clear();
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO:
-				getTipocomplejo().clear();
+			case DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS:
+				getComplejos().clear();
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__COMENTARIOS:
 				getComentarios().clear();
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__GLOBAL:
-				getGlobal().clear();
+			case DiagramapseudocodigoPackage.ALGORITMO__GLOBALES:
+				getGlobales().clear();
 				return;
 			case DiagramapseudocodigoPackage.ALGORITMO__IMPORTACIONES:
 				getImportaciones().clear();
@@ -427,20 +433,20 @@ public class AlgoritmoImpl extends CodigoImpl implements Algoritmo {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ALGORITMO__TIENE:
-				return tiene != null;
-			case DiagramapseudocodigoPackage.ALGORITMO__FUNCION:
-				return funcion != null && !funcion.isEmpty();
+			case DiagramapseudocodigoPackage.ALGORITMO__INICIO:
+				return inicio != null;
+			case DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS:
+				return subprocesos != null && !subprocesos.isEmpty();
 			case DiagramapseudocodigoPackage.ALGORITMO__NOMBRE:
 				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES:
 				return constantes != null && !constantes.isEmpty();
-			case DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO:
-				return tipocomplejo != null && !tipocomplejo.isEmpty();
+			case DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS:
+				return complejos != null && !complejos.isEmpty();
 			case DiagramapseudocodigoPackage.ALGORITMO__COMENTARIOS:
 				return comentarios != null && !comentarios.isEmpty();
-			case DiagramapseudocodigoPackage.ALGORITMO__GLOBAL:
-				return global != null && !global.isEmpty();
+			case DiagramapseudocodigoPackage.ALGORITMO__GLOBALES:
+				return globales != null && !globales.isEmpty();
 			case DiagramapseudocodigoPackage.ALGORITMO__IMPORTACIONES:
 				return importaciones != null && !importaciones.isEmpty();
 		}

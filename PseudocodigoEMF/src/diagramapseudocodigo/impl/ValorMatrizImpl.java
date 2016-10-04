@@ -4,15 +4,21 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.ValorMatriz;
-import diagramapseudocodigo.operacion;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -25,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getNombre_matriz <em>Nombre matriz</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getCampo <em>Campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getCampos <em>Campos</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getPrimerIndice <em>Primer Indice</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorMatrizImpl#getSegundoIndice <em>Segundo Indice</em>}</li>
  * </ul>
@@ -54,14 +60,14 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	protected String nombre_matriz = NOMBRE_MATRIZ_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCampo() <em>Campo</em>}' containment reference list.
+	 * The cached value of the '{@link #getCampos() <em>Campos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCampo()
+	 * @see #getCampos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CampoRegistro> campo;
+	protected EList<CampoRegistro> campos;
 
 	/**
 	 * The cached value of the '{@link #getPrimerIndice() <em>Primer Indice</em>}' containment reference.
@@ -71,7 +77,7 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion primerIndice;
+	protected Operacion primerIndice;
 
 	/**
 	 * The cached value of the '{@link #getSegundoIndice() <em>Segundo Indice</em>}' containment reference.
@@ -81,7 +87,7 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion segundoIndice;
+	protected Operacion segundoIndice;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,11 +134,11 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CampoRegistro> getCampo() {
-		if (campo == null) {
-			campo = new EObjectContainmentEList<CampoRegistro>(CampoRegistro.class, this, DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO);
+	public EList<CampoRegistro> getCampos() {
+		if (campos == null) {
+			campos = new EObjectContainmentEList<CampoRegistro>(CampoRegistro.class, this, DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS);
 		}
-		return campo;
+		return campos;
 	}
 
 	/**
@@ -140,7 +146,7 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getPrimerIndice() {
+	public Operacion getPrimerIndice() {
 		return primerIndice;
 	}
 
@@ -149,8 +155,8 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrimerIndice(operacion newPrimerIndice, NotificationChain msgs) {
-		operacion oldPrimerIndice = primerIndice;
+	public NotificationChain basicSetPrimerIndice(Operacion newPrimerIndice, NotificationChain msgs) {
+		Operacion oldPrimerIndice = primerIndice;
 		primerIndice = newPrimerIndice;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE, oldPrimerIndice, newPrimerIndice);
@@ -164,7 +170,7 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPrimerIndice(operacion newPrimerIndice) {
+	public void setPrimerIndice(Operacion newPrimerIndice) {
 		if (newPrimerIndice != primerIndice) {
 			NotificationChain msgs = null;
 			if (primerIndice != null)
@@ -183,7 +189,7 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getSegundoIndice() {
+	public Operacion getSegundoIndice() {
 		return segundoIndice;
 	}
 
@@ -192,8 +198,8 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSegundoIndice(operacion newSegundoIndice, NotificationChain msgs) {
-		operacion oldSegundoIndice = segundoIndice;
+	public NotificationChain basicSetSegundoIndice(Operacion newSegundoIndice, NotificationChain msgs) {
+		Operacion oldSegundoIndice = segundoIndice;
 		segundoIndice = newSegundoIndice;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE, oldSegundoIndice, newSegundoIndice);
@@ -207,7 +213,7 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSegundoIndice(operacion newSegundoIndice) {
+	public void setSegundoIndice(Operacion newSegundoIndice) {
 		if (newSegundoIndice != segundoIndice) {
 			NotificationChain msgs = null;
 			if (segundoIndice != null)
@@ -229,8 +235,8 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO:
-				return ((InternalEList<?>)getCampo()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS:
+				return ((InternalEList<?>)getCampos()).basicRemove(otherEnd, msgs);
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE:
 				return basicSetPrimerIndice(null, msgs);
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE:
@@ -249,8 +255,8 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__NOMBRE_MATRIZ:
 				return getNombre_matriz();
-			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO:
-				return getCampo();
+			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS:
+				return getCampos();
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE:
 				return getPrimerIndice();
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE:
@@ -271,15 +277,15 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__NOMBRE_MATRIZ:
 				setNombre_matriz((String)newValue);
 				return;
-			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO:
-				getCampo().clear();
-				getCampo().addAll((Collection<? extends CampoRegistro>)newValue);
+			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS:
+				getCampos().clear();
+				getCampos().addAll((Collection<? extends CampoRegistro>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE:
-				setPrimerIndice((operacion)newValue);
+				setPrimerIndice((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE:
-				setSegundoIndice((operacion)newValue);
+				setSegundoIndice((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,14 +302,14 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__NOMBRE_MATRIZ:
 				setNombre_matriz(NOMBRE_MATRIZ_EDEFAULT);
 				return;
-			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO:
-				getCampo().clear();
+			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS:
+				getCampos().clear();
 				return;
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE:
-				setPrimerIndice((operacion)null);
+				setPrimerIndice((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE:
-				setSegundoIndice((operacion)null);
+				setSegundoIndice((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -319,8 +325,8 @@ public class ValorMatrizImpl extends ValorComplejoImpl implements ValorMatriz {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__NOMBRE_MATRIZ:
 				return NOMBRE_MATRIZ_EDEFAULT == null ? nombre_matriz != null : !NOMBRE_MATRIZ_EDEFAULT.equals(nombre_matriz);
-			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPO:
-				return campo != null && !campo.isEmpty();
+			case DiagramapseudocodigoPackage.VALOR_MATRIZ__CAMPOS:
+				return campos != null && !campos.isEmpty();
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__PRIMER_INDICE:
 				return primerIndice != null;
 			case DiagramapseudocodigoPackage.VALOR_MATRIZ__SEGUNDO_INDICE:

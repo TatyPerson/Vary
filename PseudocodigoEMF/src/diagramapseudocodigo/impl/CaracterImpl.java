@@ -4,14 +4,20 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.Caracter;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Sentencias;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Sentencia;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -25,7 +31,7 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link diagramapseudocodigo.impl.CaracterImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CaracterImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CaracterImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.CaracterImpl#getContenido <em>Contenido</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CaracterImpl#getValor <em>Valor</em>}</li>
  * </ul>
  *
  * @generated
@@ -39,7 +45,7 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion eAttribute0rence0;
+	protected Operacion eAttribute0rence0;
 
 	/**
 	 * The cached value of the '{@link #getNegacionesFinales() <em>Negaciones Finales</em>}' attribute list.
@@ -62,24 +68,24 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	protected EList<String> negacionesIniciales;
 
 	/**
-	 * The default value of the '{@link #getContenido() <em>Contenido</em>}' attribute.
+	 * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContenido()
+	 * @see #getValor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String CONTENIDO_EDEFAULT = null;
+	protected static final String VALOR_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getContenido() <em>Contenido</em>}' attribute.
+	 * The cached value of the '{@link #getValor() <em>Valor</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContenido()
+	 * @see #getValor()
 	 * @generated
 	 * @ordered
 	 */
-	protected String contenido = CONTENIDO_EDEFAULT;
+	protected String valor = VALOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,10 +111,10 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getEAttribute0rence0() {
+	public Operacion getEAttribute0rence0() {
 		if (eAttribute0rence0 != null && eAttribute0rence0.eIsProxy()) {
 			InternalEObject oldEAttribute0rence0 = (InternalEObject)eAttribute0rence0;
-			eAttribute0rence0 = (operacion)eResolveProxy(oldEAttribute0rence0);
+			eAttribute0rence0 = (Operacion)eResolveProxy(oldEAttribute0rence0);
 			if (eAttribute0rence0 != oldEAttribute0rence0) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiagramapseudocodigoPackage.CARACTER__EATTRIBUTE0RENCE0, oldEAttribute0rence0, eAttribute0rence0));
@@ -122,7 +128,7 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion basicGetEAttribute0rence0() {
+	public Operacion basicGetEAttribute0rence0() {
 		return eAttribute0rence0;
 	}
 
@@ -131,8 +137,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEAttribute0rence0(operacion newEAttribute0rence0) {
-		operacion oldEAttribute0rence0 = eAttribute0rence0;
+	public void setEAttribute0rence0(Operacion newEAttribute0rence0) {
+		Operacion oldEAttribute0rence0 = eAttribute0rence0;
 		eAttribute0rence0 = newEAttribute0rence0;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CARACTER__EATTRIBUTE0RENCE0, oldEAttribute0rence0, eAttribute0rence0));
@@ -167,8 +173,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getContenido() {
-		return contenido;
+	public String getValor() {
+		return valor;
 	}
 
 	/**
@@ -176,11 +182,11 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setContenido(String newContenido) {
-		String oldContenido = contenido;
-		contenido = newContenido;
+	public void setValor(String newValor) {
+		String oldValor = valor;
+		valor = newValor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CARACTER__CONTENIDO, oldContenido, contenido));
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CARACTER__VALOR, oldValor, valor));
 	}
 
 	/**
@@ -198,8 +204,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
-			case DiagramapseudocodigoPackage.CARACTER__CONTENIDO:
-				return getContenido();
+			case DiagramapseudocodigoPackage.CARACTER__VALOR:
+				return getValor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -214,7 +220,7 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CARACTER__EATTRIBUTE0RENCE0:
-				setEAttribute0rence0((operacion)newValue);
+				setEAttribute0rence0((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_FINALES:
 				getNegacionesFinales().clear();
@@ -224,8 +230,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.CARACTER__CONTENIDO:
-				setContenido((String)newValue);
+			case DiagramapseudocodigoPackage.CARACTER__VALOR:
+				setValor((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -240,7 +246,7 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CARACTER__EATTRIBUTE0RENCE0:
-				setEAttribute0rence0((operacion)null);
+				setEAttribute0rence0((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_FINALES:
 				getNegacionesFinales().clear();
@@ -248,8 +254,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
-			case DiagramapseudocodigoPackage.CARACTER__CONTENIDO:
-				setContenido(CONTENIDO_EDEFAULT);
+			case DiagramapseudocodigoPackage.CARACTER__VALOR:
+				setValor(VALOR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -269,8 +275,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
-			case DiagramapseudocodigoPackage.CARACTER__CONTENIDO:
-				return CONTENIDO_EDEFAULT == null ? contenido != null : !CONTENIDO_EDEFAULT.equals(contenido);
+			case DiagramapseudocodigoPackage.CARACTER__VALOR:
+				return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -282,12 +288,12 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Sentencias.class) {
+		if (baseClass == Sentencia.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == operacion.class) {
+		if (baseClass == Operacion.class) {
 			switch (derivedFeatureID) {
 				case DiagramapseudocodigoPackage.CARACTER__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
@@ -305,12 +311,12 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Sentencias.class) {
+		if (baseClass == Sentencia.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == operacion.class) {
+		if (baseClass == Operacion.class) {
 			switch (baseFeatureID) {
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.CARACTER__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.CARACTER__NEGACIONES_FINALES;
@@ -335,8 +341,8 @@ public class CaracterImpl extends OperadorImpl implements Caracter {
 		result.append(negacionesFinales);
 		result.append(", negacionesIniciales: ");
 		result.append(negacionesIniciales);
-		result.append(", contenido: ");
-		result.append(contenido);
+		result.append(", valor: ");
+		result.append(valor);
 		result.append(')');
 		return result.toString();
 	}

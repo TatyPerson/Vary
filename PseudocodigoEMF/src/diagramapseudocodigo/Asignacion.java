@@ -13,6 +13,5 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface Asignacion extends Sentencias {
-
+public interface Asignacion extends Sentencia {
 } // Asignacion

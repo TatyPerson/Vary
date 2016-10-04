@@ -16,73 +16,71 @@ import diagramapseudocodigo.CabeceraFuncion;
 import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.Caracter;
 import diagramapseudocodigo.Comparacion;
-import diagramapseudocodigo.ConstCadena;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.CadenaCaracteres;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.DeclaracionDefinida;
+import diagramapseudocodigo.DeclaracionBasica;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Div;
-import diagramapseudocodigo.Division;
+import diagramapseudocodigo.DivisionReal;
+import diagramapseudocodigo.DivisionEntera;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.Igualdad;
 import diagramapseudocodigo.Inicio;
-import diagramapseudocodigo.Internas;
+import diagramapseudocodigo.FuncionInterna;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Mod;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.Negacion;
-import diagramapseudocodigo.Negativa;
-import diagramapseudocodigo.NumeroDecimal;
-import diagramapseudocodigo.NumeroEntero;
+import diagramapseudocodigo.Real;
+import diagramapseudocodigo.Entero;
 import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
 import diagramapseudocodigo.Or;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Parametro;
 import diagramapseudocodigo.Procedimiento;
 import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Resta;
-import diagramapseudocodigo.Sentencias;
+import diagramapseudocodigo.Sentencia;
 import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.Subrango;
 import diagramapseudocodigo.Suma;
 import diagramapseudocodigo.Tipo;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.TipoExistente;
-import diagramapseudocodigo.ValorBooleano;
+import diagramapseudocodigo.TipoBasico;
+import diagramapseudocodigo.Logico;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
 import diagramapseudocodigo.ValorVector;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.signo;
-import diagramapseudocodigo.valor;
+import diagramapseudocodigo.Valor;
 
 public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	
 	protected Map<String,String> registrarVariablesTipadas(List<Declaracion> declaraciones) {
 		Map<String,String> variablesDeclaradas = new HashMap<String,String>();
 		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionVariable) {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
+			if(d instanceof DeclaracionBasica) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
 				//Registramos todas las variables declaradas y sus respectivos tipos
 				//Nota: No se comprueba si están repetidas porque ya hay una función que se encarga de ello.
-				for(Variable var: dec.getVariable()) {
+				for(Variable var: dec.getVariables()) {
 					variablesDeclaradas.put(var.getNombre(), dec.getTipo());
 				}
 			}
-			else if(d instanceof DeclaracionPropia) {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
+			else if(d instanceof DeclaracionDefinida) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
 				//Registramos todas las variables declaradas y sus respectivos tipos
 				//Nota: No se comprueba si están repetidas porque ya hay una función que se encarga de ello.
-				for(Variable var: dec.getVariable()) {
+				for(Variable var: dec.getVariables()) {
 					variablesDeclaradas.put(var.getNombre(), dec.getTipo());
 				}
 			}
@@ -96,14 +94,14 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			if(s instanceof Funcion) {
 				Funcion funcion = (Funcion) s;
 				funcionesParametros.put(funcion.getNombre(), new ArrayList<String>());
-				for(ParametroFuncion parametro: funcion.getParametrofuncion()) {
+				for(Parametro parametro: funcion.getParametros()) {
 					funcionesParametros.get(funcion.getNombre()).add(parametro.getPaso().toString());
 				}
 			}
 			else {
 				Procedimiento procedimiento = (Procedimiento) s;
 				funcionesParametros.put(procedimiento.getNombre(), new ArrayList<String>());
-				for(ParametroFuncion parametro: procedimiento.getParametrofuncion()) {
+				for(Parametro parametro: procedimiento.getParametros()) {
 					funcionesParametros.get(procedimiento.getNombre()).add(parametro.getPaso().toString());
 				}
 			}
@@ -115,7 +113,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		Map<String, List<String>> funcionesParametros = new HashMap<String, List<String>>();
 		for(CabeceraSubproceso cabecera: cabeceras) {
 			funcionesParametros.put(cabecera.getNombre(), new ArrayList<String>());
-			for(ParametroFuncion parametro: cabecera.getParametrofuncion()) {
+			for(Parametro parametro: cabecera.getParametros()) {
 				funcionesParametros.get(cabecera.getNombre()).add(parametro.getPaso().toString());
 			}
 		}
@@ -139,19 +137,19 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		Map<String,String> variablesDeclaradas = new HashMap<String,String>();
 		
 		for(Declaracion d: globales) {
-			if(d instanceof DeclaracionVariable) {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
+			if(d instanceof DeclaracionBasica) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
 				//Registramos las variables que no han sido declaradas en el cuerpo de la función como locales
-				for(Variable var: dec.getVariable()) {
+				for(Variable var: dec.getVariables()) {
 					if(!variablesRepetidas.contains(var.getNombre())) {
 						variablesDeclaradas.put(var.getNombre(), dec.getTipo());
 					}
 				}
 			}
-			else if(d instanceof DeclaracionPropia) {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
+			else if(d instanceof DeclaracionDefinida) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
 				//Registramos las variables que no han sido declaradas en el cuerpo de la función como locales
-				for(Variable var: dec.getVariable()) {
+				for(Variable var: dec.getVariables()) {
 					if(!variablesRepetidas.contains(var.getNombre())) {
 						variablesDeclaradas.put(var.getNombre(), dec.getTipo());
 					}
@@ -163,23 +161,23 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		
 	}
 	
-	protected Map<String,String> registrarConstantesTipadas(List<Constantes> constantes, ReadMessagesValidatorInterface readerMessages) {
+	protected Map<String,String> registrarConstantesTipadas(List<Constante> constantes, ReadMessagesValidatorInterface readerMessages) {
 		Map<String,String> constantesTipadas = new HashMap<String,String>();
 		
-		for(Constantes c: constantes) {
-			if(c.getValor() instanceof NumeroEntero) {
+		for(Constante c: constantes) {
+			if(c.getValor() instanceof Entero) {
 				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_ENTERO"));
 			}
-			else if(c.getValor() instanceof NumeroDecimal) {
+			else if(c.getValor() instanceof Real) {
 				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_REAL"));
 			}
-			else if(c.getValor() instanceof ConstCadena) {
+			else if(c.getValor() instanceof CadenaCaracteres) {
 				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_CADENA"));
 			}
 			else if(c.getValor() instanceof Caracter) {
 				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_CARACTER"));
 			}
-			else if(c.getValor() instanceof ValorBooleano) {
+			else if(c.getValor() instanceof Logico) {
 				constantesTipadas.put(c.getVariable().getNombre(), readerMessages.getBundle().getString("TIPO_LOGICO"));
 			}
 		}
@@ -188,15 +186,15 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		
 	}
 	
-	protected Map<String,String> registrarParametrosTipados(List<ParametroFuncion> parametros) {
+	protected Map<String,String> registrarParametrosTipados(List<Parametro> parametros) {
 		Map<String,String> parametrosTipados = new HashMap<String,String>();
-		for(ParametroFuncion p: parametros) {
+		for(Parametro p: parametros) {
 			if(p.getTipo() instanceof TipoDefinido) {
 				TipoDefinido tipo = (TipoDefinido) p.getTipo();
 				parametrosTipados.put(p.getVariable().getNombre(), tipo.getTipo());
 			}
-			else if(p.getTipo() instanceof TipoExistente) {
-				TipoExistente tipo = (TipoExistente) p.getTipo();
+			else if(p.getTipo() instanceof TipoBasico) {
+				TipoBasico tipo = (TipoBasico) p.getTipo();
 				parametrosTipados.put(p.getVariable().getNombre(), tipo.getTipo());
 			}
 		}
@@ -271,15 +269,15 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	protected List<String> registrarVariables(List<Declaracion> declaraciones) {
 		List<String> variables = new ArrayList<String>();
 		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionVariable) {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+			if(d instanceof DeclaracionBasica) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
+				for(Variable v: dec.getVariables()) {
 					variables.add(v.getNombre());
 				}
 			}
 			else {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
+				for(Variable v: dec.getVariables()) {
 					variables.add(v.getNombre());
 				}
 			}
@@ -287,17 +285,17 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return variables;
 	}
 	
-	protected List<String> registrarConstantes(List<Constantes> constantes) {
+	protected List<String> registrarConstantes(List<Constante> constantes) {
 		List<String> constantesAux = new ArrayList<String>();
-		for(Constantes c: constantes) {
+		for(Constante c: constantes) {
 			constantesAux.add(c.getVariable().getNombre());
 		}
 		return constantesAux;
 	}
 	
-	protected List<String> registrarParametros(List<ParametroFuncion> parametros) {
+	protected List<String> registrarParametros(List<Parametro> parametros) {
 		List<String> parametrosDeclarados = new ArrayList<String>();
-		for(ParametroFuncion p: parametros) {
+		for(Parametro p: parametros) {
 			//Registramos los tipos que requiere la función en su cabecera
 			parametrosDeclarados.add(p.getVariable().getNombre());
 		}
@@ -357,9 +355,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return matrices;
 	}
 	
-	private String getValorTotalOperacion(List<valor> valores, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, ReadMessagesValidatorInterface readerMessages) {
+	private String getValorTotalOperacion(List<Valor> valores, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, ReadMessagesValidatorInterface readerMessages) {
 		List<String> tipos = new ArrayList<String>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof Operador) {
 				Operador op = (Operador) v;
 				if(op instanceof VariableID) {
@@ -371,41 +369,41 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				else if(op instanceof ValorVector) {
 					ValorVector vector = (ValorVector) op;
 					//Si es un vector vamos a ver de que tipo es
-					if(vector.getCampo().size() == 0) {
+					if(vector.getCampos().size() == 0) {
 						tipos.add(tiposVectoresMatrices.get(variablesDeclaradas.get(vector.getNombre_vector())));
 					}
 					else {
 						//Cogemos el último campo:
-						tipos.add(tiposRegistros.get(tiposVectoresMatrices.get(variablesDeclaradas.get(vector.getNombre_vector()))).get(vector.getCampo().get(vector.getCampo().size()-1)));
+						tipos.add(tiposRegistros.get(tiposVectoresMatrices.get(variablesDeclaradas.get(vector.getNombre_vector()))).get(vector.getCampos().get(vector.getCampos().size()-1)));
 					}
 				}
 				else if(op instanceof ValorMatriz) {
 					ValorMatriz matriz = (ValorMatriz) op;
 					//Si es una matriz vamos a ver de que tipo es
-					if(matriz.getCampo().size() == 0) {
+					if(matriz.getCampos().size() == 0) {
 						tipos.add(tiposVectoresMatrices.get(variablesDeclaradas.get(matriz.getNombre_matriz())));
 					}
 					else {
 						//Cogemos el último campo:
-						tipos.add(tiposRegistros.get(tiposVectoresMatrices.get(variablesDeclaradas.get(matriz.getNombre_matriz()))).get(matriz.getCampo().get(matriz.getCampo().size()-1)));
+						tipos.add(tiposRegistros.get(tiposVectoresMatrices.get(variablesDeclaradas.get(matriz.getNombre_matriz()))).get(matriz.getCampos().get(matriz.getCampos().size()-1)));
 					}
 				}
 				else if(op instanceof ValorRegistro) {
 					ValorRegistro registro = (ValorRegistro) op;
 					//Si es un registro vemos de que tipo es:
-					tipos.add(tiposRegistros.get(variablesDeclaradas.get(registro.getNombre_registro())).get(registro.getCampo().get(registro.getCampo().size()-1).getNombre_campo()));
+					tipos.add(tiposRegistros.get(variablesDeclaradas.get(registro.getNombre_registro())).get(registro.getCampos().get(registro.getCampos().size()-1).getNombre_campo()));
 
 				}
-				else if(op instanceof NumeroEntero) {
+				else if(op instanceof Entero) {
 					tipos.add(readerMessages.getBundle().getString("TIPO_ENTERO"));
 				}
-				else if(op instanceof NumeroDecimal) {
+				else if(op instanceof Real) {
 					tipos.add(readerMessages.getBundle().getString("TIPO_REAL"));
 				}
-				else if(op instanceof ValorBooleano) {
+				else if(op instanceof Logico) {
 					tipos.add(readerMessages.getBundle().getString("TIPO_LOGICO"));
 				}
-				else if(op instanceof ConstCadena) {
+				else if(op instanceof CadenaCaracteres) {
 					tipos.add(readerMessages.getBundle().getString("TIPO_CADENA"));
 				}
 				else if(op instanceof Caracter) {
@@ -416,8 +414,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return prioridadTipoOperacion(tipos, readerMessages);
 	}
 
-	protected void registrarParametros(List<operacion> operaciones, List<String> nombresVariables, Map<String,String> nombresVariablesCampos, List<String> tiposNativos, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, List<String> nombresValoresComplejos, ReadMessagesValidatorInterface readerMessages) {
-		for(operacion op: operaciones) { 
+	protected void registrarParametros(List<Operacion> operaciones, List<String> nombresVariables, Map<String,String> nombresVariablesCampos, List<String> tiposNativos, Map<String,String> variablesDeclaradas, Map<String,String> tiposVectoresMatrices, Map<String,HashMap<String,String>> tiposRegistros, List<String> nombresValoresComplejos, ReadMessagesValidatorInterface readerMessages) {
+		for(Operacion op: operaciones) { 
 			if(op instanceof Operador) {
 				Operador o = (Operador) op;
 				if(o instanceof VariableID) {
@@ -428,38 +426,38 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 					ValorVector v = (ValorVector) o;
 					nombresVariables.add(v.getNombre_vector());
 					nombresValoresComplejos.add(v.getNombre_vector());
-					if(v.getCampo().size() != 0) {
-						nombresVariablesCampos.put(v.getNombre_vector(), v.getCampo().get(v.getCampo().size()-1).getNombre_campo());
+					if(v.getCampos().size() != 0) {
+						nombresVariablesCampos.put(v.getNombre_vector(), v.getCampos().get(v.getCampos().size()-1).getNombre_campo());
 					}
 				}
 				else if(o instanceof ValorMatriz) {
 					ValorMatriz m = (ValorMatriz) o;
 					nombresVariables.add(m.getNombre_matriz());
 					nombresValoresComplejos.add(m.getNombre_matriz());
-					if(m.getCampo().size() != 0) {
-						nombresVariablesCampos.put(m.getNombre_matriz(), m.getCampo().get(m.getCampo().size()-1).getNombre_campo());
+					if(m.getCampos().size() != 0) {
+						nombresVariablesCampos.put(m.getNombre_matriz(), m.getCampos().get(m.getCampos().size()-1).getNombre_campo());
 					}
 				}
 				else if(o instanceof ValorRegistro) {
 					ValorRegistro r = (ValorRegistro) o;
 					nombresVariables.add(r.getNombre_registro());
 					nombresValoresComplejos.add(r.getNombre_registro());
-					String campo = r.getCampo().get(r.getCampo().size()-1).getNombre_campo();
+					String campo = r.getCampos().get(r.getCampos().size()-1).getNombre_campo();
 					nombresVariablesCampos.put(r.getNombre_registro(), campo);
 				}
-				else if(o instanceof NumeroEntero) {
+				else if(o instanceof Entero) {
 					nombresVariables.add("tipoNativo");
 					tiposNativos.add(readerMessages.getBundle().getString("TIPO_ENTERO"));
 				}
-				else if(o instanceof NumeroDecimal) {
+				else if(o instanceof Real) {
 					nombresVariables.add("tipoNativo");
 					tiposNativos.add(readerMessages.getBundle().getString("TIPO_REAL"));
 				}
-				else if(o instanceof ValorBooleano) {
+				else if(o instanceof Logico) {
 					nombresVariables.add("tipoNativo");
 					tiposNativos.add(readerMessages.getBundle().getString("TIPO_LOGICO"));
 				}
-				else if(o instanceof ConstCadena) {
+				else if(o instanceof CadenaCaracteres) {
 					nombresVariables.add("tipoNativo");
 					tiposNativos.add(readerMessages.getBundle().getString("TIPO_CADENA"));
 				}
@@ -469,7 +467,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				}
 			}
 			else if(esOperacion(op)) {
-				ArrayList<valor> valoresAux = new ArrayList<valor>();
+				ArrayList<Valor> valoresAux = new ArrayList<Valor>();
 				valoresAux = registrarValoresOperacion(op, valoresAux);
 				String tipoOperacion = getValorTotalOperacion(valoresAux, variablesDeclaradas, tiposVectoresMatrices, tiposRegistros, readerMessages);
 				nombresVariables.add("tipoNativo");
@@ -540,8 +538,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	}
 	
 	protected String getTipoParametro(Tipo tipo) {
-		if(tipo instanceof TipoExistente) {
-			TipoExistente t = (TipoExistente) tipo;
+		if(tipo instanceof TipoBasico) {
+			TipoBasico t = (TipoBasico) tipo;
 			return t.getTipo();
 		}
 		else {
@@ -592,17 +590,17 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 * 
 	 */
 	
-	protected List<String> getTiposCabecera(List<ParametroFuncion> parametros) {
+	protected List<String> getTiposCabecera(List<Parametro> parametros) {
 		List<String> tipos = new ArrayList<String>();
-		for(ParametroFuncion p: parametros) {
+		for(Parametro p: parametros) {
 			//Registramos los tipos que requiere la función en su cabecera
 			tipos.add(getTipoParametro(p.getTipo()));
 		}
 		return tipos;
 	}
 	
-	protected void getTiposCabecera(List<ParametroFuncion> parametros, Map<String,String> variablesDeclaradas) {
-		for(ParametroFuncion p: parametros) {
+	protected void getTiposCabecera(List<Parametro> parametros, Map<String,String> variablesDeclaradas) {
+		for(Parametro p: parametros) {
 			//Registramos los tipos que requiere la función en su cabecera
 			variablesDeclaradas.put(p.getVariable().getNombre(), getTipoParametro(p.getTipo()));
 		}
@@ -612,8 +610,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 * 
 	 */
 	
-	protected boolean esOperacion(operacion op) {
-		if(op instanceof OperacionCompleta || op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof Division || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Negativa || op instanceof Negacion || op instanceof Mod || op instanceof Div || op instanceof OperacionParentesis) {
+	protected boolean esOperacion(Operacion op) {
+		if(op instanceof OperacionCompleta || op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || op instanceof DivisionEntera || op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad || op instanceof Mod || op instanceof DivisionReal || op instanceof OperacionParentesis) {
 			return true;
 		}
 		else {
@@ -621,8 +619,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		}
 	}
 	
-	protected boolean esOperacion(valor v) {
-		if(v instanceof OperacionCompleta || v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof Division || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof Negativa || v instanceof Negacion || v instanceof OperacionParentesis) {
+	protected boolean esOperacion(Valor v) {
+		if(v instanceof OperacionCompleta || v instanceof Suma || v instanceof Resta || v instanceof Multiplicacion || v instanceof DivisionEntera || v instanceof DivisionReal || v instanceof Or || v instanceof And || v instanceof Comparacion || v instanceof Igualdad || v instanceof OperacionParentesis) {
 			return true;
 		}
 		else {
@@ -630,7 +628,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		}
 	}
 
-	protected ArrayList<valor> registrarValoresOperacion(operacion op, ArrayList<valor> valores) {
+	protected ArrayList<Valor> registrarValoresOperacion(Operacion op, ArrayList<Valor> valores) {
 		if(op instanceof OperacionParentesis) {
 			OperacionParentesis opParentesis = (OperacionParentesis) op;
 			if(esOperacion(opParentesis.getValor_operacion())) {
@@ -701,8 +699,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				valores.add(multiplicacion.getLeft());
 				valores.add(multiplicacion.getRight());
 			}
-		} else if(op instanceof Division) {
-			Division division = (Division) op;
+		} else if(op instanceof DivisionEntera) {
+			DivisionEntera division = (DivisionEntera) op;
 			if(esOperacion(division.getLeft()) && esOperacion(division.getRight())) {
 				registrarValoresOperacion(division.getLeft(), valores);
 				registrarValoresOperacion(division.getRight(), valores);
@@ -791,8 +789,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				valores.add(igualdad.getLeft());
 				valores.add(igualdad.getRight());
 			}
-		}else if(op instanceof Div) {
-			Div div = (Div) op;
+		}else if(op instanceof DivisionReal) {
+			DivisionReal div = (DivisionReal) op;
 			if(esOperacion(div.getLeft()) && esOperacion(div.getRight())) {
 				registrarValoresOperacion(div.getLeft(), valores);
 				registrarValoresOperacion(div.getRight(), valores);
@@ -809,15 +807,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				valores.add(div.getLeft());
 				valores.add(div.getRight());
 			}
-		} else if(op instanceof Negativa) {
-			Negativa negativa = (Negativa) op;
-			if(esOperacion(negativa.getValor_operacion())) {
-				registrarValoresOperacion(negativa.getValor_operacion(), valores);
-
-			}
-			else {
-				valores.add(negativa.getValor_operacion());
-			}
 		} else if(op instanceof VariableID) {
 			valores.add(op);
 		}
@@ -830,11 +819,11 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			if(!funciones.containsKey(s.getNombre())) {
 				//Si todavia no hay ninguna que se llame así, la registramos
 				funciones.put(s.getNombre(), new ArrayList<Integer>());
-				funciones.get(s.getNombre()).add(s.getParametrofuncion().size());
+				funciones.get(s.getNombre()).add(s.getParametros().size());
 			}
 			else {
 				//Si el nombre existe y no tiene el mismo número de parámetros lo registramos
-				funciones.get(s.getNombre()).add(s.getParametrofuncion().size());
+				funciones.get(s.getNombre()).add(s.getParametros().size());
 			}
 		}
 		return funciones;
@@ -844,9 +833,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		List<Subproceso> subprocesosExportados = new ArrayList<Subproceso>();
 		
 		for(Modulo m: importaciones) {
-			for(CabeceraSubproceso cabecera: m.getExporta_funciones()) {
-				for(Subproceso s: m.getImplementacion().getFuncion()) {
-					if(cabecera.getNombre().equals(s.getNombre()) && cabecera.getParametrofuncion().size() == s.getParametrofuncion().size()) {
+			for(CabeceraSubproceso cabecera: m.getExporta_subprocesos()) {
+				for(Subproceso s: m.getImplementacion().getSubprocesos()) {
+					if(cabecera.getNombre().equals(s.getNombre()) && cabecera.getParametros().size() == s.getParametros().size()) {
 						subprocesosExportados.add(s);
 					}
 				}
@@ -895,7 +884,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	*/
 	
 	//Función que devuelve true cuando hay almenos una operación que no sea lógica en la condición de un si
-	protected boolean checkOperacionLogica(operacion op) {
+	protected boolean checkOperacionLogica(Operacion op) {
 		if(op instanceof  Suma) {
 			Suma suma = (Suma) op;
 			return checkOperacionLogica(suma.getLeft()) || checkOperacionLogica(suma.getRight());
@@ -908,8 +897,12 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			Multiplicacion multiplicacion = (Multiplicacion) op;
 			return checkOperacionLogica(multiplicacion.getLeft()) || checkOperacionLogica(multiplicacion.getRight());
 		}
-		else if(op instanceof Division) {
-			Division division = (Division) op;
+		else if(op instanceof DivisionEntera) {
+			DivisionEntera division = (DivisionEntera) op;
+			return checkOperacionLogica(division.getLeft()) || checkOperacionLogica(division.getRight());
+		}
+		else if(op instanceof DivisionReal) {
+			DivisionReal division = (DivisionReal) op;
 			return checkOperacionLogica(division.getLeft()) || checkOperacionLogica(division.getRight());
 		}
 		else if(op instanceof Or || op instanceof And || op instanceof Comparacion || op instanceof Igualdad) {
@@ -941,38 +934,38 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 * 
 	 */
 	
-	protected List<valor> buscarProblemasOperacion(String tipo, List<valor> valores, ReadMessagesValidatorInterface readerMessages) {
-		List<valor> valoresProblem = new ArrayList<valor>();
+	protected List<Valor> buscarProblemasOperacion(String tipo, List<Valor> valores, ReadMessagesValidatorInterface readerMessages) {
+		List<Valor> valoresProblem = new ArrayList<Valor>();
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-			for(valor v: valores) {
-				if(!(v instanceof NumeroEntero)) {
+			for(Valor v: valores) {
+				if(!(v instanceof Entero)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
 		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			for(valor v: valores) {
-				if(!(v instanceof NumeroDecimal) && !(v instanceof NumeroEntero)) {
+			for(Valor v: valores) {
+				if(!(v instanceof Real) && !(v instanceof Entero)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
 		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
-			for(valor v: valores) {
-				if(!(v instanceof ValorBooleano)) {
+			for(Valor v: valores) {
+				if(!(v instanceof Logico)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
 		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-			for(valor v: valores) {
-				if(!(v instanceof ConstCadena)) {
+			for(Valor v: valores) {
+				if(!(v instanceof CadenaCaracteres)) {
 					valoresProblem.add(v);
 				}
 			}
 		}
 		else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-			for(valor v: valores) {
+			for(Valor v: valores) {
 				if(!(v instanceof Caracter)) {
 					valoresProblem.add(v);
 				}
@@ -985,29 +978,29 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	
 	
 	
-	protected boolean esValorSimple(valor v) {
-		return !(v instanceof VariableID) && !(v instanceof LlamadaFuncion) && !(v instanceof ValorRegistro) && !(v instanceof ValorVector) && !(v instanceof ValorMatriz) && !esOperacion(v) && !(v instanceof Internas);
+	protected boolean esValorSimple(Valor v) {
+		return !(v instanceof VariableID) && !(v instanceof LlamadaFuncion) && !(v instanceof ValorRegistro) && !(v instanceof ValorVector) && !(v instanceof ValorMatriz) && !esOperacion(v) && !(v instanceof FuncionInterna);
 	}
 	
-	protected int asignacionOperacionVariable(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, ReadMessagesValidatorInterface readerMessages) {
+	protected int asignacionOperacionVariable(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
-			for(valor v: valoresProblem) {
-				if(v instanceof NumeroDecimal && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorSimple(v)) {
+			for(Valor v: valoresProblem) {
+				if(v instanceof Real && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorSimple(v)) {
 					check = 2;
 				}
-				else if(!(v instanceof NumeroEntero) && !(v instanceof NumeroDecimal) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorSimple(v)) {
+				else if(!(v instanceof Entero) && !(v instanceof Real) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof ValorBooleano) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && esValorSimple(v)) {
+				else if(!(v instanceof Logico) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof ConstCadena) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_CADENA")) && esValorSimple(v)) {
+				else if(!(v instanceof CadenaCaracteres) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_CADENA")) && esValorSimple(v)) {
 					return 3;
 				}
 				else if(!(v instanceof Caracter) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && esValorSimple(v)) {
 					return 3;
 				}
-				else if(!(v instanceof NumeroEntero) && !(v instanceof NumeroDecimal) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL")) && esValorSimple(v)) {
+				else if(!(v instanceof Entero) && !(v instanceof Real) && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL")) && esValorSimple(v)) {
 					return 3;
 				}
 				else if(v instanceof VariableID) {
@@ -1030,8 +1023,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 							return 3;
 						}
 					}
-				} else if(v instanceof Internas) {
-					Internas internas = (Internas) v;
+				} else if(v instanceof FuncionInterna) {
+					FuncionInterna internas = (FuncionInterna) v;
 					if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
 						if(internas.getNombre().equals("cuadrado(") || internas.getNombre().equals("sqrt(") || internas.getNombre().equals("cos(") || internas.getNombre().equals("sen(") || internas.getNombre().equals("exp(") || internas.getNombre().equals("ln(") || internas.getNombre().equals("log(")) {
 							check = 2;
@@ -1054,29 +1047,29 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionRegistro(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, ReadMessagesValidatorInterface readerMessages) {
+	protected int asignacionOperacionRegistro(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
-		for(valor v: valoresProblem) {
+		for(Valor v: valoresProblem) {
 			if(v instanceof ValorRegistro) {
 				//Lo buscamos y miramos su tipo
 				ValorRegistro vr = (ValorRegistro) v;
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
 						if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
 								return 3;
 							}
-							else if(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(1))) {
+							else if(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1))) {
 								check = 2;
 							}
 						}
 						else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
 								return 3;
 							}
 						}
 						else {
-							if(!(registros.get(nombre).get(vr.getCampo().get(0).getNombre_campo()).equals(tiposValidos.get(0)))) {
+							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0)))) {
 								return 3;
 							}
 						}
@@ -1087,9 +1080,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionFuncion(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<Integer,String>> funcionesTipadas, ReadMessagesValidatorInterface readerMessages) {
+	protected int asignacionOperacionFuncion(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<Integer,String>> funcionesTipadas, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
-		for(valor v: valoresProblem) {
+		for(Valor v: valoresProblem) {
 			if(v instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) v;
 				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
@@ -1115,9 +1108,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionVector(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> vectores, ReadMessagesValidatorInterface readerMessages) {
+	protected int asignacionOperacionVector(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> vectores, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
-		for(valor v: valoresProblem) {
+		for(Valor v: valoresProblem) {
 			if(v instanceof ValorVector) {
 				ValorVector vector = (ValorVector) v;
 				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
@@ -1143,9 +1136,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected int asignacionOperacionMatriz(List<valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> matrices, ReadMessagesValidatorInterface readerMessages) {
+	protected int asignacionOperacionMatriz(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> matrices, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
-		for(valor v: valoresProblem) {
+		for(Valor v: valoresProblem) {
 			if(v instanceof ValorMatriz) {
 				ValorMatriz matriz = (ValorMatriz) v;
 				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
@@ -1171,9 +1164,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
-	protected List<ValorRegistro> variablesRegistroExistentes(List<valor> valores, Map<String,String> variables, List<String> nombresRegistros) {
+	protected List<ValorRegistro> variablesRegistroExistentes(List<Valor> valores, Map<String,String> variables, List<String> nombresRegistros) {
 		List<ValorRegistro> valoresRegistro = new ArrayList<ValorRegistro>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof ValorRegistro) {
 				//Buscamos si el tipo con el que se declaró es uno de tipo registro
 				ValorRegistro vr = (ValorRegistro) v;
@@ -1186,9 +1179,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return valoresRegistro;
 	}
 	
-	protected List<ValorVector> variablesVectorExistentes(List<valor> valores, Map<String,String> variables, List<String> nombresVectores) {
+	protected List<ValorVector> variablesVectorExistentes(List<Valor> valores, Map<String,String> variables, List<String> nombresVectores) {
 		List<ValorVector> valoresVector = new ArrayList<ValorVector>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof ValorVector) {
 				//Buscamos si el tipo con el que se declaró es uno de tipo registro
 				ValorVector vv = (ValorVector) v;
@@ -1201,9 +1194,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return valoresVector;
 	}
 	
-	protected List<ValorMatriz> variablesMatrizExistentes(List<valor> valores, Map<String,String> variables, List<String> nombresMatrices) {
+	protected List<ValorMatriz> variablesMatrizExistentes(List<Valor> valores, Map<String,String> variables, List<String> nombresMatrices) {
 		List<ValorMatriz> valoresMatriz = new ArrayList<ValorMatriz>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof ValorMatriz) {
 				//Buscamos si el tipo con el que se declaró es uno de tipo registro
 				ValorMatriz vm = (ValorMatriz) v;
@@ -1220,9 +1213,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 * 
 	 */
 	
-	protected List<ValorRegistro> variablesRegistroDeclaradas(List<valor> valores, List<String> variables) {
+	protected List<ValorRegistro> variablesRegistroDeclaradas(List<Valor> valores, List<String> variables) {
 		List<ValorRegistro> variablesNoDeclaradas = new ArrayList<ValorRegistro>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof ValorRegistro) {
 				//Buscamos si ha sido definida (la comprobación de si pertenece al tipo registro lo omitimos porque ya hay otra función
 				//que se encarga de ello
@@ -1235,9 +1228,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return variablesNoDeclaradas;
 	}
 	
-	protected List<ValorVector> variablesVectorDeclaradas(List<valor> valores, List<String> variables) {
+	protected List<ValorVector> variablesVectorDeclaradas(List<Valor> valores, List<String> variables) {
 		List<ValorVector> variablesNoDeclaradas = new ArrayList<ValorVector>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof ValorVector) {
 				ValorVector vv = (ValorVector) v;
 				if(!variables.contains(vv.getNombre_vector())) {
@@ -1248,9 +1241,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return variablesNoDeclaradas;
 	}
 	
-	protected List<ValorMatriz> variablesMatrizDeclaradas(List<valor> valores, List<String> variables) {
+	protected List<ValorMatriz> variablesMatrizDeclaradas(List<Valor> valores, List<String> variables) {
 		List<ValorMatriz> variablesNoDeclaradas = new ArrayList<ValorMatriz>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof ValorMatriz) {
 				ValorMatriz vm = (ValorMatriz) v;
 				if(!variables.contains(vm.getNombre_matriz())) {
@@ -1265,9 +1258,9 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	 * 
 	 */
 	
-	protected List<VariableID> variablesDeclaradas(List<valor> valores, List<String> variables) {
+	protected List<VariableID> variablesDeclaradas(List<Valor> valores, List<String> variables) {
 		List<VariableID> variablesNoDeclaradas = new ArrayList<VariableID>();
-		for(valor v: valores) {
+		for(Valor v: valores) {
 			if(v instanceof VariableID) {
 				//Comprobamos si la variable ha sido definida
 				VariableID var = (VariableID) v;
@@ -1278,7 +1271,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			else if(v instanceof LlamadaFuncion) {
 				//Comprobamos si alguno de los parámetros es una variable no definida
 				LlamadaFuncion f = (LlamadaFuncion) v;
-				for(valor val: f.getOperadores()) {
+				for(Valor val: f.getOperadores()) {
 					if(val instanceof Operador) {
 						Operador o = (Operador) val;
 						if(o instanceof VariableID) {
@@ -1297,15 +1290,15 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	protected List<String> registrarCamposRegistroSinTipo(List<Declaracion> declaraciones) {
 		List<String> campos = new ArrayList<String>();
 		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionPropia) {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
-				for(Variable v: dec.getVariable()) {
+			if(d instanceof DeclaracionDefinida) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
+				for(Variable v: dec.getVariables()) {
 					campos.add(v.getNombre());
 				}
 			}
 			else {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
+				for(Variable v: dec.getVariables()) {
 					campos.add(v.getNombre());
 				}
 			}
@@ -1316,15 +1309,15 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	protected HashMap<String,String> registrarCamposRegistro(List<Declaracion> declaraciones) {
 		HashMap<String,String> campos = new HashMap<String,String>();
 		for(Declaracion d: declaraciones) {
-			if(d instanceof DeclaracionPropia) {
-				DeclaracionPropia dec = (DeclaracionPropia) d;
-				for(Variable v: dec.getVariable()) {
+			if(d instanceof DeclaracionDefinida) {
+				DeclaracionDefinida dec = (DeclaracionDefinida) d;
+				for(Variable v: dec.getVariables()) {
 					campos.put(v.getNombre(), dec.getTipo());
 				}
 			}
 			else {
-				DeclaracionVariable dec = (DeclaracionVariable) d;
-				for(Variable v: dec.getVariable()) {
+				DeclaracionBasica dec = (DeclaracionBasica) d;
+				for(Variable v: dec.getVariables()) {
 					campos.put(v.getNombre(), dec.getTipo());
 				}
 			}
@@ -1363,7 +1356,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 					if(s2 instanceof Funcion) {
 						Funcion f2 = (Funcion) s2;
 						if(f.getNombre().equals(f2.getNombre())) {
-							aux.put(f2.getParametrofuncion().size(), f2.getTipo());
+							aux.put(f2.getParametros().size(), f2.getTipo());
 						}
 					}
 				}

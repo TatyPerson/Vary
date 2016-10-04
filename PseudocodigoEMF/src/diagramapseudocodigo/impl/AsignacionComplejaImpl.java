@@ -4,7 +4,7 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.AsignacionCompleja;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -37,7 +37,7 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion operador;
+	protected Operacion operador;
 
 	/**
 	 * The cached value of the '{@link #getValor_asignacion() <em>Valor asignacion</em>}' containment reference.
@@ -47,7 +47,7 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion valor_asignacion;
+	protected Operacion valor_asignacion;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -73,7 +73,7 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getOperador() {
+	public Operacion getOperador() {
 		return operador;
 	}
 
@@ -82,8 +82,8 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperador(operacion newOperador, NotificationChain msgs) {
-		operacion oldOperador = operador;
+	public NotificationChain basicSetOperador(Operacion newOperador, NotificationChain msgs) {
+		Operacion oldOperador = operador;
 		operador = newOperador;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA__OPERADOR, oldOperador, newOperador);
@@ -97,7 +97,7 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperador(operacion newOperador) {
+	public void setOperador(Operacion newOperador) {
 		if (newOperador != operador) {
 			NotificationChain msgs = null;
 			if (operador != null)
@@ -116,7 +116,7 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getValor_asignacion() {
+	public Operacion getValor_asignacion() {
 		return valor_asignacion;
 	}
 
@@ -125,8 +125,8 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValor_asignacion(operacion newValor_asignacion, NotificationChain msgs) {
-		operacion oldValor_asignacion = valor_asignacion;
+	public NotificationChain basicSetValor_asignacion(Operacion newValor_asignacion, NotificationChain msgs) {
+		Operacion oldValor_asignacion = valor_asignacion;
 		valor_asignacion = newValor_asignacion;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA__VALOR_ASIGNACION, oldValor_asignacion, newValor_asignacion);
@@ -140,7 +140,7 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValor_asignacion(operacion newValor_asignacion) {
+	public void setValor_asignacion(Operacion newValor_asignacion) {
 		if (newValor_asignacion != valor_asignacion) {
 			NotificationChain msgs = null;
 			if (valor_asignacion != null)
@@ -195,10 +195,10 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA__OPERADOR:
-				setOperador((operacion)newValue);
+				setOperador((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA__VALOR_ASIGNACION:
-				setValor_asignacion((operacion)newValue);
+				setValor_asignacion((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -213,10 +213,10 @@ public class AsignacionComplejaImpl extends AsignacionImpl implements Asignacion
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA__OPERADOR:
-				setOperador((operacion)null);
+				setOperador((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.ASIGNACION_COMPLEJA__VALOR_ASIGNACION:
-				setValor_asignacion((operacion)null);
+				setValor_asignacion((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);

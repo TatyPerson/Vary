@@ -27,8 +27,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FuncionFicheroAbrirItemProvider
-	extends SentenciasItemProvider {
+public class FuncionFicheroAbrirItemProvider extends SentenciaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -132,6 +131,7 @@ public class FuncionFicheroAbrirItemProvider
 			getString("_UI_FuncionFicheroAbrir_type") :
 			getString("_UI_FuncionFicheroAbrir_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -179,27 +179,27 @@ public class FuncionFicheroAbrirItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -209,7 +209,7 @@ public class FuncionFicheroAbrirItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -249,7 +249,7 @@ public class FuncionFicheroAbrirItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -279,7 +279,7 @@ public class FuncionFicheroAbrirItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_ABRIR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter

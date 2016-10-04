@@ -3,13 +3,16 @@
 package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.Tipo;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.operacion;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -36,7 +39,7 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion valor;
+	protected Operacion valor;
 
 	/**
 	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' containment reference.
@@ -92,28 +95,7 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNombre(String newNombre) {
-		String oldNombre = nombre;
-		nombre = newNombre;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VECTOR__NOMBRE, oldNombre, nombre));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public operacion getValor() {
+	public Operacion getValor() {
 		return valor;
 	}
 
@@ -122,8 +104,8 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValor(operacion newValor, NotificationChain msgs) {
-		operacion oldValor = valor;
+	public NotificationChain basicSetValor(Operacion newValor, NotificationChain msgs) {
+		Operacion oldValor = valor;
 		valor = newValor;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VECTOR__VALOR, oldValor, newValor);
@@ -137,7 +119,7 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValor(operacion newValor) {
+	public void setValor(Operacion newValor) {
 		if (newValor != valor) {
 			NotificationChain msgs = null;
 			if (valor != null)
@@ -199,6 +181,27 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNombre(String newNombre) {
+		String oldNombre = nombre;
+		nombre = newNombre;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VECTOR__NOMBRE, oldNombre, nombre));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -237,7 +240,7 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VECTOR__VALOR:
-				setValor((operacion)newValue);
+				setValor((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.VECTOR__TIPO:
 				setTipo((Tipo)newValue);
@@ -258,7 +261,7 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VECTOR__VALOR:
-				setValor((operacion)null);
+				setValor((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.VECTOR__TIPO:
 				setTipo((Tipo)null);

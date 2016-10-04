@@ -19,8 +19,7 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface OperacionParentesis extends operacion {
-
+public interface OperacionParentesis extends Operacion {
 	/**
 	 * Returns the value of the '<em><b>Valor operacion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -30,12 +29,12 @@ public interface OperacionParentesis extends operacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valor operacion</em>' containment reference.
-	 * @see #setValor_operacion(operacion)
+	 * @see #setValor_operacion(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getOperacionParentesis_Valor_operacion()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getValor_operacion();
+	Operacion getValor_operacion();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.OperacionParentesis#getValor_operacion <em>Valor operacion</em>}' containment reference.
@@ -45,6 +44,6 @@ public interface OperacionParentesis extends operacion {
 	 * @see #getValor_operacion()
 	 * @generated
 	 */
-	void setValor_operacion(operacion value);
+	void setValor_operacion(Operacion value);
 
 } // OperacionParentesis

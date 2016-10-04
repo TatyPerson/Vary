@@ -20,7 +20,7 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface Unaria extends operacion {
+public interface Unaria extends Operacion {
 	/**
 	 * Returns the value of the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -30,12 +30,12 @@ public interface Unaria extends operacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right</em>' containment reference.
-	 * @see #setRight(operacion)
+	 * @see #setRight(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getUnaria_Right()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getRight();
+	Operacion getRight();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Unaria#getRight <em>Right</em>}' containment reference.
@@ -45,7 +45,7 @@ public interface Unaria extends operacion {
 	 * @see #getRight()
 	 * @generated
 	 */
-	void setRight(operacion value);
+	void setRight(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Signo op</b></em>' attribute.

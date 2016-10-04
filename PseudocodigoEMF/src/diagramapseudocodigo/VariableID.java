@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface VariableID extends Operador, operacion {
+public interface VariableID extends Operador, Operacion {
 	/**
 	 * Returns the value of the '<em><b>Mat</b></em>' attribute list.
 	 * The list contents are of type {@link java.lang.String}.

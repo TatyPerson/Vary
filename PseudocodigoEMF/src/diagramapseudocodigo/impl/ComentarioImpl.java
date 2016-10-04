@@ -6,6 +6,7 @@ import diagramapseudocodigo.Comentario;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -34,6 +35,7 @@ public class ComentarioImpl extends MinimalEObjectImpl.Container implements Come
 	 * @ordered
 	 */
 	protected static final String MENSAJE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getMensaje() <em>Mensaje</em>}' attribute.
 	 * <!-- begin-user-doc -->

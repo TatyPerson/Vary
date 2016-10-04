@@ -6,11 +6,15 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Registro;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -22,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class RegistroItemProvider
-	extends TipoComplejoItemProvider {
+public class RegistroItemProvider extends TipoComplejoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -126,6 +129,7 @@ public class RegistroItemProvider
 			getString("_UI_Registro_type") :
 			getString("_UI_Registro_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -168,12 +172,12 @@ public class RegistroItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionBasica()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.REGISTRO__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionDefinida()));
 	}
 
 }

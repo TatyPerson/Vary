@@ -21,7 +21,7 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface Mod extends operacion {
+public interface Mod extends Operacion {
 	/**
 	 * Returns the value of the '<em><b>Signo op</b></em>' attribute.
 	 * The literals are from the enumeration {@link diagramapseudocodigo.signo}.
@@ -60,12 +60,12 @@ public interface Mod extends operacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right</em>' containment reference.
-	 * @see #setRight(operacion)
+	 * @see #setRight(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getMod_Right()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getRight();
+	Operacion getRight();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Mod#getRight <em>Right</em>}' containment reference.
@@ -75,7 +75,7 @@ public interface Mod extends operacion {
 	 * @see #getRight()
 	 * @generated
 	 */
-	void setRight(operacion value);
+	void setRight(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Left</b></em>' containment reference.
@@ -86,12 +86,12 @@ public interface Mod extends operacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left</em>' containment reference.
-	 * @see #setLeft(operacion)
+	 * @see #setLeft(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getMod_Left()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getLeft();
+	Operacion getLeft();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Mod#getLeft <em>Left</em>}' containment reference.
@@ -101,6 +101,6 @@ public interface Mod extends operacion {
 	 * @see #getLeft()
 	 * @generated
 	 */
-	void setLeft(operacion value);
+	void setLeft(Operacion value);
 
 } // Mod

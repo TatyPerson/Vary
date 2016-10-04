@@ -13,13 +13,13 @@ Algoritmo returns Algoritmo:
 	(importaciones+=[Modulo])*
 	'end_import')?
 	('const'
-		(constantes+=Constantes)* )? 
+		(constantes+=Constante)* )? 
 	('type'
-		(tipocomplejo+=TipoComplejo)* )?
+		(complejos+=TipoComplejo)* )?
 	('var'
-		(global+=Declaracion)* )? 
-	(funcion+=Subproceso)*
-	tiene=Inicio
+		(globales+=Declaracion)* )? 
+	(subprocesos+=Subproceso)*
+	inicio=Inicio
 	'end_algorithm';
 	
 Modulo returns Modulo:
@@ -33,8 +33,8 @@ Modulo returns Modulo:
 	('type'
 		(exporta_tipos+=EString)* )?
 	('var'
-		(exporta_global+=Declaracion)* )? 
-	(exporta_funciones+=CabeceraSubproceso)* 
+		(exporta_globales+=Declaracion)* )? 
+	(exporta_subprocesos+=CabeceraSubproceso)* 
 	'end_export')
 	implementacion=Implementacion
 	'end_module';
@@ -43,12 +43,12 @@ Implementacion returns Implementacion:
 	{Implementacion}
 	('implementation'
 	('const'
-		(constantes+=Constantes)* )?
+		(constantes+=Constante)* )?
 	('type'
-		(tipocomplejo+=TipoComplejo)* )?
+		(complejos+=TipoComplejo)* )?
 	('var'
-		(global+=Declaracion)* )?
-	(funcion+=Subproceso)*
+		(globales+=Declaracion)* )?
+	(subprocesos+=Subproceso)*
 	'end_implementation')
 ;
 
@@ -58,16 +58,15 @@ CabeceraSubproceso returns CabeceraSubproceso:
 CabeceraProcedimiento returns CabeceraProcedimiento:
 	'procedure'
 	nombre=NOMBRE_FUN
-	(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
+	(parametros+=Parametro ( "," parametros+=Parametro)*  )?')';
 	
 CabeceraFuncion returns CabeceraFuncion:
 	tipo=TipoVariable 'function'
 	nombre=NOMBRE_FUN
-	(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')';
+	(parametros+=Parametro ( "," parametros+=Parametro)*  )?')';
 	
 TipoComplejo returns TipoComplejo:
 	Vector | Matriz | Registro | Archivo | Enumerado | Subrango;
-
 
 Subproceso returns Subproceso:
 	Funcion | Procedimiento;
@@ -75,14 +74,14 @@ Subproceso returns Subproceso:
 Comentario returns Comentario:
 	mensaje=SL_COMMENT | mensaje=ML_COMMENT;
 
-Sentencias returns Sentencias:
+Sentencia returns Sentencia:
 	 Escribir | Leer | Bloque | FuncionFicheroAbrir | FuncionFicheroCerrar | Asignacion | Funciones;
 
 Bloque returns Bloque:
-	Si | mientras | repetir | desde | segun;
+	Si | Mientras | Repetir | Desde | Segun;
 
 Declaracion returns Declaracion:
-	DeclaracionVariable | DeclaracionPropia;
+	DeclaracionBasica | DeclaracionDefinida;
 	
 FuncionFicheroAbrir returns FuncionFicheroAbrir:
 	'open('
@@ -126,15 +125,15 @@ EFloat returns ecore::EFloat:
 //	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
 
 Tipo returns Tipo:
-	TipoDefinido | TipoExistente;
+	TipoDefinido | TipoBasico;
 	
 TipoDefinido returns TipoDefinido:
 	tipo=EString;
 
-TipoExistente returns TipoExistente:
+TipoBasico returns TipoBasico:
 	tipo=TipoVariable;
 
-Constantes returns Constantes:
+Constante returns Constante:
 	variable=Variable '=' valor=Primaria;
 
 Vector returns Vector:
@@ -169,21 +168,21 @@ Inicio returns Inicio:
 	'main'
 	{Inicio}
 	'var'
-	(declaracion+=Declaracion)*
+	(declaraciones+=Declaracion)*
 	'start'
-		(tiene+=Sentencias)*
+		(sentencias+=Sentencia)*
 	'end_main';
 
 EString returns ecore::EString:
 	STRING | ID;
 
-DeclaracionVariable returns DeclaracionVariable:
+DeclaracionBasica returns DeclaracionBasica:
 	tipo=TipoVariable ': '
-	variable+=Variable ( ',' variable+=Variable)*;
+	variables+=Variable ( ',' variables+=Variable)*;
 	
-DeclaracionPropia returns DeclaracionPropia:
+DeclaracionDefinida returns DeclaracionDefinida:
 	tipo=EString ': '
-	variable+=Variable (',' variable+=Variable)*;
+	variables+=Variable (',' variables+=Variable)*;
 
 Asignacion returns Asignacion:
 	AsignacionNormal | AsignacionCompleja;
@@ -219,41 +218,41 @@ Si returns Si:
 	('if' 
 	'(' | 'if(') valor=OperacionCompleta
 	')' 'then'
-		(sentencias+=Sentencias)*
+		(sentencias+=Sentencia)*
 		(devuelve=Devolver)?
 	(sino=Sino)?
 	'end_if';
 
-mientras returns mientras:
+Mientras returns Mientras:
 	('while'
 	'(' | 'while(')
 	valor=OperacionCompleta
 	')' 'do'
-		(sentencias+=Sentencias)* 
+		(sentencias+=Sentencia)* 
 	'end_while';
 
-repetir returns repetir:
+Repetir returns Repetir:
 	'repeat'
-		(sentencias+=Sentencias)*
+		(sentencias+=Sentencia)*
 	 ('until' '(' | 'until(')
 	 valor=OperacionCompleta
 	 ')';
 
-desde returns desde:
+Desde returns Desde:
 	'for' asignacion=AsignacionNormal 'to' valor=OperacionCompleta 'do'
-		(sentencias+=Sentencias)*
+		(sentencias+=Sentencia)*
 	'end_for';
 	
 Caso returns Caso:
-	'case' operador=Primaria ': ' (sentencias+=Sentencias )* 
+	'case' operador=Primaria ': ' (sentencias+=Sentencia)* 
 	(devuelve=Devolver)?
 ;
-	
-segun returns segun:
+
+Segun returns Segun:
 	('according_to''(' | 'according_to(') valor=OperacionCompleta')' 'do'
-		(caso+=Caso )*
+		(casos+=Caso )*
 		'otherwise:'
-		(sentencias+=Sentencias )*
+		(sentencias+=Sentencia)*
 		(devuelve=Devolver)?
 	'end_according_to';
 
@@ -312,99 +311,99 @@ signoDiv returns signo:
 signoNo returns signo:
 	'no';
 
-operacion returns operacion:
+Operacion returns Operacion:
 	Or;
 
-Or returns operacion:
+Or returns Operacion:
 	And ({Or.left=current} signo_op=signoOr negacionesFinales+=('-')* negacionesFinales+=('no')* right=And)*;
 
-And returns operacion:
+And returns Operacion:
 	Mod ({And.left=current} signo_op=signoAnd negacionesFinales+=('-')* negacionesFinales+=('no')* right=Mod)*;
 	
-Mod returns operacion:
+Mod returns Operacion:
 	Igualdad ({Mod.left=current} signo_op=signoModulo negacionesFinales+=('-')* negacionesFinales+=('no')* right=Igualdad)*;
 
-Igualdad returns operacion:
+Igualdad returns Operacion:
 	Comparacion ({Igualdad.left=current} signo_op=signoIgualdad negacionesFinales+=('-')* negacionesFinales+=('no')* right=Comparacion)*;
 
-Comparacion returns operacion:
+Comparacion returns Operacion:
 	SumaResta ({Comparacion.left=current} signo_op=signoComparacion negacionesFinales+=('-')* negacionesFinales+=('no')* right=SumaResta)*;
 
-SumaResta returns operacion:
+SumaResta returns Operacion:
 	MultiplicacionDivision (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) negacionesFinales+=('-')* negacionesFinales+=('no')* right=MultiplicacionDivision)*;
 
-MultiplicacionDivision returns operacion:
-	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) negacionesFinales+=('-')* negacionesFinales+=('no')* right=Primaria)*;
+MultiplicacionDivision returns Operacion:
+	Primaria (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {DivisionEntera.left=current} signo_op=signoDivision | {DivisionReal.left=current} signo_op=signoDiv) negacionesFinales+=('-')* negacionesFinales+=('no')* right=Primaria)*;
 	
 	
-operacionIndice returns operacion:
+OperacionIndice returns Operacion:
 	OrIndice;
 
-OrIndice returns operacion:
+OrIndice returns Operacion:
 	AndIndice ({Or.left=current} signo_op=signoOr right=AndIndice)*;
 
-AndIndice returns operacion:
+AndIndice returns Operacion:
 	IgualdadIndice ({And.left=current} signo_op=signoAnd right=IgualdadIndice)*;
 
-IgualdadIndice returns operacion:
+IgualdadIndice returns Operacion:
 	ComparacionIndice ({Igualdad.left=current} signo_op=signoIgualdad right=ComparacionIndice)*;
 
-ComparacionIndice returns operacion:
+ComparacionIndice returns Operacion:
 	SumaRestaIndice ({Comparacion.left=current} signo_op=signoComparacion right=SumaRestaIndice)*;
 
-SumaRestaIndice returns operacion:
+SumaRestaIndice returns Operacion:
 	MultiplicacionDivisionIndice (({Suma.left=current} signo_op=signoSuma | {Resta.left=current} signo_op=signoResta) right=MultiplicacionDivisionIndice)*;
 
-MultiplicacionDivisionIndice returns operacion:
-	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {Division.left=current} signo_op=signoDivision | {Div.left=current} signo_op=signoDiv) right=PrimariaIndice)*;
+MultiplicacionDivisionIndice returns Operacion:
+	PrimariaIndice (({Multiplicacion.left=current} signo_op=signoMultiplicacion | {DivisionEntera.left=current} signo_op=signoDivision | {DivisionReal.left=current} signo_op=signoDiv) right=PrimariaIndice)*;
 
-PrimariaIndice returns operacion:
-	{NumeroEntero} valor=EInt
+PrimariaIndice returns Operacion:
+	{Entero} valor=EInt
 	| {VariableID} nombre=EString;
 
-Primaria returns operacion:
+Primaria returns Operacion:
 	VariablesBasicas |
 	VariablesComplejas
 	| Funciones
 	| OperacionParentesis;
 	
-OperacionCompleta returns operacion:
-	{OperacionCompleta} negacionesIniciales+=('-')* negacionesIniciales+=('no')* valor_operacion=operacion;
+OperacionCompleta returns Operacion:
+	{OperacionCompleta} negacionesIniciales+=('-')* negacionesIniciales+=('no')* valor_operacion=Operacion;
 	
-OperacionParentesis returns operacion:
-	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=operacion ')';
+OperacionParentesis returns Operacion:
+	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=Operacion ')';
 	
-Funciones returns operacion:
+Funciones returns Operacion:
 	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')') |
-	({Internas} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
+	({FuncionInterna} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
 	
 CampoRegistro returns CampoRegistro:
-	'.' nombre_campo=EString | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']' | '.' nombre_campo=EString '['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']';
+	'.' nombre_campo=EString | '.' nombre_campo=EString '['(primerIndice=OperacionIndice)']' | '.' nombre_campo=EString '['(primerIndice=OperacionIndice)']['(segundoIndice=OperacionIndice)']';
 	
-VariablesComplejas returns operacion:
-	{ValorVector} ((nombre_vector=EString)'['(indice=operacionIndice)']') (campo+=CampoRegistro)*
-	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=operacionIndice)']['(segundoIndice=operacionIndice)']') (campo+=CampoRegistro)*
-	| {ValorRegistro} nombre_registro=EString (campo+=CampoRegistro)+;
+VariablesComplejas returns Operacion:
+	{ValorVector} ((nombre_vector=EString)'['(indice=OperacionIndice)']') (campos+=CampoRegistro)*
+	| {ValorMatriz} ((nombre_matriz=EString)'['(primerIndice=OperacionIndice)']['(segundoIndice=OperacionIndice)']') (campos+=CampoRegistro)*
+	| {ValorRegistro} nombre_registro=EString (campos+=CampoRegistro)+;
 	
-VariablesBasicas returns operacion:
-	 {NumeroEntero} valor=EInt
-	| {NumeroDecimal} valor=EFloat
-	| {ConstCadena} contenido=CAD
-	| {Caracter} contenido=CAR
-	| {ValorBooleano} valor=Booleano
+VariablesBasicas returns Operacion:
+	 {Entero} valor=EInt
+	| {Real} valor=EFloat
+	| {CadenaCaracteres} valor=CAD
+	| {Caracter} valor=CAR
+	| {Logico} valor=Booleano
 	| {VariableID} nombre=EString;
 
 Sino returns Sino:
 	{Sino}
 	'else'
-	(sentencias+=Sentencias)*
+	(sentencias+=Sentencia)*
 	(devuelve=Devolver)?;
 
 Devolver returns Devolver:
 	{Devolver}
 	'return' devuelve=OperacionCompleta;
 	
-ParametroFuncion returns ParametroFuncion:
+Parametro returns Parametro:
 	paso=TipoPaso
 	tipo=Tipo ": "
 	variable=Variable;
@@ -412,21 +411,21 @@ ParametroFuncion returns ParametroFuncion:
 Funcion returns Funcion:
 	(tipo=TipoVariable)
 	'function'
-	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
+	nombre=NOMBRE_FUN(parametros+=Parametro ( "," parametros+=Parametro)*  )?')'
 	('var'
-	(declaracion+=Declaracion)* )? 
+	(declaraciones+=Declaracion)* )? 
 	'start'
-	(sentencias+=Sentencias)*
+	(sentencias+=Sentencia)*
 	(devuelve=Devolver)?
 	'end_function';
 	
 Procedimiento returns Procedimiento:
 	'procedure'
-	nombre=NOMBRE_FUN(parametrofuncion+=ParametroFuncion ( "," parametrofuncion+=ParametroFuncion)*  )?')'
+	nombre=NOMBRE_FUN(parametros+=Parametro ( "," parametros+=Parametro)*  )?')'
 	('var'
-	(declaracion+=Declaracion)* )?
+	(declaraciones+=Declaracion)* )?
 	'start'
-	(sentencias+=Sentencias)*
+	(sentencias+=Sentencia)*
 	'end_procedure';
 	
 TipoPaso returns ecore::EString:

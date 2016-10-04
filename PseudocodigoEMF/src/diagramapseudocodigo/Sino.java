@@ -26,7 +26,7 @@ import org.eclipse.emf.ecore.EObject;
 public interface Sino extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Sentencias</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Sentencias}.
+	 * The list contents are of type {@link diagramapseudocodigo.Sentencia}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sentencias</em>' containment reference list isn't clear,
@@ -38,7 +38,7 @@ public interface Sino extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Sentencias> getSentencias();
+	EList<Sentencia> getSentencias();
 
 	/**
 	 * Returns the value of the '<em><b>Devuelve</b></em>' containment reference.

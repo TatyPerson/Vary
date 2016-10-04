@@ -26,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModuloItemProvider
-	extends CodigoItemProvider {
+public class ModuloItemProvider extends CodigoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -158,8 +157,8 @@ public class ModuloItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__IMPLEMENTACION);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_SUBPROCESOS);
 		}
 		return childrenFeatures;
 	}
@@ -201,6 +200,7 @@ public class ModuloItemProvider
 			getString("_UI_Modulo_type") :
 			getString("_UI_Modulo_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -220,8 +220,8 @@ public class ModuloItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case DiagramapseudocodigoPackage.MODULO__IMPLEMENTACION:
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBAL:
-			case DiagramapseudocodigoPackage.MODULO__EXPORTA_FUNCIONES:
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_GLOBALES:
+			case DiagramapseudocodigoPackage.MODULO__EXPORTA_SUBPROCESOS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -246,32 +246,32 @@ public class ModuloItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL,
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionBasica()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBAL,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_GLOBALES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionDefinida()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES,
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCabeceraSubproceso()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES,
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCabeceraProcedimiento()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_FUNCIONES,
+				(DiagramapseudocodigoPackage.Literals.MODULO__EXPORTA_SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCabeceraFuncion()));
 	}
 

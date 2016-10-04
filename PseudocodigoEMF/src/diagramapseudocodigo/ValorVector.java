@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ValorVector#getNombre_vector <em>Nombre vector</em>}</li>
- *   <li>{@link diagramapseudocodigo.ValorVector#getCampo <em>Campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.ValorVector#getCampos <em>Campos</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorVector#getIndice <em>Indice</em>}</li>
  * </ul>
  *
@@ -50,20 +50,20 @@ public interface ValorVector extends ValorComplejo {
 	void setNombre_vector(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Campo</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Campos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.CampoRegistro}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Campo</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Campos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Campo</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorVector_Campo()
+	 * @return the value of the '<em>Campos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorVector_Campos()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<CampoRegistro> getCampo();
+	EList<CampoRegistro> getCampos();
 
 	/**
 	 * Returns the value of the '<em><b>Indice</b></em>' containment reference.
@@ -74,12 +74,12 @@ public interface ValorVector extends ValorComplejo {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Indice</em>' containment reference.
-	 * @see #setIndice(operacion)
+	 * @see #setIndice(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorVector_Indice()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getIndice();
+	Operacion getIndice();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.ValorVector#getIndice <em>Indice</em>}' containment reference.
@@ -89,6 +89,6 @@ public interface ValorVector extends ValorComplejo {
 	 * @see #getIndice()
 	 * @generated
 	 */
-	void setIndice(operacion value);
+	void setIndice(Operacion value);
 
 } // ValorVector

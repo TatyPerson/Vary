@@ -4,15 +4,21 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.Bloque;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Sentencias;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Sentencia;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,7 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
+public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	/**
 	 * The cached value of the '{@link #getValor() <em>Valor</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -39,7 +45,7 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion valor;
+	protected Operacion valor;
 
 	/**
 	 * The cached value of the '{@link #getSentencias() <em>Sentencias</em>}' containment reference list.
@@ -49,7 +55,7 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sentencias> sentencias;
+	protected EList<Sentencia> sentencias;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -75,7 +81,7 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getValor() {
+	public Operacion getValor() {
 		return valor;
 	}
 
@@ -84,8 +90,8 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValor(operacion newValor, NotificationChain msgs) {
-		operacion oldValor = valor;
+	public NotificationChain basicSetValor(Operacion newValor, NotificationChain msgs) {
+		Operacion oldValor = valor;
 		valor = newValor;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.BLOQUE__VALOR, oldValor, newValor);
@@ -99,7 +105,7 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValor(operacion newValor) {
+	public void setValor(Operacion newValor) {
 		if (newValor != valor) {
 			NotificationChain msgs = null;
 			if (valor != null)
@@ -118,9 +124,9 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sentencias> getSentencias() {
+	public EList<Sentencia> getSentencias() {
 		if (sentencias == null) {
-			sentencias = new EObjectContainmentEList<Sentencias>(Sentencias.class, this, DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS);
+			sentencias = new EObjectContainmentEList<Sentencia>(Sentencia.class, this, DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS);
 		}
 		return sentencias;
 	}
@@ -167,11 +173,11 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				setValor((operacion)newValue);
+				setValor((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				getSentencias().clear();
-				getSentencias().addAll((Collection<? extends Sentencias>)newValue);
+				getSentencias().addAll((Collection<? extends Sentencia>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -186,7 +192,7 @@ public abstract class BloqueImpl extends SentenciasImpl implements Bloque {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				setValor((operacion)null);
+				setValor((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				getSentencias().clear();

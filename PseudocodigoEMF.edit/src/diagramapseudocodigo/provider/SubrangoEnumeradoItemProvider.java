@@ -23,8 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SubrangoEnumeradoItemProvider
-	extends SubrangoItemProvider {
+public class SubrangoEnumeradoItemProvider extends SubrangoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -120,6 +119,7 @@ public class SubrangoEnumeradoItemProvider
 			getString("_UI_SubrangoEnumerado_type") :
 			getString("_UI_SubrangoEnumerado_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

@@ -4,12 +4,17 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Escribir;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -26,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class EscribirImpl extends SentenciasImpl implements Escribir {
+public class EscribirImpl extends SentenciaImpl implements Escribir {
 	/**
 	 * The cached value of the '{@link #getOperador() <em>Operador</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -35,7 +40,7 @@ public class EscribirImpl extends SentenciasImpl implements Escribir {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<operacion> operador;
+	protected EList<Operacion> operador;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,9 +66,9 @@ public class EscribirImpl extends SentenciasImpl implements Escribir {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<operacion> getOperador() {
+	public EList<Operacion> getOperador() {
 		if (operador == null) {
-			operador = new EObjectContainmentEList<operacion>(operacion.class, this, DiagramapseudocodigoPackage.ESCRIBIR__OPERADOR);
+			operador = new EObjectContainmentEList<Operacion>(Operacion.class, this, DiagramapseudocodigoPackage.ESCRIBIR__OPERADOR);
 		}
 		return operador;
 	}
@@ -107,7 +112,7 @@ public class EscribirImpl extends SentenciasImpl implements Escribir {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.ESCRIBIR__OPERADOR:
 				getOperador().clear();
-				getOperador().addAll((Collection<? extends operacion>)newValue);
+				getOperador().addAll((Collection<? extends Operacion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

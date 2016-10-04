@@ -133,8 +133,8 @@ public class VaryGrammarEnglishFormatter extends AbstractDeclarativeFormatter {
     ParserRule _declaracionRule = this._varyGrammarEnglishGrammarAccess.getDeclaracionRule();
     _setLinewrap_8.after(_declaracionRule);
     FormattingConfig.LinewrapLocator _setLinewrap_9 = c.setLinewrap(1);
-    ParserRule _declaracionVariableRule = this._varyGrammarEnglishGrammarAccess.getDeclaracionVariableRule();
-    _setLinewrap_9.after(_declaracionVariableRule);
+    ParserRule _declaracionBasicaRule = this._varyGrammarEnglishGrammarAccess.getDeclaracionBasicaRule();
+    _setLinewrap_9.after(_declaracionBasicaRule);
     List<Keyword> _findKeywords_8 = this._varyGrammarEnglishGrammarAccess.findKeywords(".");
     for (final Keyword variable : _findKeywords_8) {
       {
@@ -145,8 +145,8 @@ public class VaryGrammarEnglishFormatter extends AbstractDeclarativeFormatter {
       }
     }
     FormattingConfig.LinewrapLocator _setLinewrap_10 = c.setLinewrap(2);
-    ParserRule _sentenciasRule = this._varyGrammarEnglishGrammarAccess.getSentenciasRule();
-    _setLinewrap_10.after(_sentenciasRule);
+    ParserRule _sentenciaRule = this._varyGrammarEnglishGrammarAccess.getSentenciaRule();
+    _setLinewrap_10.after(_sentenciaRule);
     ResourceBundle _bundle_2 = this.readerKeywords.getBundle();
     String _string_2 = _bundle_2.getString("KEYWORD_ENTONCES");
     List<Keyword> _findKeywords_9 = this._varyGrammarEnglishGrammarAccess.findKeywords(_string_2);
@@ -376,7 +376,7 @@ public class VaryGrammarEnglishFormatter extends AbstractDeclarativeFormatter {
       _setIndentationDecrement_10.before(keyFinSegun);
     }
     FormattingConfig.LinewrapLocator _setLinewrap_19 = c.setLinewrap(1);
-    ParserRule _sentenciasRule_1 = this._varyGrammarEnglishGrammarAccess.getSentenciasRule();
-    _setLinewrap_19.after(_sentenciasRule_1);
+    ParserRule _sentenciaRule_1 = this._varyGrammarEnglishGrammarAccess.getSentenciaRule();
+    _setLinewrap_19.after(_sentenciaRule_1);
   }
 }

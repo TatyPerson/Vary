@@ -23,8 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CabeceraFuncionItemProvider
-	extends CabeceraSubprocesoItemProvider {
+public class CabeceraFuncionItemProvider extends CabeceraSubprocesoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -97,6 +96,7 @@ public class CabeceraFuncionItemProvider
 			getString("_UI_CabeceraFuncion_type") :
 			getString("_UI_CabeceraFuncion_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

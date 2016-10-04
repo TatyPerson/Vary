@@ -4,7 +4,6 @@ package diagramapseudocodigo;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Matriz</b></em>'.
@@ -52,7 +51,7 @@ public interface Matriz extends TipoComplejo {
 
 	/**
 	 * Returns the value of the '<em><b>Valor</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.operacion}.
+	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Valor</em>' containment reference list isn't clear,
@@ -64,7 +63,7 @@ public interface Matriz extends TipoComplejo {
 	 * @model containment="true" upper="2"
 	 * @generated
 	 */
-	EList<operacion> getValor();
+	EList<Operacion> getValor();
 
 	/**
 	 * Returns the value of the '<em><b>Tipo</b></em>' containment reference.

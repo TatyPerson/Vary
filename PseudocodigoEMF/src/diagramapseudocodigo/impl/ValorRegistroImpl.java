@@ -5,13 +5,19 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ValorRegistro;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -24,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ValorRegistroImpl#getNombre_registro <em>Nombre registro</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ValorRegistroImpl#getCampo <em>Campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ValorRegistroImpl#getCampos <em>Campos</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +57,14 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 	protected String nombre_registro = NOMBRE_REGISTRO_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getCampo() <em>Campo</em>}' containment reference list.
+	 * The cached value of the '{@link #getCampos() <em>Campos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCampo()
+	 * @see #getCampos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CampoRegistro> campo;
+	protected EList<CampoRegistro> campos;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -105,11 +111,11 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CampoRegistro> getCampo() {
-		if (campo == null) {
-			campo = new EObjectContainmentEList<CampoRegistro>(CampoRegistro.class, this, DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO);
+	public EList<CampoRegistro> getCampos() {
+		if (campos == null) {
+			campos = new EObjectContainmentEList<CampoRegistro>(CampoRegistro.class, this, DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS);
 		}
-		return campo;
+		return campos;
 	}
 
 	/**
@@ -120,8 +126,8 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO:
-				return ((InternalEList<?>)getCampo()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS:
+				return ((InternalEList<?>)getCampos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,8 +142,8 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_REGISTRO__NOMBRE_REGISTRO:
 				return getNombre_registro();
-			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO:
-				return getCampo();
+			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS:
+				return getCampos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -154,9 +160,9 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 			case DiagramapseudocodigoPackage.VALOR_REGISTRO__NOMBRE_REGISTRO:
 				setNombre_registro((String)newValue);
 				return;
-			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO:
-				getCampo().clear();
-				getCampo().addAll((Collection<? extends CampoRegistro>)newValue);
+			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS:
+				getCampos().clear();
+				getCampos().addAll((Collection<? extends CampoRegistro>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +179,8 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 			case DiagramapseudocodigoPackage.VALOR_REGISTRO__NOMBRE_REGISTRO:
 				setNombre_registro(NOMBRE_REGISTRO_EDEFAULT);
 				return;
-			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO:
-				getCampo().clear();
+			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS:
+				getCampos().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,8 +196,8 @@ public class ValorRegistroImpl extends ValorComplejoImpl implements ValorRegistr
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VALOR_REGISTRO__NOMBRE_REGISTRO:
 				return NOMBRE_REGISTRO_EDEFAULT == null ? nombre_registro != null : !NOMBRE_REGISTRO_EDEFAULT.equals(nombre_registro);
-			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPO:
-				return campo != null && !campo.isEmpty();
+			case DiagramapseudocodigoPackage.VALOR_REGISTRO__CAMPOS:
+				return campos != null && !campos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

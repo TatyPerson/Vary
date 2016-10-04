@@ -3,8 +3,8 @@
 package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.Unaria;
-import diagramapseudocodigo.operacion;
 import diagramapseudocodigo.signo;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class UnariaImpl extends operacionImpl implements Unaria {
+public class UnariaImpl extends OperacionImpl implements Unaria {
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -38,7 +38,7 @@ public class UnariaImpl extends operacionImpl implements Unaria {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion right;
+	protected Operacion right;
 
 	/**
 	 * The default value of the '{@link #getSigno_op() <em>Signo op</em>}' attribute.
@@ -84,7 +84,7 @@ public class UnariaImpl extends operacionImpl implements Unaria {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getRight() {
+	public Operacion getRight() {
 		return right;
 	}
 
@@ -93,8 +93,8 @@ public class UnariaImpl extends operacionImpl implements Unaria {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRight(operacion newRight, NotificationChain msgs) {
-		operacion oldRight = right;
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
 		right = newRight;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.UNARIA__RIGHT, oldRight, newRight);
@@ -108,7 +108,7 @@ public class UnariaImpl extends operacionImpl implements Unaria {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRight(operacion newRight) {
+	public void setRight(Operacion newRight) {
 		if (newRight != right) {
 			NotificationChain msgs = null;
 			if (right != null)
@@ -182,7 +182,7 @@ public class UnariaImpl extends operacionImpl implements Unaria {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.UNARIA__RIGHT:
-				setRight((operacion)newValue);
+				setRight((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.UNARIA__SIGNO_OP:
 				setSigno_op((signo)newValue);
@@ -200,7 +200,7 @@ public class UnariaImpl extends operacionImpl implements Unaria {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.UNARIA__RIGHT:
-				setRight((operacion)null);
+				setRight((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.UNARIA__SIGNO_OP:
 				setSigno_op(SIGNO_OP_EDEFAULT);

@@ -3,15 +3,21 @@
 package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Sentencias;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Sentencia;
 import diagramapseudocodigo.VariableID;
-import diagramapseudocodigo.operacion;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 
 /**
@@ -40,7 +46,7 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion eAttribute0rence0;
+	protected Operacion eAttribute0rence0;
 
 	/**
 	 * The cached value of the '{@link #getNegacionesFinales() <em>Negaciones Finales</em>}' attribute list.
@@ -81,6 +87,7 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * @ordered
 	 */
 	protected static final String NOMBRE_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -115,10 +122,10 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getEAttribute0rence0() {
+	public Operacion getEAttribute0rence0() {
 		if (eAttribute0rence0 != null && eAttribute0rence0.eIsProxy()) {
 			InternalEObject oldEAttribute0rence0 = (InternalEObject)eAttribute0rence0;
-			eAttribute0rence0 = (operacion)eResolveProxy(oldEAttribute0rence0);
+			eAttribute0rence0 = (Operacion)eResolveProxy(oldEAttribute0rence0);
 			if (eAttribute0rence0 != oldEAttribute0rence0) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0, oldEAttribute0rence0, eAttribute0rence0));
@@ -132,7 +139,7 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion basicGetEAttribute0rence0() {
+	public Operacion basicGetEAttribute0rence0() {
 		return eAttribute0rence0;
 	}
 
@@ -141,8 +148,8 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEAttribute0rence0(operacion newEAttribute0rence0) {
-		operacion oldEAttribute0rence0 = eAttribute0rence0;
+	public void setEAttribute0rence0(Operacion newEAttribute0rence0) {
+		Operacion oldEAttribute0rence0 = eAttribute0rence0;
 		eAttribute0rence0 = newEAttribute0rence0;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0, oldEAttribute0rence0, eAttribute0rence0));
@@ -238,7 +245,7 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0:
-				setEAttribute0rence0((operacion)newValue);
+				setEAttribute0rence0((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_FINALES:
 				getNegacionesFinales().clear();
@@ -268,7 +275,7 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0:
-				setEAttribute0rence0((operacion)null);
+				setEAttribute0rence0((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_FINALES:
 				getNegacionesFinales().clear();
@@ -315,12 +322,12 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
-		if (baseClass == Sentencias.class) {
+		if (baseClass == Sentencia.class) {
 			switch (derivedFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == operacion.class) {
+		if (baseClass == Operacion.class) {
 			switch (derivedFeatureID) {
 				case DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
@@ -338,12 +345,12 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
-		if (baseClass == Sentencias.class) {
+		if (baseClass == Sentencia.class) {
 			switch (baseFeatureID) {
 				default: return -1;
 			}
 		}
-		if (baseClass == operacion.class) {
+		if (baseClass == Operacion.class) {
 			switch (baseFeatureID) {
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_FINALES;

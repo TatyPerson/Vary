@@ -4,15 +4,21 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Parametro;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -25,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.CabeceraSubprocesoImpl#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.CabeceraSubprocesoImpl#getParametrofuncion <em>Parametrofuncion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CabeceraSubprocesoImpl#getParametros <em>Parametros</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,14 +58,14 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 	protected String nombre = NOMBRE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getParametrofuncion() <em>Parametrofuncion</em>}' containment reference list.
+	 * The cached value of the '{@link #getParametros() <em>Parametros</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParametrofuncion()
+	 * @see #getParametros()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ParametroFuncion> parametrofuncion;
+	protected EList<Parametro> parametros;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -106,11 +112,11 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ParametroFuncion> getParametrofuncion() {
-		if (parametrofuncion == null) {
-			parametrofuncion = new EObjectContainmentEList<ParametroFuncion>(ParametroFuncion.class, this, DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION);
+	public EList<Parametro> getParametros() {
+		if (parametros == null) {
+			parametros = new EObjectContainmentEList<Parametro>(Parametro.class, this, DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS);
 		}
-		return parametrofuncion;
+		return parametros;
 	}
 
 	/**
@@ -121,8 +127,8 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION:
-				return ((InternalEList<?>)getParametrofuncion()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS:
+				return ((InternalEList<?>)getParametros()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -137,8 +143,8 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__NOMBRE:
 				return getNombre();
-			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION:
-				return getParametrofuncion();
+			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS:
+				return getParametros();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -155,9 +161,9 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__NOMBRE:
 				setNombre((String)newValue);
 				return;
-			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION:
-				getParametrofuncion().clear();
-				getParametrofuncion().addAll((Collection<? extends ParametroFuncion>)newValue);
+			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS:
+				getParametros().clear();
+				getParametros().addAll((Collection<? extends Parametro>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -174,8 +180,8 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__NOMBRE:
 				setNombre(NOMBRE_EDEFAULT);
 				return;
-			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION:
-				getParametrofuncion().clear();
+			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS:
+				getParametros().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -191,8 +197,8 @@ public class CabeceraSubprocesoImpl extends MinimalEObjectImpl.Container impleme
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__NOMBRE:
 				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
-			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION:
-				return parametrofuncion != null && !parametrofuncion.isEmpty();
+			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS:
+				return parametros != null && !parametros.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

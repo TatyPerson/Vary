@@ -4,6 +4,7 @@ package diagramapseudocodigo.tests;
 
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.Mod;
+
 import junit.textui.TestRunner;
 
 /**
@@ -12,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ModTest extends operacionTest {
+public class ModTest extends OperacionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

@@ -4,16 +4,22 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Sentencias;
+import diagramapseudocodigo.Sentencia;
 import diagramapseudocodigo.Sino;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -40,7 +46,7 @@ public class SinoImpl extends MinimalEObjectImpl.Container implements Sino {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sentencias> sentencias;
+	protected EList<Sentencia> sentencias;
 
 	/**
 	 * The cached value of the '{@link #getDevuelve() <em>Devuelve</em>}' containment reference.
@@ -76,9 +82,9 @@ public class SinoImpl extends MinimalEObjectImpl.Container implements Sino {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sentencias> getSentencias() {
+	public EList<Sentencia> getSentencias() {
 		if (sentencias == null) {
-			sentencias = new EObjectContainmentEList<Sentencias>(Sentencias.class, this, DiagramapseudocodigoPackage.SINO__SENTENCIAS);
+			sentencias = new EObjectContainmentEList<Sentencia>(Sentencia.class, this, DiagramapseudocodigoPackage.SINO__SENTENCIAS);
 		}
 		return sentencias;
 	}
@@ -169,7 +175,7 @@ public class SinoImpl extends MinimalEObjectImpl.Container implements Sino {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.SINO__SENTENCIAS:
 				getSentencias().clear();
-				getSentencias().addAll((Collection<? extends Sentencias>)newValue);
+				getSentencias().addAll((Collection<? extends Sentencia>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.SINO__DEVUELVE:
 				setDevuelve((Devolver)newValue);

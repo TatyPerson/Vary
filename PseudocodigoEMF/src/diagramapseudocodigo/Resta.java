@@ -21,22 +21,22 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface Resta extends operacion {
+public interface Resta extends Operacion {
 	/**
 	 * Returns the value of the '<em><b>Left</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Left</em>' reference isn't clear,
+	 * If the meaning of the '<em>Left</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Left</em>' containment reference.
-	 * @see #setLeft(operacion)
+	 * @see #setLeft(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getResta_Left()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getLeft();
+	Operacion getLeft();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Resta#getLeft <em>Left</em>}' containment reference.
@@ -46,23 +46,23 @@ public interface Resta extends operacion {
 	 * @see #getLeft()
 	 * @generated
 	 */
-	void setLeft(operacion value);
+	void setLeft(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Right</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Right</em>' reference isn't clear,
+	 * If the meaning of the '<em>Right</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Right</em>' containment reference.
-	 * @see #setRight(operacion)
+	 * @see #setRight(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getResta_Right()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getRight();
+	Operacion getRight();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Resta#getRight <em>Right</em>}' containment reference.
@@ -72,7 +72,7 @@ public interface Resta extends operacion {
 	 * @see #getRight()
 	 * @generated
 	 */
-	void setRight(operacion value);
+	void setRight(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Signo op</b></em>' attribute.

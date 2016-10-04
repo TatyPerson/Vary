@@ -6,7 +6,7 @@ package vary.pseudocodigo.dsl.c.ui.outline;
 import com.google.common.base.Objects;
 import diagramapseudocodigo.Algoritmo;
 import diagramapseudocodigo.Archivo;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.Implementacion;
@@ -30,22 +30,22 @@ import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
 @SuppressWarnings("all")
 public class VaryGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
   protected void _createChildren(final IOutlineNode parentNode, final Inicio modelElement) {
-    EList<Declaracion> _declaracion = modelElement.getDeclaracion();
-    for (final Declaracion declaracion : _declaracion) {
+    EList<Declaracion> _declaraciones = modelElement.getDeclaraciones();
+    for (final Declaracion declaracion : _declaraciones) {
       super._createChildren(parentNode, declaracion);
     }
   }
   
   protected void _createChildren(final IOutlineNode parentNode, final Procedimiento modelElement) {
-    EList<Declaracion> _declaracion = modelElement.getDeclaracion();
-    for (final Declaracion declaracion : _declaracion) {
+    EList<Declaracion> _declaraciones = modelElement.getDeclaraciones();
+    for (final Declaracion declaracion : _declaraciones) {
       super._createChildren(parentNode, declaracion);
     }
   }
   
   protected void _createChildren(final IOutlineNode parentNode, final Funcion modelElement) {
-    EList<Declaracion> _declaracion = modelElement.getDeclaracion();
-    for (final Declaracion declaracion : _declaracion) {
+    EList<Declaracion> _declaraciones = modelElement.getDeclaraciones();
+    for (final Declaracion declaracion : _declaraciones) {
       super._createChildren(parentNode, declaracion);
     }
   }
@@ -65,7 +65,7 @@ public class VaryGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
     }
   }
   
-  protected Object _createChildren(final IOutlineNode parentNode, final Constantes modelElement) {
+  protected Object _createChildren(final IOutlineNode parentNode, final Constante modelElement) {
     return null;
   }
   
@@ -78,27 +78,27 @@ public class VaryGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
     for (final Modulo modulo : _importaciones) {
       super._createNode(parentNode, modulo);
     }
-    EList<Constantes> _constantes = modelElement.getConstantes();
-    for (final Constantes constante : _constantes) {
+    EList<Constante> _constantes = modelElement.getConstantes();
+    for (final Constante constante : _constantes) {
       super._createNode(parentNode, constante);
     }
-    EList<TipoComplejo> _tipocomplejo = modelElement.getTipocomplejo();
-    for (final TipoComplejo tipoComplejo : _tipocomplejo) {
+    EList<TipoComplejo> _complejos = modelElement.getComplejos();
+    for (final TipoComplejo tipoComplejo : _complejos) {
       super._createNode(parentNode, tipoComplejo);
     }
-    EList<Declaracion> _global = modelElement.getGlobal();
-    for (final Declaracion declaracion : _global) {
+    EList<Declaracion> _globales = modelElement.getGlobales();
+    for (final Declaracion declaracion : _globales) {
       super._createChildren(parentNode, declaracion);
     }
-    EList<Subproceso> _funcion = modelElement.getFuncion();
-    for (final Subproceso subproceso : _funcion) {
+    EList<Subproceso> _subprocesos = modelElement.getSubprocesos();
+    for (final Subproceso subproceso : _subprocesos) {
       super._createNode(parentNode, subproceso);
     }
-    Inicio _tiene = modelElement.getTiene();
-    boolean _notEquals = (!Objects.equal(_tiene, null));
+    Inicio _inicio = modelElement.getInicio();
+    boolean _notEquals = (!Objects.equal(_inicio, null));
     if (_notEquals) {
-      Inicio _tiene_1 = modelElement.getTiene();
-      super._createNode(parentNode, _tiene_1);
+      Inicio _inicio_1 = modelElement.getInicio();
+      super._createNode(parentNode, _inicio_1);
     }
   }
   
@@ -108,23 +108,23 @@ public class VaryGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
       super._createNode(parentNode, modulo);
     }
     Implementacion _implementacion = modelElement.getImplementacion();
-    EList<Constantes> _constantes = _implementacion.getConstantes();
-    for (final Constantes constante : _constantes) {
+    EList<Constante> _constantes = _implementacion.getConstantes();
+    for (final Constante constante : _constantes) {
       super._createNode(parentNode, constante);
     }
     Implementacion _implementacion_1 = modelElement.getImplementacion();
-    EList<TipoComplejo> _tipocomplejo = _implementacion_1.getTipocomplejo();
-    for (final TipoComplejo tipoComplejo : _tipocomplejo) {
+    EList<TipoComplejo> _complejos = _implementacion_1.getComplejos();
+    for (final TipoComplejo tipoComplejo : _complejos) {
       super._createNode(parentNode, tipoComplejo);
     }
     Implementacion _implementacion_2 = modelElement.getImplementacion();
-    EList<Declaracion> _global = _implementacion_2.getGlobal();
-    for (final Declaracion declaracion : _global) {
+    EList<Declaracion> _globales = _implementacion_2.getGlobales();
+    for (final Declaracion declaracion : _globales) {
       super._createChildren(parentNode, declaracion);
     }
     Implementacion _implementacion_3 = modelElement.getImplementacion();
-    EList<Subproceso> _funcion = _implementacion_3.getFuncion();
-    for (final Subproceso subproceso : _funcion) {
+    EList<Subproceso> _subprocesos = _implementacion_3.getSubprocesos();
+    for (final Subproceso subproceso : _subprocesos) {
       super._createNode(parentNode, subproceso);
     }
   }

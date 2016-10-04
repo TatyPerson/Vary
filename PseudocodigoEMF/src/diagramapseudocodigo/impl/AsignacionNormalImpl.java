@@ -4,7 +4,7 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.AsignacionNormal;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
 
 import java.util.Collection;
 
@@ -74,7 +74,7 @@ public class AsignacionNormalImpl extends AsignacionImpl implements AsignacionNo
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion operador;
+	protected Operacion operador;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +133,7 @@ public class AsignacionNormalImpl extends AsignacionImpl implements AsignacionNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getOperador() {
+	public Operacion getOperador() {
 		return operador;
 	}
 
@@ -142,8 +142,8 @@ public class AsignacionNormalImpl extends AsignacionImpl implements AsignacionNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperador(operacion newOperador, NotificationChain msgs) {
-		operacion oldOperador = operador;
+	public NotificationChain basicSetOperador(Operacion newOperador, NotificationChain msgs) {
+		Operacion oldOperador = operador;
 		operador = newOperador;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ASIGNACION_NORMAL__OPERADOR, oldOperador, newOperador);
@@ -157,7 +157,7 @@ public class AsignacionNormalImpl extends AsignacionImpl implements AsignacionNo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperador(operacion newOperador) {
+	public void setOperador(Operacion newOperador) {
 		if (newOperador != operador) {
 			NotificationChain msgs = null;
 			if (operador != null)
@@ -220,7 +220,7 @@ public class AsignacionNormalImpl extends AsignacionImpl implements AsignacionNo
 				setValor_asignacion((String)newValue);
 				return;
 			case DiagramapseudocodigoPackage.ASIGNACION_NORMAL__OPERADOR:
-				setOperador((operacion)newValue);
+				setOperador((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -241,7 +241,7 @@ public class AsignacionNormalImpl extends AsignacionImpl implements AsignacionNo
 				setValor_asignacion(VALOR_ASIGNACION_EDEFAULT);
 				return;
 			case DiagramapseudocodigoPackage.ASIGNACION_NORMAL__OPERADOR:
-				setOperador((operacion)null);
+				setOperador((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);

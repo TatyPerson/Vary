@@ -95,259 +95,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Codigo} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CodigoItemProvider codigoItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Codigo}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCodigoAdapter() {
-		if (codigoItemProvider == null) {
-			codigoItemProvider = new CodigoItemProvider(this);
-		}
-
-		return codigoItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Modulo} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModuloItemProvider moduloItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Modulo}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModuloAdapter() {
-		if (moduloItemProvider == null) {
-			moduloItemProvider = new ModuloItemProvider(this);
-		}
-
-		return moduloItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CabeceraSubproceso} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CabeceraSubprocesoItemProvider cabeceraSubprocesoItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.CabeceraSubproceso}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCabeceraSubprocesoAdapter() {
-		if (cabeceraSubprocesoItemProvider == null) {
-			cabeceraSubprocesoItemProvider = new CabeceraSubprocesoItemProvider(this);
-		}
-
-		return cabeceraSubprocesoItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Implementacion} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ImplementacionItemProvider implementacionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Implementacion}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createImplementacionAdapter() {
-		if (implementacionItemProvider == null) {
-			implementacionItemProvider = new ImplementacionItemProvider(this);
-		}
-
-		return implementacionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CabeceraProcedimiento} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CabeceraProcedimientoItemProvider cabeceraProcedimientoItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.CabeceraProcedimiento}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCabeceraProcedimientoAdapter() {
-		if (cabeceraProcedimientoItemProvider == null) {
-			cabeceraProcedimientoItemProvider = new CabeceraProcedimientoItemProvider(this);
-		}
-
-		return cabeceraProcedimientoItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CabeceraFuncion} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected CabeceraFuncionItemProvider cabeceraFuncionItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.CabeceraFuncion}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createCabeceraFuncionAdapter() {
-		if (cabeceraFuncionItemProvider == null) {
-			cabeceraFuncionItemProvider = new CabeceraFuncionItemProvider(this);
-		}
-
-		return cabeceraFuncionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Mod} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModItemProvider modItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Mod}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModAdapter() {
-		if (modItemProvider == null) {
-			modItemProvider = new ModItemProvider(this);
-		}
-
-		return modItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Div} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DivItemProvider divItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Div}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDivAdapter() {
-		if (divItemProvider == null) {
-			divItemProvider = new DivItemProvider(this);
-		}
-
-		return divItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionParentesis} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OperacionParentesisItemProvider operacionParentesisItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.OperacionParentesis}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOperacionParentesisAdapter() {
-		if (operacionParentesisItemProvider == null) {
-			operacionParentesisItemProvider = new OperacionParentesisItemProvider(this);
-		}
-
-		return operacionParentesisItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Unaria} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UnariaItemProvider unariaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Unaria}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUnariaAdapter() {
-		if (unariaItemProvider == null) {
-			unariaItemProvider = new UnariaItemProvider(this);
-		}
-
-		return unariaItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionCompleta} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OperacionCompletaItemProvider operacionCompletaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.OperacionCompleta}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOperacionCompletaAdapter() {
-		if (operacionCompletaItemProvider == null) {
-			operacionCompletaItemProvider = new OperacionCompletaItemProvider(this);
-		}
-
-		return operacionCompletaItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Inicio} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,26 +118,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.DeclaracionVariable} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.DeclaracionBasica} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DeclaracionVariableItemProvider declaracionVariableItemProvider;
+	protected DeclaracionBasicaItemProvider declaracionBasicaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.DeclaracionVariable}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.DeclaracionBasica}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDeclaracionVariableAdapter() {
-		if (declaracionVariableItemProvider == null) {
-			declaracionVariableItemProvider = new DeclaracionVariableItemProvider(this);
+	public Adapter createDeclaracionBasicaAdapter() {
+		if (declaracionBasicaItemProvider == null) {
+			declaracionBasicaItemProvider = new DeclaracionBasicaItemProvider(this);
 		}
 
-		return declaracionVariableItemProvider;
+		return declaracionBasicaItemProvider;
 	}
 
 	/**
@@ -463,26 +210,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.ConstCadena} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CadenaCaracteres} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConstCadenaItemProvider constCadenaItemProvider;
+	protected CadenaCaracteresItemProvider cadenaCaracteresItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.ConstCadena}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.CadenaCaracteres}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConstCadenaAdapter() {
-		if (constCadenaItemProvider == null) {
-			constCadenaItemProvider = new ConstCadenaItemProvider(this);
+	public Adapter createCadenaCaracteresAdapter() {
+		if (cadenaCaracteresItemProvider == null) {
+			cadenaCaracteresItemProvider = new CadenaCaracteresItemProvider(this);
 		}
 
-		return constCadenaItemProvider;
+		return cadenaCaracteresItemProvider;
 	}
 
 	/**
@@ -509,26 +256,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.NumeroEntero} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Entero} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumeroEnteroItemProvider numeroEnteroItemProvider;
+	protected EnteroItemProvider enteroItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.NumeroEntero}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Entero}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNumeroEnteroAdapter() {
-		if (numeroEnteroItemProvider == null) {
-			numeroEnteroItemProvider = new NumeroEnteroItemProvider(this);
+	public Adapter createEnteroAdapter() {
+		if (enteroItemProvider == null) {
+			enteroItemProvider = new EnteroItemProvider(this);
 		}
 
-		return numeroEnteroItemProvider;
+		return enteroItemProvider;
 	}
 
 	/**
@@ -601,26 +348,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.ParametroFuncion} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Parametro} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParametroFuncionItemProvider parametroFuncionItemProvider;
+	protected ParametroItemProvider parametroItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.ParametroFuncion}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Parametro}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParametroFuncionAdapter() {
-		if (parametroFuncionItemProvider == null) {
-			parametroFuncionItemProvider = new ParametroFuncionItemProvider(this);
+	public Adapter createParametroAdapter() {
+		if (parametroItemProvider == null) {
+			parametroItemProvider = new ParametroItemProvider(this);
 		}
 
-		return parametroFuncionItemProvider;
+		return parametroItemProvider;
 	}
 
 	/**
@@ -647,72 +394,72 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.NumeroDecimal} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Real} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected NumeroDecimalItemProvider numeroDecimalItemProvider;
+	protected RealItemProvider realItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.NumeroDecimal}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Real}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createNumeroDecimalAdapter() {
-		if (numeroDecimalItemProvider == null) {
-			numeroDecimalItemProvider = new NumeroDecimalItemProvider(this);
+	public Adapter createRealAdapter() {
+		if (realItemProvider == null) {
+			realItemProvider = new RealItemProvider(this);
 		}
 
-		return numeroDecimalItemProvider;
+		return realItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.operacion} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Operacion} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected operacionItemProvider operacionItemProvider;
+	protected OperacionItemProvider operacionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.operacion}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createoperacionAdapter() {
+	public Adapter createOperacionAdapter() {
 		if (operacionItemProvider == null) {
-			operacionItemProvider = new operacionItemProvider(this);
+			operacionItemProvider = new OperacionItemProvider(this);
 		}
 
 		return operacionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.ValorBooleano} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Logico} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ValorBooleanoItemProvider valorBooleanoItemProvider;
+	protected LogicoItemProvider logicoItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.ValorBooleano}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Logico}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createValorBooleanoAdapter() {
-		if (valorBooleanoItemProvider == null) {
-			valorBooleanoItemProvider = new ValorBooleanoItemProvider(this);
+	public Adapter createLogicoAdapter() {
+		if (logicoItemProvider == null) {
+			logicoItemProvider = new LogicoItemProvider(this);
 		}
 
-		return valorBooleanoItemProvider;
+		return logicoItemProvider;
 	}
 
 	/**
@@ -762,118 +509,72 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.mientras} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Mientras} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected mientrasItemProvider mientrasItemProvider;
+	protected MientrasItemProvider mientrasItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.mientras}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Mientras}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createmientrasAdapter() {
+	public Adapter createMientrasAdapter() {
 		if (mientrasItemProvider == null) {
-			mientrasItemProvider = new mientrasItemProvider(this);
+			mientrasItemProvider = new MientrasItemProvider(this);
 		}
 
 		return mientrasItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.repetir} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Repetir} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected repetirItemProvider repetirItemProvider;
+	protected RepetirItemProvider repetirItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.repetir}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Repetir}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createrepetirAdapter() {
+	public Adapter createRepetirAdapter() {
 		if (repetirItemProvider == null) {
-			repetirItemProvider = new repetirItemProvider(this);
+			repetirItemProvider = new RepetirItemProvider(this);
 		}
 
 		return repetirItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.desde} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Desde} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected desdeItemProvider desdeItemProvider;
+	protected DesdeItemProvider desdeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.desde}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Desde}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createdesdeAdapter() {
+	public Adapter createDesdeAdapter() {
 		if (desdeItemProvider == null) {
-			desdeItemProvider = new desdeItemProvider(this);
+			desdeItemProvider = new DesdeItemProvider(this);
 		}
 
 		return desdeItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.AsignacionNormal} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AsignacionNormalItemProvider asignacionNormalItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.AsignacionNormal}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAsignacionNormalAdapter() {
-		if (asignacionNormalItemProvider == null) {
-			asignacionNormalItemProvider = new AsignacionNormalItemProvider(this);
-		}
-
-		return asignacionNormalItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.AsignacionCompleja} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected AsignacionComplejaItemProvider asignacionComplejaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.AsignacionCompleja}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createAsignacionComplejaAdapter() {
-		if (asignacionComplejaItemProvider == null) {
-			asignacionComplejaItemProvider = new AsignacionComplejaItemProvider(this);
-		}
-
-		return asignacionComplejaItemProvider;
 	}
 
 	/**
@@ -923,46 +624,46 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Internas} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.FuncionInterna} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected InternasItemProvider internasItemProvider;
+	protected FuncionInternaItemProvider funcionInternaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Internas}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.FuncionInterna}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createInternasAdapter() {
-		if (internasItemProvider == null) {
-			internasItemProvider = new InternasItemProvider(this);
+	public Adapter createFuncionInternaAdapter() {
+		if (funcionInternaItemProvider == null) {
+			funcionInternaItemProvider = new FuncionInternaItemProvider(this);
 		}
 
-		return internasItemProvider;
+		return funcionInternaItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.segun} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Segun} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected segunItemProvider segunItemProvider;
+	protected SegunItemProvider segunItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.segun}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Segun}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createsegunAdapter() {
+	public Adapter createSegunAdapter() {
 		if (segunItemProvider == null) {
-			segunItemProvider = new segunItemProvider(this);
+			segunItemProvider = new SegunItemProvider(this);
 		}
 
 		return segunItemProvider;
@@ -1015,26 +716,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Constantes} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Constante} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConstantesItemProvider constantesItemProvider;
+	protected ConstanteItemProvider constanteItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Constantes}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.Constante}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConstantesAdapter() {
-		if (constantesItemProvider == null) {
-			constantesItemProvider = new ConstantesItemProvider(this);
+	public Adapter createConstanteAdapter() {
+		if (constanteItemProvider == null) {
+			constanteItemProvider = new ConstanteItemProvider(this);
 		}
 
-		return constantesItemProvider;
+		return constanteItemProvider;
 	}
 
 	/**
@@ -1061,26 +762,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.DeclaracionPropia} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.DeclaracionDefinida} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DeclaracionPropiaItemProvider declaracionPropiaItemProvider;
+	protected DeclaracionDefinidaItemProvider declaracionDefinidaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.DeclaracionPropia}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.DeclaracionDefinida}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDeclaracionPropiaAdapter() {
-		if (declaracionPropiaItemProvider == null) {
-			declaracionPropiaItemProvider = new DeclaracionPropiaItemProvider(this);
+	public Adapter createDeclaracionDefinidaAdapter() {
+		if (declaracionDefinidaItemProvider == null) {
+			declaracionDefinidaItemProvider = new DeclaracionDefinidaItemProvider(this);
 		}
 
-		return declaracionPropiaItemProvider;
+		return declaracionDefinidaItemProvider;
 	}
 
 	/**
@@ -1222,26 +923,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.TipoExistente} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.TipoBasico} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected TipoExistenteItemProvider tipoExistenteItemProvider;
+	protected TipoBasicoItemProvider tipoBasicoItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.TipoExistente}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.TipoBasico}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createTipoExistenteAdapter() {
-		if (tipoExistenteItemProvider == null) {
-			tipoExistenteItemProvider = new TipoExistenteItemProvider(this);
+	public Adapter createTipoBasicoAdapter() {
+		if (tipoBasicoItemProvider == null) {
+			tipoBasicoItemProvider = new TipoBasicoItemProvider(this);
 		}
 
-		return tipoExistenteItemProvider;
+		return tipoBasicoItemProvider;
 	}
 
 	/**
@@ -1567,26 +1268,26 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Division} instances.
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.DivisionEntera} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DivisionItemProvider divisionItemProvider;
+	protected DivisionEnteraItemProvider divisionEnteraItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Division}.
+	 * This creates an adapter for a {@link diagramapseudocodigo.DivisionEntera}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDivisionAdapter() {
-		if (divisionItemProvider == null) {
-			divisionItemProvider = new DivisionItemProvider(this);
+	public Adapter createDivisionEnteraAdapter() {
+		if (divisionEnteraItemProvider == null) {
+			divisionEnteraItemProvider = new DivisionEnteraItemProvider(this);
 		}
 
-		return divisionItemProvider;
+		return divisionEnteraItemProvider;
 	}
 
 	/**
@@ -1728,6 +1429,305 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.AsignacionNormal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AsignacionNormalItemProvider asignacionNormalItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.AsignacionNormal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAsignacionNormalAdapter() {
+		if (asignacionNormalItemProvider == null) {
+			asignacionNormalItemProvider = new AsignacionNormalItemProvider(this);
+		}
+
+		return asignacionNormalItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.AsignacionCompleja} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected AsignacionComplejaItemProvider asignacionComplejaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.AsignacionCompleja}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createAsignacionComplejaAdapter() {
+		if (asignacionComplejaItemProvider == null) {
+			asignacionComplejaItemProvider = new AsignacionComplejaItemProvider(this);
+		}
+
+		return asignacionComplejaItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Codigo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CodigoItemProvider codigoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Codigo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCodigoAdapter() {
+		if (codigoItemProvider == null) {
+			codigoItemProvider = new CodigoItemProvider(this);
+		}
+
+		return codigoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Modulo} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModuloItemProvider moduloItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Modulo}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModuloAdapter() {
+		if (moduloItemProvider == null) {
+			moduloItemProvider = new ModuloItemProvider(this);
+		}
+
+		return moduloItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CabeceraSubproceso} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CabeceraSubprocesoItemProvider cabeceraSubprocesoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.CabeceraSubproceso}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCabeceraSubprocesoAdapter() {
+		if (cabeceraSubprocesoItemProvider == null) {
+			cabeceraSubprocesoItemProvider = new CabeceraSubprocesoItemProvider(this);
+		}
+
+		return cabeceraSubprocesoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Implementacion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ImplementacionItemProvider implementacionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Implementacion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createImplementacionAdapter() {
+		if (implementacionItemProvider == null) {
+			implementacionItemProvider = new ImplementacionItemProvider(this);
+		}
+
+		return implementacionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CabeceraProcedimiento} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CabeceraProcedimientoItemProvider cabeceraProcedimientoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.CabeceraProcedimiento}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCabeceraProcedimientoAdapter() {
+		if (cabeceraProcedimientoItemProvider == null) {
+			cabeceraProcedimientoItemProvider = new CabeceraProcedimientoItemProvider(this);
+		}
+
+		return cabeceraProcedimientoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.CabeceraFuncion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CabeceraFuncionItemProvider cabeceraFuncionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.CabeceraFuncion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCabeceraFuncionAdapter() {
+		if (cabeceraFuncionItemProvider == null) {
+			cabeceraFuncionItemProvider = new CabeceraFuncionItemProvider(this);
+		}
+
+		return cabeceraFuncionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Mod} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModItemProvider modItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Mod}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createModAdapter() {
+		if (modItemProvider == null) {
+			modItemProvider = new ModItemProvider(this);
+		}
+
+		return modItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.DivisionReal} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DivisionRealItemProvider divisionRealItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.DivisionReal}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDivisionRealAdapter() {
+		if (divisionRealItemProvider == null) {
+			divisionRealItemProvider = new DivisionRealItemProvider(this);
+		}
+
+		return divisionRealItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionParentesis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperacionParentesisItemProvider operacionParentesisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.OperacionParentesis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperacionParentesisAdapter() {
+		if (operacionParentesisItemProvider == null) {
+			operacionParentesisItemProvider = new OperacionParentesisItemProvider(this);
+		}
+
+		return operacionParentesisItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Unaria} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected UnariaItemProvider unariaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.Unaria}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createUnariaAdapter() {
+		if (unariaItemProvider == null) {
+			unariaItemProvider = new UnariaItemProvider(this);
+		}
+
+		return unariaItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionCompleta} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected OperacionCompletaItemProvider operacionCompletaItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.OperacionCompleta}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createOperacionCompletaAdapter() {
+		if (operacionCompletaItemProvider == null) {
+			operacionCompletaItemProvider = new OperacionCompletaItemProvider(this);
+		}
+
+		return operacionCompletaItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1828,21 +1828,21 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	public void dispose() {
 		if (algoritmoItemProvider != null) algoritmoItemProvider.dispose();
 		if (inicioItemProvider != null) inicioItemProvider.dispose();
-		if (declaracionVariableItemProvider != null) declaracionVariableItemProvider.dispose();
+		if (declaracionBasicaItemProvider != null) declaracionBasicaItemProvider.dispose();
 		if (llamadaFuncionItemProvider != null) llamadaFuncionItemProvider.dispose();
 		if (variableIDItemProvider != null) variableIDItemProvider.dispose();
 		if (cadenaItemProvider != null) cadenaItemProvider.dispose();
-		if (constCadenaItemProvider != null) constCadenaItemProvider.dispose();
+		if (cadenaCaracteresItemProvider != null) cadenaCaracteresItemProvider.dispose();
 		if (variableItemProvider != null) variableItemProvider.dispose();
-		if (numeroEnteroItemProvider != null) numeroEnteroItemProvider.dispose();
+		if (enteroItemProvider != null) enteroItemProvider.dispose();
 		if (asignacionItemProvider != null) asignacionItemProvider.dispose();
 		if (escribirItemProvider != null) escribirItemProvider.dispose();
 		if (funcionItemProvider != null) funcionItemProvider.dispose();
-		if (parametroFuncionItemProvider != null) parametroFuncionItemProvider.dispose();
+		if (parametroItemProvider != null) parametroItemProvider.dispose();
 		if (leerItemProvider != null) leerItemProvider.dispose();
-		if (numeroDecimalItemProvider != null) numeroDecimalItemProvider.dispose();
+		if (realItemProvider != null) realItemProvider.dispose();
 		if (operacionItemProvider != null) operacionItemProvider.dispose();
-		if (valorBooleanoItemProvider != null) valorBooleanoItemProvider.dispose();
+		if (logicoItemProvider != null) logicoItemProvider.dispose();
 		if (siItemProvider != null) siItemProvider.dispose();
 		if (sinoItemProvider != null) sinoItemProvider.dispose();
 		if (mientrasItemProvider != null) mientrasItemProvider.dispose();
@@ -1850,20 +1850,20 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (desdeItemProvider != null) desdeItemProvider.dispose();
 		if (procedimientoItemProvider != null) procedimientoItemProvider.dispose();
 		if (caracterItemProvider != null) caracterItemProvider.dispose();
-		if (internasItemProvider != null) internasItemProvider.dispose();
+		if (funcionInternaItemProvider != null) funcionInternaItemProvider.dispose();
 		if (segunItemProvider != null) segunItemProvider.dispose();
 		if (devolverItemProvider != null) devolverItemProvider.dispose();
 		if (casoItemProvider != null) casoItemProvider.dispose();
-		if (constantesItemProvider != null) constantesItemProvider.dispose();
+		if (constanteItemProvider != null) constanteItemProvider.dispose();
 		if (vectorItemProvider != null) vectorItemProvider.dispose();
-		if (declaracionPropiaItemProvider != null) declaracionPropiaItemProvider.dispose();
+		if (declaracionDefinidaItemProvider != null) declaracionDefinidaItemProvider.dispose();
 		if (declaracionItemProvider != null) declaracionItemProvider.dispose();
 		if (matrizItemProvider != null) matrizItemProvider.dispose();
 		if (tipoComplejoItemProvider != null) tipoComplejoItemProvider.dispose();
 		if (registroItemProvider != null) registroItemProvider.dispose();
 		if (tipoItemProvider != null) tipoItemProvider.dispose();
 		if (tipoDefinidoItemProvider != null) tipoDefinidoItemProvider.dispose();
-		if (tipoExistenteItemProvider != null) tipoExistenteItemProvider.dispose();
+		if (tipoBasicoItemProvider != null) tipoBasicoItemProvider.dispose();
 		if (archivoItemProvider != null) archivoItemProvider.dispose();
 		if (enumeradoItemProvider != null) enumeradoItemProvider.dispose();
 		if (subrangoItemProvider != null) subrangoItemProvider.dispose();
@@ -1878,7 +1878,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (sumaItemProvider != null) sumaItemProvider.dispose();
 		if (restaItemProvider != null) restaItemProvider.dispose();
 		if (multiplicacionItemProvider != null) multiplicacionItemProvider.dispose();
-		if (divisionItemProvider != null) divisionItemProvider.dispose();
+		if (divisionEnteraItemProvider != null) divisionEnteraItemProvider.dispose();
 		if (orItemProvider != null) orItemProvider.dispose();
 		if (andItemProvider != null) andItemProvider.dispose();
 		if (comparacionItemProvider != null) comparacionItemProvider.dispose();
@@ -1894,7 +1894,7 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (cabeceraProcedimientoItemProvider != null) cabeceraProcedimientoItemProvider.dispose();
 		if (cabeceraFuncionItemProvider != null) cabeceraFuncionItemProvider.dispose();
 		if (modItemProvider != null) modItemProvider.dispose();
-		if (divItemProvider != null) divItemProvider.dispose();
+		if (divisionRealItemProvider != null) divisionRealItemProvider.dispose();
 		if (operacionParentesisItemProvider != null) operacionParentesisItemProvider.dispose();
 		if (unariaItemProvider != null) unariaItemProvider.dispose();
 		if (operacionCompletaItemProvider != null) operacionCompletaItemProvider.dispose();

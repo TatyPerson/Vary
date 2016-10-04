@@ -26,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AlgoritmoItemProvider
-	extends CodigoItemProvider {
+public class AlgoritmoItemProvider extends CodigoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -111,12 +110,12 @@ public class AlgoritmoItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIENE);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__FUNCION);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__INICIO);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__SUBPROCESOS);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMENTARIOS);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBALES);
 		}
 		return childrenFeatures;
 	}
@@ -158,6 +157,7 @@ public class AlgoritmoItemProvider
 			getString("_UI_Algoritmo_type") :
 			getString("_UI_Algoritmo_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -174,12 +174,12 @@ public class AlgoritmoItemProvider
 			case DiagramapseudocodigoPackage.ALGORITMO__NOMBRE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.ALGORITMO__TIENE:
-			case DiagramapseudocodigoPackage.ALGORITMO__FUNCION:
+			case DiagramapseudocodigoPackage.ALGORITMO__INICIO:
+			case DiagramapseudocodigoPackage.ALGORITMO__SUBPROCESOS:
 			case DiagramapseudocodigoPackage.ALGORITMO__CONSTANTES:
-			case DiagramapseudocodigoPackage.ALGORITMO__TIPOCOMPLEJO:
+			case DiagramapseudocodigoPackage.ALGORITMO__COMPLEJOS:
 			case DiagramapseudocodigoPackage.ALGORITMO__COMENTARIOS:
-			case DiagramapseudocodigoPackage.ALGORITMO__GLOBAL:
+			case DiagramapseudocodigoPackage.ALGORITMO__GLOBALES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -199,67 +199,67 @@ public class AlgoritmoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__INICIO,
 				 DiagramapseudocodigoFactory.eINSTANCE.createInicio()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__FUNCION,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__FUNCION,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__SUBPROCESOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createProcedimiento()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ALGORITMO__CONSTANTES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstantes()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createConstante()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createTipoComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createArchivo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createEnumerado()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrango()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrangoNumerico()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__TIPOCOMPLEJO,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrangoEnumerado()));
 
 		newChildDescriptors.add
@@ -269,18 +269,18 @@ public class AlgoritmoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL,
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBALES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBALES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionBasica()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBAL,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__GLOBALES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionDefinida()));
 	}
 
 }

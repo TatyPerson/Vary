@@ -6,12 +6,17 @@ package diagramapseudocodigo.provider;
 import diagramapseudocodigo.CabeceraSubproceso;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -29,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CabeceraSubprocesoItemProvider
+public class CabeceraSubprocesoItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -97,7 +102,7 @@ public class CabeceraSubprocesoItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__PARAMETROFUNCION);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__PARAMETROS);
 		}
 		return childrenFeatures;
 	}
@@ -139,6 +144,7 @@ public class CabeceraSubprocesoItemProvider
 			getString("_UI_CabeceraSubproceso_type") :
 			getString("_UI_CabeceraSubproceso_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -155,7 +161,7 @@ public class CabeceraSubprocesoItemProvider
 			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__NOMBRE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROFUNCION:
+			case DiagramapseudocodigoPackage.CABECERA_SUBPROCESO__PARAMETROS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -175,8 +181,8 @@ public class CabeceraSubprocesoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__PARAMETROFUNCION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createParametroFuncion()));
+				(DiagramapseudocodigoPackage.Literals.CABECERA_SUBPROCESO__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createParametro()));
 	}
 
 	/**

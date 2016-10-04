@@ -11,10 +11,10 @@ import diagramapseudocodigo.Archivo;
 import diagramapseudocodigo.AsignacionNormal;
 import diagramapseudocodigo.CabeceraFuncion;
 import diagramapseudocodigo.CabeceraSubproceso;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.DeclaracionBasica;
+import diagramapseudocodigo.DeclaracionDefinida;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.Implementacion;
@@ -22,15 +22,15 @@ import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Modulo;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Parametro;
 import diagramapseudocodigo.Procedimiento;
 import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.Subrango;
 import diagramapseudocodigo.Tipo;
+import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.TipoExistente;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
 import diagramapseudocodigo.ValorVector;
@@ -199,17 +199,17 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   }
   
   @Override
-  public void completeDeclaracionPropia_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeDeclaracionDefinida_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _rootModel = context.getRootModel();
     if ((_rootModel instanceof Algoritmo)) {
       ArrayList<String> tiposLocales = new ArrayList<String>();
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-      EList<TipoComplejo> _tipocomplejo = algoritmo.getTipocomplejo();
-      ArrayList<String> _completeDeclaracionPropia_TipoAux = this.completeDeclaracionPropia_TipoAux(context, acceptor, _tipocomplejo, tiposLocales);
-      tiposLocales = _completeDeclaracionPropia_TipoAux;
+      EList<TipoComplejo> _complejos = algoritmo.getComplejos();
+      ArrayList<String> _completeDeclaracionDefinida_TipoAux = this.completeDeclaracionDefinida_TipoAux(context, acceptor, _complejos, tiposLocales);
+      tiposLocales = _completeDeclaracionDefinida_TipoAux;
       EList<Modulo> _importaciones = algoritmo.getImportaciones();
-      this.completeDeclaracionPropia_TipoModulos(context, acceptor, _importaciones, tiposLocales);
+      this.completeDeclaracionDefinida_TipoModulos(context, acceptor, _importaciones, tiposLocales);
     } else {
       EObject _rootModel_2 = context.getRootModel();
       if ((_rootModel_2 instanceof Modulo)) {
@@ -217,16 +217,16 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _rootModel_3 = context.getRootModel();
         Modulo modulo = ((Modulo) _rootModel_3);
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<TipoComplejo> _tipocomplejo_1 = _implementacion.getTipocomplejo();
-        ArrayList<String> _completeDeclaracionPropia_TipoAux_1 = this.completeDeclaracionPropia_TipoAux(context, acceptor, _tipocomplejo_1, tiposLocales_1);
-        tiposLocales_1 = _completeDeclaracionPropia_TipoAux_1;
+        EList<TipoComplejo> _complejos_1 = _implementacion.getComplejos();
+        ArrayList<String> _completeDeclaracionDefinida_TipoAux_1 = this.completeDeclaracionDefinida_TipoAux(context, acceptor, _complejos_1, tiposLocales_1);
+        tiposLocales_1 = _completeDeclaracionDefinida_TipoAux_1;
         EList<Modulo> _importaciones_1 = modulo.getImportaciones();
-        this.completeDeclaracionPropia_TipoModulos(context, acceptor, _importaciones_1, tiposLocales_1);
+        this.completeDeclaracionDefinida_TipoModulos(context, acceptor, _importaciones_1, tiposLocales_1);
       }
     }
   }
   
-  public ArrayList<String> completeDeclaracionPropia_TipoAux(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<TipoComplejo> complejos, final ArrayList<String> tiposLocales) {
+  public ArrayList<String> completeDeclaracionDefinida_TipoAux(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<TipoComplejo> complejos, final ArrayList<String> tiposLocales) {
     for (final TipoComplejo tipo : complejos) {
       if ((tipo instanceof Vector)) {
         Vector vector = ((Vector) tipo);
@@ -322,11 +322,11 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     return tiposLocales;
   }
   
-  public void completeDeclaracionPropia_TipoModulos(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Modulo> modulos, final ArrayList<String> tiposLocales) {
+  public void completeDeclaracionDefinida_TipoModulos(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Modulo> modulos, final ArrayList<String> tiposLocales) {
     for (final Modulo modulo : modulos) {
       Implementacion _implementacion = modulo.getImplementacion();
-      EList<TipoComplejo> _tipocomplejo = _implementacion.getTipocomplejo();
-      for (final TipoComplejo tipo : _tipocomplejo) {
+      EList<TipoComplejo> _complejos = _implementacion.getComplejos();
+      for (final TipoComplejo tipo : _complejos) {
         if ((tipo instanceof Vector)) {
           Vector vector = ((Vector) tipo);
           if ((modulo.getExporta_tipos().contains(vector.getNombre()) && (!tiposLocales.contains(vector.getNombre())))) {
@@ -458,23 +458,23 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   }
   
   @Override
-  public void completeDeclaracionVariable_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeDeclaracionBasica_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _rootModel = context.getRootModel();
     if ((_rootModel instanceof Algoritmo)) {
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-      this.completeDeclaracionVariable_TipoAux(context, acceptor);
+      this.completeDeclaracionBasica_TipoAux(context, acceptor);
     } else {
       EObject _rootModel_2 = context.getRootModel();
       if ((_rootModel_2 instanceof Modulo)) {
         EObject _rootModel_3 = context.getRootModel();
         Modulo modulo = ((Modulo) _rootModel_3);
-        this.completeDeclaracionVariable_TipoAux(context, acceptor);
+        this.completeDeclaracionBasica_TipoAux(context, acceptor);
       }
     }
   }
   
-  public void completeDeclaracionVariable_TipoAux(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeDeclaracionBasica_TipoAux(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     ResourceBundle _bundle = this.readerKeywords.getBundle();
     String _string = _bundle.getString("KEYWORD_ENTERO");
     StyledString styledString = new StyledString(_string);
@@ -535,8 +535,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     this.completeAsignacionNormalCompleja_Operador(model, assignment, context, acceptor);
   }
   
-  public void completeAsignacionNormal_OperadorParametrosSubproceso(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<ParametroFuncion> parametros) {
-    for (final ParametroFuncion parametro : parametros) {
+  public void completeAsignacionNormal_OperadorParametrosSubproceso(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Parametro> parametros) {
+    for (final Parametro parametro : parametros) {
       Tipo _tipo = parametro.getTipo();
       if ((_tipo instanceof TipoDefinido)) {
         Tipo _tipo_1 = parametro.getTipo();
@@ -553,13 +553,13 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         acceptor.accept(completionProposal);
       } else {
         Tipo _tipo_3 = parametro.getTipo();
-        if ((_tipo_3 instanceof TipoExistente)) {
+        if ((_tipo_3 instanceof TipoBasico)) {
           Tipo _tipo_4 = parametro.getTipo();
-          TipoExistente tipoExistente = ((TipoExistente) _tipo_4);
+          TipoBasico tipoBasico = ((TipoBasico) _tipo_4);
           Variable _variable_2 = parametro.getVariable();
           String _nombre_2 = _variable_2.getNombre();
           String _plus_2 = (_nombre_2 + " : ");
-          String _tipo_5 = tipoExistente.getTipo();
+          String _tipo_5 = tipoBasico.getTipo();
           String _plus_3 = (_plus_2 + _tipo_5);
           StyledString styledString_1 = new StyledString(_plus_3);
           Variable _variable_3 = parametro.getVariable();
@@ -573,10 +573,10 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   
   public void completeAsignacionNormal_OperadorAux(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Declaracion> declaraciones) {
     for (final Declaracion declaracion : declaraciones) {
-      if ((declaracion instanceof DeclaracionPropia)) {
-        DeclaracionPropia dec = ((DeclaracionPropia) declaracion);
-        EList<Variable> _variable = dec.getVariable();
-        for (final Variable v : _variable) {
+      if ((declaracion instanceof DeclaracionDefinida)) {
+        DeclaracionDefinida dec = ((DeclaracionDefinida) declaracion);
+        EList<Variable> _variables = dec.getVariables();
+        for (final Variable v : _variables) {
           {
             String _nombre = v.getNombre();
             String _plus = (_nombre + " : ");
@@ -589,10 +589,10 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           }
         }
       } else {
-        if ((declaracion instanceof DeclaracionVariable)) {
-          DeclaracionVariable dec_1 = ((DeclaracionVariable) declaracion);
-          EList<Variable> _variable_1 = dec_1.getVariable();
-          for (final Variable v_1 : _variable_1) {
+        if ((declaracion instanceof DeclaracionBasica)) {
+          DeclaracionBasica dec_1 = ((DeclaracionBasica) declaracion);
+          EList<Variable> _variables_1 = dec_1.getVariables();
+          for (final Variable v_1 : _variables_1) {
             {
               String _nombre = v_1.getNombre();
               String _plus = (_nombre + " : ");
@@ -612,19 +612,19 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   public void completeAsignacionNormal_OperadorAuxModulos(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<String> variablesLocales, final List<Modulo> modulos) {
     for (final Modulo modulo : modulos) {
       {
-        EList<Declaracion> _exporta_global = modulo.getExporta_global();
-        ArrayList<String> variablesPublicas = this.registrarVariables(_exporta_global);
+        EList<Declaracion> _exporta_globales = modulo.getExporta_globales();
+        ArrayList<String> variablesPublicas = this.registrarVariables(_exporta_globales);
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<Declaracion> _global = _implementacion.getGlobal();
-        for (final Declaracion declaracion : _global) {
-          if ((declaracion instanceof DeclaracionVariable)) {
-            DeclaracionVariable declaracionVariable = ((DeclaracionVariable) declaracion);
-            EList<Variable> _variable = declaracionVariable.getVariable();
-            for (final Variable variable : _variable) {
+        EList<Declaracion> _globales = _implementacion.getGlobales();
+        for (final Declaracion declaracion : _globales) {
+          if ((declaracion instanceof DeclaracionBasica)) {
+            DeclaracionBasica declaracionBasica = ((DeclaracionBasica) declaracion);
+            EList<Variable> _variables = declaracionBasica.getVariables();
+            for (final Variable variable : _variables) {
               if (((!variablesLocales.contains(variable.getNombre())) && variablesPublicas.contains(variable.getNombre()))) {
                 String _nombre = variable.getNombre();
                 String _plus = (_nombre + " : ");
-                String _tipo = declaracionVariable.getTipo();
+                String _tipo = declaracionBasica.getTipo();
                 String _plus_1 = (_plus + _tipo);
                 StyledString styledString = new StyledString(_plus_1);
                 String _nombre_1 = modulo.getNombre();
@@ -639,10 +639,10 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
               }
             }
           } else {
-            if ((declaracion instanceof DeclaracionPropia)) {
-              DeclaracionPropia declaracionPropia = ((DeclaracionPropia) declaracion);
-              EList<Variable> _variable_1 = declaracionPropia.getVariable();
-              for (final Variable variable_1 : _variable_1) {
+            if ((declaracion instanceof DeclaracionDefinida)) {
+              DeclaracionDefinida declaracionPropia = ((DeclaracionDefinida) declaracion);
+              EList<Variable> _variables_1 = declaracionPropia.getVariables();
+              for (final Variable variable_1 : _variables_1) {
                 if (((!variablesLocales.contains(variable_1.getNombre())) && variablesPublicas.contains(variable_1.getNombre()))) {
                   String _nombre_3 = variable_1.getNombre();
                   String _plus_3 = (_nombre_3 + " : ");
@@ -667,9 +667,9 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     }
   }
   
-  public ArrayList<String> registrarParametros(final List<ParametroFuncion> parametros) {
+  public ArrayList<String> registrarParametros(final List<Parametro> parametros) {
     ArrayList<String> variables = new ArrayList<String>();
-    for (final ParametroFuncion parametro : parametros) {
+    for (final Parametro parametro : parametros) {
       Variable _variable = parametro.getVariable();
       String _nombre = _variable.getNombre();
       variables.add(_nombre);
@@ -680,18 +680,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   public ArrayList<String> registrarVariables(final List<Declaracion> declaraciones) {
     ArrayList<String> variables = new ArrayList<String>();
     for (final Declaracion declaracion : declaraciones) {
-      if ((declaracion instanceof DeclaracionVariable)) {
-        DeclaracionVariable declaracionVariable = ((DeclaracionVariable) declaracion);
-        EList<Variable> _variable = declaracionVariable.getVariable();
-        for (final Variable variable : _variable) {
+      if ((declaracion instanceof DeclaracionBasica)) {
+        DeclaracionBasica declaracionBasica = ((DeclaracionBasica) declaracion);
+        EList<Variable> _variables = declaracionBasica.getVariables();
+        for (final Variable variable : _variables) {
           String _nombre = variable.getNombre();
           variables.add(_nombre);
         }
       } else {
-        if ((declaracion instanceof DeclaracionPropia)) {
-          DeclaracionPropia declaracionPropia = ((DeclaracionPropia) declaracion);
-          EList<Variable> _variable_1 = declaracionPropia.getVariable();
-          for (final Variable variable_1 : _variable_1) {
+        if ((declaracion instanceof DeclaracionDefinida)) {
+          DeclaracionDefinida declaracionDefinida = ((DeclaracionDefinida) declaracion);
+          EList<Variable> _variables_1 = declaracionDefinida.getVariables();
+          for (final Variable variable_1 : _variables_1) {
             String _nombre_1 = variable_1.getNombre();
             variables.add(_nombre_1);
           }
@@ -715,57 +715,57 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       Funcion funcion = EcoreUtil2.<Funcion>getContainerOfType(asignacionNormal, Funcion.class);
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-      EList<Subproceso> _funcion = algoritmo.getFuncion();
-      this.completeFuncionesAsignacion(context, acceptor, _funcion);
+      EList<Subproceso> _subprocesos = algoritmo.getSubprocesos();
+      this.completeFuncionesAsignacion(context, acceptor, _subprocesos);
       EList<Modulo> _importaciones = algoritmo.getImportaciones();
       this.completeFuncionesAsignacion_Modulos(context, acceptor, _importaciones);
       ArrayList<String> variablesLocales = new ArrayList<String>();
-      EList<Declaracion> _global = algoritmo.getGlobal();
-      ArrayList<String> _registrarVariables = this.registrarVariables(_global);
+      EList<Declaracion> _globales = algoritmo.getGlobales();
+      ArrayList<String> _registrarVariables = this.registrarVariables(_globales);
       variablesLocales = _registrarVariables;
-      EList<Declaracion> _global_1 = algoritmo.getGlobal();
-      this.completeAsignacionNormal_OperadorAux(context, acceptor, _global_1);
+      EList<Declaracion> _globales_1 = algoritmo.getGlobales();
+      this.completeAsignacionNormal_OperadorAux(context, acceptor, _globales_1);
       if ((Objects.equal(procedimiento, null) && Objects.equal(funcion, null))) {
-        Inicio _tiene = algoritmo.getTiene();
-        EList<Declaracion> _declaracion = _tiene.getDeclaracion();
-        this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion);
-        Inicio _tiene_1 = algoritmo.getTiene();
-        EList<Declaracion> _declaracion_1 = _tiene_1.getDeclaracion();
-        ArrayList<String> _registrarVariables_1 = this.registrarVariables(_declaracion_1);
+        Inicio _inicio = algoritmo.getInicio();
+        EList<Declaracion> _declaraciones = _inicio.getDeclaraciones();
+        this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones);
+        Inicio _inicio_1 = algoritmo.getInicio();
+        EList<Declaracion> _declaraciones_1 = _inicio_1.getDeclaraciones();
+        ArrayList<String> _registrarVariables_1 = this.registrarVariables(_declaraciones_1);
         variablesLocales.addAll(_registrarVariables_1);
-        Inicio _tiene_2 = algoritmo.getTiene();
-        EList<Declaracion> _declaracion_2 = _tiene_2.getDeclaracion();
-        ArrayList<String> _registrarVariables_2 = this.registrarVariables(_declaracion_2);
+        Inicio _inicio_2 = algoritmo.getInicio();
+        EList<Declaracion> _declaraciones_2 = _inicio_2.getDeclaraciones();
+        ArrayList<String> _registrarVariables_2 = this.registrarVariables(_declaraciones_2);
         variablesLocales.addAll(_registrarVariables_2);
         EList<Modulo> _importaciones_1 = algoritmo.getImportaciones();
         this.completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, _importaciones_1);
       } else {
         boolean _notEquals = (!Objects.equal(procedimiento, null));
         if (_notEquals) {
-          EList<Declaracion> _declaracion_3 = procedimiento.getDeclaracion();
-          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_3);
-          EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
-          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion);
-          EList<Declaracion> _declaracion_4 = procedimiento.getDeclaracion();
-          ArrayList<String> _registrarVariables_3 = this.registrarVariables(_declaracion_4);
+          EList<Declaracion> _declaraciones_3 = procedimiento.getDeclaraciones();
+          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_3);
+          EList<Parametro> _parametros = procedimiento.getParametros();
+          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros);
+          EList<Declaracion> _declaraciones_4 = procedimiento.getDeclaraciones();
+          ArrayList<String> _registrarVariables_3 = this.registrarVariables(_declaraciones_4);
           variablesLocales.addAll(_registrarVariables_3);
-          EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
-          ArrayList<String> _registrarParametros = this.registrarParametros(_parametrofuncion_1);
+          EList<Parametro> _parametros_1 = procedimiento.getParametros();
+          ArrayList<String> _registrarParametros = this.registrarParametros(_parametros_1);
           variablesLocales.addAll(_registrarParametros);
           EList<Modulo> _importaciones_2 = algoritmo.getImportaciones();
           this.completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, _importaciones_2);
         } else {
           boolean _notEquals_1 = (!Objects.equal(funcion, null));
           if (_notEquals_1) {
-            EList<Declaracion> _declaracion_5 = funcion.getDeclaracion();
-            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_5);
-            EList<ParametroFuncion> _parametrofuncion_2 = funcion.getParametrofuncion();
-            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion_2);
-            EList<Declaracion> _declaracion_6 = funcion.getDeclaracion();
-            ArrayList<String> _registrarVariables_4 = this.registrarVariables(_declaracion_6);
+            EList<Declaracion> _declaraciones_5 = funcion.getDeclaraciones();
+            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_5);
+            EList<Parametro> _parametros_2 = funcion.getParametros();
+            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros_2);
+            EList<Declaracion> _declaraciones_6 = funcion.getDeclaraciones();
+            ArrayList<String> _registrarVariables_4 = this.registrarVariables(_declaraciones_6);
             variablesLocales.addAll(_registrarVariables_4);
-            EList<ParametroFuncion> _parametrofuncion_3 = funcion.getParametrofuncion();
-            ArrayList<String> _registrarParametros_1 = this.registrarParametros(_parametrofuncion_3);
+            EList<Parametro> _parametros_3 = funcion.getParametros();
+            ArrayList<String> _registrarParametros_1 = this.registrarParametros(_parametros_3);
             variablesLocales.addAll(_registrarParametros_1);
             EList<Modulo> _importaciones_3 = algoritmo.getImportaciones();
             this.completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, _importaciones_3);
@@ -782,44 +782,44 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _rootModel_3 = context.getRootModel();
         Modulo modulo = ((Modulo) _rootModel_3);
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<Subproceso> _funcion_1 = _implementacion.getFuncion();
-        this.completeFuncionesAsignacion(context, acceptor, _funcion_1);
+        EList<Subproceso> _subprocesos_1 = _implementacion.getSubprocesos();
+        this.completeFuncionesAsignacion(context, acceptor, _subprocesos_1);
         EList<Modulo> _importaciones_4 = modulo.getImportaciones();
         this.completeFuncionesAsignacion_Modulos(context, acceptor, _importaciones_4);
         ArrayList<String> variablesLocales_1 = new ArrayList<String>();
         Implementacion _implementacion_1 = modulo.getImplementacion();
-        EList<Declaracion> _global_2 = _implementacion_1.getGlobal();
-        ArrayList<String> _registrarVariables_5 = this.registrarVariables(_global_2);
+        EList<Declaracion> _globales_2 = _implementacion_1.getGlobales();
+        ArrayList<String> _registrarVariables_5 = this.registrarVariables(_globales_2);
         variablesLocales_1 = _registrarVariables_5;
         Implementacion _implementacion_2 = modulo.getImplementacion();
-        EList<Declaracion> _global_3 = _implementacion_2.getGlobal();
-        this.completeAsignacionNormal_OperadorAux(context, acceptor, _global_3);
+        EList<Declaracion> _globales_3 = _implementacion_2.getGlobales();
+        this.completeAsignacionNormal_OperadorAux(context, acceptor, _globales_3);
         boolean _notEquals_2 = (!Objects.equal(procedimiento_1, null));
         if (_notEquals_2) {
-          EList<Declaracion> _declaracion_7 = procedimiento_1.getDeclaracion();
-          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_7);
-          EList<ParametroFuncion> _parametrofuncion_4 = procedimiento_1.getParametrofuncion();
-          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion_4);
-          EList<Declaracion> _declaracion_8 = procedimiento_1.getDeclaracion();
-          ArrayList<String> _registrarVariables_6 = this.registrarVariables(_declaracion_8);
+          EList<Declaracion> _declaraciones_7 = procedimiento_1.getDeclaraciones();
+          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_7);
+          EList<Parametro> _parametros_4 = procedimiento_1.getParametros();
+          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros_4);
+          EList<Declaracion> _declaraciones_8 = procedimiento_1.getDeclaraciones();
+          ArrayList<String> _registrarVariables_6 = this.registrarVariables(_declaraciones_8);
           variablesLocales_1.addAll(_registrarVariables_6);
-          EList<ParametroFuncion> _parametrofuncion_5 = procedimiento_1.getParametrofuncion();
-          ArrayList<String> _registrarParametros_2 = this.registrarParametros(_parametrofuncion_5);
+          EList<Parametro> _parametros_5 = procedimiento_1.getParametros();
+          ArrayList<String> _registrarParametros_2 = this.registrarParametros(_parametros_5);
           variablesLocales_1.addAll(_registrarParametros_2);
           EList<Modulo> _importaciones_5 = modulo.getImportaciones();
           this.completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales_1, _importaciones_5);
         } else {
           boolean _notEquals_3 = (!Objects.equal(funcion_1, null));
           if (_notEquals_3) {
-            EList<Declaracion> _declaracion_9 = funcion_1.getDeclaracion();
-            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_9);
-            EList<ParametroFuncion> _parametrofuncion_6 = funcion_1.getParametrofuncion();
-            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion_6);
-            EList<Declaracion> _declaracion_10 = funcion_1.getDeclaracion();
-            ArrayList<String> _registrarVariables_7 = this.registrarVariables(_declaracion_10);
+            EList<Declaracion> _declaraciones_9 = funcion_1.getDeclaraciones();
+            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_9);
+            EList<Parametro> _parametros_6 = funcion_1.getParametros();
+            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros_6);
+            EList<Declaracion> _declaraciones_10 = funcion_1.getDeclaraciones();
+            ArrayList<String> _registrarVariables_7 = this.registrarVariables(_declaraciones_10);
             variablesLocales_1.addAll(_registrarVariables_7);
-            EList<ParametroFuncion> _parametrofuncion_7 = funcion_1.getParametrofuncion();
-            ArrayList<String> _registrarParametros_3 = this.registrarParametros(_parametrofuncion_7);
+            EList<Parametro> _parametros_7 = funcion_1.getParametros();
+            ArrayList<String> _registrarParametros_3 = this.registrarParametros(_parametros_7);
             variablesLocales_1.addAll(_registrarParametros_3);
             EList<Modulo> _importaciones_6 = modulo.getImportaciones();
             this.completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales_1, _importaciones_6);
@@ -836,18 +836,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         String _nombre = funcion.getNombre();
         String _plus = (_nombre + "(");
         StyledString styledString = new StyledString(_plus);
-        EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
-        int _size = _parametrofuncion.size();
+        EList<Parametro> _parametros = funcion.getParametros();
+        int _size = _parametros.size();
         boolean _equals = (_size == 0);
         if (_equals) {
           styledString.append(")");
         } else {
-          EList<ParametroFuncion> _parametrofuncion_1 = funcion.getParametrofuncion();
-          for (final ParametroFuncion p : _parametrofuncion_1) {
-            EList<ParametroFuncion> _parametrofuncion_2 = funcion.getParametrofuncion();
-            int _indexOf = _parametrofuncion_2.indexOf(p);
-            EList<ParametroFuncion> _parametrofuncion_3 = funcion.getParametrofuncion();
-            int _size_1 = _parametrofuncion_3.size();
+          EList<Parametro> _parametros_1 = funcion.getParametros();
+          for (final Parametro p : _parametros_1) {
+            EList<Parametro> _parametros_2 = funcion.getParametros();
+            int _indexOf = _parametros_2.indexOf(p);
+            EList<Parametro> _parametros_3 = funcion.getParametros();
+            int _size_1 = _parametros_3.size();
             int _minus = (_size_1 - 1);
             boolean _notEquals = (_indexOf != _minus);
             if (_notEquals) {
@@ -876,30 +876,30 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   public void completeFuncionesAsignacion_Modulos(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Modulo> modulos) {
     for (final Modulo modulo : modulos) {
       Implementacion _implementacion = modulo.getImplementacion();
-      EList<Subproceso> _funcion = _implementacion.getFuncion();
-      for (final Subproceso subproceso : _funcion) {
+      EList<Subproceso> _subprocesos = _implementacion.getSubprocesos();
+      for (final Subproceso subproceso : _subprocesos) {
         if ((subproceso instanceof Funcion)) {
           Funcion funcion = ((Funcion) subproceso);
-          EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
-          ArrayList<String> funciones_publicas = this.registrarFuncionesPublicas(_exporta_funciones);
+          EList<CabeceraSubproceso> _exporta_subprocesos = modulo.getExporta_subprocesos();
+          ArrayList<String> funciones_publicas = this.registrarFuncionesPublicas(_exporta_subprocesos);
           String _nombre = funcion.getNombre();
           boolean _contains = funciones_publicas.contains(_nombre);
           if (_contains) {
             String _nombre_1 = funcion.getNombre();
             String _plus = (_nombre_1 + "(");
             StyledString styledString = new StyledString(_plus);
-            EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
-            int _size = _parametrofuncion.size();
+            EList<Parametro> _parametros = funcion.getParametros();
+            int _size = _parametros.size();
             boolean _equals = (_size == 0);
             if (_equals) {
               styledString.append(")");
             } else {
-              EList<ParametroFuncion> _parametrofuncion_1 = funcion.getParametrofuncion();
-              for (final ParametroFuncion p : _parametrofuncion_1) {
-                EList<ParametroFuncion> _parametrofuncion_2 = funcion.getParametrofuncion();
-                int _indexOf = _parametrofuncion_2.indexOf(p);
-                EList<ParametroFuncion> _parametrofuncion_3 = funcion.getParametrofuncion();
-                int _size_1 = _parametrofuncion_3.size();
+              EList<Parametro> _parametros_1 = funcion.getParametros();
+              for (final Parametro p : _parametros_1) {
+                EList<Parametro> _parametros_2 = funcion.getParametros();
+                int _indexOf = _parametros_2.indexOf(p);
+                EList<Parametro> _parametros_3 = funcion.getParametros();
+                int _size_1 = _parametros_3.size();
                 int _minus = (_size_1 - 1);
                 boolean _notEquals = (_indexOf != _minus);
                 if (_notEquals) {
@@ -945,11 +945,11 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   }
   
   @Override
-  public void completeInicio_Tiene(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeInicio_Sentencias(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _rootModel = context.getRootModel();
     Algoritmo algoritmo = ((Algoritmo) _rootModel);
-    EList<Subproceso> _funcion = algoritmo.getFuncion();
-    for (final Subproceso s : _funcion) {
+    EList<Subproceso> _subprocesos = algoritmo.getSubprocesos();
+    for (final Subproceso s : _subprocesos) {
       if ((s instanceof Procedimiento)) {
         Procedimiento procedimiento = ((Procedimiento) s);
         this.complete_SentenciasAux(context, acceptor, procedimiento);
@@ -1009,8 +1009,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     if ((_rootModel instanceof Algoritmo)) {
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-      EList<Subproceso> _funcion = algoritmo.getFuncion();
-      for (final Subproceso s : _funcion) {
+      EList<Subproceso> _subprocesos = algoritmo.getSubprocesos();
+      for (final Subproceso s : _subprocesos) {
         if ((s instanceof Procedimiento)) {
           Procedimiento procedimiento = ((Procedimiento) s);
           this.complete_SentenciasAux(context, acceptor, procedimiento);
@@ -1024,8 +1024,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _rootModel_3 = context.getRootModel();
         Modulo modulo = ((Modulo) _rootModel_3);
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<Subproceso> _funcion_1 = _implementacion.getFuncion();
-        for (final Subproceso s_1 : _funcion_1) {
+        EList<Subproceso> _subprocesos_1 = _implementacion.getSubprocesos();
+        for (final Subproceso s_1 : _subprocesos_1) {
           {
             Procedimiento procedimiento_1 = ((Procedimiento) s_1);
             this.complete_SentenciasAux(context, acceptor, procedimiento_1);
@@ -1041,18 +1041,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     String _nombre = procedimiento.getNombre();
     String _plus = (_nombre + "(");
     StyledString styledString = new StyledString(_plus);
-    EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
-    int _size = _parametrofuncion.size();
+    EList<Parametro> _parametros = procedimiento.getParametros();
+    int _size = _parametros.size();
     boolean _equals = (_size == 0);
     if (_equals) {
       styledString.append(")");
     } else {
-      EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
-      for (final ParametroFuncion p : _parametrofuncion_1) {
-        EList<ParametroFuncion> _parametrofuncion_2 = procedimiento.getParametrofuncion();
-        int _indexOf = _parametrofuncion_2.indexOf(p);
-        EList<ParametroFuncion> _parametrofuncion_3 = procedimiento.getParametrofuncion();
-        int _size_1 = _parametrofuncion_3.size();
+      EList<Parametro> _parametros_1 = procedimiento.getParametros();
+      for (final Parametro p : _parametros_1) {
+        EList<Parametro> _parametros_2 = procedimiento.getParametros();
+        int _indexOf = _parametros_2.indexOf(p);
+        EList<Parametro> _parametros_3 = procedimiento.getParametros();
+        int _size_1 = _parametros_3.size();
         int _minus = (_size_1 - 1);
         boolean _notEquals = (_indexOf != _minus);
         if (_notEquals) {
@@ -1077,32 +1077,32 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     String procedimiento_literal = new String();
     for (final Modulo modulo : modulos) {
       Implementacion _implementacion = modulo.getImplementacion();
-      EList<Subproceso> _funcion = _implementacion.getFuncion();
-      for (final Subproceso subproceso : _funcion) {
+      EList<Subproceso> _subprocesos = _implementacion.getSubprocesos();
+      for (final Subproceso subproceso : _subprocesos) {
         if ((subproceso instanceof Procedimiento)) {
           Procedimiento procedimiento = ((Procedimiento) subproceso);
-          EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
-          for (final CabeceraSubproceso cabeceraFuncion : _exporta_funciones) {
-            if ((cabeceraFuncion.getNombre().equals(procedimiento.getNombre()) && (cabeceraFuncion.getParametrofuncion().size() == procedimiento.getParametrofuncion().size()))) {
+          EList<CabeceraSubproceso> _exporta_subprocesos = modulo.getExporta_subprocesos();
+          for (final CabeceraSubproceso cabeceraFuncion : _exporta_subprocesos) {
+            if ((cabeceraFuncion.getNombre().equals(procedimiento.getNombre()) && (cabeceraFuncion.getParametros().size() == procedimiento.getParametros().size()))) {
               String _nombre = procedimiento.getNombre();
               String _plus = (_nombre + "(");
               StyledString styledString = new StyledString(_plus);
               String _nombre_1 = procedimiento.getNombre();
               String _plus_1 = (_nombre_1 + "(");
               procedimiento_literal = _plus_1;
-              EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
-              int _size = _parametrofuncion.size();
+              EList<Parametro> _parametros = procedimiento.getParametros();
+              int _size = _parametros.size();
               boolean _equals = (_size == 0);
               if (_equals) {
                 styledString.append(")");
                 procedimiento_literal = (procedimiento_literal + ")");
               } else {
-                EList<ParametroFuncion> _parametrofuncion_1 = procedimiento.getParametrofuncion();
-                for (final ParametroFuncion p : _parametrofuncion_1) {
-                  EList<ParametroFuncion> _parametrofuncion_2 = procedimiento.getParametrofuncion();
-                  int _indexOf = _parametrofuncion_2.indexOf(p);
-                  EList<ParametroFuncion> _parametrofuncion_3 = procedimiento.getParametrofuncion();
-                  int _size_1 = _parametrofuncion_3.size();
+                EList<Parametro> _parametros_1 = procedimiento.getParametros();
+                for (final Parametro p : _parametros_1) {
+                  EList<Parametro> _parametros_2 = procedimiento.getParametros();
+                  int _indexOf = _parametros_2.indexOf(p);
+                  EList<Parametro> _parametros_3 = procedimiento.getParametros();
+                  int _size_1 = _parametros_3.size();
                   int _minus = (_size_1 - 1);
                   boolean _notEquals = (_indexOf != _minus);
                   if (_notEquals) {
@@ -1153,26 +1153,26 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       Funcion funcion = EcoreUtil2.<Funcion>getContainerOfType(llamadaFuncion, Funcion.class);
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-      EList<Declaracion> _global = algoritmo.getGlobal();
-      this.completeAsignacionNormal_OperadorAux(context, acceptor, _global);
+      EList<Declaracion> _globales = algoritmo.getGlobales();
+      this.completeAsignacionNormal_OperadorAux(context, acceptor, _globales);
       if ((Objects.equal(procedimiento, null) && Objects.equal(funcion, null))) {
-        Inicio _tiene = algoritmo.getTiene();
-        EList<Declaracion> _declaracion = _tiene.getDeclaracion();
-        this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion);
+        Inicio _inicio = algoritmo.getInicio();
+        EList<Declaracion> _declaraciones = _inicio.getDeclaraciones();
+        this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones);
       } else {
         boolean _notEquals = (!Objects.equal(procedimiento, null));
         if (_notEquals) {
-          EList<Declaracion> _declaracion_1 = procedimiento.getDeclaracion();
-          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_1);
-          EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
-          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion);
+          EList<Declaracion> _declaraciones_1 = procedimiento.getDeclaraciones();
+          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_1);
+          EList<Parametro> _parametros = procedimiento.getParametros();
+          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros);
         } else {
           boolean _notEquals_1 = (!Objects.equal(funcion, null));
           if (_notEquals_1) {
-            EList<Declaracion> _declaracion_2 = funcion.getDeclaracion();
-            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_2);
-            EList<ParametroFuncion> _parametrofuncion_1 = funcion.getParametrofuncion();
-            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion_1);
+            EList<Declaracion> _declaraciones_2 = funcion.getDeclaraciones();
+            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_2);
+            EList<Parametro> _parametros_1 = funcion.getParametros();
+            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros_1);
           }
         }
       }
@@ -1186,21 +1186,21 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _rootModel_3 = context.getRootModel();
         Modulo modulo = ((Modulo) _rootModel_3);
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<Declaracion> _global_1 = _implementacion.getGlobal();
-        this.completeAsignacionNormal_OperadorAux(context, acceptor, _global_1);
+        EList<Declaracion> _globales_1 = _implementacion.getGlobales();
+        this.completeAsignacionNormal_OperadorAux(context, acceptor, _globales_1);
         boolean _notEquals_2 = (!Objects.equal(procedimiento_1, null));
         if (_notEquals_2) {
-          EList<Declaracion> _declaracion_3 = procedimiento_1.getDeclaracion();
-          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_3);
-          EList<ParametroFuncion> _parametrofuncion_2 = procedimiento_1.getParametrofuncion();
-          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion_2);
+          EList<Declaracion> _declaraciones_3 = procedimiento_1.getDeclaraciones();
+          this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_3);
+          EList<Parametro> _parametros_2 = procedimiento_1.getParametros();
+          this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros_2);
         } else {
           boolean _notEquals_3 = (!Objects.equal(funcion_1, null));
           if (_notEquals_3) {
-            EList<Declaracion> _declaracion_4 = funcion_1.getDeclaracion();
-            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaracion_4);
-            EList<ParametroFuncion> _parametrofuncion_3 = funcion_1.getParametrofuncion();
-            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametrofuncion_3);
+            EList<Declaracion> _declaraciones_4 = funcion_1.getDeclaraciones();
+            this.completeAsignacionNormal_OperadorAux(context, acceptor, _declaraciones_4);
+            EList<Parametro> _parametros_3 = funcion_1.getParametros();
+            this.completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, _parametros_3);
           }
         }
       }
@@ -1220,11 +1220,11 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _rootModel_1 = context.getRootModel();
         Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
         if ((Objects.equal(procedimiento, null) && Objects.equal(funcion, null))) {
-          Inicio _tiene = algoritmo.getTiene();
-          EList<Declaracion> declaraciones = _tiene.getDeclaracion();
-          EList<Declaracion> _global = algoritmo.getGlobal();
-          declaraciones.addAll(_global);
-          EList<TipoComplejo> complejos = algoritmo.getTipocomplejo();
+          Inicio _inicio = algoritmo.getInicio();
+          EList<Declaracion> declaraciones = _inicio.getDeclaraciones();
+          EList<Declaracion> _globales = algoritmo.getGlobales();
+          declaraciones.addAll(_globales);
+          EList<TipoComplejo> complejos = algoritmo.getComplejos();
           String _nombre_registro = valorRegistro.getNombre_registro();
           this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, _nombre_registro);
           String _nombre_registro_1 = valorRegistro.getNombre_registro();
@@ -1233,20 +1233,20 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         } else {
           boolean _notEquals = (!Objects.equal(procedimiento, null));
           if (_notEquals) {
-            EList<Declaracion> declaraciones_1 = procedimiento.getDeclaracion();
-            EList<Declaracion> _global_1 = algoritmo.getGlobal();
-            declaraciones_1.addAll(_global_1);
-            EList<TipoComplejo> complejos_1 = algoritmo.getTipocomplejo();
+            EList<Declaracion> declaraciones_1 = procedimiento.getDeclaraciones();
+            EList<Declaracion> _globales_1 = algoritmo.getGlobales();
+            declaraciones_1.addAll(_globales_1);
+            EList<TipoComplejo> complejos_1 = algoritmo.getComplejos();
             String _nombre_registro_2 = valorRegistro.getNombre_registro();
             this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_1, complejos_1, _nombre_registro_2);
             String _nombre_registro_3 = valorRegistro.getNombre_registro();
             EList<Modulo> _importaciones_1 = algoritmo.getImportaciones();
             this.completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones_1, complejos_1, _nombre_registro_3, _importaciones_1);
           } else {
-            EList<Declaracion> declaraciones_2 = funcion.getDeclaracion();
-            EList<Declaracion> _global_2 = algoritmo.getGlobal();
-            declaraciones_2.addAll(_global_2);
-            EList<TipoComplejo> complejos_2 = algoritmo.getTipocomplejo();
+            EList<Declaracion> declaraciones_2 = funcion.getDeclaraciones();
+            EList<Declaracion> _globales_2 = algoritmo.getGlobales();
+            declaraciones_2.addAll(_globales_2);
+            EList<TipoComplejo> complejos_2 = algoritmo.getComplejos();
             String _nombre_registro_4 = valorRegistro.getNombre_registro();
             this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_2, complejos_2, _nombre_registro_4);
             String _nombre_registro_5 = valorRegistro.getNombre_registro();
@@ -1264,11 +1264,11 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           EObject _rootModel_2 = context.getRootModel();
           Algoritmo algoritmo_1 = ((Algoritmo) _rootModel_2);
           if ((Objects.equal(procedimiento_1, null) && Objects.equal(funcion_1, null))) {
-            Inicio _tiene_1 = algoritmo_1.getTiene();
-            EList<Declaracion> declaraciones_3 = _tiene_1.getDeclaracion();
-            EList<Declaracion> _global_3 = algoritmo_1.getGlobal();
-            declaraciones_3.addAll(_global_3);
-            EList<TipoComplejo> complejos_3 = algoritmo_1.getTipocomplejo();
+            Inicio _inicio_1 = algoritmo_1.getInicio();
+            EList<Declaracion> declaraciones_3 = _inicio_1.getDeclaraciones();
+            EList<Declaracion> _globales_3 = algoritmo_1.getGlobales();
+            declaraciones_3.addAll(_globales_3);
+            EList<TipoComplejo> complejos_3 = algoritmo_1.getComplejos();
             String _nombre_vector = valorVector.getNombre_vector();
             this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_3, complejos_3, _nombre_vector);
             String _nombre_vector_1 = valorVector.getNombre_vector();
@@ -1277,20 +1277,20 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           } else {
             boolean _notEquals_1 = (!Objects.equal(procedimiento_1, null));
             if (_notEquals_1) {
-              EList<Declaracion> declaraciones_4 = procedimiento_1.getDeclaracion();
-              EList<Declaracion> _global_4 = algoritmo_1.getGlobal();
-              declaraciones_4.addAll(_global_4);
-              EList<TipoComplejo> complejos_4 = algoritmo_1.getTipocomplejo();
+              EList<Declaracion> declaraciones_4 = procedimiento_1.getDeclaraciones();
+              EList<Declaracion> _globales_4 = algoritmo_1.getGlobales();
+              declaraciones_4.addAll(_globales_4);
+              EList<TipoComplejo> complejos_4 = algoritmo_1.getComplejos();
               String _nombre_vector_2 = valorVector.getNombre_vector();
               this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_4, complejos_4, _nombre_vector_2);
               String _nombre_vector_3 = valorVector.getNombre_vector();
               EList<Modulo> _importaciones_4 = algoritmo_1.getImportaciones();
               this.completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones_4, complejos_4, _nombre_vector_3, _importaciones_4);
             } else {
-              EList<Declaracion> declaraciones_5 = funcion_1.getDeclaracion();
-              EList<Declaracion> _global_5 = algoritmo_1.getGlobal();
-              declaraciones_5.addAll(_global_5);
-              EList<TipoComplejo> complejos_5 = algoritmo_1.getTipocomplejo();
+              EList<Declaracion> declaraciones_5 = funcion_1.getDeclaraciones();
+              EList<Declaracion> _globales_5 = algoritmo_1.getGlobales();
+              declaraciones_5.addAll(_globales_5);
+              EList<TipoComplejo> complejos_5 = algoritmo_1.getComplejos();
               String _nombre_vector_4 = valorVector.getNombre_vector();
               this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_5, complejos_5, _nombre_vector_4);
               String _nombre_vector_5 = valorVector.getNombre_vector();
@@ -1308,11 +1308,11 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             EObject _rootModel_3 = context.getRootModel();
             Algoritmo algoritmo_2 = ((Algoritmo) _rootModel_3);
             if ((Objects.equal(procedimiento_2, null) && Objects.equal(funcion_2, null))) {
-              Inicio _tiene_2 = algoritmo_2.getTiene();
-              EList<Declaracion> declaraciones_6 = _tiene_2.getDeclaracion();
-              EList<Declaracion> _global_6 = algoritmo_2.getGlobal();
-              declaraciones_6.addAll(_global_6);
-              EList<TipoComplejo> complejos_6 = algoritmo_2.getTipocomplejo();
+              Inicio _inicio_2 = algoritmo_2.getInicio();
+              EList<Declaracion> declaraciones_6 = _inicio_2.getDeclaraciones();
+              EList<Declaracion> _globales_6 = algoritmo_2.getGlobales();
+              declaraciones_6.addAll(_globales_6);
+              EList<TipoComplejo> complejos_6 = algoritmo_2.getComplejos();
               String _nombre_matriz = valorMatriz.getNombre_matriz();
               this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_6, complejos_6, _nombre_matriz);
               String _nombre_matriz_1 = valorMatriz.getNombre_matriz();
@@ -1321,20 +1321,20 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             } else {
               boolean _notEquals_2 = (!Objects.equal(procedimiento_2, null));
               if (_notEquals_2) {
-                EList<Declaracion> declaraciones_7 = procedimiento_2.getDeclaracion();
-                EList<Declaracion> _global_7 = algoritmo_2.getGlobal();
-                declaraciones_7.addAll(_global_7);
-                EList<TipoComplejo> complejos_7 = algoritmo_2.getTipocomplejo();
+                EList<Declaracion> declaraciones_7 = procedimiento_2.getDeclaraciones();
+                EList<Declaracion> _globales_7 = algoritmo_2.getGlobales();
+                declaraciones_7.addAll(_globales_7);
+                EList<TipoComplejo> complejos_7 = algoritmo_2.getComplejos();
                 String _nombre_matriz_2 = valorMatriz.getNombre_matriz();
                 this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_7, complejos_7, _nombre_matriz_2);
                 String _nombre_matriz_3 = valorMatriz.getNombre_matriz();
                 EList<Modulo> _importaciones_7 = algoritmo_2.getImportaciones();
                 this.completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones_7, complejos_7, _nombre_matriz_3, _importaciones_7);
               } else {
-                EList<Declaracion> declaraciones_8 = funcion_2.getDeclaracion();
-                EList<Declaracion> _global_8 = algoritmo_2.getGlobal();
-                declaraciones_8.addAll(_global_8);
-                EList<TipoComplejo> complejos_8 = algoritmo_2.getTipocomplejo();
+                EList<Declaracion> declaraciones_8 = funcion_2.getDeclaraciones();
+                EList<Declaracion> _globales_8 = algoritmo_2.getGlobales();
+                declaraciones_8.addAll(_globales_8);
+                EList<TipoComplejo> complejos_8 = algoritmo_2.getComplejos();
                 String _nombre_matriz_4 = valorMatriz.getNombre_matriz();
                 this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_8, complejos_8, _nombre_matriz_4);
                 String _nombre_matriz_5 = valorMatriz.getNombre_matriz();
@@ -1358,24 +1358,24 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           Funcion funcion_3 = EcoreUtil2.<Funcion>getContainerOfType(valorRegistro_1, Funcion.class);
           boolean _notEquals_3 = (!Objects.equal(procedimiento_3, null));
           if (_notEquals_3) {
-            EList<Declaracion> declaraciones_9 = procedimiento_3.getDeclaracion();
+            EList<Declaracion> declaraciones_9 = procedimiento_3.getDeclaraciones();
             Implementacion _implementacion = modulo.getImplementacion();
-            EList<Declaracion> _global_9 = _implementacion.getGlobal();
-            declaraciones_9.addAll(_global_9);
+            EList<Declaracion> _globales_9 = _implementacion.getGlobales();
+            declaraciones_9.addAll(_globales_9);
             Implementacion _implementacion_1 = modulo.getImplementacion();
-            EList<TipoComplejo> complejos_9 = _implementacion_1.getTipocomplejo();
+            EList<TipoComplejo> complejos_9 = _implementacion_1.getComplejos();
             String _nombre_registro_6 = valorRegistro_1.getNombre_registro();
             this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_9, complejos_9, _nombre_registro_6);
             String _nombre_registro_7 = valorRegistro_1.getNombre_registro();
             EList<Modulo> _importaciones_9 = modulo.getImportaciones();
             this.completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones_9, complejos_9, _nombre_registro_7, _importaciones_9);
           } else {
-            EList<Declaracion> declaraciones_10 = funcion_3.getDeclaracion();
+            EList<Declaracion> declaraciones_10 = funcion_3.getDeclaraciones();
             Implementacion _implementacion_2 = modulo.getImplementacion();
-            EList<Declaracion> _global_10 = _implementacion_2.getGlobal();
-            declaraciones_10.addAll(_global_10);
+            EList<Declaracion> _globales_10 = _implementacion_2.getGlobales();
+            declaraciones_10.addAll(_globales_10);
             Implementacion _implementacion_3 = modulo.getImplementacion();
-            EList<TipoComplejo> complejos_10 = _implementacion_3.getTipocomplejo();
+            EList<TipoComplejo> complejos_10 = _implementacion_3.getComplejos();
             String _nombre_registro_8 = valorRegistro_1.getNombre_registro();
             this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_10, complejos_10, _nombre_registro_8);
             String _nombre_registro_9 = valorRegistro_1.getNombre_registro();
@@ -1391,24 +1391,24 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             Funcion funcion_4 = EcoreUtil2.<Funcion>getContainerOfType(valorVector_1, Funcion.class);
             boolean _notEquals_4 = (!Objects.equal(procedimiento_4, null));
             if (_notEquals_4) {
-              EList<Declaracion> declaraciones_11 = procedimiento_4.getDeclaracion();
+              EList<Declaracion> declaraciones_11 = procedimiento_4.getDeclaraciones();
               Implementacion _implementacion_4 = modulo.getImplementacion();
-              EList<Declaracion> _global_11 = _implementacion_4.getGlobal();
-              declaraciones_11.addAll(_global_11);
+              EList<Declaracion> _globales_11 = _implementacion_4.getGlobales();
+              declaraciones_11.addAll(_globales_11);
               Implementacion _implementacion_5 = modulo.getImplementacion();
-              EList<TipoComplejo> complejos_11 = _implementacion_5.getTipocomplejo();
+              EList<TipoComplejo> complejos_11 = _implementacion_5.getComplejos();
               String _nombre_vector_6 = valorVector_1.getNombre_vector();
               this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_11, complejos_11, _nombre_vector_6);
               String _nombre_vector_7 = valorVector_1.getNombre_vector();
               EList<Modulo> _importaciones_11 = modulo.getImportaciones();
               this.completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones_11, complejos_11, _nombre_vector_7, _importaciones_11);
             } else {
-              EList<Declaracion> declaraciones_12 = funcion_4.getDeclaracion();
+              EList<Declaracion> declaraciones_12 = funcion_4.getDeclaraciones();
               Implementacion _implementacion_6 = modulo.getImplementacion();
-              EList<Declaracion> _global_12 = _implementacion_6.getGlobal();
-              declaraciones_12.addAll(_global_12);
+              EList<Declaracion> _globales_12 = _implementacion_6.getGlobales();
+              declaraciones_12.addAll(_globales_12);
               Implementacion _implementacion_7 = modulo.getImplementacion();
-              EList<TipoComplejo> complejos_12 = _implementacion_7.getTipocomplejo();
+              EList<TipoComplejo> complejos_12 = _implementacion_7.getComplejos();
               String _nombre_vector_8 = valorVector_1.getNombre_vector();
               this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_12, complejos_12, _nombre_vector_8);
               String _nombre_vector_9 = valorVector_1.getNombre_vector();
@@ -1424,24 +1424,24 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
               Funcion funcion_5 = EcoreUtil2.<Funcion>getContainerOfType(valorMatriz_1, Funcion.class);
               boolean _notEquals_5 = (!Objects.equal(procedimiento_5, null));
               if (_notEquals_5) {
-                EList<Declaracion> declaraciones_13 = procedimiento_5.getDeclaracion();
+                EList<Declaracion> declaraciones_13 = procedimiento_5.getDeclaraciones();
                 Implementacion _implementacion_8 = modulo.getImplementacion();
-                EList<Declaracion> _global_13 = _implementacion_8.getGlobal();
-                declaraciones_13.addAll(_global_13);
+                EList<Declaracion> _globales_13 = _implementacion_8.getGlobales();
+                declaraciones_13.addAll(_globales_13);
                 Implementacion _implementacion_9 = modulo.getImplementacion();
-                EList<TipoComplejo> complejos_13 = _implementacion_9.getTipocomplejo();
+                EList<TipoComplejo> complejos_13 = _implementacion_9.getComplejos();
                 String _nombre_matriz_6 = valorMatriz_1.getNombre_matriz();
                 this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_13, complejos_13, _nombre_matriz_6);
                 String _nombre_matriz_7 = valorMatriz_1.getNombre_matriz();
                 EList<Modulo> _importaciones_13 = modulo.getImportaciones();
                 this.completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones_13, complejos_13, _nombre_matriz_7, _importaciones_13);
               } else {
-                EList<Declaracion> declaraciones_14 = funcion_5.getDeclaracion();
+                EList<Declaracion> declaraciones_14 = funcion_5.getDeclaraciones();
                 Implementacion _implementacion_10 = modulo.getImplementacion();
-                EList<Declaracion> _global_14 = _implementacion_10.getGlobal();
-                declaraciones_14.addAll(_global_14);
+                EList<Declaracion> _globales_14 = _implementacion_10.getGlobales();
+                declaraciones_14.addAll(_globales_14);
                 Implementacion _implementacion_11 = modulo.getImplementacion();
-                EList<TipoComplejo> complejos_14 = _implementacion_11.getTipocomplejo();
+                EList<TipoComplejo> complejos_14 = _implementacion_11.getComplejos();
                 String _nombre_matriz_8 = valorMatriz_1.getNombre_matriz();
                 this.completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones_14, complejos_14, _nombre_matriz_8);
                 String _nombre_matriz_9 = valorMatriz_1.getNombre_matriz();
@@ -1460,25 +1460,25 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     EObject _currentModel = context.getCurrentModel();
     if ((_currentModel instanceof ValorRegistro)) {
       for (final Declaracion dec : declaraciones) {
-        if ((dec instanceof DeclaracionPropia)) {
-          DeclaracionPropia decPropia = ((DeclaracionPropia) dec);
-          EList<Variable> _variable = decPropia.getVariable();
-          for (final Variable v : _variable) {
+        if ((dec instanceof DeclaracionDefinida)) {
+          DeclaracionDefinida declaracionDefinida = ((DeclaracionDefinida) dec);
+          EList<Variable> _variables = declaracionDefinida.getVariables();
+          for (final Variable v : _variables) {
             String _nombre = v.getNombre();
             boolean _equals = _nombre.equals(nombreVariable);
             if (_equals) {
-              String _tipo = decPropia.getTipo();
+              String _tipo = declaracionDefinida.getTipo();
               tipo = _tipo;
             }
           }
         } else {
-          DeclaracionVariable decVariable = ((DeclaracionVariable) dec);
-          EList<Variable> _variable_1 = decVariable.getVariable();
-          for (final Variable v_1 : _variable_1) {
+          DeclaracionBasica declaracionBasica = ((DeclaracionBasica) dec);
+          EList<Variable> _variables_1 = declaracionBasica.getVariables();
+          for (final Variable v_1 : _variables_1) {
             String _nombre_1 = v_1.getNombre();
             boolean _equals_1 = _nombre_1.equals(nombreVariable);
             if (_equals_1) {
-              String _tipo_1 = decVariable.getTipo();
+              String _tipo_1 = declaracionBasica.getTipo();
               tipo = _tipo_1;
             }
           }
@@ -1487,25 +1487,25 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     } else {
       if (((context.getCurrentModel() instanceof ValorVector) || (context.getCurrentModel() instanceof ValorMatriz))) {
         for (final Declaracion dec_1 : declaraciones) {
-          if ((dec_1 instanceof DeclaracionPropia)) {
-            DeclaracionPropia decPropia_1 = ((DeclaracionPropia) dec_1);
-            EList<Variable> _variable_2 = decPropia_1.getVariable();
-            for (final Variable v_2 : _variable_2) {
+          if ((dec_1 instanceof DeclaracionDefinida)) {
+            DeclaracionDefinida declaracionDefinida_1 = ((DeclaracionDefinida) dec_1);
+            EList<Variable> _variables_2 = declaracionDefinida_1.getVariables();
+            for (final Variable v_2 : _variables_2) {
               String _nombre_2 = v_2.getNombre();
               boolean _equals_2 = _nombre_2.equals(nombreVariable);
               if (_equals_2) {
-                String _tipo_2 = decPropia_1.getTipo();
+                String _tipo_2 = declaracionDefinida_1.getTipo();
                 tipo = _tipo_2;
               }
             }
           } else {
-            DeclaracionVariable decVariable_1 = ((DeclaracionVariable) dec_1);
-            EList<Variable> _variable_3 = decVariable_1.getVariable();
-            for (final Variable v_3 : _variable_3) {
+            DeclaracionBasica declaracionBasica_1 = ((DeclaracionBasica) dec_1);
+            EList<Variable> _variables_3 = declaracionBasica_1.getVariables();
+            for (final Variable v_3 : _variables_3) {
               String _nombre_3 = v_3.getNombre();
               boolean _equals_3 = _nombre_3.equals(nombreVariable);
               if (_equals_3) {
-                String _tipo_3 = decVariable_1.getTipo();
+                String _tipo_3 = declaracionBasica_1.getTipo();
                 tipo = _tipo_3;
               }
             }
@@ -1525,8 +1525,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                 tipo = _tipo_6;
               } else {
                 Tipo _tipo_7 = vector.getTipo();
-                TipoExistente tipoExistente = ((TipoExistente) _tipo_7);
-                String _tipo_8 = tipoExistente.getTipo();
+                TipoBasico tipoBasico = ((TipoBasico) _tipo_7);
+                String _tipo_8 = tipoBasico.getTipo();
                 tipo = _tipo_8;
               }
             }
@@ -1544,8 +1544,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                   tipo = _tipo_11;
                 } else {
                   Tipo _tipo_12 = matriz.getTipo();
-                  TipoExistente tipoExistente_1 = ((TipoExistente) _tipo_12);
-                  String _tipo_13 = tipoExistente_1.getTipo();
+                  TipoBasico tipoBasico_1 = ((TipoBasico) _tipo_12);
+                  String _tipo_13 = tipoBasico_1.getTipo();
                   tipo = _tipo_13;
                 }
               }
@@ -1560,16 +1560,16 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         String _nombre_6 = registro.getNombre();
         boolean _equals_6 = _nombre_6.equals(tipo);
         if (_equals_6) {
-          EList<Declaracion> _variable_4 = registro.getVariable();
-          for (final Declaracion dec_2 : _variable_4) {
-            if ((dec_2 instanceof DeclaracionPropia)) {
-              DeclaracionPropia decPropia_2 = ((DeclaracionPropia) dec_2);
-              EList<Variable> _variable_5 = decPropia_2.getVariable();
-              for (final Variable v_4 : _variable_5) {
+          EList<Declaracion> _variable = registro.getVariable();
+          for (final Declaracion dec_2 : _variable) {
+            if ((dec_2 instanceof DeclaracionDefinida)) {
+              DeclaracionDefinida declaracionDefinida_2 = ((DeclaracionDefinida) dec_2);
+              EList<Variable> _variables_4 = declaracionDefinida_2.getVariables();
+              for (final Variable v_4 : _variables_4) {
                 {
                   String _nombre_7 = v_4.getNombre();
                   String _plus = (_nombre_7 + " : ");
-                  String _tipo_14 = decPropia_2.getTipo();
+                  String _tipo_14 = declaracionDefinida_2.getTipo();
                   String _plus_1 = (_plus + _tipo_14);
                   String _plus_2 = (_plus_1 + " : ");
                   String _plus_3 = (_plus_2 + tipo);
@@ -1580,13 +1580,13 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                 }
               }
             } else {
-              DeclaracionVariable decVariable_2 = ((DeclaracionVariable) dec_2);
-              EList<Variable> _variable_6 = decVariable_2.getVariable();
-              for (final Variable v_5 : _variable_6) {
+              DeclaracionBasica declaracionBasica_2 = ((DeclaracionBasica) dec_2);
+              EList<Variable> _variables_5 = declaracionBasica_2.getVariables();
+              for (final Variable v_5 : _variables_5) {
                 {
                   String _nombre_7 = v_5.getNombre();
                   String _plus = (_nombre_7 + " : ");
-                  String _tipo_14 = decVariable_2.getTipo();
+                  String _tipo_14 = declaracionBasica_2.getTipo();
                   String _plus_1 = (_plus + _tipo_14);
                   String _plus_2 = (_plus_1 + " : ");
                   String _plus_3 = (_plus_2 + tipo);
@@ -1610,25 +1610,25 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _currentModel = context.getCurrentModel();
         if ((_currentModel instanceof ValorRegistro)) {
           for (final Declaracion dec : declaraciones) {
-            if ((dec instanceof DeclaracionPropia)) {
-              DeclaracionPropia decPropia = ((DeclaracionPropia) dec);
-              EList<Variable> _variable = decPropia.getVariable();
-              for (final Variable v : _variable) {
+            if ((dec instanceof DeclaracionDefinida)) {
+              DeclaracionDefinida declaracionDefinida = ((DeclaracionDefinida) dec);
+              EList<Variable> _variables = declaracionDefinida.getVariables();
+              for (final Variable v : _variables) {
                 String _nombre = v.getNombre();
                 boolean _equals = _nombre.equals(nombreVariable);
                 if (_equals) {
-                  String _tipo = decPropia.getTipo();
+                  String _tipo = declaracionDefinida.getTipo();
                   tipo = _tipo;
                 }
               }
             } else {
-              DeclaracionVariable decVariable = ((DeclaracionVariable) dec);
-              EList<Variable> _variable_1 = decVariable.getVariable();
-              for (final Variable v_1 : _variable_1) {
+              DeclaracionBasica declaracionBasica = ((DeclaracionBasica) dec);
+              EList<Variable> _variables_1 = declaracionBasica.getVariables();
+              for (final Variable v_1 : _variables_1) {
                 String _nombre_1 = v_1.getNombre();
                 boolean _equals_1 = _nombre_1.equals(nombreVariable);
                 if (_equals_1) {
-                  String _tipo_1 = decVariable.getTipo();
+                  String _tipo_1 = declaracionBasica.getTipo();
                   tipo = _tipo_1;
                 }
               }
@@ -1637,33 +1637,33 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         } else {
           if (((context.getCurrentModel() instanceof ValorVector) || (context.getCurrentModel() instanceof ValorMatriz))) {
             for (final Declaracion dec_1 : declaraciones) {
-              if ((dec_1 instanceof DeclaracionPropia)) {
-                DeclaracionPropia decPropia_1 = ((DeclaracionPropia) dec_1);
-                EList<Variable> _variable_2 = decPropia_1.getVariable();
-                for (final Variable v_2 : _variable_2) {
+              if ((dec_1 instanceof DeclaracionDefinida)) {
+                DeclaracionDefinida declaracionDefinida_1 = ((DeclaracionDefinida) dec_1);
+                EList<Variable> _variables_2 = declaracionDefinida_1.getVariables();
+                for (final Variable v_2 : _variables_2) {
                   String _nombre_2 = v_2.getNombre();
                   boolean _equals_2 = _nombre_2.equals(nombreVariable);
                   if (_equals_2) {
-                    String _tipo_2 = decPropia_1.getTipo();
+                    String _tipo_2 = declaracionDefinida_1.getTipo();
                     tipo = _tipo_2;
                   }
                 }
               } else {
-                DeclaracionVariable decVariable_1 = ((DeclaracionVariable) dec_1);
-                EList<Variable> _variable_3 = decVariable_1.getVariable();
-                for (final Variable v_3 : _variable_3) {
+                DeclaracionBasica declaracionBasica_1 = ((DeclaracionBasica) dec_1);
+                EList<Variable> _variables_3 = declaracionBasica_1.getVariables();
+                for (final Variable v_3 : _variables_3) {
                   String _nombre_3 = v_3.getNombre();
                   boolean _equals_3 = _nombre_3.equals(nombreVariable);
                   if (_equals_3) {
-                    String _tipo_3 = decVariable_1.getTipo();
+                    String _tipo_3 = declaracionBasica_1.getTipo();
                     tipo = _tipo_3;
                   }
                 }
               }
             }
             Implementacion _implementacion = modulo.getImplementacion();
-            EList<TipoComplejo> _tipocomplejo = _implementacion.getTipocomplejo();
-            for (final TipoComplejo complejo : _tipocomplejo) {
+            EList<TipoComplejo> _complejos = _implementacion.getComplejos();
+            for (final TipoComplejo complejo : _complejos) {
               boolean _contains = complejos.contains(complejo);
               boolean _not = (!_contains);
               if (_not) {
@@ -1680,8 +1680,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                       tipo = _tipo_6;
                     } else {
                       Tipo _tipo_7 = vector.getTipo();
-                      TipoExistente tipoExistente = ((TipoExistente) _tipo_7);
-                      String _tipo_8 = tipoExistente.getTipo();
+                      TipoBasico tipoBasico = ((TipoBasico) _tipo_7);
+                      String _tipo_8 = tipoBasico.getTipo();
                       tipo = _tipo_8;
                     }
                   }
@@ -1699,8 +1699,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                         tipo = _tipo_11;
                       } else {
                         Tipo _tipo_12 = matriz.getTipo();
-                        TipoExistente tipoExistente_1 = ((TipoExistente) _tipo_12);
-                        String _tipo_13 = tipoExistente_1.getTipo();
+                        TipoBasico tipoBasico_1 = ((TipoBasico) _tipo_12);
+                        String _tipo_13 = tipoBasico_1.getTipo();
                         tipo = _tipo_13;
                       }
                     }
@@ -1719,16 +1719,16 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
               String _nombre_6 = registro.getNombre();
               boolean _equals_6 = _nombre_6.equals(tipo);
               if (_equals_6) {
-                EList<Declaracion> _variable_4 = registro.getVariable();
-                for (final Declaracion dec_2 : _variable_4) {
-                  if ((dec_2 instanceof DeclaracionPropia)) {
-                    DeclaracionPropia decPropia_2 = ((DeclaracionPropia) dec_2);
-                    EList<Variable> _variable_5 = decPropia_2.getVariable();
-                    for (final Variable v_4 : _variable_5) {
+                EList<Declaracion> _variable = registro.getVariable();
+                for (final Declaracion dec_2 : _variable) {
+                  if ((dec_2 instanceof DeclaracionDefinida)) {
+                    DeclaracionDefinida declaracionDefinida_2 = ((DeclaracionDefinida) dec_2);
+                    EList<Variable> _variables_4 = declaracionDefinida_2.getVariables();
+                    for (final Variable v_4 : _variables_4) {
                       {
                         String _nombre_7 = v_4.getNombre();
                         String _plus = (_nombre_7 + " : ");
-                        String _tipo_14 = decPropia_2.getTipo();
+                        String _tipo_14 = declaracionDefinida_2.getTipo();
                         String _plus_1 = (_plus + _tipo_14);
                         String _plus_2 = (_plus_1 + " : ");
                         String _plus_3 = (_plus_2 + tipo);
@@ -1745,13 +1745,13 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                       }
                     }
                   } else {
-                    DeclaracionVariable decVariable_2 = ((DeclaracionVariable) dec_2);
-                    EList<Variable> _variable_6 = decVariable_2.getVariable();
-                    for (final Variable v_5 : _variable_6) {
+                    DeclaracionBasica declaracionBasica_2 = ((DeclaracionBasica) dec_2);
+                    EList<Variable> _variables_5 = declaracionBasica_2.getVariables();
+                    for (final Variable v_5 : _variables_5) {
                       {
                         String _nombre_7 = v_5.getNombre();
                         String _plus = (_nombre_7 + " : ");
-                        String _tipo_14 = decVariable_2.getTipo();
+                        String _tipo_14 = declaracionBasica_2.getTipo();
                         String _plus_1 = (_plus + _tipo_14);
                         String _plus_2 = (_plus_1 + " : ");
                         String _plus_3 = (_plus_2 + tipo);
@@ -1784,11 +1784,11 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       ArrayList<String> tiposLocales = new ArrayList<String>();
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
-      EList<TipoComplejo> _tipocomplejo = algoritmo.getTipocomplejo();
-      ArrayList<String> _completeDeclaracionPropia_TipoAux = this.completeDeclaracionPropia_TipoAux(context, acceptor, _tipocomplejo, tiposLocales);
-      tiposLocales = _completeDeclaracionPropia_TipoAux;
+      EList<TipoComplejo> _complejos = algoritmo.getComplejos();
+      ArrayList<String> _completeDeclaracionDefinida_TipoAux = this.completeDeclaracionDefinida_TipoAux(context, acceptor, _complejos, tiposLocales);
+      tiposLocales = _completeDeclaracionDefinida_TipoAux;
       EList<Modulo> _importaciones = algoritmo.getImportaciones();
-      this.completeDeclaracionPropia_TipoModulos(context, acceptor, _importaciones, tiposLocales);
+      this.completeDeclaracionDefinida_TipoModulos(context, acceptor, _importaciones, tiposLocales);
     } else {
       EObject _rootModel_2 = context.getRootModel();
       if ((_rootModel_2 instanceof Modulo)) {
@@ -1796,18 +1796,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         EObject _rootModel_3 = context.getRootModel();
         Modulo modulo = ((Modulo) _rootModel_3);
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<TipoComplejo> _tipocomplejo_1 = _implementacion.getTipocomplejo();
-        ArrayList<String> _completeDeclaracionPropia_TipoAux_1 = this.completeDeclaracionPropia_TipoAux(context, acceptor, _tipocomplejo_1, tiposLocales_1);
-        tiposLocales_1 = _completeDeclaracionPropia_TipoAux_1;
+        EList<TipoComplejo> _complejos_1 = _implementacion.getComplejos();
+        ArrayList<String> _completeDeclaracionDefinida_TipoAux_1 = this.completeDeclaracionDefinida_TipoAux(context, acceptor, _complejos_1, tiposLocales_1);
+        tiposLocales_1 = _completeDeclaracionDefinida_TipoAux_1;
         EList<Modulo> _importaciones_1 = modulo.getImportaciones();
-        this.completeDeclaracionPropia_TipoModulos(context, acceptor, _importaciones_1, tiposLocales_1);
+        this.completeDeclaracionDefinida_TipoModulos(context, acceptor, _importaciones_1, tiposLocales_1);
       }
     }
   }
   
   @Override
-  public void completeTipoExistente_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
-    this.completeDeclaracionVariable_TipoAux(context, acceptor);
+  public void completeTipoBasico_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+    this.completeDeclaracionBasica_TipoAux(context, acceptor);
   }
   
   @Override
@@ -1851,8 +1851,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
       EObject _rootModel_1 = context.getRootModel();
       Algoritmo algoritmo = ((Algoritmo) _rootModel_1);
       ArrayList<String> constantesLocales = new ArrayList<String>();
-      EList<Constantes> _constantes = algoritmo.getConstantes();
-      for (final Constantes constante : _constantes) {
+      EList<Constante> _constantes = algoritmo.getConstantes();
+      for (final Constante constante : _constantes) {
         {
           Variable _variable = constante.getVariable();
           String _nombre = _variable.getNombre();
@@ -1875,8 +1875,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
         Modulo modulo = ((Modulo) _rootModel_3);
         ArrayList<String> constantesLocales_1 = new ArrayList<String>();
         Implementacion _implementacion = modulo.getImplementacion();
-        EList<Constantes> _constantes_1 = _implementacion.getConstantes();
-        for (final Constantes constante_1 : _constantes_1) {
+        EList<Constante> _constantes_1 = _implementacion.getConstantes();
+        for (final Constante constante_1 : _constantes_1) {
           {
             Variable _variable = constante_1.getVariable();
             String _nombre = _variable.getNombre();
@@ -1904,8 +1904,8 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   public void complete_ValorAux(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Modulo> modulos, final List<String> constantesLocales) {
     for (final Modulo modulo : modulos) {
       Implementacion _implementacion = modulo.getImplementacion();
-      EList<Constantes> _constantes = _implementacion.getConstantes();
-      for (final Constantes constante : _constantes) {
+      EList<Constante> _constantes = _implementacion.getConstantes();
+      for (final Constante constante : _constantes) {
         if ((modulo.getExporta_constantes().contains(constante.getVariable().getNombre()) && (!constantesLocales.contains(constante.getVariable().getNombre())))) {
           Variable _variable = constante.getVariable();
           String _nombre = _variable.getNombre();

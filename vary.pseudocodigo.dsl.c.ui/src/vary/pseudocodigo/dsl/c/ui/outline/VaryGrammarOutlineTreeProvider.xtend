@@ -3,7 +3,7 @@
 */
 package vary.pseudocodigo.dsl.c.ui.outline
 
-import diagramapseudocodigo.DeclaracionVariable
+import diagramapseudocodigo.DeclaracionBasica
 import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
@@ -17,7 +17,7 @@ import diagramapseudocodigo.Registro
 import diagramapseudocodigo.Subrango
 import diagramapseudocodigo.SubrangoEnumerado
 import diagramapseudocodigo.VariableID
-import diagramapseudocodigo.Constantes
+import diagramapseudocodigo.Constante
 import diagramapseudocodigo.Modulo
 import diagramapseudocodigo.Implementacion
 import diagramapseudocodigo.Archivo
@@ -32,19 +32,19 @@ class VaryGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline
 	//def protected _createChildren(IOutlineNode parentNode, DeclaracionVariable modelElement) {}
 	
 	def protected _createChildren(IOutlineNode parentNode, Inicio modelElement) {
-		for(declaracion: modelElement.declaracion) {
+		for(declaracion: modelElement.declaraciones) {
 			super._createChildren(parentNode, declaracion)
 		}
 	}
 	
 	def protected _createChildren(IOutlineNode parentNode, Procedimiento modelElement) {
-		for(declaracion: modelElement.declaracion) {
+		for(declaracion: modelElement.declaraciones) {
 			super._createChildren(parentNode, declaracion)
 		}
 	}
 	
 	def protected _createChildren(IOutlineNode parentNode, Funcion modelElement) {
-		for(declaracion: modelElement.declaracion) {
+		for(declaracion: modelElement.declaraciones) {
 			super._createChildren(parentNode, declaracion)
 		}
 	}
@@ -59,7 +59,7 @@ class VaryGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline
 		}
 	}
 	
-	def protected _createChildren(IOutlineNode parentNode, Constantes modelElement) {}
+	def protected _createChildren(IOutlineNode parentNode, Constante modelElement) {}
 	
 	def protected _createChildren(IOutlineNode parentNode, Archivo modelElement) {}
 	
@@ -70,17 +70,17 @@ class VaryGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline
 		for(constante: modelElement.constantes) {
 			super._createNode(parentNode, constante)
 		}
-		for(tipoComplejo: modelElement.tipocomplejo) {
+		for(tipoComplejo: modelElement.complejos) {
 			super._createNode(parentNode, tipoComplejo)
 		}
-		for(declaracion: modelElement.global) {
+		for(declaracion: modelElement.globales) {
 			super._createChildren(parentNode, declaracion)
 		}
-		for(subproceso: modelElement.funcion) {
+		for(subproceso: modelElement.subprocesos) {
 			super._createNode(parentNode, subproceso)
 		}
-		if(modelElement.tiene != null) {
-			super._createNode(parentNode, modelElement.tiene)
+		if(modelElement.inicio != null) {
+			super._createNode(parentNode, modelElement.inicio)
 		}
 	}
 	
@@ -91,13 +91,13 @@ class VaryGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline
 		for(constante: modelElement.implementacion.constantes) {
 			super._createNode(parentNode, constante)
 		}
-		for(tipoComplejo: modelElement.implementacion.tipocomplejo) {
+		for(tipoComplejo: modelElement.implementacion.complejos) {
 			super._createNode(parentNode, tipoComplejo)
 		}
-		for(declaracion: modelElement.implementacion.global) {
+		for(declaracion: modelElement.implementacion.globales) {
 			super._createChildren(parentNode, declaracion)
 		}
-		for(subproceso: modelElement.implementacion.funcion) {
+		for(subproceso: modelElement.implementacion.subprocesos) {
 			super._createNode(parentNode, subproceso)
 		}
 	}

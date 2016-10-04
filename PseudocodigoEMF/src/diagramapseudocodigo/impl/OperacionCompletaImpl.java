@@ -3,8 +3,8 @@
 package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.OperacionCompleta;
-import diagramapseudocodigo.operacion;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class OperacionCompletaImpl extends operacionImpl implements OperacionCompleta {
+public class OperacionCompletaImpl extends OperacionImpl implements OperacionCompleta {
 	/**
 	 * The cached value of the '{@link #getValor_operacion() <em>Valor operacion</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -36,7 +36,7 @@ public class OperacionCompletaImpl extends operacionImpl implements OperacionCom
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion valor_operacion;
+	protected Operacion valor_operacion;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,7 +62,7 @@ public class OperacionCompletaImpl extends operacionImpl implements OperacionCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getValor_operacion() {
+	public Operacion getValor_operacion() {
 		return valor_operacion;
 	}
 
@@ -71,8 +71,8 @@ public class OperacionCompletaImpl extends operacionImpl implements OperacionCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValor_operacion(operacion newValor_operacion, NotificationChain msgs) {
-		operacion oldValor_operacion = valor_operacion;
+	public NotificationChain basicSetValor_operacion(Operacion newValor_operacion, NotificationChain msgs) {
+		Operacion oldValor_operacion = valor_operacion;
 		valor_operacion = newValor_operacion;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OPERACION_COMPLETA__VALOR_OPERACION, oldValor_operacion, newValor_operacion);
@@ -86,7 +86,7 @@ public class OperacionCompletaImpl extends operacionImpl implements OperacionCom
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValor_operacion(operacion newValor_operacion) {
+	public void setValor_operacion(Operacion newValor_operacion) {
 		if (newValor_operacion != valor_operacion) {
 			NotificationChain msgs = null;
 			if (valor_operacion != null)
@@ -137,7 +137,7 @@ public class OperacionCompletaImpl extends operacionImpl implements OperacionCom
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.OPERACION_COMPLETA__VALOR_OPERACION:
-				setValor_operacion((operacion)newValue);
+				setValor_operacion((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,7 +152,7 @@ public class OperacionCompletaImpl extends operacionImpl implements OperacionCom
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.OPERACION_COMPLETA__VALOR_OPERACION:
-				setValor_operacion((operacion)null);
+				setValor_operacion((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);

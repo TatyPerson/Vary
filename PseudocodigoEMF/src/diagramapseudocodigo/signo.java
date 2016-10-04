@@ -136,7 +136,9 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DISTINTO(11, "distinto", "!="), /**
+	DISTINTO(11, "distinto", "!="),
+
+	/**
 	 * The '<em><b>And</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,7 +146,9 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	AND(12, "and", "and"), /**
+	AND(12, "and", "and"),
+
+	/**
 	 * The '<em><b>Or</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,7 +156,9 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	OR(13, "or", "or"), /**
+	OR(13, "or", "or"),
+
+	/**
 	 * The '<em><b>Mod</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -160,7 +166,9 @@ public enum signo implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MOD(14, "mod", "mod"), /**
+	MOD(14, "mod", "mod"),
+
+	/**
 	 * The '<em><b>Div real</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

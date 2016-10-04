@@ -2,36 +2,23 @@ package vary.pseudocodigo.dsl.c.ui.quickfix.util;
 
 import java.util.List;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
-
 import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface;
-import diagramapseudocodigo.Algoritmo;
-import diagramapseudocodigo.And;
 import diagramapseudocodigo.Asignacion;
-import diagramapseudocodigo.AsignacionCompleja;
 import diagramapseudocodigo.AsignacionNormal;
 import diagramapseudocodigo.CampoRegistro;
 import diagramapseudocodigo.Caracter;
-import diagramapseudocodigo.Caso;
-import diagramapseudocodigo.Comparacion;
-import diagramapseudocodigo.ConstCadena;
+import diagramapseudocodigo.CadenaCaracteres;
 import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
-import diagramapseudocodigo.Division;
-import diagramapseudocodigo.Enumerado;
+import diagramapseudocodigo.DeclaracionDefinida;
+import diagramapseudocodigo.DeclaracionBasica;
+import diagramapseudocodigo.DivisionEntera;
 import diagramapseudocodigo.Funcion;
-import diagramapseudocodigo.Igualdad;
-import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.NumeroDecimal;
-import diagramapseudocodigo.NumeroEntero;
-import diagramapseudocodigo.Operador;
-import diagramapseudocodigo.Or;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Real;
+import diagramapseudocodigo.Entero;
+import diagramapseudocodigo.Parametro;
 import diagramapseudocodigo.Procedimiento;
 import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Resta;
@@ -39,17 +26,16 @@ import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.Suma;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.TipoExistente;
-import diagramapseudocodigo.TipoVariable;
-import diagramapseudocodigo.ValorBooleano;
+import diagramapseudocodigo.TipoBasico;
+import diagramapseudocodigo.Logico;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
 import diagramapseudocodigo.ValorVector;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.operacion;
-import diagramapseudocodigo.segun;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Segun;
 
 public class VaryGrammarQuickfixProviderUtil {
 	
@@ -70,7 +56,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		return indice;
 	}
 	
-	public static String buscarTipoVariableSubproceso(Asignacion asignacion, String cadenaError, ReadKeywordsInterface readerKeywords, List<Declaracion> declaraciones, List<ParametroFuncion> parametros, List<Declaracion> globales, List<TipoComplejo> complejos, List<Subproceso> subprocesos) {
+	public static String buscarTipoVariableSubproceso(Asignacion asignacion, String cadenaError, ReadKeywordsInterface readerKeywords, List<Declaracion> declaraciones, List<Parametro> parametros, List<Declaracion> globales, List<TipoComplejo> complejos, List<Subproceso> subprocesos) {
 		String tipo = "";
 		if(asignacion instanceof AsignacionNormal) {
 			AsignacionNormal asignacionNormal = (AsignacionNormal) asignacion;
@@ -88,16 +74,16 @@ public class VaryGrammarQuickfixProviderUtil {
 						tipo = readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 					}
 				}
-				else if(asignacionNormal.getOperador() instanceof NumeroEntero) {
+				else if(asignacionNormal.getOperador() instanceof Entero) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 				}
-				else if(asignacionNormal.getOperador() instanceof NumeroDecimal) {
+				else if(asignacionNormal.getOperador() instanceof Real) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_REAL");
 				}
-				else if(asignacionNormal.getOperador() instanceof ConstCadena) {
+				else if(asignacionNormal.getOperador() instanceof CadenaCaracteres) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_CADENA");
 				}
-				else if(asignacionNormal.getOperador() instanceof ValorBooleano) {
+				else if(asignacionNormal.getOperador() instanceof Logico) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_LOGICO");
 				}
 				else if(asignacionNormal.getOperador() instanceof Caracter) {
@@ -124,13 +110,13 @@ public class VaryGrammarQuickfixProviderUtil {
 				}
 				else if(asignacionNormal.getOperador() instanceof ValorRegistro) {
 					ValorRegistro registro = (ValorRegistro) asignacionNormal.getOperador();
-					tipo = buscarTipoVariableRegistro(registro.getNombre_registro(), registro.getCampo(), declaraciones,complejos);
+					tipo = buscarTipoVariableRegistro(registro.getNombre_registro(), registro.getCampos(), declaraciones,complejos);
 					if(tipo.equals("")) {
-						tipo = buscarTipoParametroRegistro(registro.getNombre_registro(), registro.getCampo(), parametros, complejos);
+						tipo = buscarTipoParametroRegistro(registro.getNombre_registro(), registro.getCampos(), parametros, complejos);
 					}
 				}
-				else if(asignacionNormal.getOperador() instanceof operacion) {
-					operacion op = (operacion) asignacionNormal.getOperador();
+				else if(asignacionNormal.getOperador() instanceof Operacion) {
+					Operacion op = (Operacion) asignacionNormal.getOperador();
 					tipo = buscarTipoOperacionParametros(op, declaraciones, parametros, subprocesos, complejos, readerKeywords);
 				}
 			} else {
@@ -162,16 +148,16 @@ public class VaryGrammarQuickfixProviderUtil {
 						tipo = readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 					}
 				}
-				else if(asignacionNormal.getOperador() instanceof NumeroEntero) {
+				else if(asignacionNormal.getOperador() instanceof Entero) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 				}
-				else if(asignacionNormal.getOperador() instanceof NumeroDecimal) {
+				else if(asignacionNormal.getOperador() instanceof Real) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_REAL");
 				}
-				else if(asignacionNormal.getOperador() instanceof ConstCadena) {
+				else if(asignacionNormal.getOperador() instanceof CadenaCaracteres) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_CADENA");
 				}
-				else if(asignacionNormal.getOperador() instanceof ValorBooleano) {
+				else if(asignacionNormal.getOperador() instanceof Logico) {
 					tipo = readerKeywords.getBundle().getString("KEYWORD_LOGICO");
 				}
 				else if(asignacionNormal.getOperador() instanceof Caracter) {
@@ -192,10 +178,10 @@ public class VaryGrammarQuickfixProviderUtil {
 				}
 				else if(asignacionNormal.getOperador() instanceof ValorRegistro) {
 					ValorRegistro registro = (ValorRegistro) asignacionNormal.getOperador();
-					tipo = buscarTipoVariableRegistro(registro.getNombre_registro(), registro.getCampo(), declaraciones,complejos);
+					tipo = buscarTipoVariableRegistro(registro.getNombre_registro(), registro.getCampos(), declaraciones,complejos);
 				}
-				else if(asignacionNormal.getOperador() instanceof operacion) {
-					operacion op = (operacion) asignacionNormal.getOperador();
+				else if(asignacionNormal.getOperador() instanceof Operacion) {
+					Operacion op = (Operacion) asignacionNormal.getOperador();
 					tipo = buscarTipoOperacion(op, declaraciones, subprocesos, complejos, readerKeywords);
 				}
 			} else {
@@ -208,7 +194,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		return tipo;
 	}
 	
-	public static String buscarTipoOperacionParametros(operacion op, List<Declaracion> declaraciones, List<ParametroFuncion> parametros, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
+	public static String buscarTipoOperacionParametros(Operacion op, List<Declaracion> declaraciones, List<Parametro> parametros, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
 		String tipoRight = new String();
 		String tipoLeft = new String();
 		if(esAritmetica(op)) {
@@ -276,7 +262,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				}
 			}
 			else {
-				Division division = (Division) op;
+				DivisionEntera division = (DivisionEntera) op;
 				if(esAritmetica(division.getRight())) {
 					tipoRight = buscarTipoOperacionParametros(division.getRight(), declaraciones, parametros, subprocesos, complejos, readerKeywords);
 				}
@@ -318,7 +304,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		}
 	}
 	
-	public static String buscarTipoOperacion(operacion op, List<Declaracion> declaraciones, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
+	public static String buscarTipoOperacion(Operacion op, List<Declaracion> declaraciones, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
 		String tipoRight = new String();
 		String tipoLeft = new String();
 		if(esAritmetica(op)) {
@@ -368,7 +354,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				}
 			}
 			else {
-				Division division = (Division) op;
+				DivisionEntera division = (DivisionEntera) op;
 				if(esAritmetica(division.getRight())) {
 					tipoRight = buscarTipoOperacion(division.getRight(), declaraciones, subprocesos, complejos, readerKeywords);
 				}
@@ -404,14 +390,14 @@ public class VaryGrammarQuickfixProviderUtil {
 		}
 	}
 	
-	public static String buscarTipoBaseOperacionAritmeticaParametros(operacion op, List<ParametroFuncion> parametros, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
-		if(op instanceof NumeroEntero) {
+	public static String buscarTipoBaseOperacionAritmeticaParametros(Operacion op, List<Parametro> parametros, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
+		if(op instanceof Entero) {
 			return readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 		}
-		else if(op instanceof NumeroDecimal) {
+		else if(op instanceof Real) {
 			return readerKeywords.getBundle().getString("KEYWORD_REAL");
 		}
-		else if(op instanceof ConstCadena) {
+		else if(op instanceof CadenaCaracteres) {
 			return readerKeywords.getBundle().getString("KEYWORD_CADENA");
 		}
 		else if(op instanceof Caracter) {
@@ -435,18 +421,18 @@ public class VaryGrammarQuickfixProviderUtil {
 		}
 		else {
 			ValorRegistro registro = (ValorRegistro) op;
-			return buscarTipoParametroRegistro(registro.getNombre_registro(), registro.getCampo(), parametros, complejos);
+			return buscarTipoParametroRegistro(registro.getNombre_registro(), registro.getCampos(), parametros, complejos);
 		}
 	}
 	
-	public static String buscarTipoBaseOperacionAritmetica(operacion op, List<Declaracion> declaraciones, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
-		if(op instanceof NumeroEntero) {
+	public static String buscarTipoBaseOperacionAritmetica(Operacion op, List<Declaracion> declaraciones, List<Subproceso> subprocesos, List<TipoComplejo> complejos, ReadKeywordsInterface readerKeywords) {
+		if(op instanceof Entero) {
 			return readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 		}
-		else if(op instanceof NumeroDecimal) {
+		else if(op instanceof Real) {
 			return readerKeywords.getBundle().getString("KEYWORD_REAL");
 		}
-		else if(op instanceof ConstCadena) {
+		else if(op instanceof CadenaCaracteres) {
 			return readerKeywords.getBundle().getString("KEYWORD_CADENA");
 		}
 		else if(op instanceof Caracter) {
@@ -470,13 +456,13 @@ public class VaryGrammarQuickfixProviderUtil {
 		}
 		else {
 			ValorRegistro registro = (ValorRegistro) op;
-			return buscarTipoVariableRegistro(registro.getNombre_registro(), registro.getCampo(), declaraciones, complejos);
+			return buscarTipoVariableRegistro(registro.getNombre_registro(), registro.getCampos(), declaraciones, complejos);
 		}
 	}
 	
-	public static boolean esAritmetica(operacion op) {
+	public static boolean esAritmetica(Operacion op) {
 		if(op instanceof Suma || op instanceof Resta || op instanceof Multiplicacion || 
-				op instanceof Division) {
+				op instanceof DivisionEntera) {
 			return true;
 		}
 		else {
@@ -484,9 +470,9 @@ public class VaryGrammarQuickfixProviderUtil {
 		}
 	}
 	
-	public static boolean esBase(operacion op) {
-		if(op instanceof VariableID || op instanceof NumeroEntero || op instanceof NumeroDecimal ||
-				op instanceof ConstCadena || op instanceof Caracter || op instanceof LlamadaFuncion ||
+	public static boolean esBase(Operacion op) {
+		if(op instanceof VariableID || op instanceof Entero || op instanceof Real ||
+				op instanceof CadenaCaracteres || op instanceof Caracter || op instanceof LlamadaFuncion ||
 				op instanceof ValorVector || op instanceof ValorMatriz || op instanceof ValorRegistro) {
 			return true;
 		}
@@ -495,7 +481,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		}
 	}
 	
-	public static String buscarTipoParametroRegistro(String nombreVariable, List<CampoRegistro> campos, List<ParametroFuncion> parametros, List<TipoComplejo> complejos) {
+	public static String buscarTipoParametroRegistro(String nombreVariable, List<CampoRegistro> campos, List<Parametro> parametros, List<TipoComplejo> complejos) {
 		String tipoParametro = buscarTipoParametro(parametros, nombreVariable);
 		return buscarTipoRegistroAux(tipoParametro, complejos, campos);
 	}
@@ -509,18 +495,18 @@ public class VaryGrammarQuickfixProviderUtil {
 				if(registro.getNombre().equals(tipoVariable)) {
 					if(campos.size() == 1) {
 						for(Declaracion declaracion: registro.getVariable()) {
-							if(declaracion instanceof DeclaracionVariable) {
-								DeclaracionVariable declaracionVariable = (DeclaracionVariable) declaracion;
-								for(Variable variable: declaracionVariable.getVariable()) {
+							if(declaracion instanceof DeclaracionBasica) {
+								DeclaracionBasica declaracionBasica = (DeclaracionBasica) declaracion;
+								for(Variable variable: declaracionBasica.getVariables()) {
 									if(variable.getNombre().equals(campos.get(0).getNombre_campo())) {
-										tipoFinal = declaracionVariable.getTipo();
+										tipoFinal = declaracionBasica.getTipo();
 									}
 								}
 							} else {
-								DeclaracionPropia declaracionPropia = (DeclaracionPropia) declaracion;
-								for(Variable variable: declaracionPropia.getVariable()) {
+								DeclaracionDefinida declaracionDefinida = (DeclaracionDefinida) declaracion;
+								for(Variable variable: declaracionDefinida.getVariables()) {
 									if(variable.getNombre().equals(campos.get(0).getNombre_campo())) {
-										tipoFinal = declaracionPropia.getTipo();
+										tipoFinal = declaracionDefinida.getTipo();
 									}
 								}
 							}
@@ -538,7 +524,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		return buscarTipoRegistroAux(tipoVariable, complejos, campos);
 	}
 	
-	public static String buscarTipoParametroVectorMatriz(String nombreVariable, List<ParametroFuncion> parametros, List<TipoComplejo> complejos) {
+	public static String buscarTipoParametroVectorMatriz(String nombreVariable, List<Parametro> parametros, List<TipoComplejo> complejos) {
 		String tipoParametro = buscarTipoParametro(parametros, nombreVariable);
 		return buscarTipoVectorMatrizAux(tipoParametro, complejos);
 	}
@@ -550,8 +536,8 @@ public class VaryGrammarQuickfixProviderUtil {
 			if(complejo instanceof Vector) {
 				Vector vector = (Vector) complejo;
 				if(vector.getNombre().equals(tipoVariable)) {
-					if(vector.getTipo() instanceof TipoExistente) {
-						TipoExistente tipo = (TipoExistente) vector.getTipo();
+					if(vector.getTipo() instanceof TipoBasico) {
+						TipoBasico tipo = (TipoBasico) vector.getTipo();
 						tipoFinal = tipo.getTipo();
 					}
 					else {
@@ -563,8 +549,8 @@ public class VaryGrammarQuickfixProviderUtil {
 			else if(complejo instanceof Matriz) {
 				Matriz matriz = (Matriz) complejo;
 				if(matriz.getNombre().equals(tipoVariable)) {
-					if(matriz.getTipo() instanceof TipoExistente) {
-						TipoExistente tipo = (TipoExistente) matriz.getTipo();
+					if(matriz.getTipo() instanceof TipoBasico) {
+						TipoBasico tipo = (TipoBasico) matriz.getTipo();
 						tipoFinal = tipo.getTipo();
 					}
 					else {
@@ -588,7 +574,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		for(Subproceso s: subprocesos) {
 			if(s instanceof Funcion) {
 				Funcion funcion = (Funcion) s;
-				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametrofuncion().size() == llamada.getOperadores().size()) {
+				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametros().size() == llamada.getOperadores().size()) {
 					tipo = funcion.getTipo();
 				}
 			}
@@ -596,9 +582,9 @@ public class VaryGrammarQuickfixProviderUtil {
 		return tipo;
 	}
 	
-	public static String buscarTipoParametro(List<ParametroFuncion> parametros, String nombreVariable) {
+	public static String buscarTipoParametro(List<Parametro> parametros, String nombreVariable) {
 		String tipo = "";
-		for(ParametroFuncion parametro : parametros) {
+		for(Parametro parametro : parametros) {
 			System.out.println("Parametro nombre: "+parametro.getVariable().getNombre());
 			System.out.println("Variable nombre: "+nombreVariable);
 			if(parametro.getVariable().getNombre().equals(nombreVariable)) {
@@ -607,7 +593,7 @@ public class VaryGrammarQuickfixProviderUtil {
 					tipo = tipoDefinido.getTipo();
 				}
 				else {
-					TipoExistente tipoExistente = (TipoExistente) parametro.getTipo();
+					TipoBasico tipoExistente = (TipoBasico) parametro.getTipo();
 					tipo = tipoExistente.getTipo();
 				}
 			}
@@ -618,18 +604,18 @@ public class VaryGrammarQuickfixProviderUtil {
 	public static String buscarTipoDeclaracion(List<Declaracion> declaraciones, String nombreVariable) {
 		String tipo = "";
 		for(Declaracion declaracion: declaraciones) {
-			if(declaracion instanceof DeclaracionVariable) {
-				DeclaracionVariable declaracionVariable = (DeclaracionVariable) declaracion;
-				for(Variable v: declaracionVariable.getVariable()) {
+			if(declaracion instanceof DeclaracionBasica) {
+				DeclaracionBasica declaracionBasica = (DeclaracionBasica) declaracion;
+				for(Variable v: declaracionBasica.getVariables()) {
 					if(v.getNombre().equals(nombreVariable)) {
-						tipo = declaracionVariable.getTipo();
+						tipo = declaracionBasica.getTipo();
 					}
 				}
 			} else {
-				DeclaracionPropia declaracionPropia = (DeclaracionPropia) declaracion;
-				for(Variable v: declaracionPropia.getVariable()) {
+				DeclaracionDefinida declaracionDefinida = (DeclaracionDefinida) declaracion;
+				for(Variable v: declaracionDefinida.getVariables()) {
 					if(v.getNombre().equals(nombreVariable)) {
-						tipo = declaracionPropia.getTipo();
+						tipo = declaracionDefinida.getTipo();
 					}
 				}
 			}
@@ -642,18 +628,18 @@ public class VaryGrammarQuickfixProviderUtil {
 		for(Subproceso s: subprocesos) {
 			if(s instanceof Funcion) {
 				Funcion funcion = (Funcion) s;
-				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametrofuncion().size() == llamada.getOperadores().size()) {
-					for(operacion op: llamada.getOperadores()) {
+				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametros().size() == llamada.getOperadores().size()) {
+					for(Operacion op: llamada.getOperadores()) {
 						if(op instanceof VariableID) {
 							VariableID variable = (VariableID) op;
 							if(variable.getNombre().equals(cadenaError)) {
-								ParametroFuncion parametro = funcion.getParametrofuncion().get(llamada.getOperadores().indexOf(op));
+								Parametro parametro = funcion.getParametros().get(llamada.getOperadores().indexOf(op));
 								if(parametro.getTipo() instanceof TipoDefinido) {
 									TipoDefinido tipoDefinido = (TipoDefinido) parametro.getTipo();
 									tipo = tipoDefinido.getTipo();
 								} else {
-									TipoExistente tipoExistente = (TipoExistente) parametro.getTipo();
-									tipo = tipoExistente.getTipo();
+									TipoBasico tipoBasico = (TipoBasico) parametro.getTipo();
+									tipo = tipoBasico.getTipo();
 								}
 							}
 						}
@@ -661,18 +647,18 @@ public class VaryGrammarQuickfixProviderUtil {
 				}
 			} else {
 				Procedimiento procedimiento = (Procedimiento) s;
-				if(procedimiento.getNombre().equals(llamada.getNombre()) && procedimiento.getParametrofuncion().size() == llamada.getOperadores().size()) {
-					for(operacion op: llamada.getOperadores()) {
+				if(procedimiento.getNombre().equals(llamada.getNombre()) && procedimiento.getParametros().size() == llamada.getOperadores().size()) {
+					for(Operacion op: llamada.getOperadores()) {
 						if(op instanceof VariableID) {
 							VariableID variable = (VariableID) op;
 							if(variable.getNombre().equals(cadenaError)) {
-								ParametroFuncion parametro = procedimiento.getParametrofuncion().get(llamada.getOperadores().indexOf(op));
+								Parametro parametro = procedimiento.getParametros().get(llamada.getOperadores().indexOf(op));
 								if(parametro.getTipo() instanceof TipoDefinido) {
 									TipoDefinido tipoDefinido = (TipoDefinido) parametro.getTipo();
 									tipo = tipoDefinido.getTipo();
 								} else {
-									TipoExistente tipoExistente = (TipoExistente) parametro.getTipo();
-									tipo = tipoExistente.getTipo();
+									TipoBasico tipoBasico = (TipoBasico) parametro.getTipo();
+									tipo = tipoBasico.getTipo();
 								}
 							}
 						}
@@ -683,18 +669,18 @@ public class VaryGrammarQuickfixProviderUtil {
 		return tipo;
 	}
 	
-	public static String buscarTipoVariableSegun(segun s, ReadKeywordsInterface readerKeywords) {
+	public static String buscarTipoVariableSegun(Segun s, ReadKeywordsInterface readerKeywords) {
 		String tipo = new String();
-		if(s.getCaso().get(0).getOperador() instanceof NumeroEntero) {
+		if(s.getCasos().get(0).getOperador() instanceof Entero) {
 			tipo = readerKeywords.getBundle().getString("KEYWORD_ENTERO");
 		}
-		else if(s.getCaso().get(0).getOperador() instanceof Caracter) {
+		else if(s.getCasos().get(0).getOperador() instanceof Caracter) {
 			tipo = readerKeywords.getBundle().getString("KEYWORD_CARACTER");
 		}
-		else if(s.getCaso().get(0).getOperador() instanceof ConstCadena) {
+		else if(s.getCasos().get(0).getOperador() instanceof CadenaCaracteres) {
 			tipo = readerKeywords.getBundle().getString("KEYWORD_CADENA");
 		}
-		else if(s.getCaso().get(0).getOperador() instanceof NumeroDecimal) {
+		else if(s.getCasos().get(0).getOperador() instanceof Real) {
 			tipo = readerKeywords.getBundle().getString("KEYWORD_REAL");
 		}
 		return tipo;

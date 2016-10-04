@@ -3,85 +3,84 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="diagramapseudocodigo" nsURI="http://diagramapseudocodigo/1.0"
     nsPrefix="diagramapseudocodigo">
   <eClassifiers xsi:type="ecore:EClass" name="Algoritmo" eSuperTypes="#//Codigo">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tiene" lowerBound="1" eType="#//Inicio"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="funcion" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inicio" lowerBound="1"
+        eType="#//Inicio" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subprocesos" upperBound="-1"
         eType="#//Subproceso" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constantes" upperBound="-1"
-        eType="#//Constantes" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tipocomplejo" upperBound="-1"
+        eType="#//Constante" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="complejos" upperBound="-1"
         eType="#//TipoComplejo" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="comentarios" upperBound="-1"
         eType="#//Comentario" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="global" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="globales" upperBound="-1"
         eType="#//Declaracion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importaciones" upperBound="-1"
         eType="#//Modulo"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Inicio">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tiene" upperBound="-1"
-        eType="#//Sentencias" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="declaracion" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sentencias" upperBound="-1"
+        eType="#//Sentencia" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declaraciones" upperBound="-1"
         eType="#//Declaracion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sentencias" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DeclaracionVariable" eSuperTypes="#//Declaracion">
+  <eClassifiers xsi:type="ecore:EClass" name="Sentencia" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DeclaracionBasica" eSuperTypes="#//Declaracion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LlamadaFuncion" eSuperTypes="#//valor #//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="LlamadaFuncion" eSuperTypes="#//Valor #//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operadores" upperBound="-1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableID" eSuperTypes="#//Operador #//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="VariableID" eSuperTypes="#//Operador #//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mat" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="cadena"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstCadena" eSuperTypes="#//Operador #//operacion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contenido" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CadenaCaracteres" eSuperTypes="#//Operador #//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Mat" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Operador" abstract="true" eSuperTypes="#//valor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NumeroEntero" eSuperTypes="#//Operador #//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="Operador" abstract="true" eSuperTypes="#//Valor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entero" eSuperTypes="#//Operador #//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Asignacion" eSuperTypes="#//Sentencias"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Escribir" eSuperTypes="#//Sentencias">
+  <eClassifiers xsi:type="ecore:EClass" name="Asignacion" eSuperTypes="#//Sentencia"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Escribir" eSuperTypes="#//Sentencia">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operador" lowerBound="1"
-        upperBound="-1" eType="#//operacion" containment="true"/>
+        upperBound="-1" eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Funcion" eSuperTypes="#//Subproceso">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devuelve" eType="#//Devolver"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ParametroFuncion">
+  <eClassifiers xsi:type="ecore:EClass" name="Parametro">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//Variable" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="paso" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tipo" lowerBound="1" eType="#//Tipo"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Leer" eSuperTypes="#//Sentencias">
+  <eClassifiers xsi:type="ecore:EClass" name="Leer" eSuperTypes="#//Sentencia">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-        upperBound="-1" eType="#//operacion" containment="true"/>
+        upperBound="-1" eType="#//Operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NumeroDecimal" eSuperTypes="#//Operador #//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="Real" eSuperTypes="#//Operador #//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="valor" abstract="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="operacion" eSuperTypes="#//valor #//Sentencias">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="EAttribute0rence0" eType="#//operacion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Valor" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Operacion" eSuperTypes="#//Valor #//Sentencia">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EAttribute0rence0" eType="#//Operacion"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="negacionesFinales" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="negacionesIniciales" upperBound="-1"
@@ -105,7 +104,7 @@
     <eLiterals name="mod" value="14" literal="mod"/>
     <eLiterals name="div_real" value="15" literal="div"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValorBooleano" eSuperTypes="#//Operador #//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="Logico" eSuperTypes="#//Operador #//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Si" eSuperTypes="#//Bloque">
@@ -115,85 +114,84 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Sino">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sentencias" upperBound="-1"
-        eType="#//Sentencias" containment="true"/>
+        eType="#//Sentencia" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devuelve" eType="#//Devolver"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Bloque" abstract="true" eSuperTypes="#//Sentencias">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" lowerBound="1" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="Bloque" abstract="true" eSuperTypes="#//Sentencia">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" lowerBound="1" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sentencias" upperBound="-1"
-        eType="#//Sentencias" containment="true"/>
+        eType="#//Sentencia" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="mientras" eSuperTypes="#//Bloque"/>
-  <eClassifiers xsi:type="ecore:EClass" name="repetir" eSuperTypes="#//Bloque"/>
-  <eClassifiers xsi:type="ecore:EClass" name="desde" eSuperTypes="#//Bloque">
+  <eClassifiers xsi:type="ecore:EClass" name="Mientras" eSuperTypes="#//Bloque"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Repetir" eSuperTypes="#//Bloque"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Desde" eSuperTypes="#//Bloque">
     <eStructuralFeatures xsi:type="ecore:EReference" name="asignacion" lowerBound="1"
         eType="#//AsignacionNormal" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subproceso" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parametrofuncion" upperBound="-1"
-        eType="#//ParametroFuncion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametros" upperBound="-1"
+        eType="#//Parametro" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sentencias" upperBound="-1"
-        eType="#//Sentencias" containment="true"/>
+        eType="#//Sentencia" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="declaracion" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declaraciones" upperBound="-1"
         eType="#//Declaracion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Procedimiento" eSuperTypes="#//Subproceso"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Caracter" eSuperTypes="#//Operador #//operacion">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="contenido" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Caracter" eSuperTypes="#//Operador #//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Internas" eSuperTypes="#//valor #//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="FuncionInterna" eSuperTypes="#//Valor #//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operadores" upperBound="-1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="segun" eSuperTypes="#//Bloque">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="caso" upperBound="-1" eType="#//Caso"
-        containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Segun" eSuperTypes="#//Bloque">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="casos" upperBound="-1"
+        eType="#//Caso" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devuelve" eType="#//Devolver"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Devolver">
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Devolver"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="devuelve" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Caso">
     <eStructuralFeatures xsi:type="ecore:EReference" name="devuelve" eType="#//Devolver"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sentencias" upperBound="-1"
-        eType="#//Sentencias" containment="true"/>
+        eType="#//Sentencia" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operador" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constantes">
+  <eClassifiers xsi:type="ecore:EClass" name="Constante">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
         eType="#//Variable" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" lowerBound="1" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" lowerBound="1" eType="#//Operacion"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Vector" eSuperTypes="#//TipoComplejo">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tipo" lowerBound="1" eType="#//Tipo"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DeclaracionPropia" eSuperTypes="#//Declaracion">
+  <eClassifiers xsi:type="ecore:EClass" name="DeclaracionDefinida" eSuperTypes="#//Declaracion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
         eType="#//Variable" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Declaracion"/>
   <eClassifiers xsi:type="ecore:EClass" name="Matriz" eSuperTypes="#//TipoComplejo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" upperBound="2" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor" upperBound="2" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tipo" lowerBound="1" eType="#//Tipo"
         containment="true"/>
@@ -209,7 +207,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TipoDefinido" eSuperTypes="#//Tipo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TipoExistente" eSuperTypes="#//Tipo">
+  <eClassifiers xsi:type="ecore:EClass" name="TipoBasico" eSuperTypes="#//Tipo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Archivo" eSuperTypes="#//TipoComplejo">
@@ -222,45 +220,45 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valor" lowerBound="1" upperBound="-1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Subrango" eSuperTypes="#//TipoComplejo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ValorComplejo" eSuperTypes="#//Operador #//Sentencias #//operacion"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValorComplejo" eSuperTypes="#//Operador #//Sentencia #//Operacion"/>
   <eClassifiers xsi:type="ecore:EClass" name="ValorRegistro" eSuperTypes="#//ValorComplejo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre_registro" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="campo" lowerBound="1" upperBound="-1"
-        eType="#//CampoRegistro" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="campos" lowerBound="1"
+        upperBound="-1" eType="#//CampoRegistro" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CampoRegistro">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre_campo" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//CampoRegistro"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="primerIndice" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="primerIndice" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="segundoIndice" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="segundoIndice" eType="#//Operacion"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValorVector" eSuperTypes="#//ValorComplejo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre_vector" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="campo" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="campos" upperBound="-1"
         eType="#//CampoRegistro" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="indice" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValorMatriz" eSuperTypes="#//ValorComplejo">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre_matriz" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="campo" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="campos" upperBound="-1"
         eType="#//CampoRegistro" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="primerIndice" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="segundoIndice" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comentario">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mensaje" lowerBound="1"
@@ -270,69 +268,69 @@
     <eLiterals name="escritura"/>
     <eLiterals name="lectura" value="1"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FuncionFicheroAbrir" eSuperTypes="#//Sentencias">
+  <eClassifiers xsi:type="ecore:EClass" name="FuncionFicheroAbrir" eSuperTypes="#//Sentencia">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="modo" lowerBound="1" eType="#//ModoApertura"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="2"
-        upperBound="2" eType="#//operacion" containment="true"/>
+        upperBound="2" eType="#//Operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FuncionFicheroCerrar" eSuperTypes="#//Sentencias">
+  <eClassifiers xsi:type="ecore:EClass" name="FuncionFicheroCerrar" eSuperTypes="#//Sentencia">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Suma" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="Suma" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Resta" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="Resta" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Multiplicacion" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Division" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="Multiplicacion" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="DivisionEntera" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Comparacion" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Igualdad" eSuperTypes="#//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="Or" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="And" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparacion" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Igualdad" eSuperTypes="#//Operacion">
     <eAnnotations source="http:///org/eclipse/emf/ecore/util/ExtendedMetaData"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
@@ -353,13 +351,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="valor_asignacion" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="operador" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AsignacionCompleja" eSuperTypes="#//Asignacion">
     <eStructuralFeatures xsi:type="ecore:EReference" name="operador" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="valor_asignacion" lowerBound="1"
-        eType="#//operacion" containment="true"/>
+        eType="#//Operacion" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Codigo"/>
   <eClassifiers xsi:type="ecore:EClass" name="Modulo" eSuperTypes="#//Codigo">
@@ -370,60 +368,60 @@
         eType="#//Implementacion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="importaciones" upperBound="-1"
         eType="#//Modulo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_global" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_globales" upperBound="-1"
         eType="#//Declaracion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exporta_tipos" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exporta_constantes" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_funciones" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exporta_subprocesos" upperBound="-1"
         eType="#//CabeceraSubproceso" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraSubproceso">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="nombre" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parametrofuncion" upperBound="-1"
-        eType="#//ParametroFuncion" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parametros" upperBound="-1"
+        eType="#//Parametro" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Implementacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="funcion" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subprocesos" upperBound="-1"
         eType="#//Subproceso" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="global" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="globales" upperBound="-1"
         eType="#//Declaracion" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="constantes" upperBound="-1"
-        eType="#//Constantes" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tipocomplejo" upperBound="-1"
+        eType="#//Constante" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="complejos" upperBound="-1"
         eType="#//TipoComplejo" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraProcedimiento" eSuperTypes="#//CabeceraSubproceso"/>
   <eClassifiers xsi:type="ecore:EClass" name="CabeceraFuncion" eSuperTypes="#//CabeceraSubproceso">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tipo" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Mod" eSuperTypes="#//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="Mod" eSuperTypes="#//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Div" eSuperTypes="#//operacion">
+  <eClassifiers xsi:type="ecore:EClass" name="DivisionReal" eSuperTypes="#//Operacion">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Operacion"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OperacionParentesis" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//operacion"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Unaria" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="OperacionParentesis" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//Operacion"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unaria" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Operacion"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="signo_op" eType="#//signo"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="OperacionCompleta" eSuperTypes="#//operacion">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//operacion"
+  <eClassifiers xsi:type="ecore:EClass" name="OperacionCompleta" eSuperTypes="#//Operacion">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="valor_operacion" eType="#//Operacion"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -13,5 +13,5 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface ValorComplejo extends Operador, Sentencias, operacion {
+public interface ValorComplejo extends Operador, Sentencia, Operacion {
 } // ValorComplejo

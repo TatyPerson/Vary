@@ -76,14 +76,14 @@ public class VaryGrammarEnglishFormatter extends AbstractDeclarativeFormatter {
         c.setLinewrap(1).after(getDeclaracionRule());
         
         
-        c.setLinewrap(1).after(getDeclaracionVariableRule());
+        c.setLinewrap(1).after(getDeclaracionBasicaRule());
         
         for(variable: findKeywords(".")) {
         	c.setNoSpace().before(variable);
         	c.setNoSpace().after(variable);
         }
         
-        c.setLinewrap(2).after(getSentenciasRule());
+        c.setLinewrap(2).after(getSentenciaRule());
         
         for(keyEntonces: findKeywords(readerKeywords.getBundle().getString("KEYWORD_ENTONCES"))) {
         	c.setLinewrap(2).after(keyEntonces);
@@ -212,6 +212,6 @@ public class VaryGrammarEnglishFormatter extends AbstractDeclarativeFormatter {
         	c.setIndentationDecrement().before(keyFinSegun);
         }
         
-        c.setLinewrap(1).after(getSentenciasRule());
+        c.setLinewrap(1).after(getSentenciaRule());
 	}
 }

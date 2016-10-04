@@ -4,12 +4,17 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Leer;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -26,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class LeerImpl extends SentenciasImpl implements Leer {
+public class LeerImpl extends SentenciaImpl implements Leer {
 	/**
 	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -35,7 +40,7 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<operacion> variable;
+	protected EList<Operacion> variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -61,9 +66,9 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<operacion> getVariable() {
+	public EList<Operacion> getVariable() {
 		if (variable == null) {
-			variable = new EObjectContainmentEList<operacion>(operacion.class, this, DiagramapseudocodigoPackage.LEER__VARIABLE);
+			variable = new EObjectContainmentEList<Operacion>(Operacion.class, this, DiagramapseudocodigoPackage.LEER__VARIABLE);
 		}
 		return variable;
 	}
@@ -107,7 +112,7 @@ public class LeerImpl extends SentenciasImpl implements Leer {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.LEER__VARIABLE:
 				getVariable().clear();
-				getVariable().addAll((Collection<? extends operacion>)newValue);
+				getVariable().addAll((Collection<? extends Operacion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

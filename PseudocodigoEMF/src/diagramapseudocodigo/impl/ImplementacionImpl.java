@@ -2,7 +2,7 @@
  */
 package diagramapseudocodigo.impl;
 
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Implementacion;
@@ -31,34 +31,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getFuncion <em>Funcion</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getGlobal <em>Global</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getSubprocesos <em>Subprocesos</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getGlobales <em>Globales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getConstantes <em>Constantes</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getTipocomplejo <em>Tipocomplejo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ImplementacionImpl#getComplejos <em>Complejos</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ImplementacionImpl extends MinimalEObjectImpl.Container implements Implementacion {
 	/**
-	 * The cached value of the '{@link #getFuncion() <em>Funcion</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubprocesos() <em>Subprocesos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFuncion()
+	 * @see #getSubprocesos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Subproceso> funcion;
+	protected EList<Subproceso> subprocesos;
 
 	/**
-	 * The cached value of the '{@link #getGlobal() <em>Global</em>}' containment reference list.
+	 * The cached value of the '{@link #getGlobales() <em>Globales</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGlobal()
+	 * @see #getGlobales()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Declaracion> global;
+	protected EList<Declaracion> globales;
 
 	/**
 	 * The cached value of the '{@link #getConstantes() <em>Constantes</em>}' containment reference list.
@@ -68,17 +68,17 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Constantes> constantes;
+	protected EList<Constante> constantes;
 
 	/**
-	 * The cached value of the '{@link #getTipocomplejo() <em>Tipocomplejo</em>}' containment reference list.
+	 * The cached value of the '{@link #getComplejos() <em>Complejos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getTipocomplejo()
+	 * @see #getComplejos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TipoComplejo> tipocomplejo;
+	protected EList<TipoComplejo> complejos;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,11 +104,11 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Subproceso> getFuncion() {
-		if (funcion == null) {
-			funcion = new EObjectContainmentEList<Subproceso>(Subproceso.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION);
+	public EList<Subproceso> getSubprocesos() {
+		if (subprocesos == null) {
+			subprocesos = new EObjectContainmentEList<Subproceso>(Subproceso.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS);
 		}
-		return funcion;
+		return subprocesos;
 	}
 
 	/**
@@ -116,11 +116,11 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Declaracion> getGlobal() {
-		if (global == null) {
-			global = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL);
+	public EList<Declaracion> getGlobales() {
+		if (globales == null) {
+			globales = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES);
 		}
-		return global;
+		return globales;
 	}
 
 	/**
@@ -128,9 +128,9 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Constantes> getConstantes() {
+	public EList<Constante> getConstantes() {
 		if (constantes == null) {
-			constantes = new EObjectContainmentEList<Constantes>(Constantes.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES);
+			constantes = new EObjectContainmentEList<Constante>(Constante.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES);
 		}
 		return constantes;
 	}
@@ -140,11 +140,11 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<TipoComplejo> getTipocomplejo() {
-		if (tipocomplejo == null) {
-			tipocomplejo = new EObjectContainmentEList<TipoComplejo>(TipoComplejo.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO);
+	public EList<TipoComplejo> getComplejos() {
+		if (complejos == null) {
+			complejos = new EObjectContainmentEList<TipoComplejo>(TipoComplejo.class, this, DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS);
 		}
-		return tipocomplejo;
+		return complejos;
 	}
 
 	/**
@@ -155,14 +155,14 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION:
-				return ((InternalEList<?>)getFuncion()).basicRemove(otherEnd, msgs);
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL:
-				return ((InternalEList<?>)getGlobal()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS:
+				return ((InternalEList<?>)getSubprocesos()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES:
+				return ((InternalEList<?>)getGlobales()).basicRemove(otherEnd, msgs);
 			case DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES:
 				return ((InternalEList<?>)getConstantes()).basicRemove(otherEnd, msgs);
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO:
-				return ((InternalEList<?>)getTipocomplejo()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS:
+				return ((InternalEList<?>)getComplejos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -175,14 +175,14 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION:
-				return getFuncion();
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL:
-				return getGlobal();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS:
+				return getSubprocesos();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES:
+				return getGlobales();
 			case DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES:
 				return getConstantes();
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO:
-				return getTipocomplejo();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS:
+				return getComplejos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -196,21 +196,21 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION:
-				getFuncion().clear();
-				getFuncion().addAll((Collection<? extends Subproceso>)newValue);
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS:
+				getSubprocesos().clear();
+				getSubprocesos().addAll((Collection<? extends Subproceso>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL:
-				getGlobal().clear();
-				getGlobal().addAll((Collection<? extends Declaracion>)newValue);
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES:
+				getGlobales().clear();
+				getGlobales().addAll((Collection<? extends Declaracion>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES:
 				getConstantes().clear();
-				getConstantes().addAll((Collection<? extends Constantes>)newValue);
+				getConstantes().addAll((Collection<? extends Constante>)newValue);
 				return;
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO:
-				getTipocomplejo().clear();
-				getTipocomplejo().addAll((Collection<? extends TipoComplejo>)newValue);
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS:
+				getComplejos().clear();
+				getComplejos().addAll((Collection<? extends TipoComplejo>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,17 +224,17 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION:
-				getFuncion().clear();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS:
+				getSubprocesos().clear();
 				return;
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL:
-				getGlobal().clear();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES:
+				getGlobales().clear();
 				return;
 			case DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES:
 				getConstantes().clear();
 				return;
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO:
-				getTipocomplejo().clear();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS:
+				getComplejos().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -248,14 +248,14 @@ public class ImplementacionImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__FUNCION:
-				return funcion != null && !funcion.isEmpty();
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBAL:
-				return global != null && !global.isEmpty();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__SUBPROCESOS:
+				return subprocesos != null && !subprocesos.isEmpty();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__GLOBALES:
+				return globales != null && !globales.isEmpty();
 			case DiagramapseudocodigoPackage.IMPLEMENTACION__CONSTANTES:
 				return constantes != null && !constantes.isEmpty();
-			case DiagramapseudocodigoPackage.IMPLEMENTACION__TIPOCOMPLEJO:
-				return tipocomplejo != null && !tipocomplejo.isEmpty();
+			case DiagramapseudocodigoPackage.IMPLEMENTACION__COMPLEJOS:
+				return complejos != null && !complejos.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -30,12 +30,12 @@ public interface AsignacionCompleja extends Asignacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operador</em>' containment reference.
-	 * @see #setOperador(operacion)
+	 * @see #setOperador(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAsignacionCompleja_Operador()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getOperador();
+	Operacion getOperador();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.AsignacionCompleja#getOperador <em>Operador</em>}' containment reference.
@@ -45,7 +45,7 @@ public interface AsignacionCompleja extends Asignacion {
 	 * @see #getOperador()
 	 * @generated
 	 */
-	void setOperador(operacion value);
+	void setOperador(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Valor asignacion</b></em>' containment reference.
@@ -56,12 +56,12 @@ public interface AsignacionCompleja extends Asignacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valor asignacion</em>' containment reference.
-	 * @see #setValor_asignacion(operacion)
+	 * @see #setValor_asignacion(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAsignacionCompleja_Valor_asignacion()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getValor_asignacion();
+	Operacion getValor_asignacion();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.AsignacionCompleja#getValor_asignacion <em>Valor asignacion</em>}' containment reference.
@@ -71,6 +71,6 @@ public interface AsignacionCompleja extends Asignacion {
 	 * @see #getValor_asignacion()
 	 * @generated
 	 */
-	void setValor_asignacion(operacion value);
+	void setValor_asignacion(Operacion value);
 
 } // AsignacionCompleja

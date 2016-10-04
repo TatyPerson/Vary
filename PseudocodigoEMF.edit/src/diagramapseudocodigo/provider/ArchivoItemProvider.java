@@ -26,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ArchivoItemProvider
-	extends TipoComplejoItemProvider {
+public class ArchivoItemProvider extends TipoComplejoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -130,6 +129,7 @@ public class ArchivoItemProvider
 			getString("_UI_Archivo_type") :
 			getString("_UI_Archivo_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -177,7 +177,7 @@ public class ArchivoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ARCHIVO__TIPO,
-				 DiagramapseudocodigoFactory.eINSTANCE.createTipoExistente()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoBasico()));
 	}
 
 }

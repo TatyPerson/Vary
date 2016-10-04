@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -22,8 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class CaracterItemProvider
-	extends OperadorItemProvider {
+public class CaracterItemProvider extends OperadorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -48,7 +48,7 @@ public class CaracterItemProvider
 			addEAttribute0rence0PropertyDescriptor(object);
 			addNegacionesFinalesPropertyDescriptor(object);
 			addNegacionesInicialesPropertyDescriptor(object);
-			addContenidoPropertyDescriptor(object);
+			addValorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -64,8 +64,8 @@ public class CaracterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_operacion_EAttribute0rence0_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_EAttribute0rence0_feature", "_UI_operacion_type"),
+				 getString("_UI_Operacion_EAttribute0rence0_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operacion_EAttribute0rence0_feature", "_UI_Operacion_type"),
 				 DiagramapseudocodigoPackage.Literals.OPERACION__EATTRIBUTE0RENCE0,
 				 true,
 				 false,
@@ -86,8 +86,8 @@ public class CaracterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_operacion_negacionesFinales_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_negacionesFinales_feature", "_UI_operacion_type"),
+				 getString("_UI_Operacion_negacionesFinales_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operacion_negacionesFinales_feature", "_UI_Operacion_type"),
 				 DiagramapseudocodigoPackage.Literals.OPERACION__NEGACIONES_FINALES,
 				 true,
 				 false,
@@ -108,8 +108,8 @@ public class CaracterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_operacion_negacionesIniciales_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_negacionesIniciales_feature", "_UI_operacion_type"),
+				 getString("_UI_Operacion_negacionesIniciales_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operacion_negacionesIniciales_feature", "_UI_Operacion_type"),
 				 DiagramapseudocodigoPackage.Literals.OPERACION__NEGACIONES_INICIALES,
 				 true,
 				 false,
@@ -120,19 +120,19 @@ public class CaracterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Contenido feature.
+	 * This adds a property descriptor for the Valor feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContenidoPropertyDescriptor(Object object) {
+	protected void addValorPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Caracter_contenido_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Caracter_contenido_feature", "_UI_Caracter_type"),
-				 DiagramapseudocodigoPackage.Literals.CARACTER__CONTENIDO,
+				 getString("_UI_Caracter_valor_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Caracter_valor_feature", "_UI_Caracter_type"),
+				 DiagramapseudocodigoPackage.Literals.CARACTER__VALOR,
 				 true,
 				 false,
 				 false,
@@ -160,11 +160,12 @@ public class CaracterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Caracter)object).getContenido();
+		String label = ((Caracter)object).getValor();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Caracter_type") :
 			getString("_UI_Caracter_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -180,7 +181,7 @@ public class CaracterItemProvider
 		switch (notification.getFeatureID(Caracter.class)) {
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_FINALES:
 			case DiagramapseudocodigoPackage.CARACTER__NEGACIONES_INICIALES:
-			case DiagramapseudocodigoPackage.CARACTER__CONTENIDO:
+			case DiagramapseudocodigoPackage.CARACTER__VALOR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

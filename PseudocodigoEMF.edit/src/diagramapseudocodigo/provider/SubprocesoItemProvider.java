@@ -34,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SubprocesoItemProvider
+public class SubprocesoItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -102,9 +102,9 @@ public class SubprocesoItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.SUBPROCESO__PARAMETROFUNCION);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.SUBPROCESO__PARAMETROS);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACIONES);
 		}
 		return childrenFeatures;
 	}
@@ -135,6 +135,7 @@ public class SubprocesoItemProvider
 			getString("_UI_Subproceso_type") :
 			getString("_UI_Subproceso_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -151,9 +152,9 @@ public class SubprocesoItemProvider
 			case DiagramapseudocodigoPackage.SUBPROCESO__NOMBRE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.SUBPROCESO__PARAMETROFUNCION:
+			case DiagramapseudocodigoPackage.SUBPROCESO__PARAMETROS:
 			case DiagramapseudocodigoPackage.SUBPROCESO__SENTENCIAS:
-			case DiagramapseudocodigoPackage.SUBPROCESO__DECLARACION:
+			case DiagramapseudocodigoPackage.SUBPROCESO__DECLARACIONES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -173,8 +174,8 @@ public class SubprocesoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__PARAMETROFUNCION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createParametroFuncion()));
+				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createParametro()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -189,12 +190,12 @@ public class SubprocesoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -214,17 +215,17 @@ public class SubprocesoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -234,17 +235,17 @@ public class SubprocesoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createmientras()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createMientras()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createrepetir()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createRepetir()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createdesde()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDesde()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -254,12 +255,12 @@ public class SubprocesoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createsegun()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createSegun()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -309,7 +310,7 @@ public class SubprocesoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -349,7 +350,7 @@ public class SubprocesoItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -368,18 +369,18 @@ public class SubprocesoItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION,
+				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACIONES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACIONES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionBasica()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+				(DiagramapseudocodigoPackage.Literals.SUBPROCESO__DECLARACIONES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionDefinida()));
 	}
 
 	/**

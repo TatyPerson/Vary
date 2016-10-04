@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SumaTest extends operacionTest {
+public class SumaTest extends OperacionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

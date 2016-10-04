@@ -32,7 +32,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class InicioItemProvider
+public class InicioItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -77,8 +77,8 @@ public class InicioItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.INICIO__TIENE);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACIONES);
 		}
 		return childrenFeatures;
 	}
@@ -117,6 +117,7 @@ public class InicioItemProvider
 	public String getText(Object object) {
 		return getString("_UI_Inicio_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -130,8 +131,8 @@ public class InicioItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Inicio.class)) {
-			case DiagramapseudocodigoPackage.INICIO__TIENE:
-			case DiagramapseudocodigoPackage.INICIO__DECLARACION:
+			case DiagramapseudocodigoPackage.INICIO__SENTENCIAS:
+			case DiagramapseudocodigoPackage.INICIO__DECLARACIONES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -151,208 +152,208 @@ public class InicioItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createConstCadena()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroEntero()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAsignacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createEscribir()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLeer()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createNumeroDecimal()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createoperacion()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorBooleano()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSi()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createmientras()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createMientras()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createrepetir()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createRepetir()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createdesde()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDesde()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createInternas()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createsegun()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createSegun()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionFicheroAbrir()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionFicheroCerrar()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivision()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAsignacionNormal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAsignacionCompleja()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDiv()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__TIENE,
+				(DiagramapseudocodigoPackage.Literals.INICIO__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION,
+				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACIONES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionVariable()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACIONES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionBasica()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionPropia()));
+				(DiagramapseudocodigoPackage.Literals.INICIO__DECLARACIONES,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDeclaracionDefinida()));
 	}
 
 	/**

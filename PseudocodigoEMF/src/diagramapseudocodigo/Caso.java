@@ -3,8 +3,8 @@
 package diagramapseudocodigo;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Caso extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Devuelve</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -54,7 +53,7 @@ public interface Caso extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Sentencias</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Sentencias}.
+	 * The list contents are of type {@link diagramapseudocodigo.Sentencia}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sentencias</em>' containment reference list isn't clear,
@@ -66,7 +65,7 @@ public interface Caso extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Sentencias> getSentencias();
+	EList<Sentencia> getSentencias();
 
 	/**
 	 * Returns the value of the '<em><b>Operador</b></em>' containment reference.
@@ -77,12 +76,12 @@ public interface Caso extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operador</em>' containment reference.
-	 * @see #setOperador(operacion)
+	 * @see #setOperador(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getCaso_Operador()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getOperador();
+	Operacion getOperador();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Caso#getOperador <em>Operador</em>}' containment reference.
@@ -92,5 +91,6 @@ public interface Caso extends EObject {
 	 * @see #getOperador()
 	 * @generated
 	 */
-	void setOperador(operacion value);
+	void setOperador(Operacion value);
+
 } // Caso

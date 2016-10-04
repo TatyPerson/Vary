@@ -10,7 +10,7 @@ import diagramapseudocodigo.Bloque;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class BloqueTest extends SentenciasTest {
+public abstract class BloqueTest extends SentenciaTest {
 
 	/**
 	 * Constructs a new Bloque test case with the given name.

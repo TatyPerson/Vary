@@ -4,11 +4,14 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.FuncionFicheroCerrar;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -24,7 +27,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionFicheroCerrar {
+public class FuncionFicheroCerrarImpl extends SentenciaImpl implements FuncionFicheroCerrar {
 	/**
 	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -33,7 +36,7 @@ public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionF
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion variable;
+	protected Operacion variable;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -59,7 +62,7 @@ public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getVariable() {
+	public Operacion getVariable() {
 		return variable;
 	}
 
@@ -68,8 +71,8 @@ public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetVariable(operacion newVariable, NotificationChain msgs) {
-		operacion oldVariable = variable;
+	public NotificationChain basicSetVariable(Operacion newVariable, NotificationChain msgs) {
+		Operacion oldVariable = variable;
 		variable = newVariable;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.FUNCION_FICHERO_CERRAR__VARIABLE, oldVariable, newVariable);
@@ -83,7 +86,7 @@ public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionF
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariable(operacion newVariable) {
+	public void setVariable(Operacion newVariable) {
 		if (newVariable != variable) {
 			NotificationChain msgs = null;
 			if (variable != null)
@@ -134,7 +137,7 @@ public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionF
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.FUNCION_FICHERO_CERRAR__VARIABLE:
-				setVariable((operacion)newValue);
+				setVariable((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -149,7 +152,7 @@ public class FuncionFicheroCerrarImpl extends SentenciasImpl implements FuncionF
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.FUNCION_FICHERO_CERRAR__VARIABLE:
-				setVariable((operacion)null);
+				setVariable((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);

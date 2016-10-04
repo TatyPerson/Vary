@@ -5,10 +5,13 @@ package diagramapseudocodigo.provider;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.ValorComplejo;
+
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -20,8 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValorComplejoItemProvider
-	extends OperadorItemProvider {
+public class ValorComplejoItemProvider extends OperadorItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -61,8 +63,8 @@ public class ValorComplejoItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_operacion_EAttribute0rence0_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_EAttribute0rence0_feature", "_UI_operacion_type"),
+				 getString("_UI_Operacion_EAttribute0rence0_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operacion_EAttribute0rence0_feature", "_UI_Operacion_type"),
 				 DiagramapseudocodigoPackage.Literals.OPERACION__EATTRIBUTE0RENCE0,
 				 true,
 				 false,
@@ -83,8 +85,8 @@ public class ValorComplejoItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_operacion_negacionesFinales_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_negacionesFinales_feature", "_UI_operacion_type"),
+				 getString("_UI_Operacion_negacionesFinales_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operacion_negacionesFinales_feature", "_UI_Operacion_type"),
 				 DiagramapseudocodigoPackage.Literals.OPERACION__NEGACIONES_FINALES,
 				 true,
 				 false,
@@ -105,8 +107,8 @@ public class ValorComplejoItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_operacion_negacionesIniciales_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_operacion_negacionesIniciales_feature", "_UI_operacion_type"),
+				 getString("_UI_Operacion_negacionesIniciales_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Operacion_negacionesIniciales_feature", "_UI_Operacion_type"),
 				 DiagramapseudocodigoPackage.Literals.OPERACION__NEGACIONES_INICIALES,
 				 true,
 				 false,
@@ -137,6 +139,7 @@ public class ValorComplejoItemProvider
 	public String getText(Object object) {
 		return getString("_UI_ValorComplejo_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

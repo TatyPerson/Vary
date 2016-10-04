@@ -3,13 +3,13 @@
 package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.Or;
-import diagramapseudocodigo.operacion;
 import diagramapseudocodigo.signo;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class OrImpl extends operacionImpl implements Or {
+public class OrImpl extends OperacionImpl implements Or {
 	/**
 	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class OrImpl extends operacionImpl implements Or {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion left;
+	protected Operacion left;
 
 	/**
 	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -49,7 +49,7 @@ public class OrImpl extends operacionImpl implements Or {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion right;
+	protected Operacion right;
 
 	/**
 	 * The default value of the '{@link #getSigno_op() <em>Signo op</em>}' attribute.
@@ -95,7 +95,7 @@ public class OrImpl extends operacionImpl implements Or {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getLeft() {
+	public Operacion getLeft() {
 		return left;
 	}
 
@@ -104,8 +104,8 @@ public class OrImpl extends operacionImpl implements Or {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetLeft(operacion newLeft, NotificationChain msgs) {
-		operacion oldLeft = left;
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
 		left = newLeft;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OR__LEFT, oldLeft, newLeft);
@@ -119,7 +119,7 @@ public class OrImpl extends operacionImpl implements Or {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLeft(operacion newLeft) {
+	public void setLeft(Operacion newLeft) {
 		if (newLeft != left) {
 			NotificationChain msgs = null;
 			if (left != null)
@@ -138,7 +138,7 @@ public class OrImpl extends operacionImpl implements Or {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getRight() {
+	public Operacion getRight() {
 		return right;
 	}
 
@@ -147,8 +147,8 @@ public class OrImpl extends operacionImpl implements Or {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRight(operacion newRight, NotificationChain msgs) {
-		operacion oldRight = right;
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
 		right = newRight;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OR__RIGHT, oldRight, newRight);
@@ -162,7 +162,7 @@ public class OrImpl extends operacionImpl implements Or {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRight(operacion newRight) {
+	public void setRight(Operacion newRight) {
 		if (newRight != right) {
 			NotificationChain msgs = null;
 			if (right != null)
@@ -240,10 +240,10 @@ public class OrImpl extends operacionImpl implements Or {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.OR__LEFT:
-				setLeft((operacion)newValue);
+				setLeft((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.OR__RIGHT:
-				setRight((operacion)newValue);
+				setRight((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.OR__SIGNO_OP:
 				setSigno_op((signo)newValue);
@@ -261,10 +261,10 @@ public class OrImpl extends operacionImpl implements Or {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.OR__LEFT:
-				setLeft((operacion)null);
+				setLeft((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.OR__RIGHT:
-				setRight((operacion)null);
+				setRight((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.OR__SIGNO_OP:
 				setSigno_op(SIGNO_OP_EDEFAULT);

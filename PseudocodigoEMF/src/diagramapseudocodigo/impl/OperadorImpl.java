@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public abstract class OperadorImpl extends valorImpl implements Operador {
+public abstract class OperadorImpl extends ValorImpl implements Operador {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

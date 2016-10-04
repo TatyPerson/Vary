@@ -5,8 +5,10 @@ package diagramapseudocodigo.provider;
 
 import java.util.Collection;
 import java.util.List;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -15,8 +17,7 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
  * <!-- end-user-doc -->
  * @generated
  */
-public class AsignacionItemProvider
-	extends SentenciasItemProvider {
+public class AsignacionItemProvider extends SentenciaItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -63,6 +64,7 @@ public class AsignacionItemProvider
 	public String getText(Object object) {
 		return getString("_UI_Asignacion_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

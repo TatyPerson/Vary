@@ -4,7 +4,6 @@ package diagramapseudocodigo;
 
 import org.eclipse.emf.common.util.EList;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Valor Matriz</b></em>'.
@@ -15,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getNombre_matriz <em>Nombre matriz</em>}</li>
- *   <li>{@link diagramapseudocodigo.ValorMatriz#getCampo <em>Campo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.ValorMatriz#getCampos <em>Campos</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getPrimerIndice <em>Primer Indice</em>}</li>
  *   <li>{@link diagramapseudocodigo.ValorMatriz#getSegundoIndice <em>Segundo Indice</em>}</li>
  * </ul>
@@ -52,20 +51,20 @@ public interface ValorMatriz extends ValorComplejo {
 	void setNombre_matriz(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Campo</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Campos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.CampoRegistro}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Campo</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Campos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Campo</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorMatriz_Campo()
+	 * @return the value of the '<em>Campos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorMatriz_Campos()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<CampoRegistro> getCampo();
+	EList<CampoRegistro> getCampos();
 
 	/**
 	 * Returns the value of the '<em><b>Primer Indice</b></em>' containment reference.
@@ -76,12 +75,12 @@ public interface ValorMatriz extends ValorComplejo {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primer Indice</em>' containment reference.
-	 * @see #setPrimerIndice(operacion)
+	 * @see #setPrimerIndice(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorMatriz_PrimerIndice()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getPrimerIndice();
+	Operacion getPrimerIndice();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.ValorMatriz#getPrimerIndice <em>Primer Indice</em>}' containment reference.
@@ -91,7 +90,7 @@ public interface ValorMatriz extends ValorComplejo {
 	 * @see #getPrimerIndice()
 	 * @generated
 	 */
-	void setPrimerIndice(operacion value);
+	void setPrimerIndice(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Segundo Indice</b></em>' containment reference.
@@ -102,12 +101,12 @@ public interface ValorMatriz extends ValorComplejo {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Segundo Indice</em>' containment reference.
-	 * @see #setSegundoIndice(operacion)
+	 * @see #setSegundoIndice(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getValorMatriz_SegundoIndice()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getSegundoIndice();
+	Operacion getSegundoIndice();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.ValorMatriz#getSegundoIndice <em>Segundo Indice</em>}' containment reference.
@@ -117,6 +116,6 @@ public interface ValorMatriz extends ValorComplejo {
 	 * @see #getSegundoIndice()
 	 * @generated
 	 */
-	void setSegundoIndice(operacion value);
+	void setSegundoIndice(Operacion value);
 
 } // ValorMatriz

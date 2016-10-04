@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Subproceso#getParametrofuncion <em>Parametrofuncion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Subproceso#getParametros <em>Parametros</em>}</li>
  *   <li>{@link diagramapseudocodigo.Subproceso#getSentencias <em>Sentencias</em>}</li>
  *   <li>{@link diagramapseudocodigo.Subproceso#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.Subproceso#getDeclaracion <em>Declaracion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Subproceso#getDeclaraciones <em>Declaraciones</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubproceso()
@@ -27,24 +27,24 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Subproceso extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Parametrofuncion</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.ParametroFuncion}.
+	 * Returns the value of the '<em><b>Parametros</b></em>' containment reference list.
+	 * The list contents are of type {@link diagramapseudocodigo.Parametro}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parametrofuncion</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Parametros</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parametrofuncion</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubproceso_Parametrofuncion()
+	 * @return the value of the '<em>Parametros</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubproceso_Parametros()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ParametroFuncion> getParametrofuncion();
+	EList<Parametro> getParametros();
 
 	/**
 	 * Returns the value of the '<em><b>Sentencias</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Sentencias}.
+	 * The list contents are of type {@link diagramapseudocodigo.Sentencia}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sentencias</em>' containment reference list isn't clear,
@@ -56,7 +56,7 @@ public interface Subproceso extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Sentencias> getSentencias();
+	EList<Sentencia> getSentencias();
 
 	/**
 	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
@@ -85,19 +85,19 @@ public interface Subproceso extends EObject {
 	void setNombre(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Declaracion</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Declaraciones</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Declaracion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Declaracion</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Declaraciones</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Declaracion</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubproceso_Declaracion()
+	 * @return the value of the '<em>Declaraciones</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getSubproceso_Declaraciones()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Declaracion> getDeclaracion();
+	EList<Declaracion> getDeclaraciones();
 
 } // Subproceso

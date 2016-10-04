@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Inicio#getTiene <em>Tiene</em>}</li>
- *   <li>{@link diagramapseudocodigo.Inicio#getDeclaracion <em>Declaracion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Inicio#getSentencias <em>Sentencias</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Inicio#getDeclaraciones <em>Declaraciones</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInicio()
@@ -25,35 +25,35 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Inicio extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Tiene</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Sentencias}.
+	 * Returns the value of the '<em><b>Sentencias</b></em>' containment reference list.
+	 * The list contents are of type {@link diagramapseudocodigo.Sentencia}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tiene</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Sentencias</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tiene</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInicio_Tiene()
+	 * @return the value of the '<em>Sentencias</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInicio_Sentencias()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Sentencias> getTiene();
+	EList<Sentencia> getSentencias();
 
 	/**
-	 * Returns the value of the '<em><b>Declaracion</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Declaraciones</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Declaracion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Declaracion</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Declaraciones</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Declaracion</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInicio_Declaracion()
+	 * @return the value of the '<em>Declaraciones</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getInicio_Declaraciones()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Declaracion> getDeclaracion();
+	EList<Declaracion> getDeclaraciones();
 
 } // Inicio

@@ -7,19 +7,19 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import diagramapseudocodigo.Algoritmo;
 import diagramapseudocodigo.Asignacion;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.Implementacion;
 import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.LlamadaFuncion;
 import diagramapseudocodigo.Modulo;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Parametro;
 import diagramapseudocodigo.Procedimiento;
+import diagramapseudocodigo.Segun;
 import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.VariableID;
-import diagramapseudocodigo.segun;
 import java.util.ResourceBundle;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -84,14 +84,14 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
         boolean _notEquals = (!Objects.equal(_containerOfType, null));
         if (_notEquals) {
           Algoritmo _containerOfType_1 = EcoreUtil2.<Algoritmo>getContainerOfType(element, Algoritmo.class);
-          Constantes _containerOfType_2 = EcoreUtil2.<Constantes>getContainerOfType(element, Constantes.class);
+          Constante _containerOfType_2 = EcoreUtil2.<Constante>getContainerOfType(element, Constante.class);
           VaryGrammarModelUtil.addConstante(_containerOfType_1, _containerOfType_2, indice);
         } else {
           Implementacion _containerOfType_3 = EcoreUtil2.<Implementacion>getContainerOfType(element, Implementacion.class);
           boolean _notEquals_1 = (!Objects.equal(_containerOfType_3, null));
           if (_notEquals_1) {
             Implementacion _containerOfType_4 = EcoreUtil2.<Implementacion>getContainerOfType(element, Implementacion.class);
-            Constantes _containerOfType_5 = EcoreUtil2.<Constantes>getContainerOfType(element, Constantes.class);
+            Constante _containerOfType_5 = EcoreUtil2.<Constante>getContainerOfType(element, Constante.class);
             VaryGrammarModelUtil.addConstante(_containerOfType_4, _containerOfType_5, indice);
           }
         }
@@ -133,11 +133,11 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
               Integer _offset_1 = issue.getOffset();
               Integer _length_1 = issue.getLength();
               String _get_1 = _xtextDocument_1.get((_offset_1).intValue(), (_length_1).intValue());
-              EList<Declaracion> _declaracion = inicio.getDeclaracion();
-              EList<Declaracion> _global = algoritmo.getGlobal();
-              EList<TipoComplejo> _tipocomplejo = algoritmo.getTipocomplejo();
-              EList<Subproceso> _funcion = algoritmo.getFuncion();
-              String _buscarTipoVariable = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(((Asignacion) element), _get_1, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion, _global, _tipocomplejo, _funcion);
+              EList<Declaracion> _declaraciones = inicio.getDeclaraciones();
+              EList<Declaracion> _globales = algoritmo.getGlobales();
+              EList<TipoComplejo> _complejos = algoritmo.getComplejos();
+              EList<Subproceso> _subprocesos = algoritmo.getSubprocesos();
+              String _buscarTipoVariable = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(((Asignacion) element), _get_1, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones, _globales, _complejos, _subprocesos);
               tipo = _buscarTipoVariable;
             } else {
               if ((element instanceof VariableID)) {
@@ -149,11 +149,11 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                   Integer _offset_2 = issue.getOffset();
                   Integer _length_2 = issue.getLength();
                   String _get_2 = _xtextDocument_2.get((_offset_2).intValue(), (_length_2).intValue());
-                  EList<Declaracion> _declaracion_1 = inicio.getDeclaracion();
-                  EList<Declaracion> _global_1 = algoritmo.getGlobal();
-                  EList<TipoComplejo> _tipocomplejo_1 = algoritmo.getTipocomplejo();
-                  EList<Subproceso> _funcion_1 = algoritmo.getFuncion();
-                  String _buscarTipoVariable_1 = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(_containerOfType_3, _get_2, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_1, _global_1, _tipocomplejo_1, _funcion_1);
+                  EList<Declaracion> _declaraciones_1 = inicio.getDeclaraciones();
+                  EList<Declaracion> _globales_1 = algoritmo.getGlobales();
+                  EList<TipoComplejo> _complejos_1 = algoritmo.getComplejos();
+                  EList<Subproceso> _subprocesos_1 = algoritmo.getSubprocesos();
+                  String _buscarTipoVariable_1 = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(_containerOfType_3, _get_2, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_1, _globales_1, _complejos_1, _subprocesos_1);
                   tipo = _buscarTipoVariable_1;
                 } else {
                   LlamadaFuncion _containerOfType_4 = EcoreUtil2.<LlamadaFuncion>getContainerOfType(element, LlamadaFuncion.class);
@@ -164,14 +164,14 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                     Integer _offset_3 = issue.getOffset();
                     Integer _length_3 = issue.getLength();
                     String _get_3 = _xtextDocument_3.get((_offset_3).intValue(), (_length_3).intValue());
-                    EList<Subproceso> _funcion_2 = algoritmo.getFuncion();
-                    String _buscarTipoParametroLlamada = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_5, _get_3, _funcion_2);
+                    EList<Subproceso> _subprocesos_2 = algoritmo.getSubprocesos();
+                    String _buscarTipoParametroLlamada = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_5, _get_3, _subprocesos_2);
                     tipo = _buscarTipoParametroLlamada;
                   } else {
-                    segun _containerOfType_6 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                    Segun _containerOfType_6 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                     boolean _notEquals_4 = (!Objects.equal(_containerOfType_6, null));
                     if (_notEquals_4) {
-                      segun _containerOfType_7 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                      Segun _containerOfType_7 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                       String _buscarTipoVariableSegun = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(_containerOfType_7, VaryGrammarQuickfixProvider.this.readerKeywords);
                       tipo = _buscarTipoVariableSegun;
                     }
@@ -191,12 +191,12 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                   Integer _offset_4 = issue.getOffset();
                   Integer _length_4 = issue.getLength();
                   String _get_4 = _xtextDocument_4.get((_offset_4).intValue(), (_length_4).intValue());
-                  EList<Declaracion> _declaracion_2 = funcion.getDeclaracion();
-                  EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
-                  EList<Declaracion> _global_2 = algoritmo.getGlobal();
-                  EList<TipoComplejo> _tipocomplejo_2 = algoritmo.getTipocomplejo();
-                  EList<Subproceso> _funcion_3 = algoritmo.getFuncion();
-                  String _buscarTipoVariableSubproceso = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_4, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_2, _parametrofuncion, _global_2, _tipocomplejo_2, _funcion_3);
+                  EList<Declaracion> _declaraciones_2 = funcion.getDeclaraciones();
+                  EList<Parametro> _parametros = funcion.getParametros();
+                  EList<Declaracion> _globales_2 = algoritmo.getGlobales();
+                  EList<TipoComplejo> _complejos_2 = algoritmo.getComplejos();
+                  EList<Subproceso> _subprocesos_3 = algoritmo.getSubprocesos();
+                  String _buscarTipoVariableSubproceso = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_4, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_2, _parametros, _globales_2, _complejos_2, _subprocesos_3);
                   tipo = _buscarTipoVariableSubproceso;
                 } else {
                   if ((element instanceof VariableID)) {
@@ -208,12 +208,12 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                       Integer _offset_5 = issue.getOffset();
                       Integer _length_5 = issue.getLength();
                       String _get_5 = _xtextDocument_5.get((_offset_5).intValue(), (_length_5).intValue());
-                      EList<Declaracion> _declaracion_3 = funcion.getDeclaracion();
-                      EList<ParametroFuncion> _parametrofuncion_1 = funcion.getParametrofuncion();
-                      EList<Declaracion> _global_3 = algoritmo.getGlobal();
-                      EList<TipoComplejo> _tipocomplejo_3 = algoritmo.getTipocomplejo();
-                      EList<Subproceso> _funcion_4 = algoritmo.getFuncion();
-                      String _buscarTipoVariableSubproceso_1 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_10, _get_5, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_3, _parametrofuncion_1, _global_3, _tipocomplejo_3, _funcion_4);
+                      EList<Declaracion> _declaraciones_3 = funcion.getDeclaraciones();
+                      EList<Parametro> _parametros_1 = funcion.getParametros();
+                      EList<Declaracion> _globales_3 = algoritmo.getGlobales();
+                      EList<TipoComplejo> _complejos_3 = algoritmo.getComplejos();
+                      EList<Subproceso> _subprocesos_4 = algoritmo.getSubprocesos();
+                      String _buscarTipoVariableSubproceso_1 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_10, _get_5, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_3, _parametros_1, _globales_3, _complejos_3, _subprocesos_4);
                       tipo = _buscarTipoVariableSubproceso_1;
                     } else {
                       LlamadaFuncion _containerOfType_11 = EcoreUtil2.<LlamadaFuncion>getContainerOfType(element, LlamadaFuncion.class);
@@ -224,14 +224,14 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                         Integer _offset_6 = issue.getOffset();
                         Integer _length_6 = issue.getLength();
                         String _get_6 = _xtextDocument_6.get((_offset_6).intValue(), (_length_6).intValue());
-                        EList<Subproceso> _funcion_5 = algoritmo.getFuncion();
-                        String _buscarTipoParametroLlamada_1 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_12, _get_6, _funcion_5);
+                        EList<Subproceso> _subprocesos_5 = algoritmo.getSubprocesos();
+                        String _buscarTipoParametroLlamada_1 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_12, _get_6, _subprocesos_5);
                         tipo = _buscarTipoParametroLlamada_1;
                       } else {
-                        segun _containerOfType_13 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                        Segun _containerOfType_13 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                         boolean _notEquals_8 = (!Objects.equal(_containerOfType_13, null));
                         if (_notEquals_8) {
-                          segun _containerOfType_14 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                          Segun _containerOfType_14 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                           String _buscarTipoVariableSegun_1 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(_containerOfType_14, VaryGrammarQuickfixProvider.this.readerKeywords);
                           tipo = _buscarTipoVariableSegun_1;
                         }
@@ -246,12 +246,12 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                   Integer _offset_7 = issue.getOffset();
                   Integer _length_7 = issue.getLength();
                   String _get_7 = _xtextDocument_7.get((_offset_7).intValue(), (_length_7).intValue());
-                  EList<Declaracion> _declaracion_4 = procedimiento.getDeclaracion();
-                  EList<ParametroFuncion> _parametrofuncion_2 = procedimiento.getParametrofuncion();
-                  EList<Declaracion> _global_4 = algoritmo.getGlobal();
-                  EList<TipoComplejo> _tipocomplejo_4 = algoritmo.getTipocomplejo();
-                  EList<Subproceso> _funcion_6 = algoritmo.getFuncion();
-                  String _buscarTipoVariableSubproceso_2 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_7, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_4, _parametrofuncion_2, _global_4, _tipocomplejo_4, _funcion_6);
+                  EList<Declaracion> _declaraciones_4 = procedimiento.getDeclaraciones();
+                  EList<Parametro> _parametros_2 = procedimiento.getParametros();
+                  EList<Declaracion> _globales_4 = algoritmo.getGlobales();
+                  EList<TipoComplejo> _complejos_4 = algoritmo.getComplejos();
+                  EList<Subproceso> _subprocesos_6 = algoritmo.getSubprocesos();
+                  String _buscarTipoVariableSubproceso_2 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_7, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_4, _parametros_2, _globales_4, _complejos_4, _subprocesos_6);
                   tipo = _buscarTipoVariableSubproceso_2;
                 } else {
                   if ((element instanceof VariableID)) {
@@ -263,12 +263,12 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                       Integer _offset_8 = issue.getOffset();
                       Integer _length_8 = issue.getLength();
                       String _get_8 = _xtextDocument_8.get((_offset_8).intValue(), (_length_8).intValue());
-                      EList<Declaracion> _declaracion_5 = procedimiento.getDeclaracion();
-                      EList<ParametroFuncion> _parametrofuncion_3 = procedimiento.getParametrofuncion();
-                      EList<Declaracion> _global_5 = algoritmo.getGlobal();
-                      EList<TipoComplejo> _tipocomplejo_5 = algoritmo.getTipocomplejo();
-                      EList<Subproceso> _funcion_7 = algoritmo.getFuncion();
-                      String _buscarTipoVariableSubproceso_3 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_16, _get_8, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_5, _parametrofuncion_3, _global_5, _tipocomplejo_5, _funcion_7);
+                      EList<Declaracion> _declaraciones_5 = procedimiento.getDeclaraciones();
+                      EList<Parametro> _parametros_3 = procedimiento.getParametros();
+                      EList<Declaracion> _globales_5 = algoritmo.getGlobales();
+                      EList<TipoComplejo> _complejos_5 = algoritmo.getComplejos();
+                      EList<Subproceso> _subprocesos_7 = algoritmo.getSubprocesos();
+                      String _buscarTipoVariableSubproceso_3 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_16, _get_8, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_5, _parametros_3, _globales_5, _complejos_5, _subprocesos_7);
                       tipo = _buscarTipoVariableSubproceso_3;
                     } else {
                       LlamadaFuncion _containerOfType_17 = EcoreUtil2.<LlamadaFuncion>getContainerOfType(element, LlamadaFuncion.class);
@@ -279,14 +279,14 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                         Integer _offset_9 = issue.getOffset();
                         Integer _length_9 = issue.getLength();
                         String _get_9 = _xtextDocument_9.get((_offset_9).intValue(), (_length_9).intValue());
-                        EList<Subproceso> _funcion_8 = algoritmo.getFuncion();
-                        String _buscarTipoParametroLlamada_2 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_18, _get_9, _funcion_8);
+                        EList<Subproceso> _subprocesos_8 = algoritmo.getSubprocesos();
+                        String _buscarTipoParametroLlamada_2 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_18, _get_9, _subprocesos_8);
                         tipo = _buscarTipoParametroLlamada_2;
                       } else {
-                        segun _containerOfType_19 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                        Segun _containerOfType_19 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                         boolean _notEquals_11 = (!Objects.equal(_containerOfType_19, null));
                         if (_notEquals_11) {
-                          segun _containerOfType_20 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                          Segun _containerOfType_20 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                           String _buscarTipoVariableSegun_2 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(_containerOfType_20, VaryGrammarQuickfixProvider.this.readerKeywords);
                           tipo = _buscarTipoVariableSegun_2;
                         }
@@ -313,15 +313,15 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                   Integer _offset_10 = issue.getOffset();
                   Integer _length_10 = issue.getLength();
                   String _get_10 = _xtextDocument_10.get((_offset_10).intValue(), (_length_10).intValue());
-                  EList<Declaracion> _declaracion_6 = funcion_1.getDeclaracion();
-                  EList<ParametroFuncion> _parametrofuncion_4 = funcion_1.getParametrofuncion();
+                  EList<Declaracion> _declaraciones_6 = funcion_1.getDeclaraciones();
+                  EList<Parametro> _parametros_4 = funcion_1.getParametros();
                   Implementacion _implementacion = modulo.getImplementacion();
-                  EList<Declaracion> _global_6 = _implementacion.getGlobal();
+                  EList<Declaracion> _globales_6 = _implementacion.getGlobales();
                   Implementacion _implementacion_1 = modulo.getImplementacion();
-                  EList<TipoComplejo> _tipocomplejo_6 = _implementacion_1.getTipocomplejo();
+                  EList<TipoComplejo> _complejos_6 = _implementacion_1.getComplejos();
                   Implementacion _implementacion_2 = modulo.getImplementacion();
-                  EList<Subproceso> _funcion_9 = _implementacion_2.getFuncion();
-                  String _buscarTipoVariableSubproceso_4 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_10, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_6, _parametrofuncion_4, _global_6, _tipocomplejo_6, _funcion_9);
+                  EList<Subproceso> _subprocesos_9 = _implementacion_2.getSubprocesos();
+                  String _buscarTipoVariableSubproceso_4 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_10, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_6, _parametros_4, _globales_6, _complejos_6, _subprocesos_9);
                   tipo = _buscarTipoVariableSubproceso_4;
                 } else {
                   if ((element instanceof VariableID)) {
@@ -333,15 +333,15 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                       Integer _offset_11 = issue.getOffset();
                       Integer _length_11 = issue.getLength();
                       String _get_11 = _xtextDocument_11.get((_offset_11).intValue(), (_length_11).intValue());
-                      EList<Declaracion> _declaracion_7 = funcion_1.getDeclaracion();
-                      EList<ParametroFuncion> _parametrofuncion_5 = funcion_1.getParametrofuncion();
+                      EList<Declaracion> _declaraciones_7 = funcion_1.getDeclaraciones();
+                      EList<Parametro> _parametros_5 = funcion_1.getParametros();
                       Implementacion _implementacion_3 = modulo.getImplementacion();
-                      EList<Declaracion> _global_7 = _implementacion_3.getGlobal();
+                      EList<Declaracion> _globales_7 = _implementacion_3.getGlobales();
                       Implementacion _implementacion_4 = modulo.getImplementacion();
-                      EList<TipoComplejo> _tipocomplejo_7 = _implementacion_4.getTipocomplejo();
+                      EList<TipoComplejo> _complejos_7 = _implementacion_4.getComplejos();
                       Implementacion _implementacion_5 = modulo.getImplementacion();
-                      EList<Subproceso> _funcion_10 = _implementacion_5.getFuncion();
-                      String _buscarTipoVariableSubproceso_5 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_24, _get_11, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_7, _parametrofuncion_5, _global_7, _tipocomplejo_7, _funcion_10);
+                      EList<Subproceso> _subprocesos_10 = _implementacion_5.getSubprocesos();
+                      String _buscarTipoVariableSubproceso_5 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_24, _get_11, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_7, _parametros_5, _globales_7, _complejos_7, _subprocesos_10);
                       tipo = _buscarTipoVariableSubproceso_5;
                     } else {
                       LlamadaFuncion _containerOfType_25 = EcoreUtil2.<LlamadaFuncion>getContainerOfType(element, LlamadaFuncion.class);
@@ -353,14 +353,14 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                         Integer _length_12 = issue.getLength();
                         String _get_12 = _xtextDocument_12.get((_offset_12).intValue(), (_length_12).intValue());
                         Implementacion _implementacion_6 = modulo.getImplementacion();
-                        EList<Subproceso> _funcion_11 = _implementacion_6.getFuncion();
-                        String _buscarTipoParametroLlamada_3 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_26, _get_12, _funcion_11);
+                        EList<Subproceso> _subprocesos_11 = _implementacion_6.getSubprocesos();
+                        String _buscarTipoParametroLlamada_3 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_26, _get_12, _subprocesos_11);
                         tipo = _buscarTipoParametroLlamada_3;
                       } else {
-                        segun _containerOfType_27 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                        Segun _containerOfType_27 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                         boolean _notEquals_16 = (!Objects.equal(_containerOfType_27, null));
                         if (_notEquals_16) {
-                          segun _containerOfType_28 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                          Segun _containerOfType_28 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                           String _buscarTipoVariableSegun_3 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(_containerOfType_28, VaryGrammarQuickfixProvider.this.readerKeywords);
                           tipo = _buscarTipoVariableSegun_3;
                         }
@@ -375,15 +375,15 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                   Integer _offset_13 = issue.getOffset();
                   Integer _length_13 = issue.getLength();
                   String _get_13 = _xtextDocument_13.get((_offset_13).intValue(), (_length_13).intValue());
-                  EList<Declaracion> _declaracion_8 = procedimiento_1.getDeclaracion();
-                  EList<ParametroFuncion> _parametrofuncion_6 = procedimiento_1.getParametrofuncion();
+                  EList<Declaracion> _declaraciones_8 = procedimiento_1.getDeclaraciones();
+                  EList<Parametro> _parametros_6 = procedimiento_1.getParametros();
                   Implementacion _implementacion_7 = modulo.getImplementacion();
-                  EList<Declaracion> _global_8 = _implementacion_7.getGlobal();
+                  EList<Declaracion> _globales_8 = _implementacion_7.getGlobales();
                   Implementacion _implementacion_8 = modulo.getImplementacion();
-                  EList<TipoComplejo> _tipocomplejo_8 = _implementacion_8.getTipocomplejo();
+                  EList<TipoComplejo> _complejos_8 = _implementacion_8.getComplejos();
                   Implementacion _implementacion_9 = modulo.getImplementacion();
-                  EList<Subproceso> _funcion_12 = _implementacion_9.getFuncion();
-                  String _buscarTipoVariableSubproceso_6 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_13, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_8, _parametrofuncion_6, _global_8, _tipocomplejo_8, _funcion_12);
+                  EList<Subproceso> _subprocesos_12 = _implementacion_9.getSubprocesos();
+                  String _buscarTipoVariableSubproceso_6 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(((Asignacion) element), _get_13, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_8, _parametros_6, _globales_8, _complejos_8, _subprocesos_12);
                   tipo = _buscarTipoVariableSubproceso_6;
                 } else {
                   if ((element instanceof VariableID)) {
@@ -395,15 +395,15 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                       Integer _offset_14 = issue.getOffset();
                       Integer _length_14 = issue.getLength();
                       String _get_14 = _xtextDocument_14.get((_offset_14).intValue(), (_length_14).intValue());
-                      EList<Declaracion> _declaracion_9 = procedimiento_1.getDeclaracion();
-                      EList<ParametroFuncion> _parametrofuncion_7 = procedimiento_1.getParametrofuncion();
+                      EList<Declaracion> _declaraciones_9 = procedimiento_1.getDeclaraciones();
+                      EList<Parametro> _parametros_7 = procedimiento_1.getParametros();
                       Implementacion _implementacion_10 = modulo.getImplementacion();
-                      EList<Declaracion> _global_9 = _implementacion_10.getGlobal();
+                      EList<Declaracion> _globales_9 = _implementacion_10.getGlobales();
                       Implementacion _implementacion_11 = modulo.getImplementacion();
-                      EList<TipoComplejo> _tipocomplejo_9 = _implementacion_11.getTipocomplejo();
+                      EList<TipoComplejo> _complejos_9 = _implementacion_11.getComplejos();
                       Implementacion _implementacion_12 = modulo.getImplementacion();
-                      EList<Subproceso> _funcion_13 = _implementacion_12.getFuncion();
-                      String _buscarTipoVariableSubproceso_7 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_30, _get_14, VaryGrammarQuickfixProvider.this.readerKeywords, _declaracion_9, _parametrofuncion_7, _global_9, _tipocomplejo_9, _funcion_13);
+                      EList<Subproceso> _subprocesos_13 = _implementacion_12.getSubprocesos();
+                      String _buscarTipoVariableSubproceso_7 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(_containerOfType_30, _get_14, VaryGrammarQuickfixProvider.this.readerKeywords, _declaraciones_9, _parametros_7, _globales_9, _complejos_9, _subprocesos_13);
                       tipo = _buscarTipoVariableSubproceso_7;
                     } else {
                       LlamadaFuncion _containerOfType_31 = EcoreUtil2.<LlamadaFuncion>getContainerOfType(element, LlamadaFuncion.class);
@@ -415,14 +415,14 @@ public class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
                         Integer _length_15 = issue.getLength();
                         String _get_15 = _xtextDocument_15.get((_offset_15).intValue(), (_length_15).intValue());
                         Implementacion _implementacion_13 = modulo.getImplementacion();
-                        EList<Subproceso> _funcion_14 = _implementacion_13.getFuncion();
-                        String _buscarTipoParametroLlamada_4 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_32, _get_15, _funcion_14);
+                        EList<Subproceso> _subprocesos_14 = _implementacion_13.getSubprocesos();
+                        String _buscarTipoParametroLlamada_4 = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(_containerOfType_32, _get_15, _subprocesos_14);
                         tipo = _buscarTipoParametroLlamada_4;
                       } else {
-                        segun _containerOfType_33 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                        Segun _containerOfType_33 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                         boolean _notEquals_19 = (!Objects.equal(_containerOfType_33, null));
                         if (_notEquals_19) {
-                          segun _containerOfType_34 = EcoreUtil2.<segun>getContainerOfType(element, segun.class);
+                          Segun _containerOfType_34 = EcoreUtil2.<Segun>getContainerOfType(element, Segun.class);
                           String _buscarTipoVariableSegun_4 = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(_containerOfType_34, VaryGrammarQuickfixProvider.this.readerKeywords);
                           tipo = _buscarTipoVariableSegun_4;
                         }

@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model abstract="true"
  * @generated
  */
-public interface Bloque extends Sentencias {
+public interface Bloque extends Sentencia {
 	/**
 	 * Returns the value of the '<em><b>Valor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -31,12 +31,12 @@ public interface Bloque extends Sentencias {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valor</em>' containment reference.
-	 * @see #setValor(operacion)
+	 * @see #setValor(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getBloque_Valor()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getValor();
+	Operacion getValor();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Bloque#getValor <em>Valor</em>}' containment reference.
@@ -46,11 +46,11 @@ public interface Bloque extends Sentencias {
 	 * @see #getValor()
 	 * @generated
 	 */
-	void setValor(operacion value);
+	void setValor(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Sentencias</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Sentencias}.
+	 * The list contents are of type {@link diagramapseudocodigo.Sentencia}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sentencias</em>' containment reference list isn't clear,
@@ -62,6 +62,6 @@ public interface Bloque extends Sentencias {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Sentencias> getSentencias();
+	EList<Sentencia> getSentencias();
 
 } // Bloque

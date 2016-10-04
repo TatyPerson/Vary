@@ -25,7 +25,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TipoComplejoItemProvider
+public class TipoComplejoItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -79,6 +79,7 @@ public class TipoComplejoItemProvider
 	public String getText(Object object) {
 		return getString("_UI_TipoComplejo_type");
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

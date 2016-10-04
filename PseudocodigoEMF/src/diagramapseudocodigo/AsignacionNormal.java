@@ -74,12 +74,12 @@ public interface AsignacionNormal extends Asignacion {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Operador</em>' containment reference.
-	 * @see #setOperador(operacion)
+	 * @see #setOperador(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getAsignacionNormal_Operador()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getOperador();
+	Operacion getOperador();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.AsignacionNormal#getOperador <em>Operador</em>}' containment reference.
@@ -89,6 +89,6 @@ public interface AsignacionNormal extends Asignacion {
 	 * @see #getOperador()
 	 * @generated
 	 */
-	void setOperador(operacion value);
+	void setOperador(Operacion value);
 
 } // AsignacionNormal

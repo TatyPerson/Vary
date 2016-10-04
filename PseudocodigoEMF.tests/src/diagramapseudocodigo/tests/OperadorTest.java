@@ -10,7 +10,7 @@ import diagramapseudocodigo.Operador;
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class OperadorTest extends valorTest {
+public abstract class OperadorTest extends ValorTest {
 
 	/**
 	 * Constructs a new Operador test case with the given name.

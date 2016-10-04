@@ -23,32 +23,6 @@ package diagramapseudocodigo;
  */
 public interface Vector extends TipoComplejo {
 	/**
-	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nombre</em>' attribute.
-	 * @see #setNombre(String)
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVector_Nombre()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getNombre();
-
-	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Vector#getNombre <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nombre</em>' attribute.
-	 * @see #getNombre()
-	 * @generated
-	 */
-	void setNombre(String value);
-
-	/**
 	 * Returns the value of the '<em><b>Valor</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -57,12 +31,12 @@ public interface Vector extends TipoComplejo {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valor</em>' containment reference.
-	 * @see #setValor(operacion)
+	 * @see #setValor(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVector_Valor()
 	 * @model containment="true"
 	 * @generated
 	 */
-	operacion getValor();
+	Operacion getValor();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Vector#getValor <em>Valor</em>}' containment reference.
@@ -72,7 +46,7 @@ public interface Vector extends TipoComplejo {
 	 * @see #getValor()
 	 * @generated
 	 */
-	void setValor(operacion value);
+	void setValor(Operacion value);
 
 	/**
 	 * Returns the value of the '<em><b>Tipo</b></em>' containment reference.
@@ -99,5 +73,31 @@ public interface Vector extends TipoComplejo {
 	 * @generated
 	 */
 	void setTipo(Tipo value);
+
+	/**
+	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nombre</em>' attribute.
+	 * @see #setNombre(String)
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVector_Nombre()
+	 * @model required="true"
+	 * @generated
+	 */
+	String getNombre();
+
+	/**
+	 * Sets the value of the '{@link diagramapseudocodigo.Vector#getNombre <em>Nombre</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Nombre</em>' attribute.
+	 * @see #getNombre()
+	 * @generated
+	 */
+	void setNombre(String value);
 
 } // Vector

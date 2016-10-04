@@ -19,7 +19,7 @@ package diagramapseudocodigo;
  * @model
  * @generated
  */
-public interface FuncionFicheroCerrar extends Sentencias {
+public interface FuncionFicheroCerrar extends Sentencia {
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -29,12 +29,12 @@ public interface FuncionFicheroCerrar extends Sentencias {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable</em>' containment reference.
-	 * @see #setVariable(operacion)
+	 * @see #setVariable(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncionFicheroCerrar_Variable()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getVariable();
+	Operacion getVariable();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.FuncionFicheroCerrar#getVariable <em>Variable</em>}' containment reference.
@@ -44,6 +44,6 @@ public interface FuncionFicheroCerrar extends Sentencias {
 	 * @see #getVariable()
 	 * @generated
 	 */
-	void setVariable(operacion value);
+	void setVariable(Operacion value);
 
 } // FuncionFicheroCerrar

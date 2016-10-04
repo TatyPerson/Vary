@@ -4,7 +4,6 @@ package diagramapseudocodigo;
 
 import org.eclipse.emf.ecore.EObject;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Devolver</b></em>'.
@@ -58,12 +57,12 @@ public interface Devolver extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Devuelve</em>' containment reference.
-	 * @see #setDevuelve(operacion)
+	 * @see #setDevuelve(Operacion)
 	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getDevolver_Devuelve()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	operacion getDevuelve();
+	Operacion getDevuelve();
 
 	/**
 	 * Sets the value of the '{@link diagramapseudocodigo.Devolver#getDevuelve <em>Devuelve</em>}' containment reference.
@@ -73,6 +72,6 @@ public interface Devolver extends EObject {
 	 * @see #getDevuelve()
 	 * @generated
 	 */
-	void setDevuelve(operacion value);
+	void setDevuelve(Operacion value);
 
 } // Devolver

@@ -26,8 +26,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FuncionItemProvider
-	extends SubprocesoItemProvider {
+public class FuncionItemProvider extends SubprocesoItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -130,6 +129,7 @@ public class FuncionItemProvider
 			getString("_UI_Funcion_type") :
 			getString("_UI_Funcion_type") + " " + label;
 	}
+	
 
 	/**
 	 * This handles model notifications by calling {@link #updateChildren} to update any cached

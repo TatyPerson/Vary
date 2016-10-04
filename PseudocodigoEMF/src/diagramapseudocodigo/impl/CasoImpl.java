@@ -5,16 +5,22 @@ package diagramapseudocodigo.impl;
 import diagramapseudocodigo.Caso;
 import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
-import diagramapseudocodigo.Sentencias;
-import diagramapseudocodigo.operacion;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Sentencia;
+
 import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -52,7 +58,7 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Sentencias> sentencias;
+	protected EList<Sentencia> sentencias;
 
 	/**
 	 * The cached value of the '{@link #getOperador() <em>Operador</em>}' containment reference.
@@ -62,7 +68,7 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 	 * @generated
 	 * @ordered
 	 */
-	protected operacion operador;
+	protected Operacion operador;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,9 +137,9 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Sentencias> getSentencias() {
+	public EList<Sentencia> getSentencias() {
 		if (sentencias == null) {
-			sentencias = new EObjectContainmentEList<Sentencias>(Sentencias.class, this, DiagramapseudocodigoPackage.CASO__SENTENCIAS);
+			sentencias = new EObjectContainmentEList<Sentencia>(Sentencia.class, this, DiagramapseudocodigoPackage.CASO__SENTENCIAS);
 		}
 		return sentencias;
 	}
@@ -143,7 +149,7 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public operacion getOperador() {
+	public Operacion getOperador() {
 		return operador;
 	}
 
@@ -152,8 +158,8 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOperador(operacion newOperador, NotificationChain msgs) {
-		operacion oldOperador = operador;
+	public NotificationChain basicSetOperador(Operacion newOperador, NotificationChain msgs) {
+		Operacion oldOperador = operador;
 		operador = newOperador;
 		if (eNotificationRequired()) {
 			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CASO__OPERADOR, oldOperador, newOperador);
@@ -167,7 +173,7 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOperador(operacion newOperador) {
+	public void setOperador(Operacion newOperador) {
 		if (newOperador != operador) {
 			NotificationChain msgs = null;
 			if (operador != null)
@@ -231,10 +237,10 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 				return;
 			case DiagramapseudocodigoPackage.CASO__SENTENCIAS:
 				getSentencias().clear();
-				getSentencias().addAll((Collection<? extends Sentencias>)newValue);
+				getSentencias().addAll((Collection<? extends Sentencia>)newValue);
 				return;
 			case DiagramapseudocodigoPackage.CASO__OPERADOR:
-				setOperador((operacion)newValue);
+				setOperador((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -255,7 +261,7 @@ public class CasoImpl extends MinimalEObjectImpl.Container implements Caso {
 				getSentencias().clear();
 				return;
 			case DiagramapseudocodigoPackage.CASO__OPERADOR:
-				setOperador((operacion)null);
+				setOperador((Operacion)null);
 				return;
 		}
 		super.eUnset(featureID);

@@ -3,7 +3,7 @@
 */
 package vary.pseudocodigo.dsl.c.ui.quickfix
 
-import diagramapseudocodigo.Constantes
+import diagramapseudocodigo.Constante
 import org.eclipse.emf.ecore.EObject
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
@@ -20,7 +20,7 @@ import diagramapseudocodigo.Asignacion
 import diagramapseudocodigo.VariableID
 import diagramapseudocodigo.AsignacionNormal
 import diagramapseudocodigo.Declaracion
-import diagramapseudocodigo.DeclaracionVariable
+import diagramapseudocodigo.DeclaracionBasica
 import diagramapseudocodigo.Inicio
 import vary.pseudocodigo.dsl.c.keywords.ReadKeywordsInterface
 import vary.pseudocodigo.dsl.c.keywords.ReadKeywords
@@ -32,7 +32,7 @@ import diagramapseudocodigo.Funcion
 import diagramapseudocodigo.Procedimiento
 import diagramapseudocodigo.Modulo
 import diagramapseudocodigo.LlamadaFuncion
-import diagramapseudocodigo.segun
+import diagramapseudocodigo.Segun
 
 /**
  * Custom quickfixes.
@@ -66,14 +66,14 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 				if(element.getContainerOfType(typeof(Algoritmo)) != null) {
 					VaryGrammarModelUtil::addConstante(
 					element.getContainerOfType(typeof(Algoritmo)),
-					element.getContainerOfType(typeof(Constantes)),
+					element.getContainerOfType(typeof(Constante)),
 					indice
 					)
 				}
 				else if(element.getContainerOfType(typeof(Implementacion)) != null) {
 					VaryGrammarModelUtil::addConstante(
 					element.getContainerOfType(typeof(Implementacion)),
-					element.getContainerOfType(typeof(Constantes)),
+					element.getContainerOfType(typeof(Constante)),
 					indice
 					)
 				}
@@ -93,16 +93,16 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 					if(element.getContainerOfType(typeof(Inicio)) != null) {
 						var inicio = element.getContainerOfType(typeof(Inicio))
 						if(element instanceof Asignacion) {
-							tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(element as Asignacion,context.xtextDocument.get(issue.offset, issue.length), readerKeywords, inicio.declaracion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+							tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(element as Asignacion,context.xtextDocument.get(issue.offset, issue.length), readerKeywords, inicio.declaraciones, algoritmo.globales, algoritmo.complejos, algoritmo.subprocesos)
 						} else if(element instanceof VariableID) {
 							if(element.getContainerOfType(typeof(Asignacion)) != null) {
-								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(element.getContainerOfType(typeof(Asignacion)),context.xtextDocument.get(issue.offset, issue.length), readerKeywords, inicio.declaracion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariable(element.getContainerOfType(typeof(Asignacion)),context.xtextDocument.get(issue.offset, issue.length), readerKeywords, inicio.declaraciones, algoritmo.globales, algoritmo.complejos, algoritmo.subprocesos)
 							}
 							else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
-								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.funcion)
+								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.subprocesos)
 							}
-							else if(element.getContainerOfType(typeof(segun)) != null) {
-								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+							else if(element.getContainerOfType(typeof(Segun)) != null) {
+								tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(Segun)), readerKeywords)
 							}
 						}
 					}
@@ -111,17 +111,17 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 						if(subproceso instanceof Funcion) {
 					 		var funcion = subproceso as Funcion
 					 		if(element instanceof Asignacion) {
-					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaraciones, funcion.parametros, algoritmo.globales, algoritmo.complejos, algoritmo.subprocesos)
 					 		}
 					 		else if(element instanceof VariableID) {
 					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
-					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaraciones, funcion.parametros, algoritmo.globales, algoritmo.complejos, algoritmo.subprocesos)
 					 			}
 					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.funcion)
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.subprocesos)
 								} 
-								else if(element.getContainerOfType(typeof(segun)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								else if(element.getContainerOfType(typeof(Segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(Segun)), readerKeywords)
 								}
 								
 					 		}
@@ -129,17 +129,17 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 					 	else {
 					 		var procedimiento = subproceso as Procedimiento
 					 		if(element instanceof Asignacion) {
-					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaraciones, procedimiento.parametros, algoritmo.globales, algoritmo.complejos, algoritmo.subprocesos)
 					 		}
 					 		else if(element instanceof VariableID) {
 					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
-					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, algoritmo.global, algoritmo.tipocomplejo, algoritmo.funcion)
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaraciones, procedimiento.parametros, algoritmo.globales, algoritmo.complejos, algoritmo.subprocesos)
 					 			}
 					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.funcion)
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), algoritmo.subprocesos)
 								}
-								else if(element.getContainerOfType(typeof(segun)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								else if(element.getContainerOfType(typeof(Segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(Segun)), readerKeywords)
 								}
 					 		}
 					 	}
@@ -152,34 +152,34 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
 						if(subproceso instanceof Funcion) {
 					 		var funcion = subproceso as Funcion
 					 		if(element instanceof Asignacion) {
-					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaraciones, funcion.parametros, modulo.implementacion.globales, modulo.implementacion.complejos, modulo.implementacion.subprocesos)
 					 		}
 					 		else if(element instanceof VariableID) {
 					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
-					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaracion, funcion.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, funcion.declaraciones, funcion.parametros, modulo.implementacion.globales, modulo.implementacion.complejos, modulo.implementacion.subprocesos)
 					 			}
 					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), modulo.implementacion.funcion)
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), modulo.implementacion.subprocesos)
 								}
-								else if(element.getContainerOfType(typeof(segun)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								else if(element.getContainerOfType(typeof(Segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(Segun)), readerKeywords)
 								}
 					 		}
 					 	}
 					 	else {
 					 		var procedimiento = subproceso as Procedimiento
 					 		if(element instanceof Asignacion) {
-					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 			tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element as Asignacion, context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaraciones, procedimiento.parametros, modulo.implementacion.globales, modulo.implementacion.complejos, modulo.implementacion.subprocesos)
 					 		}
 					 		else if(element instanceof VariableID) {
 					 			if(element.getContainerOfType(typeof(Asignacion)) != null) {
-					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaracion, procedimiento.parametrofuncion, modulo.implementacion.global, modulo.implementacion.tipocomplejo, modulo.implementacion.funcion)
+					 				tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSubproceso(element.getContainerOfType(typeof(Asignacion)), context.xtextDocument.get(issue.offset, issue.length), readerKeywords, procedimiento.declaraciones, procedimiento.parametros, modulo.implementacion.globales, modulo.implementacion.complejos, modulo.implementacion.subprocesos)
 					 			}
 					 			else if(element.getContainerOfType(typeof(LlamadaFuncion)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), modulo.implementacion.funcion)
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoParametroLlamada(element.getContainerOfType(typeof(LlamadaFuncion)), context.xtextDocument.get(issue.offset, issue.length), modulo.implementacion.subprocesos)
 								}
-								else if(element.getContainerOfType(typeof(segun)) != null) {
-									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(segun)), readerKeywords)
+								else if(element.getContainerOfType(typeof(Segun)) != null) {
+									tipo = VaryGrammarQuickfixProviderUtil.buscarTipoVariableSegun(element.getContainerOfType(typeof(Segun)), readerKeywords)
 								}
 					 		}
 					 	}

@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class MultiplicacionTest extends operacionTest {
+public class MultiplicacionTest extends OperacionTest {
 
 	/**
 	 * <!-- begin-user-doc -->

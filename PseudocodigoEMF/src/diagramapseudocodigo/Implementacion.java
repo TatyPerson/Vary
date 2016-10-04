@@ -15,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Implementacion#getFuncion <em>Funcion</em>}</li>
- *   <li>{@link diagramapseudocodigo.Implementacion#getGlobal <em>Global</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Implementacion#getSubprocesos <em>Subprocesos</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Implementacion#getGlobales <em>Globales</em>}</li>
  *   <li>{@link diagramapseudocodigo.Implementacion#getConstantes <em>Constantes</em>}</li>
- *   <li>{@link diagramapseudocodigo.Implementacion#getTipocomplejo <em>Tipocomplejo</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Implementacion#getComplejos <em>Complejos</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion()
@@ -27,40 +27,40 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Implementacion extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Funcion</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Subprocesos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Subproceso}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Funcion</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Subprocesos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Funcion</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion_Funcion()
+	 * @return the value of the '<em>Subprocesos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion_Subprocesos()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Subproceso> getFuncion();
+	EList<Subproceso> getSubprocesos();
 
 	/**
-	 * Returns the value of the '<em><b>Global</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Globales</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Declaracion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Global</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Globales</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Global</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion_Global()
+	 * @return the value of the '<em>Globales</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion_Globales()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Declaracion> getGlobal();
+	EList<Declaracion> getGlobales();
 
 	/**
 	 * Returns the value of the '<em><b>Constantes</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.Constantes}.
+	 * The list contents are of type {@link diagramapseudocodigo.Constante}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Constantes</em>' containment reference list isn't clear,
@@ -72,22 +72,22 @@ public interface Implementacion extends EObject {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Constantes> getConstantes();
+	EList<Constante> getConstantes();
 
 	/**
-	 * Returns the value of the '<em><b>Tipocomplejo</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Complejos</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.TipoComplejo}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Tipocomplejo</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Complejos</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tipocomplejo</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion_Tipocomplejo()
+	 * @return the value of the '<em>Complejos</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getImplementacion_Complejos()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<TipoComplejo> getTipocomplejo();
+	EList<TipoComplejo> getComplejos();
 
 } // Implementacion

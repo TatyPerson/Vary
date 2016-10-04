@@ -11,8 +11,8 @@ import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor
 import diagramapseudocodigo.Modulo
 import diagramapseudocodigo.Variable
 import diagramapseudocodigo.Declaracion
-import diagramapseudocodigo.DeclaracionVariable
-import diagramapseudocodigo.DeclaracionPropia
+import diagramapseudocodigo.DeclaracionBasica
+import diagramapseudocodigo.DeclaracionDefinida
 import org.eclipse.xtext.RuleCall
 import org.eclipse.xtext.EcoreUtil2
 import diagramapseudocodigo.Algoritmo
@@ -28,13 +28,13 @@ import diagramapseudocodigo.Subproceso
 import diagramapseudocodigo.Procedimiento
 import diagramapseudocodigo.Funcion
 import diagramapseudocodigo.AsignacionNormal
-import diagramapseudocodigo.ParametroFuncion
+import diagramapseudocodigo.Parametro
 import diagramapseudocodigo.LlamadaFuncion
 import diagramapseudocodigo.ValorRegistro
 import diagramapseudocodigo.ValorVector
 import diagramapseudocodigo.ValorMatriz
 import diagramapseudocodigo.TipoDefinido
-import diagramapseudocodigo.TipoExistente
+import diagramapseudocodigo.TipoBasico
 import org.eclipse.xtext.Keyword
 import com.google.common.collect.Sets
 import com.google.inject.Inject
@@ -126,25 +126,25 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	}
 	
 	//Proposal para las variables definidas con un tipo personalizado -----------------------------------------------------
-	override void completeDeclaracionPropia_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override void completeDeclaracionDefinida_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		
 		if(context.getRootModel instanceof Algoritmo) {
 			var tiposLocales = new ArrayList<String>()
 			var algoritmo = context.getRootModel() as Algoritmo;
 			//Cogemos todos los tipos
-			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo, tiposLocales)
-			completeDeclaracionPropia_TipoModulos(context, acceptor, algoritmo.importaciones, tiposLocales)
+			tiposLocales = completeDeclaracionDefinida_TipoAux(context, acceptor, algoritmo.complejos, tiposLocales)
+			completeDeclaracionDefinida_TipoModulos(context, acceptor, algoritmo.importaciones, tiposLocales)
 		}
 		else if(context.getRootModel instanceof Modulo) {
 			var tiposLocales = new ArrayList<String>()
 			var modulo = context.getRootModel() as Modulo;
 			//Cogemos todos los tipos
-			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo, tiposLocales)
-			completeDeclaracionPropia_TipoModulos(context, acceptor, modulo.importaciones, tiposLocales)
+			tiposLocales = completeDeclaracionDefinida_TipoAux(context, acceptor, modulo.implementacion.complejos, tiposLocales)
+			completeDeclaracionDefinida_TipoModulos(context, acceptor, modulo.importaciones, tiposLocales)
 		}
 	}
 	
-	def ArrayList<String> completeDeclaracionPropia_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<TipoComplejo> complejos, ArrayList<String> tiposLocales) {
+	def ArrayList<String> completeDeclaracionDefinida_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<TipoComplejo> complejos, ArrayList<String> tiposLocales) {
 		for(tipo: complejos) {
 			if(tipo instanceof Vector) {
 				var vector = tipo as Vector
@@ -193,9 +193,9 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		return tiposLocales
 	}
 	
-	def void completeDeclaracionPropia_TipoModulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos, ArrayList<String> tiposLocales) {
+	def void completeDeclaracionDefinida_TipoModulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos, ArrayList<String> tiposLocales) {
 		for(modulo: modulos) {
-			for(tipo: modulo.implementacion.tipocomplejo) {
+			for(tipo: modulo.implementacion.complejos) {
 				if(tipo instanceof Vector) {
 					var vector = tipo as Vector
 					if(modulo.exporta_tipos.contains(vector.nombre) && !tiposLocales.contains(vector.nombre)) {
@@ -269,20 +269,20 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	}
 	
 	//Proposal para las variables definidas con un tipo nativo ------------------------------------------------------------
-	override void completeDeclaracionVariable_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override void completeDeclaracionBasica_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var algoritmo = context.getRootModel() as Algoritmo;
 			//Cogemos todos los tipos
-			completeDeclaracionVariable_TipoAux(context, acceptor)
+			completeDeclaracionBasica_TipoAux(context, acceptor)
 		}
 		else if(context.getRootModel instanceof Modulo) {
 			var modulo = context.getRootModel() as Modulo;
 			//Cogemos todos los tipos
-			completeDeclaracionVariable_TipoAux(context, acceptor)
+			completeDeclaracionBasica_TipoAux(context, acceptor)
 		}
 	}
 	
-	def void completeDeclaracionVariable_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	def void completeDeclaracionBasica_TipoAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		//Añadimos todas las propuestas con los tipos nativos posibles
 		var styledString = new StyledString(readerKeywords.getBundle.getString("KEYWORD_ENTERO"))
 		styledString.setStyle(0, styledString.length, StyledString.DECORATIONS_STYLER)
@@ -312,16 +312,16 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		completeAsignacionNormalCompleja_Operador(model, assignment, context, acceptor)
 	}
 	
-	def completeAsignacionNormal_OperadorParametrosSubproceso(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<ParametroFuncion> parametros) {
-		for(ParametroFuncion parametro: parametros) {
+	def completeAsignacionNormal_OperadorParametrosSubproceso(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Parametro> parametros) {
+		for(Parametro parametro: parametros) {
 			if(parametro.tipo instanceof TipoDefinido) {
 				var tipoDefinido = parametro.tipo as TipoDefinido
 				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoDefinido.tipo)
 				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
 				acceptor.accept(completionProposal)
-			} else if(parametro.tipo instanceof TipoExistente) {
-				var tipoExistente = parametro.tipo as TipoExistente
-				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoExistente.tipo)
+			} else if(parametro.tipo instanceof TipoBasico) {
+				var tipoBasico = parametro.tipo as TipoBasico
+				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoBasico.tipo)
 				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
 				acceptor.accept(completionProposal)
 			}
@@ -330,17 +330,17 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def completeAsignacionNormal_OperadorAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Declaracion> declaraciones) {
 		for(Declaracion declaracion: declaraciones) {
-			if(declaracion instanceof DeclaracionPropia) {
-				var dec = declaracion as DeclaracionPropia
-				for(Variable v: dec.variable) {
+			if(declaracion instanceof DeclaracionDefinida) {
+				var dec = declaracion as DeclaracionDefinida
+				for(Variable v: dec.variables) {
 					var styledString = new StyledString(v.nombre + " : " + dec.tipo)
 					var completionProposal = createCompletionProposal(v.nombre, styledString, varPrivate, context)
 					acceptor.accept(completionProposal)
 				}
 			}
-			else if(declaracion instanceof DeclaracionVariable) {
-				var dec = declaracion as DeclaracionVariable
-				for(Variable v: dec.variable) {
+			else if(declaracion instanceof DeclaracionBasica) {
+				var dec = declaracion as DeclaracionBasica
+				for(Variable v: dec.variables) {
 					var styledString = new StyledString(v.nombre + " : " + dec.tipo)
 					var completionProposal = createCompletionProposal(v.nombre, styledString, varPrivate, context)
 					acceptor.accept(completionProposal)
@@ -351,13 +351,13 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def void completeAsignacionNormal_OperadorAuxModulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<String> variablesLocales, List<Modulo> modulos) {
 		for(modulo: modulos) {
-			var variablesPublicas = registrarVariables(modulo.exporta_global)
-			for(declaracion: modulo.implementacion.global) {
-				if(declaracion instanceof DeclaracionVariable) {
-					var declaracionVariable = declaracion as DeclaracionVariable
-					for(variable: declaracionVariable.variable) {
+			var variablesPublicas = registrarVariables(modulo.exporta_globales)
+			for(declaracion: modulo.implementacion.globales) {
+				if(declaracion instanceof DeclaracionBasica) {
+					var declaracionBasica = declaracion as DeclaracionBasica
+					for(variable: declaracionBasica.variables) {
 						if(!variablesLocales.contains(variable.nombre) && variablesPublicas.contains(variable.nombre)) {
-							var styledString = new StyledString(variable.nombre + " : " + declaracionVariable.tipo)
+							var styledString = new StyledString(variable.nombre + " : " + declaracionBasica.tipo)
 							var styledStringAux = new StyledString(" - " + modulo.nombre)
 							styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 							styledString.append(styledStringAux)
@@ -365,9 +365,9 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 							acceptor.accept(completionProposal)
 						}
 					}
-				} else if(declaracion instanceof DeclaracionPropia) {
-					var declaracionPropia = declaracion as DeclaracionPropia
-					for(variable: declaracionPropia.variable) {
+				} else if(declaracion instanceof DeclaracionDefinida) {
+					var declaracionPropia = declaracion as DeclaracionDefinida
+					for(variable: declaracionPropia.variables) {
 						if(!variablesLocales.contains(variable.nombre) && variablesPublicas.contains(variable.nombre)) {
 							var styledString = new StyledString(variable.nombre + " : " + declaracionPropia.tipo)
 							var styledStringAux = new StyledString(" - " + modulo.nombre)
@@ -382,7 +382,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		}
 	}
 	
-	def ArrayList<String> registrarParametros(List<ParametroFuncion> parametros) {
+	def ArrayList<String> registrarParametros(List<Parametro> parametros) {
 		var variables = new ArrayList<String>()
 		for(parametro: parametros) {
 			variables.add(parametro.variable.nombre)
@@ -393,15 +393,15 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	def ArrayList<String> registrarVariables(List<Declaracion> declaraciones) {
 		var variables = new ArrayList<String>()
 		for(declaracion: declaraciones) {
-			if(declaracion instanceof DeclaracionVariable) {
-				var declaracionVariable = declaracion as DeclaracionVariable
-				for(variable: declaracionVariable.variable) {
+			if(declaracion instanceof DeclaracionBasica) {
+				var declaracionBasica = declaracion as DeclaracionBasica
+				for(variable: declaracionBasica.variables) {
 				variables.add(variable.nombre)
 				}
 			}
-			else if(declaracion instanceof DeclaracionPropia) {
-				var declaracionPropia = declaracion as DeclaracionPropia
-				for(variable: declaracionPropia.variable) {
+			else if(declaracion instanceof DeclaracionDefinida) {
+				var declaracionDefinida = declaracion as DeclaracionDefinida
+				for(variable: declaracionDefinida.variables) {
 				variables.add(variable.nombre)
 			}
 			}
@@ -422,33 +422,33 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
 			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
 			var algoritmo = context.getRootModel() as Algoritmo;
-			completeFuncionesAsignacion(context, acceptor, algoritmo.funcion)
+			completeFuncionesAsignacion(context, acceptor, algoritmo.subprocesos)
 			completeFuncionesAsignacion_Modulos(context, acceptor, algoritmo.importaciones)
 			var variablesLocales = new ArrayList<String>()
-			variablesLocales = registrarVariables(algoritmo.global)
-			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
+			variablesLocales = registrarVariables(algoritmo.globales)
+			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.globales)
 			
 			if(procedimiento == null && funcion == null) {
 				//Si los dos son nulos pertenece a Inicio
-				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
-				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
-				variablesLocales.addAll(registrarVariables(algoritmo.tiene.declaracion))
+				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.inicio.declaraciones)
+				variablesLocales.addAll(registrarVariables(algoritmo.inicio.declaraciones))
+				variablesLocales.addAll(registrarVariables(algoritmo.inicio.declaraciones))
 				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
 			}
 			else {
 				if(procedimiento != null) {
-					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
-					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
-					variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
-					variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
+					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaraciones)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametros)
+					variablesLocales.addAll(registrarVariables(procedimiento.declaraciones))
+					variablesLocales.addAll(registrarParametros(procedimiento.parametros))
 					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
 					
 				}
 				else if(funcion != null) {
-					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
-					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
-					variablesLocales.addAll(registrarVariables(funcion.declaracion))
-					variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
+					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaraciones)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametros)
+					variablesLocales.addAll(registrarVariables(funcion.declaraciones))
+					variablesLocales.addAll(registrarParametros(funcion.parametros))
 					completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, algoritmo.importaciones)
 				}
 			}
@@ -460,24 +460,24 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var procedimiento = EcoreUtil2.getContainerOfType(asignacionNormal, Procedimiento)
 			var funcion = EcoreUtil2.getContainerOfType(asignacionNormal, Funcion)
 			var modulo = context.getRootModel() as Modulo
-			completeFuncionesAsignacion(context, acceptor, modulo.implementacion.funcion)
+			completeFuncionesAsignacion(context, acceptor, modulo.implementacion.subprocesos)
 			completeFuncionesAsignacion_Modulos(context, acceptor, modulo.importaciones)
 			var variablesLocales = new ArrayList<String>()
-			variablesLocales = registrarVariables(modulo.implementacion.global)
-			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
+			variablesLocales = registrarVariables(modulo.implementacion.globales)
+			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.globales)
 			
 			if(procedimiento != null) {
-				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
-				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
-				variablesLocales.addAll(registrarVariables(procedimiento.declaracion))
-				variablesLocales.addAll(registrarParametros(procedimiento.parametrofuncion))
+				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaraciones)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametros)
+				variablesLocales.addAll(registrarVariables(procedimiento.declaraciones))
+				variablesLocales.addAll(registrarParametros(procedimiento.parametros))
 				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
 			}
 			else if(funcion != null) {
-				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
-				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
-				variablesLocales.addAll(registrarVariables(funcion.declaracion))
-				variablesLocales.addAll(registrarParametros(funcion.parametrofuncion))
+				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaraciones)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametros)
+				variablesLocales.addAll(registrarVariables(funcion.declaraciones))
+				variablesLocales.addAll(registrarParametros(funcion.parametros))
 				completeAsignacionNormal_OperadorAuxModulos(context, acceptor, variablesLocales, modulo.importaciones)
 			}
 		}
@@ -489,12 +489,12 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			if(subproceso instanceof Funcion) {
 				var funcion = subproceso as Funcion
 				var styledString = new StyledString(funcion.nombre + "(")
-				if(funcion.parametrofuncion.size == 0) {
+				if(funcion.parametros.size == 0) {
 					styledString.append(")")
 				}
 				else {
-					for(ParametroFuncion p: funcion.parametrofuncion) {
-						if(funcion.parametrofuncion.indexOf(p) != funcion.parametrofuncion.size - 1) {
+					for(Parametro p: funcion.parametros) {
+						if(funcion.parametros.indexOf(p) != funcion.parametros.size - 1) {
 							styledString.append(p.variable.nombre + ",")
 						}
 						else {
@@ -512,18 +512,18 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def void completeFuncionesAsignacion_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos) {
 		for(modulo: modulos) {
-			for(subproceso: modulo.implementacion.funcion) {
+			for(subproceso: modulo.implementacion.subprocesos) {
 				if(subproceso instanceof Funcion) {
 					var funcion = subproceso as Funcion
-					var funciones_publicas = registrarFuncionesPublicas(modulo.exporta_funciones)
+					var funciones_publicas = registrarFuncionesPublicas(modulo.exporta_subprocesos)
 					if(funciones_publicas.contains(funcion.nombre)) {
 						var styledString = new StyledString(funcion.nombre + "(")
-						if(funcion.parametrofuncion.size == 0) {
+						if(funcion.parametros.size == 0) {
 							styledString.append(")")
 						}
 						else {
-							for(ParametroFuncion p: funcion.parametrofuncion) {
-								if(funcion.parametrofuncion.indexOf(p) != funcion.parametrofuncion.size - 1) {
+							for(Parametro p: funcion.parametros) {
+								if(funcion.parametros.indexOf(p) != funcion.parametros.size - 1) {
 									styledString.append(p.variable.nombre + ",")
 								}
 								else {
@@ -556,9 +556,9 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	//Proposal para las llamadas a funciones ------------------------------------------------------------------------------
 	
-	override void completeInicio_Tiene(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override void completeInicio_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		var algoritmo = context.getRootModel() as Algoritmo
-		for(Subproceso s: algoritmo.funcion) {
+		for(Subproceso s: algoritmo.subprocesos) {
 			if(s instanceof Procedimiento) {
 				//Sólo los procedimientos porque son los que no devuelven nada
 				var procedimiento = s as Procedimiento
@@ -607,7 +607,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	def void complete_Sentencias(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var algoritmo = context.getRootModel as Algoritmo
-			for(Subproceso s: algoritmo.funcion) {
+			for(Subproceso s: algoritmo.subprocesos) {
 				if(s instanceof Procedimiento) {
 					//Sólo los procedimientos porque son los que no devuelven nada
 					var procedimiento = s as Procedimiento
@@ -618,7 +618,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		}
 		else if(context.getRootModel instanceof Modulo) {
 			var modulo = context.getRootModel as Modulo
-			for(Subproceso s: modulo.implementacion.funcion) {
+			for(Subproceso s: modulo.implementacion.subprocesos) {
 				//Sólo los procedimientos porque son los que no devuelven nada
 				var procedimiento = s as Procedimiento
 				complete_SentenciasAux(context, acceptor, procedimiento)
@@ -629,12 +629,12 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def void complete_SentenciasAux(ContentAssistContext context, ICompletionProposalAcceptor acceptor, Procedimiento procedimiento) {
 		var styledString = new StyledString(procedimiento.nombre + "(")
-		if(procedimiento.parametrofuncion.size == 0) {
+		if(procedimiento.parametros.size == 0) {
 			styledString.append(")")
 		}
 		else {
-			for(ParametroFuncion p: procedimiento.parametrofuncion) {
-				if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
+			for(Parametro p: procedimiento.parametros) {
+				if(procedimiento.parametros.indexOf(p) != procedimiento.parametros.size - 1) {
 					styledString.append(p.variable.nombre + ",")
 				}
 				else {
@@ -649,20 +649,20 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	def void complete_SentenciasAux_Modulos(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Modulo> modulos) {
 		var procedimiento_literal = new String();
 		for(modulo: modulos) {
-			for(subproceso: modulo.implementacion.funcion) {
+			for(subproceso: modulo.implementacion.subprocesos) {
 				if(subproceso instanceof Procedimiento) {
 					var procedimiento = subproceso as Procedimiento
-					for(cabeceraFuncion: modulo.exporta_funciones) {
-						if(cabeceraFuncion.nombre.equals(procedimiento.nombre) && cabeceraFuncion.parametrofuncion.size == procedimiento.parametrofuncion.size) {
+					for(cabeceraFuncion: modulo.exporta_subprocesos) {
+						if(cabeceraFuncion.nombre.equals(procedimiento.nombre) && cabeceraFuncion.parametros.size == procedimiento.parametros.size) {
 						var styledString = new StyledString(procedimiento.nombre + "(")
 						procedimiento_literal = procedimiento.nombre + "("
-						if(procedimiento.parametrofuncion.size == 0) {
+						if(procedimiento.parametros.size == 0) {
 							styledString.append(")")
 							procedimiento_literal = procedimiento_literal + ")"
 						}
 						else {
-							for(ParametroFuncion p: procedimiento.parametrofuncion) {
-								if(procedimiento.parametrofuncion.indexOf(p) != procedimiento.parametrofuncion.size - 1) {
+							for(Parametro p: procedimiento.parametros) {
+								if(procedimiento.parametros.indexOf(p) != procedimiento.parametros.size - 1) {
 									styledString.append(p.variable.nombre + ",")
 									procedimiento_literal = procedimiento_literal + p.variable.nombre + ","
 								}
@@ -692,21 +692,21 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var procedimiento = EcoreUtil2.getContainerOfType(llamadaFuncion, Procedimiento)
 			var funcion = EcoreUtil2.getContainerOfType(llamadaFuncion, Funcion)
 			var algoritmo = context.getRootModel() as Algoritmo;
-			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.global)
+			completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.globales)
 			
 			if(procedimiento == null && funcion == null) {
 				//Si los dos son nulos pertenece a Inicio
-				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.tiene.declaracion)
+				completeAsignacionNormal_OperadorAux(context, acceptor, algoritmo.inicio.declaraciones)
 			}
 			else {
 				if(procedimiento != null) {
-					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
-					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+					completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaraciones)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametros)
 					
 				}
 				else if(funcion != null) {
-					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
-					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+					completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaraciones)
+					completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametros)
 				}
 			}
 			
@@ -717,15 +717,15 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var procedimiento = EcoreUtil2.getContainerOfType(llamadaFuncion, Procedimiento)
 			var funcion = EcoreUtil2.getContainerOfType(llamadaFuncion, Funcion)
 			var modulo = context.getRootModel() as Modulo
-			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.global)
+			completeAsignacionNormal_OperadorAux(context, acceptor, modulo.implementacion.globales)
 			
 			if(procedimiento != null) {
-				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaracion)
-				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametrofuncion)
+				completeAsignacionNormal_OperadorAux(context, acceptor, procedimiento.declaraciones)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, procedimiento.parametros)
 			}
 			else if(funcion != null) {
-				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaracion)
-				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametrofuncion)
+				completeAsignacionNormal_OperadorAux(context, acceptor, funcion.declaraciones)
+				completeAsignacionNormal_OperadorParametrosSubproceso(context, acceptor, funcion.parametros)
 			}
 			
 		}
@@ -742,24 +742,24 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var algoritmo = context.getRootModel as Algoritmo
 				
 				if(procedimiento == null && funcion == null) {
-					var declaraciones = algoritmo.tiene.declaracion
-					declaraciones.addAll(algoritmo.global)
-					var complejos = algoritmo.tipocomplejo
+					var declaraciones = algoritmo.inicio.declaraciones
+					declaraciones.addAll(algoritmo.globales)
+					var complejos = algoritmo.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, algoritmo.importaciones)
 				}
 				else {
 					if(procedimiento != null) {
-						var declaraciones = procedimiento.declaracion
-						declaraciones.addAll(algoritmo.global)
-						var complejos = algoritmo.tipocomplejo
+						var declaraciones = procedimiento.declaraciones
+						declaraciones.addAll(algoritmo.globales)
+						var complejos = algoritmo.complejos
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
 						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, algoritmo.importaciones)
 					}
 					else {
-						var declaraciones = funcion.declaracion
-						declaraciones.addAll(algoritmo.global)
-						var complejos = algoritmo.tipocomplejo
+						var declaraciones = funcion.declaraciones
+						declaraciones.addAll(algoritmo.globales)
+						var complejos = algoritmo.complejos
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
 						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, algoritmo.importaciones)
 					}
@@ -772,24 +772,24 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var algoritmo = context.getRootModel as Algoritmo
 				
 				if(procedimiento == null && funcion == null) {
-					var declaraciones = algoritmo.tiene.declaracion
-					declaraciones.addAll(algoritmo.global)
-					var complejos = algoritmo.tipocomplejo
+					var declaraciones = algoritmo.inicio.declaraciones
+					declaraciones.addAll(algoritmo.globales)
+					var complejos = algoritmo.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, algoritmo.importaciones)
 				}
 				else {
 					if(procedimiento != null) {
-						var declaraciones = procedimiento.declaracion
-						declaraciones.addAll(algoritmo.global)
-						var complejos = algoritmo.tipocomplejo
+						var declaraciones = procedimiento.declaraciones
+						declaraciones.addAll(algoritmo.globales)
+						var complejos = algoritmo.complejos
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
 						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, algoritmo.importaciones)
 					}
 					else {
-						var declaraciones = funcion.declaracion
-						declaraciones.addAll(algoritmo.global)
-						var complejos = algoritmo.tipocomplejo
+						var declaraciones = funcion.declaraciones
+						declaraciones.addAll(algoritmo.globales)
+						var complejos = algoritmo.complejos
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
 						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, algoritmo.importaciones)
 					}
@@ -802,24 +802,24 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var algoritmo = context.getRootModel as Algoritmo
 				
 				if(procedimiento == null && funcion == null) {
-					var declaraciones = algoritmo.tiene.declaracion
-					declaraciones.addAll(algoritmo.global)
-					var complejos = algoritmo.tipocomplejo
+					var declaraciones = algoritmo.inicio.declaraciones
+					declaraciones.addAll(algoritmo.globales)
+					var complejos = algoritmo.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, algoritmo.importaciones)
 				}
 				else {
 					if(procedimiento != null) {
-						var declaraciones = procedimiento.declaracion
-						declaraciones.addAll(algoritmo.global)
-						var complejos = algoritmo.tipocomplejo
+						var declaraciones = procedimiento.declaraciones
+						declaraciones.addAll(algoritmo.globales)
+						var complejos = algoritmo.complejos
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
 						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, algoritmo.importaciones)
 					}
 					else {
-						var declaraciones = funcion.declaracion
-						declaraciones.addAll(algoritmo.global)
-						var complejos = algoritmo.tipocomplejo
+						var declaraciones = funcion.declaraciones
+						declaraciones.addAll(algoritmo.globales)
+						var complejos = algoritmo.complejos
 						completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
 						completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, algoritmo.importaciones)
 					}
@@ -835,16 +835,16 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var funcion = EcoreUtil2.getContainerOfType(valorRegistro, Funcion)
 			
 				if(procedimiento != null) {
-					var declaraciones = procedimiento.declaracion
-					declaraciones.addAll(modulo.implementacion.global)
-					var complejos = modulo.implementacion.tipocomplejo
+					var declaraciones = procedimiento.declaraciones
+					declaraciones.addAll(modulo.implementacion.globales)
+					var complejos = modulo.implementacion.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, modulo.importaciones)
 				}
 				else {
-					var declaraciones = funcion.declaracion
-					declaraciones.addAll(modulo.implementacion.global)
-					var complejos = modulo.implementacion.tipocomplejo
+					var declaraciones = funcion.declaraciones
+					declaraciones.addAll(modulo.implementacion.globales)
+					var complejos = modulo.implementacion.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorRegistro.nombre_registro, modulo.importaciones)
 			
@@ -855,16 +855,16 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var funcion = EcoreUtil2.getContainerOfType(valorVector, Funcion)
 			
 				if(procedimiento != null) {
-					var declaraciones = procedimiento.declaracion
-					declaraciones.addAll(modulo.implementacion.global)
-					var complejos = modulo.implementacion.tipocomplejo
+					var declaraciones = procedimiento.declaraciones
+					declaraciones.addAll(modulo.implementacion.globales)
+					var complejos = modulo.implementacion.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, modulo.importaciones)
 				}
 				else {
-					var declaraciones = funcion.declaracion
-					declaraciones.addAll(modulo.implementacion.global)
-					var complejos = modulo.implementacion.tipocomplejo
+					var declaraciones = funcion.declaraciones
+					declaraciones.addAll(modulo.implementacion.globales)
+					var complejos = modulo.implementacion.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorVector.nombre_vector)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorVector.nombre_vector, modulo.importaciones)
 			
@@ -875,16 +875,16 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var funcion = EcoreUtil2.getContainerOfType(valorMatriz, Funcion)
 			
 				if(procedimiento != null) {
-					var declaraciones = procedimiento.declaracion
-					declaraciones.addAll(modulo.implementacion.global)
-					var complejos = modulo.implementacion.tipocomplejo
+					var declaraciones = procedimiento.declaraciones
+					declaraciones.addAll(modulo.implementacion.globales)
+					var complejos = modulo.implementacion.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, modulo.importaciones)
 				}
 				else {
-					var declaraciones = funcion.declaracion
-					declaraciones.addAll(modulo.implementacion.global)
-					var complejos = modulo.implementacion.tipocomplejo
+					var declaraciones = funcion.declaraciones
+					declaraciones.addAll(modulo.implementacion.globales)
+					var complejos = modulo.implementacion.complejos
 					completeCampoRegistro_Nombre_campoAux(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz)
 					completeCampoRegistro_Nombre_CampoAux_Modulos(context, acceptor, declaraciones, complejos, valorMatriz.nombre_matriz, modulo.importaciones)
 			
@@ -898,19 +898,19 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		var tipo = new String()
 		if(context.getCurrentModel instanceof ValorRegistro) {
 			for(Declaracion dec: declaraciones) {
-				if(dec instanceof DeclaracionPropia) {
-					var decPropia = dec as DeclaracionPropia
-					for(Variable v: decPropia.variable) {
+				if(dec instanceof DeclaracionDefinida) {
+					var declaracionDefinida = dec as DeclaracionDefinida
+					for(Variable v: declaracionDefinida.variables) {
 						if(v.nombre.equals(nombreVariable)) {
-							tipo = decPropia.tipo
+							tipo = declaracionDefinida.tipo
 						}
 					}
 				}
 				else {
-					var decVariable = dec as DeclaracionVariable
-					for(Variable v: decVariable.variable) {
+					var declaracionBasica = dec as DeclaracionBasica
+					for(Variable v: declaracionBasica.variables) {
 						if(v.nombre.equals(nombreVariable)) {
-							tipo = decVariable.tipo
+							tipo = declaracionBasica.tipo
 						}
 					}
 				}
@@ -918,19 +918,19 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		}
 		else if(context.getCurrentModel instanceof ValorVector || context.getCurrentModel instanceof ValorMatriz) {
 			for(Declaracion dec: declaraciones) {
-				if(dec instanceof DeclaracionPropia) {
-					var decPropia = dec as DeclaracionPropia
-					for(Variable v: decPropia.variable) {
+				if(dec instanceof DeclaracionDefinida) {
+					var declaracionDefinida = dec as DeclaracionDefinida
+					for(Variable v: declaracionDefinida.variables) {
 						if(v.nombre.equals(nombreVariable)) {
-							tipo = decPropia.tipo
+							tipo = declaracionDefinida.tipo
 						}
 					}
 				}
 				else {
-					var decVariable = dec as DeclaracionVariable
-					for(Variable v: decVariable.variable) {
+					var declaracionBasica = dec as DeclaracionBasica
+					for(Variable v: declaracionBasica.variables) {
 						if(v.nombre.equals(nombreVariable)) {
-							tipo = decVariable.tipo
+							tipo = declaracionBasica.tipo
 						}
 					}
 				}
@@ -943,8 +943,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 							var tipoDefinido = vector.tipo as TipoDefinido
 							tipo = tipoDefinido.tipo
 						} else {
-							var tipoExistente = vector.tipo as TipoExistente
-							tipo = tipoExistente.tipo
+							var tipoBasico = vector.tipo as TipoBasico
+							tipo = tipoBasico.tipo
 						}
 					}
 				} else if(complejo instanceof Matriz) {
@@ -954,8 +954,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 							var tipoDefinido = matriz.tipo as TipoDefinido
 							tipo = tipoDefinido.tipo
 						} else {
-							var tipoExistente = matriz.tipo as TipoExistente
-							tipo = tipoExistente.tipo
+							var tipoBasico = matriz.tipo as TipoBasico
+							tipo = tipoBasico.tipo
 						}
 					}
 				}
@@ -967,18 +967,18 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var registro = complejo as Registro
 				if(registro.nombre.equals(tipo)) {
 					for(Declaracion dec: registro.variable) {
-						if(dec instanceof DeclaracionPropia) {
-							var decPropia = dec as DeclaracionPropia
-							for(Variable v: decPropia.variable) {
-								var styledString = new StyledString(v.nombre + " : " + decPropia.tipo + " : " + tipo)
+						if(dec instanceof DeclaracionDefinida) {
+							var declaracionDefinida = dec as DeclaracionDefinida
+							for(Variable v: declaracionDefinida.variables) {
+								var styledString = new StyledString(v.nombre + " : " + declaracionDefinida.tipo + " : " + tipo)
 								var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
 								acceptor.accept(completionProposal)
 							}
 						}
 						else {
-							var decVariable = dec as DeclaracionVariable
-							for(Variable v: decVariable.variable) {
-								var styledString = new StyledString(v.nombre + " : " + decVariable.tipo + " : " + tipo)
+							var declaracionBasica = dec as DeclaracionBasica
+							for(Variable v: declaracionBasica.variables) {
+								var styledString = new StyledString(v.nombre + " : " + declaracionBasica.tipo + " : " + tipo)
 								var completionProposal = createCompletionProposal(v.nombre, styledString, fieldRegistry, context)
 								acceptor.accept(completionProposal)
 							}
@@ -995,19 +995,19 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			var tipo = new String()
 			if(context.getCurrentModel instanceof ValorRegistro) {
 				for(Declaracion dec: declaraciones) {
-					if(dec instanceof DeclaracionPropia) {
-						var decPropia = dec as DeclaracionPropia
-						for(Variable v: decPropia.variable) {
+					if(dec instanceof DeclaracionDefinida) {
+						var declaracionDefinida = dec as DeclaracionDefinida
+						for(Variable v: declaracionDefinida.variables) {
 							if(v.nombre.equals(nombreVariable)) {
-							tipo = decPropia.tipo
+							tipo = declaracionDefinida.tipo
 							}
 						}
 					}
 					else {
-						var decVariable = dec as DeclaracionVariable
-						for(Variable v: decVariable.variable) {
+						var declaracionBasica = dec as DeclaracionBasica
+						for(Variable v: declaracionBasica.variables) {
 							if(v.nombre.equals(nombreVariable)) {
-								tipo = decVariable.tipo
+								tipo = declaracionBasica.tipo
 							}
 						}
 					}
@@ -1015,24 +1015,24 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			}
 			else if(context.getCurrentModel instanceof ValorVector || context.getCurrentModel instanceof ValorMatriz) {
 				for(Declaracion dec: declaraciones) {
-					if(dec instanceof DeclaracionPropia) {
-						var decPropia = dec as DeclaracionPropia
-						for(Variable v: decPropia.variable) {
+					if(dec instanceof DeclaracionDefinida) {
+						var declaracionDefinida = dec as DeclaracionDefinida
+						for(Variable v: declaracionDefinida.variables) {
 							if(v.nombre.equals(nombreVariable)) {
-								tipo = decPropia.tipo
+								tipo = declaracionDefinida.tipo
 							}
 						}
 					}
 					else {
-						var decVariable = dec as DeclaracionVariable
-						for(Variable v: decVariable.variable) {
+						var declaracionBasica = dec as DeclaracionBasica
+						for(Variable v: declaracionBasica.variables) {
 							if(v.nombre.equals(nombreVariable)) {
-								tipo = decVariable.tipo
+								tipo = declaracionBasica.tipo
 							}
 						}
 					}
 				}
-				for(TipoComplejo complejo: modulo.implementacion.tipocomplejo) {
+				for(TipoComplejo complejo: modulo.implementacion.complejos) {
 					if(!complejos.contains(complejo)) {
 						if(complejo instanceof Vector) {
 							var vector = complejo as Vector
@@ -1041,8 +1041,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 									var tipoDefinido = vector.tipo as TipoDefinido
 									tipo = tipoDefinido.tipo
 								} else {
-									var tipoExistente = vector.tipo as TipoExistente
-									tipo = tipoExistente.tipo
+									var tipoBasico = vector.tipo as TipoBasico
+									tipo = tipoBasico.tipo
 								}
 							}
 						} else if(complejo instanceof Matriz) {
@@ -1052,8 +1052,8 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 									var tipoDefinido = matriz.tipo as TipoDefinido
 									tipo = tipoDefinido.tipo
 								} else {
-									var tipoExistente = matriz.tipo as TipoExistente
-									tipo = tipoExistente.tipo
+									var tipoBasico = matriz.tipo as TipoBasico
+									tipo = tipoBasico.tipo
 								}
 							}
 						}
@@ -1067,10 +1067,10 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						var registro = complejo as Registro
 						if(registro.nombre.equals(tipo)) {
 							for(Declaracion dec: registro.variable) {
-								if(dec instanceof DeclaracionPropia) {
-									var decPropia = dec as DeclaracionPropia
-									for(Variable v: decPropia.variable) {
-										var styledString = new StyledString(v.nombre + " : " + decPropia.tipo + " : " + tipo)
+								if(dec instanceof DeclaracionDefinida) {
+									var declaracionDefinida = dec as DeclaracionDefinida
+									for(Variable v: declaracionDefinida.variables) {
+										var styledString = new StyledString(v.nombre + " : " + declaracionDefinida.tipo + " : " + tipo)
 										var styledStringAux = new StyledString(" - " + modulo.nombre)
 										styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 										styledString.append(styledStringAux)
@@ -1079,9 +1079,9 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 									}	
 								}
 								else {
-									var decVariable = dec as DeclaracionVariable
-									for(Variable v: decVariable.variable) {
-										var styledString = new StyledString(v.nombre + " : " + decVariable.tipo + " : " + tipo)
+									var declaracionBasica = dec as DeclaracionBasica
+									for(Variable v: declaracionBasica.variables) {
+										var styledString = new StyledString(v.nombre + " : " + declaracionBasica.tipo + " : " + tipo)
 										var styledStringAux = new StyledString(" - " + modulo.nombre)
 										styledStringAux.setStyle(0, styledStringAux.length, StyledString.QUALIFIER_STYLER)
 										styledString.append(styledStringAux)
@@ -1103,18 +1103,18 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		if(context.getRootModel instanceof Algoritmo) {
 			var tiposLocales = new ArrayList<String>()
 			var algoritmo = context.getRootModel as Algoritmo
-			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, algoritmo.tipocomplejo, tiposLocales)
-			completeDeclaracionPropia_TipoModulos(context, acceptor, algoritmo.importaciones, tiposLocales)
+			tiposLocales = completeDeclaracionDefinida_TipoAux(context, acceptor, algoritmo.complejos, tiposLocales)
+			completeDeclaracionDefinida_TipoModulos(context, acceptor, algoritmo.importaciones, tiposLocales)
 		} else if(context.getRootModel instanceof Modulo) {
 			var tiposLocales = new ArrayList<String>()
 			var modulo = context.getRootModel as Modulo
-			tiposLocales = completeDeclaracionPropia_TipoAux(context, acceptor, modulo.implementacion.tipocomplejo, tiposLocales)
-			completeDeclaracionPropia_TipoModulos(context, acceptor, modulo.importaciones, tiposLocales)
+			tiposLocales = completeDeclaracionDefinida_TipoAux(context, acceptor, modulo.implementacion.complejos, tiposLocales)
+			completeDeclaracionDefinida_TipoModulos(context, acceptor, modulo.importaciones, tiposLocales)
 		}
 	}
 	
-	override void completeTipoExistente_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
-		completeDeclaracionVariable_TipoAux(context, acceptor)
+	override void completeTipoBasico_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+		completeDeclaracionBasica_TipoAux(context, acceptor)
 	}
 	
 	//Proposal para los tipo de paso de los parametros de los subprocesos-------------------------------------------------

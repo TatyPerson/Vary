@@ -13,7 +13,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class FuncionFicheroAbrirTest extends SentenciasTest {
+public class FuncionFicheroAbrirTest extends SentenciaTest {
 
 	/**
 	 * <!-- begin-user-doc -->

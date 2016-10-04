@@ -4,10 +4,10 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import diagramapseudocodigo.Algoritmo;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.DeclaracionBasica;
+import diagramapseudocodigo.DeclaracionDefinida;
 import diagramapseudocodigo.Inicio;
 import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Variable;
@@ -60,13 +60,13 @@ public class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDesc
             IEObjectDescription _create = EObjectDescription.create(fullyQualifiedName, algoritmo);
             acceptor.accept(_create);
           }
-          Inicio _tiene = algoritmo.getTiene();
-          EList<Declaracion> _declaracion = _tiene.getDeclaracion();
-          for (final Declaracion declaracion : _declaracion) {
-            if ((declaracion instanceof DeclaracionVariable)) {
-              DeclaracionVariable dec = ((DeclaracionVariable) declaracion);
-              EList<Variable> _variable = dec.getVariable();
-              for (final Variable variable : _variable) {
+          Inicio _inicio = algoritmo.getInicio();
+          EList<Declaracion> _declaraciones = _inicio.getDeclaraciones();
+          for (final Declaracion declaracion : _declaraciones) {
+            if ((declaracion instanceof DeclaracionBasica)) {
+              DeclaracionBasica dec = ((DeclaracionBasica) declaracion);
+              EList<Variable> _variables = dec.getVariables();
+              for (final Variable variable : _variables) {
                 {
                   String _nombre_1 = variable.getNombre();
                   final QualifiedName fullyQualifiedNameVar = QualifiedName.create(_nombre_1);
@@ -79,10 +79,10 @@ public class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDesc
                 }
               }
             } else {
-              if ((declaracion instanceof DeclaracionPropia)) {
-                DeclaracionPropia dec_1 = ((DeclaracionPropia) declaracion);
-                EList<Variable> _variable_1 = dec_1.getVariable();
-                for (final Variable variable_1 : _variable_1) {
+              if ((declaracion instanceof DeclaracionDefinida)) {
+                DeclaracionDefinida dec_1 = ((DeclaracionDefinida) declaracion);
+                EList<Variable> _variables_1 = dec_1.getVariables();
+                for (final Variable variable_1 : _variables_1) {
                   {
                     String _nombre_1 = variable_1.getNombre();
                     final QualifiedName fullyQualifiedNameVar = QualifiedName.create(_nombre_1);
@@ -102,12 +102,12 @@ public class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDesc
         _xifexpression_1 = _xblockexpression_1;
       } else {
         boolean _xifexpression_2 = false;
-        if ((eObject instanceof DeclaracionVariable)) {
+        if ((eObject instanceof DeclaracionBasica)) {
           boolean _xblockexpression_2 = false;
           {
-            DeclaracionVariable dec = ((DeclaracionVariable) eObject);
-            EList<Variable> _variable = dec.getVariable();
-            for (final Variable variable : _variable) {
+            DeclaracionBasica dec = ((DeclaracionBasica) eObject);
+            EList<Variable> _variables = dec.getVariables();
+            for (final Variable variable : _variables) {
               {
                 String _nombre = variable.getNombre();
                 final QualifiedName fullyQualifiedNameVar = QualifiedName.create(_nombre);
@@ -124,12 +124,12 @@ public class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDesc
           _xifexpression_2 = _xblockexpression_2;
         } else {
           boolean _xifexpression_3 = false;
-          if ((eObject instanceof DeclaracionPropia)) {
+          if ((eObject instanceof DeclaracionDefinida)) {
             boolean _xblockexpression_3 = false;
             {
-              DeclaracionPropia dec = ((DeclaracionPropia) eObject);
-              EList<Variable> _variable = dec.getVariable();
-              for (final Variable variable : _variable) {
+              DeclaracionDefinida dec = ((DeclaracionDefinida) eObject);
+              EList<Variable> _variables = dec.getVariables();
+              for (final Variable variable : _variables) {
                 {
                   String _nombre = variable.getNombre();
                   final QualifiedName fullyQualifiedNameVar = QualifiedName.create(_nombre);
@@ -146,10 +146,10 @@ public class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDesc
             _xifexpression_3 = _xblockexpression_3;
           } else {
             boolean _xifexpression_4 = false;
-            if ((eObject instanceof Constantes)) {
+            if ((eObject instanceof Constante)) {
               boolean _xblockexpression_4 = false;
               {
-                Constantes constante = ((Constantes) eObject);
+                Constante constante = ((Constante) eObject);
                 Variable _variable = constante.getVariable();
                 String _nombre = _variable.getNombre();
                 final QualifiedName fullyQualifiedName = QualifiedName.create(_nombre);

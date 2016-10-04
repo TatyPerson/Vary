@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.CabeceraSubproceso#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.CabeceraSubproceso#getParametrofuncion <em>Parametrofuncion</em>}</li>
+ *   <li>{@link diagramapseudocodigo.CabeceraSubproceso#getParametros <em>Parametros</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getCabeceraSubproceso()
@@ -51,19 +51,19 @@ public interface CabeceraSubproceso extends EObject {
 	void setNombre(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Parametrofuncion</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.ParametroFuncion}.
+	 * Returns the value of the '<em><b>Parametros</b></em>' containment reference list.
+	 * The list contents are of type {@link diagramapseudocodigo.Parametro}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Parametrofuncion</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Parametros</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parametrofuncion</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getCabeceraSubproceso_Parametrofuncion()
+	 * @return the value of the '<em>Parametros</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getCabeceraSubproceso_Parametros()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<ParametroFuncion> getParametrofuncion();
+	EList<Parametro> getParametros();
 
 } // CabeceraSubproceso

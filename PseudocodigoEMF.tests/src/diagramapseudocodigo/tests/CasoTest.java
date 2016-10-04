@@ -6,6 +6,7 @@ import diagramapseudocodigo.Caso;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**

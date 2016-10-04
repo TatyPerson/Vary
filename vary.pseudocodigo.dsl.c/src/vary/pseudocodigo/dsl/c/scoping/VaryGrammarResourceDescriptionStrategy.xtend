@@ -11,14 +11,11 @@ import diagramapseudocodigo.Modulo
 import org.eclipse.xtext.resource.EObjectDescription
 import org.eclipse.xtext.naming.QualifiedName
 import diagramapseudocodigo.Algoritmo
-import diagramapseudocodigo.CabeceraSubproceso
-import diagramapseudocodigo.CabeceraProcedimiento
-import diagramapseudocodigo.ParametroFuncion
-import diagramapseudocodigo.Constantes
+import diagramapseudocodigo.Constante
 import diagramapseudocodigo.Declaracion
-import diagramapseudocodigo.DeclaracionVariable
+import diagramapseudocodigo.DeclaracionBasica
 import diagramapseudocodigo.Variable
-import diagramapseudocodigo.DeclaracionPropia
+import diagramapseudocodigo.DeclaracionDefinida
 
 @Singleton
 class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescriptionStrategy {
@@ -71,10 +68,10 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 							fullyQualifiedName, algoritmo
 						)
 					)
-			for(Declaracion declaracion: algoritmo.tiene.declaracion) {
-				if(declaracion instanceof DeclaracionVariable) {
-					var dec = declaracion as DeclaracionVariable
-					for(Variable variable: dec.variable) {
+			for(Declaracion declaracion: algoritmo.inicio.declaraciones) {
+				if(declaracion instanceof DeclaracionBasica) {
+					var dec = declaracion as DeclaracionBasica
+					for(Variable variable: dec.variables) {
 						val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
 						System.out.println("Variable de Algoritmo - DeclaracionVariable "+fullyQualifiedNameVar)
 						if (fullyQualifiedNameVar != null)
@@ -84,9 +81,9 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 								)
 							)
 						}
-				}else if(declaracion instanceof DeclaracionPropia) {
-					var dec = declaracion as DeclaracionPropia
-					for(Variable variable: dec.variable) {
+				}else if(declaracion instanceof DeclaracionDefinida) {
+					var dec = declaracion as DeclaracionDefinida
+					for(Variable variable: dec.variables) {
 						val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
 						System.out.println("Variable de Algoritmo - DeclaracionPropia "+fullyQualifiedNameVar)
 						if (fullyQualifiedNameVar != null)
@@ -116,9 +113,9 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 				}
 			}*/
 		true
-		}else if(eObject instanceof DeclaracionVariable) {
-			var dec = eObject as DeclaracionVariable
-			for(Variable variable: dec.variable) {
+		}else if(eObject instanceof DeclaracionBasica) {
+			var dec = eObject as DeclaracionBasica
+			for(Variable variable: dec.variables) {
 				val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
 					System.out.println("Variable de DeclaracionVariable "+fullyQualifiedNameVar)
 						if (fullyQualifiedNameVar != null)
@@ -129,9 +126,9 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 							)
 			}
 			true
-		}else if(eObject instanceof DeclaracionPropia) {
-			var dec = eObject as DeclaracionPropia
-			for(Variable variable: dec.variable) {
+		}else if(eObject instanceof DeclaracionDefinida) {
+			var dec = eObject as DeclaracionDefinida
+			for(Variable variable: dec.variables) {
 				val fullyQualifiedNameVar = QualifiedName.create(variable.nombre)
 					System.out.println("Variable de DeclaracionPropia "+fullyQualifiedNameVar)
 						if (fullyQualifiedNameVar != null)
@@ -142,8 +139,8 @@ class VaryGrammarResourceDescriptionsStrategy extends DefaultResourceDescription
 							)
 			}
 			true
-		}else if(eObject instanceof Constantes) {
-			var constante = eObject as Constantes
+		}else if(eObject instanceof Constante) {
+			var constante = eObject as Constante
 			val fullyQualifiedName = QualifiedName.create(constante.variable.nombre)
 			System.out.println("fullyQualifiedName Constante "+fullyQualifiedName)
 			if (fullyQualifiedName != null)

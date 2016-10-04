@@ -4,7 +4,9 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.Codigo;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**

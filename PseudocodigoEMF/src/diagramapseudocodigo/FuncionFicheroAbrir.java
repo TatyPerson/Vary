@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface FuncionFicheroAbrir extends Sentencias {
+public interface FuncionFicheroAbrir extends Sentencia {
 	/**
 	 * Returns the value of the '<em><b>Modo</b></em>' attribute.
 	 * The literals are from the enumeration {@link diagramapseudocodigo.ModoApertura}.
@@ -53,7 +53,7 @@ public interface FuncionFicheroAbrir extends Sentencias {
 
 	/**
 	 * Returns the value of the '<em><b>Variable</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.operacion}.
+	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Variable</em>' containment reference list isn't clear,
@@ -65,6 +65,6 @@ public interface FuncionFicheroAbrir extends Sentencias {
 	 * @model containment="true" lower="2" upper="2"
 	 * @generated
 	 */
-	EList<operacion> getVariable();
+	EList<Operacion> getVariable();
 
 } // FuncionFicheroAbrir

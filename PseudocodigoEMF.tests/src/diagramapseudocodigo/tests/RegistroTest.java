@@ -4,6 +4,7 @@ package diagramapseudocodigo.tests;
 
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.Registro;
+
 import junit.textui.TestRunner;
 
 /**

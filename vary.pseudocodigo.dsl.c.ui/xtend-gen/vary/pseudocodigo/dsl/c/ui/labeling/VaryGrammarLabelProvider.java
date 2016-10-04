@@ -10,34 +10,34 @@ import diagramapseudocodigo.Archivo;
 import diagramapseudocodigo.CabeceraFuncion;
 import diagramapseudocodigo.CabeceraProcedimiento;
 import diagramapseudocodigo.CabeceraSubproceso;
+import diagramapseudocodigo.CadenaCaracteres;
 import diagramapseudocodigo.Caracter;
-import diagramapseudocodigo.ConstCadena;
-import diagramapseudocodigo.Constantes;
+import diagramapseudocodigo.Constante;
 import diagramapseudocodigo.Declaracion;
-import diagramapseudocodigo.DeclaracionPropia;
-import diagramapseudocodigo.DeclaracionVariable;
+import diagramapseudocodigo.DeclaracionBasica;
+import diagramapseudocodigo.DeclaracionDefinida;
+import diagramapseudocodigo.Entero;
 import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.Funcion;
 import diagramapseudocodigo.Inicio;
+import diagramapseudocodigo.Logico;
 import diagramapseudocodigo.Matriz;
 import diagramapseudocodigo.Modulo;
-import diagramapseudocodigo.NumeroDecimal;
-import diagramapseudocodigo.NumeroEntero;
-import diagramapseudocodigo.ParametroFuncion;
+import diagramapseudocodigo.Operacion;
+import diagramapseudocodigo.Parametro;
 import diagramapseudocodigo.Procedimiento;
+import diagramapseudocodigo.Real;
 import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Subrango;
 import diagramapseudocodigo.SubrangoEnumerado;
 import diagramapseudocodigo.SubrangoNumerico;
 import diagramapseudocodigo.Tipo;
+import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.TipoExistente;
-import diagramapseudocodigo.ValorBooleano;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
-import diagramapseudocodigo.operacion;
 import java.util.List;
 import java.util.ResourceBundle;
 import org.eclipse.emf.common.util.EList;
@@ -130,9 +130,9 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   public StyledString text(final Archivo archivo) {
     String tipo = new String();
     Tipo _tipo = archivo.getTipo();
-    if ((_tipo instanceof TipoExistente)) {
+    if ((_tipo instanceof TipoBasico)) {
       Tipo _tipo_1 = archivo.getTipo();
-      TipoExistente tipoAux = ((TipoExistente) _tipo_1);
+      TipoBasico tipoAux = ((TipoBasico) _tipo_1);
       String _tipo_2 = tipoAux.getTipo();
       tipo = _tipo_2;
     } else {
@@ -213,13 +213,13 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   
   public StyledString text(final Vector vector) {
     Tipo _tipo = vector.getTipo();
-    if ((_tipo instanceof TipoExistente)) {
+    if ((_tipo instanceof TipoBasico)) {
       Tipo _tipo_1 = vector.getTipo();
-      TipoExistente tipo = ((TipoExistente) _tipo_1);
-      operacion _valor = vector.getValor();
-      if ((_valor instanceof NumeroEntero)) {
-        operacion _valor_1 = vector.getValor();
-        NumeroEntero indice = ((NumeroEntero) _valor_1);
+      TipoBasico tipo = ((TipoBasico) _tipo_1);
+      Operacion _valor = vector.getValor();
+      if ((_valor instanceof Entero)) {
+        Operacion _valor_1 = vector.getValor();
+        Entero indice = ((Entero) _valor_1);
         String _nombre = vector.getNombre();
         String _plus = (_nombre + "[");
         int _valor_2 = indice.getValor();
@@ -233,7 +233,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
         StyledString.Styler _createXtextStyleAdapterStyler = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle);
         return new StyledString(_plus_5, _createXtextStyleAdapterStyler);
       } else {
-        operacion _valor_3 = vector.getValor();
+        Operacion _valor_3 = vector.getValor();
         VariableID indice_1 = ((VariableID) _valor_3);
         String _nombre_1 = vector.getNombre();
         String _plus_6 = (_nombre_1 + "[");
@@ -249,10 +249,10 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     } else {
       Tipo _tipo_4 = vector.getTipo();
       TipoDefinido tipo_1 = ((TipoDefinido) _tipo_4);
-      operacion _valor_4 = vector.getValor();
-      if ((_valor_4 instanceof NumeroEntero)) {
-        operacion _valor_5 = vector.getValor();
-        NumeroEntero indice_2 = ((NumeroEntero) _valor_5);
+      Operacion _valor_4 = vector.getValor();
+      if ((_valor_4 instanceof Entero)) {
+        Operacion _valor_5 = vector.getValor();
+        Entero indice_2 = ((Entero) _valor_5);
         String _nombre_3 = vector.getNombre();
         String _plus_10 = (_nombre_3 + "[");
         int _valor_6 = indice_2.getValor();
@@ -264,7 +264,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
         StyledString.Styler _createXtextStyleAdapterStyler_2 = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle_2);
         return new StyledString(_plus_13, _createXtextStyleAdapterStyler_2);
       } else {
-        operacion _valor_7 = vector.getValor();
+        Operacion _valor_7 = vector.getValor();
         VariableID indice_3 = ((VariableID) _valor_7);
         String _nombre_4 = vector.getNombre();
         String _plus_14 = (_nombre_4 + "[");
@@ -280,7 +280,7 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     }
   }
   
-  public String image(final Constantes constante) {
+  public String image(final Constante constante) {
     String _xblockexpression = null;
     {
       Modulo modulo = EcoreUtil2.<Modulo>getContainerOfType(constante, Modulo.class);
@@ -306,49 +306,49 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     return _xblockexpression;
   }
   
-  public StyledString text(final Constantes constantes) {
+  public StyledString text(final Constante constantes) {
     String valor = new String();
-    operacion _valor = constantes.getValor();
-    if ((_valor instanceof NumeroEntero)) {
-      operacion _valor_1 = constantes.getValor();
-      NumeroEntero numero = ((NumeroEntero) _valor_1);
+    Operacion _valor = constantes.getValor();
+    if ((_valor instanceof Entero)) {
+      Operacion _valor_1 = constantes.getValor();
+      Entero numero = ((Entero) _valor_1);
       int _valor_2 = numero.getValor();
       String _string = Integer.valueOf(_valor_2).toString();
       valor = _string;
     } else {
-      operacion _valor_3 = constantes.getValor();
-      if ((_valor_3 instanceof ConstCadena)) {
-        operacion _valor_4 = constantes.getValor();
-        ConstCadena cadena = ((ConstCadena) _valor_4);
-        String _contenido = cadena.getContenido();
-        valor = _contenido;
+      Operacion _valor_3 = constantes.getValor();
+      if ((_valor_3 instanceof CadenaCaracteres)) {
+        Operacion _valor_4 = constantes.getValor();
+        CadenaCaracteres cadena = ((CadenaCaracteres) _valor_4);
+        String _valor_5 = cadena.getValor();
+        valor = _valor_5;
       } else {
-        operacion _valor_5 = constantes.getValor();
-        if ((_valor_5 instanceof Caracter)) {
-          operacion _valor_6 = constantes.getValor();
-          Caracter caracter = ((Caracter) _valor_6);
-          String _contenido_1 = caracter.getContenido();
-          valor = _contenido_1;
+        Operacion _valor_6 = constantes.getValor();
+        if ((_valor_6 instanceof Caracter)) {
+          Operacion _valor_7 = constantes.getValor();
+          Caracter caracter = ((Caracter) _valor_7);
+          String _valor_8 = caracter.getValor();
+          valor = _valor_8;
         } else {
-          operacion _valor_7 = constantes.getValor();
-          if ((_valor_7 instanceof NumeroDecimal)) {
-            operacion _valor_8 = constantes.getValor();
-            NumeroDecimal real = ((NumeroDecimal) _valor_8);
-            float _valor_9 = real.getValor();
-            String _string_1 = Float.valueOf(_valor_9).toString();
+          Operacion _valor_9 = constantes.getValor();
+          if ((_valor_9 instanceof Real)) {
+            Operacion _valor_10 = constantes.getValor();
+            Real real = ((Real) _valor_10);
+            float _valor_11 = real.getValor();
+            String _string_1 = Float.valueOf(_valor_11).toString();
             valor = _string_1;
           } else {
-            operacion _valor_10 = constantes.getValor();
-            if ((_valor_10 instanceof ValorBooleano)) {
-              operacion _valor_11 = constantes.getValor();
-              ValorBooleano logico = ((ValorBooleano) _valor_11);
-              String _valor_12 = logico.getValor();
-              valor = _valor_12;
+            Operacion _valor_12 = constantes.getValor();
+            if ((_valor_12 instanceof Logico)) {
+              Operacion _valor_13 = constantes.getValor();
+              Logico logico = ((Logico) _valor_13);
+              String _valor_14 = logico.getValor();
+              valor = _valor_14;
             } else {
-              operacion _valor_13 = constantes.getValor();
-              if ((_valor_13 instanceof VariableID)) {
-                operacion _valor_14 = constantes.getValor();
-                VariableID variable = ((VariableID) _valor_14);
+              Operacion _valor_15 = constantes.getValor();
+              if ((_valor_15 instanceof VariableID)) {
+                Operacion _valor_16 = constantes.getValor();
+                VariableID variable = ((VariableID) _valor_16);
                 String _nombre = variable.getNombre();
                 valor = _nombre;
               }
@@ -368,48 +368,48 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   
   public StyledString text(final Matriz matriz) {
     Tipo _tipo = matriz.getTipo();
-    if ((_tipo instanceof TipoExistente)) {
+    if ((_tipo instanceof TipoBasico)) {
       Tipo _tipo_1 = matriz.getTipo();
-      TipoExistente tipo = ((TipoExistente) _tipo_1);
+      TipoBasico tipo = ((TipoBasico) _tipo_1);
       String indice1 = new String();
       String indice2 = new String();
-      EList<operacion> _valor = matriz.getValor();
+      EList<Operacion> _valor = matriz.getValor();
       int _size = _valor.size();
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
-        EList<operacion> _valor_1 = matriz.getValor();
-        operacion _get = _valor_1.get(0);
-        if ((_get instanceof NumeroEntero)) {
-          EList<operacion> _valor_2 = matriz.getValor();
-          operacion _get_1 = _valor_2.get(0);
-          NumeroEntero indice = ((NumeroEntero) _get_1);
+        EList<Operacion> _valor_1 = matriz.getValor();
+        Operacion _get = _valor_1.get(0);
+        if ((_get instanceof Entero)) {
+          EList<Operacion> _valor_2 = matriz.getValor();
+          Operacion _get_1 = _valor_2.get(0);
+          Entero indice = ((Entero) _get_1);
           int _valor_3 = indice.getValor();
           String _string = Integer.valueOf(_valor_3).toString();
           indice1 = _string;
         } else {
-          EList<operacion> _valor_4 = matriz.getValor();
-          operacion _get_2 = _valor_4.get(0);
+          EList<Operacion> _valor_4 = matriz.getValor();
+          Operacion _get_2 = _valor_4.get(0);
           VariableID indice_1 = ((VariableID) _get_2);
           String _nombre = indice_1.getNombre();
           indice1 = _nombre;
         }
       }
-      EList<operacion> _valor_5 = matriz.getValor();
+      EList<Operacion> _valor_5 = matriz.getValor();
       int _size_1 = _valor_5.size();
       boolean _greaterThan_1 = (_size_1 > 1);
       if (_greaterThan_1) {
-        EList<operacion> _valor_6 = matriz.getValor();
-        operacion _get_3 = _valor_6.get(1);
-        if ((_get_3 instanceof NumeroEntero)) {
-          EList<operacion> _valor_7 = matriz.getValor();
-          operacion _get_4 = _valor_7.get(1);
-          NumeroEntero indice_2 = ((NumeroEntero) _get_4);
+        EList<Operacion> _valor_6 = matriz.getValor();
+        Operacion _get_3 = _valor_6.get(1);
+        if ((_get_3 instanceof Entero)) {
+          EList<Operacion> _valor_7 = matriz.getValor();
+          Operacion _get_4 = _valor_7.get(1);
+          Entero indice_2 = ((Entero) _get_4);
           int _valor_8 = indice_2.getValor();
           String _string_1 = Integer.valueOf(_valor_8).toString();
           indice2 = _string_1;
         } else {
-          EList<operacion> _valor_9 = matriz.getValor();
-          operacion _get_5 = _valor_9.get(1);
+          EList<Operacion> _valor_9 = matriz.getValor();
+          Operacion _get_5 = _valor_9.get(1);
           VariableID indice_3 = ((VariableID) _get_5);
           String _nombre_1 = indice_3.getNombre();
           indice2 = _nombre_1;
@@ -431,43 +431,43 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
       TipoDefinido tipo_1 = ((TipoDefinido) _tipo_3);
       String indice1_1 = new String();
       String indice2_1 = new String();
-      EList<operacion> _valor_10 = matriz.getValor();
+      EList<Operacion> _valor_10 = matriz.getValor();
       int _size_2 = _valor_10.size();
       boolean _greaterThan_2 = (_size_2 > 0);
       if (_greaterThan_2) {
-        EList<operacion> _valor_11 = matriz.getValor();
-        operacion _get_6 = _valor_11.get(0);
-        if ((_get_6 instanceof NumeroEntero)) {
-          EList<operacion> _valor_12 = matriz.getValor();
-          operacion _get_7 = _valor_12.get(0);
-          NumeroEntero indice_4 = ((NumeroEntero) _get_7);
+        EList<Operacion> _valor_11 = matriz.getValor();
+        Operacion _get_6 = _valor_11.get(0);
+        if ((_get_6 instanceof Entero)) {
+          EList<Operacion> _valor_12 = matriz.getValor();
+          Operacion _get_7 = _valor_12.get(0);
+          Entero indice_4 = ((Entero) _get_7);
           int _valor_13 = indice_4.getValor();
           String _string_2 = Integer.valueOf(_valor_13).toString();
           indice1_1 = _string_2;
         } else {
-          EList<operacion> _valor_14 = matriz.getValor();
-          operacion _get_8 = _valor_14.get(0);
+          EList<Operacion> _valor_14 = matriz.getValor();
+          Operacion _get_8 = _valor_14.get(0);
           VariableID indice_5 = ((VariableID) _get_8);
           String _nombre_3 = indice_5.getNombre();
           indice1_1 = _nombre_3;
         }
       }
-      EList<operacion> _valor_15 = matriz.getValor();
+      EList<Operacion> _valor_15 = matriz.getValor();
       int _size_3 = _valor_15.size();
       boolean _greaterThan_3 = (_size_3 > 1);
       if (_greaterThan_3) {
-        EList<operacion> _valor_16 = matriz.getValor();
-        operacion _get_9 = _valor_16.get(1);
-        if ((_get_9 instanceof NumeroEntero)) {
-          EList<operacion> _valor_17 = matriz.getValor();
-          operacion _get_10 = _valor_17.get(1);
-          NumeroEntero indice_6 = ((NumeroEntero) _get_10);
+        EList<Operacion> _valor_16 = matriz.getValor();
+        Operacion _get_9 = _valor_16.get(1);
+        if ((_get_9 instanceof Entero)) {
+          EList<Operacion> _valor_17 = matriz.getValor();
+          Operacion _get_10 = _valor_17.get(1);
+          Entero indice_6 = ((Entero) _get_10);
           int _valor_18 = indice_6.getValor();
           String _string_3 = Integer.valueOf(_valor_18).toString();
           indice2_1 = _string_3;
         } else {
-          EList<operacion> _valor_19 = matriz.getValor();
-          operacion _get_11 = _valor_19.get(1);
+          EList<Operacion> _valor_19 = matriz.getValor();
+          Operacion _get_11 = _valor_19.get(1);
           VariableID indice_7 = ((VariableID) _get_11);
           String _nombre_4 = indice_7.getNombre();
           indice2_1 = _nombre_4;
@@ -541,8 +541,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   public StyledString text(final Funcion funcion) {
     String _nombre = funcion.getNombre();
     String _plus = (_nombre + "(");
-    EList<ParametroFuncion> _parametrofuncion = funcion.getParametrofuncion();
-    String _cadenaTiposSubproceso = this.cadenaTiposSubproceso(_parametrofuncion);
+    EList<Parametro> _parametros = funcion.getParametros();
+    String _cadenaTiposSubproceso = this.cadenaTiposSubproceso(_parametros);
     String _plus_1 = (_plus + _cadenaTiposSubproceso);
     String _plus_2 = (_plus_1 + ") : ");
     String _tipo = funcion.getTipo();
@@ -555,8 +555,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   public StyledString text(final Procedimiento procedimiento) {
     String _nombre = procedimiento.getNombre();
     String _plus = (_nombre + "(");
-    EList<ParametroFuncion> _parametrofuncion = procedimiento.getParametrofuncion();
-    String _cadenaTiposSubproceso = this.cadenaTiposSubproceso(_parametrofuncion);
+    EList<Parametro> _parametros = procedimiento.getParametros();
+    String _cadenaTiposSubproceso = this.cadenaTiposSubproceso(_parametros);
     String _plus_1 = (_plus + _cadenaTiposSubproceso);
     String _plus_2 = (_plus_1 + ")");
     TextStyle _tiposTextStyle = this.getTiposTextStyle();
@@ -575,14 +575,14 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     return new StyledString(_nombre, _createXtextStyleAdapterStyler);
   }
   
-  public String cadenaTiposSubproceso(final List<ParametroFuncion> parametros) {
+  public String cadenaTiposSubproceso(final List<Parametro> parametros) {
     String tiposParametros = new String();
-    for (final ParametroFuncion parametro : parametros) {
+    for (final Parametro parametro : parametros) {
       {
         Tipo _tipo = parametro.getTipo();
-        if ((_tipo instanceof TipoExistente)) {
+        if ((_tipo instanceof TipoBasico)) {
           Tipo _tipo_1 = parametro.getTipo();
-          TipoExistente tipo = ((TipoExistente) _tipo_1);
+          TipoBasico tipo = ((TipoBasico) _tipo_1);
           String _tipo_2 = tipo.getTipo();
           String _plus = (tiposParametros + _tipo_2);
           tiposParametros = _plus;
@@ -613,8 +613,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
       String _xifexpression = null;
       boolean _notEquals = (!Objects.equal(modulo, null));
       if (_notEquals) {
-        EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
-        for (final CabeceraSubproceso cabecera : _exporta_funciones) {
+        EList<CabeceraSubproceso> _exporta_subprocesos = modulo.getExporta_subprocesos();
+        for (final CabeceraSubproceso cabecera : _exporta_subprocesos) {
           if ((cabecera.getNombre().equals(procedimiento.getNombre()) && (cabecera instanceof CabeceraProcedimiento))) {
             return "methpub_obj.gif";
           }
@@ -638,8 +638,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     Algoritmo algoritmo = EcoreUtil2.<Algoritmo>getContainerOfType(funcion, Algoritmo.class);
     boolean _notEquals = (!Objects.equal(modulo, null));
     if (_notEquals) {
-      EList<CabeceraSubproceso> _exporta_funciones = modulo.getExporta_funciones();
-      for (final CabeceraSubproceso cabecera : _exporta_funciones) {
+      EList<CabeceraSubproceso> _exporta_subprocesos = modulo.getExporta_subprocesos();
+      for (final CabeceraSubproceso cabecera : _exporta_subprocesos) {
         if ((cabecera.getNombre().equals(funcion.getNombre()) && (cabecera instanceof CabeceraFuncion))) {
           return "methpub_obj.gif";
         }
@@ -664,12 +664,12 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
         return "compare_field.gif";
       }
       Boolean esPublica = new Boolean(false);
-      EList<Declaracion> _exporta_global = modulo.getExporta_global();
-      for (final Declaracion declaracion : _exporta_global) {
-        if ((declaracion instanceof DeclaracionPropia)) {
-          DeclaracionPropia declaracionAux = ((DeclaracionPropia) declaracion);
-          EList<Variable> _variable = declaracionAux.getVariable();
-          for (final Variable variableAux : _variable) {
+      EList<Declaracion> _exporta_globales = modulo.getExporta_globales();
+      for (final Declaracion declaracion : _exporta_globales) {
+        if ((declaracion instanceof DeclaracionDefinida)) {
+          DeclaracionDefinida declaracionAux = ((DeclaracionDefinida) declaracion);
+          EList<Variable> _variables = declaracionAux.getVariables();
+          for (final Variable variableAux : _variables) {
             String _nombre = variableAux.getNombre();
             String _nombre_1 = variable.getNombre();
             boolean _equals = _nombre.equals(_nombre_1);
@@ -678,9 +678,9 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
             }
           }
         } else {
-          DeclaracionVariable declaracionAux_1 = ((DeclaracionVariable) declaracion);
-          EList<Variable> _variable_1 = declaracionAux_1.getVariable();
-          for (final Variable variableAux_1 : _variable_1) {
+          DeclaracionBasica declaracionAux_1 = ((DeclaracionBasica) declaracion);
+          EList<Variable> _variables_1 = declaracionAux_1.getVariables();
+          for (final Variable variableAux_1 : _variables_1) {
             String _nombre_2 = variableAux_1.getNombre();
             String _nombre_3 = variable.getNombre();
             boolean _equals_1 = _nombre_2.equals(_nombre_3);
@@ -706,8 +706,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public Object text(final Variable variable) {
-    DeclaracionVariable declaracionVariable = EcoreUtil2.<DeclaracionVariable>getContainerOfType(variable, DeclaracionVariable.class);
-    DeclaracionPropia declaracionPropia = EcoreUtil2.<DeclaracionPropia>getContainerOfType(variable, DeclaracionPropia.class);
+    DeclaracionBasica declaracionVariable = EcoreUtil2.<DeclaracionBasica>getContainerOfType(variable, DeclaracionBasica.class);
+    DeclaracionDefinida declaracionPropia = EcoreUtil2.<DeclaracionDefinida>getContainerOfType(variable, DeclaracionDefinida.class);
     Registro registro = EcoreUtil2.<Registro>getContainerOfType(variable, Registro.class);
     if (((!Objects.equal(declaracionVariable, null)) && Objects.equal(registro, null))) {
       String _nombre = variable.getNombre();

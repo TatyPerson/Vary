@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface LlamadaFuncion extends valor, operacion {
+public interface LlamadaFuncion extends Valor, Operacion {
 	/**
 	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,10 +50,10 @@ public interface LlamadaFuncion extends valor, operacion {
 
 	/**
 	 * Returns the value of the '<em><b>Operadores</b></em>' containment reference list.
-	 * The list contents are of type {@link diagramapseudocodigo.operacion}.
+	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operadores</em>' attribute list isn't clear,
+	 * If the meaning of the '<em>Operadores</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -62,6 +62,6 @@ public interface LlamadaFuncion extends valor, operacion {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<operacion> getOperadores();
+	EList<Operacion> getOperadores();
 
 } // LlamadaFuncion

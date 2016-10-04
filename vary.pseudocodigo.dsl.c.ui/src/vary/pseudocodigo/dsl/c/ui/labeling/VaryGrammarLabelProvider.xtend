@@ -10,30 +10,29 @@ import org.eclipse.xtext.EcoreUtil2
 import diagramapseudocodigo.Algoritmo
 import diagramapseudocodigo.CabeceraProcedimiento
 import java.util.List
-import diagramapseudocodigo.ParametroFuncion
-import diagramapseudocodigo.TipoExistente
+import diagramapseudocodigo.Parametro
+import diagramapseudocodigo.TipoBasico
 import diagramapseudocodigo.Funcion
 import diagramapseudocodigo.TipoDefinido
 import diagramapseudocodigo.CabeceraFuncion
 import diagramapseudocodigo.Declaracion
-import diagramapseudocodigo.DeclaracionVariable
+import diagramapseudocodigo.DeclaracionBasica
 import diagramapseudocodigo.Variable
 import diagramapseudocodigo.Inicio
-import diagramapseudocodigo.DeclaracionPropia
+import diagramapseudocodigo.DeclaracionDefinida
 import diagramapseudocodigo.TipoComplejo
 import diagramapseudocodigo.Vector
-import diagramapseudocodigo.NumeroEntero
+import diagramapseudocodigo.Entero
 import diagramapseudocodigo.VariableID
 import diagramapseudocodigo.Matriz
 import diagramapseudocodigo.Subrango
 import diagramapseudocodigo.SubrangoEnumerado
 import diagramapseudocodigo.SubrangoNumerico
-import diagramapseudocodigo.Constantes
-import diagramapseudocodigo.cadena
-import diagramapseudocodigo.ConstCadena
+import diagramapseudocodigo.Constante
+import diagramapseudocodigo.CadenaCaracteres
 import diagramapseudocodigo.Caracter
-import diagramapseudocodigo.NumeroDecimal
-import diagramapseudocodigo.ValorBooleano
+import diagramapseudocodigo.Real
+import diagramapseudocodigo.Logico
 import diagramapseudocodigo.Registro
 import diagramapseudocodigo.Enumerado
 import diagramapseudocodigo.Archivo
@@ -111,8 +110,8 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	
 	def text(Archivo archivo) {
 		var tipo = new String()
-		if(archivo.tipo instanceof TipoExistente) {
-			var tipoAux = archivo.tipo as TipoExistente
+		if(archivo.tipo instanceof TipoBasico) {
+			var tipoAux = archivo.tipo as TipoBasico
 			tipo = tipoAux.tipo
 		} else {
 			var tipoAux = archivo.tipo as TipoDefinido
@@ -157,10 +156,10 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Vector vector) {
-		if(vector.tipo instanceof TipoExistente) {
-			var tipo = vector.tipo as TipoExistente
-			if(vector.valor instanceof NumeroEntero) {
-				var indice = vector.valor as NumeroEntero
+		if(vector.tipo instanceof TipoBasico) {
+			var tipo = vector.tipo as TipoBasico
+			if(vector.valor instanceof Entero) {
+				var indice = vector.valor as Entero
 				return new StyledString(vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo + ' : ' + tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
 			else {
@@ -170,8 +169,8 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		}
 		else {
 			var tipo = vector.tipo as TipoDefinido
-			if(vector.valor instanceof NumeroEntero) {
-				var indice = vector.valor as NumeroEntero
+			if(vector.valor instanceof Entero) {
+				var indice = vector.valor as Entero
 				return new StyledString(vector.nombre + '[' + indice.valor + '] : ' + tipo.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
 			else {
@@ -181,7 +180,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		}
 	}
 	
-	def image(Constantes constante) {
+	def image(Constante constante) {
 		var modulo = EcoreUtil2.getContainerOfType(constante, Modulo)
 		if(modulo == null) { //Es del algoritmo
 			'compare_field_private.gif'
@@ -194,26 +193,26 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		}
 	}
 	
-	def text(Constantes constantes) {
+	def text(Constante constantes) {
 		var valor = new String()
-		if(constantes.valor instanceof NumeroEntero) {
-			var numero = constantes.valor as NumeroEntero
+		if(constantes.valor instanceof Entero) {
+			var numero = constantes.valor as Entero
 			valor = numero.valor.toString
 		}
-		else if(constantes.valor instanceof ConstCadena) {
-			var cadena = constantes.valor as ConstCadena
-			valor = cadena.contenido
+		else if(constantes.valor instanceof CadenaCaracteres) {
+			var cadena = constantes.valor as CadenaCaracteres
+			valor = cadena.valor
 		}
 		else if(constantes.valor instanceof Caracter) {
 			var caracter = constantes.valor as Caracter
-			valor = caracter.contenido
+			valor = caracter.valor
 		}
-		else if(constantes.valor instanceof NumeroDecimal) {
-			var real = constantes.valor as NumeroDecimal
+		else if(constantes.valor instanceof Real) {
+			var real = constantes.valor as Real
 			valor = real.valor.toString
 		}
-		else if(constantes.valor instanceof ValorBooleano) {
-			var logico = constantes.valor as ValorBooleano
+		else if(constantes.valor instanceof Logico) {
+			var logico = constantes.valor as Logico
 			valor = logico.valor
 		}
 		else if(constantes.valor instanceof VariableID) {
@@ -224,13 +223,13 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Matriz matriz) {
-		if(matriz.tipo instanceof TipoExistente) {
-			var tipo = matriz.tipo as TipoExistente
+		if(matriz.tipo instanceof TipoBasico) {
+			var tipo = matriz.tipo as TipoBasico
 			var indice1 = new String()
 			var indice2 = new String()
 			if(matriz.valor.size() > 0) {
-				if(matriz.valor.get(0) instanceof NumeroEntero) {
-					var indice = matriz.valor.get(0) as NumeroEntero
+				if(matriz.valor.get(0) instanceof Entero) {
+					var indice = matriz.valor.get(0) as Entero
 					indice1 = indice.valor.toString
 				}
 				else {
@@ -239,8 +238,8 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 				}
 			}
 			if(matriz.valor.size() > 1) {
-				if(matriz.valor.get(1) instanceof NumeroEntero) {
-					var indice = matriz.valor.get(1) as NumeroEntero
+				if(matriz.valor.get(1) instanceof Entero) {
+					var indice = matriz.valor.get(1) as Entero
 					indice2 = indice.valor.toString
 				}
 				else {
@@ -255,8 +254,8 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 			var indice1 = new String()
 			var indice2 = new String()
 			if(matriz.valor.size() > 0) {
-				if(matriz.valor.get(0) instanceof NumeroEntero) {
-					var indice = matriz.valor.get(0) as NumeroEntero
+				if(matriz.valor.get(0) instanceof Entero) {
+					var indice = matriz.valor.get(0) as Entero
 					indice1 = indice.valor.toString
 				}
 				else {
@@ -265,8 +264,8 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 				}
 			}
 			if(matriz.valor.size() > 1) {
-				if(matriz.valor.get(1) instanceof NumeroEntero) {
-					var indice = matriz.valor.get(1) as NumeroEntero
+				if(matriz.valor.get(1) instanceof Entero) {
+					var indice = matriz.valor.get(1) as Entero
 					indice2 = indice.valor.toString
 				}
 				else {
@@ -303,11 +302,11 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Funcion funcion) {
-		return new StyledString(funcion.nombre + '(' + cadenaTiposSubproceso(funcion.parametrofuncion) + ') : ' + funcion.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
+		return new StyledString(funcion.nombre + '(' + cadenaTiposSubproceso(funcion.parametros) + ') : ' + funcion.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def text(Procedimiento procedimiento) {
-		return new StyledString(procedimiento.nombre + '(' + cadenaTiposSubproceso(procedimiento.parametrofuncion) + ')', stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
+		return new StyledString(procedimiento.nombre + '(' + cadenaTiposSubproceso(procedimiento.parametros) + ')', stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
 	def image(Algoritmo algoritmo) {
@@ -318,11 +317,11 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		return new StyledString(algoritmo.nombre, stylerFactory.createXtextStyleAdapterStyler(getAlgoritmoTextStyle()));
 	}
 	
-	def cadenaTiposSubproceso(List<ParametroFuncion> parametros) {
+	def cadenaTiposSubproceso(List<Parametro> parametros) {
 		var tiposParametros = new String()
 		for(parametro: parametros) {
-			if(parametro.tipo instanceof TipoExistente) {
-				var tipo = parametro.tipo as TipoExistente
+			if(parametro.tipo instanceof TipoBasico) {
+				var tipo = parametro.tipo as TipoBasico
 				tiposParametros = tiposParametros + tipo.tipo
 			}
 			else {
@@ -340,7 +339,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		var modulo = EcoreUtil2.getContainerOfType(procedimiento, Modulo)
 		var algoritmo = EcoreUtil2.getContainerOfType(procedimiento, Algoritmo)
 		if(modulo != null) {
-			for(cabecera: modulo.exporta_funciones) {
+			for(cabecera: modulo.exporta_subprocesos) {
 				if(cabecera.nombre.equals(procedimiento.nombre) && cabecera instanceof CabeceraProcedimiento) {
 					return 'methpub_obj.gif'
 				}
@@ -357,7 +356,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 		var modulo = EcoreUtil2.getContainerOfType(funcion, Modulo)
 		var algoritmo = EcoreUtil2.getContainerOfType(funcion, Algoritmo)
 		if(modulo != null) {
-			for(cabecera: modulo.exporta_funciones) {
+			for(cabecera: modulo.exporta_subprocesos) {
 				if(cabecera.nombre.equals(funcion.nombre) && cabecera instanceof CabeceraFuncion) {
 					return 'methpub_obj.gif'
 				}
@@ -379,17 +378,17 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 				return 'compare_field.gif'
 			}
 			var esPublica = new Boolean(false)
-			for(declaracion: modulo.exporta_global) {
-				if(declaracion instanceof DeclaracionPropia) {
-					var declaracionAux = declaracion as DeclaracionPropia
-					for(variableAux: declaracionAux.variable) {
+			for(declaracion: modulo.exporta_globales) {
+				if(declaracion instanceof DeclaracionDefinida) {
+					var declaracionAux = declaracion as DeclaracionDefinida
+					for(variableAux: declaracionAux.variables) {
 						if(variableAux.nombre.equals(variable.nombre)) {
 							esPublica = true
 						}
 					}
 				}else {
-					var declaracionAux = declaracion as DeclaracionVariable
-					for(variableAux: declaracionAux.variable) {
+					var declaracionAux = declaracion as DeclaracionBasica
+					for(variableAux: declaracionAux.variables) {
 						if(variableAux.nombre.equals(variable.nombre)) {
 							esPublica = true
 						}
@@ -414,8 +413,8 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Variable variable) {
-		var declaracionVariable = EcoreUtil2.getContainerOfType(variable, DeclaracionVariable)
-		var declaracionPropia = EcoreUtil2.getContainerOfType(variable, DeclaracionPropia)
+		var declaracionVariable = EcoreUtil2.getContainerOfType(variable, DeclaracionBasica)
+		var declaracionPropia = EcoreUtil2.getContainerOfType(variable, DeclaracionDefinida)
 		var registro = EcoreUtil2.getContainerOfType(variable, Registro)
 		if(declaracionVariable != null && registro == null) {
 			return new StyledString(variable.nombre + ' : ' + declaracionVariable.tipo, stylerFactory.createXtextStyleAdapterStyler(getDeclaracionTextStyle()));

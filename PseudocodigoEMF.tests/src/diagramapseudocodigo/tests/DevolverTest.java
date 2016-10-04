@@ -6,6 +6,7 @@ import diagramapseudocodigo.Devolver;
 import diagramapseudocodigo.DiagramapseudocodigoFactory;
 
 import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -59,7 +60,6 @@ public class DevolverTest extends TestCase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-
 	protected Devolver getFixture() {
 		return fixture;
 	}

@@ -31,105 +31,6 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Algoritmo createAlgoritmo();
 
 	/**
-	 * Returns a new object of class '<em>Codigo</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Codigo</em>'.
-	 * @generated
-	 */
-	Codigo createCodigo();
-
-	/**
-	 * Returns a new object of class '<em>Modulo</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Modulo</em>'.
-	 * @generated
-	 */
-	Modulo createModulo();
-
-	/**
-	 * Returns a new object of class '<em>Cabecera Subproceso</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cabecera Subproceso</em>'.
-	 * @generated
-	 */
-	CabeceraSubproceso createCabeceraSubproceso();
-
-	/**
-	 * Returns a new object of class '<em>Implementacion</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Implementacion</em>'.
-	 * @generated
-	 */
-	Implementacion createImplementacion();
-
-	/**
-	 * Returns a new object of class '<em>Cabecera Procedimiento</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cabecera Procedimiento</em>'.
-	 * @generated
-	 */
-	CabeceraProcedimiento createCabeceraProcedimiento();
-
-	/**
-	 * Returns a new object of class '<em>Cabecera Funcion</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Cabecera Funcion</em>'.
-	 * @generated
-	 */
-	CabeceraFuncion createCabeceraFuncion();
-
-	/**
-	 * Returns a new object of class '<em>Mod</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Mod</em>'.
-	 * @generated
-	 */
-	Mod createMod();
-
-	/**
-	 * Returns a new object of class '<em>Div</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Div</em>'.
-	 * @generated
-	 */
-	Div createDiv();
-
-	/**
-	 * Returns a new object of class '<em>Operacion Parentesis</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Operacion Parentesis</em>'.
-	 * @generated
-	 */
-	OperacionParentesis createOperacionParentesis();
-
-	/**
-	 * Returns a new object of class '<em>Unaria</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unaria</em>'.
-	 * @generated
-	 */
-	Unaria createUnaria();
-
-	/**
-	 * Returns a new object of class '<em>Operacion Completa</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Operacion Completa</em>'.
-	 * @generated
-	 */
-	OperacionCompleta createOperacionCompleta();
-
-	/**
 	 * Returns a new object of class '<em>Inicio</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -139,13 +40,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Inicio createInicio();
 
 	/**
-	 * Returns a new object of class '<em>Declaracion Variable</em>'.
+	 * Returns a new object of class '<em>Declaracion Basica</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Declaracion Variable</em>'.
+	 * @return a new object of class '<em>Declaracion Basica</em>'.
 	 * @generated
 	 */
-	DeclaracionVariable createDeclaracionVariable();
+	DeclaracionBasica createDeclaracionBasica();
 
 	/**
 	 * Returns a new object of class '<em>Llamada Funcion</em>'.
@@ -175,13 +76,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	cadena createcadena();
 
 	/**
-	 * Returns a new object of class '<em>Const Cadena</em>'.
+	 * Returns a new object of class '<em>Cadena Caracteres</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Const Cadena</em>'.
+	 * @return a new object of class '<em>Cadena Caracteres</em>'.
 	 * @generated
 	 */
-	ConstCadena createConstCadena();
+	CadenaCaracteres createCadenaCaracteres();
 
 	/**
 	 * Returns a new object of class '<em>Variable</em>'.
@@ -193,13 +94,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Variable createVariable();
 
 	/**
-	 * Returns a new object of class '<em>Numero Entero</em>'.
+	 * Returns a new object of class '<em>Entero</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numero Entero</em>'.
+	 * @return a new object of class '<em>Entero</em>'.
 	 * @generated
 	 */
-	NumeroEntero createNumeroEntero();
+	Entero createEntero();
 
 	/**
 	 * Returns a new object of class '<em>Asignacion</em>'.
@@ -229,13 +130,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Funcion createFuncion();
 
 	/**
-	 * Returns a new object of class '<em>Parametro Funcion</em>'.
+	 * Returns a new object of class '<em>Parametro</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parametro Funcion</em>'.
+	 * @return a new object of class '<em>Parametro</em>'.
 	 * @generated
 	 */
-	ParametroFuncion createParametroFuncion();
+	Parametro createParametro();
 
 	/**
 	 * Returns a new object of class '<em>Leer</em>'.
@@ -247,31 +148,31 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Leer createLeer();
 
 	/**
-	 * Returns a new object of class '<em>Numero Decimal</em>'.
+	 * Returns a new object of class '<em>Real</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numero Decimal</em>'.
+	 * @return a new object of class '<em>Real</em>'.
 	 * @generated
 	 */
-	NumeroDecimal createNumeroDecimal();
+	Real createReal();
 
 	/**
-	 * Returns a new object of class '<em>operacion</em>'.
+	 * Returns a new object of class '<em>Operacion</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>operacion</em>'.
+	 * @return a new object of class '<em>Operacion</em>'.
 	 * @generated
 	 */
-	operacion createoperacion();
+	Operacion createOperacion();
 
 	/**
-	 * Returns a new object of class '<em>Valor Booleano</em>'.
+	 * Returns a new object of class '<em>Logico</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Valor Booleano</em>'.
+	 * @return a new object of class '<em>Logico</em>'.
 	 * @generated
 	 */
-	ValorBooleano createValorBooleano();
+	Logico createLogico();
 
 	/**
 	 * Returns a new object of class '<em>Si</em>'.
@@ -292,31 +193,31 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Sino createSino();
 
 	/**
-	 * Returns a new object of class '<em>mientras</em>'.
+	 * Returns a new object of class '<em>Mientras</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>mientras</em>'.
+	 * @return a new object of class '<em>Mientras</em>'.
 	 * @generated
 	 */
-	mientras createmientras();
+	Mientras createMientras();
 
 	/**
-	 * Returns a new object of class '<em>repetir</em>'.
+	 * Returns a new object of class '<em>Repetir</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>repetir</em>'.
+	 * @return a new object of class '<em>Repetir</em>'.
 	 * @generated
 	 */
-	repetir createrepetir();
+	Repetir createRepetir();
 
 	/**
-	 * Returns a new object of class '<em>desde</em>'.
+	 * Returns a new object of class '<em>Desde</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>desde</em>'.
+	 * @return a new object of class '<em>Desde</em>'.
 	 * @generated
 	 */
-	desde createdesde();
+	Desde createDesde();
 
 	/**
 	 * Returns a new object of class '<em>Procedimiento</em>'.
@@ -337,22 +238,22 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Caracter createCaracter();
 
 	/**
-	 * Returns a new object of class '<em>Internas</em>'.
+	 * Returns a new object of class '<em>Funcion Interna</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Internas</em>'.
+	 * @return a new object of class '<em>Funcion Interna</em>'.
 	 * @generated
 	 */
-	Internas createInternas();
+	FuncionInterna createFuncionInterna();
 
 	/**
-	 * Returns a new object of class '<em>segun</em>'.
+	 * Returns a new object of class '<em>Segun</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>segun</em>'.
+	 * @return a new object of class '<em>Segun</em>'.
 	 * @generated
 	 */
-	segun createsegun();
+	Segun createSegun();
 
 	/**
 	 * Returns a new object of class '<em>Devolver</em>'.
@@ -373,13 +274,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Caso createCaso();
 
 	/**
-	 * Returns a new object of class '<em>Constantes</em>'.
+	 * Returns a new object of class '<em>Constante</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Constantes</em>'.
+	 * @return a new object of class '<em>Constante</em>'.
 	 * @generated
 	 */
-	Constantes createConstantes();
+	Constante createConstante();
 
 	/**
 	 * Returns a new object of class '<em>Vector</em>'.
@@ -391,13 +292,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Vector createVector();
 
 	/**
-	 * Returns a new object of class '<em>Declaracion Propia</em>'.
+	 * Returns a new object of class '<em>Declaracion Definida</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Declaracion Propia</em>'.
+	 * @return a new object of class '<em>Declaracion Definida</em>'.
 	 * @generated
 	 */
-	DeclaracionPropia createDeclaracionPropia();
+	DeclaracionDefinida createDeclaracionDefinida();
 
 	/**
 	 * Returns a new object of class '<em>Declaracion</em>'.
@@ -454,13 +355,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	TipoDefinido createTipoDefinido();
 
 	/**
-	 * Returns a new object of class '<em>Tipo Existente</em>'.
+	 * Returns a new object of class '<em>Tipo Basico</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Tipo Existente</em>'.
+	 * @return a new object of class '<em>Tipo Basico</em>'.
 	 * @generated
 	 */
-	TipoExistente createTipoExistente();
+	TipoBasico createTipoBasico();
 
 	/**
 	 * Returns a new object of class '<em>Archivo</em>'.
@@ -589,13 +490,13 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	Multiplicacion createMultiplicacion();
 
 	/**
-	 * Returns a new object of class '<em>Division</em>'.
+	 * Returns a new object of class '<em>Division Entera</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Division</em>'.
+	 * @return a new object of class '<em>Division Entera</em>'.
 	 * @generated
 	 */
-	Division createDivision();
+	DivisionEntera createDivisionEntera();
 
 	/**
 	 * Returns a new object of class '<em>Or</em>'.
@@ -668,6 +569,105 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	 * @generated
 	 */
 	AsignacionCompleja createAsignacionCompleja();
+
+	/**
+	 * Returns a new object of class '<em>Codigo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Codigo</em>'.
+	 * @generated
+	 */
+	Codigo createCodigo();
+
+	/**
+	 * Returns a new object of class '<em>Modulo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Modulo</em>'.
+	 * @generated
+	 */
+	Modulo createModulo();
+
+	/**
+	 * Returns a new object of class '<em>Cabecera Subproceso</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cabecera Subproceso</em>'.
+	 * @generated
+	 */
+	CabeceraSubproceso createCabeceraSubproceso();
+
+	/**
+	 * Returns a new object of class '<em>Implementacion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Implementacion</em>'.
+	 * @generated
+	 */
+	Implementacion createImplementacion();
+
+	/**
+	 * Returns a new object of class '<em>Cabecera Procedimiento</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cabecera Procedimiento</em>'.
+	 * @generated
+	 */
+	CabeceraProcedimiento createCabeceraProcedimiento();
+
+	/**
+	 * Returns a new object of class '<em>Cabecera Funcion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cabecera Funcion</em>'.
+	 * @generated
+	 */
+	CabeceraFuncion createCabeceraFuncion();
+
+	/**
+	 * Returns a new object of class '<em>Mod</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Mod</em>'.
+	 * @generated
+	 */
+	Mod createMod();
+
+	/**
+	 * Returns a new object of class '<em>Division Real</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Division Real</em>'.
+	 * @generated
+	 */
+	DivisionReal createDivisionReal();
+
+	/**
+	 * Returns a new object of class '<em>Operacion Parentesis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operacion Parentesis</em>'.
+	 * @generated
+	 */
+	OperacionParentesis createOperacionParentesis();
+
+	/**
+	 * Returns a new object of class '<em>Unaria</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Unaria</em>'.
+	 * @generated
+	 */
+	Unaria createUnaria();
+
+	/**
+	 * Returns a new object of class '<em>Operacion Completa</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Operacion Completa</em>'.
+	 * @generated
+	 */
+	OperacionCompleta createOperacionCompleta();
 
 	/**
 	 * Returns the package supported by this factory.
