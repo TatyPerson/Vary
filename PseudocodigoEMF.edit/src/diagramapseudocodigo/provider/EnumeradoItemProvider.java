@@ -14,10 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,31 +45,8 @@ public class EnumeradoItemProvider extends TipoComplejoItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNombrePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Nombre feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNombrePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Enumerado_nombre_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Enumerado_nombre_feature", "_UI_Enumerado_type"),
-				 DiagramapseudocodigoPackage.Literals.ENUMERADO__NOMBRE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -87,7 +61,7 @@ public class EnumeradoItemProvider extends TipoComplejoItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES);
 		}
 		return childrenFeatures;
 	}
@@ -143,10 +117,7 @@ public class EnumeradoItemProvider extends TipoComplejoItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Enumerado.class)) {
-			case DiagramapseudocodigoPackage.ENUMERADO__NOMBRE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case DiagramapseudocodigoPackage.ENUMERADO__VALOR:
+			case DiagramapseudocodigoPackage.ENUMERADO__POSIBLES_VALORES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -166,132 +137,127 @@ public class EnumeradoItemProvider extends TipoComplejoItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ENUMERADO__VALOR,
+				(DiagramapseudocodigoPackage.Literals.ENUMERADO__POSIBLES_VALORES,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 

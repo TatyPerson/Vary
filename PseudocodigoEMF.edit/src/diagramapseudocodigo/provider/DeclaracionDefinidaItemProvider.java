@@ -14,10 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,31 +45,8 @@ public class DeclaracionDefinidaItemProvider extends DeclaracionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTipoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Tipo feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTipoPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DeclaracionDefinida_tipo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DeclaracionDefinida_tipo_feature", "_UI_DeclaracionDefinida_type"),
-				 DiagramapseudocodigoPackage.Literals.DECLARACION_DEFINIDA__TIPO,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -143,9 +117,6 @@ public class DeclaracionDefinidaItemProvider extends DeclaracionItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DeclaracionDefinida.class)) {
-			case DiagramapseudocodigoPackage.DECLARACION_DEFINIDA__TIPO:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case DiagramapseudocodigoPackage.DECLARACION_DEFINIDA__VARIABLES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

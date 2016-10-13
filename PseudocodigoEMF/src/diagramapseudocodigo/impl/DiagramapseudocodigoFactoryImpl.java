@@ -127,7 +127,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.MOD: return createMod();
 			case DiagramapseudocodigoPackage.DIVISION_REAL: return createDivisionReal();
 			case DiagramapseudocodigoPackage.OPERACION_PARENTESIS: return createOperacionParentesis();
-			case DiagramapseudocodigoPackage.UNARIA: return createUnaria();
 			case DiagramapseudocodigoPackage.OPERACION_COMPLETA: return createOperacionCompleta();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -866,16 +865,6 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public OperacionParentesis createOperacionParentesis() {
 		OperacionParentesisImpl operacionParentesis = new OperacionParentesisImpl();
 		return operacionParentesis;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Unaria createUnaria() {
-		UnariaImpl unaria = new UnariaImpl();
-		return unaria;
 	}
 
 	/**

@@ -128,10 +128,10 @@ Tipo returns Tipo:
 	TipoDefinido | TipoBasico;
 	
 TipoDefinido returns TipoDefinido:
-	tipo=EString;
+	nombre=EString;
 
 TipoBasico returns TipoBasico:
-	tipo=TipoVariable;
+	nombre=TipoVariable;
 
 Constante returns Constante:
 	variable=Variable '=' valor=Primaria;
@@ -145,7 +145,7 @@ Matriz returns Matriz:
 
 Registro returns Registro:
 	'registry:' nombre=EString
-			(variable+=Declaracion)+
+			(campos+=Declaracion)+
 	'end_registry';
 	
 Archivo returns Archivo:
@@ -153,7 +153,7 @@ Archivo returns Archivo:
 	
 
 Enumerado returns Enumerado:
-	nombre=EString '=' '{'(valor+=Primaria (',' valor+=Primaria )* )'}';
+	nombre=EString '=' '{'(posiblesValores+=Primaria (',' posiblesValores+=Primaria )* )'}';
 	
 Subrango returns Subrango:
 	SubrangoNumerico | SubrangoEnumerado;
@@ -216,7 +216,7 @@ Leer returns Leer:
 
 Si returns Si:
 	('if' 
-	'(' | 'if(') valor=OperacionCompleta
+	'(' | 'if(') condicion=OperacionCompleta
 	')' 'then'
 		(sentencias+=Sentencia)*
 		(devuelve=Devolver)?
@@ -226,7 +226,7 @@ Si returns Si:
 Mientras returns Mientras:
 	('while'
 	'(' | 'while(')
-	valor=OperacionCompleta
+	condicion=OperacionCompleta
 	')' 'do'
 		(sentencias+=Sentencia)* 
 	'end_while';
@@ -235,11 +235,11 @@ Repetir returns Repetir:
 	'repeat'
 		(sentencias+=Sentencia)*
 	 ('until' '(' | 'until(')
-	 valor=OperacionCompleta
+	 condicion=OperacionCompleta
 	 ')';
 
 Desde returns Desde:
-	'for' asignacion=AsignacionNormal 'to' valor=OperacionCompleta 'do'
+	'for' asignacion=AsignacionNormal 'to' condicion=OperacionCompleta 'do'
 		(sentencias+=Sentencia)*
 	'end_for';
 	
@@ -249,7 +249,7 @@ Caso returns Caso:
 ;
 
 Segun returns Segun:
-	('according_to''(' | 'according_to(') valor=OperacionCompleta')' 'do'
+	('according_to''(' | 'according_to(') condicion=OperacionCompleta')' 'do'
 		(casos+=Caso )*
 		'otherwise:'
 		(sentencias+=Sentencia)*
@@ -374,8 +374,8 @@ OperacionParentesis returns Operacion:
 	{OperacionParentesis} '(' negacionesFinales+=('-')* negacionesFinales+=('no')* valor_operacion=Operacion ')';
 	
 Funciones returns Operacion:
-	({LlamadaFuncion} (nombre=NOMBRE_FUN) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')') |
-	({FuncionInterna} (nombre=NombreInterna) (operadores+=OperacionCompleta ( ',' operadores+=OperacionCompleta)* )? ')');
+	({LlamadaFuncion} (nombre=NOMBRE_FUN) (parametros+=OperacionCompleta ( ',' parametros+=OperacionCompleta)* )? ')') |
+	({FuncionInterna} (nombre=NombreInterna) (parametros+=OperacionCompleta ( ',' parametros+=OperacionCompleta)* )? ')');
 	
 CampoRegistro returns CampoRegistro:
 	'.' nombre_campo=EString | '.' nombre_campo=EString '['(primerIndice=OperacionIndice)']' | '.' nombre_campo=EString '['(primerIndice=OperacionIndice)']['(segundoIndice=OperacionIndice)']';

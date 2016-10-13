@@ -1532,16 +1532,16 @@ ruleTipoDefinido returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTipoDefinidoAccess().getTipoEStringParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getTipoDefinidoAccess().getNombreEStringParserRuleCall_0()); 
 	    }
-		lv_tipo_0_0=ruleEString		{
+		lv_nombre_0_0=ruleEString		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTipoDefinidoRule());
 	        }
        		set(
        			$current, 
-       			"tipo",
-        		lv_tipo_0_0, 
+       			"nombre",
+        		lv_nombre_0_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.EString");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1571,16 +1571,16 @@ ruleTipoBasico returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getTipoBasicoAccess().getTipoTipoVariableParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getTipoBasicoAccess().getNombreTipoVariableParserRuleCall_0()); 
 	    }
-		lv_tipo_0_0=ruleTipoVariable		{
+		lv_nombre_0_0=ruleTipoVariable		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getTipoBasicoRule());
 	        }
        		set(
        			$current, 
-       			"tipo",
-        		lv_tipo_0_0, 
+       			"nombre",
+        		lv_nombre_0_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.TipoVariable");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -1905,16 +1905,16 @@ ruleRegistro returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRegistroAccess().getVariableDeclaracionParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getRegistroAccess().getCamposDeclaracionParserRuleCall_2_0()); 
 	    }
-		lv_variable_2_0=ruleDeclaracion		{
+		lv_campos_2_0=ruleDeclaracion		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRegistroRule());
 	        }
        		add(
        			$current, 
-       			"variable",
-        		lv_variable_2_0, 
+       			"campos",
+        		lv_campos_2_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Declaracion");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2039,16 +2039,16 @@ ruleEnumerado returns [EObject current=null]
 ((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEnumeradoAccess().getValorPrimariaParserRuleCall_3_0_0()); 
+	        newCompositeNode(grammarAccess.getEnumeradoAccess().getPosiblesValoresPrimariaParserRuleCall_3_0_0()); 
 	    }
-		lv_valor_3_0=rulePrimaria		{
+		lv_posiblesValores_3_0=rulePrimaria		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEnumeradoRule());
 	        }
        		add(
        			$current, 
-       			"valor",
-        		lv_valor_3_0, 
+       			"posiblesValores",
+        		lv_posiblesValores_3_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2061,16 +2061,16 @@ ruleEnumerado returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getEnumeradoAccess().getValorPrimariaParserRuleCall_3_1_1_0()); 
+	        newCompositeNode(grammarAccess.getEnumeradoAccess().getPosiblesValoresPrimariaParserRuleCall_3_1_1_0()); 
 	    }
-		lv_valor_5_0=rulePrimaria		{
+		lv_posiblesValores_5_0=rulePrimaria		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getEnumeradoRule());
 	        }
        		add(
        			$current, 
-       			"valor",
-        		lv_valor_5_0, 
+       			"posiblesValores",
+        		lv_posiblesValores_5_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Primaria");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2904,16 +2904,16 @@ ruleSi returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSiAccess().getValorOperacionCompletaParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getSiAccess().getCondicionOperacionCompletaParserRuleCall_1_0()); 
 	    }
-		lv_valor_3_0=ruleOperacionCompleta		{
+		lv_condicion_3_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSiRule());
 	        }
        		set(
        			$current, 
-       			"valor",
-        		lv_valor_3_0, 
+       			"condicion",
+        		lv_condicion_3_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3022,16 +3022,16 @@ ruleMientras returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getMientrasAccess().getValorOperacionCompletaParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getMientrasAccess().getCondicionOperacionCompletaParserRuleCall_1_0()); 
 	    }
-		lv_valor_3_0=ruleOperacionCompleta		{
+		lv_condicion_3_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMientrasRule());
 	        }
        		set(
        			$current, 
-       			"valor",
-        		lv_valor_3_0, 
+       			"condicion",
+        		lv_condicion_3_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3126,16 +3126,16 @@ ruleRepetir returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRepetirAccess().getValorOperacionCompletaParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getRepetirAccess().getCondicionOperacionCompletaParserRuleCall_3_0()); 
 	    }
-		lv_valor_5_0=ruleOperacionCompleta		{
+		lv_condicion_5_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRepetirRule());
 	        }
        		set(
        			$current, 
-       			"valor",
-        		lv_valor_5_0, 
+       			"condicion",
+        		lv_condicion_5_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3195,16 +3195,16 @@ ruleDesde returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDesdeAccess().getValorOperacionCompletaParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDesdeAccess().getCondicionOperacionCompletaParserRuleCall_3_0()); 
 	    }
-		lv_valor_3_0=ruleOperacionCompleta		{
+		lv_condicion_3_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDesdeRule());
 	        }
        		set(
        			$current, 
-       			"valor",
-        		lv_valor_3_0, 
+       			"condicion",
+        		lv_condicion_3_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -3356,16 +3356,16 @@ ruleSegun returns [EObject current=null]
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSegunAccess().getValorOperacionCompletaParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getSegunAccess().getCondicionOperacionCompletaParserRuleCall_1_0()); 
 	    }
-		lv_valor_3_0=ruleOperacionCompleta		{
+		lv_condicion_3_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSegunRule());
 	        }
        		set(
        			$current, 
-       			"valor",
-        		lv_valor_3_0, 
+       			"condicion",
+        		lv_condicion_3_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5533,16 +5533,16 @@ ruleFunciones returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionCompletaParserRuleCall_0_2_0_0()); 
+	        newCompositeNode(grammarAccess.getFuncionesAccess().getParametrosOperacionCompletaParserRuleCall_0_2_0_0()); 
 	    }
-		lv_operadores_2_0=ruleOperacionCompleta		{
+		lv_parametros_2_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionesRule());
 	        }
        		add(
        			$current, 
-       			"operadores",
-        		lv_operadores_2_0, 
+       			"parametros",
+        		lv_parametros_2_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5555,16 +5555,16 @@ ruleFunciones returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionCompletaParserRuleCall_0_2_1_1_0()); 
+	        newCompositeNode(grammarAccess.getFuncionesAccess().getParametrosOperacionCompletaParserRuleCall_0_2_1_1_0()); 
 	    }
-		lv_operadores_4_0=ruleOperacionCompleta		{
+		lv_parametros_4_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionesRule());
 	        }
        		add(
        			$current, 
-       			"operadores",
-        		lv_operadores_4_0, 
+       			"parametros",
+        		lv_parametros_4_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5602,16 +5602,16 @@ ruleFunciones returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionCompletaParserRuleCall_1_2_0_0()); 
+	        newCompositeNode(grammarAccess.getFuncionesAccess().getParametrosOperacionCompletaParserRuleCall_1_2_0_0()); 
 	    }
-		lv_operadores_8_0=ruleOperacionCompleta		{
+		lv_parametros_8_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionesRule());
 	        }
        		add(
        			$current, 
-       			"operadores",
-        		lv_operadores_8_0, 
+       			"parametros",
+        		lv_parametros_8_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -5624,16 +5624,16 @@ ruleFunciones returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getFuncionesAccess().getOperadoresOperacionCompletaParserRuleCall_1_2_1_1_0()); 
+	        newCompositeNode(grammarAccess.getFuncionesAccess().getParametrosOperacionCompletaParserRuleCall_1_2_1_1_0()); 
 	    }
-		lv_operadores_10_0=ruleOperacionCompleta		{
+		lv_parametros_10_0=ruleOperacionCompleta		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getFuncionesRule());
 	        }
        		add(
        			$current, 
-       			"operadores",
-        		lv_operadores_10_0, 
+       			"parametros",
+        		lv_parametros_10_0, 
         		"vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.OperacionCompleta");
 	        afterParserOrEnumRuleCall();
 	    }

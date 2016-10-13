@@ -314,7 +314,11 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	def completeAsignacionNormal_OperadorParametrosSubproceso(ContentAssistContext context, ICompletionProposalAcceptor acceptor, List<Parametro> parametros) {
 		for(Parametro parametro: parametros) {
-			if(parametro.tipo instanceof TipoDefinido) {
+			//FIXME
+			var styledString = new StyledString(parametro.variable.nombre + " : " + parametro.tipo.nombre)
+			var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
+			acceptor.accept(completionProposal)
+			/*if(parametro.tipo instanceof TipoDefinido) {
 				var tipoDefinido = parametro.tipo as TipoDefinido
 				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoDefinido.tipo)
 				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
@@ -324,7 +328,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				var styledString = new StyledString(parametro.variable.nombre + " : " + tipoBasico.tipo)
 				var completionProposal = createCompletionProposal(parametro.variable.nombre, styledString, varPrivate, context)
 				acceptor.accept(completionProposal)
-			}
+			}*/
 		}
 	}
 	
@@ -686,7 +690,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	//Proposal para los parametros de las llamadas a funciones y procedimientos -------------------------------------------
 	
-	override void completeFunciones_Operadores(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override void completeFunciones_Parametros(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var llamadaFuncion = context.currentModel as LlamadaFuncion
 			var procedimiento = EcoreUtil2.getContainerOfType(llamadaFuncion, Procedimiento)
@@ -939,24 +943,27 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 				if(complejo instanceof Vector) {
 					var vector = complejo as Vector
 					if(vector.nombre.equals(tipo)) {
-						if(vector.tipo instanceof TipoDefinido) {
+						//FIXME
+						tipo = vector.tipo.nombre
+						/*if(vector.tipo instanceof TipoDefinido) {
 							var tipoDefinido = vector.tipo as TipoDefinido
 							tipo = tipoDefinido.tipo
 						} else {
 							var tipoBasico = vector.tipo as TipoBasico
 							tipo = tipoBasico.tipo
-						}
+						}*/
 					}
 				} else if(complejo instanceof Matriz) {
 					var matriz = complejo as Matriz
 					if(matriz.nombre.equals(tipo)) {
-						if(matriz.tipo instanceof TipoDefinido) {
+						tipo = matriz.tipo.nombre
+						/*if(matriz.tipo instanceof TipoDefinido) {
 							var tipoDefinido = matriz.tipo as TipoDefinido
 							tipo = tipoDefinido.tipo
 						} else {
 							var tipoBasico = matriz.tipo as TipoBasico
 							tipo = tipoBasico.tipo
-						}
+						}*/
 					}
 				}
 			}
@@ -966,7 +973,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 			if(complejo instanceof Registro) {
 				var registro = complejo as Registro
 				if(registro.nombre.equals(tipo)) {
-					for(Declaracion dec: registro.variable) {
+					for(Declaracion dec: registro.campos) {
 						if(dec instanceof DeclaracionDefinida) {
 							var declaracionDefinida = dec as DeclaracionDefinida
 							for(Variable v: declaracionDefinida.variables) {
@@ -1037,24 +1044,27 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 						if(complejo instanceof Vector) {
 							var vector = complejo as Vector
 							if(vector.nombre.equals(tipo)) {
-								if(vector.tipo instanceof TipoDefinido) {
+								//FIXME
+								tipo = vector.tipo.nombre
+								/*if(vector.tipo instanceof TipoDefinido) {
 									var tipoDefinido = vector.tipo as TipoDefinido
 									tipo = tipoDefinido.tipo
 								} else {
 									var tipoBasico = vector.tipo as TipoBasico
 									tipo = tipoBasico.tipo
-								}
+								}*/
 							}
 						} else if(complejo instanceof Matriz) {
 							var matriz = complejo as Matriz
 							if(matriz.nombre.equals(tipo)) {
-								if(matriz.tipo instanceof TipoDefinido) {
+								tipo = matriz.tipo.nombre
+								/*if(matriz.tipo instanceof TipoDefinido) {
 									var tipoDefinido = matriz.tipo as TipoDefinido
 									tipo = tipoDefinido.tipo
 								} else {
 									var tipoBasico = matriz.tipo as TipoBasico
 									tipo = tipoBasico.tipo
-								}
+								}*/
 							}
 						}
 					}
@@ -1066,7 +1076,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 					if(complejo instanceof Registro) {
 						var registro = complejo as Registro
 						if(registro.nombre.equals(tipo)) {
-							for(Declaracion dec: registro.variable) {
+							for(Declaracion dec: registro.campos) {
 								if(dec instanceof DeclaracionDefinida) {
 									var declaracionDefinida = dec as DeclaracionDefinida
 									for(Variable v: declaracionDefinida.variables) {
@@ -1099,7 +1109,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 	
 	//Proposal para la creación de tipos----------------------------------------------------------------------------------
 	
-	override void completeTipoDefinido_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override void completeTipoDefinido_Nombre(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if(context.getRootModel instanceof Algoritmo) {
 			var tiposLocales = new ArrayList<String>()
 			var algoritmo = context.getRootModel as Algoritmo
@@ -1113,7 +1123,7 @@ class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProvider {
 		}
 	}
 	
-	override void completeTipoBasico_Tipo(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	override void completeTipoBasico_Nombre(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeDeclaracionBasica_TipoAux(context, acceptor)
 	}
 	

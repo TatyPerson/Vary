@@ -652,15 +652,6 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	OperacionParentesis createOperacionParentesis();
 
 	/**
-	 * Returns a new object of class '<em>Unaria</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Unaria</em>'.
-	 * @generated
-	 */
-	Unaria createUnaria();
-
-	/**
 	 * Returns a new object of class '<em>Operacion Completa</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

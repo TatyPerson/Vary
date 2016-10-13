@@ -9,6 +9,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -29,6 +30,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link diagramapseudocodigo.impl.OperacionImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.OperacionImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.OperacionImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.OperacionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.OperacionImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +66,26 @@ public class OperacionImpl extends ValorImpl implements Operacion {
 	 * @ordered
 	 */
 	protected EList<String> negacionesIniciales;
+
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion left;
+
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion right;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -150,6 +173,108 @@ public class OperacionImpl extends ValorImpl implements Operacion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Operacion getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OPERACION__LEFT, oldLeft, newLeft);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Operacion newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.OPERACION__LEFT, null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.OPERACION__LEFT, null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OPERACION__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operacion getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OPERACION__RIGHT, oldRight, newRight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Operacion newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.OPERACION__RIGHT, null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.OPERACION__RIGHT, null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.OPERACION__RIGHT, newRight, newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiagramapseudocodigoPackage.OPERACION__LEFT:
+				return basicSetLeft(null, msgs);
+			case DiagramapseudocodigoPackage.OPERACION__RIGHT:
+				return basicSetRight(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -160,6 +285,10 @@ public class OperacionImpl extends ValorImpl implements Operacion {
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
+			case DiagramapseudocodigoPackage.OPERACION__LEFT:
+				return getLeft();
+			case DiagramapseudocodigoPackage.OPERACION__RIGHT:
+				return getRight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -184,6 +313,12 @@ public class OperacionImpl extends ValorImpl implements Operacion {
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
+			case DiagramapseudocodigoPackage.OPERACION__LEFT:
+				setLeft((Operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.OPERACION__RIGHT:
+				setRight((Operacion)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -205,6 +340,12 @@ public class OperacionImpl extends ValorImpl implements Operacion {
 			case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
+			case DiagramapseudocodigoPackage.OPERACION__LEFT:
+				setLeft((Operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.OPERACION__RIGHT:
+				setRight((Operacion)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -223,6 +364,10 @@ public class OperacionImpl extends ValorImpl implements Operacion {
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
+			case DiagramapseudocodigoPackage.OPERACION__LEFT:
+				return left != null;
+			case DiagramapseudocodigoPackage.OPERACION__RIGHT:
+				return right != null;
 		}
 		return super.eIsSet(featureID);
 	}

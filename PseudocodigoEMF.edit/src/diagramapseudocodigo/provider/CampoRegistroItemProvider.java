@@ -327,11 +327,6 @@ public class CampoRegistroItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__PRIMER_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 
 		newChildDescriptors.add
@@ -453,11 +448,6 @@ public class CampoRegistroItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__SEGUNDO_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.CAMPO_REGISTRO__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter

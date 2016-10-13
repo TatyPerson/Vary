@@ -62,7 +62,7 @@ public class BloqueItemProvider extends SentenciaItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION);
 			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS);
 		}
 		return childrenFeatures;
@@ -105,7 +105,7 @@ public class BloqueItemProvider extends SentenciaItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Bloque.class)) {
-			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
+			case DiagramapseudocodigoPackage.BLOQUE__CONDICION:
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -126,132 +126,127 @@ public class BloqueItemProvider extends SentenciaItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR,
+				(DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 
 		newChildDescriptors.add
@@ -437,11 +432,6 @@ public class BloqueItemProvider extends SentenciaItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
@@ -457,7 +447,7 @@ public class BloqueItemProvider extends SentenciaItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR ||
+			childFeature == DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION ||
 			childFeature == DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS;
 
 		if (qualify) {

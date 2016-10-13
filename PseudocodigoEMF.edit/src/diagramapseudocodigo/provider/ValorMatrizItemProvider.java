@@ -296,11 +296,6 @@ public class ValorMatrizItemProvider extends ValorComplejoItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 
 		newChildDescriptors.add
@@ -426,11 +421,6 @@ public class ValorMatrizItemProvider extends ValorComplejoItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
@@ -446,6 +436,8 @@ public class ValorMatrizItemProvider extends ValorComplejoItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
+			childFeature == DiagramapseudocodigoPackage.Literals.OPERACION__LEFT ||
+			childFeature == DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT ||
 			childFeature == DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE ||
 			childFeature == DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE;
 

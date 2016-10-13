@@ -11,6 +11,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getMat <em>Mat</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.VariableIDImpl#getNombre <em>Nombre</em>}</li>
  * </ul>
@@ -67,6 +70,26 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * @ordered
 	 */
 	protected EList<String> negacionesIniciales;
+
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion left;
+
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion right;
 
 	/**
 	 * The cached value of the '{@link #getMat() <em>Mat</em>}' attribute list.
@@ -184,6 +207,92 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Operacion getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VARIABLE_ID__LEFT, oldLeft, newLeft);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Operacion newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VARIABLE_ID__LEFT, null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VARIABLE_ID__LEFT, null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VARIABLE_ID__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operacion getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT, oldRight, newRight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Operacion newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT, null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT, null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT, newRight, newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<String> getMat() {
 		if (mat == null) {
 			mat = new EDataTypeUniqueEList<String>(String.class, this, DiagramapseudocodigoPackage.VARIABLE_ID__MAT);
@@ -218,6 +327,22 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiagramapseudocodigoPackage.VARIABLE_ID__LEFT:
+				return basicSetLeft(null, msgs);
+			case DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT:
+				return basicSetRight(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0:
@@ -227,6 +352,10 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
+			case DiagramapseudocodigoPackage.VARIABLE_ID__LEFT:
+				return getLeft();
+			case DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT:
+				return getRight();
 			case DiagramapseudocodigoPackage.VARIABLE_ID__MAT:
 				return getMat();
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NOMBRE:
@@ -254,6 +383,12 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
+				return;
+			case DiagramapseudocodigoPackage.VARIABLE_ID__LEFT:
+				setLeft((Operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT:
+				setRight((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.VARIABLE_ID__MAT:
 				getMat().clear();
@@ -283,6 +418,12 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
+			case DiagramapseudocodigoPackage.VARIABLE_ID__LEFT:
+				setLeft((Operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT:
+				setRight((Operacion)null);
+				return;
 			case DiagramapseudocodigoPackage.VARIABLE_ID__MAT:
 				getMat().clear();
 				return;
@@ -307,6 +448,10 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
+			case DiagramapseudocodigoPackage.VARIABLE_ID__LEFT:
+				return left != null;
+			case DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT:
+				return right != null;
 			case DiagramapseudocodigoPackage.VARIABLE_ID__MAT:
 				return mat != null && !mat.isEmpty();
 			case DiagramapseudocodigoPackage.VARIABLE_ID__NOMBRE:
@@ -332,6 +477,8 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 				case DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.VARIABLE_ID__LEFT: return DiagramapseudocodigoPackage.OPERACION__LEFT;
+				case DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT: return DiagramapseudocodigoPackage.OPERACION__RIGHT;
 				default: return -1;
 			}
 		}
@@ -355,6 +502,8 @@ public class VariableIDImpl extends OperadorImpl implements VariableID {
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.VARIABLE_ID__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.VARIABLE_ID__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.OPERACION__LEFT: return DiagramapseudocodigoPackage.VARIABLE_ID__LEFT;
+				case DiagramapseudocodigoPackage.OPERACION__RIGHT: return DiagramapseudocodigoPackage.VARIABLE_ID__RIGHT;
 				default: return -1;
 			}
 		}

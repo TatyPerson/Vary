@@ -256,11 +256,6 @@ public class FuncionFicheroCerrarItemProvider extends SentenciaItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_FICHERO_CERRAR__VARIABLE,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 

@@ -7,17 +7,12 @@ import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Registro;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,42 +24,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.RegistroImpl#getVariable <em>Variable</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.RegistroImpl#getNombre <em>Nombre</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.RegistroImpl#getCampos <em>Campos</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	/**
-	 * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference list.
+	 * The cached value of the '{@link #getCampos() <em>Campos</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariable()
+	 * @see #getCampos()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Declaracion> variable;
-
-	/**
-	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NOMBRE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected String nombre = NOMBRE_EDEFAULT;
+	protected EList<Declaracion> campos;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -90,32 +64,11 @@ public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Declaracion> getVariable() {
-		if (variable == null) {
-			variable = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.REGISTRO__VARIABLE);
+	public EList<Declaracion> getCampos() {
+		if (campos == null) {
+			campos = new EObjectContainmentEList<Declaracion>(Declaracion.class, this, DiagramapseudocodigoPackage.REGISTRO__CAMPOS);
 		}
-		return variable;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNombre(String newNombre) {
-		String oldNombre = nombre;
-		nombre = newNombre;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.REGISTRO__NOMBRE, oldNombre, nombre));
+		return campos;
 	}
 
 	/**
@@ -126,8 +79,8 @@ public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.REGISTRO__VARIABLE:
-				return ((InternalEList<?>)getVariable()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.REGISTRO__CAMPOS:
+				return ((InternalEList<?>)getCampos()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -140,10 +93,8 @@ public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.REGISTRO__VARIABLE:
-				return getVariable();
-			case DiagramapseudocodigoPackage.REGISTRO__NOMBRE:
-				return getNombre();
+			case DiagramapseudocodigoPackage.REGISTRO__CAMPOS:
+				return getCampos();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -157,12 +108,9 @@ public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.REGISTRO__VARIABLE:
-				getVariable().clear();
-				getVariable().addAll((Collection<? extends Declaracion>)newValue);
-				return;
-			case DiagramapseudocodigoPackage.REGISTRO__NOMBRE:
-				setNombre((String)newValue);
+			case DiagramapseudocodigoPackage.REGISTRO__CAMPOS:
+				getCampos().clear();
+				getCampos().addAll((Collection<? extends Declaracion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,11 +124,8 @@ public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.REGISTRO__VARIABLE:
-				getVariable().clear();
-				return;
-			case DiagramapseudocodigoPackage.REGISTRO__NOMBRE:
-				setNombre(NOMBRE_EDEFAULT);
+			case DiagramapseudocodigoPackage.REGISTRO__CAMPOS:
+				getCampos().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -194,28 +139,10 @@ public class RegistroImpl extends TipoComplejoImpl implements Registro {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.REGISTRO__VARIABLE:
-				return variable != null && !variable.isEmpty();
-			case DiagramapseudocodigoPackage.REGISTRO__NOMBRE:
-				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
+			case DiagramapseudocodigoPackage.REGISTRO__CAMPOS:
+				return campos != null && !campos.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nombre: ");
-		result.append(nombre);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RegistroImpl

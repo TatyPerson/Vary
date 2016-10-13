@@ -247,25 +247,25 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 	 */
 	override generate(FuncionInterna interna, boolean sentencia, List<String> punteros) {
 		if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COS") + '(')) {
-			'''cos(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''cos(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SEN") + '(')) {
-			'''sin(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''sin(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO") + '(')) {
-			'''pow(«interna.operadores.get(0).generate(punteros)»,«2.0»)«IF sentencia»;«ENDIF»'''
+			'''pow(«interna.parametros.get(0).generate(punteros)»,«2.0»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_EXP") + '(')) {
-			'''exp2(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''exp2(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LN") + '(')) {
-			'''log(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''log(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LOG") + '(')) {
-			'''log10(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''log10(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SQRT") + '(')) {
-			'''sqrt(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''sqrt(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA") + '(')) {
-			'''strcat(«interna.operadores.get(0).generate(punteros)»,«interna.operadores.get(1).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''strcat(«interna.parametros.get(0).generate(punteros)»,«interna.parametros.get(1).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COPIAR") + '(')) {
-			'''strcpy(«interna.operadores.get(0).generate(punteros)»,«interna.operadores.get(1).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''strcpy(«interna.parametros.get(0).generate(punteros)»,«interna.parametros.get(1).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LONGITUD") + '(')) {
-			'''strlen(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''strlen(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		}
 	}
 	
@@ -275,7 +275,7 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 	 * Función encargada de generar la entidad LlamadaFuncion.
 	 * @param llamadaFuncion, sentencia
 	 */
-	override generate(LlamadaFuncion llamadaFuncion, boolean sentencia, List<String> punteros) '''«llamadaFuncion.nombre»«llamadaFuncion.operadores.getParametros(llamadaFuncion.nombre, punteros)»)«IF sentencia»;«ENDIF»'''
+	override generate(LlamadaFuncion llamadaFuncion, boolean sentencia, List<String> punteros) '''«llamadaFuncion.nombre»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»)«IF sentencia»;«ENDIF»'''
 	
 	/* 28) /* -------------------------------------------------------------------------------------------------------------------- */
 	/**

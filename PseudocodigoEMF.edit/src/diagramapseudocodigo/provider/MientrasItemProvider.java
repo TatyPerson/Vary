@@ -105,7 +105,7 @@ public class MientrasItemProvider extends BloqueItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == DiagramapseudocodigoPackage.Literals.BLOQUE__VALOR ||
+			childFeature == DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION ||
 			childFeature == DiagramapseudocodigoPackage.Literals.BLOQUE__SENTENCIAS;
 
 		if (qualify) {

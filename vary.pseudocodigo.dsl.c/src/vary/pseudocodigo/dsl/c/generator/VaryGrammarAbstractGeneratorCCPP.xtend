@@ -269,40 +269,45 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 				}
 			}
 			for(Parametro p: s.parametros) {
-				if(p.tipo.eClass.name.equals("TipoBasico")) {
+				variablesSubprocesos.get(s.nombre).put(p.variable.nombre, p.tipo.nombre);
+				//FIXME
+				/*if(p.tipo.eClass.name.equals("TipoBasico")) {
 					var tipo = p.tipo as TipoBasico;
-					variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.tipo);
+					variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.nombre);
 				}
 				else if(p.tipo.eClass.name.equals("TipoDefinido")) {
 					var tipo = p.tipo as TipoDefinido;
-					variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.tipo);
-				}
+					variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.nombre);
+				}*/
 			}
 		}
 	
 		for(TipoComplejo complejo: complejos) {
+			//FIXME
 			if(complejo.eClass.name.equals("Vector")) {
 				var v = complejo as Vector;
-				if(v.tipo.eClass.name.equals("TipoBasico")) {
+				vectoresMatrices.put(v.nombre, v.tipo.nombre);
+				/*if(v.tipo.eClass.name.equals("TipoBasico")) {
 					var tipo = v.tipo as TipoBasico;
 					vectoresMatrices.put(v.nombre, tipo.tipo);
 				} else if(v.tipo.eClass.name.equals("TipoDefinido")) {
 					var tipo = v.tipo as TipoDefinido;
 					vectoresMatrices.put(v.nombre, tipo.tipo);
-				}
+				}*/
 			} else if(complejo.eClass.name.equals("Matriz")) {
 				var m = complejo as Matriz;
-				if(m.tipo.eClass.name.equals("TipoBasico")) {
+				vectoresMatrices.put(m.nombre, m.tipo.nombre);
+				/*if(m.tipo.eClass.name.equals("TipoBasico")) {
 					var tipo = m.tipo as TipoBasico;
 					vectoresMatrices.put(m.nombre, tipo.tipo);
 				} else if(m.tipo.eClass.name.equals("TipoDefinido")) {
 					var tipo = m.tipo as TipoDefinido;
 					vectoresMatrices.put(m.nombre, tipo.tipo);
-				}
+				}*/
 			} else if(complejo.eClass.name.equals("Registro")) {
 				var r = complejo as Registro;
 				registros.put(r.nombre, new HashMap<String,String>());
-				for(Declaracion d: r.variable) {
+				for(Declaracion d: r.campos) {
 					if(d instanceof DeclaracionBasica) {
 						var dec = d as DeclaracionBasica;
 						for(Variable v: dec.variables) {
@@ -322,7 +327,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 				var enumerado = complejo as Enumerado;
 				variablesEnumerados.put(enumerado.nombre, new ArrayList<String>());
 				enumerados.add(enumerado.nombre);
-				for(Valor v: enumerado.valor) {
+				for(Valor v: enumerado.posiblesValores) {
 				  if(v instanceof Operador) {
 				  	var v2 = v as Operador
 					if(v2 instanceof VariableID) {
@@ -384,7 +389,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 */
 	override generate(Registro registro) '''
 		typedef struct {
-			«FOR myVariable:registro.variable»
+			«FOR myVariable:registro.campos»
 				«myVariable.generate»
 			«ENDFOR»
 		} «registro.nombre»;
@@ -401,7 +406,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función auxiliar de generate(TipoComplejo) que se encarga de generar la entidad Enumerado.
 	 */
 	override generate(Enumerado enumerado) '''
-		typedef enum {«FOR variable:enumerado.valor»«IF variable == enumerado.valor.get(enumerado.valor.size()-1)»«variable.generate(null)»«ELSE»«variable.generate(null)», «ENDIF»«ENDFOR»} «enumerado.nombre»;
+		typedef enum {«FOR variable:enumerado.posiblesValores»«IF variable == enumerado.posiblesValores.get(enumerado.posiblesValores.size()-1)»«variable.generate(null)»«ELSE»«variable.generate(null)», «ENDIF»«ENDFOR»} «enumerado.nombre»;
 	'''
 	
 	/*
@@ -468,14 +473,14 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función auxiliar de generate(Tipo) que se encarga de generar la entidad TipoDefinido.
 	 */
 	override generate(TipoDefinido tipoDefinido) {
-		return tipoDefinido.tipo
+		return tipoDefinido.nombre
 	}
 	
 	/*
 	 * Función auxiliar de generate(Tipo) que se encarga de generar la entidad TipoBasico.
 	 */
 	override generate(TipoBasico tipoBasico) {
-		return getTipoVariable(tipoBasico.tipo)
+		return getTipoVariable(tipoBasico.nombre)
 	}
 	
 	/*
@@ -612,7 +617,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * @param si
 	 */
 	def generate(Si si, List<String> punteros) '''
-		if(«si.valor.generate(punteros)»){
+		if(«si.condicion.generate(punteros)»){
 			«FOR sentencia:si.sentencias»
 				«sentencia.generate(punteros)»
 			«ENDFOR»
@@ -647,7 +652,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * @param segun
 	 */	
 	def generate(Segun segun, List<String> punteros) '''
-		switch(«segun.valor.generate(punteros)»){
+		switch(«segun.condicion.generate(punteros)»){
 			«FOR caso:segun.casos»
 				«caso.generate(punteros)» 
 			«ENDFOR»
@@ -684,7 +689,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * @param mientras
 	 */	
 	def generate(Mientras mientras, List<String> punteros) '''
-		while(«mientras.valor.generate(punteros)»){
+		while(«mientras.condicion.generate(punteros)»){
 			«FOR sentencia:mientras.sentencias»
 				«sentencia.generate(punteros)»
 			«ENDFOR»
@@ -697,7 +702,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * @param desde
 	 */	
 	def generate(Desde desde, List<String> punteros) '''
-		for(«desde.asignacion.generate(punteros)» «desde.asignacion.valor_asignacion.toString» <= «desde.valor.generate(punteros)»; «desde.asignacion.valor_asignacion.toString»++){
+		for(«desde.asignacion.generate(punteros)» «desde.asignacion.valor_asignacion.toString» <= «desde.condicion.generate(punteros)»; «desde.asignacion.valor_asignacion.toString»++){
 			«FOR sentencia:desde.sentencias»
 				«sentencia.generate(punteros)»
 			«ENDFOR»
@@ -714,7 +719,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 			«FOR sentencia:repetir.sentencias»
 				«sentencia.generate(punteros)»
 			«ENDFOR»
-		}while(!(«repetir.valor.generate(null)»));
+		}while(!(«repetir.condicion.generate(null)»));
 	'''
 	
 	/* 17) /* -------------------------------------------------------------------------------------------------------------------- */
@@ -1501,76 +1506,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 			var operacionParentesis = operacion as OperacionParentesis;
 			return operacionParentesis.valor_operacion.getTipoOperador(inicio, nombreActual);
 		}
-	}
-	
-	/*
-	 * Función auxiliar de busquedaSentencias(Escribir) que se encarga de comprobar si en un conjunto de sentencias existe una expresión Escribir.
-	 */
-	def boolean contieneEscribir(EList<Sentencia> sentencias, Escribir escribir) {
-		if(sentencias.contains(escribir)) {
-			return true;
-		}
-		for(Sentencia sentencia: sentencias) {
-			if(sentencia.eClass.name.equals("Mientras")) {
-				var mientras = sentencia as Mientras;
-				if(mientras.sentencias.contains(escribir)) {
-					return true;
-				} else {
-					if(contieneEscribir(mientras.sentencias, escribir) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Repetir")) {
-				var repetir = sentencia as Repetir;
-				if(repetir.sentencias.contains(escribir)) {
-					return true;
-				} else {
-					if(contieneEscribir(repetir.sentencias, escribir) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Desde")) {
-				var desde = sentencia as Desde;
-				if(desde.sentencias.contains(escribir)) {
-					return true;
-				} else {
-					if(contieneEscribir(desde.sentencias, escribir) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Si")) {
-				var si = sentencia as Si;
-				if(si.sentencias.contains(escribir)) {
-					return true;
-				} else if(si.sino != null) {
-					if(si.sino.sentencias.contains(escribir)) {
-						return true;
-					} else {
-						if(contieneEscribir(si.sino.sentencias, escribir) == true) {
-							return true;
-						}
-					}
-				} else {
-					if(contieneEscribir(si.sentencias, escribir) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Segun")) {
-				var segun = sentencia as Segun;
-				for(Caso caso: segun.casos) {
-					if(caso.sentencias.contains(escribir)) {
-						return true;
-					} else {
-						if(contieneEscribir(caso.sentencias, escribir) == true) {
-							return true;
-						}
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
+	}	
 	
 	/* 29) /* -------------------------------------------------------------------------------------------------------------------- */
 	/**
@@ -1578,73 +1514,4 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * @param leer, sentencias, subprocesos, algoritmo
 	 */
 	def generate(Leer leer, List<Sentencia> sentencias, List<Subproceso> subprocesos, boolean inicio) {}
-	
-	/*
-	 * Función auxiliar de busquedaSentencias(Leer) que se encarga de comprobar si en un conjunto de sentencias existe una expresión Leer.
-	 */
-	def boolean contieneLeer(EList<Sentencia> sentencias, Leer leer) {
-		if(sentencias.contains(leer)) {
-			return true;
-		}
-		for(Sentencia sentencia: sentencias) {
-			if(sentencia.eClass.name.equals("Mientras")) {
-				var mientras = sentencia as Mientras;
-				if(mientras.sentencias.contains(leer)) {
-					return true;
-				} else {
-					if(contieneLeer(mientras.sentencias, leer) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Repetir")) {
-				var repetir = sentencia as Repetir;
-				if(repetir.sentencias.contains(leer)) {
-					return true;
-				} else {
-					if(contieneLeer(repetir.sentencias, leer) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Desde")) {
-				var desde = sentencia as Desde;
-				if(desde.sentencias.contains(leer)) {
-					return true;
-				} else {
-					if(contieneLeer(desde.sentencias, leer) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Si")) {
-				var si = sentencia as Si;
-				if(si.sentencias.contains(leer)) {
-					return true;
-				} else if(si.sino != null) {
-					if(si.sino.sentencias.contains(leer)) {
-						return true;
-					} else {
-						if(contieneLeer(si.sino.sentencias, leer) == true) {
-							return true;
-						}
-					}
-				} else {
-					if(contieneLeer(si.sentencias, leer) == true) {
-						return true;
-					}
-				}
-			} else if(sentencia.eClass.name.equals("Segun")) {
-				var segun = sentencia as Segun;
-				for(Caso caso: segun.casos) {
-					if(caso.sentencias.contains(leer)) {
-						return true;
-					} else {
-						if(contieneLeer(caso.sentencias, leer) == true) {
-							return true;
-						}
-					}
-				}
-			}
-		}
-		return false;
-	}
-	
 }

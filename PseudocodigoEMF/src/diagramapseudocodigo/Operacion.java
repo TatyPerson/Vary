@@ -16,6 +16,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link diagramapseudocodigo.Operacion#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.Operacion#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.Operacion#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Operacion#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Operacion#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getOperacion()
@@ -80,5 +82,57 @@ public interface Operacion extends Valor, Sentencia {
 	 * @generated
 	 */
 	EList<String> getNegacionesIniciales();
+
+	/**
+	 * Returns the value of the '<em><b>Left</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Left</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Left</em>' containment reference.
+	 * @see #setLeft(Operacion)
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getOperacion_Left()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Operacion getLeft();
+
+	/**
+	 * Sets the value of the '{@link diagramapseudocodigo.Operacion#getLeft <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Left</em>' containment reference.
+	 * @see #getLeft()
+	 * @generated
+	 */
+	void setLeft(Operacion value);
+
+	/**
+	 * Returns the value of the '<em><b>Right</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Right</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Right</em>' containment reference.
+	 * @see #setRight(Operacion)
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getOperacion_Right()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Operacion getRight();
+
+	/**
+	 * Sets the value of the '{@link diagramapseudocodigo.Operacion#getRight <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Right</em>' containment reference.
+	 * @see #getRight()
+	 * @generated
+	 */
+	void setRight(Operacion value);
 
 } // Operacion

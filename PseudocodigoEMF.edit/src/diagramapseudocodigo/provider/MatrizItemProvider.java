@@ -14,10 +14,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,31 +45,8 @@ public class MatrizItemProvider extends TipoComplejoItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addNombrePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Nombre feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addNombrePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Matriz_nombre_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Matriz_nombre_feature", "_UI_Matriz_type"),
-				 DiagramapseudocodigoPackage.Literals.MATRIZ__NOMBRE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -144,9 +118,6 @@ public class MatrizItemProvider extends TipoComplejoItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Matriz.class)) {
-			case DiagramapseudocodigoPackage.MATRIZ__NOMBRE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case DiagramapseudocodigoPackage.MATRIZ__VALOR:
 			case DiagramapseudocodigoPackage.MATRIZ__TIPO:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -285,11 +256,6 @@ public class MatrizItemProvider extends TipoComplejoItemProvider {
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.MATRIZ__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.MATRIZ__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter

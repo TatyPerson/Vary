@@ -25,7 +25,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.VectorImpl#getValor <em>Valor</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.VectorImpl#getTipo <em>Tipo</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.VectorImpl#getNombre <em>Nombre</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,26 +49,6 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * @ordered
 	 */
 	protected Tipo tipo;
-
-	/**
-	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NOMBRE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected String nombre = NOMBRE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -181,27 +160,6 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNombre(String newNombre) {
-		String oldNombre = nombre;
-		nombre = newNombre;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VECTOR__NOMBRE, oldNombre, nombre));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -225,8 +183,6 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 				return getValor();
 			case DiagramapseudocodigoPackage.VECTOR__TIPO:
 				return getTipo();
-			case DiagramapseudocodigoPackage.VECTOR__NOMBRE:
-				return getNombre();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -244,9 +200,6 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 				return;
 			case DiagramapseudocodigoPackage.VECTOR__TIPO:
 				setTipo((Tipo)newValue);
-				return;
-			case DiagramapseudocodigoPackage.VECTOR__NOMBRE:
-				setNombre((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -266,9 +219,6 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 			case DiagramapseudocodigoPackage.VECTOR__TIPO:
 				setTipo((Tipo)null);
 				return;
-			case DiagramapseudocodigoPackage.VECTOR__NOMBRE:
-				setNombre(NOMBRE_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -285,26 +235,8 @@ public class VectorImpl extends TipoComplejoImpl implements Vector {
 				return valor != null;
 			case DiagramapseudocodigoPackage.VECTOR__TIPO:
 				return tipo != null;
-			case DiagramapseudocodigoPackage.VECTOR__NOMBRE:
-				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nombre: ");
-		result.append(nombre);
-		result.append(')');
-		return result.toString();
 	}
 
 } //VectorImpl

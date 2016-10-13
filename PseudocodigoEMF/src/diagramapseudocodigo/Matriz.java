@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Matriz#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Matriz#getValor <em>Valor</em>}</li>
  *   <li>{@link diagramapseudocodigo.Matriz#getTipo <em>Tipo</em>}</li>
  * </ul>
@@ -23,32 +22,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface Matriz extends TipoComplejo {
-	/**
-	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nombre</em>' attribute.
-	 * @see #setNombre(String)
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getMatriz_Nombre()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getNombre();
-
-	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Matriz#getNombre <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nombre</em>' attribute.
-	 * @see #getNombre()
-	 * @generated
-	 */
-	void setNombre(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Valor</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.

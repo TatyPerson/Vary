@@ -3,7 +3,6 @@
 package diagramapseudocodigo.provider;
 
 
-import diagramapseudocodigo.DiagramapseudocodigoFactory;
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Igualdad;
 import diagramapseudocodigo.signo;
@@ -13,9 +12,6 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -77,37 +73,6 @@ public class IgualdadItemProvider extends OperacionItemProvider {
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns Igualdad.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,10 +114,6 @@ public class IgualdadItemProvider extends OperacionItemProvider {
 			case DiagramapseudocodigoPackage.IGUALDAD__SIGNO_OP:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.IGUALDAD__LEFT:
-			case DiagramapseudocodigoPackage.IGUALDAD__RIGHT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -167,266 +128,6 @@ public class IgualdadItemProvider extends OperacionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT,
-				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 
 	/**
@@ -441,8 +142,8 @@ public class IgualdadItemProvider extends OperacionItemProvider {
 		Object childObject = child;
 
 		boolean qualify =
-			childFeature == DiagramapseudocodigoPackage.Literals.IGUALDAD__LEFT ||
-			childFeature == DiagramapseudocodigoPackage.Literals.IGUALDAD__RIGHT;
+			childFeature == DiagramapseudocodigoPackage.Literals.OPERACION__LEFT ||
+			childFeature == DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT;
 
 		if (qualify) {
 			return getString

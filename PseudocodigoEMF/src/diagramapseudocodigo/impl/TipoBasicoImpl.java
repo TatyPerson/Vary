@@ -4,47 +4,16 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.TipoBasico;
-
-import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Tipo Basico</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link diagramapseudocodigo.impl.TipoBasicoImpl#getTipo <em>Tipo</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class TipoBasicoImpl extends TipoImpl implements TipoBasico {
-	/**
-	 * The default value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTipo()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TIPO_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTipo()
-	 * @generated
-	 * @ordered
-	 */
-	protected String tipo = TIPO_EDEFAULT;
-
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -62,101 +31,6 @@ public class TipoBasicoImpl extends TipoImpl implements TipoBasico {
 	@Override
 	protected EClass eStaticClass() {
 		return DiagramapseudocodigoPackage.Literals.TIPO_BASICO;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTipo() {
-		return tipo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTipo(String newTipo) {
-		String oldTipo = tipo;
-		tipo = newTipo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.TIPO_BASICO__TIPO, oldTipo, tipo));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DiagramapseudocodigoPackage.TIPO_BASICO__TIPO:
-				return getTipo();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DiagramapseudocodigoPackage.TIPO_BASICO__TIPO:
-				setTipo((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DiagramapseudocodigoPackage.TIPO_BASICO__TIPO:
-				setTipo(TIPO_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DiagramapseudocodigoPackage.TIPO_BASICO__TIPO:
-				return TIPO_EDEFAULT == null ? tipo != null : !TIPO_EDEFAULT.equals(tipo);
-		}
-		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (tipo: ");
-		result.append(tipo);
-		result.append(')');
-		return result.toString();
 	}
 
 } //TipoBasicoImpl

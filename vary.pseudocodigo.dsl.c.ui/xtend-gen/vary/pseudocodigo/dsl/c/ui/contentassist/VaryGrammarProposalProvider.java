@@ -28,9 +28,7 @@ import diagramapseudocodigo.Registro;
 import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.Subrango;
 import diagramapseudocodigo.Tipo;
-import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.TipoComplejo;
-import diagramapseudocodigo.TipoDefinido;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
 import diagramapseudocodigo.ValorVector;
@@ -537,36 +535,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   
   public void completeAsignacionNormal_OperadorParametrosSubproceso(final ContentAssistContext context, final ICompletionProposalAcceptor acceptor, final List<Parametro> parametros) {
     for (final Parametro parametro : parametros) {
-      Tipo _tipo = parametro.getTipo();
-      if ((_tipo instanceof TipoDefinido)) {
-        Tipo _tipo_1 = parametro.getTipo();
-        TipoDefinido tipoDefinido = ((TipoDefinido) _tipo_1);
+      {
         Variable _variable = parametro.getVariable();
         String _nombre = _variable.getNombre();
         String _plus = (_nombre + " : ");
-        String _tipo_2 = tipoDefinido.getTipo();
-        String _plus_1 = (_plus + _tipo_2);
+        Tipo _tipo = parametro.getTipo();
+        String _nombre_1 = _tipo.getNombre();
+        String _plus_1 = (_plus + _nombre_1);
         StyledString styledString = new StyledString(_plus_1);
         Variable _variable_1 = parametro.getVariable();
-        String _nombre_1 = _variable_1.getNombre();
-        ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_1, styledString, VaryGrammarProposalProvider.varPrivate, context);
+        String _nombre_2 = _variable_1.getNombre();
+        ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_2, styledString, VaryGrammarProposalProvider.varPrivate, context);
         acceptor.accept(completionProposal);
-      } else {
-        Tipo _tipo_3 = parametro.getTipo();
-        if ((_tipo_3 instanceof TipoBasico)) {
-          Tipo _tipo_4 = parametro.getTipo();
-          TipoBasico tipoBasico = ((TipoBasico) _tipo_4);
-          Variable _variable_2 = parametro.getVariable();
-          String _nombre_2 = _variable_2.getNombre();
-          String _plus_2 = (_nombre_2 + " : ");
-          String _tipo_5 = tipoBasico.getTipo();
-          String _plus_3 = (_plus_2 + _tipo_5);
-          StyledString styledString_1 = new StyledString(_plus_3);
-          Variable _variable_3 = parametro.getVariable();
-          String _nombre_3 = _variable_3.getNombre();
-          ICompletionProposal completionProposal_1 = this.createCompletionProposal(_nombre_3, styledString_1, VaryGrammarProposalProvider.varPrivate, context);
-          acceptor.accept(completionProposal_1);
-        }
       }
     }
   }
@@ -1144,7 +1124,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   }
   
   @Override
-  public void completeFunciones_Operadores(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeFunciones_Parametros(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _rootModel = context.getRootModel();
     if ((_rootModel instanceof Algoritmo)) {
       EObject _currentModel = context.getCurrentModel();
@@ -1518,36 +1498,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
             boolean _equals_4 = _nombre_4.equals(tipo);
             if (_equals_4) {
               Tipo _tipo_4 = vector.getTipo();
-              if ((_tipo_4 instanceof TipoDefinido)) {
-                Tipo _tipo_5 = vector.getTipo();
-                TipoDefinido tipoDefinido = ((TipoDefinido) _tipo_5);
-                String _tipo_6 = tipoDefinido.getTipo();
-                tipo = _tipo_6;
-              } else {
-                Tipo _tipo_7 = vector.getTipo();
-                TipoBasico tipoBasico = ((TipoBasico) _tipo_7);
-                String _tipo_8 = tipoBasico.getTipo();
-                tipo = _tipo_8;
-              }
+              String _nombre_5 = _tipo_4.getNombre();
+              tipo = _nombre_5;
             }
           } else {
             if ((complejo instanceof Matriz)) {
               Matriz matriz = ((Matriz) complejo);
-              String _nombre_5 = matriz.getNombre();
-              boolean _equals_5 = _nombre_5.equals(tipo);
+              String _nombre_6 = matriz.getNombre();
+              boolean _equals_5 = _nombre_6.equals(tipo);
               if (_equals_5) {
-                Tipo _tipo_9 = matriz.getTipo();
-                if ((_tipo_9 instanceof TipoDefinido)) {
-                  Tipo _tipo_10 = matriz.getTipo();
-                  TipoDefinido tipoDefinido_1 = ((TipoDefinido) _tipo_10);
-                  String _tipo_11 = tipoDefinido_1.getTipo();
-                  tipo = _tipo_11;
-                } else {
-                  Tipo _tipo_12 = matriz.getTipo();
-                  TipoBasico tipoBasico_1 = ((TipoBasico) _tipo_12);
-                  String _tipo_13 = tipoBasico_1.getTipo();
-                  tipo = _tipo_13;
-                }
+                Tipo _tipo_5 = matriz.getTipo();
+                String _nombre_7 = _tipo_5.getNombre();
+                tipo = _nombre_7;
               }
             }
           }
@@ -1557,25 +1519,25 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
     for (final TipoComplejo complejo_1 : complejos) {
       if ((complejo_1 instanceof Registro)) {
         Registro registro = ((Registro) complejo_1);
-        String _nombre_6 = registro.getNombre();
-        boolean _equals_6 = _nombre_6.equals(tipo);
+        String _nombre_8 = registro.getNombre();
+        boolean _equals_6 = _nombre_8.equals(tipo);
         if (_equals_6) {
-          EList<Declaracion> _variable = registro.getVariable();
-          for (final Declaracion dec_2 : _variable) {
+          EList<Declaracion> _campos = registro.getCampos();
+          for (final Declaracion dec_2 : _campos) {
             if ((dec_2 instanceof DeclaracionDefinida)) {
               DeclaracionDefinida declaracionDefinida_2 = ((DeclaracionDefinida) dec_2);
               EList<Variable> _variables_4 = declaracionDefinida_2.getVariables();
               for (final Variable v_4 : _variables_4) {
                 {
-                  String _nombre_7 = v_4.getNombre();
-                  String _plus = (_nombre_7 + " : ");
-                  String _tipo_14 = declaracionDefinida_2.getTipo();
-                  String _plus_1 = (_plus + _tipo_14);
+                  String _nombre_9 = v_4.getNombre();
+                  String _plus = (_nombre_9 + " : ");
+                  String _tipo_6 = declaracionDefinida_2.getTipo();
+                  String _plus_1 = (_plus + _tipo_6);
                   String _plus_2 = (_plus_1 + " : ");
                   String _plus_3 = (_plus_2 + tipo);
                   StyledString styledString = new StyledString(_plus_3);
-                  String _nombre_8 = v_4.getNombre();
-                  ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_8, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
+                  String _nombre_10 = v_4.getNombre();
+                  ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_10, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
                   acceptor.accept(completionProposal);
                 }
               }
@@ -1584,15 +1546,15 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
               EList<Variable> _variables_5 = declaracionBasica_2.getVariables();
               for (final Variable v_5 : _variables_5) {
                 {
-                  String _nombre_7 = v_5.getNombre();
-                  String _plus = (_nombre_7 + " : ");
-                  String _tipo_14 = declaracionBasica_2.getTipo();
-                  String _plus_1 = (_plus + _tipo_14);
+                  String _nombre_9 = v_5.getNombre();
+                  String _plus = (_nombre_9 + " : ");
+                  String _tipo_6 = declaracionBasica_2.getTipo();
+                  String _plus_1 = (_plus + _tipo_6);
                   String _plus_2 = (_plus_1 + " : ");
                   String _plus_3 = (_plus_2 + tipo);
                   StyledString styledString = new StyledString(_plus_3);
-                  String _nombre_8 = v_5.getNombre();
-                  ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_8, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
+                  String _nombre_10 = v_5.getNombre();
+                  ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_10, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
                   acceptor.accept(completionProposal);
                 }
               }
@@ -1673,36 +1635,18 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                   boolean _equals_4 = _nombre_4.equals(tipo);
                   if (_equals_4) {
                     Tipo _tipo_4 = vector.getTipo();
-                    if ((_tipo_4 instanceof TipoDefinido)) {
-                      Tipo _tipo_5 = vector.getTipo();
-                      TipoDefinido tipoDefinido = ((TipoDefinido) _tipo_5);
-                      String _tipo_6 = tipoDefinido.getTipo();
-                      tipo = _tipo_6;
-                    } else {
-                      Tipo _tipo_7 = vector.getTipo();
-                      TipoBasico tipoBasico = ((TipoBasico) _tipo_7);
-                      String _tipo_8 = tipoBasico.getTipo();
-                      tipo = _tipo_8;
-                    }
+                    String _nombre_5 = _tipo_4.getNombre();
+                    tipo = _nombre_5;
                   }
                 } else {
                   if ((complejo instanceof Matriz)) {
                     Matriz matriz = ((Matriz) complejo);
-                    String _nombre_5 = matriz.getNombre();
-                    boolean _equals_5 = _nombre_5.equals(tipo);
+                    String _nombre_6 = matriz.getNombre();
+                    boolean _equals_5 = _nombre_6.equals(tipo);
                     if (_equals_5) {
-                      Tipo _tipo_9 = matriz.getTipo();
-                      if ((_tipo_9 instanceof TipoDefinido)) {
-                        Tipo _tipo_10 = matriz.getTipo();
-                        TipoDefinido tipoDefinido_1 = ((TipoDefinido) _tipo_10);
-                        String _tipo_11 = tipoDefinido_1.getTipo();
-                        tipo = _tipo_11;
-                      } else {
-                        Tipo _tipo_12 = matriz.getTipo();
-                        TipoBasico tipoBasico_1 = ((TipoBasico) _tipo_12);
-                        String _tipo_13 = tipoBasico_1.getTipo();
-                        tipo = _tipo_13;
-                      }
+                      Tipo _tipo_5 = matriz.getTipo();
+                      String _nombre_7 = _tipo_5.getNombre();
+                      tipo = _nombre_7;
                     }
                   }
                 }
@@ -1716,31 +1660,31 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
           if (_not_1) {
             if ((complejo_1 instanceof Registro)) {
               Registro registro = ((Registro) complejo_1);
-              String _nombre_6 = registro.getNombre();
-              boolean _equals_6 = _nombre_6.equals(tipo);
+              String _nombre_8 = registro.getNombre();
+              boolean _equals_6 = _nombre_8.equals(tipo);
               if (_equals_6) {
-                EList<Declaracion> _variable = registro.getVariable();
-                for (final Declaracion dec_2 : _variable) {
+                EList<Declaracion> _campos = registro.getCampos();
+                for (final Declaracion dec_2 : _campos) {
                   if ((dec_2 instanceof DeclaracionDefinida)) {
                     DeclaracionDefinida declaracionDefinida_2 = ((DeclaracionDefinida) dec_2);
                     EList<Variable> _variables_4 = declaracionDefinida_2.getVariables();
                     for (final Variable v_4 : _variables_4) {
                       {
-                        String _nombre_7 = v_4.getNombre();
-                        String _plus = (_nombre_7 + " : ");
-                        String _tipo_14 = declaracionDefinida_2.getTipo();
-                        String _plus_1 = (_plus + _tipo_14);
+                        String _nombre_9 = v_4.getNombre();
+                        String _plus = (_nombre_9 + " : ");
+                        String _tipo_6 = declaracionDefinida_2.getTipo();
+                        String _plus_1 = (_plus + _tipo_6);
                         String _plus_2 = (_plus_1 + " : ");
                         String _plus_3 = (_plus_2 + tipo);
                         StyledString styledString = new StyledString(_plus_3);
-                        String _nombre_8 = modulo.getNombre();
-                        String _plus_4 = (" - " + _nombre_8);
+                        String _nombre_10 = modulo.getNombre();
+                        String _plus_4 = (" - " + _nombre_10);
                         StyledString styledStringAux = new StyledString(_plus_4);
                         int _length = styledStringAux.length();
                         styledStringAux.setStyle(0, _length, StyledString.QUALIFIER_STYLER);
                         styledString.append(styledStringAux);
-                        String _nombre_9 = v_4.getNombre();
-                        ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_9, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
+                        String _nombre_11 = v_4.getNombre();
+                        ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_11, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
                         acceptor.accept(completionProposal);
                       }
                     }
@@ -1749,21 +1693,21 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
                     EList<Variable> _variables_5 = declaracionBasica_2.getVariables();
                     for (final Variable v_5 : _variables_5) {
                       {
-                        String _nombre_7 = v_5.getNombre();
-                        String _plus = (_nombre_7 + " : ");
-                        String _tipo_14 = declaracionBasica_2.getTipo();
-                        String _plus_1 = (_plus + _tipo_14);
+                        String _nombre_9 = v_5.getNombre();
+                        String _plus = (_nombre_9 + " : ");
+                        String _tipo_6 = declaracionBasica_2.getTipo();
+                        String _plus_1 = (_plus + _tipo_6);
                         String _plus_2 = (_plus_1 + " : ");
                         String _plus_3 = (_plus_2 + tipo);
                         StyledString styledString = new StyledString(_plus_3);
-                        String _nombre_8 = modulo.getNombre();
-                        String _plus_4 = (" - " + _nombre_8);
+                        String _nombre_10 = modulo.getNombre();
+                        String _plus_4 = (" - " + _nombre_10);
                         StyledString styledStringAux = new StyledString(_plus_4);
                         int _length = styledStringAux.length();
                         styledStringAux.setStyle(0, _length, StyledString.QUALIFIER_STYLER);
                         styledString.append(styledStringAux);
-                        String _nombre_9 = v_5.getNombre();
-                        ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_9, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
+                        String _nombre_11 = v_5.getNombre();
+                        ICompletionProposal completionProposal = this.createCompletionProposal(_nombre_11, styledString, VaryGrammarProposalProvider.fieldRegistry, context);
                         acceptor.accept(completionProposal);
                       }
                     }
@@ -1778,7 +1722,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   }
   
   @Override
-  public void completeTipoDefinido_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeTipoDefinido_Nombre(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     EObject _rootModel = context.getRootModel();
     if ((_rootModel instanceof Algoritmo)) {
       ArrayList<String> tiposLocales = new ArrayList<String>();
@@ -1806,7 +1750,7 @@ public class VaryGrammarProposalProvider extends AbstractVaryGrammarProposalProv
   }
   
   @Override
-  public void completeTipoBasico_Tipo(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
+  public void completeTipoBasico_Nombre(final EObject model, final Assignment assignment, final ContentAssistContext context, final ICompletionProposalAcceptor acceptor) {
     this.completeDeclaracionBasica_TipoAux(context, acceptor);
   }
   

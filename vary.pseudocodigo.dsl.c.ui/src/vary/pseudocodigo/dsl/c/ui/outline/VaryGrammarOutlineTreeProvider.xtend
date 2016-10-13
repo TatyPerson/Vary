@@ -54,7 +54,7 @@ class VaryGrammarOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline
 	def protected _createChildren(IOutlineNode parentNode, Matriz modelElement) {}
 	
 	def protected _createChildren(IOutlineNode parentNode, Registro modelElement) {
-		for(declaracion: modelElement.variable) {
+		for(declaracion: modelElement.campos) {
 			super._createChildren(parentNode, declaracion)
 		}
 	}

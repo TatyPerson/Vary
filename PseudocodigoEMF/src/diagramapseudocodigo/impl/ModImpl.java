@@ -4,15 +4,10 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Mod;
-import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.signo;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -24,8 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.impl.ModImpl#getSigno_op <em>Signo op</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ModImpl#getRight <em>Right</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.ModImpl#getLeft <em>Left</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,26 +43,6 @@ public class ModImpl extends OperacionImpl implements Mod {
 	 * @ordered
 	 */
 	protected signo signo_op = SIGNO_OP_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRight()
-	 * @generated
-	 * @ordered
-	 */
-	protected Operacion right;
-
-	/**
-	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLeft()
-	 * @generated
-	 * @ordered
-	 */
-	protected Operacion left;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,117 +89,11 @@ public class ModImpl extends OperacionImpl implements Mod {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Operacion getRight() {
-		return right;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
-		Operacion oldRight = right;
-		right = newRight;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MOD__RIGHT, oldRight, newRight);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRight(Operacion newRight) {
-		if (newRight != right) {
-			NotificationChain msgs = null;
-			if (right != null)
-				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MOD__RIGHT, null, msgs);
-			if (newRight != null)
-				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MOD__RIGHT, null, msgs);
-			msgs = basicSetRight(newRight, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MOD__RIGHT, newRight, newRight));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Operacion getLeft() {
-		return left;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
-		Operacion oldLeft = left;
-		left = newLeft;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MOD__LEFT, oldLeft, newLeft);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLeft(Operacion newLeft) {
-		if (newLeft != left) {
-			NotificationChain msgs = null;
-			if (left != null)
-				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MOD__LEFT, null, msgs);
-			if (newLeft != null)
-				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MOD__LEFT, null, msgs);
-			msgs = basicSetLeft(newLeft, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MOD__LEFT, newLeft, newLeft));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				return basicSetRight(null, msgs);
-			case DiagramapseudocodigoPackage.MOD__LEFT:
-				return basicSetLeft(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.MOD__SIGNO_OP:
 				return getSigno_op();
-			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				return getRight();
-			case DiagramapseudocodigoPackage.MOD__LEFT:
-				return getLeft();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,12 +108,6 @@ public class ModImpl extends OperacionImpl implements Mod {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.MOD__SIGNO_OP:
 				setSigno_op((signo)newValue);
-				return;
-			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				setRight((Operacion)newValue);
-				return;
-			case DiagramapseudocodigoPackage.MOD__LEFT:
-				setLeft((Operacion)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -263,12 +124,6 @@ public class ModImpl extends OperacionImpl implements Mod {
 			case DiagramapseudocodigoPackage.MOD__SIGNO_OP:
 				setSigno_op(SIGNO_OP_EDEFAULT);
 				return;
-			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				setRight((Operacion)null);
-				return;
-			case DiagramapseudocodigoPackage.MOD__LEFT:
-				setLeft((Operacion)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -283,10 +138,6 @@ public class ModImpl extends OperacionImpl implements Mod {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.MOD__SIGNO_OP:
 				return signo_op != SIGNO_OP_EDEFAULT;
-			case DiagramapseudocodigoPackage.MOD__RIGHT:
-				return right != null;
-			case DiagramapseudocodigoPackage.MOD__LEFT:
-				return left != null;
 		}
 		return super.eIsSet(featureID);
 	}

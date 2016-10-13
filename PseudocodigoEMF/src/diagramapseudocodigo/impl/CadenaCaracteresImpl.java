@@ -11,6 +11,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link diagramapseudocodigo.impl.CadenaCaracteresImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CadenaCaracteresImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CadenaCaracteresImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CadenaCaracteresImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.CadenaCaracteresImpl#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.CadenaCaracteresImpl#getValor <em>Valor</em>}</li>
  * </ul>
  *
@@ -66,6 +69,26 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 	 * @ordered
 	 */
 	protected EList<String> negacionesIniciales;
+
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion left;
+
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion right;
 
 	/**
 	 * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
@@ -173,6 +196,92 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Operacion getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT, oldLeft, newLeft);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Operacion newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT, null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT, null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operacion getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT, oldRight, newRight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Operacion newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT, null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT, null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT, newRight, newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getValor() {
 		return valor;
 	}
@@ -195,6 +304,22 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT:
+				return basicSetLeft(null, msgs);
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT:
+				return basicSetRight(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__EATTRIBUTE0RENCE0:
@@ -204,6 +329,10 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT:
+				return getLeft();
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT:
+				return getRight();
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__VALOR:
 				return getValor();
 		}
@@ -230,6 +359,12 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT:
+				setLeft((Operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT:
+				setRight((Operacion)newValue);
+				return;
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__VALOR:
 				setValor((String)newValue);
 				return;
@@ -254,6 +389,12 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT:
+				setLeft((Operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT:
+				setRight((Operacion)null);
+				return;
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__VALOR:
 				setValor(VALOR_EDEFAULT);
 				return;
@@ -275,6 +416,10 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT:
+				return left != null;
+			case DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT:
+				return right != null;
 			case DiagramapseudocodigoPackage.CADENA_CARACTERES__VALOR:
 				return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
 		}
@@ -298,6 +443,8 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 				case DiagramapseudocodigoPackage.CADENA_CARACTERES__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT: return DiagramapseudocodigoPackage.OPERACION__LEFT;
+				case DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT: return DiagramapseudocodigoPackage.OPERACION__RIGHT;
 				default: return -1;
 			}
 		}
@@ -321,6 +468,8 @@ public class CadenaCaracteresImpl extends OperadorImpl implements CadenaCaracter
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.CADENA_CARACTERES__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.CADENA_CARACTERES__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.OPERACION__LEFT: return DiagramapseudocodigoPackage.CADENA_CARACTERES__LEFT;
+				case DiagramapseudocodigoPackage.OPERACION__RIGHT: return DiagramapseudocodigoPackage.CADENA_CARACTERES__RIGHT;
 				default: return -1;
 			}
 		}

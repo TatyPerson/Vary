@@ -34,8 +34,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getOperadores <em>Operadores</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.LlamadaFuncionImpl#getParametros <em>Parametros</em>}</li>
  * </ul>
  *
  * @generated
@@ -72,6 +74,26 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 	protected EList<String> negacionesIniciales;
 
 	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion left;
+
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion right;
+
+	/**
 	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -92,14 +114,14 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 	protected String nombre = NOMBRE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOperadores() <em>Operadores</em>}' containment reference list.
+	 * The cached value of the '{@link #getParametros() <em>Parametros</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOperadores()
+	 * @see #getParametros()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Operacion> operadores;
+	protected EList<Operacion> parametros;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -187,6 +209,92 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Operacion getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT, oldLeft, newLeft);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Operacion newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT, null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT, null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operacion getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT, oldRight, newRight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Operacion newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT, null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT, null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT, newRight, newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getNombre() {
 		return nombre;
 	}
@@ -208,11 +316,11 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Operacion> getOperadores() {
-		if (operadores == null) {
-			operadores = new EObjectContainmentEList<Operacion>(Operacion.class, this, DiagramapseudocodigoPackage.LLAMADA_FUNCION__OPERADORES);
+	public EList<Operacion> getParametros() {
+		if (parametros == null) {
+			parametros = new EObjectContainmentEList<Operacion>(Operacion.class, this, DiagramapseudocodigoPackage.LLAMADA_FUNCION__PARAMETROS);
 		}
-		return operadores;
+		return parametros;
 	}
 
 	/**
@@ -223,8 +331,12 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__OPERADORES:
-				return ((InternalEList<?>)getOperadores()).basicRemove(otherEnd, msgs);
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT:
+				return basicSetLeft(null, msgs);
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT:
+				return basicSetRight(null, msgs);
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__PARAMETROS:
+				return ((InternalEList<?>)getParametros()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,10 +356,14 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT:
+				return getLeft();
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT:
+				return getRight();
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NOMBRE:
 				return getNombre();
-			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__OPERADORES:
-				return getOperadores();
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__PARAMETROS:
+				return getParametros();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -272,12 +388,18 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT:
+				setLeft((Operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT:
+				setRight((Operacion)newValue);
+				return;
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NOMBRE:
 				setNombre((String)newValue);
 				return;
-			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__OPERADORES:
-				getOperadores().clear();
-				getOperadores().addAll((Collection<? extends Operacion>)newValue);
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__PARAMETROS:
+				getParametros().clear();
+				getParametros().addAll((Collection<? extends Operacion>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -300,11 +422,17 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT:
+				setLeft((Operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT:
+				setRight((Operacion)null);
+				return;
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NOMBRE:
 				setNombre(NOMBRE_EDEFAULT);
 				return;
-			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__OPERADORES:
-				getOperadores().clear();
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__PARAMETROS:
+				getParametros().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -324,10 +452,14 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT:
+				return left != null;
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT:
+				return right != null;
 			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NOMBRE:
 				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
-			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__OPERADORES:
-				return operadores != null && !operadores.isEmpty();
+			case DiagramapseudocodigoPackage.LLAMADA_FUNCION__PARAMETROS:
+				return parametros != null && !parametros.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -349,6 +481,8 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 				case DiagramapseudocodigoPackage.LLAMADA_FUNCION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT: return DiagramapseudocodigoPackage.OPERACION__LEFT;
+				case DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT: return DiagramapseudocodigoPackage.OPERACION__RIGHT;
 				default: return -1;
 			}
 		}
@@ -372,6 +506,8 @@ public class LlamadaFuncionImpl extends ValorImpl implements LlamadaFuncion {
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.LLAMADA_FUNCION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.LLAMADA_FUNCION__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.OPERACION__LEFT: return DiagramapseudocodigoPackage.LLAMADA_FUNCION__LEFT;
+				case DiagramapseudocodigoPackage.OPERACION__RIGHT: return DiagramapseudocodigoPackage.LLAMADA_FUNCION__RIGHT;
 				default: return -1;
 			}
 		}

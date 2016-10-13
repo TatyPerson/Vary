@@ -368,10 +368,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createOperacionParentesisAdapter();
 			}
 			@Override
-			public Adapter caseUnaria(Unaria object) {
-				return createUnariaAdapter();
-			}
-			@Override
 			public Adapter caseOperacionCompleta(OperacionCompleta object) {
 				return createOperacionCompletaAdapter();
 			}
@@ -1442,20 +1438,6 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperacionParentesisAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.Unaria <em>Unaria</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see diagramapseudocodigo.Unaria
-	 * @generated
-	 */
-	public Adapter createUnariaAdapter() {
 		return null;
 	}
 

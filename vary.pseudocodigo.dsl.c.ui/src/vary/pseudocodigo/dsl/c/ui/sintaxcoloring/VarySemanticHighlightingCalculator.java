@@ -30,7 +30,7 @@ public class VarySemanticHighlightingCalculator implements ISemanticHighlighting
 	
 	private void colorRule(IHighlightedPositionAcceptor acceptor, INode node, AbstractRule rule) {
 		String name = rule.getName();
-		if(name.equals("DeclaracionPropia")) {
+		if(name.equals("DeclaracionDefinida")) {
 			INode leafNode = null;
 			int contNodos = 0;
 			for(INode nodoAux: node.getLeafNodes()) {
@@ -42,7 +42,7 @@ public class VarySemanticHighlightingCalculator implements ISemanticHighlighting
 			setNodeColor(acceptor, leafNode, VaryHighLightingConfiguration.DECLARACIONES_ID);
 		} else if(name.equals("CampoRegistro")) {
 			setNodeColor(acceptor, node, VaryHighLightingConfiguration.CAMPOREGISTRO_ID);
-		} else if(name.equals("Escribir") || name.equals("Leer") || name.equals("Internas")) {
+		} else if(name.equals("Escribir") || name.equals("Leer") || name.equals("FuncionInterna")) {
 			INode leafNode = null;
 			for(INode nodoAux: node.getLeafNodes()) {
 				if(nodoAux.getText().equals(")")) {

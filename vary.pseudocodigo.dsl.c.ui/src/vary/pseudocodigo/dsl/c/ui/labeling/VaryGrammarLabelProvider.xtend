@@ -109,14 +109,15 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Archivo archivo) {
-		var tipo = new String()
-		if(archivo.tipo instanceof TipoBasico) {
+		var tipo = archivo.tipo.nombre
+		//FIXME
+		/*if(archivo.tipo instanceof TipoBasico) {
 			var tipoAux = archivo.tipo as TipoBasico
 			tipo = tipoAux.tipo
 		} else {
 			var tipoAux = archivo.tipo as TipoDefinido
 			tipo = tipoAux.tipo
-		}
+		}*/
 		return new StyledString(archivo.nombre + ' : ' + tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 	}
 	
@@ -156,7 +157,15 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Vector vector) {
-		if(vector.tipo instanceof TipoBasico) {
+		//FIXME
+		if(vector.valor instanceof Entero) {
+			var indice = vector.valor as Entero
+			return new StyledString(vector.nombre + '[' + indice.valor + '] : ' + vector.tipo.nombre + ' : ' + vector.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
+		} else {
+			var indice = vector.valor as VariableID
+			return new StyledString(vector.nombre + '[' + indice.nombre + '] : ' + vector.tipo.nombre, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
+		}
+		/*if(vector.tipo instanceof TipoBasico) {
 			var tipo = vector.tipo as TipoBasico
 			if(vector.valor instanceof Entero) {
 				var indice = vector.valor as Entero
@@ -177,7 +186,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 				var indice = vector.valor as VariableID
 				return new StyledString(vector.nombre + '[' + indice.nombre + '] : ' + tipo.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
 			}
-		}
+		}*/
 	}
 	
 	def image(Constante constante) {
@@ -223,7 +232,31 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	}
 	
 	def text(Matriz matriz) {
-		if(matriz.tipo instanceof TipoBasico) {
+		//FIXME
+		var indice1 = new String()
+		var indice2 = new String()
+		if(matriz.valor.size() > 0) {
+			if(matriz.valor.get(0) instanceof Entero) {
+				var indice = matriz.valor.get(0) as Entero
+				indice1 = indice.valor.toString
+			}
+			else {
+				var indice = matriz.valor.get(0) as VariableID
+				indice1 = indice.nombre
+			}
+		}
+		if(matriz.valor.size() > 1) {
+			if(matriz.valor.get(1) instanceof Entero) {
+				var indice = matriz.valor.get(1) as Entero
+				indice2 = indice.valor.toString
+			}
+			else {
+				var indice = matriz.valor.get(1) as VariableID
+				indice2 = indice.nombre
+			}
+		}
+		return new StyledString(matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + matriz.tipo.nombre, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
+		/*if(matriz.tipo instanceof TipoBasico) {
 			var tipo = matriz.tipo as TipoBasico
 			var indice1 = new String()
 			var indice2 = new String()
@@ -274,7 +307,7 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 				}
 			}
 			return new StyledString(matriz.nombre + '[' + indice1 + '][' + indice2 + '] : ' + tipo.tipo, stylerFactory.createXtextStyleAdapterStyler(getTiposTextStyle()));
-		}
+		}*/
 	}
 	
 	def image(Inicio inicio) {
@@ -320,14 +353,16 @@ class VaryGrammarLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObject
 	def cadenaTiposSubproceso(List<Parametro> parametros) {
 		var tiposParametros = new String()
 		for(parametro: parametros) {
-			if(parametro.tipo instanceof TipoBasico) {
+			//FIXME
+			tiposParametros = tiposParametros + parametro.tipo.nombre
+			/*if(parametro.tipo instanceof TipoBasico) {
 				var tipo = parametro.tipo as TipoBasico
 				tiposParametros = tiposParametros + tipo.tipo
 			}
 			else {
 				var tipo = parametro.tipo as TipoDefinido
 				tiposParametros = tiposParametros + tipo.tipo
-			}
+			}*/
 			if(parametros.indexOf(parametro) != parametros.size - 1) {
 				tiposParametros = tiposParametros + ','
 			}

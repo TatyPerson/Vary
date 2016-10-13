@@ -32,9 +32,7 @@ import diagramapseudocodigo.Subrango;
 import diagramapseudocodigo.SubrangoEnumerado;
 import diagramapseudocodigo.SubrangoNumerico;
 import diagramapseudocodigo.Tipo;
-import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.TipoComplejo;
-import diagramapseudocodigo.TipoDefinido;
 import diagramapseudocodigo.Variable;
 import diagramapseudocodigo.VariableID;
 import diagramapseudocodigo.Vector;
@@ -128,19 +126,8 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public StyledString text(final Archivo archivo) {
-    String tipo = new String();
     Tipo _tipo = archivo.getTipo();
-    if ((_tipo instanceof TipoBasico)) {
-      Tipo _tipo_1 = archivo.getTipo();
-      TipoBasico tipoAux = ((TipoBasico) _tipo_1);
-      String _tipo_2 = tipoAux.getTipo();
-      tipo = _tipo_2;
-    } else {
-      Tipo _tipo_3 = archivo.getTipo();
-      TipoDefinido tipoAux_1 = ((TipoDefinido) _tipo_3);
-      String _tipo_4 = tipoAux_1.getTipo();
-      tipo = _tipo_4;
-    }
+    String tipo = _tipo.getNombre();
     String _nombre = archivo.getNombre();
     String _plus = (_nombre + " : ");
     String _plus_1 = (_plus + tipo);
@@ -212,71 +199,38 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public StyledString text(final Vector vector) {
-    Tipo _tipo = vector.getTipo();
-    if ((_tipo instanceof TipoBasico)) {
+    Operacion _valor = vector.getValor();
+    if ((_valor instanceof Entero)) {
+      Operacion _valor_1 = vector.getValor();
+      Entero indice = ((Entero) _valor_1);
+      String _nombre = vector.getNombre();
+      String _plus = (_nombre + "[");
+      int _valor_2 = indice.getValor();
+      String _plus_1 = (_plus + Integer.valueOf(_valor_2));
+      String _plus_2 = (_plus_1 + "] : ");
+      Tipo _tipo = vector.getTipo();
+      String _nombre_1 = _tipo.getNombre();
+      String _plus_3 = (_plus_2 + _nombre_1);
+      String _plus_4 = (_plus_3 + " : ");
       Tipo _tipo_1 = vector.getTipo();
-      TipoBasico tipo = ((TipoBasico) _tipo_1);
-      Operacion _valor = vector.getValor();
-      if ((_valor instanceof Entero)) {
-        Operacion _valor_1 = vector.getValor();
-        Entero indice = ((Entero) _valor_1);
-        String _nombre = vector.getNombre();
-        String _plus = (_nombre + "[");
-        int _valor_2 = indice.getValor();
-        String _plus_1 = (_plus + Integer.valueOf(_valor_2));
-        String _plus_2 = (_plus_1 + "] : ");
-        String _tipo_2 = tipo.getTipo();
-        String _plus_3 = (_plus_2 + _tipo_2);
-        String _plus_4 = (_plus_3 + " : ");
-        String _plus_5 = (_plus_4 + tipo);
-        TextStyle _tiposTextStyle = this.getTiposTextStyle();
-        StyledString.Styler _createXtextStyleAdapterStyler = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle);
-        return new StyledString(_plus_5, _createXtextStyleAdapterStyler);
-      } else {
-        Operacion _valor_3 = vector.getValor();
-        VariableID indice_1 = ((VariableID) _valor_3);
-        String _nombre_1 = vector.getNombre();
-        String _plus_6 = (_nombre_1 + "[");
-        String _nombre_2 = indice_1.getNombre();
-        String _plus_7 = (_plus_6 + _nombre_2);
-        String _plus_8 = (_plus_7 + "] : ");
-        String _tipo_3 = tipo.getTipo();
-        String _plus_9 = (_plus_8 + _tipo_3);
-        TextStyle _tiposTextStyle_1 = this.getTiposTextStyle();
-        StyledString.Styler _createXtextStyleAdapterStyler_1 = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle_1);
-        return new StyledString(_plus_9, _createXtextStyleAdapterStyler_1);
-      }
+      String _plus_5 = (_plus_4 + _tipo_1);
+      TextStyle _tiposTextStyle = this.getTiposTextStyle();
+      StyledString.Styler _createXtextStyleAdapterStyler = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle);
+      return new StyledString(_plus_5, _createXtextStyleAdapterStyler);
     } else {
-      Tipo _tipo_4 = vector.getTipo();
-      TipoDefinido tipo_1 = ((TipoDefinido) _tipo_4);
-      Operacion _valor_4 = vector.getValor();
-      if ((_valor_4 instanceof Entero)) {
-        Operacion _valor_5 = vector.getValor();
-        Entero indice_2 = ((Entero) _valor_5);
-        String _nombre_3 = vector.getNombre();
-        String _plus_10 = (_nombre_3 + "[");
-        int _valor_6 = indice_2.getValor();
-        String _plus_11 = (_plus_10 + Integer.valueOf(_valor_6));
-        String _plus_12 = (_plus_11 + "] : ");
-        String _tipo_5 = tipo_1.getTipo();
-        String _plus_13 = (_plus_12 + _tipo_5);
-        TextStyle _tiposTextStyle_2 = this.getTiposTextStyle();
-        StyledString.Styler _createXtextStyleAdapterStyler_2 = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle_2);
-        return new StyledString(_plus_13, _createXtextStyleAdapterStyler_2);
-      } else {
-        Operacion _valor_7 = vector.getValor();
-        VariableID indice_3 = ((VariableID) _valor_7);
-        String _nombre_4 = vector.getNombre();
-        String _plus_14 = (_nombre_4 + "[");
-        String _nombre_5 = indice_3.getNombre();
-        String _plus_15 = (_plus_14 + _nombre_5);
-        String _plus_16 = (_plus_15 + "] : ");
-        String _tipo_6 = tipo_1.getTipo();
-        String _plus_17 = (_plus_16 + _tipo_6);
-        TextStyle _tiposTextStyle_3 = this.getTiposTextStyle();
-        StyledString.Styler _createXtextStyleAdapterStyler_3 = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle_3);
-        return new StyledString(_plus_17, _createXtextStyleAdapterStyler_3);
-      }
+      Operacion _valor_3 = vector.getValor();
+      VariableID indice_1 = ((VariableID) _valor_3);
+      String _nombre_2 = vector.getNombre();
+      String _plus_6 = (_nombre_2 + "[");
+      String _nombre_3 = indice_1.getNombre();
+      String _plus_7 = (_plus_6 + _nombre_3);
+      String _plus_8 = (_plus_7 + "] : ");
+      Tipo _tipo_2 = vector.getTipo();
+      String _nombre_4 = _tipo_2.getNombre();
+      String _plus_9 = (_plus_8 + _nombre_4);
+      TextStyle _tiposTextStyle_1 = this.getTiposTextStyle();
+      StyledString.Styler _createXtextStyleAdapterStyler_1 = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle_1);
+      return new StyledString(_plus_9, _createXtextStyleAdapterStyler_1);
     }
   }
   
@@ -367,124 +321,62 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
   }
   
   public StyledString text(final Matriz matriz) {
-    Tipo _tipo = matriz.getTipo();
-    if ((_tipo instanceof TipoBasico)) {
-      Tipo _tipo_1 = matriz.getTipo();
-      TipoBasico tipo = ((TipoBasico) _tipo_1);
-      String indice1 = new String();
-      String indice2 = new String();
-      EList<Operacion> _valor = matriz.getValor();
-      int _size = _valor.size();
-      boolean _greaterThan = (_size > 0);
-      if (_greaterThan) {
-        EList<Operacion> _valor_1 = matriz.getValor();
-        Operacion _get = _valor_1.get(0);
-        if ((_get instanceof Entero)) {
-          EList<Operacion> _valor_2 = matriz.getValor();
-          Operacion _get_1 = _valor_2.get(0);
-          Entero indice = ((Entero) _get_1);
-          int _valor_3 = indice.getValor();
-          String _string = Integer.valueOf(_valor_3).toString();
-          indice1 = _string;
-        } else {
-          EList<Operacion> _valor_4 = matriz.getValor();
-          Operacion _get_2 = _valor_4.get(0);
-          VariableID indice_1 = ((VariableID) _get_2);
-          String _nombre = indice_1.getNombre();
-          indice1 = _nombre;
-        }
+    String indice1 = new String();
+    String indice2 = new String();
+    EList<Operacion> _valor = matriz.getValor();
+    int _size = _valor.size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      EList<Operacion> _valor_1 = matriz.getValor();
+      Operacion _get = _valor_1.get(0);
+      if ((_get instanceof Entero)) {
+        EList<Operacion> _valor_2 = matriz.getValor();
+        Operacion _get_1 = _valor_2.get(0);
+        Entero indice = ((Entero) _get_1);
+        int _valor_3 = indice.getValor();
+        String _string = Integer.valueOf(_valor_3).toString();
+        indice1 = _string;
+      } else {
+        EList<Operacion> _valor_4 = matriz.getValor();
+        Operacion _get_2 = _valor_4.get(0);
+        VariableID indice_1 = ((VariableID) _get_2);
+        String _nombre = indice_1.getNombre();
+        indice1 = _nombre;
       }
-      EList<Operacion> _valor_5 = matriz.getValor();
-      int _size_1 = _valor_5.size();
-      boolean _greaterThan_1 = (_size_1 > 1);
-      if (_greaterThan_1) {
-        EList<Operacion> _valor_6 = matriz.getValor();
-        Operacion _get_3 = _valor_6.get(1);
-        if ((_get_3 instanceof Entero)) {
-          EList<Operacion> _valor_7 = matriz.getValor();
-          Operacion _get_4 = _valor_7.get(1);
-          Entero indice_2 = ((Entero) _get_4);
-          int _valor_8 = indice_2.getValor();
-          String _string_1 = Integer.valueOf(_valor_8).toString();
-          indice2 = _string_1;
-        } else {
-          EList<Operacion> _valor_9 = matriz.getValor();
-          Operacion _get_5 = _valor_9.get(1);
-          VariableID indice_3 = ((VariableID) _get_5);
-          String _nombre_1 = indice_3.getNombre();
-          indice2 = _nombre_1;
-        }
-      }
-      String _nombre_2 = matriz.getNombre();
-      String _plus = (_nombre_2 + "[");
-      String _plus_1 = (_plus + indice1);
-      String _plus_2 = (_plus_1 + "][");
-      String _plus_3 = (_plus_2 + indice2);
-      String _plus_4 = (_plus_3 + "] : ");
-      String _tipo_2 = tipo.getTipo();
-      String _plus_5 = (_plus_4 + _tipo_2);
-      TextStyle _tiposTextStyle = this.getTiposTextStyle();
-      StyledString.Styler _createXtextStyleAdapterStyler = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle);
-      return new StyledString(_plus_5, _createXtextStyleAdapterStyler);
-    } else {
-      Tipo _tipo_3 = matriz.getTipo();
-      TipoDefinido tipo_1 = ((TipoDefinido) _tipo_3);
-      String indice1_1 = new String();
-      String indice2_1 = new String();
-      EList<Operacion> _valor_10 = matriz.getValor();
-      int _size_2 = _valor_10.size();
-      boolean _greaterThan_2 = (_size_2 > 0);
-      if (_greaterThan_2) {
-        EList<Operacion> _valor_11 = matriz.getValor();
-        Operacion _get_6 = _valor_11.get(0);
-        if ((_get_6 instanceof Entero)) {
-          EList<Operacion> _valor_12 = matriz.getValor();
-          Operacion _get_7 = _valor_12.get(0);
-          Entero indice_4 = ((Entero) _get_7);
-          int _valor_13 = indice_4.getValor();
-          String _string_2 = Integer.valueOf(_valor_13).toString();
-          indice1_1 = _string_2;
-        } else {
-          EList<Operacion> _valor_14 = matriz.getValor();
-          Operacion _get_8 = _valor_14.get(0);
-          VariableID indice_5 = ((VariableID) _get_8);
-          String _nombre_3 = indice_5.getNombre();
-          indice1_1 = _nombre_3;
-        }
-      }
-      EList<Operacion> _valor_15 = matriz.getValor();
-      int _size_3 = _valor_15.size();
-      boolean _greaterThan_3 = (_size_3 > 1);
-      if (_greaterThan_3) {
-        EList<Operacion> _valor_16 = matriz.getValor();
-        Operacion _get_9 = _valor_16.get(1);
-        if ((_get_9 instanceof Entero)) {
-          EList<Operacion> _valor_17 = matriz.getValor();
-          Operacion _get_10 = _valor_17.get(1);
-          Entero indice_6 = ((Entero) _get_10);
-          int _valor_18 = indice_6.getValor();
-          String _string_3 = Integer.valueOf(_valor_18).toString();
-          indice2_1 = _string_3;
-        } else {
-          EList<Operacion> _valor_19 = matriz.getValor();
-          Operacion _get_11 = _valor_19.get(1);
-          VariableID indice_7 = ((VariableID) _get_11);
-          String _nombre_4 = indice_7.getNombre();
-          indice2_1 = _nombre_4;
-        }
-      }
-      String _nombre_5 = matriz.getNombre();
-      String _plus_6 = (_nombre_5 + "[");
-      String _plus_7 = (_plus_6 + indice1_1);
-      String _plus_8 = (_plus_7 + "][");
-      String _plus_9 = (_plus_8 + indice2_1);
-      String _plus_10 = (_plus_9 + "] : ");
-      String _tipo_4 = tipo_1.getTipo();
-      String _plus_11 = (_plus_10 + _tipo_4);
-      TextStyle _tiposTextStyle_1 = this.getTiposTextStyle();
-      StyledString.Styler _createXtextStyleAdapterStyler_1 = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle_1);
-      return new StyledString(_plus_11, _createXtextStyleAdapterStyler_1);
     }
+    EList<Operacion> _valor_5 = matriz.getValor();
+    int _size_1 = _valor_5.size();
+    boolean _greaterThan_1 = (_size_1 > 1);
+    if (_greaterThan_1) {
+      EList<Operacion> _valor_6 = matriz.getValor();
+      Operacion _get_3 = _valor_6.get(1);
+      if ((_get_3 instanceof Entero)) {
+        EList<Operacion> _valor_7 = matriz.getValor();
+        Operacion _get_4 = _valor_7.get(1);
+        Entero indice_2 = ((Entero) _get_4);
+        int _valor_8 = indice_2.getValor();
+        String _string_1 = Integer.valueOf(_valor_8).toString();
+        indice2 = _string_1;
+      } else {
+        EList<Operacion> _valor_9 = matriz.getValor();
+        Operacion _get_5 = _valor_9.get(1);
+        VariableID indice_3 = ((VariableID) _get_5);
+        String _nombre_1 = indice_3.getNombre();
+        indice2 = _nombre_1;
+      }
+    }
+    String _nombre_2 = matriz.getNombre();
+    String _plus = (_nombre_2 + "[");
+    String _plus_1 = (_plus + indice1);
+    String _plus_2 = (_plus_1 + "][");
+    String _plus_3 = (_plus_2 + indice2);
+    String _plus_4 = (_plus_3 + "] : ");
+    Tipo _tipo = matriz.getTipo();
+    String _nombre_3 = _tipo.getNombre();
+    String _plus_5 = (_plus_4 + _nombre_3);
+    TextStyle _tiposTextStyle = this.getTiposTextStyle();
+    StyledString.Styler _createXtextStyleAdapterStyler = this.stylerFactory.createXtextStyleAdapterStyler(_tiposTextStyle);
+    return new StyledString(_plus_5, _createXtextStyleAdapterStyler);
   }
   
   public String image(final Inicio inicio) {
@@ -580,19 +472,9 @@ public class VaryGrammarLabelProvider extends DefaultEObjectLabelProvider {
     for (final Parametro parametro : parametros) {
       {
         Tipo _tipo = parametro.getTipo();
-        if ((_tipo instanceof TipoBasico)) {
-          Tipo _tipo_1 = parametro.getTipo();
-          TipoBasico tipo = ((TipoBasico) _tipo_1);
-          String _tipo_2 = tipo.getTipo();
-          String _plus = (tiposParametros + _tipo_2);
-          tiposParametros = _plus;
-        } else {
-          Tipo _tipo_3 = parametro.getTipo();
-          TipoDefinido tipo_1 = ((TipoDefinido) _tipo_3);
-          String _tipo_4 = tipo_1.getTipo();
-          String _plus_1 = (tiposParametros + _tipo_4);
-          tiposParametros = _plus_1;
-        }
+        String _nombre = _tipo.getNombre();
+        String _plus = (tiposParametros + _nombre);
+        tiposParametros = _plus;
         int _indexOf = parametros.indexOf(parametro);
         int _size = parametros.size();
         int _minus = (_size - 1);

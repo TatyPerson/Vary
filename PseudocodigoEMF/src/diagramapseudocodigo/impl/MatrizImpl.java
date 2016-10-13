@@ -30,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.MatrizImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.MatrizImpl#getValor <em>Valor</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.MatrizImpl#getTipo <em>Tipo</em>}</li>
  * </ul>
@@ -38,26 +37,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class MatrizImpl extends TipoComplejoImpl implements Matriz {
-	/**
-	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NOMBRE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected String nombre = NOMBRE_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getValor() <em>Valor</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -95,27 +74,6 @@ public class MatrizImpl extends TipoComplejoImpl implements Matriz {
 	@Override
 	protected EClass eStaticClass() {
 		return DiagramapseudocodigoPackage.Literals.MATRIZ;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNombre(String newNombre) {
-		String oldNombre = nombre;
-		nombre = newNombre;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MATRIZ__NOMBRE, oldNombre, nombre));
 	}
 
 	/**
@@ -197,8 +155,6 @@ public class MatrizImpl extends TipoComplejoImpl implements Matriz {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MATRIZ__NOMBRE:
-				return getNombre();
 			case DiagramapseudocodigoPackage.MATRIZ__VALOR:
 				return getValor();
 			case DiagramapseudocodigoPackage.MATRIZ__TIPO:
@@ -216,9 +172,6 @@ public class MatrizImpl extends TipoComplejoImpl implements Matriz {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MATRIZ__NOMBRE:
-				setNombre((String)newValue);
-				return;
 			case DiagramapseudocodigoPackage.MATRIZ__VALOR:
 				getValor().clear();
 				getValor().addAll((Collection<? extends Operacion>)newValue);
@@ -238,9 +191,6 @@ public class MatrizImpl extends TipoComplejoImpl implements Matriz {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MATRIZ__NOMBRE:
-				setNombre(NOMBRE_EDEFAULT);
-				return;
 			case DiagramapseudocodigoPackage.MATRIZ__VALOR:
 				getValor().clear();
 				return;
@@ -259,30 +209,12 @@ public class MatrizImpl extends TipoComplejoImpl implements Matriz {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MATRIZ__NOMBRE:
-				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case DiagramapseudocodigoPackage.MATRIZ__VALOR:
 				return valor != null && !valor.isEmpty();
 			case DiagramapseudocodigoPackage.MATRIZ__TIPO:
 				return tipo != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nombre: ");
-		result.append(nombre);
-		result.append(')');
-		return result.toString();
 	}
 
 } //MatrizImpl

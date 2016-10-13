@@ -11,6 +11,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link diagramapseudocodigo.impl.LogicoImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.LogicoImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.LogicoImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.LogicoImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.LogicoImpl#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.LogicoImpl#getValor <em>Valor</em>}</li>
  * </ul>
  *
@@ -66,6 +69,26 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 	 * @ordered
 	 */
 	protected EList<String> negacionesIniciales;
+
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion left;
+
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion right;
 
 	/**
 	 * The default value of the '{@link #getValor() <em>Valor</em>}' attribute.
@@ -173,6 +196,92 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Operacion getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LOGICO__LEFT, oldLeft, newLeft);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Operacion newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LOGICO__LEFT, null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LOGICO__LEFT, null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LOGICO__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operacion getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LOGICO__RIGHT, oldRight, newRight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Operacion newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LOGICO__RIGHT, null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.LOGICO__RIGHT, null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.LOGICO__RIGHT, newRight, newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public String getValor() {
 		return valor;
 	}
@@ -195,6 +304,22 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiagramapseudocodigoPackage.LOGICO__LEFT:
+				return basicSetLeft(null, msgs);
+			case DiagramapseudocodigoPackage.LOGICO__RIGHT:
+				return basicSetRight(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case DiagramapseudocodigoPackage.LOGICO__EATTRIBUTE0RENCE0:
@@ -204,6 +329,10 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.LOGICO__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
+			case DiagramapseudocodigoPackage.LOGICO__LEFT:
+				return getLeft();
+			case DiagramapseudocodigoPackage.LOGICO__RIGHT:
+				return getRight();
 			case DiagramapseudocodigoPackage.LOGICO__VALOR:
 				return getValor();
 		}
@@ -230,6 +359,12 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
+			case DiagramapseudocodigoPackage.LOGICO__LEFT:
+				setLeft((Operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.LOGICO__RIGHT:
+				setRight((Operacion)newValue);
+				return;
 			case DiagramapseudocodigoPackage.LOGICO__VALOR:
 				setValor((String)newValue);
 				return;
@@ -254,6 +389,12 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 			case DiagramapseudocodigoPackage.LOGICO__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
+			case DiagramapseudocodigoPackage.LOGICO__LEFT:
+				setLeft((Operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.LOGICO__RIGHT:
+				setRight((Operacion)null);
+				return;
 			case DiagramapseudocodigoPackage.LOGICO__VALOR:
 				setValor(VALOR_EDEFAULT);
 				return;
@@ -275,6 +416,10 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.LOGICO__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
+			case DiagramapseudocodigoPackage.LOGICO__LEFT:
+				return left != null;
+			case DiagramapseudocodigoPackage.LOGICO__RIGHT:
+				return right != null;
 			case DiagramapseudocodigoPackage.LOGICO__VALOR:
 				return VALOR_EDEFAULT == null ? valor != null : !VALOR_EDEFAULT.equals(valor);
 		}
@@ -298,6 +443,8 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 				case DiagramapseudocodigoPackage.LOGICO__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.LOGICO__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.LOGICO__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.LOGICO__LEFT: return DiagramapseudocodigoPackage.OPERACION__LEFT;
+				case DiagramapseudocodigoPackage.LOGICO__RIGHT: return DiagramapseudocodigoPackage.OPERACION__RIGHT;
 				default: return -1;
 			}
 		}
@@ -321,6 +468,8 @@ public class LogicoImpl extends OperadorImpl implements Logico {
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.LOGICO__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.LOGICO__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.LOGICO__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.OPERACION__LEFT: return DiagramapseudocodigoPackage.LOGICO__LEFT;
+				case DiagramapseudocodigoPackage.OPERACION__RIGHT: return DiagramapseudocodigoPackage.LOGICO__RIGHT;
 				default: return -1;
 			}
 		}

@@ -11,6 +11,7 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -31,6 +32,8 @@ import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
  *   <li>{@link diagramapseudocodigo.impl.ValorComplejoImpl#getEAttribute0rence0 <em>EAttribute0rence0</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorComplejoImpl#getNegacionesFinales <em>Negaciones Finales</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ValorComplejoImpl#getNegacionesIniciales <em>Negaciones Iniciales</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ValorComplejoImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.ValorComplejoImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,6 +68,26 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 	 * @ordered
 	 */
 	protected EList<String> negacionesIniciales;
+
+	/**
+	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLeft()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion left;
+
+	/**
+	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRight()
+	 * @generated
+	 * @ordered
+	 */
+	protected Operacion right;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +175,108 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Operacion getLeft() {
+		return left;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
+		Operacion oldLeft = left;
+		left = newLeft;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT, oldLeft, newLeft);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setLeft(Operacion newLeft) {
+		if (newLeft != left) {
+			NotificationChain msgs = null;
+			if (left != null)
+				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT, null, msgs);
+			if (newLeft != null)
+				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT, null, msgs);
+			msgs = basicSetLeft(newLeft, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT, newLeft, newLeft));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Operacion getRight() {
+		return right;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
+		Operacion oldRight = right;
+		right = newRight;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT, oldRight, newRight);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRight(Operacion newRight) {
+		if (newRight != right) {
+			NotificationChain msgs = null;
+			if (right != null)
+				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT, null, msgs);
+			if (newRight != null)
+				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT, null, msgs);
+			msgs = basicSetRight(newRight, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT, newRight, newRight));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT:
+				return basicSetLeft(null, msgs);
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT:
+				return basicSetRight(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -162,6 +287,10 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 				return getNegacionesFinales();
 			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_INICIALES:
 				return getNegacionesIniciales();
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT:
+				return getLeft();
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT:
+				return getRight();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -186,6 +315,12 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 				getNegacionesIniciales().clear();
 				getNegacionesIniciales().addAll((Collection<? extends String>)newValue);
 				return;
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT:
+				setLeft((Operacion)newValue);
+				return;
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT:
+				setRight((Operacion)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -207,6 +342,12 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_INICIALES:
 				getNegacionesIniciales().clear();
 				return;
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT:
+				setLeft((Operacion)null);
+				return;
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT:
+				setRight((Operacion)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -225,6 +366,10 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 				return negacionesFinales != null && !negacionesFinales.isEmpty();
 			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_INICIALES:
 				return negacionesIniciales != null && !negacionesIniciales.isEmpty();
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT:
+				return left != null;
+			case DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT:
+				return right != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -246,6 +391,8 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 				case DiagramapseudocodigoPackage.VALOR_COMPLEJO__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT: return DiagramapseudocodigoPackage.OPERACION__LEFT;
+				case DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT: return DiagramapseudocodigoPackage.OPERACION__RIGHT;
 				default: return -1;
 			}
 		}
@@ -269,6 +416,8 @@ public class ValorComplejoImpl extends OperadorImpl implements ValorComplejo {
 				case DiagramapseudocodigoPackage.OPERACION__EATTRIBUTE0RENCE0: return DiagramapseudocodigoPackage.VALOR_COMPLEJO__EATTRIBUTE0RENCE0;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_FINALES: return DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_FINALES;
 				case DiagramapseudocodigoPackage.OPERACION__NEGACIONES_INICIALES: return DiagramapseudocodigoPackage.VALOR_COMPLEJO__NEGACIONES_INICIALES;
+				case DiagramapseudocodigoPackage.OPERACION__LEFT: return DiagramapseudocodigoPackage.VALOR_COMPLEJO__LEFT;
+				case DiagramapseudocodigoPackage.OPERACION__RIGHT: return DiagramapseudocodigoPackage.VALOR_COMPLEJO__RIGHT;
 				default: return -1;
 			}
 		}

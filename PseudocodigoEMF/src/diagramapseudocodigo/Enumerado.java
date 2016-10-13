@@ -13,8 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Enumerado#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.Enumerado#getValor <em>Valor</em>}</li>
+ *   <li>{@link diagramapseudocodigo.Enumerado#getPosiblesValores <em>Posibles Valores</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getEnumerado()
@@ -23,45 +22,19 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Enumerado extends TipoComplejo {
 	/**
-	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nombre</em>' attribute.
-	 * @see #setNombre(String)
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getEnumerado_Nombre()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getNombre();
-
-	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Enumerado#getNombre <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nombre</em>' attribute.
-	 * @see #getNombre()
-	 * @generated
-	 */
-	void setNombre(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Valor</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Posibles Valores</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Valor</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Posibles Valores</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Valor</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getEnumerado_Valor()
+	 * @return the value of the '<em>Posibles Valores</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getEnumerado_PosiblesValores()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<Operacion> getValor();
+	EList<Operacion> getPosiblesValores();
 
 } // Enumerado

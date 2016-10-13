@@ -1682,29 +1682,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.Unaria} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected UnariaItemProvider unariaItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link diagramapseudocodigo.Unaria}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createUnariaAdapter() {
-		if (unariaItemProvider == null) {
-			unariaItemProvider = new UnariaItemProvider(this);
-		}
-
-		return unariaItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.OperacionCompleta} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1896,7 +1873,6 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (modItemProvider != null) modItemProvider.dispose();
 		if (divisionRealItemProvider != null) divisionRealItemProvider.dispose();
 		if (operacionParentesisItemProvider != null) operacionParentesisItemProvider.dispose();
-		if (unariaItemProvider != null) unariaItemProvider.dispose();
 		if (operacionCompletaItemProvider != null) operacionCompletaItemProvider.dispose();
 	}
 

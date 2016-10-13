@@ -494,7 +494,7 @@ public class VaryGrammarQuickfixProviderUtil {
 				Registro registro = (Registro) complejo;
 				if(registro.getNombre().equals(tipoVariable)) {
 					if(campos.size() == 1) {
-						for(Declaracion declaracion: registro.getVariable()) {
+						for(Declaracion declaracion: registro.getCampos()) {
 							if(declaracion instanceof DeclaracionBasica) {
 								DeclaracionBasica declaracionBasica = (DeclaracionBasica) declaracion;
 								for(Variable variable: declaracionBasica.getVariables()) {
@@ -536,27 +536,31 @@ public class VaryGrammarQuickfixProviderUtil {
 			if(complejo instanceof Vector) {
 				Vector vector = (Vector) complejo;
 				if(vector.getNombre().equals(tipoVariable)) {
-					if(vector.getTipo() instanceof TipoBasico) {
+					//FIXME
+					tipoFinal = vector.getTipo().getNombre();
+					/*if(vector.getTipo() instanceof TipoBasico) {
 						TipoBasico tipo = (TipoBasico) vector.getTipo();
 						tipoFinal = tipo.getTipo();
 					}
 					else {
 						TipoDefinido tipo = (TipoDefinido) vector.getTipo();
 						tipoFinal = tipo.getTipo();
-					}
+					}*/
 				}
 			}
 			else if(complejo instanceof Matriz) {
 				Matriz matriz = (Matriz) complejo;
 				if(matriz.getNombre().equals(tipoVariable)) {
-					if(matriz.getTipo() instanceof TipoBasico) {
+					//FIXME
+					tipoFinal = matriz.getTipo().getNombre();
+					/*if(matriz.getTipo() instanceof TipoBasico) {
 						TipoBasico tipo = (TipoBasico) matriz.getTipo();
 						tipoFinal = tipo.getTipo();
 					}
 					else {
 						TipoDefinido tipo = (TipoDefinido) matriz.getTipo();
 						tipoFinal = tipo.getTipo();
-					}
+					}*/
 				}
 			}
 		}
@@ -574,7 +578,7 @@ public class VaryGrammarQuickfixProviderUtil {
 		for(Subproceso s: subprocesos) {
 			if(s instanceof Funcion) {
 				Funcion funcion = (Funcion) s;
-				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametros().size() == llamada.getOperadores().size()) {
+				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametros().size() == llamada.getParametros().size()) {
 					tipo = funcion.getTipo();
 				}
 			}
@@ -588,14 +592,16 @@ public class VaryGrammarQuickfixProviderUtil {
 			System.out.println("Parametro nombre: "+parametro.getVariable().getNombre());
 			System.out.println("Variable nombre: "+nombreVariable);
 			if(parametro.getVariable().getNombre().equals(nombreVariable)) {
-				if(parametro.getTipo() instanceof TipoDefinido) {
+				//FIXME
+				tipo = parametro.getTipo().getNombre();
+				/*if(parametro.getTipo() instanceof TipoDefinido) {
 					TipoDefinido tipoDefinido = (TipoDefinido) parametro.getTipo();
 					tipo = tipoDefinido.getTipo();
 				}
 				else {
 					TipoBasico tipoExistente = (TipoBasico) parametro.getTipo();
 					tipo = tipoExistente.getTipo();
-				}
+				}*/
 			}
 		}
 		return tipo;
@@ -628,38 +634,42 @@ public class VaryGrammarQuickfixProviderUtil {
 		for(Subproceso s: subprocesos) {
 			if(s instanceof Funcion) {
 				Funcion funcion = (Funcion) s;
-				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametros().size() == llamada.getOperadores().size()) {
-					for(Operacion op: llamada.getOperadores()) {
+				if(funcion.getNombre().equals(llamada.getNombre()) && funcion.getParametros().size() == llamada.getParametros().size()) {
+					for(Operacion op: llamada.getParametros()) {
 						if(op instanceof VariableID) {
 							VariableID variable = (VariableID) op;
 							if(variable.getNombre().equals(cadenaError)) {
-								Parametro parametro = funcion.getParametros().get(llamada.getOperadores().indexOf(op));
-								if(parametro.getTipo() instanceof TipoDefinido) {
+								Parametro parametro = funcion.getParametros().get(llamada.getParametros().indexOf(op));
+								//FIXME
+								tipo = parametro.getTipo().getNombre();
+								/*if(parametro.getTipo() instanceof TipoDefinido) {
 									TipoDefinido tipoDefinido = (TipoDefinido) parametro.getTipo();
 									tipo = tipoDefinido.getTipo();
 								} else {
 									TipoBasico tipoBasico = (TipoBasico) parametro.getTipo();
 									tipo = tipoBasico.getTipo();
-								}
+								}*/
 							}
 						}
 					}
 				}
 			} else {
 				Procedimiento procedimiento = (Procedimiento) s;
-				if(procedimiento.getNombre().equals(llamada.getNombre()) && procedimiento.getParametros().size() == llamada.getOperadores().size()) {
-					for(Operacion op: llamada.getOperadores()) {
+				if(procedimiento.getNombre().equals(llamada.getNombre()) && procedimiento.getParametros().size() == llamada.getParametros().size()) {
+					for(Operacion op: llamada.getParametros()) {
 						if(op instanceof VariableID) {
 							VariableID variable = (VariableID) op;
 							if(variable.getNombre().equals(cadenaError)) {
-								Parametro parametro = procedimiento.getParametros().get(llamada.getOperadores().indexOf(op));
-								if(parametro.getTipo() instanceof TipoDefinido) {
+								Parametro parametro = procedimiento.getParametros().get(llamada.getParametros().indexOf(op));
+								//FIXME
+								tipo = parametro.getTipo().getNombre();
+								/*if(parametro.getTipo() instanceof TipoDefinido) {
 									TipoDefinido tipoDefinido = (TipoDefinido) parametro.getTipo();
 									tipo = tipoDefinido.getTipo();
 								} else {
 									TipoBasico tipoBasico = (TipoBasico) parametro.getTipo();
 									tipo = tipoBasico.getTipo();
-								}
+								}*/
 							}
 						}
 					}

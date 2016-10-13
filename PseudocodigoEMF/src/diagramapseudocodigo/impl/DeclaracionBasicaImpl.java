@@ -7,17 +7,12 @@ import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Variable;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,33 +24,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.DeclaracionBasicaImpl#getTipo <em>Tipo</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.DeclaracionBasicaImpl#getVariables <em>Variables</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class DeclaracionBasicaImpl extends DeclaracionImpl implements DeclaracionBasica {
-	/**
-	 * The default value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTipo()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String TIPO_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTipo()
-	 * @generated
-	 * @ordered
-	 */
-	protected String tipo = TIPO_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -83,27 +57,6 @@ public class DeclaracionBasicaImpl extends DeclaracionImpl implements Declaracio
 	@Override
 	protected EClass eStaticClass() {
 		return DiagramapseudocodigoPackage.Literals.DECLARACION_BASICA;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getTipo() {
-		return tipo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setTipo(String newTipo) {
-		String oldTipo = tipo;
-		tipo = newTipo;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.DECLARACION_BASICA__TIPO, oldTipo, tipo));
 	}
 
 	/**
@@ -140,8 +93,6 @@ public class DeclaracionBasicaImpl extends DeclaracionImpl implements Declaracio
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.DECLARACION_BASICA__TIPO:
-				return getTipo();
 			case DiagramapseudocodigoPackage.DECLARACION_BASICA__VARIABLES:
 				return getVariables();
 		}
@@ -157,9 +108,6 @@ public class DeclaracionBasicaImpl extends DeclaracionImpl implements Declaracio
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.DECLARACION_BASICA__TIPO:
-				setTipo((String)newValue);
-				return;
 			case DiagramapseudocodigoPackage.DECLARACION_BASICA__VARIABLES:
 				getVariables().clear();
 				getVariables().addAll((Collection<? extends Variable>)newValue);
@@ -176,9 +124,6 @@ public class DeclaracionBasicaImpl extends DeclaracionImpl implements Declaracio
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.DECLARACION_BASICA__TIPO:
-				setTipo(TIPO_EDEFAULT);
-				return;
 			case DiagramapseudocodigoPackage.DECLARACION_BASICA__VARIABLES:
 				getVariables().clear();
 				return;
@@ -194,28 +139,10 @@ public class DeclaracionBasicaImpl extends DeclaracionImpl implements Declaracio
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.DECLARACION_BASICA__TIPO:
-				return TIPO_EDEFAULT == null ? tipo != null : !TIPO_EDEFAULT.equals(tipo);
 			case DiagramapseudocodigoPackage.DECLARACION_BASICA__VARIABLES:
 				return variables != null && !variables.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (tipo: ");
-		result.append(tipo);
-		result.append(')');
-		return result.toString();
 	}
 
 } //DeclaracionBasicaImpl

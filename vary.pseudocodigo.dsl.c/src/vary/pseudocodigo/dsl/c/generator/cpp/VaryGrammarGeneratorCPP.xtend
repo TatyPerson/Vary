@@ -413,25 +413,25 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 	 */
 	 override generate(FuncionInterna interna, boolean sentencia, List<String> punteros) {
 		if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COS") + '(')) {
-			'''cos(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''cos(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SEN") + '(')) {
-			'''sin(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''sin(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO") + '(')) {
-			'''pow(«interna.operadores.get(0).generate(punteros)»,«2.0»)«IF sentencia»;«ENDIF»'''
+			'''pow(«interna.parametros.get(0).generate(punteros)»,«2.0»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_EXP") + '(')) {
-			'''exp2(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''exp2(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LN") + '(')) {
-			'''log(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''log(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LOG") + '(')) {
-			'''log10(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''log10(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SQRT") + '(')) {
-			'''sqrt(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''sqrt(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA") + '(')) {
-			'''«interna.operadores.get(0).generate(punteros)» = «interna.operadores.get(0).generate(punteros)» + «interna.operadores.get(1).generate(punteros)»«IF sentencia»;«ENDIF»'''
+			'''«interna.parametros.get(0).generate(punteros)» = «interna.parametros.get(0).generate(punteros)» + «interna.parametros.get(1).generate(punteros)»«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COPIAR") + '(')) {
-			'''«interna.operadores.get(0).generate(punteros)» = «interna.operadores.get(1).generate(punteros)»«IF sentencia»;«ENDIF»'''
+			'''«interna.parametros.get(0).generate(punteros)» = «interna.parametros.get(1).generate(punteros)»«IF sentencia»;«ENDIF»'''
 		} else if (interna.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LONGITUD") + '(')) {
-			'''strlen(«interna.operadores.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
+			'''strlen(«interna.parametros.get(0).generate(punteros)»)«IF sentencia»;«ENDIF»'''
 		}
 	}
 	
@@ -446,15 +446,15 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 		var nombreModulo = new String()
 		
 		if(algoritmoActual != null) {
-			nombreModulo = getNombreModulo(llamadaFuncion.nombre, algoritmoActual.importaciones, llamadaFuncion.operadores.size);
+			nombreModulo = getNombreModulo(llamadaFuncion.nombre, algoritmoActual.importaciones, llamadaFuncion.parametros.size);
 		} else if(moduloActual != null) {
-			nombreModulo = getNombreModulo(llamadaFuncion.nombre, moduloActual.importaciones, llamadaFuncion.operadores.size);
+			nombreModulo = getNombreModulo(llamadaFuncion.nombre, moduloActual.importaciones, llamadaFuncion.parametros.size);
 		}
 		
 		'''«IF !nombreModulo.isEmpty»
-		ref«nombreModulo».«llamadaFuncion.nombre»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.operadores.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.operadores.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»
+		ref«nombreModulo».«llamadaFuncion.nombre»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»
 		«ELSE»
-		«llamadaFuncion.nombre»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.operadores.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.operadores.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
+		«llamadaFuncion.nombre»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
 	}
 	
 	/*

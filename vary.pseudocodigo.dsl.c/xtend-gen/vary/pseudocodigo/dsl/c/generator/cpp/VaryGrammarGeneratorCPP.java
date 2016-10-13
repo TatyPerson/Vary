@@ -901,8 +901,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
     if (_equals) {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("cos(");
-      EList<Operacion> _operadores = interna.getOperadores();
-      Operacion _get = _operadores.get(0);
+      EList<Operacion> _parametros = interna.getParametros();
+      Operacion _get = _parametros.get(0);
       Object _generate = this.generate(_get, punteros);
       _builder.append(_generate, "");
       _builder.append(")");
@@ -922,8 +922,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
       if (_equals_1) {
         StringConcatenation _builder_1 = new StringConcatenation();
         _builder_1.append("sin(");
-        EList<Operacion> _operadores_1 = interna.getOperadores();
-        Operacion _get_1 = _operadores_1.get(0);
+        EList<Operacion> _parametros_1 = interna.getParametros();
+        Operacion _get_1 = _parametros_1.get(0);
         Object _generate_1 = this.generate(_get_1, punteros);
         _builder_1.append(_generate_1, "");
         _builder_1.append(")");
@@ -943,8 +943,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
         if (_equals_2) {
           StringConcatenation _builder_2 = new StringConcatenation();
           _builder_2.append("pow(");
-          EList<Operacion> _operadores_2 = interna.getOperadores();
-          Operacion _get_2 = _operadores_2.get(0);
+          EList<Operacion> _parametros_2 = interna.getParametros();
+          Operacion _get_2 = _parametros_2.get(0);
           Object _generate_2 = this.generate(_get_2, punteros);
           _builder_2.append(_generate_2, "");
           _builder_2.append(",");
@@ -966,8 +966,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
           if (_equals_3) {
             StringConcatenation _builder_3 = new StringConcatenation();
             _builder_3.append("exp2(");
-            EList<Operacion> _operadores_3 = interna.getOperadores();
-            Operacion _get_3 = _operadores_3.get(0);
+            EList<Operacion> _parametros_3 = interna.getParametros();
+            Operacion _get_3 = _parametros_3.get(0);
             Object _generate_3 = this.generate(_get_3, punteros);
             _builder_3.append(_generate_3, "");
             _builder_3.append(")");
@@ -987,8 +987,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
             if (_equals_4) {
               StringConcatenation _builder_4 = new StringConcatenation();
               _builder_4.append("log(");
-              EList<Operacion> _operadores_4 = interna.getOperadores();
-              Operacion _get_4 = _operadores_4.get(0);
+              EList<Operacion> _parametros_4 = interna.getParametros();
+              Operacion _get_4 = _parametros_4.get(0);
               Object _generate_4 = this.generate(_get_4, punteros);
               _builder_4.append(_generate_4, "");
               _builder_4.append(")");
@@ -1008,8 +1008,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
               if (_equals_5) {
                 StringConcatenation _builder_5 = new StringConcatenation();
                 _builder_5.append("log10(");
-                EList<Operacion> _operadores_5 = interna.getOperadores();
-                Operacion _get_5 = _operadores_5.get(0);
+                EList<Operacion> _parametros_5 = interna.getParametros();
+                Operacion _get_5 = _parametros_5.get(0);
                 Object _generate_5 = this.generate(_get_5, punteros);
                 _builder_5.append(_generate_5, "");
                 _builder_5.append(")");
@@ -1029,8 +1029,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                 if (_equals_6) {
                   StringConcatenation _builder_6 = new StringConcatenation();
                   _builder_6.append("sqrt(");
-                  EList<Operacion> _operadores_6 = interna.getOperadores();
-                  Operacion _get_6 = _operadores_6.get(0);
+                  EList<Operacion> _parametros_6 = interna.getParametros();
+                  Operacion _get_6 = _parametros_6.get(0);
                   Object _generate_6 = this.generate(_get_6, punteros);
                   _builder_6.append(_generate_6, "");
                   _builder_6.append(")");
@@ -1049,18 +1049,18 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   boolean _equals_7 = _nombre_7.equals(_plus_7);
                   if (_equals_7) {
                     StringConcatenation _builder_7 = new StringConcatenation();
-                    EList<Operacion> _operadores_7 = interna.getOperadores();
-                    Operacion _get_7 = _operadores_7.get(0);
+                    EList<Operacion> _parametros_7 = interna.getParametros();
+                    Operacion _get_7 = _parametros_7.get(0);
                     Object _generate_7 = this.generate(_get_7, punteros);
                     _builder_7.append(_generate_7, "");
                     _builder_7.append(" = ");
-                    EList<Operacion> _operadores_8 = interna.getOperadores();
-                    Operacion _get_8 = _operadores_8.get(0);
+                    EList<Operacion> _parametros_8 = interna.getParametros();
+                    Operacion _get_8 = _parametros_8.get(0);
                     Object _generate_8 = this.generate(_get_8, punteros);
                     _builder_7.append(_generate_8, "");
                     _builder_7.append(" + ");
-                    EList<Operacion> _operadores_9 = interna.getOperadores();
-                    Operacion _get_9 = _operadores_9.get(1);
+                    EList<Operacion> _parametros_9 = interna.getParametros();
+                    Operacion _get_9 = _parametros_9.get(1);
                     Object _generate_9 = this.generate(_get_9, punteros);
                     _builder_7.append(_generate_9, "");
                     {
@@ -1078,13 +1078,13 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     boolean _equals_8 = _nombre_8.equals(_plus_8);
                     if (_equals_8) {
                       StringConcatenation _builder_8 = new StringConcatenation();
-                      EList<Operacion> _operadores_10 = interna.getOperadores();
-                      Operacion _get_10 = _operadores_10.get(0);
+                      EList<Operacion> _parametros_10 = interna.getParametros();
+                      Operacion _get_10 = _parametros_10.get(0);
                       Object _generate_10 = this.generate(_get_10, punteros);
                       _builder_8.append(_generate_10, "");
                       _builder_8.append(" = ");
-                      EList<Operacion> _operadores_11 = interna.getOperadores();
-                      Operacion _get_11 = _operadores_11.get(1);
+                      EList<Operacion> _parametros_11 = interna.getParametros();
+                      Operacion _get_11 = _parametros_11.get(1);
                       Object _generate_11 = this.generate(_get_11, punteros);
                       _builder_8.append(_generate_11, "");
                       {
@@ -1103,8 +1103,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                       if (_equals_9) {
                         StringConcatenation _builder_9 = new StringConcatenation();
                         _builder_9.append("strlen(");
-                        EList<Operacion> _operadores_12 = interna.getOperadores();
-                        Operacion _get_12 = _operadores_12.get(0);
+                        EList<Operacion> _parametros_12 = interna.getParametros();
+                        Operacion _get_12 = _parametros_12.get(0);
                         Object _generate_12 = this.generate(_get_12, punteros);
                         _builder_9.append(_generate_12, "");
                         _builder_9.append(")");
@@ -1149,8 +1149,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
       if (_notEquals) {
         String _nombre = llamadaFuncion.getNombre();
         EList<Modulo> _importaciones = this.algoritmoActual.getImportaciones();
-        EList<Operacion> _operadores = llamadaFuncion.getOperadores();
-        int _size = _operadores.size();
+        EList<Operacion> _parametros = llamadaFuncion.getParametros();
+        int _size = _parametros.size();
         String _nombreModulo = this.getNombreModulo(_nombre, _importaciones, _size);
         nombreModulo = _nombreModulo;
       } else {
@@ -1158,8 +1158,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
         if (_notEquals_1) {
           String _nombre_1 = llamadaFuncion.getNombre();
           EList<Modulo> _importaciones_1 = this.moduloActual.getImportaciones();
-          EList<Operacion> _operadores_1 = llamadaFuncion.getOperadores();
-          int _size_1 = _operadores_1.size();
+          EList<Operacion> _parametros_1 = llamadaFuncion.getParametros();
+          int _size_1 = _parametros_1.size();
           String _nombreModulo_1 = this.getNombreModulo(_nombre_1, _importaciones_1, _size_1);
           nombreModulo = _nombreModulo_1;
         }
@@ -1181,15 +1181,15 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
             int _size_2 = _get.size();
             boolean _equals = (_size_2 == 0);
             if (_equals) {
-              EList<Operacion> _operadores_2 = llamadaFuncion.getOperadores();
+              EList<Operacion> _parametros_2 = llamadaFuncion.getParametros();
               String _nombre_4 = llamadaFuncion.getNombre();
-              String _parametros = this.getParametros(_operadores_2, _nombre_4, punteros);
-              _builder.append(_parametros, "");
+              String _parametros_3 = this.getParametros(_parametros_2, _nombre_4, punteros);
+              _builder.append(_parametros_3, "");
             } else {
-              EList<Operacion> _operadores_3 = llamadaFuncion.getOperadores();
+              EList<Operacion> _parametros_4 = llamadaFuncion.getParametros();
               String _nombre_5 = llamadaFuncion.getNombre();
-              String _parametros_1 = this.getParametros(_operadores_3, _nombre_5, punteros);
-              _builder.append(_parametros_1, "");
+              String _parametros_5 = this.getParametros(_parametros_4, _nombre_5, punteros);
+              _builder.append(_parametros_5, "");
             }
           }
           _builder.append(")");
@@ -1208,15 +1208,15 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
             int _size_3 = _get_1.size();
             boolean _equals_1 = (_size_3 == 0);
             if (_equals_1) {
-              EList<Operacion> _operadores_4 = llamadaFuncion.getOperadores();
+              EList<Operacion> _parametros_6 = llamadaFuncion.getParametros();
               String _nombre_8 = llamadaFuncion.getNombre();
-              String _parametros_2 = this.getParametros(_operadores_4, _nombre_8, punteros);
-              _builder.append(_parametros_2, "");
+              String _parametros_7 = this.getParametros(_parametros_6, _nombre_8, punteros);
+              _builder.append(_parametros_7, "");
             } else {
-              EList<Operacion> _operadores_5 = llamadaFuncion.getOperadores();
+              EList<Operacion> _parametros_8 = llamadaFuncion.getParametros();
               String _nombre_9 = llamadaFuncion.getNombre();
-              String _parametros_3 = this.getParametros(_operadores_5, _nombre_9, punteros);
-              _builder.append(_parametros_3, "");
+              String _parametros_9 = this.getParametros(_parametros_8, _nombre_9, punteros);
+              _builder.append(_parametros_9, "");
             }
           }
           _builder.append(")");

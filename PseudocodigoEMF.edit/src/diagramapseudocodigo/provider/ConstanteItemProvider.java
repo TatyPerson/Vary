@@ -278,11 +278,6 @@ public class ConstanteItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.CONSTANTE__VALOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.CONSTANTE__VALOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 	}
 

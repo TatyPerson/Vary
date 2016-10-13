@@ -156,7 +156,9 @@ public class FuncionInternaItemProvider extends ValorItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT);
+			childrenFeatures.add(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS);
 		}
 		return childrenFeatures;
 	}
@@ -217,7 +219,9 @@ public class FuncionInternaItemProvider extends ValorItemProvider {
 			case DiagramapseudocodigoPackage.FUNCION_INTERNA__NOMBRE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case DiagramapseudocodigoPackage.FUNCION_INTERNA__OPERADORES:
+			case DiagramapseudocodigoPackage.FUNCION_INTERNA__LEFT:
+			case DiagramapseudocodigoPackage.FUNCION_INTERNA__RIGHT:
+			case DiagramapseudocodigoPackage.FUNCION_INTERNA__PARAMETROS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -237,133 +241,402 @@ public class FuncionInternaItemProvider extends ValorItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
+				(DiagramapseudocodigoPackage.Literals.OPERACION__LEFT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__OPERADORES,
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createLlamadaFuncion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createVariableID()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createCadenaCaracteres()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createEntero()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createLogico()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createCaracter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createFuncionInterna()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorComplejo()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorRegistro()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorVector()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createValorMatriz()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createSuma()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createResta()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createMultiplicacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionEntera()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOr()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createAnd()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createComparacion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createIgualdad()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createMod()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createDivisionReal()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == DiagramapseudocodigoPackage.Literals.OPERACION__LEFT ||
+			childFeature == DiagramapseudocodigoPackage.Literals.OPERACION__RIGHT ||
+			childFeature == DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__PARAMETROS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

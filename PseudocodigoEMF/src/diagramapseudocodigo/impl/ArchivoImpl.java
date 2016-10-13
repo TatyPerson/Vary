@@ -22,33 +22,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.ArchivoImpl#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.ArchivoImpl#getTipo <em>Tipo</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ArchivoImpl extends TipoComplejoImpl implements Archivo {
-	/**
-	 * The default value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NOMBRE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getNombre() <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getNombre()
-	 * @generated
-	 * @ordered
-	 */
-	protected String nombre = NOMBRE_EDEFAULT;
-
 	/**
 	 * The cached value of the '{@link #getTipo() <em>Tipo</em>}' containment reference.
 	 * <!-- begin-user-doc -->
@@ -76,27 +55,6 @@ public class ArchivoImpl extends TipoComplejoImpl implements Archivo {
 	@Override
 	protected EClass eStaticClass() {
 		return DiagramapseudocodigoPackage.Literals.ARCHIVO;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getNombre() {
-		return nombre;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setNombre(String newNombre) {
-		String oldNombre = nombre;
-		nombre = newNombre;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.ARCHIVO__NOMBRE, oldNombre, nombre));
 	}
 
 	/**
@@ -164,8 +122,6 @@ public class ArchivoImpl extends TipoComplejoImpl implements Archivo {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ARCHIVO__NOMBRE:
-				return getNombre();
 			case DiagramapseudocodigoPackage.ARCHIVO__TIPO:
 				return getTipo();
 		}
@@ -180,9 +136,6 @@ public class ArchivoImpl extends TipoComplejoImpl implements Archivo {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ARCHIVO__NOMBRE:
-				setNombre((String)newValue);
-				return;
 			case DiagramapseudocodigoPackage.ARCHIVO__TIPO:
 				setTipo((Tipo)newValue);
 				return;
@@ -198,9 +151,6 @@ public class ArchivoImpl extends TipoComplejoImpl implements Archivo {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ARCHIVO__NOMBRE:
-				setNombre(NOMBRE_EDEFAULT);
-				return;
 			case DiagramapseudocodigoPackage.ARCHIVO__TIPO:
 				setTipo((Tipo)null);
 				return;
@@ -216,28 +166,10 @@ public class ArchivoImpl extends TipoComplejoImpl implements Archivo {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.ARCHIVO__NOMBRE:
-				return NOMBRE_EDEFAULT == null ? nombre != null : !NOMBRE_EDEFAULT.equals(nombre);
 			case DiagramapseudocodigoPackage.ARCHIVO__TIPO:
 				return tipo != null;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (nombre: ");
-		result.append(nombre);
-		result.append(')');
-		return result.toString();
 	}
 
 } //ArchivoImpl

@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link diagramapseudocodigo.FuncionInterna#getNombre <em>Nombre</em>}</li>
- *   <li>{@link diagramapseudocodigo.FuncionInterna#getOperadores <em>Operadores</em>}</li>
+ *   <li>{@link diagramapseudocodigo.FuncionInterna#getParametros <em>Parametros</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncionInterna()
@@ -49,19 +49,19 @@ public interface FuncionInterna extends Valor, Operacion {
 	void setNombre(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Operadores</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Parametros</b></em>' containment reference list.
 	 * The list contents are of type {@link diagramapseudocodigo.Operacion}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Operadores</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Parametros</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Operadores</em>' containment reference list.
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncionInterna_Operadores()
+	 * @return the value of the '<em>Parametros</em>' containment reference list.
+	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getFuncionInterna_Parametros()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Operacion> getOperadores();
+	EList<Operacion> getParametros();
 
 } // FuncionInterna

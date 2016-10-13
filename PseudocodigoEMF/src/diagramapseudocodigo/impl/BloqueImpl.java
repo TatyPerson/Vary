@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.BloqueImpl#getValor <em>Valor</em>}</li>
+ *   <li>{@link diagramapseudocodigo.impl.BloqueImpl#getCondicion <em>Condicion</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.BloqueImpl#getSentencias <em>Sentencias</em>}</li>
  * </ul>
  *
@@ -38,14 +38,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	/**
-	 * The cached value of the '{@link #getValor() <em>Valor</em>}' containment reference.
+	 * The cached value of the '{@link #getCondicion() <em>Condicion</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValor()
+	 * @see #getCondicion()
 	 * @generated
 	 * @ordered
 	 */
-	protected Operacion valor;
+	protected Operacion condicion;
 
 	/**
 	 * The cached value of the '{@link #getSentencias() <em>Sentencias</em>}' containment reference list.
@@ -81,8 +81,8 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Operacion getValor() {
-		return valor;
+	public Operacion getCondicion() {
+		return condicion;
 	}
 
 	/**
@@ -90,11 +90,11 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValor(Operacion newValor, NotificationChain msgs) {
-		Operacion oldValor = valor;
-		valor = newValor;
+	public NotificationChain basicSetCondicion(Operacion newCondicion, NotificationChain msgs) {
+		Operacion oldCondicion = condicion;
+		condicion = newCondicion;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.BLOQUE__VALOR, oldValor, newValor);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.BLOQUE__CONDICION, oldCondicion, newCondicion);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -105,18 +105,18 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValor(Operacion newValor) {
-		if (newValor != valor) {
+	public void setCondicion(Operacion newCondicion) {
+		if (newCondicion != condicion) {
 			NotificationChain msgs = null;
-			if (valor != null)
-				msgs = ((InternalEObject)valor).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.BLOQUE__VALOR, null, msgs);
-			if (newValor != null)
-				msgs = ((InternalEObject)newValor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.BLOQUE__VALOR, null, msgs);
-			msgs = basicSetValor(newValor, msgs);
+			if (condicion != null)
+				msgs = ((InternalEObject)condicion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.BLOQUE__CONDICION, null, msgs);
+			if (newCondicion != null)
+				msgs = ((InternalEObject)newCondicion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.BLOQUE__CONDICION, null, msgs);
+			msgs = basicSetCondicion(newCondicion, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.BLOQUE__VALOR, newValor, newValor));
+			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.BLOQUE__CONDICION, newCondicion, newCondicion));
 	}
 
 	/**
@@ -139,8 +139,8 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				return basicSetValor(null, msgs);
+			case DiagramapseudocodigoPackage.BLOQUE__CONDICION:
+				return basicSetCondicion(null, msgs);
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				return ((InternalEList<?>)getSentencias()).basicRemove(otherEnd, msgs);
 		}
@@ -155,8 +155,8 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				return getValor();
+			case DiagramapseudocodigoPackage.BLOQUE__CONDICION:
+				return getCondicion();
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				return getSentencias();
 		}
@@ -172,8 +172,8 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				setValor((Operacion)newValue);
+			case DiagramapseudocodigoPackage.BLOQUE__CONDICION:
+				setCondicion((Operacion)newValue);
 				return;
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				getSentencias().clear();
@@ -191,8 +191,8 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				setValor((Operacion)null);
+			case DiagramapseudocodigoPackage.BLOQUE__CONDICION:
+				setCondicion((Operacion)null);
 				return;
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				getSentencias().clear();
@@ -209,8 +209,8 @@ public abstract class BloqueImpl extends SentenciaImpl implements Bloque {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.BLOQUE__VALOR:
-				return valor != null;
+			case DiagramapseudocodigoPackage.BLOQUE__CONDICION:
+				return condicion != null;
 			case DiagramapseudocodigoPackage.BLOQUE__SENTENCIAS:
 				return sentencias != null && !sentencias.isEmpty();
 		}

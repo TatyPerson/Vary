@@ -59,8 +59,8 @@ public class VaryGrammarOutlineTreeProvider extends DefaultOutlineTreeProvider {
   }
   
   protected void _createChildren(final IOutlineNode parentNode, final Registro modelElement) {
-    EList<Declaracion> _variable = modelElement.getVariable();
-    for (final Declaracion declaracion : _variable) {
+    EList<Declaracion> _campos = modelElement.getCampos();
+    for (final Declaracion declaracion : _campos) {
       super._createChildren(parentNode, declaracion);
     }
   }

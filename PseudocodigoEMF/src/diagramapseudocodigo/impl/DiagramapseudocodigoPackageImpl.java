@@ -72,7 +72,6 @@ import diagramapseudocodigo.Tipo;
 import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
-import diagramapseudocodigo.Unaria;
 import diagramapseudocodigo.Valor;
 import diagramapseudocodigo.ValorComplejo;
 import diagramapseudocodigo.ValorMatriz;
@@ -629,13 +628,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass unariaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass operacionCompletaEClass = null;
 
 	/**
@@ -844,17 +836,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclaracionBasica_Tipo() {
-		return (EAttribute)declaracionBasicaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDeclaracionBasica_Variables() {
-		return (EReference)declaracionBasicaEClass.getEStructuralFeatures().get(1);
+		return (EReference)declaracionBasicaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -880,7 +863,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getLlamadaFuncion_Operadores() {
+	public EReference getLlamadaFuncion_Parametros() {
 		return (EReference)llamadaFuncionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1168,6 +1151,24 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getOperacion_Left() {
+		return (EReference)operacionEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOperacion_Right() {
+		return (EReference)operacionEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getLogico() {
 		return logicoEClass;
 	}
@@ -1249,7 +1250,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getBloque_Valor() {
+	public EReference getBloque_Condicion() {
 		return (EReference)bloqueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1393,7 +1394,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFuncionInterna_Operadores() {
+	public EReference getFuncionInterna_Parametros() {
 		return (EReference)funcionInternaEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1546,15 +1547,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getVector_Nombre() {
-		return (EAttribute)vectorEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDeclaracionDefinida() {
 		return declaracionDefinidaEClass;
 	}
@@ -1564,17 +1556,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getDeclaracionDefinida_Tipo() {
-		return (EAttribute)declaracionDefinidaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDeclaracionDefinida_Variables() {
-		return (EReference)declaracionDefinidaEClass.getEStructuralFeatures().get(1);
+		return (EReference)declaracionDefinidaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1591,6 +1574,15 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getDeclaracion_Tipo() {
+		return (EAttribute)declaracionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMatriz() {
 		return matrizEClass;
 	}
@@ -1600,17 +1592,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMatriz_Nombre() {
-		return (EAttribute)matrizEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getMatriz_Valor() {
-		return (EReference)matrizEClass.getEStructuralFeatures().get(1);
+		return (EReference)matrizEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1619,7 +1602,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	public EReference getMatriz_Tipo() {
-		return (EReference)matrizEClass.getEStructuralFeatures().get(2);
+		return (EReference)matrizEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1636,6 +1619,15 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getTipoComplejo_Nombre() {
+		return (EAttribute)tipoComplejoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRegistro() {
 		return registroEClass;
 	}
@@ -1645,17 +1637,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRegistro_Variable() {
+	public EReference getRegistro_Campos() {
 		return (EReference)registroEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getRegistro_Nombre() {
-		return (EAttribute)registroEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1672,8 +1655,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getTipoDefinido() {
-		return tipoDefinidoEClass;
+	public EAttribute getTipo_Nombre() {
+		return (EAttribute)tipoEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1681,8 +1664,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTipoDefinido_Tipo() {
-		return (EAttribute)tipoDefinidoEClass.getEStructuralFeatures().get(0);
+	public EClass getTipoDefinido() {
+		return tipoDefinidoEClass;
 	}
 
 	/**
@@ -1699,15 +1682,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getTipoBasico_Tipo() {
-		return (EAttribute)tipoBasicoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getArchivo() {
 		return archivoEClass;
 	}
@@ -1717,17 +1691,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getArchivo_Nombre() {
-		return (EAttribute)archivoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getArchivo_Tipo() {
-		return (EReference)archivoEClass.getEStructuralFeatures().get(1);
+		return (EReference)archivoEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1744,17 +1709,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEnumerado_Nombre() {
-		return (EAttribute)enumeradoEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getEnumerado_Valor() {
-		return (EReference)enumeradoEClass.getEStructuralFeatures().get(1);
+	public EReference getEnumerado_PosiblesValores() {
+		return (EReference)enumeradoEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1764,15 +1720,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 */
 	public EClass getSubrango() {
 		return subrangoEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getSubrango_Nombre() {
-		return (EAttribute)subrangoEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2014,26 +1961,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSuma_Left() {
-		return (EReference)sumaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getSuma_Right() {
-		return (EReference)sumaEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getSuma_Signo_op() {
-		return (EAttribute)sumaEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)sumaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2050,26 +1979,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getResta_Left() {
-		return (EReference)restaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getResta_Right() {
-		return (EReference)restaEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getResta_Signo_op() {
-		return (EAttribute)restaEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)restaEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2086,26 +1997,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMultiplicacion_Left() {
-		return (EReference)multiplicacionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMultiplicacion_Right() {
-		return (EReference)multiplicacionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getMultiplicacion_Signo_op() {
-		return (EAttribute)multiplicacionEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)multiplicacionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2122,26 +2015,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDivisionEntera_Left() {
-		return (EReference)divisionEnteraEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDivisionEntera_Right() {
-		return (EReference)divisionEnteraEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getDivisionEntera_Signo_op() {
-		return (EAttribute)divisionEnteraEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)divisionEnteraEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2158,26 +2033,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getOr_Left() {
-		return (EReference)orEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getOr_Right() {
-		return (EReference)orEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getOr_Signo_op() {
-		return (EAttribute)orEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)orEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2194,26 +2051,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAnd_Left() {
-		return (EReference)andEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getAnd_Right() {
-		return (EReference)andEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getAnd_Signo_op() {
-		return (EAttribute)andEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)andEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2230,26 +2069,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComparacion_Left() {
-		return (EReference)comparacionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComparacion_Right() {
-		return (EReference)comparacionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getComparacion_Signo_op() {
-		return (EAttribute)comparacionEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)comparacionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2266,26 +2087,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIgualdad_Left() {
-		return (EReference)igualdadEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIgualdad_Right() {
-		return (EReference)igualdadEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getIgualdad_Signo_op() {
-		return (EAttribute)igualdadEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)igualdadEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -2608,24 +2411,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMod_Right() {
-		return (EReference)modEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getMod_Left() {
-		return (EReference)modEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getDivisionReal() {
 		return divisionRealEClass;
 	}
@@ -2644,24 +2429,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDivisionReal_Left() {
-		return (EReference)divisionRealEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getDivisionReal_Right() {
-		return (EReference)divisionRealEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getOperacionParentesis() {
 		return operacionParentesisEClass;
 	}
@@ -2673,33 +2440,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 */
 	public EReference getOperacionParentesis_Valor_operacion() {
 		return (EReference)operacionParentesisEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getUnaria() {
-		return unariaEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getUnaria_Right() {
-		return (EReference)unariaEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getUnaria_Signo_op() {
-		return (EAttribute)unariaEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -2783,12 +2523,11 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		sentenciaEClass = createEClass(SENTENCIA);
 
 		declaracionBasicaEClass = createEClass(DECLARACION_BASICA);
-		createEAttribute(declaracionBasicaEClass, DECLARACION_BASICA__TIPO);
 		createEReference(declaracionBasicaEClass, DECLARACION_BASICA__VARIABLES);
 
 		llamadaFuncionEClass = createEClass(LLAMADA_FUNCION);
 		createEAttribute(llamadaFuncionEClass, LLAMADA_FUNCION__NOMBRE);
-		createEReference(llamadaFuncionEClass, LLAMADA_FUNCION__OPERADORES);
+		createEReference(llamadaFuncionEClass, LLAMADA_FUNCION__PARAMETROS);
 
 		variableIDEClass = createEClass(VARIABLE_ID);
 		createEAttribute(variableIDEClass, VARIABLE_ID__MAT);
@@ -2834,6 +2573,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		createEReference(operacionEClass, OPERACION__EATTRIBUTE0RENCE0);
 		createEAttribute(operacionEClass, OPERACION__NEGACIONES_FINALES);
 		createEAttribute(operacionEClass, OPERACION__NEGACIONES_INICIALES);
+		createEReference(operacionEClass, OPERACION__LEFT);
+		createEReference(operacionEClass, OPERACION__RIGHT);
 
 		logicoEClass = createEClass(LOGICO);
 		createEAttribute(logicoEClass, LOGICO__VALOR);
@@ -2847,7 +2588,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		createEReference(sinoEClass, SINO__DEVUELVE);
 
 		bloqueEClass = createEClass(BLOQUE);
-		createEReference(bloqueEClass, BLOQUE__VALOR);
+		createEReference(bloqueEClass, BLOQUE__CONDICION);
 		createEReference(bloqueEClass, BLOQUE__SENTENCIAS);
 
 		mientrasEClass = createEClass(MIENTRAS);
@@ -2870,7 +2611,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		funcionInternaEClass = createEClass(FUNCION_INTERNA);
 		createEAttribute(funcionInternaEClass, FUNCION_INTERNA__NOMBRE);
-		createEReference(funcionInternaEClass, FUNCION_INTERNA__OPERADORES);
+		createEReference(funcionInternaEClass, FUNCION_INTERNA__PARAMETROS);
 
 		segunEClass = createEClass(SEGUN);
 		createEReference(segunEClass, SEGUN__CASOS);
@@ -2892,43 +2633,37 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		vectorEClass = createEClass(VECTOR);
 		createEReference(vectorEClass, VECTOR__VALOR);
 		createEReference(vectorEClass, VECTOR__TIPO);
-		createEAttribute(vectorEClass, VECTOR__NOMBRE);
 
 		declaracionDefinidaEClass = createEClass(DECLARACION_DEFINIDA);
-		createEAttribute(declaracionDefinidaEClass, DECLARACION_DEFINIDA__TIPO);
 		createEReference(declaracionDefinidaEClass, DECLARACION_DEFINIDA__VARIABLES);
 
 		declaracionEClass = createEClass(DECLARACION);
+		createEAttribute(declaracionEClass, DECLARACION__TIPO);
 
 		matrizEClass = createEClass(MATRIZ);
-		createEAttribute(matrizEClass, MATRIZ__NOMBRE);
 		createEReference(matrizEClass, MATRIZ__VALOR);
 		createEReference(matrizEClass, MATRIZ__TIPO);
 
 		tipoComplejoEClass = createEClass(TIPO_COMPLEJO);
+		createEAttribute(tipoComplejoEClass, TIPO_COMPLEJO__NOMBRE);
 
 		registroEClass = createEClass(REGISTRO);
-		createEReference(registroEClass, REGISTRO__VARIABLE);
-		createEAttribute(registroEClass, REGISTRO__NOMBRE);
+		createEReference(registroEClass, REGISTRO__CAMPOS);
 
 		tipoEClass = createEClass(TIPO);
+		createEAttribute(tipoEClass, TIPO__NOMBRE);
 
 		tipoDefinidoEClass = createEClass(TIPO_DEFINIDO);
-		createEAttribute(tipoDefinidoEClass, TIPO_DEFINIDO__TIPO);
 
 		tipoBasicoEClass = createEClass(TIPO_BASICO);
-		createEAttribute(tipoBasicoEClass, TIPO_BASICO__TIPO);
 
 		archivoEClass = createEClass(ARCHIVO);
-		createEAttribute(archivoEClass, ARCHIVO__NOMBRE);
 		createEReference(archivoEClass, ARCHIVO__TIPO);
 
 		enumeradoEClass = createEClass(ENUMERADO);
-		createEAttribute(enumeradoEClass, ENUMERADO__NOMBRE);
-		createEReference(enumeradoEClass, ENUMERADO__VALOR);
+		createEReference(enumeradoEClass, ENUMERADO__POSIBLES_VALORES);
 
 		subrangoEClass = createEClass(SUBRANGO);
-		createEAttribute(subrangoEClass, SUBRANGO__NOMBRE);
 
 		valorComplejoEClass = createEClass(VALOR_COMPLEJO);
 
@@ -2964,43 +2699,27 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		createEReference(funcionFicheroCerrarEClass, FUNCION_FICHERO_CERRAR__VARIABLE);
 
 		sumaEClass = createEClass(SUMA);
-		createEReference(sumaEClass, SUMA__LEFT);
-		createEReference(sumaEClass, SUMA__RIGHT);
 		createEAttribute(sumaEClass, SUMA__SIGNO_OP);
 
 		restaEClass = createEClass(RESTA);
-		createEReference(restaEClass, RESTA__LEFT);
-		createEReference(restaEClass, RESTA__RIGHT);
 		createEAttribute(restaEClass, RESTA__SIGNO_OP);
 
 		multiplicacionEClass = createEClass(MULTIPLICACION);
-		createEReference(multiplicacionEClass, MULTIPLICACION__LEFT);
-		createEReference(multiplicacionEClass, MULTIPLICACION__RIGHT);
 		createEAttribute(multiplicacionEClass, MULTIPLICACION__SIGNO_OP);
 
 		divisionEnteraEClass = createEClass(DIVISION_ENTERA);
-		createEReference(divisionEnteraEClass, DIVISION_ENTERA__LEFT);
-		createEReference(divisionEnteraEClass, DIVISION_ENTERA__RIGHT);
 		createEAttribute(divisionEnteraEClass, DIVISION_ENTERA__SIGNO_OP);
 
 		orEClass = createEClass(OR);
-		createEReference(orEClass, OR__LEFT);
-		createEReference(orEClass, OR__RIGHT);
 		createEAttribute(orEClass, OR__SIGNO_OP);
 
 		andEClass = createEClass(AND);
-		createEReference(andEClass, AND__LEFT);
-		createEReference(andEClass, AND__RIGHT);
 		createEAttribute(andEClass, AND__SIGNO_OP);
 
 		comparacionEClass = createEClass(COMPARACION);
-		createEReference(comparacionEClass, COMPARACION__LEFT);
-		createEReference(comparacionEClass, COMPARACION__RIGHT);
 		createEAttribute(comparacionEClass, COMPARACION__SIGNO_OP);
 
 		igualdadEClass = createEClass(IGUALDAD);
-		createEReference(igualdadEClass, IGUALDAD__LEFT);
-		createEReference(igualdadEClass, IGUALDAD__RIGHT);
 		createEAttribute(igualdadEClass, IGUALDAD__SIGNO_OP);
 
 		subrangoNumericoEClass = createEClass(SUBRANGO_NUMERICO);
@@ -3048,20 +2767,12 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		modEClass = createEClass(MOD);
 		createEAttribute(modEClass, MOD__SIGNO_OP);
-		createEReference(modEClass, MOD__RIGHT);
-		createEReference(modEClass, MOD__LEFT);
 
 		divisionRealEClass = createEClass(DIVISION_REAL);
 		createEAttribute(divisionRealEClass, DIVISION_REAL__SIGNO_OP);
-		createEReference(divisionRealEClass, DIVISION_REAL__LEFT);
-		createEReference(divisionRealEClass, DIVISION_REAL__RIGHT);
 
 		operacionParentesisEClass = createEClass(OPERACION_PARENTESIS);
 		createEReference(operacionParentesisEClass, OPERACION_PARENTESIS__VALOR_OPERACION);
-
-		unariaEClass = createEClass(UNARIA);
-		createEReference(unariaEClass, UNARIA__RIGHT);
-		createEAttribute(unariaEClass, UNARIA__SIGNO_OP);
 
 		operacionCompletaEClass = createEClass(OPERACION_COMPLETA);
 		createEReference(operacionCompletaEClass, OPERACION_COMPLETA__VALOR_OPERACION);
@@ -3166,7 +2877,6 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		modEClass.getESuperTypes().add(this.getOperacion());
 		divisionRealEClass.getESuperTypes().add(this.getOperacion());
 		operacionParentesisEClass.getESuperTypes().add(this.getOperacion());
-		unariaEClass.getESuperTypes().add(this.getOperacion());
 		operacionCompletaEClass.getESuperTypes().add(this.getOperacion());
 
 		// Initialize classes, features, and operations; add parameters
@@ -3187,12 +2897,11 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(sentenciaEClass, Sentencia.class, "Sentencia", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(declaracionBasicaEClass, DeclaracionBasica.class, "DeclaracionBasica", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeclaracionBasica_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, DeclaracionBasica.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeclaracionBasica_Variables(), this.getVariable(), null, "variables", null, 0, -1, DeclaracionBasica.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(llamadaFuncionEClass, LlamadaFuncion.class, "LlamadaFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLlamadaFuncion_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, LlamadaFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLlamadaFuncion_Operadores(), this.getOperacion(), null, "operadores", null, 0, -1, LlamadaFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLlamadaFuncion_Parametros(), this.getOperacion(), null, "parametros", null, 0, -1, LlamadaFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(variableIDEClass, VariableID.class, "VariableID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getVariableID_Mat(), ecorePackage.getEString(), "Mat", null, 0, -1, VariableID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3238,6 +2947,8 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEReference(getOperacion_EAttribute0rence0(), this.getOperacion(), null, "EAttribute0rence0", null, 0, 1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperacion_NegacionesFinales(), ecorePackage.getEString(), "negacionesFinales", null, 0, -1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOperacion_NegacionesIniciales(), ecorePackage.getEString(), "negacionesIniciales", null, 0, -1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperacion_Left(), this.getOperacion(), null, "left", null, 0, 1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOperacion_Right(), this.getOperacion(), null, "right", null, 0, 1, Operacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(logicoEClass, Logico.class, "Logico", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLogico_Valor(), ecorePackage.getEString(), "valor", null, 1, 1, Logico.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3251,7 +2962,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEReference(getSino_Devuelve(), this.getDevolver(), null, "devuelve", null, 0, 1, Sino.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bloqueEClass, Bloque.class, "Bloque", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBloque_Valor(), this.getOperacion(), null, "valor", null, 1, 1, Bloque.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBloque_Condicion(), this.getOperacion(), null, "condicion", null, 1, 1, Bloque.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBloque_Sentencias(), this.getSentencia(), null, "sentencias", null, 0, -1, Bloque.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(mientrasEClass, Mientras.class, "Mientras", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3274,7 +2985,7 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEClass(funcionInternaEClass, FuncionInterna.class, "FuncionInterna", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFuncionInterna_Nombre(), ecorePackage.getEString(), "nombre", null, 0, 1, FuncionInterna.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFuncionInterna_Operadores(), this.getOperacion(), null, "operadores", null, 0, -1, FuncionInterna.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFuncionInterna_Parametros(), this.getOperacion(), null, "parametros", null, 0, -1, FuncionInterna.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(segunEClass, Segun.class, "Segun", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSegun_Casos(), this.getCaso(), null, "casos", null, 0, -1, Segun.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3296,43 +3007,37 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEClass(vectorEClass, Vector.class, "Vector", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getVector_Valor(), this.getOperacion(), null, "valor", null, 0, 1, Vector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getVector_Tipo(), this.getTipo(), null, "tipo", null, 1, 1, Vector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getVector_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Vector.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declaracionDefinidaEClass, DeclaracionDefinida.class, "DeclaracionDefinida", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDeclaracionDefinida_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, DeclaracionDefinida.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDeclaracionDefinida_Variables(), this.getVariable(), null, "variables", null, 0, -1, DeclaracionDefinida.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(declaracionEClass, Declaracion.class, "Declaracion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDeclaracion_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, Declaracion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(matrizEClass, Matriz.class, "Matriz", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMatriz_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Matriz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatriz_Valor(), this.getOperacion(), null, "valor", null, 0, 2, Matriz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMatriz_Tipo(), this.getTipo(), null, "tipo", null, 1, 1, Matriz.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tipoComplejoEClass, TipoComplejo.class, "TipoComplejo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTipoComplejo_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, TipoComplejo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(registroEClass, Registro.class, "Registro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRegistro_Variable(), this.getDeclaracion(), null, "variable", null, 1, -1, Registro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRegistro_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Registro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRegistro_Campos(), this.getDeclaracion(), null, "campos", null, 1, -1, Registro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tipoEClass, Tipo.class, "Tipo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTipo_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Tipo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tipoDefinidoEClass, TipoDefinido.class, "TipoDefinido", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTipoDefinido_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, TipoDefinido.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tipoBasicoEClass, TipoBasico.class, "TipoBasico", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTipoBasico_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, TipoBasico.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(archivoEClass, Archivo.class, "Archivo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getArchivo_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Archivo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getArchivo_Tipo(), this.getTipo(), null, "tipo", null, 1, 1, Archivo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumeradoEClass, Enumerado.class, "Enumerado", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getEnumerado_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Enumerado.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumerado_Valor(), this.getOperacion(), null, "valor", null, 1, -1, Enumerado.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumerado_PosiblesValores(), this.getOperacion(), null, "posiblesValores", null, 1, -1, Enumerado.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subrangoEClass, Subrango.class, "Subrango", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSubrango_Nombre(), ecorePackage.getEString(), "nombre", null, 1, 1, Subrango.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valorComplejoEClass, ValorComplejo.class, "ValorComplejo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -3368,43 +3073,27 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		initEReference(getFuncionFicheroCerrar_Variable(), this.getOperacion(), null, "variable", null, 1, 1, FuncionFicheroCerrar.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sumaEClass, Suma.class, "Suma", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSuma_Left(), this.getOperacion(), null, "left", null, 0, 1, Suma.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSuma_Right(), this.getOperacion(), null, "right", null, 0, 1, Suma.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSuma_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Suma.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(restaEClass, Resta.class, "Resta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getResta_Left(), this.getOperacion(), null, "left", null, 0, 1, Resta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getResta_Right(), this.getOperacion(), null, "right", null, 0, 1, Resta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getResta_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Resta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiplicacionEClass, Multiplicacion.class, "Multiplicacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMultiplicacion_Left(), this.getOperacion(), null, "left", null, 0, 1, Multiplicacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMultiplicacion_Right(), this.getOperacion(), null, "right", null, 0, 1, Multiplicacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMultiplicacion_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Multiplicacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(divisionEnteraEClass, DivisionEntera.class, "DivisionEntera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDivisionEntera_Left(), this.getOperacion(), null, "left", null, 0, 1, DivisionEntera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDivisionEntera_Right(), this.getOperacion(), null, "right", null, 0, 1, DivisionEntera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDivisionEntera_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, DivisionEntera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(orEClass, Or.class, "Or", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getOr_Left(), this.getOperacion(), null, "left", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getOr_Right(), this.getOperacion(), null, "right", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getOr_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Or.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(andEClass, And.class, "And", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAnd_Left(), this.getOperacion(), null, "left", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAnd_Right(), this.getOperacion(), null, "right", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAnd_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, And.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(comparacionEClass, Comparacion.class, "Comparacion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComparacion_Left(), this.getOperacion(), null, "left", null, 0, 1, Comparacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getComparacion_Right(), this.getOperacion(), null, "right", null, 0, 1, Comparacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getComparacion_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Comparacion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(igualdadEClass, Igualdad.class, "Igualdad", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIgualdad_Left(), this.getOperacion(), null, "left", null, 0, 1, Igualdad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIgualdad_Right(), this.getOperacion(), null, "right", null, 0, 1, Igualdad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getIgualdad_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Igualdad.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(subrangoNumericoEClass, SubrangoNumerico.class, "SubrangoNumerico", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3452,20 +3141,12 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEClass(modEClass, Mod.class, "Mod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMod_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMod_Right(), this.getOperacion(), null, "right", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMod_Left(), this.getOperacion(), null, "left", null, 0, 1, Mod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(divisionRealEClass, DivisionReal.class, "DivisionReal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDivisionReal_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, DivisionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDivisionReal_Left(), this.getOperacion(), null, "left", null, 0, 1, DivisionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDivisionReal_Right(), this.getOperacion(), null, "right", null, 0, 1, DivisionReal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operacionParentesisEClass, OperacionParentesis.class, "OperacionParentesis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperacionParentesis_Valor_operacion(), this.getOperacion(), null, "valor_operacion", null, 0, 1, OperacionParentesis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(unariaEClass, Unaria.class, "Unaria", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getUnaria_Right(), this.getOperacion(), null, "right", null, 0, 1, Unaria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getUnaria_Signo_op(), this.getsigno(), "signo_op", null, 0, 1, Unaria.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(operacionCompletaEClass, OperacionCompleta.class, "OperacionCompleta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperacionCompleta_Valor_operacion(), this.getOperacion(), null, "valor_operacion", null, 0, 1, OperacionCompleta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -258,11 +258,6 @@ public class AsignacionComplejaItemProvider extends AsignacionItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_COMPLEJA__OPERADOR,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ASIGNACION_COMPLEJA__OPERADOR,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionCompleta()));
 
 		newChildDescriptors.add
@@ -384,11 +379,6 @@ public class AsignacionComplejaItemProvider extends AsignacionItemProvider {
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ASIGNACION_COMPLEJA__VALOR_ASIGNACION,
 				 DiagramapseudocodigoFactory.eINSTANCE.createOperacionParentesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DiagramapseudocodigoPackage.Literals.ASIGNACION_COMPLEJA__VALOR_ASIGNACION,
-				 DiagramapseudocodigoFactory.eINSTANCE.createUnaria()));
 
 		newChildDescriptors.add
 			(createChildParameter

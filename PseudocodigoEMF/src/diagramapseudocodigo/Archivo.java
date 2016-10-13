@@ -12,7 +12,6 @@ package diagramapseudocodigo;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.Archivo#getNombre <em>Nombre</em>}</li>
  *   <li>{@link diagramapseudocodigo.Archivo#getTipo <em>Tipo</em>}</li>
  * </ul>
  *
@@ -21,32 +20,6 @@ package diagramapseudocodigo;
  * @generated
  */
 public interface Archivo extends TipoComplejo {
-	/**
-	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nombre</em>' attribute.
-	 * @see #setNombre(String)
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getArchivo_Nombre()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getNombre();
-
-	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Archivo#getNombre <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nombre</em>' attribute.
-	 * @see #getNombre()
-	 * @generated
-	 */
-	void setNombre(String value);
-
 	/**
 	 * Returns the value of the '<em><b>Tipo</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

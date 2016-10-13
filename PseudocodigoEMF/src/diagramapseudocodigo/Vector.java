@@ -14,7 +14,6 @@ package diagramapseudocodigo;
  * <ul>
  *   <li>{@link diagramapseudocodigo.Vector#getValor <em>Valor</em>}</li>
  *   <li>{@link diagramapseudocodigo.Vector#getTipo <em>Tipo</em>}</li>
- *   <li>{@link diagramapseudocodigo.Vector#getNombre <em>Nombre</em>}</li>
  * </ul>
  *
  * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVector()
@@ -73,31 +72,5 @@ public interface Vector extends TipoComplejo {
 	 * @generated
 	 */
 	void setTipo(Tipo value);
-
-	/**
-	 * Returns the value of the '<em><b>Nombre</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Nombre</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Nombre</em>' attribute.
-	 * @see #setNombre(String)
-	 * @see diagramapseudocodigo.DiagramapseudocodigoPackage#getVector_Nombre()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getNombre();
-
-	/**
-	 * Sets the value of the '{@link diagramapseudocodigo.Vector#getNombre <em>Nombre</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Nombre</em>' attribute.
-	 * @see #getNombre()
-	 * @generated
-	 */
-	void setNombre(String value);
 
 } // Vector

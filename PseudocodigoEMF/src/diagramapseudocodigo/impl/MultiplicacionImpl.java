@@ -4,15 +4,10 @@ package diagramapseudocodigo.impl;
 
 import diagramapseudocodigo.DiagramapseudocodigoPackage;
 import diagramapseudocodigo.Multiplicacion;
-import diagramapseudocodigo.Operacion;
 import diagramapseudocodigo.signo;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -23,34 +18,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link diagramapseudocodigo.impl.MultiplicacionImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link diagramapseudocodigo.impl.MultiplicacionImpl#getRight <em>Right</em>}</li>
  *   <li>{@link diagramapseudocodigo.impl.MultiplicacionImpl#getSigno_op <em>Signo op</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MultiplicacionImpl extends OperacionImpl implements Multiplicacion {
-	/**
-	 * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLeft()
-	 * @generated
-	 * @ordered
-	 */
-	protected Operacion left;
-
-	/**
-	 * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRight()
-	 * @generated
-	 * @ordered
-	 */
-	protected Operacion right;
-
 	/**
 	 * The default value of the '{@link #getSigno_op() <em>Signo op</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -95,92 +68,6 @@ public class MultiplicacionImpl extends OperacionImpl implements Multiplicacion 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Operacion getLeft() {
-		return left;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLeft(Operacion newLeft, NotificationChain msgs) {
-		Operacion oldLeft = left;
-		left = newLeft;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MULTIPLICACION__LEFT, oldLeft, newLeft);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLeft(Operacion newLeft) {
-		if (newLeft != left) {
-			NotificationChain msgs = null;
-			if (left != null)
-				msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MULTIPLICACION__LEFT, null, msgs);
-			if (newLeft != null)
-				msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MULTIPLICACION__LEFT, null, msgs);
-			msgs = basicSetLeft(newLeft, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MULTIPLICACION__LEFT, newLeft, newLeft));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Operacion getRight() {
-		return right;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRight(Operacion newRight, NotificationChain msgs) {
-		Operacion oldRight = right;
-		right = newRight;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT, oldRight, newRight);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRight(Operacion newRight) {
-		if (newRight != right) {
-			NotificationChain msgs = null;
-			if (right != null)
-				msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT, null, msgs);
-			if (newRight != null)
-				msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT, null, msgs);
-			msgs = basicSetRight(newRight, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT, newRight, newRight));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public signo getSigno_op() {
 		return signo_op;
 	}
@@ -203,28 +90,8 @@ public class MultiplicacionImpl extends OperacionImpl implements Multiplicacion 
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case DiagramapseudocodigoPackage.MULTIPLICACION__LEFT:
-				return basicSetLeft(null, msgs);
-			case DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT:
-				return basicSetRight(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MULTIPLICACION__LEFT:
-				return getLeft();
-			case DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT:
-				return getRight();
 			case DiagramapseudocodigoPackage.MULTIPLICACION__SIGNO_OP:
 				return getSigno_op();
 		}
@@ -239,12 +106,6 @@ public class MultiplicacionImpl extends OperacionImpl implements Multiplicacion 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MULTIPLICACION__LEFT:
-				setLeft((Operacion)newValue);
-				return;
-			case DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT:
-				setRight((Operacion)newValue);
-				return;
 			case DiagramapseudocodigoPackage.MULTIPLICACION__SIGNO_OP:
 				setSigno_op((signo)newValue);
 				return;
@@ -260,12 +121,6 @@ public class MultiplicacionImpl extends OperacionImpl implements Multiplicacion 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MULTIPLICACION__LEFT:
-				setLeft((Operacion)null);
-				return;
-			case DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT:
-				setRight((Operacion)null);
-				return;
 			case DiagramapseudocodigoPackage.MULTIPLICACION__SIGNO_OP:
 				setSigno_op(SIGNO_OP_EDEFAULT);
 				return;
@@ -281,10 +136,6 @@ public class MultiplicacionImpl extends OperacionImpl implements Multiplicacion 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case DiagramapseudocodigoPackage.MULTIPLICACION__LEFT:
-				return left != null;
-			case DiagramapseudocodigoPackage.MULTIPLICACION__RIGHT:
-				return right != null;
 			case DiagramapseudocodigoPackage.MULTIPLICACION__SIGNO_OP:
 				return signo_op != SIGNO_OP_EDEFAULT;
 		}
