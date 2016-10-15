@@ -233,26 +233,51 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	
 	/* 3) */ @Check /* -------------------------------------------------------------------------------------------------------------- */
 	/**
-	 * Funcion que se encarga de comprobar que todas las variables utilizadas en una OperacionCompleta hayan sido declaradas con anterioridad
+	 * Funcion que se encarga de comprobar que todas las variables utilizadas en una Operacion hayan sido declaradas con anterioridad
 	 * @param operacion
 	 */
-	protected void check(OperacionCompleta operacion) {
+	protected void check(Operacion operacion) {
 		Algoritmo algoritmo = EcoreUtil2.getContainerOfType(operacion, Algoritmo.class);
 		Modulo modulo = EcoreUtil2.getContainerOfType(operacion, Modulo.class);
 		Subproceso subproceso =  EcoreUtil2.getContainerOfType(operacion, Subproceso.class);
+		Enumerado enumerado = EcoreUtil2.getContainerOfType(operacion, Enumerado.class);
 		
-		if(algoritmo != null && subproceso == null) {
+		if(algoritmo != null && subproceso == null && enumerado == null) { //Los posibles valores de los enumerados no son variables no declaradas.
 			Map<String, String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(algoritmo.getInicio().getDeclaraciones(), null, algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
-			checkAux(operacion.getValor_operacion(), variablesDefinidas);
-		} else if(algoritmo != null && subproceso != null) {
+			if(operacion instanceof OperacionCompleta) {
+				OperacionCompleta operacionCompleta = (OperacionCompleta) operacion;
+				checkAux(operacionCompleta.getValor_operacion(), variablesDefinidas);
+			} else if(operacion instanceof OperacionParentesis) {
+				OperacionParentesis operacionParentesis = (OperacionParentesis) operacion;
+				checkAux(operacionParentesis.getValor_operacion(), variablesDefinidas);
+			} else {
+				checkAux(operacion, variablesDefinidas);
+			}
+		} else if(algoritmo != null && subproceso != null && enumerado == null) {
 			Map<String, String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
-			checkAux(operacion.getValor_operacion(), variablesDefinidas);
-		} else {
+			if(operacion instanceof OperacionCompleta) {
+				OperacionCompleta operacionCompleta = (OperacionCompleta) operacion;
+				checkAux(operacionCompleta.getValor_operacion(), variablesDefinidas);
+			} else if(operacion instanceof OperacionParentesis) {
+				OperacionParentesis operacionParentesis = (OperacionParentesis) operacion;
+				checkAux(operacionParentesis.getValor_operacion(), variablesDefinidas);
+			} else {
+				checkAux(operacion, variablesDefinidas);
+			}
+		} else if(enumerado == null) {
 			Map<String, String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), modulo.getImplementacion().getGlobales(), modulo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(modulo.getImplementacion().getConstantes(), modulo.getImportaciones(), readerMessages));
-			checkAux(operacion.getValor_operacion(), variablesDefinidas);
+			if(operacion instanceof OperacionCompleta) {
+				OperacionCompleta operacionCompleta = (OperacionCompleta) operacion;
+				checkAux(operacionCompleta.getValor_operacion(), variablesDefinidas);
+			} else if(operacion instanceof OperacionParentesis) {
+				OperacionParentesis operacionParentesis = (OperacionParentesis) operacion;
+				checkAux(operacionParentesis.getValor_operacion(), variablesDefinidas);
+			} else {
+				checkAux(operacion, variablesDefinidas);
+			}
 		} 
 	}
 	
@@ -322,7 +347,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * @param bloque
 	 */
 	protected void check(Bloque bloque) {
-		if(!(bloque instanceof Desde) && !(bloque instanceof Segun)) {  //El bloque desde no contiene expresiones lógicas solo iteradores y el bloque segun puede aceptar otros valores.
+		if(!(bloque instanceof Segun)) {  //El bloque desde no contiene expresiones lógicas solo iteradores y el bloque segun puede aceptar otros valores.
 			Algoritmo algoritmo = EcoreUtil2.getContainerOfType(bloque, Algoritmo.class);
 			Modulo modulo = EcoreUtil2.getContainerOfType(bloque, Modulo.class);
 			Subproceso subproceso =  EcoreUtil2.getContainerOfType(bloque, Subproceso.class);
@@ -334,7 +359,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				Map<String,String> vectores = funciones.getVectoresTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
 				List<String> nombresRegistros = new ArrayList<String>(registros.keySet());
 				Map<String,String> matrices = funciones.getMatricesTipadas(algoritmo.getComplejos(), algoritmo.getImportaciones());
-				checkAux(bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				if(bloque instanceof Desde) {
+					checkAux_valorEntero((Desde) bloque, bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				} else {
+					checkAux_valorLogico(bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				}
 			} else if(algoritmo != null && subproceso != null) {
 				Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), algoritmo.getGlobales(), algoritmo.getImportaciones());
 				Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(algoritmo.getSubprocesos(), algoritmo.getImportaciones());
@@ -342,7 +371,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				Map<String,String> vectores = funciones.getVectoresTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
 				List<String> nombresRegistros = new ArrayList<String>(registros.keySet());
 				Map<String,String> matrices = funciones.getMatricesTipadas(algoritmo.getComplejos(), algoritmo.getImportaciones());
-				checkAux(bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				if(bloque instanceof Desde) {
+					checkAux_valorEntero((Desde) bloque, bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				} else {
+					checkAux_valorLogico(bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				}
 			} else {
 				Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), modulo.getImplementacion().getGlobales(), modulo.getImportaciones());
 				Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(modulo.getImplementacion().getSubprocesos(), modulo.getImportaciones());
@@ -350,7 +383,11 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				Map<String,String> vectores = funciones.getVectoresTipados(modulo.getImplementacion().getComplejos(),  modulo.getImportaciones());
 				List<String> nombresRegistros = new ArrayList<String>(registros.keySet());
 				Map<String,String> matrices = funciones.getMatricesTipadas(modulo.getImplementacion().getComplejos(),  modulo.getImportaciones());
-				checkAux(bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				if(bloque instanceof Desde) {
+					checkAux_valorEntero((Desde) bloque, bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				} else {
+					checkAux_valorLogico(bloque.getCondicion(), variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+				}
 			} 
 		}
 	}
@@ -358,7 +395,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/*
 	 * Función auxiliar de check(Bloque) // Principio DRY.
 	 */
-	private void checkAux(Operacion operacion, Map<String, String> variables, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
+	private void checkAux_valorLogico(Operacion operacion, Map<String, String> variables, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
 		if(operacion instanceof OperacionCompleta) {
 			OperacionCompleta operacionCompleta = (OperacionCompleta) operacion;
 			if(operacionCompleta.getValor_operacion() instanceof  Suma) {
@@ -463,6 +500,18 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				FuncionInterna interna = (FuncionInterna) operacionCompleta.getValor_operacion();
 				error(readerMessages.getBundle().getString("EXPRESION_TIPO_LOGICO"), interna, DiagramapseudocodigoPackage.Literals.FUNCION_INTERNA__NOMBRE);
 			}
+		}
+	}
+	
+	/*
+	 * Función auxiliar de check(Bloque) // Principio DRY (2).
+	 */
+	private void checkAux_valorEntero(Desde desde, Operacion operacion, Map<String, String> variables, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
+		final int ERROR = 3;
+		int check = funciones.checkValoresAsignacion(readerMessages.getBundle().getString("TIPO_ENTERO"), operacion, variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, readerMessages);
+		
+		if(check == ERROR) {
+			error(readerMessages.getBundle().getString("TOPE_DESDE_ENTERO"), desde, DiagramapseudocodigoPackage.Literals.BLOQUE__CONDICION);
 		}
 	}
 	
@@ -941,8 +990,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(algoritmo.getInicio().getDeclaraciones(), null, algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
 			Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(algoritmo.getSubprocesos(), algoritmo.getImportaciones());
-			Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
-			checkAux(asignacion, variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosTipados);
+			//Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+			checkAux(asignacion, variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 		} else if(algoritmo != null && subproceso != null) {
 			Map<String,HashMap<String,String>> registros = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
 			Map<String,String> vectores = funciones.getVectoresTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
@@ -951,8 +1000,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
 			Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(algoritmo.getSubprocesos(), algoritmo.getImportaciones());
-			Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
-			checkAux(asignacion, variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosTipados);
+			//Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+			checkAux(asignacion, variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 		} else {
 			Map<String,HashMap<String,String>> registros = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
 			Map<String,String> vectores = funciones.getVectoresTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
@@ -961,8 +1010,8 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), modulo.getImplementacion().getGlobales(), modulo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(modulo.getImplementacion().getConstantes(), modulo.getImportaciones(), readerMessages));
 			Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(modulo.getImplementacion().getSubprocesos(), modulo.getImportaciones());
-			Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
-			checkAux(asignacion, variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosTipados);
+			//Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
+			checkAux(asignacion, variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 		}
 	}
 	
@@ -970,15 +1019,15 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 * Función auxiliar de check(Asignacion) // Principio DRY. (1)
 	 */
 	private void checkAux(Asignacion asignacion, Map<String, String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros,
-			Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String, HashMap<String,String>> registrosCamposTipados) {
+			Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices) {
 		if(asignacion instanceof AsignacionNormal) {
 			AsignacionNormal an = (AsignacionNormal) asignacion;
 			String tipo = variables.get(an.getValor_asignacion());
 			if(an.getOperador() instanceof OperacionCompleta) {
 				OperacionCompleta operacionCompleta = (OperacionCompleta) an.getOperador();
-				checkAux(asignacion, null, tipo, operacionCompleta.getValor_operacion(), variables, registros, nombresRegistros,funcionesTipadas, vectores, matrices, registrosCamposTipados);
+				checkAux(asignacion, null, tipo, operacionCompleta.getValor_operacion(), variables, registros, nombresRegistros,funcionesTipadas, vectores, matrices);
 			} else {
-				checkAux(asignacion, null, tipo, an.getOperador(), variables, registros, nombresRegistros,funcionesTipadas, vectores, matrices, registrosCamposTipados);
+				checkAux(asignacion, null, tipo, an.getOperador(), variables, registros, nombresRegistros,funcionesTipadas, vectores, matrices);
 			}
 		}
 		else if(asignacion instanceof AsignacionCompleja) {
@@ -987,33 +1036,33 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				ValorRegistro r = (ValorRegistro) ac.getValor_asignacion();
 				for(CampoRegistro campo: r.getCampos()) {
 					String tipo = registros.get(variables.get(r.getNombre_registro())).get(campo.getNombre_campo());
-					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 				}
 			}
 			else if(ac.getValor_asignacion() instanceof ValorVector) {
 				ValorVector v = (ValorVector) ac.getValor_asignacion();
 				if(v.getCampos().size() == 0) {
 					String tipo = vectores.get(variables.get(v.getNombre_vector()));
-					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 				}
 				else {
 					//Cogemos el último campo:
 					String campo = v.getCampos().get(v.getCampos().size()-1).getNombre_campo();
-					String tipo = registrosCamposTipados.get(vectores.get(variables.get(v.getNombre_vector()))).get(campo);
-					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					String tipo = registros.get(vectores.get(variables.get(v.getNombre_vector()))).get(campo);
+					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 				}
 			}
 			else if(ac.getValor_asignacion() instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) ac.getValor_asignacion();
 				if(m.getCampos().size() == 0) {
 					String tipo = matrices.get(variables.get(m.getNombre_matriz()));
-					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 				}
 				else {
 					//Cogemos el último campo:
 					String campo = m.getCampos().get(m.getCampos().size()-1).getNombre_campo();
-					String tipo = registrosCamposTipados.get(matrices.get(variables.get(m.getNombre_matriz()))).get(campo);
-					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosCamposTipados);
+					String tipo = registros.get(matrices.get(variables.get(m.getNombre_matriz()))).get(campo);
+					checkAux(asignacion, null, tipo, ac.getOperador(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 				}
 			}
 		}
@@ -1022,285 +1071,26 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/*
 	 * Función auxiliar de check(Asignacion) // Principio DRY. (2)
 	 */
-	private void checkAux(Asignacion asignacion, Devolver devolver, String tipo, Operacion operacion, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, Map<String,HashMap<String,String>> registrosCamposTipados) {
-		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(operacion instanceof Entero)) {
-			if(operacion instanceof Real) {
+	private void checkAux(Asignacion asignacion, Devolver devolver, String tipo, Operacion operacion, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices) {
+		final int PERDIDA_PRECISION = 2; final int ERROR = 3; 
+		int check = funciones.checkValoresAsignacion(tipo, operacion, variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, readerMessages);
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {	
+			if(check == PERDIDA_PRECISION) {
 				errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-			} else if(funciones.esOperacion(operacion)) {
-				ArrayList<Valor> valores = funciones.getValoresOperacion(operacion);
-				//Primero buscamos las dificultades en la operación
-				List<Valor> problemasOperacion = funciones.getProblemasOperacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valores, readerMessages);
-				//Preparamos los tipos validos
-				ArrayList<String> tiposValidos = new ArrayList<String>();
-				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_ENTERO")); 
-				tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_REAL"));
-				if(funciones.checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
-						funciones.checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 ||
-						funciones.checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
-						funciones.checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
-						funciones.checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				} else if(funciones.checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 2 || 
-						funciones.checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 2 || 
-						funciones.checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 2 || 
-						funciones.checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 2 || 
-						funciones.checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 2) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-				}
-			} else if(operacion instanceof LlamadaFuncion) {
-				LlamadaFuncion f = (LlamadaFuncion) operacion;
-				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				} else if(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-				}
-			} else if(operacion instanceof FuncionInterna) {
-				FuncionInterna interna = (FuncionInterna) operacion;
-				if(interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) 
-						|| interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-				} else {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof VariableID) {
-				VariableID v = (VariableID) operacion;
-				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && variables.containsKey(v.getNombre())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					
-				} else if(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && variables.containsKey(v.getNombre())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-				}
-			} else if(operacion instanceof ValorRegistro) {
-				ValorRegistro vr = (ValorRegistro) operacion;
-				//Buscamos el registro del que proviene esa variable
-				for(String nombre: nombresRegistros) {
-					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-						} else if(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-							errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-						}
-					}
-				}
-			} else if(operacion instanceof ValorVector) {
-				ValorVector v = (ValorVector) operacion;
-				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				} else if(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-				}
-			} else if(operacion instanceof ValorMatriz) {
-				ValorMatriz m = (ValorMatriz) operacion;
-				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				} else {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
-				}
-			} else {
+			} else if(check == ERROR) {
 				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !(operacion instanceof Logico)) {
-			if(funciones.esOperacion(operacion)) {
-				ArrayList<Valor> valores = funciones.getValoresOperacion(operacion);
-				List<Valor> problemasOperacion = funciones.getProblemasOperacion(readerMessages.getBundle().getString("TIPO_LOGICO"), valores, readerMessages);
-				ArrayList<String> tiposValidos = new ArrayList<String>();
-				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_LOGICO")); 
-				if(funciones.checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
-						funciones.checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
-						funciones.checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
-						funciones.checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
-						funciones.checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof LlamadaFuncion) {
-				LlamadaFuncion f = (LlamadaFuncion) operacion;
-				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof FuncionInterna) {
-				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-			} else if(operacion instanceof VariableID) {
-				VariableID v = (VariableID) operacion;
-				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(v.getNombre())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof ValorRegistro) {
-				ValorRegistro vr = (ValorRegistro) operacion;
-				for(String nombre: nombresRegistros) {
-					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-						}
-					}
-				}
-			} else if(operacion instanceof ValorVector) {
-				ValorVector v = (ValorVector) operacion;
-				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof ValorMatriz) {
-				ValorMatriz m = (ValorMatriz) operacion;
-				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else {
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) || tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) || tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+			if(check == ERROR) {
 				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !(operacion instanceof Entero) && !(operacion instanceof Real)) {
-			if(funciones.esOperacion(operacion)) {
-				ArrayList<Valor> valores = funciones.getValoresOperacion(operacion);
-				List<Valor> problemasOperacion = funciones.getProblemasOperacion(readerMessages.getBundle().getString("TIPO_REAL"), valores, readerMessages);
-				ArrayList<String> tiposValidos = new ArrayList<String>();
-				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_REAL")); 
-				tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_ENTERO"));
-				if(funciones.checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
-						funciones.checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
-						funciones.checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
-						funciones.checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
-						funciones.checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof LlamadaFuncion) {
-				LlamadaFuncion f = (LlamadaFuncion) operacion;
-				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof FuncionInterna) {
-				FuncionInterna interna = (FuncionInterna) operacion;
-				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) &&
-						!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				} 
-			 } else if(operacion instanceof VariableID) {
-				VariableID v = (VariableID) operacion;
-				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && variables.containsKey(v.getNombre())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof ValorRegistro) {
-				ValorRegistro vr = (ValorRegistro) operacion;
-				for(String nombre: nombresRegistros) {
-					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-						}
-					}
-				}
-			} else if(operacion instanceof ValorVector) {
-				ValorVector v = (ValorVector) operacion;
-				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof ValorMatriz) {
-				ValorMatriz m = (ValorMatriz) operacion;
-				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else {
-				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-			}
-		} else if((tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) && asignacion != null) || (tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) &&
-				!(operacion instanceof CadenaCaracteres) && asignacion == null)) {
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
 			if(asignacion != null) {
 				errorAux(asignacion, devolver, readerMessages.getBundle().getString("NO_ASIGNACION_CADENA"), true);
-			} else {
-				if(funciones.esOperacion(operacion)) {
-					ArrayList<Valor> valores = funciones.getValoresOperacion(operacion);
-					List<Valor> problemasOperacion = funciones.getProblemasOperacion(readerMessages.getBundle().getString("TIPO_CADENA"), valores, readerMessages);
-					ArrayList<String> tiposValidos = new ArrayList<String>();
-					tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CADENA")); 
-					if(funciones.checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
-							funciones.checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
-							funciones.checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
-							funciones.checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
-							funciones.checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					}
-				} else if(operacion instanceof LlamadaFuncion) {
-					LlamadaFuncion f = (LlamadaFuncion) operacion;
-					if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					}
-				} else if(operacion instanceof FuncionInterna) {
-					FuncionInterna interna = (FuncionInterna) operacion;
-					if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA"))) {
-						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					} 
-				 } else if(operacion instanceof VariableID) {
-					VariableID v = (VariableID) operacion;
-					if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && variables.containsKey(v.getNombre())) {
-						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					}
-				} else if(operacion instanceof ValorRegistro) {
-					ValorRegistro vr = (ValorRegistro) operacion;
-					for(String nombre: nombresRegistros) {
-						if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-							if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-								errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-							}
-						}
-					}
-				} else if(operacion instanceof ValorVector) {
-					ValorVector v = (ValorVector) operacion;
-					if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					}
-				} else if(operacion instanceof ValorMatriz) {
-					ValorMatriz m = (ValorMatriz) operacion;
-					if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-						errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-					}
-				} else {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
+			} else if(check == ERROR) {
+				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !(operacion instanceof Caracter)) {
-			if(funciones.esOperacion(operacion)) {
-				ArrayList<Valor> valores = funciones.getValoresOperacion(operacion);
-				List<Valor> problemasOperacion = funciones.getProblemasOperacion(readerMessages.getBundle().getString("TIPO_CARACTER"), valores, readerMessages);
-				ArrayList<String> tiposValidos = new ArrayList<String>();
-				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CARACTER")); 
-				if(funciones.checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
-						funciones.checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
-						funciones.checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
-						funciones.checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
-						funciones.checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof LlamadaFuncion) {
-				LlamadaFuncion f = (LlamadaFuncion) operacion;
-				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof FuncionInterna) {
-				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-			} else if(operacion instanceof VariableID) {
-				VariableID v = (VariableID) operacion;
-				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && variables.containsKey(v.getNombre())) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof ValorRegistro) {
-				ValorRegistro vr = (ValorRegistro) operacion;
-				for(String nombre: nombresRegistros) {
-					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
-						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-							errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-						}
-					}
-				}
-			} else if(operacion instanceof ValorVector) {
-				ValorVector v = (ValorVector) operacion;
-				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else if(operacion instanceof ValorMatriz) {
-				ValorMatriz m = (ValorMatriz) operacion;
-				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-					errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-				}
-			} else {
-				errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
-			}		
-		}
+		} 
 	}
 	
 	/*
@@ -1338,6 +1128,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	/* 12) */ @Check /* -------------------------------------------------------------------------------------------------------------- */
 	/**
 	 * Función que se encarga de comprobar que las variables utilizadas como tipos complejos realmente hayan sido definidas anteriormente como uno de ellos.
+	 * Además se encarga de comprobar que los índices utilizados en los vectores y matrices sean de tipo entero.
 	 * @param valorComplejo
 	 */
 	protected void check(ValorComplejo valorComplejo) {
@@ -1352,6 +1143,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(algoritmo.getInicio().getDeclaraciones(), null, algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
 			checkAux(valorComplejo, variablesDefinidas, nombresRegistros, nombresVectores, nombresMatrices);
+			
+			if(valorComplejo instanceof ValorVector || valorComplejo instanceof ValorMatriz) {
+				Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(algoritmo.getSubprocesos(), algoritmo.getImportaciones());
+				Map<String,HashMap<String,String>> registros = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+				Map<String,String> vectores = funciones.getVectoresTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+				Map<String,String> matrices = funciones.getMatricesTipadas(algoritmo.getComplejos(), algoritmo.getImportaciones());
+				checkAux_indices(valorComplejo, variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+			}
 		} else if(algoritmo != null && subproceso != null) {
 			List<String> nombresRegistros = new ArrayList<String>(funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones()).keySet());
 			List<String> nombresVectores = new ArrayList<String>(funciones.getVectoresTipados(algoritmo.getComplejos(), algoritmo.getImportaciones()).keySet());
@@ -1359,6 +1158,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
 			checkAux(valorComplejo, variablesDefinidas, nombresRegistros, nombresVectores, nombresMatrices);
+			
+			if(valorComplejo instanceof ValorVector || valorComplejo instanceof ValorMatriz) {
+				Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(algoritmo.getSubprocesos(), algoritmo.getImportaciones());
+				Map<String,HashMap<String,String>> registros = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+				Map<String,String> vectores = funciones.getVectoresTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+				Map<String,String> matrices = funciones.getMatricesTipadas(algoritmo.getComplejos(), algoritmo.getImportaciones());
+				checkAux_indices(valorComplejo, variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+			}
 		} else {
 			List<String> nombresRegistros = new ArrayList<String>(funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones()).keySet());
 			List<String> nombresVectores = new ArrayList<String>(funciones.getVectoresTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones()).keySet());
@@ -1366,6 +1173,14 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(subproceso.getDeclaraciones(), subproceso.getParametros(), modulo.getImplementacion().getGlobales(), modulo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(modulo.getImplementacion().getConstantes(), modulo.getImportaciones(), readerMessages));
 			checkAux(valorComplejo, variablesDefinidas, nombresRegistros, nombresVectores, nombresMatrices);
+			
+			if(valorComplejo instanceof ValorVector || valorComplejo instanceof ValorMatriz) {
+				Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(modulo.getImplementacion().getSubprocesos(), modulo.getImportaciones());
+				Map<String,HashMap<String,String>> registros = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
+				Map<String,String> vectores = funciones.getVectoresTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
+				Map<String,String> matrices = funciones.getMatricesTipadas(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
+				checkAux_indices(valorComplejo, variablesDefinidas, funcionesTipadas, registros, nombresRegistros, vectores, matrices);
+			}
 		}
 	}
 	
@@ -1387,6 +1202,36 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			ValorMatriz m = (ValorMatriz) valorComplejo;
 			if(!nombresMatrices.contains(variables.get(m.getNombre_matriz()))) {
 				error(readerMessages.getString("NO_TIPO_MATRIZ", m.getNombre_matriz()), m, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__NOMBRE_MATRIZ);
+			}
+		}
+	}
+	
+	/*
+	 * Función auxiliar de check(ValorComplejo) // Principio DRY (2).
+	 */
+	private void checkAux_indices(ValorComplejo valorComplejo, Map<String, String> variables, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String, String> vectores, Map<String, String> matrices) {
+		final int ERROR = 3;
+		
+		if(valorComplejo instanceof ValorVector) {
+			ValorVector valorVector = (ValorVector) valorComplejo;
+			
+			int check = funciones.checkValoresAsignacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valorVector.getIndice(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, readerMessages);
+			
+			if(check == ERROR) {
+				error(readerMessages.getBundle().getString("INDICE_ENTERO"), valorVector, DiagramapseudocodigoPackage.Literals.VALOR_VECTOR__INDICE);
+			}
+		} else {
+			ValorMatriz valorMatriz = (ValorMatriz) valorComplejo;
+			
+			int check1 = funciones.checkValoresAsignacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valorMatriz.getPrimerIndice(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, readerMessages);
+			int check2 = funciones.checkValoresAsignacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valorMatriz.getSegundoIndice(), variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, readerMessages);
+			
+			if(check1 == ERROR) {
+				error(readerMessages.getBundle().getString("INDICE_ENTERO"), valorMatriz, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__PRIMER_INDICE);
+			}
+			
+			if(check2 == ERROR) {
+				error(readerMessages.getBundle().getString("INDICE_ENTERO"), valorMatriz, DiagramapseudocodigoPackage.Literals.VALOR_MATRIZ__SEGUNDO_INDICE);
 			}
 		}
 	}
@@ -2193,9 +2038,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(funcion.getDeclaraciones(), funcion.getParametros(), algoritmo.getGlobales(), algoritmo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(algoritmo.getConstantes(), algoritmo.getImportaciones(), readerMessages));
 			Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(algoritmo.getSubprocesos(), algoritmo.getImportaciones());
-			Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
+			//Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(algoritmo.getComplejos(), algoritmo.getImportaciones());
 			OperacionCompleta opCompleta = (OperacionCompleta) devolver.getDevuelve();
-			checkAux(null, devolver, funcion.getTipo(), opCompleta.getValor_operacion(), variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosTipados);
+			checkAux(null, devolver, funcion.getTipo(), opCompleta.getValor_operacion(), variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 		} else {
 			Map<String,HashMap<String,String>> registros = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
 			Map<String,String> vectores = funciones.getVectoresTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
@@ -2204,9 +2049,9 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 			Map<String,String> variablesDefinidas = funciones.getVariablesDefinidasTipadas(funcion.getDeclaraciones(), funcion.getParametros(), modulo.getImplementacion().getGlobales(), modulo.getImportaciones());
 			variablesDefinidas.putAll(funciones.getConstantesTipadas(modulo.getImplementacion().getConstantes(), modulo.getImportaciones(), readerMessages));
 			Map<String,HashMap<Integer,String>> funcionesTipadas = funciones.getFuncionesTipadas(modulo.getImplementacion().getSubprocesos(), modulo.getImportaciones());
-			Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
+			//Map<String, HashMap<String,String>> registrosTipados = funciones.getRegistrosTipados(modulo.getImplementacion().getComplejos(), modulo.getImportaciones());
 			OperacionCompleta opCompleta = (OperacionCompleta) devolver.getDevuelve();
-			checkAux(null, devolver, funcion.getTipo(), opCompleta.getValor_operacion(), variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices, registrosTipados);
+			checkAux(null, devolver, funcion.getTipo(), opCompleta.getValor_operacion(), variablesDefinidas, registros, nombresRegistros, funcionesTipadas, vectores, matrices);
 		}
 	}
 	

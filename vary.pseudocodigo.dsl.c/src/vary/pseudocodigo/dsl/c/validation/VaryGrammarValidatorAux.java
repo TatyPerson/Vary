@@ -851,53 +851,464 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	
 	/* 20) /* -------------------------------------------------------------------------------------------------------------------- */
 	/**
-	 * Función encargada de registrar los valores erroneos que hay en una operacion segun su tipo
-	 * @param tipo, valores, readerMessages
+	 * Función encargada de comprobar que los valores que se intentan asignar sean compatibles con la variable donde se quiere almacenar el valor.
+	 * 3 = error, 2 = perdida de precision, 1 = nada
+	 * @param tipo, variables, registros, nombresRegistros, funcionesTipadas, vectores, matrices, readerMessages
 	 */
-	protected List<Valor> getProblemasOperacion(String tipo, List<Valor> valores, ReadMessagesValidatorInterface readerMessages) {
-		List<Valor> problemasOperacion = new ArrayList<Valor>();
-		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-			for(Valor valor: valores) {
-				if(!(valor instanceof Entero)) {
-					problemasOperacion.add(valor);
+	protected int checkValoresAsignacion(String tipo, Operacion operacion, Map<String,String> variables, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, Map<String,HashMap<Integer,String>> funcionesTipadas, Map<String,String> vectores, Map<String,String> matrices, ReadMessagesValidatorInterface readerMessages) {
+		final int PERDIDA_PRECISION = 2; final int ERROR = 3; final int OK = 1;
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(operacion instanceof Entero)) {
+			if(operacion instanceof Real) {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+				return PERDIDA_PRECISION;
+			} else if(esOperacion(operacion)) {
+				ArrayList<Valor> valores = getValoresOperacion(operacion);
+				//Primero buscamos las dificultades en la operación
+				List<Valor> problemasOperacion = getProblemasOperacion(readerMessages.getBundle().getString("TIPO_ENTERO"), valores, readerMessages);
+				//Preparamos los tipos validos
+				ArrayList<String> tiposValidos = new ArrayList<String>();
+				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_ENTERO")); 
+				tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_REAL"));
+				if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 ||
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				} else if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 2 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 2 || 
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 2 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 2 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 2) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+					return PERDIDA_PRECISION;
 				}
-			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-			for(Valor valor: valores) {
-				if(!(valor instanceof Real) && !(valor instanceof Entero)) {
-					problemasOperacion.add(valor);
+			} else if(operacion instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) operacion;
+				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				} else if(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+					return PERDIDA_PRECISION;
 				}
-			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
-			for(Valor valor: valores) {
-				if(!(valor instanceof Logico)) {
-					problemasOperacion.add(valor);
+			} else if(operacion instanceof FuncionInterna) {
+				FuncionInterna interna = (FuncionInterna) operacion;
+				if(interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) 
+						|| interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+					return PERDIDA_PRECISION;
+				} else {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
 				}
-			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-			for(Valor valor: valores) {
-				if(!(valor instanceof CadenaCaracteres)) {
-					problemasOperacion.add(valor);
+			} else if(operacion instanceof VariableID) {
+				VariableID v = (VariableID) operacion;
+				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && variables.containsKey(v.getNombre())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+					
+				} else if(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && variables.containsKey(v.getNombre())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+					return PERDIDA_PRECISION;
 				}
+			} else if(operacion instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacion;
+				//Buscamos el registro del que proviene esa variable
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							return ERROR;
+						} else if(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+							return PERDIDA_PRECISION;
+						}
+					}
+				}
+			} else if(operacion instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacion;
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				} else if(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+					return PERDIDA_PRECISION;
+				}
+			} else if(operacion instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacion;
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				} else {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+					return PERDIDA_PRECISION;
+				}
+			} else {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
 			}
-		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-			for(Valor valor: valores) {
-				if(!(valor instanceof Caracter)) {
-					problemasOperacion.add(valor);
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !(operacion instanceof Logico)) {
+			if(esOperacion(operacion)) {
+				ArrayList<Valor> valores = getValoresOperacion(operacion);
+				List<Valor> problemasOperacion = getProblemasOperacion(readerMessages.getBundle().getString("TIPO_LOGICO"), valores, readerMessages);
+				ArrayList<String> tiposValidos = new ArrayList<String>();
+				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_LOGICO")); 
+				if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) operacion;
+				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof FuncionInterna) {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
+			} else if(operacion instanceof VariableID) {
+				VariableID v = (VariableID) operacion;
+				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(v.getNombre())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacion;
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							return ERROR;
+						}
+					}
+				}
+			} else if(operacion instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacion;
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacion;
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !(operacion instanceof Entero) && !(operacion instanceof Real)) {
+			if(esOperacion(operacion)) {
+				ArrayList<Valor> valores = getValoresOperacion(operacion);
+				List<Valor> problemasOperacion = getProblemasOperacion(readerMessages.getBundle().getString("TIPO_REAL"), valores, readerMessages);
+				ArrayList<String> tiposValidos = new ArrayList<String>();
+				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_REAL")); 
+				tiposValidos.add(1, readerMessages.getBundle().getString("TIPO_ENTERO"));
+				if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) operacion;
+				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof FuncionInterna) {
+				FuncionInterna interna = (FuncionInterna) operacion;
+				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) &&
+						!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				} 
+			 } else if(operacion instanceof VariableID) {
+				VariableID v = (VariableID) operacion;
+				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && variables.containsKey(v.getNombre())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacion;
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							return ERROR;
+						}
+					}
+				}
+			} else if(operacion instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacion;
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacion;
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || (tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) &&
+				!(operacion instanceof CadenaCaracteres))) {
+			if(esOperacion(operacion)) {
+				ArrayList<Valor> valores = getValoresOperacion(operacion);
+				List<Valor> problemasOperacion = getProblemasOperacion(readerMessages.getBundle().getString("TIPO_CADENA"), valores, readerMessages);
+				ArrayList<String> tiposValidos = new ArrayList<String>();
+				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CADENA")); 
+				if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) operacion;
+				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof FuncionInterna) {
+				FuncionInterna interna = (FuncionInterna) operacion;
+				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA"))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				} 
+			 } else if(operacion instanceof VariableID) {
+				VariableID v = (VariableID) operacion;
+				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && variables.containsKey(v.getNombre())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacion;
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
+							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							return ERROR;
+						}
+					}
+				}
+			} else if(operacion instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacion;
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacion;
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !(operacion instanceof Caracter)) {
+			if(esOperacion(operacion)) {
+				ArrayList<Valor> valores = getValoresOperacion(operacion);
+				List<Valor> problemasOperacion = getProblemasOperacion(readerMessages.getBundle().getString("TIPO_CARACTER"), valores, readerMessages);
+				ArrayList<String> tiposValidos = new ArrayList<String>();
+				tiposValidos.add(0, readerMessages.getBundle().getString("TIPO_CARACTER")); 
+				if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) operacion;
+				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof FuncionInterna) {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
+			} else if(operacion instanceof VariableID) {
+				VariableID v = (VariableID) operacion;
+				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && variables.containsKey(v.getNombre())) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacion;
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+							return ERROR;
+						}
+					}
+				}
+			} else if(operacion instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacion;
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacion;
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
+					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+					return ERROR;
+				}
+			} else {
+				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				return ERROR;
+			}		
+		}
+		return OK;
+	}
+	
+	/*
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (1)
+	 * Función encargada de notificar errores o warnings en funcion de las variables de registro utilizadas
+	 */
+	private int checkOperacionRegistro(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, ReadMessagesValidatorInterface readerMessages) {
+		int check = 1;
+		for(Valor valor: valoresProblem) {
+			if(valor instanceof ValorRegistro) {
+				ValorRegistro valorRegistro = (ValorRegistro) valor;
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(valorRegistro.getNombre_registro()))) {
+						if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+							if(!(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
+								return 3;
+							} else if(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1))) {
+								check = 2;
+							}
+						} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+							if(!(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
+								return 3;
+							}
+						} else {
+							if(!(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0)))) {
+								return 3;
+							}
+						}
+					}
 				}
 			}
 		}
-		return problemasOperacion;
+		return check;
 	}
 	
-	
-	/* 21) /* -------------------------------------------------------------------------------------------------------------------- */
-	/**
-	 * Función encargada de notificar errores o warnings en funcion de las variables utilizadas
-	 * 3 = error, 2 = warning, 1 = nada
-	 * @param problemasOperacion, variables, tiposValidos, readerMessages
+	/*
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (2)
+	 * Función encargada de notificar errores o warnings en funcion de las funciones utilizadas
 	 */
-	protected int checkOperacionBasica(List<Valor> problemasOperacion, Map<String,String> variables, List<String> tiposValidos, ReadMessagesValidatorInterface readerMessages) {
+	private int checkOperacionFuncion(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<Integer,String>> funcionesTipadas, ReadMessagesValidatorInterface readerMessages) {
+		int check = 1;
+		for(Valor valor: valoresProblem) {
+			if(valor instanceof LlamadaFuncion) {
+				LlamadaFuncion llamadaFuncion = (LlamadaFuncion) valor;
+				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(!(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(0))) && !(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(1))) && funcionesTipadas.containsKey(llamadaFuncion.getNombre()) && funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
+						return 3;
+					} else if(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(1)) &&  funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
+						check = 2;
+					}
+				}
+				else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(!(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(0))) && !(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(1))) && funcionesTipadas.containsKey(llamadaFuncion.getNombre()) && funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
+						return 3;
+					}
+				}
+				else {
+					if(!(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(0))) && funcionesTipadas.containsKey(llamadaFuncion.getNombre()) && funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
+						return 3;
+					}
+				}
+			}
+		}
+		return check;
+	}
+	
+	/*
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (3)
+	 * Función encargada de notificar errores o warnings en funcion de los vectores utilizados
+	 */
+	private int checkOperacionVector(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> vectores, ReadMessagesValidatorInterface readerMessages) {
+		int check = 1;
+		for(Valor valor: valoresProblem) {
+			if(valor instanceof ValorVector) {
+				ValorVector valorVector = (ValorVector) valor;
+				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(!(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(0))) && !(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(1))) && vectores.containsKey(variables.get(valorVector.getNombre_vector()))) {
+						return 3;
+					} else if(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(1))) {
+						check = 2;
+					}
+				} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(!(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(0))) && !(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(1))) && vectores.containsKey(variables.get(valorVector.getNombre_vector()))) {
+						return 3;
+					}
+				} else {
+					if(!(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(0))) && vectores.containsKey(variables.get(valorVector.getNombre_vector()))) {
+						return 3;
+					}
+				}
+			}
+		}
+		return check;
+	}
+	
+	/*
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (4)
+	 * Función encargada de notificar errores o warnings en funcion de las matrices utilizadas
+	 */
+	private int checkOperacionMatriz(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> matrices, ReadMessagesValidatorInterface readerMessages) {
+		int check = 1;
+		for(Valor valor: valoresProblem) {
+			if(valor instanceof ValorMatriz) {
+				ValorMatriz valorMatriz = (ValorMatriz) valor;
+				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+					if(!(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(0))) && !(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(1))) && matrices.containsKey(variables.get(valorMatriz.getNombre_matriz()))) {
+						return 3;
+					} else if(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(1))) {
+						check = 2;
+					}
+				} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+					if(!(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(0))) && !(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(1))) && matrices.containsKey(variables.get(valorMatriz.getNombre_matriz()))) {
+						return 3;
+					}
+				} else {
+					if(!(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(0))) && matrices.containsKey(variables.get(valorMatriz.getNombre_matriz()))) {
+						return 3;
+					}
+				}
+			}
+		}
+		return check;
+	}
+	
+	/*
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (5)
+	 * Función encargada de notificar errores o warnings en funcion de las variables utilizadas
+	 */
+	private int checkOperacionBasica(List<Valor> problemasOperacion, Map<String,String> variables, List<String> tiposValidos, ReadMessagesValidatorInterface readerMessages) {
 		int check = 1;
 			for(Valor valor: problemasOperacion) {
 				if(valor instanceof Real && tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && esValorBasico(valor)) {
@@ -965,141 +1376,53 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		return check;
 	}
 	
+	
 	/*
-	 * Función auxiliar de checkOperacionBasica // Principio DRY. (1)
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (6)
 	 * Función encargada de comprorar si es un valor simple (no es una operacion).
 	 */
 	private boolean esValorBasico(Valor v) {
 		return !(v instanceof VariableID) && !(v instanceof LlamadaFuncion) && !(v instanceof ValorRegistro) && !(v instanceof ValorVector) && !(v instanceof ValorMatriz) && !esOperacion(v) && !(v instanceof FuncionInterna);
 	}
 	
-	/* 22) /* -------------------------------------------------------------------------------------------------------------------- */
-	/**
-	 * Función encargada de notificar errores o warnings en funcion de las variables de registro utilizadas
-	 * 3 = error, 2 = warning, 1 = nada
-	 * @param problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages
-	 */
-	protected int checkOperacionRegistro(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<String,String>> registros, List<String> nombresRegistros, ReadMessagesValidatorInterface readerMessages) {
-		int check = 1;
-		for(Valor valor: valoresProblem) {
-			if(valor instanceof ValorRegistro) {
-				ValorRegistro valorRegistro = (ValorRegistro) valor;
-				for(String nombre: nombresRegistros) {
-					if(nombre.equals(variables.get(valorRegistro.getNombre_registro()))) {
-						if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-							if(!(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
-								return 3;
-							} else if(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1))) {
-								check = 2;
-							}
-						} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-							if(!(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0))) && !(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(1)))) {
-								return 3;
-							}
-						} else {
-							if(!(registros.get(nombre).get(valorRegistro.getCampos().get(0).getNombre_campo()).equals(tiposValidos.get(0)))) {
-								return 3;
-							}
-						}
-					}
-				}
-			}
-		}
-		return check;
-	}
 	
-	/* 22) /* -------------------------------------------------------------------------------------------------------------------- */
-	/**
-	 * Función encargada de notificar errores o warnings en funcion de las funciones utilizadas
-	 * 3 = error, 2 = warning, 1 = nada
-	 * @param problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages
+	/*
+	 * Función auxiliar de checkValoresAsignacion // Principio DRY. (7)
+	 * Función encargada de registrar los valores erroneos que hay en una operacion segun su tipo
 	 */
-	protected int checkOperacionFuncion(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,HashMap<Integer,String>> funcionesTipadas, ReadMessagesValidatorInterface readerMessages) {
-		int check = 1;
-		for(Valor valor: valoresProblem) {
-			if(valor instanceof LlamadaFuncion) {
-				LlamadaFuncion llamadaFuncion = (LlamadaFuncion) valor;
-				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-					if(!(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(0))) && !(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(1))) && funcionesTipadas.containsKey(llamadaFuncion.getNombre()) && funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
-						return 3;
-					} else if(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(1)) &&  funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
-						check = 2;
-					}
+	private List<Valor> getProblemasOperacion(String tipo, List<Valor> valores, ReadMessagesValidatorInterface readerMessages) {
+		List<Valor> problemasOperacion = new ArrayList<Valor>();
+		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
+			for(Valor valor: valores) {
+				if(!(valor instanceof Entero)) {
+					problemasOperacion.add(valor);
 				}
-				else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					if(!(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(0))) && !(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(1))) && funcionesTipadas.containsKey(llamadaFuncion.getNombre()) && funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
-						return 3;
-					}
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
+			for(Valor valor: valores) {
+				if(!(valor instanceof Real) && !(valor instanceof Entero)) {
+					problemasOperacion.add(valor);
 				}
-				else {
-					if(!(funcionesTipadas.get(llamadaFuncion.getNombre()).get(llamadaFuncion.getParametros().size()).equals(tiposValidos.get(0))) && funcionesTipadas.containsKey(llamadaFuncion.getNombre()) && funcionesTipadas.get(llamadaFuncion.getNombre()).containsKey(llamadaFuncion.getParametros().size())) {
-						return 3;
-					}
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) {
+			for(Valor valor: valores) {
+				if(!(valor instanceof Logico)) {
+					problemasOperacion.add(valor);
+				}
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+			for(Valor valor: valores) {
+				if(!(valor instanceof CadenaCaracteres)) {
+					problemasOperacion.add(valor);
+				}
+			}
+		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
+			for(Valor valor: valores) {
+				if(!(valor instanceof Caracter)) {
+					problemasOperacion.add(valor);
 				}
 			}
 		}
-		return check;
-	}
-	
-	/* 23) /* -------------------------------------------------------------------------------------------------------------------- */
-	/**
-	 * Función encargada de notificar errores o warnings en funcion de los vectores utilizados
-	 * 3 = error, 2 = warning, 1 = nada
-	 * @param problemasOperacion, variables, tiposValidos, vectores, readerMessages
-	 */
-	protected int checkOperacionVector(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> vectores, ReadMessagesValidatorInterface readerMessages) {
-		int check = 1;
-		for(Valor valor: valoresProblem) {
-			if(valor instanceof ValorVector) {
-				ValorVector valorVector = (ValorVector) valor;
-				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-					if(!(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(0))) && !(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(1))) && vectores.containsKey(variables.get(valorVector.getNombre_vector()))) {
-						return 3;
-					} else if(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(1))) {
-						check = 2;
-					}
-				} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					if(!(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(0))) && !(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(1))) && vectores.containsKey(variables.get(valorVector.getNombre_vector()))) {
-						return 3;
-					}
-				} else {
-					if(!(vectores.get(variables.get(valorVector.getNombre_vector())).equals(tiposValidos.get(0))) && vectores.containsKey(variables.get(valorVector.getNombre_vector()))) {
-						return 3;
-					}
-				}
-			}
-		}
-		return check;
-	}
-	
-	/* 24) /* -------------------------------------------------------------------------------------------------------------------- */
-	/**
-	 * Función encargada de notificar errores o warnings en funcion de las matrices utilizadas
-	 * 3 = error, 2 = warning, 1 = nada
-	 * @param problemasOperacion, variables, tiposValidos, matrices, readerMessages
-	 */
-	protected int checkOperacionMatriz(List<Valor> valoresProblem, Map<String,String> variables, List<String> tiposValidos, Map<String,String> matrices, ReadMessagesValidatorInterface readerMessages) {
-		int check = 1;
-		for(Valor valor: valoresProblem) {
-			if(valor instanceof ValorMatriz) {
-				ValorMatriz valorMatriz = (ValorMatriz) valor;
-				if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-					if(!(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(0))) && !(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(1))) && matrices.containsKey(variables.get(valorMatriz.getNombre_matriz()))) {
-						return 3;
-					} else if(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(1))) {
-						check = 2;
-					}
-				} else if(tiposValidos.get(0).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					if(!(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(0))) && !(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(1))) && matrices.containsKey(variables.get(valorMatriz.getNombre_matriz()))) {
-						return 3;
-					}
-				} else {
-					if(!(matrices.get(variables.get(valorMatriz.getNombre_matriz())).equals(tiposValidos.get(0))) && matrices.containsKey(variables.get(valorMatriz.getNombre_matriz()))) {
-						return 3;
-					}
-				}
-			}
-		}
-		return check;
+		return problemasOperacion;
 	}
 }
