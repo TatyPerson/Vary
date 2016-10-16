@@ -231,6 +231,186 @@
 <p>In addition, for analysis from outside of Eclipse must be installed the SonarQube Runner application.</p>
 
 <p><a href="http://docs.sonarqube.org/display/SONAR/Installing+and+Configuring+SonarQube+Runner">http://docs.sonarqube.org/display/SONAR/Installing+and+Configuring+SonarQube+Runner</a></p>
+  
+
+<h2>
+<a id="features" class="anchor" href="#video-tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Video tutorial</strong>
+</h2>
+
+<HR width=100% align="center">
+
+<iframe width="420" height="315" src="https://www.youtube.com/embed/5RjrzGpKuZY" frameborder="0" allowfullscreen></iframe>
+
+<center>
+<h2>
+<a id="user-guide" class="anchor" name="user-guide" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>User's guide</strong>
+</h2>
+</center>
+
+<HR width=100% align="center">      
+      
+<h3>
+<a id="user-content-creating-a-project" class="anchor" href="#creating-a-project" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Creating a project</strong>
+</h3>
+
+<p><strong>1.</strong>  First, you must open the Eclipse version with Vary plugin integrated.</p>
+
+<p><strong>2.</strong> Subsequently, it will right click and select <em>New</em> and then <em>Other</em> (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/592ec37ab5f4896d3a54c7ad35cb0e562d4c85ec/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f625534336b6f766d797235796c64616377716a5158412f646f776e6c6f61642f625534336b6f766d797235796c64616377716a515841" alt="Creación del proyecto, primer paso" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/bU43kovmyr5yldacwqjQXA/download/bU43kovmyr5yldacwqjQXA"></p>
+
+<p><strong>3.</strong> Next, the options provided by the project creation wizard will appear. First, we choose the project in Spanish or English, defining the language grammar (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/71a356417d585d4c618ac2ddb8a9f799c6713d9d/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f61632d4c7247766d437235415264646d7236437058792f646f776e6c6f61642f61632d4c7247766d437235415264646d723643705879" alt="Creación del proyecto, segundo paso" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/ac-LrGvmCr5ARddmr6CpXy/download/ac-LrGvmCr5ARddmr6CpXy"></p>
+
+<p><strong>4.</strong>  On the first page of the project creation wizard the name of the new project will be added and click <em>Next</em> (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/788da5adeabc0ee3fad46d141ef496545ecfb358/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f615a39573743766d4372357a526361637771457367382f646f776e6c6f61642f615a39573743766d4372357a52636163777145736738" alt="Seleccionar nombre del proyecto" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/aZ9W7CvmCr5zRcacwqEsg8/download/aZ9W7CvmCr5zRcacwqEsg8"></p>
+
+<p><strong>5.</strong>  On the next page the programming language that is desired transforming the pseudocode is selected (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/0cbb921e2c143149f3d4ff133146d67a30209ba7/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f637147555045766d437235424875616377716a5158412f646f776e6c6f61642f637147555045766d437235424875616377716a515841" alt="Seleccionar lenguaje de programación destino" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/cqGUPEvmCr5BHuacwqjQXA/download/cqGUPEvmCr5BHuacwqjQXA"></p>
+
+<p><strong>6.</strong>  On the last page specific characteristics will be chosen based on the selected language. In the case of C/C++, will be chosen if desired or not generate the header file (.h). Finally, you must click <em>Finish</em> (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/27931d8db528e547cfee3617ec288c4150475a44/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f645570495459766d43723541727261637771457367382f646f776e6c6f61642f645570495459766d4372354172726163777145736738" alt="Opción para generar fichero de cabecera o no" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dUpITYvmCr5ArracwqEsg8/download/dUpITYvmCr5ArracwqEsg8"></p>
+
+<p><strong>7.</strong>  Subsequently, the editor will open the file main.p or main.ep (depending on the language selected for the project), which contain, in the first moment, an empty structure algorithm (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/50c7c6281d4710efe51e104a706684d0ce39efe4/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f62614b5f4171766d477235796f5a646d7236437058792f646f776e6c6f61642f62614b5f4171766d477235796f5a646d723643705879" alt="Archivo inicial vacío" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/baK_AqvmGr5yoZdmr6CpXy/download/baK_AqvmGr5yoZdmr6CpXy"></p>
+
+<p><strong>8.</strong>  To see the result of the conversion of the algorithm written in pseudocode to C or C ++, you must click on the main project directory and src-gen directory is selected.</p>
+
+<p><strong>9.</strong> In src-gen directory you will find the main.c or file main.cpp file, where you can observe the conversion done in C or C ++, you will find also main.h file. The latter will appear if you was chosen to generate it in the project creation wizard (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/0cc8a3555eb29450726dd1f38ba51c7049383c74/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f637951304767766d477235417146646d72366267376d2f646f776e6c6f61642f637951304767766d477235417146646d72366267376d" alt="Archivo procedente de la conversión" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/cyQ0GgvmGr5AqFdmr6bg7m/download/cyQ0GgvmGr5AqFdmr6bg7m"></p>
+
+<h3>
+<a id="user-content-project-edition" class="anchor" href="#project-edition" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Project edition</strong></h3>
+
+<h4>
+<a id="user-content-1-templates" class="anchor" href="#1-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>1.</strong> Templates</h4>
+
+<p>To use the templates provided must enter <em>CTRL + SPACE</em> and select the desired template. Subsequently, the new piece of pseudocode it automatically added and should complete the template with the desired values (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/2dc26231512e5c122e0c5be8744aacaedac8b100/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f645232716c75766d477235796f5a646d7236437058792f646f776e6c6f61642f645232716c75766d477235796f5a646d723643705879" alt="Plantillas ofrecidas por la aplicación" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dR2qluvmGr5yoZdmr6CpXy/download/dR2qluvmGr5yoZdmr6CpXy"></p>
+
+<p><img src="https://camo.githubusercontent.com/cc2b002c7544f592066ade083b3eef7b23a740d6/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f6163664c316f766d4b7235796f4c646d72366267376d2f646f776e6c6f61642f6163664c316f766d4b7235796f4c646d72366267376d" alt="Plantillas ofrecidas por la aplicación 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/acfL1ovmKr5yoLdmr6bg7m/download/acfL1ovmKr5yoLdmr6bg7m"></p>
+
+<p>Some of the features available templates are:</p>
+
+<ul>
+<li><p>Creating types (vector, matrix, registry, subrange, enumerated or file).</p></li>
+<li><p>Creating the empty structure of a subprocess (function or procedure).</p></li>
+<li><p>Creating variables.</p></li>
+<li><p>Creating the empty structure of selective structures (if or according to).</p></li>
+<li><p>Creating the empty structure of repetitive structures (repeat, for or while).</p></li>
+<li><p>Creating the empty structure of an algorithm or module.</p></li>
+</ul>
+
+<h4>
+<a id="user-content-2-content-assistant" class="anchor" href="#2-content-assistant" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>2.</strong> Content assistant</h4>
+
+<p><strong>1.</strong> Autocomplete:</p>
+
+<p>To use the autocomplete you enter CTRL + SPACE, as well as for the use of templates. For example, we can use this utility to create a new variable and use the vector type created earlier (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/b9ddbd529607930d507561a5dcaa8a23dc35b5e0/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f637256673069766d4b723579342d61637771457367382f646f776e6c6f61642f637256673069766d4b723579342d6163777145736738" alt="Opción de autocompletado" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/crVg0ivmKr5y4-acwqEsg8/download/crVg0ivmKr5y4-acwqEsg8"></p>
+
+<p><img src="https://camo.githubusercontent.com/a9d0f8bab22ed778acde94d1f27b2fa767bba1a7/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f63486c42532d766d4b7235416d39616377716a5158412f646f776e6c6f61642f63486c42532d766d4b7235416d39616377716a515841" alt="Autocompletado 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/cHlBS-vmKr5Am9acwqjQXA/download/cHlBS-vmKr5Am9acwqjQXA"></p>
+
+<p>Some of the autocomplete functions available are:</p>
+
+<ul>
+<li><p>Autocompletion in the creation of a variable.</p></li>
+<li><p>Autocompletion in the parameters of a subprocess.</p></li>
+<li><p>Autocomplete the fields of a registry.</p></li>
+<li><p>Autocomplete the calls of the subprocess.</p></li>
+<li><p>Autocomplete the available modules for import.</p></li>
+</ul>
+
+<p><strong>2.</strong> Quick Fix:</p>
+
+<p>As shown in the subsequent section, the application performs validations before transforming algorithm to C or C ++ code. The application will provide a quick fix to correct the problem for some validations. For example, if a constant is used to define the dimension of a vector and it has not been previously defined, the application will provide a quick solution for creating said constant (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/acbc2bf41e2ed304ed27c15f2c81c2c1ed24d4ac/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f615a71513255766d4f7235416864646d7236437058792f646f776e6c6f61642f615a71513255766d4f7235416864646d723643705879" alt="Quick fix 1" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/aZqQ2UvmOr5Ahddmr6CpXy/download/aZqQ2UvmOr5Ahddmr6CpXy"></p>
+
+<p><img src="https://camo.githubusercontent.com/ede97ef1efa41cac569d5c6088d76fca860e5f00/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f62666a773661766d4f7235423764646d7236437058792f646f776e6c6f61642f62666a773661766d4f7235423764646d723643705879" alt="Quick fix 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/bfjw6avmOr5B7ddmr6CpXy/download/bfjw6avmOr5B7ddmr6CpXy"></p>
+
+<h3>
+<a id="user-content-outline" class="anchor" href="#outline" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Outline</strong></h3>
+
+<p>During the making of the algorithm, you can see a tree version that describes the algorithm in the outline section.</p>
+
+<p><img src="https://camo.githubusercontent.com/9216b80b2d3464a4c47419fbb72122a77065bbf3/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f63634e41734f766d4f7235416864646d7236437058792f646f776e6c6f61642f63634e41734f766d4f7235416864646d723643705879" alt="Outline" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/ccNAsOvmOr5Ahddmr6CpXy/download/ccNAsOvmOr5Ahddmr6CpXy"></p>
+
+<h3>
+<a id="user-content-creating-a-new-module-or-algorithm" class="anchor" href="#creating-a-new-module-or-algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Creating a new module or algorithm</strong></h3>
+
+<p>When you use the options provided in the wizard you can create new  empty modules or empty algorithms or with an example. (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/8529f75419a85dc6c6648957edfb38665dbf8d59/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f64614448644b766d4f7235794b69616377716a5159772f646f776e6c6f61642f64614448644b766d4f7235794b69616377716a515977" alt="Creación 1" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/daDHdKvmOr5yKiacwqjQYw/download/daDHdKvmOr5yKiacwqjQYw"></p>
+
+<p><img src="https://camo.githubusercontent.com/64ba22949fcd44cf7c86559ee5152e5dc426efc0/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f646d65764355766d4f7235413443616377716a5158412f646f776e6c6f61642f646d65764355766d4f7235413443616377716a515841" alt="Creación 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dmevCUvmOr5A4CacwqjQXA/download/dmevCUvmOr5A4CacwqjQXA"></p>
+
+<p><img src="https://camo.githubusercontent.com/711772c097ac2e443281ce215bda9ece642b8338/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f644d50786865766d4f7235413048616377716a5159772f646f776e6c6f61642f644d50786865766d4f7235413048616377716a515977" alt="Creación 3" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dMPxhevmOr5A0HacwqjQYw/download/dMPxhevmOr5A0HacwqjQYw"></p>
+
+<h3>
+<a id="user-content-importing-an-existing-module-or-algorithm" class="anchor" href="#importing-an-existing-module-or-algorithm" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Importing an existing module or algorithm</strong></h3>
+
+<p>On the other hand, from the creation wizard will also be possible to import files to the project (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/f45f708c07f931188b70ebb0fb7e18f112183731/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f61726174516f766d537235423764646d7236437058792f646f776e6c6f61642f61726174516f766d537235423764646d723643705879" alt="Importar 1" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/aratQovmSr5B7ddmr6CpXy/download/aratQovmSr5B7ddmr6CpXy"></p>
+
+<p><img src="https://camo.githubusercontent.com/29807c762a553581af63a1ed40b31115ff58a079/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f614a4b497655766d537235794b69616377716a5159772f646f776e6c6f61642f614a4b497655766d537235794b69616377716a515977" alt="Importar 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/aJKIvUvmSr5yKiacwqjQYw/download/aJKIvUvmSr5yKiacwqjQYw"></p>
+
+<p><img src="https://camo.githubusercontent.com/59f2ede39d682aca4242620dd2905953c84fbb95/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f6134646c414f766d537235424263646d7236437058792f646f776e6c6f61642f6134646c414f766d537235424263646d723643705879" alt="Importar 3" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/a4dlAOvmSr5BBcdmr6CpXy/download/a4dlAOvmSr5BBcdmr6CpXy"></p>
+
+<p><img src="https://camo.githubusercontent.com/a71da0987cd4cca3b16ca693c27440f0abe72931/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f623435544a45766d537235794b69616377716a5159772f646f776e6c6f61642f623435544a45766d537235794b69616377716a515977" alt="Importar 4" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/b45TJEvmSr5yKiacwqjQYw/download/b45TJEvmSr5yKiacwqjQYw"></p>
+
+<h3>
+<a id="user-content-validate-project" class="anchor" href="#validate-project" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Validate project</strong></h3>
+
+<p>When you are writing, the program will notify you of any errors or warnings committed (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/bc86bf9e6b7f2f5a63c53f1eaa05703bfa729840/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f634c51463571766d537235794e63616377716a5158412f646f776e6c6f61642f634c51463571766d537235794e63616377716a515841" alt="Validación 1" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/cLQF5qvmSr5yNcacwqjQXA/download/cLQF5qvmSr5yNcacwqjQXA"></p>
+
+<p><img src="https://camo.githubusercontent.com/b27ba32e9fb2b5c8d20a058dedfc57210dbaf0a2/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f633448375645766d537235794e63616377716a5158412f646f776e6c6f61642f633448375645766d537235794e63616377716a515841" alt="Validación 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/c4H7VEvmSr5yNcacwqjQXA/download/c4H7VEvmSr5yNcacwqjQXA"></p>
+
+<h3>
+<a id="user-content-run-project" class="anchor" href="#run-project" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Run Project</strong></h3>
+
+<p>To run the project should right click on the project directory and the options <em>Build Project</em> and then <em>Run as&gt; Local C / C ++ Application</em> are selected (see figures below).</p>
+
+<p><img src="https://camo.githubusercontent.com/c761bc5cac1588046ead55922049e71f8fdc5423/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f6449454d6745766d537235794663646d72366267376d2f646f776e6c6f61642f6449454d6745766d537235794663646d72366267376d" alt="Ejecución 1" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dIEMgEvmSr5yFcdmr6bg7m/download/dIEMgEvmSr5yFcdmr6bg7m"></p>
+
+<p><img src="https://camo.githubusercontent.com/e6de6aedc45d41715d05e88a107b69f0f4176674/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f64586a6d4f65766d537235414a63646d72366267376d2f646f776e6c6f61642f64586a6d4f65766d537235414a63646d72366267376d" alt="Ejecución 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dXjmOevmSr5AJcdmr6bg7m/download/dXjmOevmSr5AJcdmr6bg7m"></p>
+
+<p><img src="https://camo.githubusercontent.com/8133cfd3f59c25336be66e50a980c721d3e023b4/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f616167367369766d577235794b69616377716a5159772f646f776e6c6f61642f616167367369766d577235794b69616377716a515977" alt="Ejecución 3" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/aag6sivmWr5yKiacwqjQYw/download/aag6sivmWr5yKiacwqjQYw"></p>
+
+<h3>
+<a id="user-content-measuring-quality-with-sonarqube" class="anchor" href="#measuring-quality-with-sonarqube" aria-hidden="true"><span class="octicon octicon-link"></span></a><strong>Measuring quality with SonarQube</strong></h3>
+
+<p>To measure the quality of project resources you must execute the following command from the console to the root directory of the project to analyze:</p>
+
+<p><code>sonar-runner</code></p>
+
+<p>Then you can access the URL where you have configured the server (the default URL will be localhost: 9000) of SonarQube and can view the list of analyzed projects with "SonarQube Runner" through the above mentioned process (see figure shown below).</p>
+
+<p><img src="https://camo.githubusercontent.com/58c34da299dc132803d0b91f23559e9aee16b51e/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f62377669734f766d577235424337646d7236437058792f646f776e6c6f61642f62377669734f766d577235424337646d723643705879" alt="SonarQube 1" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/b7visOvmWr5BC7dmr6CpXy/download/b7visOvmWr5BC7dmr6CpXy"></p>
+
+<p>Finally, if you access to analysis of each project, you will can to see the most relevant project data and the result of the application of the metrics showing the relevant notices (see figure below).</p>
+
+<p><img src="https://camo.githubusercontent.com/0eb35bb4291bba4319183386fe5c4787a2c1078d/68747470733a2f2f7777772e617373656d626c612e636f6d2f2f7370616365732f63706c69652f646f63756d656e74732f6454355664517670617235796a67646d7236437058792f646f776e6c6f61642f6454355664517670617235796a67646d723643705879" alt="SonarQube 2" data-canonical-src="https://www.assembla.com//spaces/cplie/documents/dT5VdQvpar5yjgdmr6CpXy/download/dT5VdQvpar5yjgdmr6CpXy"></p>
+
+<p>The available metrics set is:</p>
+
+<ul>
+<li><p>Metric that determines if the variable name is too long.</p></li>
+<li><p>Metric that determines if an excessive use of global variables is made.</p></li>
+<li><p>Metric that determines whether the main program contains too much functionality.</p></li>
+<li><p>Metric that determines whether use of the specification (descriptive comments before every subprocess) is done correctly.</p></li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/TatyPerson/Vary">Vary</a> is maintained by <a href="https://github.com/TatyPerson">TatyPerson</a>.</span>
