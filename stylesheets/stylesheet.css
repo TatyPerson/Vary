@@ -61,7 +61,7 @@ a {
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
   background-color: rgba(160, 160, 160, 0.8);
-  border-color: black;
+  border-color: rgba(0, 0, 0, 0.3);
   border-style: solid;
   border-width: 1px;
   border-radius: 0.3rem;
@@ -73,7 +73,7 @@ a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
    background-color: rgba(160, 160, 160, 0.8);
-  border-color: black; }
+  border-color: rgba(0, 0, 0, 0.3); }
 
 @media screen and (min-width: 64em) {
   .btn {
