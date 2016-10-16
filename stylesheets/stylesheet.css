@@ -80,12 +80,13 @@ a {
     padding: 0.75rem 1rem; } 
   .btnDownload {
     padding: 0.75rem 1rem; } }
+    
 
 @media screen and (min-width: 42em) and (max-width: 64em) {
   .btn {
     padding: 0.6rem 0.9rem;
-    font-size: 0.9rem; }
- .btnDownload {
+    font-size: 0.9rem; } 
+  .btnDownload {
     padding: 0.6rem 0.9rem;
     font-size: 0.9rem; } }
 
@@ -101,11 +102,11 @@ a {
     .btn + .btnDownload {
       margin-top: 1rem;
       margin-left: 0; } 
-    .btnDownload {
-     display: block;
-     width: 100%;
-     padding: 0.75rem;
-     font-size: 0.9rem; }
+  .btnDownload {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem; }
     .btnDownload + .btnDownload {
       margin-top: 1rem;
       margin-left: 0; } }
