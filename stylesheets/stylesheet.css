@@ -75,10 +75,31 @@ a {
    background-color: rgba(0, 76, 153, 0.2);
   border-color: rgba(0, 0, 0, 0.3); }
 
+.btnExamples {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(0, 76, 153, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 0.3rem;
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
+  .btnExamples + .btnExamples {
+    margin-left: 1rem; }
+
+.btnExamples:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+   background-color: rgba(0, 76, 153, 0.2);
+  border-color: rgba(0, 0, 0, 0.3); }
+
 @media screen and (min-width: 64em) {
   .btn {
     padding: 0.75rem 1rem; } 
   .btnDownload {
+    padding: 0.75rem 1rem; }
+  .btnExamples {
     padding: 0.75rem 1rem; } }
     
 
@@ -87,6 +108,9 @@ a {
     padding: 0.6rem 0.9rem;
     font-size: 0.9rem; } 
   .btnDownload {
+    padding: 0.6rem 0.9rem;
+    font-size: 0.9rem; } 
+  .btnExamples {
     padding: 0.6rem 0.9rem;
     font-size: 0.9rem; } }
 
@@ -108,6 +132,14 @@ a {
     padding: 0.75rem;
     font-size: 0.9rem; }
     .btnDownload + .btnDownload {
+      margin-top: 1rem;
+      margin-left: 0; } 
+   .btnExamples {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.9rem; }
+    .btnExamples + .btnExamples {
       margin-top: 1rem;
       margin-left: 0; } }
 
