@@ -2,7 +2,7 @@
 <feature
       id="vary.pseudocodigo.dsl.feature"
       label="Vary SDK"
-      version="1.0.8"
+      version="1.0.9"
       provider-name="Tatiana Person Montero (UCA)">
 
    <description url="http://tatyperson.github.io/Vary/">

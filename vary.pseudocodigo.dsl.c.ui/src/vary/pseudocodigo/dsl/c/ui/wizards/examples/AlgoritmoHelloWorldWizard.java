@@ -151,7 +151,7 @@ public class AlgoritmoHelloWorldWizard extends Wizard implements INewWizard {
 					'\t' + "var" + '\n' +
 				    '\t' + '\t' + "cadena: saludo" + '\n' +
 				    '\t' + "inicio //Cuerpo del algoritmo principal" + '\n' +
-				    '\t' + '\t' + "saludo <- \"Hola!\"" + '\n' +
+				    '\t' + '\t' + "copiar(saludo, \"Hola mundo!\")" + '\n' +
 					'\t' + '\t' + "escribir(saludo)" + '\n' +
 					"fin_principal" + '\n' + '\n' +
 					

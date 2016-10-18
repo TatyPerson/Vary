@@ -1858,6 +1858,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 	 */
 	protected void check(VariableID variableID) {
 		Subproceso subproceso =  EcoreUtil2.getContainerOfType(variableID, Subproceso.class);
+		LlamadaFuncion llamadaFuncion = EcoreUtil2.getContainerOfType(variableID, LlamadaFuncion.class);
 		
 		if(subproceso != null) {
 			List<String> parametrosTipoS = new ArrayList<String>();
@@ -1867,7 +1868,7 @@ public class VaryGrammarValidator extends AbstractVaryGrammarValidator {
 				}
 			}
 			
-			if(parametrosTipoS.contains(variableID.getNombre())) {
+			if(parametrosTipoS.contains(variableID.getNombre()) && llamadaFuncion == null) {
 				error(readerMessages.getString("USO_VARIABLE_TIPO_S", variableID.getNombre()), variableID, DiagramapseudocodigoPackage.Literals.VARIABLE_ID__NOMBRE);
 			}
 		}

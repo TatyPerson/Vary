@@ -81,7 +81,7 @@ class VaryGrammarQuickfixProvider extends DefaultQuickfixProvider {
  		 );
 	}
 	
-	 @Fix(VaryGrammarValidator::VARIABLE_NO_DEFINIDA)
+	@Fix(VaryGrammarValidator::VARIABLE_NO_DEFINIDA)
 	def ofrecerVariable(Issue issue, IssueResolutionAcceptor acceptor) {
 		System.out.println("Quickfix es: "+readerMessages.getBundle().getString("QUICKFIX_VARIABLE_NO_DEFINIDA"))
 		acceptor.accept(issue, readerMessages.getBundle().getString("QUICKFIX_VARIABLE_NO_DEFINIDA"), readerMessages.getBundle().getString("QUICKFIX_VARIABLE_NO_DEFINIDA"), "Entity.gif",

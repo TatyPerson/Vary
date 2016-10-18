@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: vary.pseudocodigo.dsl.c.english
 Bundle-Vendor: UCA
-Bundle-Version: 1.0.8
+Bundle-Version: 1.0.9
 Bundle-SymbolicName: vary.pseudocodigo.dsl.c.english; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,

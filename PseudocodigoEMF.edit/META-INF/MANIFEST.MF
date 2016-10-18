@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: PsedocodigoEMF.edit
 Bundle-SymbolicName: PseudocodigoEMF.edit;singleton:=true
-Bundle-Version: 1.0.8
+Bundle-Version: 1.0.9
 Bundle-ClassPath: .
 Bundle-Activator: diagramapseudocodigo.provider.DiagramaPseudocodigoEditPlugin$Implementation
 Bundle-Vendor: UCA

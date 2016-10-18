@@ -77,7 +77,6 @@ import diagramapseudocodigo.OperacionCompleta
 import org.eclipse.xtext.EcoreUtil2
 import diagramapseudocodigo.TipoFuncion
 import diagramapseudocodigo.TipoProcedimiento
-import diagramapseudocodigo.TipoSubproceso
 
 public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorInterface {
 	
@@ -615,14 +614,14 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Internas.
 	 * @param interna, sentencia
 	 */
-	def generate(FuncionInterna interna, boolean sentencia, List<String> punteros) {}
+	override generate(FuncionInterna interna, boolean sentencia, List<String> punteros) {}
 	
 	/* 10) /* -------------------------------------------------------------------------------------------------------------------- */
 	/**
 	 * Función encargada de generar la entidad Si.
 	 * @param si
 	 */
-	def generate(Si si, List<String> punteros) '''
+	override generate(Si si, List<String> punteros) '''
 		if(«si.condicion.generate(punteros)»){
 			«FOR sentencia:si.sentencias»
 				«sentencia.generate(punteros)»
@@ -641,7 +640,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Sino.
 	 * @param sino
 	 */
-	def generate(Sino sino, List<String> punteros) '''
+	override generate(Sino sino, List<String> punteros) '''
 		else{
 			«FOR sentencia:sino.sentencias»	
 				«sentencia.generate(punteros)»
@@ -657,7 +656,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Segun.
 	 * @param segun
 	 */	
-	def generate(Segun segun, List<String> punteros) '''
+	override generate(Segun segun, List<String> punteros) '''
 		switch(«segun.condicion.generate(punteros)»){
 			«FOR caso:segun.casos»
 				«caso.generate(punteros)» 
@@ -678,7 +677,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Caso.
 	 * @param caso
 	 */
-	def generate(Caso caso, List<String> punteros) '''
+	override generate(Caso caso, List<String> punteros) '''
 		case «caso.operador.generate(punteros)»:
 			«FOR sentencia:caso.sentencias»
 				«sentencia.generate(punteros)»
@@ -694,7 +693,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Mientras.
 	 * @param mientras
 	 */	
-	def generate(Mientras mientras, List<String> punteros) '''
+	override generate(Mientras mientras, List<String> punteros) '''
 		while(«mientras.condicion.generate(punteros)»){
 			«FOR sentencia:mientras.sentencias»
 				«sentencia.generate(punteros)»
@@ -707,7 +706,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Desde.
 	 * @param desde
 	 */	
-	def generate(Desde desde, List<String> punteros) '''
+	override generate(Desde desde, List<String> punteros) '''
 		for(«desde.asignacion.generate(punteros)» «desde.asignacion.valor_asignacion.toString» <= «desde.condicion.generate(punteros)»; «desde.asignacion.valor_asignacion.toString»++){
 			«FOR sentencia:desde.sentencias»
 				«sentencia.generate(punteros)»
@@ -720,7 +719,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Repetir.
 	 * @param repetir
 	 */
-	def generate(Repetir repetir, List<String> punteros) '''
+	override generate(Repetir repetir, List<String> punteros) '''
 		do{
 			«FOR sentencia:repetir.sentencias»
 				«sentencia.generate(punteros)»
@@ -733,7 +732,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Devolver.
 	 * @param devolver
 	 */
-	 def generate(Devolver devolver, List<String> punteros) '''
+	 override generate(Devolver devolver, List<String> punteros) '''
 		return «devolver.devuelve.generate(punteros)»;
 	'''
 	
@@ -758,7 +757,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Sentencia.
 	 * @param sentencia
 	 */
-	def generate(Sentencia sentencia, List<String> punteros) {
+	override generate(Sentencia sentencia, List<String> punteros) {
 		if(sentencia.eClass.name.equals("AsignacionNormal")) {
 			var AsignacionNormal asignacionNormal = sentencia as AsignacionNormal
 			asignacionNormal.generate(punteros)
@@ -904,7 +903,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Operacion.
 	 * @param operacion, punteros
 	 */
-	def generate(Operacion operacion, List<String> punteros) {
+	override generate(Operacion operacion, List<String> punteros) {
 		if(operacion.eClass.name.equals("Entero")) {
 			var Entero entero = operacion as Entero
 			entero.generate	
@@ -1033,28 +1032,28 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Suma.
 	 */
-	def generate(Suma suma, List<String> punteros) {
+	override generate(Suma suma, List<String> punteros) {
 		return suma.left.generate(punteros) + " " + suma.signo_op + " " + suma.getNegacionesFinales().generate + " " + suma.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Resta.
 	 */
-	def generate(Resta resta, List<String> punteros) {
+	override generate(Resta resta, List<String> punteros) {
 		return resta.left.generate(punteros) + " " + resta.signo_op + " " + resta.getNegacionesFinales().generate + " " + resta.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad DivisionEntera.
 	 */
-	def generate(DivisionEntera divisionEntera, List<String> punteros) {
+	override generate(DivisionEntera divisionEntera, List<String> punteros) {
 		return divisionEntera.left.generate(punteros) + " " + divisionEntera.signo_op + " " + divisionEntera.getNegacionesFinales().generate + " " + divisionEntera.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Multiplicacion.
 	 */
-	def generate(Multiplicacion multiplicacion, List<String> punteros) {
+	override generate(Multiplicacion multiplicacion, List<String> punteros) {
 		return multiplicacion.left.generate(punteros) + " " + multiplicacion.signo_op + " " + multiplicacion.getNegacionesFinales().generate + " " + multiplicacion.right.generate(punteros);
 	}
 	
@@ -1062,14 +1061,14 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad OperacionParentesis.
 	 */
-	def generate(OperacionParentesis operacionParentesis, List<String> punteros) {
+	override generate(OperacionParentesis operacionParentesis, List<String> punteros) {
 		return "(" + operacionParentesis.getNegacionesFinales().generate + " " + operacionParentesis.valor_operacion.generate(punteros) + ")"
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad DivisionReal.
 	 */	
-	def generate(DivisionReal divisionReal, List<String> punteros) {
+	override generate(DivisionReal divisionReal, List<String> punteros) {
 		return divisionReal.left.generate(punteros) + " / " + divisionReal.getNegacionesFinales().generate + " " + divisionReal.right.generate(punteros);
 	}
 	
@@ -1077,35 +1076,35 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Mod.
 	 */
-	def generate(Mod mod, List<String> punteros) {
+	override generate(Mod mod, List<String> punteros) {
 		return mod.left.generate(punteros) + " " + "%" + " " + mod.getNegacionesFinales().generate + " " + mod.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Or.
 	 */
-	def generate(Or or, List<String> punteros) {
+	override generate(Or or, List<String> punteros) {
 		return or.left.generate(punteros) + " " + "||" + " " + or.getNegacionesFinales().generate + " " + or.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad And.
 	 */
-	def generate(And and, List<String> punteros) {
+	override generate(And and, List<String> punteros) {
 		return and.left.generate(punteros) + " " + "&&" + " " + and.getNegacionesFinales().generate + " " + and.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Comparacion.
 	 */
-	def generate(Comparacion comparacion, List<String> punteros) {
+	override generate(Comparacion comparacion, List<String> punteros) {
 		return comparacion.left.generate(punteros) + " " + comparacion.signo_op + " " + comparacion.getNegacionesFinales().generate + " " + comparacion.right.generate(punteros);
 	}
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Igualdad.
 	 */
-	def generate(Igualdad igualdad, List<String> punteros) {
+	override generate(Igualdad igualdad, List<String> punteros) {
 		if(igualdad.signo_op.literal.equals("=")) {
 			return igualdad.left.generate(punteros) + " " + "==" + " " + igualdad.getNegacionesFinales().generate + " " + igualdad.right.generate(punteros);
 		} else {
@@ -1116,7 +1115,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad OperacionCompleta.
 	 */
-	def generate(OperacionCompleta operacionCompleta, List<String> punteros) {
+	override generate(OperacionCompleta operacionCompleta, List<String> punteros) {
 		return operacionCompleta.negacionesIniciales.generate + " " + operacionCompleta.valor_operacion.generate(punteros);
 	}
 	
@@ -1150,7 +1149,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad AsignacionNormal.
 	 * @param asignacionNormal
 	 */
-	def generate(AsignacionNormal asignacionNormal, List<String> punteros) {
+	override generate(AsignacionNormal asignacionNormal, List<String> punteros) {
 		var asignacion = new String();
 		
 		//lado izquierdo de la asignación
@@ -1178,7 +1177,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad AsignacionCompleja.
 	 * @param asignacionCompleja
 	 */
-	def generate(AsignacionCompleja asignacionCompleja, List<String> punteros) '''
+	override generate(AsignacionCompleja asignacionCompleja, List<String> punteros) '''
 	«asignacionCompleja.valor_asignacion.generate(punteros).toString» = «asignacionCompleja.operador.generate(punteros).toString»;'''
 	
 	
@@ -1187,7 +1186,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad LlamadaFuncion.
 	 * @param llamadaFuncion, sentencia
 	 */
-	def generate(LlamadaFuncion llamadaFuncion, boolean sentencia, List<String> punteros) {}
+	override generate(LlamadaFuncion llamadaFuncion, boolean sentencia, List<String> punteros) {}
 	
 	
 	/*
@@ -1250,7 +1249,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Escribir.
 	 * @param escribir, punteros
 	 */
-	def generate(Escribir escribir, List<String> punteros, List<Sentencia> sentencias, List<Subproceso> subprocesos, boolean inicio) {}
+	override generate(Escribir escribir, List<String> punteros, List<Sentencia> sentencias, List<Subproceso> subprocesos, boolean inicio) {}
 	
 	/*
 	 * Función auxiliar de generate(Escribir) que se encarga de buscar el tipo de una operacion.
@@ -1532,5 +1531,5 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función encargada de generar la entidad Leer.
 	 * @param leer, sentencias, subprocesos, algoritmo
 	 */
-	def generate(Leer leer, List<Sentencia> sentencias, List<Subproceso> subprocesos, boolean inicio) {}
+	override generate(Leer leer, List<Sentencia> sentencias, List<Subproceso> subprocesos, boolean inicio) {}
 }

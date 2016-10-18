@@ -891,7 +891,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
    * @param interna, sentencia
    */
   @Override
-  public Object generate(final FuncionInterna interna, final boolean sentencia, final List<String> punteros) {
+  public CharSequence generate(final FuncionInterna interna, final boolean sentencia, final List<String> punteros) {
     CharSequence _xifexpression = null;
     String _nombre = interna.getNombre();
     ResourceBundle _bundle = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -903,7 +903,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
       _builder.append("cos(");
       EList<Operacion> _parametros = interna.getParametros();
       Operacion _get = _parametros.get(0);
-      Object _generate = this.generate(_get, punteros);
+      CharSequence _generate = this.generate(_get, punteros);
       _builder.append(_generate, "");
       _builder.append(")");
       {
@@ -924,7 +924,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
         _builder_1.append("sin(");
         EList<Operacion> _parametros_1 = interna.getParametros();
         Operacion _get_1 = _parametros_1.get(0);
-        Object _generate_1 = this.generate(_get_1, punteros);
+        CharSequence _generate_1 = this.generate(_get_1, punteros);
         _builder_1.append(_generate_1, "");
         _builder_1.append(")");
         {
@@ -945,7 +945,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
           _builder_2.append("pow(");
           EList<Operacion> _parametros_2 = interna.getParametros();
           Operacion _get_2 = _parametros_2.get(0);
-          Object _generate_2 = this.generate(_get_2, punteros);
+          CharSequence _generate_2 = this.generate(_get_2, punteros);
           _builder_2.append(_generate_2, "");
           _builder_2.append(",");
           _builder_2.append(2.0, "");
@@ -968,7 +968,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
             _builder_3.append("exp2(");
             EList<Operacion> _parametros_3 = interna.getParametros();
             Operacion _get_3 = _parametros_3.get(0);
-            Object _generate_3 = this.generate(_get_3, punteros);
+            CharSequence _generate_3 = this.generate(_get_3, punteros);
             _builder_3.append(_generate_3, "");
             _builder_3.append(")");
             {
@@ -989,7 +989,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
               _builder_4.append("log(");
               EList<Operacion> _parametros_4 = interna.getParametros();
               Operacion _get_4 = _parametros_4.get(0);
-              Object _generate_4 = this.generate(_get_4, punteros);
+              CharSequence _generate_4 = this.generate(_get_4, punteros);
               _builder_4.append(_generate_4, "");
               _builder_4.append(")");
               {
@@ -1010,7 +1010,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                 _builder_5.append("log10(");
                 EList<Operacion> _parametros_5 = interna.getParametros();
                 Operacion _get_5 = _parametros_5.get(0);
-                Object _generate_5 = this.generate(_get_5, punteros);
+                CharSequence _generate_5 = this.generate(_get_5, punteros);
                 _builder_5.append(_generate_5, "");
                 _builder_5.append(")");
                 {
@@ -1031,7 +1031,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   _builder_6.append("sqrt(");
                   EList<Operacion> _parametros_6 = interna.getParametros();
                   Operacion _get_6 = _parametros_6.get(0);
-                  Object _generate_6 = this.generate(_get_6, punteros);
+                  CharSequence _generate_6 = this.generate(_get_6, punteros);
                   _builder_6.append(_generate_6, "");
                   _builder_6.append(")");
                   {
@@ -1051,17 +1051,17 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     StringConcatenation _builder_7 = new StringConcatenation();
                     EList<Operacion> _parametros_7 = interna.getParametros();
                     Operacion _get_7 = _parametros_7.get(0);
-                    Object _generate_7 = this.generate(_get_7, punteros);
+                    CharSequence _generate_7 = this.generate(_get_7, punteros);
                     _builder_7.append(_generate_7, "");
                     _builder_7.append(" = ");
                     EList<Operacion> _parametros_8 = interna.getParametros();
                     Operacion _get_8 = _parametros_8.get(0);
-                    Object _generate_8 = this.generate(_get_8, punteros);
+                    CharSequence _generate_8 = this.generate(_get_8, punteros);
                     _builder_7.append(_generate_8, "");
                     _builder_7.append(" + ");
                     EList<Operacion> _parametros_9 = interna.getParametros();
                     Operacion _get_9 = _parametros_9.get(1);
-                    Object _generate_9 = this.generate(_get_9, punteros);
+                    CharSequence _generate_9 = this.generate(_get_9, punteros);
                     _builder_7.append(_generate_9, "");
                     {
                       if (sentencia) {
@@ -1080,12 +1080,12 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                       StringConcatenation _builder_8 = new StringConcatenation();
                       EList<Operacion> _parametros_10 = interna.getParametros();
                       Operacion _get_10 = _parametros_10.get(0);
-                      Object _generate_10 = this.generate(_get_10, punteros);
+                      CharSequence _generate_10 = this.generate(_get_10, punteros);
                       _builder_8.append(_generate_10, "");
                       _builder_8.append(" = ");
                       EList<Operacion> _parametros_11 = interna.getParametros();
                       Operacion _get_11 = _parametros_11.get(1);
-                      Object _generate_11 = this.generate(_get_11, punteros);
+                      CharSequence _generate_11 = this.generate(_get_11, punteros);
                       _builder_8.append(_generate_11, "");
                       {
                         if (sentencia) {
@@ -1105,7 +1105,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         _builder_9.append("strlen(");
                         EList<Operacion> _parametros_12 = interna.getParametros();
                         Operacion _get_12 = _parametros_12.get(0);
-                        Object _generate_12 = this.generate(_get_12, punteros);
+                        CharSequence _generate_12 = this.generate(_get_12, punteros);
                         _builder_9.append(_generate_12, "");
                         _builder_9.append(")");
                         {
@@ -1141,7 +1141,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
    * @param llamadaFuncion, sentencia
    */
   @Override
-  public Object generate(final LlamadaFuncion llamadaFuncion, final boolean a, final List<String> punteros) {
+  public CharSequence generate(final LlamadaFuncion llamadaFuncion, final boolean a, final List<String> punteros) {
     CharSequence _xblockexpression = null;
     {
       String nombreModulo = new String();
@@ -1287,8 +1287,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
    * @param escribir, punteros
    */
   @Override
-  public Object generate(final Escribir escribir, final List<String> punteros, final List<Sentencia> sentencias, final List<Subproceso> subprocesos, final boolean inicio) {
-    Object _xifexpression = null;
+  public CharSequence generate(final Escribir escribir, final List<String> punteros, final List<Sentencia> sentencias, final List<Subproceso> subprocesos, final boolean inicio) {
+    CharSequence _xifexpression = null;
     if (inicio) {
       EList<Operacion> _operador = escribir.getOperador();
       Operacion _get = _operador.get(0);
@@ -1298,7 +1298,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
         String cadena = "";
         EList<Operacion> _operador_1 = escribir.getOperador();
         Operacion _get_1 = _operador_1.get(0);
-        Object _generate = this.generate(_get_1, punteros);
+        CharSequence _generate = this.generate(_get_1, punteros);
         String _plus = (cadena + _generate);
         String _plus_1 = (_plus + ", \"");
         cadena = _plus_1;
@@ -1446,7 +1446,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
           String cadena_1 = "";
           EList<Operacion> _operador_20 = escribir.getOperador();
           Operacion _get_3 = _operador_20.get(0);
-          Object _generate_1 = this.generate(_get_3, punteros);
+          CharSequence _generate_1 = this.generate(_get_3, punteros);
           String _plus_4 = (cadena_1 + _generate_1);
           String _plus_5 = (_plus_4 + ", \"");
           cadena_1 = _plus_5;
@@ -1598,12 +1598,12 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
     for (final Operacion operacion : operaciones) {
       if ((((operaciones.indexOf(operacion) < (operaciones.size() - 1)) && (!saltarPrimero)) || (((operaciones.indexOf(operacion) < (operaciones.size() - 1)) && saltarPrimero) && (operaciones.indexOf(operacion) != 0)))) {
         if ((this.getTipoOperador(operacion, inicio, nombreActual).equals(VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle().getString("TIPO_CADENA")) && (!this.generate(operacion, punteros).toString().contains("\"")))) {
-          Object _generate = this.generate(operacion, punteros);
+          CharSequence _generate = this.generate(operacion, punteros);
           String _plus = (descripcionOperadores + _generate);
           String _plus_1 = (_plus + ".c_str() , ");
           descripcionOperadores = _plus_1;
         } else {
-          Object _generate_1 = this.generate(operacion, punteros);
+          CharSequence _generate_1 = this.generate(operacion, punteros);
           String _plus_2 = (descripcionOperadores + _generate_1);
           String _plus_3 = (_plus_2 + " , ");
           descripcionOperadores = _plus_3;
@@ -1611,12 +1611,12 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
       } else {
         if (((operaciones.indexOf(operacion) != 0) || ((operaciones.size() == 1) && (!saltarPrimero)))) {
           if ((this.getTipoOperador(operacion, inicio, nombreActual).equals(VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle().getString("TIPO_CADENA")) && (!this.generate(operacion, punteros).toString().contains("\"")))) {
-            Object _generate_2 = this.generate(operacion, punteros);
+            CharSequence _generate_2 = this.generate(operacion, punteros);
             String _plus_4 = (descripcionOperadores + _generate_2);
             String _plus_5 = (_plus_4 + ".c_str()");
             descripcionOperadores = _plus_5;
           } else {
-            Object _generate_3 = this.generate(operacion, punteros);
+            CharSequence _generate_3 = this.generate(operacion, punteros);
             String _plus_6 = (descripcionOperadores + _generate_3);
             descripcionOperadores = _plus_6;
           }
@@ -1632,7 +1632,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
   public String getOperadoresFormatoCpp(final EList<Operacion> operaciones, final List<String> punteros) {
     String descripcionOperadores = "";
     for (final Operacion operacion : operaciones) {
-      Object _generate = this.generate(operacion, punteros);
+      CharSequence _generate = this.generate(operacion, punteros);
       String _plus = ((descripcionOperadores + " << ") + _generate);
       descripcionOperadores = _plus;
     }
@@ -1644,12 +1644,12 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
    * @param leer, sentencias, subprocesos, algoritmo
    */
   @Override
-  public Object generate(final Leer leer, final List<Sentencia> sentencias, final List<Subproceso> subprocesos, final boolean inicio) {
-    Object _xblockexpression = null;
+  public CharSequence generate(final Leer leer, final List<Sentencia> sentencias, final List<Subproceso> subprocesos, final boolean inicio) {
+    CharSequence _xblockexpression = null;
     {
       String tipo = new String();
       String descripcionLeer = new String();
-      Object _xifexpression = null;
+      CharSequence _xifexpression = null;
       if (inicio) {
         EList<Operacion> _variable = leer.getVariable();
         Operacion _get = _variable.get(0);
@@ -1659,7 +1659,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
         if (_contains) {
           EList<Operacion> _variable_1 = leer.getVariable();
           Operacion _get_1 = _variable_1.get(0);
-          Object _generate = this.generate(_get_1, null);
+          CharSequence _generate = this.generate(_get_1, null);
           String variableArchivo = _generate.toString();
           EList<Operacion> _variable_2 = leer.getVariable();
           Operacion _get_2 = _variable_2.get(1);
@@ -1677,7 +1677,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
               _builder.append(",\"%i\", &");
               EList<Operacion> _variable_3 = leer.getVariable();
               Operacion _get_3 = _variable_3.get(1);
-              Object _generate_1 = this.generate(_get_3, null);
+              CharSequence _generate_1 = this.generate(_get_3, null);
               _builder.append(_generate_1, "");
               _builder.append(");");
               descripcionLeer = _builder.toString();
@@ -1689,7 +1689,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
               _builder_1.append(",\"%i\", &");
               EList<Operacion> _variable_4 = leer.getVariable();
               Operacion _get_4 = _variable_4.get(1);
-              Object _generate_2 = this.generate(_get_4, null);
+              CharSequence _generate_2 = this.generate(_get_4, null);
               _builder_1.append(_generate_2, "");
               _builder_1.append(");");
               descripcionLeer = _builder_1.toString();
@@ -1707,7 +1707,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                 _builder_2.append(",\"%c\", &");
                 EList<Operacion> _variable_5 = leer.getVariable();
                 Operacion _get_5 = _variable_5.get(1);
-                Object _generate_3 = this.generate(_get_5, null);
+                CharSequence _generate_3 = this.generate(_get_5, null);
                 _builder_2.append(_generate_3, "");
                 _builder_2.append(");");
                 descripcionLeer = _builder_2.toString();
@@ -1719,7 +1719,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                 _builder_3.append(",\"%c\", &");
                 EList<Operacion> _variable_6 = leer.getVariable();
                 Operacion _get_6 = _variable_6.get(1);
-                Object _generate_4 = this.generate(_get_6, null);
+                CharSequence _generate_4 = this.generate(_get_6, null);
                 _builder_3.append(_generate_4, "");
                 _builder_3.append(");");
                 descripcionLeer = _builder_3.toString();
@@ -1737,7 +1737,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   _builder_4.append(",\"%s\", &");
                   EList<Operacion> _variable_7 = leer.getVariable();
                   Operacion _get_7 = _variable_7.get(1);
-                  Object _generate_5 = this.generate(_get_7, null);
+                  CharSequence _generate_5 = this.generate(_get_7, null);
                   _builder_4.append(_generate_5, "");
                   _builder_4.append(");");
                   descripcionLeer = _builder_4.toString();
@@ -1749,7 +1749,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   _builder_5.append(",\"%s\", &");
                   EList<Operacion> _variable_8 = leer.getVariable();
                   Operacion _get_8 = _variable_8.get(1);
-                  Object _generate_6 = this.generate(_get_8, null);
+                  CharSequence _generate_6 = this.generate(_get_8, null);
                   _builder_5.append(_generate_6, "");
                   _builder_5.append(");");
                   descripcionLeer = _builder_5.toString();
@@ -1767,7 +1767,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     _builder_6.append(",\"%f\", &");
                     EList<Operacion> _variable_9 = leer.getVariable();
                     Operacion _get_9 = _variable_9.get(1);
-                    Object _generate_7 = this.generate(_get_9, null);
+                    CharSequence _generate_7 = this.generate(_get_9, null);
                     _builder_6.append(_generate_7, "");
                     _builder_6.append(");");
                     descripcionLeer = _builder_6.toString();
@@ -1779,7 +1779,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     _builder_7.append(",\"%f\", &");
                     EList<Operacion> _variable_10 = leer.getVariable();
                     Operacion _get_10 = _variable_10.get(1);
-                    Object _generate_8 = this.generate(_get_10, null);
+                    CharSequence _generate_8 = this.generate(_get_10, null);
                     _builder_7.append(_generate_8, "");
                     _builder_7.append(");");
                     descripcionLeer = _builder_7.toString();
@@ -1800,7 +1800,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         _builder_8.append(",\"%i\", &");
                         EList<Operacion> _variable_11 = leer.getVariable();
                         Operacion _get_11 = _variable_11.get(1);
-                        Object _generate_9 = this.generate(_get_11, null);
+                        CharSequence _generate_9 = this.generate(_get_11, null);
                         _builder_8.append(_generate_9, "");
                         _builder_8.append(");");
                         descripcionLeer = _builder_8.toString();
@@ -1812,7 +1812,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         _builder_9.append(",\"%i\", &");
                         EList<Operacion> _variable_12 = leer.getVariable();
                         Operacion _get_12 = _variable_12.get(1);
-                        Object _generate_10 = this.generate(_get_12, null);
+                        CharSequence _generate_10 = this.generate(_get_12, null);
                         _builder_9.append(_generate_10, "");
                         _builder_9.append(");");
                         descripcionLeer = _builder_9.toString();
@@ -1827,7 +1827,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                           _builder_10.append(",\"%s\", &");
                           EList<Operacion> _variable_13 = leer.getVariable();
                           Operacion _get_13 = _variable_13.get(1);
-                          Object _generate_11 = this.generate(_get_13, null);
+                          CharSequence _generate_11 = this.generate(_get_13, null);
                           _builder_10.append(_generate_11, "");
                           _builder_10.append(");");
                           descripcionLeer = _builder_10.toString();
@@ -1839,7 +1839,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                           _builder_11.append(",\"%s\", &");
                           EList<Operacion> _variable_14 = leer.getVariable();
                           Operacion _get_14 = _variable_14.get(1);
-                          Object _generate_12 = this.generate(_get_14, null);
+                          CharSequence _generate_12 = this.generate(_get_14, null);
                           _builder_11.append(_generate_12, "");
                           _builder_11.append(");");
                           descripcionLeer = _builder_11.toString();
@@ -1857,7 +1857,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                             _builder_12.append(",\"%f\", &");
                             EList<Operacion> _variable_15 = leer.getVariable();
                             Operacion _get_15 = _variable_15.get(1);
-                            Object _generate_13 = this.generate(_get_15, null);
+                            CharSequence _generate_13 = this.generate(_get_15, null);
                             _builder_12.append(_generate_13, "");
                             _builder_12.append(");");
                             descripcionLeer = _builder_12.toString();
@@ -1869,7 +1869,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                             _builder_13.append(",\"%f\", &");
                             EList<Operacion> _variable_16 = leer.getVariable();
                             Operacion _get_16 = _variable_16.get(1);
-                            Object _generate_14 = this.generate(_get_16, null);
+                            CharSequence _generate_14 = this.generate(_get_16, null);
                             _builder_13.append(_generate_14, "");
                             _builder_13.append(");");
                             descripcionLeer = _builder_13.toString();
@@ -1886,7 +1886,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
         } else {
           EList<Operacion> _variable_17 = leer.getVariable();
           for (final Operacion operador : _variable_17) {
-            Object _generate_15 = this.generate(operador, null);
+            CharSequence _generate_15 = this.generate(operador, null);
             String _plus = ((descripcionLeer + "cin >> ") + _generate_15);
             String _plus_1 = (_plus + ";");
             String _plus_2 = (_plus_1 + "\n");
@@ -1906,7 +1906,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
             if (_contains_1) {
               EList<Operacion> _variable_19 = leer.getVariable();
               Operacion _get_18 = _variable_19.get(0);
-              Object _generate_16 = this.generate(_get_18, null);
+              CharSequence _generate_16 = this.generate(_get_18, null);
               String variableArchivo_1 = _generate_16.toString();
               EList<Operacion> _variable_20 = leer.getVariable();
               Operacion _get_19 = _variable_20.get(1);
@@ -1925,7 +1925,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   _builder_14.append(",\"%i\", &");
                   EList<Operacion> _variable_21 = leer.getVariable();
                   Operacion _get_20 = _variable_21.get(1);
-                  Object _generate_17 = this.generate(_get_20, null);
+                  CharSequence _generate_17 = this.generate(_get_20, null);
                   _builder_14.append(_generate_17, "");
                   _builder_14.append(");");
                   descripcionLeer = _builder_14.toString();
@@ -1937,7 +1937,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   _builder_15.append(",\"%i\", &");
                   EList<Operacion> _variable_22 = leer.getVariable();
                   Operacion _get_21 = _variable_22.get(1);
-                  Object _generate_18 = this.generate(_get_21, null);
+                  CharSequence _generate_18 = this.generate(_get_21, null);
                   _builder_15.append(_generate_18, "");
                   _builder_15.append(");");
                   descripcionLeer = _builder_15.toString();
@@ -1955,7 +1955,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     _builder_16.append(",\"%c\", &");
                     EList<Operacion> _variable_23 = leer.getVariable();
                     Operacion _get_22 = _variable_23.get(1);
-                    Object _generate_19 = this.generate(_get_22, null);
+                    CharSequence _generate_19 = this.generate(_get_22, null);
                     _builder_16.append(_generate_19, "");
                     _builder_16.append(");");
                     descripcionLeer = _builder_16.toString();
@@ -1967,7 +1967,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     _builder_17.append(",\"%c\", &");
                     EList<Operacion> _variable_24 = leer.getVariable();
                     Operacion _get_23 = _variable_24.get(1);
-                    Object _generate_20 = this.generate(_get_23, null);
+                    CharSequence _generate_20 = this.generate(_get_23, null);
                     _builder_17.append(_generate_20, "");
                     _builder_17.append(");");
                     descripcionLeer = _builder_17.toString();
@@ -1985,7 +1985,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                       _builder_18.append(",\"%s\", &");
                       EList<Operacion> _variable_25 = leer.getVariable();
                       Operacion _get_24 = _variable_25.get(1);
-                      Object _generate_21 = this.generate(_get_24, null);
+                      CharSequence _generate_21 = this.generate(_get_24, null);
                       _builder_18.append(_generate_21, "");
                       _builder_18.append(");");
                       descripcionLeer = _builder_18.toString();
@@ -1997,7 +1997,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                       _builder_19.append(",\"%s\", &");
                       EList<Operacion> _variable_26 = leer.getVariable();
                       Operacion _get_25 = _variable_26.get(1);
-                      Object _generate_22 = this.generate(_get_25, null);
+                      CharSequence _generate_22 = this.generate(_get_25, null);
                       _builder_19.append(_generate_22, "");
                       _builder_19.append(");");
                       descripcionLeer = _builder_19.toString();
@@ -2015,7 +2015,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         _builder_20.append(",\"%f\", &");
                         EList<Operacion> _variable_27 = leer.getVariable();
                         Operacion _get_26 = _variable_27.get(1);
-                        Object _generate_23 = this.generate(_get_26, null);
+                        CharSequence _generate_23 = this.generate(_get_26, null);
                         _builder_20.append(_generate_23, "");
                         _builder_20.append(");");
                         descripcionLeer = _builder_20.toString();
@@ -2027,7 +2027,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         _builder_21.append(",\"%f\", &");
                         EList<Operacion> _variable_28 = leer.getVariable();
                         Operacion _get_27 = _variable_28.get(1);
-                        Object _generate_24 = this.generate(_get_27, null);
+                        CharSequence _generate_24 = this.generate(_get_27, null);
                         _builder_21.append(_generate_24, "");
                         _builder_21.append(");");
                         descripcionLeer = _builder_21.toString();
@@ -2048,7 +2048,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                             _builder_22.append(",\"%i\", &");
                             EList<Operacion> _variable_29 = leer.getVariable();
                             Operacion _get_28 = _variable_29.get(1);
-                            Object _generate_25 = this.generate(_get_28, null);
+                            CharSequence _generate_25 = this.generate(_get_28, null);
                             _builder_22.append(_generate_25, "");
                             _builder_22.append(");");
                             descripcionLeer = _builder_22.toString();
@@ -2060,7 +2060,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                             _builder_23.append(",\"%i\", &");
                             EList<Operacion> _variable_30 = leer.getVariable();
                             Operacion _get_29 = _variable_30.get(1);
-                            Object _generate_26 = this.generate(_get_29, null);
+                            CharSequence _generate_26 = this.generate(_get_29, null);
                             _builder_23.append(_generate_26, "");
                             _builder_23.append(");");
                             descripcionLeer = _builder_23.toString();
@@ -2075,7 +2075,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                               _builder_24.append(",\"%s\", &");
                               EList<Operacion> _variable_31 = leer.getVariable();
                               Operacion _get_30 = _variable_31.get(1);
-                              Object _generate_27 = this.generate(_get_30, null);
+                              CharSequence _generate_27 = this.generate(_get_30, null);
                               _builder_24.append(_generate_27, "");
                               _builder_24.append(");");
                               descripcionLeer = _builder_24.toString();
@@ -2087,7 +2087,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                               _builder_25.append(",\"%s\", &");
                               EList<Operacion> _variable_32 = leer.getVariable();
                               Operacion _get_31 = _variable_32.get(1);
-                              Object _generate_28 = this.generate(_get_31, null);
+                              CharSequence _generate_28 = this.generate(_get_31, null);
                               _builder_25.append(_generate_28, "");
                               _builder_25.append(");");
                               descripcionLeer = _builder_25.toString();
@@ -2105,7 +2105,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                                 _builder_26.append(",\"%f\", &");
                                 EList<Operacion> _variable_33 = leer.getVariable();
                                 Operacion _get_32 = _variable_33.get(1);
-                                Object _generate_29 = this.generate(_get_32, null);
+                                CharSequence _generate_29 = this.generate(_get_32, null);
                                 _builder_26.append(_generate_29, "");
                                 _builder_26.append(");");
                                 descripcionLeer = _builder_26.toString();
@@ -2117,7 +2117,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                                 _builder_27.append(",\"%f\", &");
                                 EList<Operacion> _variable_34 = leer.getVariable();
                                 Operacion _get_33 = _variable_34.get(1);
-                                Object _generate_30 = this.generate(_get_33, null);
+                                CharSequence _generate_30 = this.generate(_get_33, null);
                                 _builder_27.append(_generate_30, "");
                                 _builder_27.append(");");
                                 descripcionLeer = _builder_27.toString();
@@ -2134,7 +2134,7 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
             } else {
               EList<Operacion> _variable_35 = leer.getVariable();
               for (final Operacion operador_1 : _variable_35) {
-                Object _generate_31 = this.generate(operador_1, null);
+                CharSequence _generate_31 = this.generate(operador_1, null);
                 String _plus_3 = ((descripcionLeer + "cin >> ") + _generate_31);
                 String _plus_4 = (_plus_3 + ";");
                 String _plus_5 = (_plus_4 + "\n");
