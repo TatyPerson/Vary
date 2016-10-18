@@ -75,6 +75,9 @@ import diagramapseudocodigo.DivisionReal
 import diagramapseudocodigo.OperacionParentesis
 import diagramapseudocodigo.OperacionCompleta
 import org.eclipse.xtext.EcoreUtil2
+import diagramapseudocodigo.TipoFuncion
+import diagramapseudocodigo.TipoProcedimiento
+import diagramapseudocodigo.TipoSubproceso
 
 public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorInterface {
 	
@@ -91,6 +94,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	protected static ArrayList<String> enumerados = new ArrayList<String>();
 	protected static boolean cabeceras;
 	protected static Map<String,ArrayList<Integer>> subprocesosConPunteros = new HashMap<String,ArrayList<Integer>>();
+	protected static Map<String, String> tiposSubprocesos = new HashMap<String, String>();
 	protected static ReadMessagesValidatorInterface readerMessages;
 	
 	/*
@@ -270,40 +274,16 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 			}
 			for(Parametro p: s.parametros) {
 				variablesSubprocesos.get(s.nombre).put(p.variable.nombre, p.tipo.nombre);
-				//FIXME
-				/*if(p.tipo.eClass.name.equals("TipoBasico")) {
-					var tipo = p.tipo as TipoBasico;
-					variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.nombre);
-				}
-				else if(p.tipo.eClass.name.equals("TipoDefinido")) {
-					var tipo = p.tipo as TipoDefinido;
-					variablesSubprocesos.get(s.nombre).put(p.variable.nombre, tipo.nombre);
-				}*/
 			}
 		}
 	
 		for(TipoComplejo complejo: complejos) {
-			//FIXME
 			if(complejo.eClass.name.equals("Vector")) {
 				var v = complejo as Vector;
 				vectoresMatrices.put(v.nombre, v.tipo.nombre);
-				/*if(v.tipo.eClass.name.equals("TipoBasico")) {
-					var tipo = v.tipo as TipoBasico;
-					vectoresMatrices.put(v.nombre, tipo.tipo);
-				} else if(v.tipo.eClass.name.equals("TipoDefinido")) {
-					var tipo = v.tipo as TipoDefinido;
-					vectoresMatrices.put(v.nombre, tipo.tipo);
-				}*/
 			} else if(complejo.eClass.name.equals("Matriz")) {
 				var m = complejo as Matriz;
 				vectoresMatrices.put(m.nombre, m.tipo.nombre);
-				/*if(m.tipo.eClass.name.equals("TipoBasico")) {
-					var tipo = m.tipo as TipoBasico;
-					vectoresMatrices.put(m.nombre, tipo.tipo);
-				} else if(m.tipo.eClass.name.equals("TipoDefinido")) {
-					var tipo = m.tipo as TipoDefinido;
-					vectoresMatrices.put(m.nombre, tipo.tipo);
-				}*/
 			} else if(complejo.eClass.name.equals("Registro")) {
 				var r = complejo as Registro;
 				registros.put(r.nombre, new HashMap<String,String>());
@@ -336,6 +316,12 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 					}
 				  }
 			  	}
+			} else if(complejo.eClass.name.equals("TipoFuncion")) {
+				var tipoFuncion = complejo as TipoFuncion;
+				tiposSubprocesos.put(tipoFuncion.nombre, tipoFuncion.tipo);
+			} else if(complejo.eClass.name.equals("TipoProcedimiento")) {
+				var tipoProcedimiento = complejo as TipoProcedimiento;
+				tiposSubprocesos.put(tipoProcedimiento.nombre, "void");
 			}
 		}
 	}
@@ -367,6 +353,12 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 		} else if (complejo.eClass.name.equals("SubrangoEnumerado")) {
 			var SubrangoEnumerado subrangoEnumerado = complejo as SubrangoEnumerado
 			subrangoEnumerado.generate
+		} else if (complejo.eClass.name.equals("TipoFuncion")) {
+			var TipoFuncion tipoFuncion = complejo as TipoFuncion
+			tipoFuncion.generate
+		} else if (complejo.eClass.name.equals("TipoProcedimiento")) {
+			var TipoProcedimiento tipoProcedimiento = complejo as TipoProcedimiento
+			tipoProcedimiento.generate
 		}
 	}
 	
@@ -453,6 +445,20 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 			}
 		}
 	}
+	
+	/*
+	 * Función auxiliar de generate(TipoComplejo) que se encarga de generar la entidad TipoFuncion.
+	 */
+	 override generate(TipoFuncion tipoFuncion) '''
+	 typedef «tipoFuncion.tipo.getTipoVariable» (* «tipoFuncion.nombre»)(«tipoFuncion.parametros.generate»);
+	 '''
+	 
+	 /*
+	 * Función auxiliar de generate(TipoComplejo) que se encarga de generar la entidad TipoFuncion.
+	 */
+	 override generate(TipoProcedimiento tipoProcedimiento) '''
+	 typedef void (* «tipoProcedimiento.nombre»)(«tipoProcedimiento.parametros.generate»);
+	 '''
 	
 	/* 6) /* -------------------------------------------------------------------------------------------------------------------- */
 	/**
@@ -1022,7 +1028,7 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad VariableID.
 	 */
 	override generate(VariableID variableID) '''
-	«variableID.nombre»«FOR matri:variableID.mat»«matri.toString»«ENDFOR»'''
+	«IF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COS"))»cos«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SEN"))»sin«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO"))»pow«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_EXP"))»exp2«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LN"))»log«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LOG"))»log10«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_SQRT"))»sqrt«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA"))»strcat«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_COPIAR"))»strcpy«ELSEIF variableID.nombre.equals(readerMessages.getBundle().getString("INTERNAS_LONGITUD"))»strlen«ELSE»«variableID.nombre»«ENDIF»«FOR matri:variableID.mat»«matri.toString»«ENDFOR»'''
 	
 	/*
 	 * Función auxiliar de generate(Operacion) que se encarga de generar la entidad Suma.
@@ -1193,8 +1199,13 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 			if (operaciones.indexOf(operacion) != 0) {
 				definicionParametros = definicionParametros + ", "
 			}
-			if(subprocesosConPunteros.get(nombreSubproceso).contains(operaciones.indexOf(operacion)+1)) {
+			if(subprocesosConPunteros.containsKey(nombreSubproceso)) {
+				if(subprocesosConPunteros.get(nombreSubproceso).contains(operaciones.indexOf(operacion)+1)) {
 					definicionParametros = definicionParametros + " &" + operacion.generate(punteros);
+				}
+				else {
+					definicionParametros = definicionParametros + operacion.generate(punteros);
+				}
 			}
 			else {
 				definicionParametros = definicionParametros + operacion.generate(punteros);
@@ -1334,7 +1345,15 @@ public abstract class VaryGrammarAbstractGeneratorCCPP implements VaryGeneratorI
 				}	
 		} else if(operacion.eClass.name.equals("LlamadaFuncion")) {
 			var llamadaFuncion = operacion as LlamadaFuncion;
-			return funciones.get(llamadaFuncion.nombre);
+			if(funciones.containsKey(llamadaFuncion.nombre)) {
+				return funciones.get(llamadaFuncion.nombre);
+			} else {
+				if(inicio) {
+					return tiposSubprocesos.get(variablesInicio.get(llamadaFuncion.nombre.replace("(", "")));
+				} else {
+					return tiposSubprocesos.get(variablesSubprocesos.get(nombreActual).get(llamadaFuncion.nombre.replace("(", "")));
+				}
+			}
 		} else if(operacion.eClass.name.equals("Entero") || operacion.eClass.name.equals("Logico")) {
 			return readerMessages.getBundle().getString("TIPO_ENTERO");	
 		} else if(operacion.eClass.name.equals("CadenaCaracteres")) {

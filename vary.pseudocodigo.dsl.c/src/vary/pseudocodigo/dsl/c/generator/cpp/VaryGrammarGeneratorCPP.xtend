@@ -452,9 +452,9 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 		}
 		
 		'''«IF !nombreModulo.isEmpty»
-		ref«nombreModulo».«llamadaFuncion.nombre»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»
+		ref«nombreModulo».«llamadaFuncion.nombre»«IF subprocesosConPunteros.containsKey(llamadaFuncion.nombre)»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»
 		«ELSE»
-		«llamadaFuncion.nombre»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
+		«llamadaFuncion.nombre»«IF subprocesosConPunteros.containsKey(llamadaFuncion.nombre)»«IF subprocesosConPunteros.get(llamadaFuncion.nombre).size() == 0»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»«ELSE»«llamadaFuncion.parametros.getParametros(llamadaFuncion.nombre, punteros)»«ENDIF»)«IF a»;«ENDIF»«ENDIF»'''
 	}
 	
 	/*

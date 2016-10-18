@@ -264,6 +264,21 @@ public class AlgoritmoItemProvider extends CodigoItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoSubproceso()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoFuncion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMPLEJOS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoProcedimiento()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.ALGORITMO__COMENTARIOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createComentario()));
 

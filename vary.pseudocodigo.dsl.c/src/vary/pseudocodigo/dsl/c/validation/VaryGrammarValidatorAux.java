@@ -30,6 +30,7 @@ import diagramapseudocodigo.Modulo;
 import diagramapseudocodigo.Multiplicacion;
 import diagramapseudocodigo.Real;
 import diagramapseudocodigo.Entero;
+import diagramapseudocodigo.Enumerado;
 import diagramapseudocodigo.OperacionCompleta;
 import diagramapseudocodigo.OperacionParentesis;
 import diagramapseudocodigo.Operador;
@@ -40,6 +41,8 @@ import diagramapseudocodigo.Resta;
 import diagramapseudocodigo.Subproceso;
 import diagramapseudocodigo.Suma;
 import diagramapseudocodigo.TipoComplejo;
+import diagramapseudocodigo.TipoFuncion;
+import diagramapseudocodigo.TipoProcedimiento;
 import diagramapseudocodigo.Logico;
 import diagramapseudocodigo.ValorMatriz;
 import diagramapseudocodigo.ValorRegistro;
@@ -55,7 +58,7 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 	/* 1) /* -------------------------------------------------------------------------------------------------------------------- */
 	/**
 	 * Función encargada de registrar todas las variables declaradas en un algoritmo o modulo.
-	 * @param locales, parametros, globales, modulosImportados
+	 * @param locales, parametros, globales, complejos, modulosImportados, readerMessages
 	 */
 	protected Map<String, String> getVariablesDefinidasTipadas(List<Declaracion> locales, List<Parametro> parametros, List<Declaracion> globales, List<Modulo> modulosImportados) {
 		Map<String, String> variablesDefinidasTipadas = new HashMap<String,String>();
@@ -859,7 +862,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 		final int PERDIDA_PRECISION = 2; final int ERROR = 3; final int OK = 1;
 		if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !(operacion instanceof Entero)) {
 			if(operacion instanceof Real) {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 				return PERDIDA_PRECISION;
 			} else if(esOperacion(operacion)) {
 				ArrayList<Valor> valores = getValoresOperacion(operacion);
@@ -874,43 +876,35 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
 						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
 						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				} else if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 2 || 
 						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 2 || 
 						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 2 || 
 						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 2 || 
 						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 2) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					return PERDIDA_PRECISION;
 				}
 			} else if(operacion instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) operacion;
 				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				} else if(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					return PERDIDA_PRECISION;
 				}
 			} else if(operacion instanceof FuncionInterna) {
 				FuncionInterna interna = (FuncionInterna) operacion;
-				if(interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) 
-						|| interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
+				if(interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO") + '(') || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT") + '(') || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS") + '(') 
+						|| interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN") + '(') || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP") + '(') || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN") + '(') || interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG") + '(')) {
 					return PERDIDA_PRECISION;
 				} else {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof VariableID) {
 				VariableID v = (VariableID) operacion;
 				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && variables.containsKey(v.getNombre())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 					
 				} else if(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL")) && variables.containsKey(v.getNombre())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					return PERDIDA_PRECISION;
 				}
 			} else if(operacion instanceof ValorRegistro) {
@@ -919,10 +913,8 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
 						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							return ERROR;
 						} else if(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 							return PERDIDA_PRECISION;
 						}
 					}
@@ -930,23 +922,18 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			} else if(operacion instanceof ValorVector) {
 				ValorVector v = (ValorVector) operacion;
 				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				} else if(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					return PERDIDA_PRECISION;
 				}
 			} else if(operacion instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) operacion;
 				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				} else {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("PERDIDA_PRECISION_REAL_ENTERO"), false);
 					return PERDIDA_PRECISION;
 				}
 			} else {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			}
 		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !(operacion instanceof Logico)) {
@@ -960,22 +947,18 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
 						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
 						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) operacion;
 				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof FuncionInterna) {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			} else if(operacion instanceof VariableID) {
 				VariableID v = (VariableID) operacion;
 				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_LOGICO"))) && variables.containsKey(v.getNombre())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorRegistro) {
@@ -983,7 +966,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
 						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							return ERROR;
 						}
 					}
@@ -991,17 +973,14 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			} else if(operacion instanceof ValorVector) {
 				ValorVector v = (ValorVector) operacion;
 				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) operacion;
 				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_LOGICO")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			}
 		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL")) && !(operacion instanceof Entero) && !(operacion instanceof Real)) {
@@ -1016,26 +995,22 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
 						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
 						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) operacion;
 				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof FuncionInterna) {
 				FuncionInterna interna = (FuncionInterna) operacion;
-				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS")) &&
-						!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN")) && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG"))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CUADRADO") + '(') && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SQRT") + '(') && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_COS") + '(') &&
+						!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_SEN") + '(') && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_EXP") + '(') && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LN") + '(') && !interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_LOG") + '(')) {
 					return ERROR;
 				} 
 			 } else if(operacion instanceof VariableID) {
 				VariableID v = (VariableID) operacion;
 				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_REAL"))) && !(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && variables.containsKey(v.getNombre())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorRegistro) {
@@ -1043,7 +1018,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
 						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							return ERROR;
 						}
 					}
@@ -1051,17 +1025,14 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			} else if(operacion instanceof ValorVector) {
 				ValorVector v = (ValorVector) operacion;
 				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) operacion;
 				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) && !(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_REAL")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			}
 		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || (tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA")) &&
@@ -1076,25 +1047,21 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
 						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
 						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) operacion;
 				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof FuncionInterna) {
 				FuncionInterna interna = (FuncionInterna) operacion;
-				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA"))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
+				if(!interna.getNombre().equals(readerMessages.getBundle().getString("INTERNAS_CONCATENA") + '(')) {
 					return ERROR;
 				} 
 			 } else if(operacion instanceof VariableID) {
 				VariableID v = (VariableID) operacion;
 				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CADENA"))) && variables.containsKey(v.getNombre())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorRegistro) {
@@ -1102,7 +1069,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
 						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							return ERROR;
 						}
 					}
@@ -1110,17 +1076,14 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			} else if(operacion instanceof ValorVector) {
 				ValorVector v = (ValorVector) operacion;
 				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) operacion;
 				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CADENA")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			}
 		} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !(operacion instanceof Caracter)) {
@@ -1134,22 +1097,18 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
 						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
 						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof LlamadaFuncion) {
 				LlamadaFuncion f = (LlamadaFuncion) operacion;
 				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof FuncionInterna) {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			} else if(operacion instanceof VariableID) {
 				VariableID v = (VariableID) operacion;
 				if(!(variables.get(v.getNombre()).equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) && variables.containsKey(v.getNombre())) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorRegistro) {
@@ -1157,7 +1116,6 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 				for(String nombre: nombresRegistros) {
 					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
 						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-							//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 							return ERROR;
 						}
 					}
@@ -1165,19 +1123,64 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 			} else if(operacion instanceof ValorVector) {
 				ValorVector v = (ValorVector) operacion;
 				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else if(operacion instanceof ValorMatriz) {
 				ValorMatriz m = (ValorMatriz) operacion;
 				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(readerMessages.getBundle().getString("TIPO_CARACTER")))) {
-					//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 					return ERROR;
 				}
 			} else {
-				//errorAux(asignacion, devolver, readerMessages.getBundle().getString("ASIGNACION_INCOMPATIBLE"), true);
 				return ERROR;
 			}		
+		} else if(!tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO")) && !tipo.equals(readerMessages.getBundle().getString("TIPO_LOGICO")) && !tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))
+				&& !tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER")) && !tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
+			if(esOperacion(operacion)) {
+				ArrayList<Valor> valores = getValoresOperacion(operacion);
+				List<Valor> problemasOperacion = getProblemasOperacion(tipo, valores, readerMessages);
+				ArrayList<String> tiposValidos = new ArrayList<String>();
+				tiposValidos.add(0, tipo); 
+				if(checkOperacionBasica(problemasOperacion, variables, tiposValidos, readerMessages) == 3 || 
+						checkOperacionFuncion(problemasOperacion, variables, tiposValidos, funcionesTipadas, readerMessages) == 3 || 
+						checkOperacionRegistro(problemasOperacion, variables, tiposValidos, registros, nombresRegistros, readerMessages) == 3 || 
+						checkOperacionVector(problemasOperacion, variables, tiposValidos, vectores, readerMessages) == 3 || 
+						checkOperacionMatriz(problemasOperacion, variables, tiposValidos, matrices, readerMessages) == 3) {
+					return ERROR;
+				}
+			} else if(operacion instanceof LlamadaFuncion) {
+				LlamadaFuncion f = (LlamadaFuncion) operacion;
+				if(!(funcionesTipadas.get(f.getNombre()).get(f.getParametros().size()).equals(tipo)) && funcionesTipadas.containsKey(f.getNombre()) && funcionesTipadas.get(f.getNombre()).containsKey(f.getParametros().size())) {
+					return ERROR;
+				}
+			} else if(operacion instanceof FuncionInterna) {
+				return ERROR;
+			} else if(operacion instanceof VariableID) {
+				VariableID v = (VariableID) operacion;
+				if(!(variables.get(v.getNombre()).equals(tipo)) && variables.containsKey(v.getNombre())) {
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorRegistro) {
+				ValorRegistro vr = (ValorRegistro) operacion;
+				for(String nombre: nombresRegistros) {
+					if(nombre.equals(variables.get(vr.getNombre_registro()))) {
+						if(!(registros.get(nombre).get(vr.getCampos().get(0).getNombre_campo()).equals(tipo))) {
+							return ERROR;
+						}
+					}
+				}
+			} else if(operacion instanceof ValorVector) {
+				ValorVector v = (ValorVector) operacion;
+				if(!(vectores.get(variables.get(v.getNombre_vector())).equals(tipo))) {
+					return ERROR;
+				}
+			} else if(operacion instanceof ValorMatriz) {
+				ValorMatriz m = (ValorMatriz) operacion;
+				if(!(matrices.get(variables.get(m.getNombre_matriz())).equals(tipo))) {
+					return ERROR;
+				}
+			} else {
+				return ERROR;
+			}
 		}
 		return OK;
 	}
@@ -1422,7 +1425,95 @@ public class VaryGrammarValidatorAux extends AbstractVaryGrammarValidator {
 					problemasOperacion.add(valor);
 				}
 			}
+		} else {
+			for(Valor valor: valores) {
+				problemasOperacion.add(valor);
+			}
 		}
 		return problemasOperacion;
+	}
+	
+	/* 21) /* -------------------------------------------------------------------------------------------------------------------- */
+	/**
+	 * Función encargada de registrar los valores pertenecientes a los enumerados definidos.
+	 * @param complejos, modulosImportados
+	 */
+	protected Map<String, String> getValoresEnumeradoTipados(List<TipoComplejo> complejos, List<Modulo> modulosImportados) {
+		Map<String, String> valoresEnumeradoTipados = getValoresEnumeradoTipadosAux(modulosImportados);
+		for(TipoComplejo complejo: complejos) {
+			if(complejo instanceof Enumerado) {
+				Enumerado enumerado = (Enumerado) complejo;
+				for(Operacion operacion: enumerado.getPosiblesValores()) {
+					if(operacion instanceof VariableID) {
+						VariableID valor = (VariableID) operacion;
+						valoresEnumeradoTipados.put(valor.getNombre(), enumerado.getNombre());
+					}
+				}
+			}
+		}
+		return valoresEnumeradoTipados;
+	}
+	
+	/*
+	 * Función auxiliar de getVariablesDefinidasTipadas // Principio DRY. (1)
+	 * Función encargada de registrar los valores pertenecientes a los enumerados exportados por todos los módulos importados.
+	 */
+	private Map<String, String> getValoresEnumeradoTipadosAux(List<Modulo> modulosImportados) {
+		Map<String, String> valoresEnumeradoTipados = new HashMap<String, String>();
+		for(Modulo modulo: modulosImportados) {
+			for(TipoComplejo complejo: modulo.getImplementacion().getComplejos()) {
+				 if(complejo instanceof Enumerado && modulo.getExporta_tipos().contains(complejo.getNombre())) {
+					Enumerado enumerado = (Enumerado) complejo;
+					for(Operacion operacion: enumerado.getPosiblesValores()) {
+						if(operacion instanceof VariableID) {
+							VariableID valor = (VariableID) operacion;
+							valoresEnumeradoTipados.put(valor.getNombre(), enumerado.getNombre());
+						}
+					}
+				 }
+			 }
+		}
+		return valoresEnumeradoTipados;
+	}
+	
+	/* 22) /* -------------------------------------------------------------------------------------------------------------------- */
+	/**
+	 * Función encargada de registrar los tipos complejos creados de subprocesos.
+	 * @param complejos, modulosImportados
+	 */
+	protected Map<String, String> getTiposSubprocesosTipados(List<TipoComplejo> complejos, List<Modulo> modulosImportados) {
+		Map<String, String> tiposSubprocesosTipados = getTiposSubprocesosTipadosAux(modulosImportados);
+		for(TipoComplejo complejo: complejos) {
+			if(complejo instanceof TipoFuncion) {
+				TipoFuncion tipoFuncion = (TipoFuncion) complejo;
+				tiposSubprocesosTipados.put(tipoFuncion.getNombre(), tipoFuncion.getTipo());
+			} else if(complejo instanceof TipoProcedimiento) {
+				TipoProcedimiento tipoProcedimiento = (TipoProcedimiento) complejo;
+				tiposSubprocesosTipados.put(tipoProcedimiento.getNombre(), "void");
+			}
+		}
+		return tiposSubprocesosTipados;
+	}
+	
+	/*
+	 * Función auxiliar de getTiposSubprocesosTipados // Principio DRY. (1)
+	 * Función encargada de registrar los tipos complejos creados de subprocesos exportados por todos los módulos importados.
+	 */
+	private Map<String, String> getTiposSubprocesosTipadosAux(List<Modulo> modulosImportados) {
+		Map<String, String> tiposSubprocesosTipados = new HashMap<String, String>();
+		for(Modulo modulo: modulosImportados) {
+			for(TipoComplejo complejo: modulo.getImplementacion().getComplejos()) {
+				if(modulo.getExporta_tipos().equals(complejo.getNombre())) {
+					if(complejo instanceof TipoFuncion) {
+						TipoFuncion tipoFuncion = (TipoFuncion) complejo;
+						tiposSubprocesosTipados.put(tipoFuncion.getNombre(), tipoFuncion.getTipo());
+					} else if(complejo instanceof TipoProcedimiento) {
+						TipoProcedimiento tipoProcedimiento = (TipoProcedimiento) complejo;
+						tiposSubprocesosTipados.put(tipoProcedimiento.getNombre(), "void");
+					}
+				}
+			}
+		}
+		return tiposSubprocesosTipados;
 	}
 }

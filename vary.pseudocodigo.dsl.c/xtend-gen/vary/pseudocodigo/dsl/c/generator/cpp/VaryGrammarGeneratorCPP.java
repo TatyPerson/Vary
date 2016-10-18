@@ -1177,19 +1177,30 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
           _builder.append(_nombre_2, "");
           {
             String _nombre_3 = llamadaFuncion.getNombre();
-            ArrayList<Integer> _get = VaryGrammarAbstractGeneratorCCPP.subprocesosConPunteros.get(_nombre_3);
-            int _size_2 = _get.size();
-            boolean _equals = (_size_2 == 0);
-            if (_equals) {
-              EList<Operacion> _parametros_2 = llamadaFuncion.getParametros();
-              String _nombre_4 = llamadaFuncion.getNombre();
-              String _parametros_3 = this.getParametros(_parametros_2, _nombre_4, punteros);
-              _builder.append(_parametros_3, "");
+            boolean _containsKey = VaryGrammarAbstractGeneratorCCPP.subprocesosConPunteros.containsKey(_nombre_3);
+            if (_containsKey) {
+              {
+                String _nombre_4 = llamadaFuncion.getNombre();
+                ArrayList<Integer> _get = VaryGrammarAbstractGeneratorCCPP.subprocesosConPunteros.get(_nombre_4);
+                int _size_2 = _get.size();
+                boolean _equals = (_size_2 == 0);
+                if (_equals) {
+                  EList<Operacion> _parametros_2 = llamadaFuncion.getParametros();
+                  String _nombre_5 = llamadaFuncion.getNombre();
+                  String _parametros_3 = this.getParametros(_parametros_2, _nombre_5, punteros);
+                  _builder.append(_parametros_3, "");
+                } else {
+                  EList<Operacion> _parametros_4 = llamadaFuncion.getParametros();
+                  String _nombre_6 = llamadaFuncion.getNombre();
+                  String _parametros_5 = this.getParametros(_parametros_4, _nombre_6, punteros);
+                  _builder.append(_parametros_5, "");
+                }
+              }
             } else {
-              EList<Operacion> _parametros_4 = llamadaFuncion.getParametros();
-              String _nombre_5 = llamadaFuncion.getNombre();
-              String _parametros_5 = this.getParametros(_parametros_4, _nombre_5, punteros);
-              _builder.append(_parametros_5, "");
+              EList<Operacion> _parametros_6 = llamadaFuncion.getParametros();
+              String _nombre_7 = llamadaFuncion.getNombre();
+              String _parametros_7 = this.getParametros(_parametros_6, _nombre_7, punteros);
+              _builder.append(_parametros_7, "");
             }
           }
           _builder.append(")");
@@ -1200,23 +1211,34 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
           }
           _builder.newLineIfNotEmpty();
         } else {
-          String _nombre_6 = llamadaFuncion.getNombre();
-          _builder.append(_nombre_6, "");
+          String _nombre_8 = llamadaFuncion.getNombre();
+          _builder.append(_nombre_8, "");
           {
-            String _nombre_7 = llamadaFuncion.getNombre();
-            ArrayList<Integer> _get_1 = VaryGrammarAbstractGeneratorCCPP.subprocesosConPunteros.get(_nombre_7);
-            int _size_3 = _get_1.size();
-            boolean _equals_1 = (_size_3 == 0);
-            if (_equals_1) {
-              EList<Operacion> _parametros_6 = llamadaFuncion.getParametros();
-              String _nombre_8 = llamadaFuncion.getNombre();
-              String _parametros_7 = this.getParametros(_parametros_6, _nombre_8, punteros);
-              _builder.append(_parametros_7, "");
+            String _nombre_9 = llamadaFuncion.getNombre();
+            boolean _containsKey_1 = VaryGrammarAbstractGeneratorCCPP.subprocesosConPunteros.containsKey(_nombre_9);
+            if (_containsKey_1) {
+              {
+                String _nombre_10 = llamadaFuncion.getNombre();
+                ArrayList<Integer> _get_1 = VaryGrammarAbstractGeneratorCCPP.subprocesosConPunteros.get(_nombre_10);
+                int _size_3 = _get_1.size();
+                boolean _equals_1 = (_size_3 == 0);
+                if (_equals_1) {
+                  EList<Operacion> _parametros_8 = llamadaFuncion.getParametros();
+                  String _nombre_11 = llamadaFuncion.getNombre();
+                  String _parametros_9 = this.getParametros(_parametros_8, _nombre_11, punteros);
+                  _builder.append(_parametros_9, "");
+                } else {
+                  EList<Operacion> _parametros_10 = llamadaFuncion.getParametros();
+                  String _nombre_12 = llamadaFuncion.getNombre();
+                  String _parametros_11 = this.getParametros(_parametros_10, _nombre_12, punteros);
+                  _builder.append(_parametros_11, "");
+                }
+              }
             } else {
-              EList<Operacion> _parametros_8 = llamadaFuncion.getParametros();
-              String _nombre_9 = llamadaFuncion.getNombre();
-              String _parametros_9 = this.getParametros(_parametros_8, _nombre_9, punteros);
-              _builder.append(_parametros_9, "");
+              EList<Operacion> _parametros_12 = llamadaFuncion.getParametros();
+              String _nombre_13 = llamadaFuncion.getNombre();
+              String _parametros_13 = this.getParametros(_parametros_12, _nombre_13, punteros);
+              _builder.append(_parametros_13, "");
             }
           }
           _builder.append(")");

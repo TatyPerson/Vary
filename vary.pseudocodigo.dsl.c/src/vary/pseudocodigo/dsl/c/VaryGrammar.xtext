@@ -66,7 +66,18 @@ CabeceraFuncion returns CabeceraFuncion:
 	(parametros+=Parametro ( "," parametros+=Parametro)*  )?')';
 	
 TipoComplejo returns TipoComplejo:
-	Vector | Matriz | Registro | Archivo | Enumerado | Subrango;
+	Vector | Matriz | Registro | Archivo | Enumerado | Subrango | TipoSubproceso;
+	
+TipoSubproceso returns TipoSubproceso:
+	TipoFuncion | TipoProcedimiento;
+	
+TipoFuncion returns TipoFuncion:
+	tipo=TipoVariable 'funcion'
+	'('(parametros+=Parametro ( "," parametros+=Parametro)*  )?')' ': ' nombre=EString;
+	
+TipoProcedimiento returns TipoProcedimiento:
+	'procedimiento'
+	'('(parametros+=Parametro ( "," parametros+=Parametro)*  )?')' ': ' nombre=EString;
 
 Subproceso returns Subproceso:
 	Funcion | Procedimiento;

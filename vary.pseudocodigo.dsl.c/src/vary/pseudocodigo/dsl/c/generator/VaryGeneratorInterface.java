@@ -50,6 +50,8 @@ import diagramapseudocodigo.Suma;
 import diagramapseudocodigo.Tipo;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
+import diagramapseudocodigo.TipoFuncion;
+import diagramapseudocodigo.TipoProcedimiento;
 import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.Logico;
 import diagramapseudocodigo.ValorComplejo;
@@ -82,6 +84,8 @@ public interface VaryGeneratorInterface {
 	CharSequence generate(Enumerado enumerado);
 	CharSequence generate(SubrangoNumerico subrango);
 	CharSequence generate(SubrangoEnumerado subrango);
+	CharSequence generate(TipoFuncion tipoFuncion);
+	CharSequence generate(TipoProcedimiento tipoProcedimiento);
 	CharSequence generate(FuncionFicheroAbrir funcion);
 	CharSequence generate(FuncionFicheroCerrar funcion);
 	CharSequence generate(Inicio inicio);

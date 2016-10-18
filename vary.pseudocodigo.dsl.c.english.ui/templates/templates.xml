@@ -35,7 +35,7 @@ end_algorithm</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Archivo" deleted="false" description="Template to create a file" enabled="true" name="File">file of ${typeFile}: ${nameFile}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Asignacion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Asignacion" deleted="false" description="Template to create an assignment" enabled="true" name="Assignment">${nameVariable} &lt;- ${nameVariable2} </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Declaracion" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Declaracion" deleted="false" description="Template to declare a variable" enabled="true" name="Variable Declaration">${nameType}: ${nameVariable}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.desde" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.desde" deleted="false" description="Template to define a for loop" enabled="true" name="For">for ${iterador} &lt;- ${InitialValue} to ${top} do
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Desde" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Desde" deleted="false" description="Template to define a for loop" enabled="true" name="For">for ${iterador} &lt;- ${InitialValue} to ${top} do
 end_for</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Devolver" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Devolver" deleted="false" description="Template to add return" enabled="true" name="Return">return ${nameVariable}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Enumerado" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Enumerado" deleted="false" description="Template to create a enumerate" enabled="true" name="Enumerate">${nameEnumerate} = {${valueEnumerate1}, ${valueEnumerate2}, ${valueEnumerate3}}</template>
@@ -46,7 +46,7 @@ return ${a}
 end_function
 </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Matriz" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Matriz" deleted="false" description="Template to create a matrix" enabled="true" name="Matrix">matrix [${dimension1}][${dimension2}] of ${typeMatrix}: ${nameMatriz}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.mientras" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.mientras" deleted="false" description="Template to define a while loop" enabled="true" name="While">while (${iterator} ${public:Enum('signo')} ${top}) do
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Mientras" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Mientras" deleted="false" description="Template to define a while loop" enabled="true" name="While">while (${iterator} ${public:Enum('signo')} ${top}) do
 end_while</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Modulo" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Modulo" deleted="false" description="Template to create the basic structure of a Module" enabled="true" name="Module">Module ${nameModule}
 
@@ -84,9 +84,9 @@ end_procedure</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Registro" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Registro" deleted="false" description="Template to define a registry" enabled="true" name="Registry">registry: ${nameRegistry}
 	${typeField}: ${nameField}
 end_registry</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.repetir" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.repetir" deleted="false" description="Template to define a repeat loop" enabled="true" name="Repeat">repeat
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Repetir" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Repetir" deleted="false" description="Template to define a repeat loop" enabled="true" name="Repeat">repeat
 until (${conditionVariable} ${public:Enum('signo')} ${conditionValue})</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.segun" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.segun" deleted="false" description="Template to define a structure according_to" enabled="true" name="According_to">according_to(${nameVariable}) do
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Segun" context="vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.Segun" deleted="false" description="Template to define a structure according_to" enabled="true" name="According_to">according_to(${nameVariable}) do
 	case 1: write("case 1")
 	case 2: write("case 2")
 	case ${n}: write("case n")

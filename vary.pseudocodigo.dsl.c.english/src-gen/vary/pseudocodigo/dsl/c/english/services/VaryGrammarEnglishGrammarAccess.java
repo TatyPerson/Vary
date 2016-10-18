@@ -541,12 +541,13 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cArchivoParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cEnumeradoParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cSubrangoParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cTipoSubprocesoParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//TipoComplejo:
-		//	Vector | Matriz | Registro | Archivo | Enumerado | Subrango;
+		//	Vector | Matriz | Registro | Archivo | Enumerado | Subrango | TipoSubproceso;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Vector | Matriz | Registro | Archivo | Enumerado | Subrango
+		//Vector | Matriz | Registro | Archivo | Enumerado | Subrango | TipoSubproceso
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Vector
@@ -566,6 +567,167 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 
 		//Subrango
 		public RuleCall getSubrangoParserRuleCall_5() { return cSubrangoParserRuleCall_5; }
+
+		//TipoSubproceso
+		public RuleCall getTipoSubprocesoParserRuleCall_6() { return cTipoSubprocesoParserRuleCall_6; }
+	}
+
+	public class TipoSubprocesoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.TipoSubproceso");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTipoFuncionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cTipoProcedimientoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//TipoSubproceso:
+		//	TipoFuncion | TipoProcedimiento;
+		@Override public ParserRule getRule() { return rule; }
+
+		//TipoFuncion | TipoProcedimiento
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//TipoFuncion
+		public RuleCall getTipoFuncionParserRuleCall_0() { return cTipoFuncionParserRuleCall_0; }
+
+		//TipoProcedimiento
+		public RuleCall getTipoProcedimientoParserRuleCall_1() { return cTipoProcedimientoParserRuleCall_1; }
+	}
+
+	public class TipoFuncionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.TipoFuncion");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cTipoAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cTipoTipoVariableParserRuleCall_0_0 = (RuleCall)cTipoAssignment_0.eContents().get(0);
+		private final Keyword cFunctionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cParametrosAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cParametrosParametroParserRuleCall_3_0_0 = (RuleCall)cParametrosAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cParametrosAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cParametrosParametroParserRuleCall_3_1_1_0 = (RuleCall)cParametrosAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cColonSpaceKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cNombreAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cNombreEStringParserRuleCall_6_0 = (RuleCall)cNombreAssignment_6.eContents().get(0);
+		
+		//TipoFuncion:
+		//	tipo=TipoVariable 'function'
+		//	'(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString;
+		@Override public ParserRule getRule() { return rule; }
+
+		//tipo=TipoVariable 'function' '(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString
+		public Group getGroup() { return cGroup; }
+
+		//tipo=TipoVariable
+		public Assignment getTipoAssignment_0() { return cTipoAssignment_0; }
+
+		//TipoVariable
+		public RuleCall getTipoTipoVariableParserRuleCall_0_0() { return cTipoTipoVariableParserRuleCall_0_0; }
+
+		//'function'
+		public Keyword getFunctionKeyword_1() { return cFunctionKeyword_1; }
+
+		//'('
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+
+		//(parametros+=Parametro ("," parametros+=Parametro)*)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//parametros+=Parametro
+		public Assignment getParametrosAssignment_3_0() { return cParametrosAssignment_3_0; }
+
+		//Parametro
+		public RuleCall getParametrosParametroParserRuleCall_3_0_0() { return cParametrosParametroParserRuleCall_3_0_0; }
+
+		//("," parametros+=Parametro)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//","
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+
+		//parametros+=Parametro
+		public Assignment getParametrosAssignment_3_1_1() { return cParametrosAssignment_3_1_1; }
+
+		//Parametro
+		public RuleCall getParametrosParametroParserRuleCall_3_1_1_0() { return cParametrosParametroParserRuleCall_3_1_1_0; }
+
+		//')'
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+
+		//': '
+		public Keyword getColonSpaceKeyword_5() { return cColonSpaceKeyword_5; }
+
+		//nombre=EString
+		public Assignment getNombreAssignment_6() { return cNombreAssignment_6; }
+
+		//EString
+		public RuleCall getNombreEStringParserRuleCall_6_0() { return cNombreEStringParserRuleCall_6_0; }
+	}
+
+	public class TipoProcedimientoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "vary.pseudocodigo.dsl.c.english.VaryGrammarEnglish.TipoProcedimiento");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cProcedureKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Assignment cParametrosAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cParametrosParametroParserRuleCall_2_0_0 = (RuleCall)cParametrosAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cCommaKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cParametrosAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cParametrosParametroParserRuleCall_2_1_1_0 = (RuleCall)cParametrosAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cColonSpaceKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cNombreAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cNombreEStringParserRuleCall_5_0 = (RuleCall)cNombreAssignment_5.eContents().get(0);
+		
+		//TipoProcedimiento:
+		//	'procedure'
+		//	'(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString;
+		@Override public ParserRule getRule() { return rule; }
+
+		//'procedure' '(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString
+		public Group getGroup() { return cGroup; }
+
+		//'procedure'
+		public Keyword getProcedureKeyword_0() { return cProcedureKeyword_0; }
+
+		//'('
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//(parametros+=Parametro ("," parametros+=Parametro)*)?
+		public Group getGroup_2() { return cGroup_2; }
+
+		//parametros+=Parametro
+		public Assignment getParametrosAssignment_2_0() { return cParametrosAssignment_2_0; }
+
+		//Parametro
+		public RuleCall getParametrosParametroParserRuleCall_2_0_0() { return cParametrosParametroParserRuleCall_2_0_0; }
+
+		//("," parametros+=Parametro)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+
+		//","
+		public Keyword getCommaKeyword_2_1_0() { return cCommaKeyword_2_1_0; }
+
+		//parametros+=Parametro
+		public Assignment getParametrosAssignment_2_1_1() { return cParametrosAssignment_2_1_1; }
+
+		//Parametro
+		public RuleCall getParametrosParametroParserRuleCall_2_1_1_0() { return cParametrosParametroParserRuleCall_2_1_1_0; }
+
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+
+		//': '
+		public Keyword getColonSpaceKeyword_4() { return cColonSpaceKeyword_4; }
+
+		//nombre=EString
+		public Assignment getNombreAssignment_5() { return cNombreAssignment_5; }
+
+		//EString
+		public RuleCall getNombreEStringParserRuleCall_5_0() { return cNombreEStringParserRuleCall_5_0; }
 	}
 
 	public class SubprocesoElements extends AbstractParserRuleElementFinder {
@@ -4162,6 +4324,9 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	private final CabeceraProcedimientoElements pCabeceraProcedimiento;
 	private final CabeceraFuncionElements pCabeceraFuncion;
 	private final TipoComplejoElements pTipoComplejo;
+	private final TipoSubprocesoElements pTipoSubproceso;
+	private final TipoFuncionElements pTipoFuncion;
+	private final TipoProcedimientoElements pTipoProcedimiento;
 	private final SubprocesoElements pSubproceso;
 	private final ComentarioElements pComentario;
 	private final SentenciaElements pSentencia;
@@ -4264,6 +4429,9 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		this.pCabeceraProcedimiento = new CabeceraProcedimientoElements();
 		this.pCabeceraFuncion = new CabeceraFuncionElements();
 		this.pTipoComplejo = new TipoComplejoElements();
+		this.pTipoSubproceso = new TipoSubprocesoElements();
+		this.pTipoFuncion = new TipoFuncionElements();
+		this.pTipoProcedimiento = new TipoProcedimientoElements();
 		this.pSubproceso = new SubprocesoElements();
 		this.pComentario = new ComentarioElements();
 		this.pSentencia = new SentenciaElements();
@@ -4472,13 +4640,45 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 	}
 
 	//TipoComplejo:
-	//	Vector | Matriz | Registro | Archivo | Enumerado | Subrango;
+	//	Vector | Matriz | Registro | Archivo | Enumerado | Subrango | TipoSubproceso;
 	public TipoComplejoElements getTipoComplejoAccess() {
 		return pTipoComplejo;
 	}
 	
 	public ParserRule getTipoComplejoRule() {
 		return getTipoComplejoAccess().getRule();
+	}
+
+	//TipoSubproceso:
+	//	TipoFuncion | TipoProcedimiento;
+	public TipoSubprocesoElements getTipoSubprocesoAccess() {
+		return pTipoSubproceso;
+	}
+	
+	public ParserRule getTipoSubprocesoRule() {
+		return getTipoSubprocesoAccess().getRule();
+	}
+
+	//TipoFuncion:
+	//	tipo=TipoVariable 'function'
+	//	'(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString;
+	public TipoFuncionElements getTipoFuncionAccess() {
+		return pTipoFuncion;
+	}
+	
+	public ParserRule getTipoFuncionRule() {
+		return getTipoFuncionAccess().getRule();
+	}
+
+	//TipoProcedimiento:
+	//	'procedure'
+	//	'(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString;
+	public TipoProcedimientoElements getTipoProcedimientoAccess() {
+		return pTipoProcedimiento;
+	}
+	
+	public ParserRule getTipoProcedimientoRule() {
+		return getTipoProcedimientoAccess().getRule();
 	}
 
 	//Subproceso:

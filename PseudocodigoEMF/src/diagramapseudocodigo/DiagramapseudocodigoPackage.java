@@ -4643,6 +4643,153 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	int OPERACION_COMPLETA_OPERATION_COUNT = OPERACION_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoSubprocesoImpl <em>Tipo Subproceso</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.TipoSubprocesoImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoSubproceso()
+	 * @generated
+	 */
+	int TIPO_SUBPROCESO = 76;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_SUBPROCESO__NOMBRE = TIPO_COMPLEJO__NOMBRE;
+
+	/**
+	 * The feature id for the '<em><b>Parametros</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_SUBPROCESO__PARAMETROS = TIPO_COMPLEJO_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Tipo Subproceso</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_SUBPROCESO_FEATURE_COUNT = TIPO_COMPLEJO_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Tipo Subproceso</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_SUBPROCESO_OPERATION_COUNT = TIPO_COMPLEJO_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoFuncionImpl <em>Tipo Funcion</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.TipoFuncionImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoFuncion()
+	 * @generated
+	 */
+	int TIPO_FUNCION = 77;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_FUNCION__NOMBRE = TIPO_SUBPROCESO__NOMBRE;
+
+	/**
+	 * The feature id for the '<em><b>Parametros</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_FUNCION__PARAMETROS = TIPO_SUBPROCESO__PARAMETROS;
+
+	/**
+	 * The feature id for the '<em><b>Tipo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_FUNCION__TIPO = TIPO_SUBPROCESO_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Tipo Funcion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_FUNCION_FEATURE_COUNT = TIPO_SUBPROCESO_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Tipo Funcion</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_FUNCION_OPERATION_COUNT = TIPO_SUBPROCESO_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link diagramapseudocodigo.impl.TipoProcedimientoImpl <em>Tipo Procedimiento</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see diagramapseudocodigo.impl.TipoProcedimientoImpl
+	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoProcedimiento()
+	 * @generated
+	 */
+	int TIPO_PROCEDIMIENTO = 78;
+
+	/**
+	 * The feature id for the '<em><b>Nombre</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_PROCEDIMIENTO__NOMBRE = TIPO_SUBPROCESO__NOMBRE;
+
+	/**
+	 * The feature id for the '<em><b>Parametros</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_PROCEDIMIENTO__PARAMETROS = TIPO_SUBPROCESO__PARAMETROS;
+
+	/**
+	 * The number of structural features of the '<em>Tipo Procedimiento</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_PROCEDIMIENTO_FEATURE_COUNT = TIPO_SUBPROCESO_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Tipo Procedimiento</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIPO_PROCEDIMIENTO_OPERATION_COUNT = TIPO_SUBPROCESO_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4650,7 +4797,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getsigno()
 	 * @generated
 	 */
-	int SIGNO = 76;
+	int SIGNO = 79;
 
 	/**
 	 * The meta object id for the '{@link diagramapseudocodigo.ModoApertura <em>Modo Apertura</em>}' enum.
@@ -4660,7 +4807,7 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getModoApertura()
 	 * @generated
 	 */
-	int MODO_APERTURA = 77;
+	int MODO_APERTURA = 80;
 
 
 	/**
@@ -6733,6 +6880,58 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 	EReference getOperacionCompleta_Valor_operacion();
 
 	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.TipoSubproceso <em>Tipo Subproceso</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tipo Subproceso</em>'.
+	 * @see diagramapseudocodigo.TipoSubproceso
+	 * @generated
+	 */
+	EClass getTipoSubproceso();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link diagramapseudocodigo.TipoSubproceso#getParametros <em>Parametros</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Parametros</em>'.
+	 * @see diagramapseudocodigo.TipoSubproceso#getParametros()
+	 * @see #getTipoSubproceso()
+	 * @generated
+	 */
+	EReference getTipoSubproceso_Parametros();
+
+	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.TipoFuncion <em>Tipo Funcion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tipo Funcion</em>'.
+	 * @see diagramapseudocodigo.TipoFuncion
+	 * @generated
+	 */
+	EClass getTipoFuncion();
+
+	/**
+	 * Returns the meta object for the attribute '{@link diagramapseudocodigo.TipoFuncion#getTipo <em>Tipo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tipo</em>'.
+	 * @see diagramapseudocodigo.TipoFuncion#getTipo()
+	 * @see #getTipoFuncion()
+	 * @generated
+	 */
+	EAttribute getTipoFuncion_Tipo();
+
+	/**
+	 * Returns the meta object for class '{@link diagramapseudocodigo.TipoProcedimiento <em>Tipo Procedimiento</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Tipo Procedimiento</em>'.
+	 * @see diagramapseudocodigo.TipoProcedimiento
+	 * @generated
+	 */
+	EClass getTipoProcedimiento();
+
+	/**
 	 * Returns the meta object for enum '{@link diagramapseudocodigo.signo <em>signo</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -8486,6 +8685,52 @@ public interface DiagramapseudocodigoPackage extends EPackage {
 		 * @generated
 		 */
 		EReference OPERACION_COMPLETA__VALOR_OPERACION = eINSTANCE.getOperacionCompleta_Valor_operacion();
+
+		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.TipoSubprocesoImpl <em>Tipo Subproceso</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.TipoSubprocesoImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoSubproceso()
+		 * @generated
+		 */
+		EClass TIPO_SUBPROCESO = eINSTANCE.getTipoSubproceso();
+
+		/**
+		 * The meta object literal for the '<em><b>Parametros</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TIPO_SUBPROCESO__PARAMETROS = eINSTANCE.getTipoSubproceso_Parametros();
+
+		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.TipoFuncionImpl <em>Tipo Funcion</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.TipoFuncionImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoFuncion()
+		 * @generated
+		 */
+		EClass TIPO_FUNCION = eINSTANCE.getTipoFuncion();
+
+		/**
+		 * The meta object literal for the '<em><b>Tipo</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIPO_FUNCION__TIPO = eINSTANCE.getTipoFuncion_Tipo();
+
+		/**
+		 * The meta object literal for the '{@link diagramapseudocodigo.impl.TipoProcedimientoImpl <em>Tipo Procedimiento</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see diagramapseudocodigo.impl.TipoProcedimientoImpl
+		 * @see diagramapseudocodigo.impl.DiagramapseudocodigoPackageImpl#getTipoProcedimiento()
+		 * @generated
+		 */
+		EClass TIPO_PROCEDIMIENTO = eINSTANCE.getTipoProcedimiento();
 
 		/**
 		 * The meta object literal for the '{@link diagramapseudocodigo.signo <em>signo</em>}' enum.

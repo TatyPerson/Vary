@@ -661,6 +661,33 @@ public interface DiagramapseudocodigoFactory extends EFactory {
 	OperacionCompleta createOperacionCompleta();
 
 	/**
+	 * Returns a new object of class '<em>Tipo Subproceso</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tipo Subproceso</em>'.
+	 * @generated
+	 */
+	TipoSubproceso createTipoSubproceso();
+
+	/**
+	 * Returns a new object of class '<em>Tipo Funcion</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tipo Funcion</em>'.
+	 * @generated
+	 */
+	TipoFuncion createTipoFuncion();
+
+	/**
+	 * Returns a new object of class '<em>Tipo Procedimiento</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Tipo Procedimiento</em>'.
+	 * @generated
+	 */
+	TipoProcedimiento createTipoProcedimiento();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

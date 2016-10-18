@@ -72,6 +72,9 @@ import diagramapseudocodigo.Tipo;
 import diagramapseudocodigo.TipoBasico;
 import diagramapseudocodigo.TipoComplejo;
 import diagramapseudocodigo.TipoDefinido;
+import diagramapseudocodigo.TipoFuncion;
+import diagramapseudocodigo.TipoProcedimiento;
+import diagramapseudocodigo.TipoSubproceso;
 import diagramapseudocodigo.Valor;
 import diagramapseudocodigo.ValorComplejo;
 import diagramapseudocodigo.ValorMatriz;
@@ -629,6 +632,27 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * @generated
 	 */
 	private EClass operacionCompletaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tipoSubprocesoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tipoFuncionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass tipoProcedimientoEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -2465,6 +2489,51 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getTipoSubproceso() {
+		return tipoSubprocesoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getTipoSubproceso_Parametros() {
+		return (EReference)tipoSubprocesoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTipoFuncion() {
+		return tipoFuncionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getTipoFuncion_Tipo() {
+		return (EAttribute)tipoFuncionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getTipoProcedimiento() {
+		return tipoProcedimientoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getsigno() {
 		return signoEEnum;
 	}
@@ -2777,6 +2846,14 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		operacionCompletaEClass = createEClass(OPERACION_COMPLETA);
 		createEReference(operacionCompletaEClass, OPERACION_COMPLETA__VALOR_OPERACION);
 
+		tipoSubprocesoEClass = createEClass(TIPO_SUBPROCESO);
+		createEReference(tipoSubprocesoEClass, TIPO_SUBPROCESO__PARAMETROS);
+
+		tipoFuncionEClass = createEClass(TIPO_FUNCION);
+		createEAttribute(tipoFuncionEClass, TIPO_FUNCION__TIPO);
+
+		tipoProcedimientoEClass = createEClass(TIPO_PROCEDIMIENTO);
+
 		// Create enums
 		signoEEnum = createEEnum(SIGNO);
 		modoAperturaEEnum = createEEnum(MODO_APERTURA);
@@ -2878,6 +2955,9 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 		divisionRealEClass.getESuperTypes().add(this.getOperacion());
 		operacionParentesisEClass.getESuperTypes().add(this.getOperacion());
 		operacionCompletaEClass.getESuperTypes().add(this.getOperacion());
+		tipoSubprocesoEClass.getESuperTypes().add(this.getTipoComplejo());
+		tipoFuncionEClass.getESuperTypes().add(this.getTipoSubproceso());
+		tipoProcedimientoEClass.getESuperTypes().add(this.getTipoSubproceso());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(algoritmoEClass, Algoritmo.class, "Algoritmo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -3150,6 +3230,14 @@ public class DiagramapseudocodigoPackageImpl extends EPackageImpl implements Dia
 
 		initEClass(operacionCompletaEClass, OperacionCompleta.class, "OperacionCompleta", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOperacionCompleta_Valor_operacion(), this.getOperacion(), null, "valor_operacion", null, 0, 1, OperacionCompleta.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tipoSubprocesoEClass, TipoSubproceso.class, "TipoSubproceso", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getTipoSubproceso_Parametros(), this.getParametro(), null, "parametros", null, 0, -1, TipoSubproceso.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tipoFuncionEClass, TipoFuncion.class, "TipoFuncion", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getTipoFuncion_Tipo(), ecorePackage.getEString(), "tipo", null, 1, 1, TipoFuncion.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(tipoProcedimientoEClass, TipoProcedimiento.class, "TipoProcedimiento", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(signoEEnum, signo.class, "signo");

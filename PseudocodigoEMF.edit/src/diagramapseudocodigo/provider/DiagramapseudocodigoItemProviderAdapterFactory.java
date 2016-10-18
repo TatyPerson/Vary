@@ -1705,6 +1705,75 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.TipoSubproceso} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TipoSubprocesoItemProvider tipoSubprocesoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.TipoSubproceso}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTipoSubprocesoAdapter() {
+		if (tipoSubprocesoItemProvider == null) {
+			tipoSubprocesoItemProvider = new TipoSubprocesoItemProvider(this);
+		}
+
+		return tipoSubprocesoItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.TipoFuncion} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TipoFuncionItemProvider tipoFuncionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.TipoFuncion}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTipoFuncionAdapter() {
+		if (tipoFuncionItemProvider == null) {
+			tipoFuncionItemProvider = new TipoFuncionItemProvider(this);
+		}
+
+		return tipoFuncionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link diagramapseudocodigo.TipoProcedimiento} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TipoProcedimientoItemProvider tipoProcedimientoItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link diagramapseudocodigo.TipoProcedimiento}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTipoProcedimientoAdapter() {
+		if (tipoProcedimientoItemProvider == null) {
+			tipoProcedimientoItemProvider = new TipoProcedimientoItemProvider(this);
+		}
+
+		return tipoProcedimientoItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1874,6 +1943,9 @@ public class DiagramapseudocodigoItemProviderAdapterFactory extends Diagramapseu
 		if (divisionRealItemProvider != null) divisionRealItemProvider.dispose();
 		if (operacionParentesisItemProvider != null) operacionParentesisItemProvider.dispose();
 		if (operacionCompletaItemProvider != null) operacionCompletaItemProvider.dispose();
+		if (tipoSubprocesoItemProvider != null) tipoSubprocesoItemProvider.dispose();
+		if (tipoFuncionItemProvider != null) tipoFuncionItemProvider.dispose();
+		if (tipoProcedimientoItemProvider != null) tipoProcedimientoItemProvider.dispose();
 	}
 
 }

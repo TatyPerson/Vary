@@ -372,6 +372,18 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 				return createOperacionCompletaAdapter();
 			}
 			@Override
+			public Adapter caseTipoSubproceso(TipoSubproceso object) {
+				return createTipoSubprocesoAdapter();
+			}
+			@Override
+			public Adapter caseTipoFuncion(TipoFuncion object) {
+				return createTipoFuncionAdapter();
+			}
+			@Override
+			public Adapter caseTipoProcedimiento(TipoProcedimiento object) {
+				return createTipoProcedimientoAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -1452,6 +1464,48 @@ public class DiagramapseudocodigoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createOperacionCompletaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.TipoSubproceso <em>Tipo Subproceso</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.TipoSubproceso
+	 * @generated
+	 */
+	public Adapter createTipoSubprocesoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.TipoFuncion <em>Tipo Funcion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.TipoFuncion
+	 * @generated
+	 */
+	public Adapter createTipoFuncionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link diagramapseudocodigo.TipoProcedimiento <em>Tipo Procedimiento</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see diagramapseudocodigo.TipoProcedimiento
+	 * @generated
+	 */
+	public Adapter createTipoProcedimientoAdapter() {
 		return null;
 	}
 

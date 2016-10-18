@@ -228,6 +228,21 @@ public class ImplementacionItemProvider
 			(createChildParameter
 				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
 				 DiagramapseudocodigoFactory.eINSTANCE.createSubrangoEnumerado()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoSubproceso()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoFuncion()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DiagramapseudocodigoPackage.Literals.IMPLEMENTACION__COMPLEJOS,
+				 DiagramapseudocodigoFactory.eINSTANCE.createTipoProcedimiento()));
 	}
 
 	/**

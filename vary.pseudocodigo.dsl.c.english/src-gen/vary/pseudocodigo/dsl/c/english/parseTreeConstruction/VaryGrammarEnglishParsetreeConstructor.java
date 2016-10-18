@@ -38,68 +38,71 @@ protected class ThisRootNode extends RootToken {
 			case 5: return new CabeceraProcedimiento_Group(this, this, 5, inst);
 			case 6: return new CabeceraFuncion_Group(this, this, 6, inst);
 			case 7: return new TipoComplejo_Alternatives(this, this, 7, inst);
-			case 8: return new Subproceso_Alternatives(this, this, 8, inst);
-			case 9: return new Comentario_Alternatives(this, this, 9, inst);
-			case 10: return new Sentencia_Alternatives(this, this, 10, inst);
-			case 11: return new Bloque_Alternatives(this, this, 11, inst);
-			case 12: return new Declaracion_Alternatives(this, this, 12, inst);
-			case 13: return new FuncionFicheroAbrir_Group(this, this, 13, inst);
-			case 14: return new FuncionFicheroCerrar_Group(this, this, 14, inst);
-			case 15: return new Tipo_Alternatives(this, this, 15, inst);
-			case 16: return new TipoDefinido_NombreAssignment(this, this, 16, inst);
-			case 17: return new TipoBasico_NombreAssignment(this, this, 17, inst);
-			case 18: return new Constante_Group(this, this, 18, inst);
-			case 19: return new Vector_Group(this, this, 19, inst);
-			case 20: return new Matriz_Group(this, this, 20, inst);
-			case 21: return new Registro_Group(this, this, 21, inst);
-			case 22: return new Archivo_Group(this, this, 22, inst);
-			case 23: return new Enumerado_Group(this, this, 23, inst);
-			case 24: return new Subrango_Alternatives(this, this, 24, inst);
-			case 25: return new SubrangoNumerico_Group(this, this, 25, inst);
-			case 26: return new SubrangoEnumerado_Group(this, this, 26, inst);
-			case 27: return new Inicio_Group(this, this, 27, inst);
-			case 28: return new DeclaracionBasica_Group(this, this, 28, inst);
-			case 29: return new DeclaracionDefinida_Group(this, this, 29, inst);
-			case 30: return new Asignacion_Alternatives(this, this, 30, inst);
-			case 31: return new AsignacionNormal_Group(this, this, 31, inst);
-			case 32: return new AsignacionCompleja_Group(this, this, 32, inst);
-			case 33: return new Escribir_Group(this, this, 33, inst);
-			case 34: return new Leer_Group(this, this, 34, inst);
-			case 35: return new Si_Group(this, this, 35, inst);
-			case 36: return new Mientras_Group(this, this, 36, inst);
-			case 37: return new Repetir_Group(this, this, 37, inst);
-			case 38: return new Desde_Group(this, this, 38, inst);
-			case 39: return new Caso_Group(this, this, 39, inst);
-			case 40: return new Segun_Group(this, this, 40, inst);
-			case 41: return new Variable_Group(this, this, 41, inst);
-			case 42: return new Operacion_OrParserRuleCall(this, this, 42, inst);
-			case 43: return new Or_Group(this, this, 43, inst);
-			case 44: return new And_Group(this, this, 44, inst);
-			case 45: return new Mod_Group(this, this, 45, inst);
-			case 46: return new Igualdad_Group(this, this, 46, inst);
-			case 47: return new Comparacion_Group(this, this, 47, inst);
-			case 48: return new SumaResta_Group(this, this, 48, inst);
-			case 49: return new MultiplicacionDivision_Group(this, this, 49, inst);
-			case 50: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 50, inst);
-			case 51: return new OrIndice_Group(this, this, 51, inst);
-			case 52: return new AndIndice_Group(this, this, 52, inst);
-			case 53: return new IgualdadIndice_Group(this, this, 53, inst);
-			case 54: return new ComparacionIndice_Group(this, this, 54, inst);
-			case 55: return new SumaRestaIndice_Group(this, this, 55, inst);
-			case 56: return new MultiplicacionDivisionIndice_Group(this, this, 56, inst);
-			case 57: return new PrimariaIndice_Alternatives(this, this, 57, inst);
-			case 58: return new Primaria_Alternatives(this, this, 58, inst);
-			case 59: return new OperacionCompleta_Group(this, this, 59, inst);
-			case 60: return new OperacionParentesis_Group(this, this, 60, inst);
-			case 61: return new Funciones_Alternatives(this, this, 61, inst);
-			case 62: return new CampoRegistro_Alternatives(this, this, 62, inst);
-			case 63: return new VariablesComplejas_Alternatives(this, this, 63, inst);
-			case 64: return new VariablesBasicas_Alternatives(this, this, 64, inst);
-			case 65: return new Sino_Group(this, this, 65, inst);
-			case 66: return new Devolver_Group(this, this, 66, inst);
-			case 67: return new Parametro_Group(this, this, 67, inst);
-			case 68: return new Funcion_Group(this, this, 68, inst);
-			case 69: return new Procedimiento_Group(this, this, 69, inst);
+			case 8: return new TipoSubproceso_Alternatives(this, this, 8, inst);
+			case 9: return new TipoFuncion_Group(this, this, 9, inst);
+			case 10: return new TipoProcedimiento_Group(this, this, 10, inst);
+			case 11: return new Subproceso_Alternatives(this, this, 11, inst);
+			case 12: return new Comentario_Alternatives(this, this, 12, inst);
+			case 13: return new Sentencia_Alternatives(this, this, 13, inst);
+			case 14: return new Bloque_Alternatives(this, this, 14, inst);
+			case 15: return new Declaracion_Alternatives(this, this, 15, inst);
+			case 16: return new FuncionFicheroAbrir_Group(this, this, 16, inst);
+			case 17: return new FuncionFicheroCerrar_Group(this, this, 17, inst);
+			case 18: return new Tipo_Alternatives(this, this, 18, inst);
+			case 19: return new TipoDefinido_NombreAssignment(this, this, 19, inst);
+			case 20: return new TipoBasico_NombreAssignment(this, this, 20, inst);
+			case 21: return new Constante_Group(this, this, 21, inst);
+			case 22: return new Vector_Group(this, this, 22, inst);
+			case 23: return new Matriz_Group(this, this, 23, inst);
+			case 24: return new Registro_Group(this, this, 24, inst);
+			case 25: return new Archivo_Group(this, this, 25, inst);
+			case 26: return new Enumerado_Group(this, this, 26, inst);
+			case 27: return new Subrango_Alternatives(this, this, 27, inst);
+			case 28: return new SubrangoNumerico_Group(this, this, 28, inst);
+			case 29: return new SubrangoEnumerado_Group(this, this, 29, inst);
+			case 30: return new Inicio_Group(this, this, 30, inst);
+			case 31: return new DeclaracionBasica_Group(this, this, 31, inst);
+			case 32: return new DeclaracionDefinida_Group(this, this, 32, inst);
+			case 33: return new Asignacion_Alternatives(this, this, 33, inst);
+			case 34: return new AsignacionNormal_Group(this, this, 34, inst);
+			case 35: return new AsignacionCompleja_Group(this, this, 35, inst);
+			case 36: return new Escribir_Group(this, this, 36, inst);
+			case 37: return new Leer_Group(this, this, 37, inst);
+			case 38: return new Si_Group(this, this, 38, inst);
+			case 39: return new Mientras_Group(this, this, 39, inst);
+			case 40: return new Repetir_Group(this, this, 40, inst);
+			case 41: return new Desde_Group(this, this, 41, inst);
+			case 42: return new Caso_Group(this, this, 42, inst);
+			case 43: return new Segun_Group(this, this, 43, inst);
+			case 44: return new Variable_Group(this, this, 44, inst);
+			case 45: return new Operacion_OrParserRuleCall(this, this, 45, inst);
+			case 46: return new Or_Group(this, this, 46, inst);
+			case 47: return new And_Group(this, this, 47, inst);
+			case 48: return new Mod_Group(this, this, 48, inst);
+			case 49: return new Igualdad_Group(this, this, 49, inst);
+			case 50: return new Comparacion_Group(this, this, 50, inst);
+			case 51: return new SumaResta_Group(this, this, 51, inst);
+			case 52: return new MultiplicacionDivision_Group(this, this, 52, inst);
+			case 53: return new OperacionIndice_OrIndiceParserRuleCall(this, this, 53, inst);
+			case 54: return new OrIndice_Group(this, this, 54, inst);
+			case 55: return new AndIndice_Group(this, this, 55, inst);
+			case 56: return new IgualdadIndice_Group(this, this, 56, inst);
+			case 57: return new ComparacionIndice_Group(this, this, 57, inst);
+			case 58: return new SumaRestaIndice_Group(this, this, 58, inst);
+			case 59: return new MultiplicacionDivisionIndice_Group(this, this, 59, inst);
+			case 60: return new PrimariaIndice_Alternatives(this, this, 60, inst);
+			case 61: return new Primaria_Alternatives(this, this, 61, inst);
+			case 62: return new OperacionCompleta_Group(this, this, 62, inst);
+			case 63: return new OperacionParentesis_Group(this, this, 63, inst);
+			case 64: return new Funciones_Alternatives(this, this, 64, inst);
+			case 65: return new CampoRegistro_Alternatives(this, this, 65, inst);
+			case 66: return new VariablesComplejas_Alternatives(this, this, 66, inst);
+			case 67: return new VariablesBasicas_Alternatives(this, this, 67, inst);
+			case 68: return new Sino_Group(this, this, 68, inst);
+			case 69: return new Devolver_Group(this, this, 69, inst);
+			case 70: return new Parametro_Group(this, this, 70, inst);
+			case 71: return new Funcion_Group(this, this, 71, inst);
+			case 72: return new Procedimiento_Group(this, this, 72, inst);
 			default: return null;
 		}	
 	}	
@@ -2655,11 +2658,11 @@ protected class CabeceraFuncion_RightParenthesisKeyword_4 extends KeywordToken  
 /************ begin Rule TipoComplejo ****************
  *
  * TipoComplejo:
- * 	Vector | Matriz | Registro | Archivo | Enumerado | Subrango;
+ * 	Vector | Matriz | Registro | Archivo | Enumerado | Subrango | TipoSubproceso;
  *
  **/
 
-// Vector | Matriz | Registro | Archivo | Enumerado | Subrango
+// Vector | Matriz | Registro | Archivo | Enumerado | Subrango | TipoSubproceso
 protected class TipoComplejo_Alternatives extends AlternativesToken {
 
 	public TipoComplejo_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2680,6 +2683,7 @@ protected class TipoComplejo_Alternatives extends AlternativesToken {
 			case 3: return new TipoComplejo_ArchivoParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			case 4: return new TipoComplejo_EnumeradoParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			case 5: return new TipoComplejo_SubrangoParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
+			case 6: return new TipoComplejo_TipoSubprocesoParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
 			default: return null;
 		}	
 	}
@@ -2692,6 +2696,8 @@ protected class TipoComplejo_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getRegistroRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSubrangoEnumeradoRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSubrangoNumericoRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getTipoFuncionRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getTipoProcedimientoRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVectorRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -2916,8 +2922,843 @@ protected class TipoComplejo_SubrangoParserRuleCall_5 extends RuleCallToken {
 	}	
 }
 
+// TipoSubproceso
+protected class TipoComplejo_TipoSubprocesoParserRuleCall_6 extends RuleCallToken {
+	
+	public TipoComplejo_TipoSubprocesoParserRuleCall_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getTipoComplejoAccess().getTipoSubprocesoParserRuleCall_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoSubproceso_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTipoFuncionRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getTipoProcedimientoRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(TipoSubproceso_Alternatives.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
 
 /************ end Rule TipoComplejo ****************/
+
+
+/************ begin Rule TipoSubproceso ****************
+ *
+ * TipoSubproceso:
+ * 	TipoFuncion | TipoProcedimiento;
+ *
+ **/
+
+// TipoFuncion | TipoProcedimiento
+protected class TipoSubproceso_Alternatives extends AlternativesToken {
+
+	public TipoSubproceso_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getTipoSubprocesoAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoSubproceso_TipoFuncionParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoSubproceso_TipoProcedimientoParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTipoFuncionRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getTipoProcedimientoRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// TipoFuncion
+protected class TipoSubproceso_TipoFuncionParserRuleCall_0 extends RuleCallToken {
+	
+	public TipoSubproceso_TipoFuncionParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getTipoSubprocesoAccess().getTipoFuncionParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTipoFuncionRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(TipoFuncion_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// TipoProcedimiento
+protected class TipoSubproceso_TipoProcedimientoParserRuleCall_1 extends RuleCallToken {
+	
+	public TipoSubproceso_TipoProcedimientoParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getTipoSubprocesoAccess().getTipoProcedimientoParserRuleCall_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTipoProcedimientoRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(TipoProcedimiento_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+
+/************ end Rule TipoSubproceso ****************/
+
+
+/************ begin Rule TipoFuncion ****************
+ *
+ * TipoFuncion:
+ * 	tipo=TipoVariable 'function'
+ * 	'(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString;
+ *
+ **/
+
+// tipo=TipoVariable 'function' '(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString
+protected class TipoFuncion_Group extends GroupToken {
+	
+	public TipoFuncion_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_NombreAssignment_6(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTipoFuncionRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// tipo=TipoVariable
+protected class TipoFuncion_TipoAssignment_0 extends AssignmentToken  {
+	
+	public TipoFuncion_TipoAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getTipoAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("tipo",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("tipo");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTipoFuncionAccess().getTipoTipoVariableParserRuleCall_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getTipoFuncionAccess().getTipoTipoVariableParserRuleCall_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// 'function'
+protected class TipoFuncion_FunctionKeyword_1 extends KeywordToken  {
+	
+	public TipoFuncion_FunctionKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getFunctionKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_TipoAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// '('
+protected class TipoFuncion_LeftParenthesisKeyword_2 extends KeywordToken  {
+	
+	public TipoFuncion_LeftParenthesisKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getLeftParenthesisKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_FunctionKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// (parametros+=Parametro ("," parametros+=Parametro)*)?
+protected class TipoFuncion_Group_3 extends GroupToken {
+	
+	public TipoFuncion_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_Group_3_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoFuncion_ParametrosAssignment_3_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// parametros+=Parametro
+protected class TipoFuncion_ParametrosAssignment_3_0 extends AssignmentToken  {
+	
+	public TipoFuncion_ParametrosAssignment_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getParametrosAssignment_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Parametro_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("parametros",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("parametros");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getParametroRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getTipoFuncionAccess().getParametrosParametroParserRuleCall_3_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new TipoFuncion_LeftParenthesisKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," parametros+=Parametro)*
+protected class TipoFuncion_Group_3_1 extends GroupToken {
+	
+	public TipoFuncion_Group_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getGroup_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_ParametrosAssignment_3_1_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ","
+protected class TipoFuncion_CommaKeyword_3_1_0 extends KeywordToken  {
+	
+	public TipoFuncion_CommaKeyword_3_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getCommaKeyword_3_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_Group_3_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoFuncion_ParametrosAssignment_3_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// parametros+=Parametro
+protected class TipoFuncion_ParametrosAssignment_3_1_1 extends AssignmentToken  {
+	
+	public TipoFuncion_ParametrosAssignment_3_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getParametrosAssignment_3_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Parametro_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("parametros",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("parametros");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getParametroRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getTipoFuncionAccess().getParametrosParametroParserRuleCall_3_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new TipoFuncion_CommaKeyword_3_1_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+// ')'
+protected class TipoFuncion_RightParenthesisKeyword_4 extends KeywordToken  {
+	
+	public TipoFuncion_RightParenthesisKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getRightParenthesisKeyword_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_Group_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoFuncion_LeftParenthesisKeyword_2(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ': '
+protected class TipoFuncion_ColonSpaceKeyword_5 extends KeywordToken  {
+	
+	public TipoFuncion_ColonSpaceKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getColonSpaceKeyword_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_RightParenthesisKeyword_4(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// nombre=EString
+protected class TipoFuncion_NombreAssignment_6 extends AssignmentToken  {
+	
+	public TipoFuncion_NombreAssignment_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoFuncionAccess().getNombreAssignment_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoFuncion_ColonSpaceKeyword_5(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("nombre",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("nombre");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTipoFuncionAccess().getNombreEStringParserRuleCall_6_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getTipoFuncionAccess().getNombreEStringParserRuleCall_6_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule TipoFuncion ****************/
+
+
+/************ begin Rule TipoProcedimiento ****************
+ *
+ * TipoProcedimiento:
+ * 	'procedure'
+ * 	'(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString;
+ *
+ **/
+
+// 'procedure' '(' (parametros+=Parametro ("," parametros+=Parametro)*)? ')' ': ' nombre=EString
+protected class TipoProcedimiento_Group extends GroupToken {
+	
+	public TipoProcedimiento_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_NombreAssignment_5(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTipoProcedimientoRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// 'procedure'
+protected class TipoProcedimiento_ProcedureKeyword_0 extends KeywordToken  {
+	
+	public TipoProcedimiento_ProcedureKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getProcedureKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// '('
+protected class TipoProcedimiento_LeftParenthesisKeyword_1 extends KeywordToken  {
+	
+	public TipoProcedimiento_LeftParenthesisKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getLeftParenthesisKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_ProcedureKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// (parametros+=Parametro ("," parametros+=Parametro)*)?
+protected class TipoProcedimiento_Group_2 extends GroupToken {
+	
+	public TipoProcedimiento_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getGroup_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_Group_2_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoProcedimiento_ParametrosAssignment_2_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// parametros+=Parametro
+protected class TipoProcedimiento_ParametrosAssignment_2_0 extends AssignmentToken  {
+	
+	public TipoProcedimiento_ParametrosAssignment_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getParametrosAssignment_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Parametro_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("parametros",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("parametros");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getParametroRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getTipoProcedimientoAccess().getParametrosParametroParserRuleCall_2_0_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new TipoProcedimiento_LeftParenthesisKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ("," parametros+=Parametro)*
+protected class TipoProcedimiento_Group_2_1 extends GroupToken {
+	
+	public TipoProcedimiento_Group_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getGroup_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_ParametrosAssignment_2_1_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ","
+protected class TipoProcedimiento_CommaKeyword_2_1_0 extends KeywordToken  {
+	
+	public TipoProcedimiento_CommaKeyword_2_1_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getCommaKeyword_2_1_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_Group_2_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoProcedimiento_ParametrosAssignment_2_0(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// parametros+=Parametro
+protected class TipoProcedimiento_ParametrosAssignment_2_1_1 extends AssignmentToken  {
+	
+	public TipoProcedimiento_ParametrosAssignment_2_1_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getParametrosAssignment_2_1_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Parametro_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("parametros",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("parametros");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getParametroRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getTipoProcedimientoAccess().getParametrosParametroParserRuleCall_2_1_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new TipoProcedimiento_CommaKeyword_2_1_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+
+// ')'
+protected class TipoProcedimiento_RightParenthesisKeyword_3 extends KeywordToken  {
+	
+	public TipoProcedimiento_RightParenthesisKeyword_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getRightParenthesisKeyword_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_Group_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TipoProcedimiento_LeftParenthesisKeyword_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ': '
+protected class TipoProcedimiento_ColonSpaceKeyword_4 extends KeywordToken  {
+	
+	public TipoProcedimiento_ColonSpaceKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getColonSpaceKeyword_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_RightParenthesisKeyword_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// nombre=EString
+protected class TipoProcedimiento_NombreAssignment_5 extends AssignmentToken  {
+	
+	public TipoProcedimiento_NombreAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTipoProcedimientoAccess().getNombreAssignment_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TipoProcedimiento_ColonSpaceKeyword_4(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("nombre",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("nombre");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTipoProcedimientoAccess().getNombreEStringParserRuleCall_5_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getTipoProcedimientoAccess().getNombreEStringParserRuleCall_5_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule TipoProcedimiento ****************/
 
 
 /************ begin Rule Subproceso ****************

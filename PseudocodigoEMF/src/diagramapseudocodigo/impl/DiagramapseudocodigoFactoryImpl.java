@@ -128,6 +128,9 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 			case DiagramapseudocodigoPackage.DIVISION_REAL: return createDivisionReal();
 			case DiagramapseudocodigoPackage.OPERACION_PARENTESIS: return createOperacionParentesis();
 			case DiagramapseudocodigoPackage.OPERACION_COMPLETA: return createOperacionCompleta();
+			case DiagramapseudocodigoPackage.TIPO_SUBPROCESO: return createTipoSubproceso();
+			case DiagramapseudocodigoPackage.TIPO_FUNCION: return createTipoFuncion();
+			case DiagramapseudocodigoPackage.TIPO_PROCEDIMIENTO: return createTipoProcedimiento();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -875,6 +878,36 @@ public class DiagramapseudocodigoFactoryImpl extends EFactoryImpl implements Dia
 	public OperacionCompleta createOperacionCompleta() {
 		OperacionCompletaImpl operacionCompleta = new OperacionCompletaImpl();
 		return operacionCompleta;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TipoSubproceso createTipoSubproceso() {
+		TipoSubprocesoImpl tipoSubproceso = new TipoSubprocesoImpl();
+		return tipoSubproceso;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TipoFuncion createTipoFuncion() {
+		TipoFuncionImpl tipoFuncion = new TipoFuncionImpl();
+		return tipoFuncion;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TipoProcedimiento createTipoProcedimiento() {
+		TipoProcedimientoImpl tipoProcedimiento = new TipoProcedimientoImpl();
+		return tipoProcedimiento;
 	}
 
 	/**

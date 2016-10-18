@@ -34,7 +34,7 @@ fin_algoritmo</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Archivo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Archivo" deleted="false" description="Plantilla para crear un archivo" enabled="true" name="Archivo">archivo de ${tipoArchivo}: ${nombreArchivo}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Asignacion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Asignacion" deleted="false" description="Plantilla para crear una asignación" enabled="true" name="Asignación">${nombre_variable} &lt;- ${nombre_variable2} </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion" context="vary.pseudocodigo.dsl.c.VaryGrammar.Declaracion" deleted="false" description="Plantilla para declarar una variable" enabled="true" name="Declaración Variable">${nombreTipo}: ${nombreVariable}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.desde" context="vary.pseudocodigo.dsl.c.VaryGrammar.desde" deleted="false" description="Plantilla para definir un bucle desde" enabled="true" name="Desde">desde ${iterador} &lt;- ${valorInicial} hasta ${tope} hacer
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Desde" context="vary.pseudocodigo.dsl.c.VaryGrammar.Desde" deleted="false" description="Plantilla para definir un bucle desde" enabled="true" name="Desde">desde ${iterador} &lt;- ${valorInicial} hasta ${tope} hacer
 fin_desde</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Devolver" context="vary.pseudocodigo.dsl.c.VaryGrammar.Devolver" deleted="false" description="Plantilla para añadir devolver" enabled="true" name="Devolver">devolver ${nombre_variable}</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Enumerado" context="vary.pseudocodigo.dsl.c.VaryGrammar.Enumerado" deleted="false" description="Plantilla para crear un enumerado" enabled="true" name="Enumerado">${nombreEnumerado} = {${valorEnumerado1}, ${valorEnumerado2}, ${valorEnumerado3}}</template>
@@ -45,7 +45,7 @@ devolver ${a}
 fin_funcion
 </template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" context="vary.pseudocodigo.dsl.c.VaryGrammar.Matriz" deleted="false" description="Plantilla para crear una matriz" enabled="true" name="Matriz">matriz [${dimension1}][${dimension2}] de ${tipoMatriz}: ${nombreMatriz}</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" context="vary.pseudocodigo.dsl.c.VaryGrammar.mientras" deleted="false" description="Plantilla para definir un bucle mientras" enabled="true" name="Mientras">mientras (${iterador} ${public:Enum('signo')} ${tope}) hacer
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Mientras" context="vary.pseudocodigo.dsl.c.VaryGrammar.Mientras" deleted="false" description="Plantilla para definir un bucle mientras" enabled="true" name="Mientras">mientras (${iterador} ${public:Enum('signo')} ${tope}) hacer
 fin_mientras</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Modulo" context="vary.pseudocodigo.dsl.c.VaryGrammar.Modulo" deleted="false" description="Plantilla para crear la estructura básica de un Módulo" enabled="true" name="Módulo">Modulo ${nombre_modulo}
 
@@ -83,9 +83,9 @@ fin_procedimiento</template>
 <template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" context="vary.pseudocodigo.dsl.c.VaryGrammar.Registro" deleted="false" description="Plantilla para definir un registro" enabled="true" name="Registro">registro: ${NombreRegistro}
 	${tipoCampo}: ${nombreCampo}
 fin_registro</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" context="vary.pseudocodigo.dsl.c.VaryGrammar.repetir" deleted="false" description="Plantilla para definir un bucle repetir" enabled="true" name="Repetir">repetir
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Repetir" context="vary.pseudocodigo.dsl.c.VaryGrammar.Repetir" deleted="false" description="Plantilla para definir un bucle repetir" enabled="true" name="Repetir">repetir
 hasta_que (${variableCondicion} ${public:Enum('signo')} ${valorCondicion})</template>
-<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.segun" context="vary.pseudocodigo.dsl.c.VaryGrammar.segun" deleted="false" description="Plantilla para definir una estructura segun_sea" enabled="true" name="Segun_sea">segun_sea(${variable}) hacer
+<template autoinsert="true" id="vary.pseudocodigo.dsl.c.VaryGrammar.Segun" context="vary.pseudocodigo.dsl.c.VaryGrammar.Segun" deleted="false" description="Plantilla para definir una estructura segun_sea" enabled="true" name="Segun_sea">segun_sea(${variable}) hacer
 	caso 1: escribir("caso 1")
 	caso 2: escribir("caso 2")
 	caso ${n}: escribir("caso n")

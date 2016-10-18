@@ -161,6 +161,7 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 		#include <stdio.h>
 		#include <stdlib.h>
 		#include <string.h>
+		#include <math.h>
 		«IF cabeceras»
 		#include "«algoritmo.nombre».h"
 		«ENDIF»
@@ -206,6 +207,7 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 		#include <stdio.h>
 		#include <stdlib.h>
 		#include <string.h>
+		#include <math.h>
 		#include "«modulo.nombre».h"
 		
 		«FOR constante:modulo.implementacion.constantes»

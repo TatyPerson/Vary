@@ -40,6 +40,7 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCodigoAccess().getAlternatives(), "rule__Codigo__Alternatives");
 					put(grammarAccess.getCabeceraSubprocesoAccess().getAlternatives(), "rule__CabeceraSubproceso__Alternatives");
 					put(grammarAccess.getTipoComplejoAccess().getAlternatives(), "rule__TipoComplejo__Alternatives");
+					put(grammarAccess.getTipoSubprocesoAccess().getAlternatives(), "rule__TipoSubproceso__Alternatives");
 					put(grammarAccess.getSubprocesoAccess().getAlternatives(), "rule__Subproceso__Alternatives");
 					put(grammarAccess.getComentarioAccess().getAlternatives(), "rule__Comentario__Alternatives");
 					put(grammarAccess.getSentenciaAccess().getAlternatives(), "rule__Sentencia__Alternatives");
@@ -92,6 +93,12 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCabeceraFuncionAccess().getGroup(), "rule__CabeceraFuncion__Group__0");
 					put(grammarAccess.getCabeceraFuncionAccess().getGroup_3(), "rule__CabeceraFuncion__Group_3__0");
 					put(grammarAccess.getCabeceraFuncionAccess().getGroup_3_1(), "rule__CabeceraFuncion__Group_3_1__0");
+					put(grammarAccess.getTipoFuncionAccess().getGroup(), "rule__TipoFuncion__Group__0");
+					put(grammarAccess.getTipoFuncionAccess().getGroup_3(), "rule__TipoFuncion__Group_3__0");
+					put(grammarAccess.getTipoFuncionAccess().getGroup_3_1(), "rule__TipoFuncion__Group_3_1__0");
+					put(grammarAccess.getTipoProcedimientoAccess().getGroup(), "rule__TipoProcedimiento__Group__0");
+					put(grammarAccess.getTipoProcedimientoAccess().getGroup_2(), "rule__TipoProcedimiento__Group_2__0");
+					put(grammarAccess.getTipoProcedimientoAccess().getGroup_2_1(), "rule__TipoProcedimiento__Group_2_1__0");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getGroup(), "rule__FuncionFicheroAbrir__Group__0");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getGroup_1(), "rule__FuncionFicheroAbrir__Group_1__0");
 					put(grammarAccess.getFuncionFicheroCerrarAccess().getGroup(), "rule__FuncionFicheroCerrar__Group__0");
@@ -227,6 +234,13 @@ public class VaryGrammarEnglishParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCabeceraFuncionAccess().getNombreAssignment_2(), "rule__CabeceraFuncion__NombreAssignment_2");
 					put(grammarAccess.getCabeceraFuncionAccess().getParametrosAssignment_3_0(), "rule__CabeceraFuncion__ParametrosAssignment_3_0");
 					put(grammarAccess.getCabeceraFuncionAccess().getParametrosAssignment_3_1_1(), "rule__CabeceraFuncion__ParametrosAssignment_3_1_1");
+					put(grammarAccess.getTipoFuncionAccess().getTipoAssignment_0(), "rule__TipoFuncion__TipoAssignment_0");
+					put(grammarAccess.getTipoFuncionAccess().getParametrosAssignment_3_0(), "rule__TipoFuncion__ParametrosAssignment_3_0");
+					put(grammarAccess.getTipoFuncionAccess().getParametrosAssignment_3_1_1(), "rule__TipoFuncion__ParametrosAssignment_3_1_1");
+					put(grammarAccess.getTipoFuncionAccess().getNombreAssignment_6(), "rule__TipoFuncion__NombreAssignment_6");
+					put(grammarAccess.getTipoProcedimientoAccess().getParametrosAssignment_2_0(), "rule__TipoProcedimiento__ParametrosAssignment_2_0");
+					put(grammarAccess.getTipoProcedimientoAccess().getParametrosAssignment_2_1_1(), "rule__TipoProcedimiento__ParametrosAssignment_2_1_1");
+					put(grammarAccess.getTipoProcedimientoAccess().getNombreAssignment_5(), "rule__TipoProcedimiento__NombreAssignment_5");
 					put(grammarAccess.getComentarioAccess().getMensajeAssignment_0(), "rule__Comentario__MensajeAssignment_0");
 					put(grammarAccess.getComentarioAccess().getMensajeAssignment_1(), "rule__Comentario__MensajeAssignment_1");
 					put(grammarAccess.getFuncionFicheroAbrirAccess().getVariableAssignment_1_0(), "rule__FuncionFicheroAbrir__VariableAssignment_1_0");
