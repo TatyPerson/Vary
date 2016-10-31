@@ -119,21 +119,9 @@ NombreInterna returns ecore::EString:
 
 EInt returns ecore::EInt:
 	INT;
-	 
-//terminal EXPONENT: ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 
 EFloat returns ecore::EFloat:
-	INT '.' INT (('E'|'e') INT)?;   
-	//('0'..'9')+ '.' ('0'..'9')* EXPONENT?
-    //|   '.' ('0'..'9')+ EXPONENT?
-    //|   ('0'..'9')+ EXPONENT
-    //;
-
-//ValorRegistro returns ValorRegistro:
-//	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
-	
-//ValorVector returns ValorVector:
-//	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
+	INT '.' INT (('E'|'e') INT)?;
 
 Tipo returns Tipo:
 	TipoDefinido | TipoBasico;
@@ -200,7 +188,6 @@ Asignacion returns Asignacion:
 	
 AsignacionNormal returns AsignacionNormal:
 	valor_asignacion=EString
-//	 Mat+=MAT*
 	'<-'
 	operador=OperacionCompleta;
 	
@@ -208,12 +195,6 @@ AsignacionCompleja returns AsignacionCompleja:
 	valor_asignacion=VariablesComplejas
 	'<-'
 	operador=OperacionCompleta;
-
-//AsignacionCompleja returns AsignacionCompleja:
-//	operadores+=Primaria
-//	Mat+=MAT*
-//	 '='
-//	operadores+=Primaria;
 
 Escribir returns Escribir:
 	'escribir('
@@ -267,27 +248,18 @@ Segun returns Segun:
 		(devuelve=Devolver)?
 	'fin_segun';
 
-//negacion returns negacion:
-//	nombre=EString
-//	ssigno=neg;
-	
-//unaria returns unaria:
-//	ssigno=neg
-//	variable=Primaria;
-
 TipoVariable returns ecore::EString:
 	'entero' | 'caracter' | 'real' | 'logico' | 'cadena';
 	
 Variable returns Variable:
 	 {Variable} nombre=EString;
-//	 Mat+=MAT*;
 
-//VariableID returns VariableID:
-//	{VariableID} nombre=EString;
-	//Mat+=MAT*;
-
-terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ')* '"';
-terminal CAR: "'" ('a'..'z'|'A'..'Z'|'_'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9') "'";
+terminal CAD: '"' ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ'
+	|'/'|'+'|'*'|'¿'|'¡'|'['|']'|';'|'^'|'{'|'}'|'ç'|'Ç'|'$'|'€'|'<'|'>'|'¬'|'¨'
+)* '"';
+terminal CAR: "'" ('a'..'z'|'A'..'Z'|'_'|'-'|' '|'!'|'#'|'@'|'%'|'&'|'('|')'|'='|'?'|'\\'|'0'..'9'|':'|','|'.'|'á'|'é'|'í'|'ó'|'ú'|'ñ'|'Á'|'É'|'Í'|'Ó'|'Ú'|'Ñ'
+	|'/'|'+'|'*'|'¿'|'¡'|'['|']'|';'|'^'|'{'|'}'|'ç'|'Ç'|'$'|'€'|'<'|'>'|'¬'|'¨'
+) "'";
  
 signoOr returns signo:
 	'o';

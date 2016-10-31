@@ -543,9 +543,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
 						} else {
-							descripcionLeer = '''scanf("%i", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''scanf("%i", &«operacion.generate(null)»);'''
 						}
 					}
 				} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
@@ -558,9 +558,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							descripcionLeer = '''fscanf(«variableArchivo»,"%c", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''fscanf(«variableArchivo»,"%c", &«operacion.generate(null)»);'''
 						} else {
-							descripcionLeer = '''scanf("%c", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''scanf("%c", &«operacion.generate(null)»);'''
 						}
 					}
 				} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
@@ -573,9 +573,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
 						} else {
-							descripcionLeer = '''scanf("%s", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''scanf("%s", &«operacion.generate(null)»);'''
 						}
 					}
 				} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -588,9 +588,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
 						} else {
-							descripcionLeer = '''scanf("%f", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''scanf("%f", &«operacion.generate(null)»);'''
 						}
 					}
 	 			} else if(vectoresMatrices.containsKey(tipo)) {
@@ -605,9 +605,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
 							if(archivo) {
-								descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
+								descripcionLeer =  descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
 							} else {
-								descripcionLeer = '''scanf("%i", &«operacion.generate(null)»);'''
+								descripcionLeer =  descripcionLeer + '''scanf("%i", &«operacion.generate(null)»);'''
 							}
 						}
 					} else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
@@ -620,9 +620,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
 							if(archivo) {
-								descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
+								descripcionLeer =  descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
 							} else {
-								descripcionLeer = '''scanf("%s", «operacion.generate(null)»);'''
+								descripcionLeer =  descripcionLeer + '''scanf("%s", «operacion.generate(null)»);'''
 							}
 						}
 					} else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -635,9 +635,9 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
 							if(archivo) {
-								descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
+								descripcionLeer =  descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
 							} else {
-								descripcionLeer = '''scanf("%f", &«operacion.generate(null)»);'''
+								descripcionLeer =  descripcionLeer + '''scanf("%f", &«operacion.generate(null)»);'''
 							}
 						}
 					}
@@ -648,7 +648,7 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 		
 		for(Subproceso subproceso: subprocesos) {
  			var tipo = "";
- 			var resultado = "";
+ 			var descripcionLeer = "";
  			var archivo = false;
 			var variableArchivo = "";
  			for(Operacion operacion: leer.variable) {
@@ -659,117 +659,116 @@ class VaryGrammarGeneratorC extends VaryGrammarAbstractGeneratorCCPP implements 
 					variableArchivo = operacion.generate(null).toString;
 				}
 				if(tipo.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-					if(resultado == "") {
+					if(descripcionLeer.isEmpty) {
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
+							descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%i", &«operacion.generate(null)»);'''
+							descripcionLeer = '''scanf("%i", &«operacion.generate(null)»);'''
 						}
 					} else {
-						resultado = resultado + "\n";
+						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%i", &«operacion.generate(null)»);'''
+							descripcionLeer =  descripcionLeer + '''scanf("%i", &«operacion.generate(null)»);'''
 						}
-						resultado = resultado + '''scanf("%i", &«operacion.generate(null)»);'''
 					}
 				} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-					if(resultado == "") {
+					if(descripcionLeer.isEmpty) {
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%c", &«operacion.generate(null)»);'''
+							descripcionLeer = '''fscanf(«variableArchivo»,"%c", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%c", &«operacion.generate(null)»);'''
+							descripcionLeer = '''scanf("%c", &«operacion.generate(null)»);'''
 						}
 					} else {
-						resultado = resultado + "\n";
+						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%c", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer +  '''fscanf(«variableArchivo»,"%c", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%c", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer +  '''scanf("%c", &«operacion.generate(null)»);'''
 						}
 					}
 				} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
-					if(resultado == "") {
+					if(descripcionLeer.isEmpty) {
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
+							descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%s", «operacion.generate(null)»);'''
+							descripcionLeer = '''scanf("%s", «operacion.generate(null)»);'''
 						}
 					} else {
-						resultado = resultado + "\n";
+						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer +  '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%s", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer +  '''scanf("%s", &«operacion.generate(null)»);'''
 						}
 					}
 				} else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-					if(resultado == "") {
+					if(descripcionLeer.isEmpty) {
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
+							descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%f", &«operacion.generate(null)»);'''
+							descripcionLeer = '''scanf("%f", &«operacion.generate(null)»);'''
 						}
 					} else {
-						resultado = resultado + "\n";
+						descripcionLeer = descripcionLeer + "\n";
 						if(archivo) {
-							resultado = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
 						} else {
-							resultado = '''scanf("%f", &«operacion.generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''scanf("%f", &«operacion.generate(null)»);'''
 						}
 					}
  				} else if(vectoresMatrices.containsKey(tipo)) {
 					var tipoAux = vectoresMatrices.get(tipo);
 					if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_ENTERO"))) {
-						if(resultado == "") {
+						if(descripcionLeer.isEmpty) {
 							if(archivo) {
-								resultado = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
+								descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
 							} else {
-								resultado = '''scanf("%i", &«operacion.generate(null)»);'''
+								descripcionLeer = '''scanf("%i", &«operacion.generate(null)»);'''
 							}
 						} else {
-							resultado = resultado + "\n";
+							descripcionLeer = descripcionLeer + "\n";
 							if(archivo) {
-								resultado = '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«operacion.generate(null)»);'''
 							} else {
-								resultado = '''scanf("%i", &«operacion.generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''scanf("%i", &«operacion.generate(null)»);'''
 							}
 						}
 					} else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
-						if(resultado == "") {
+						if(descripcionLeer.isEmpty) {
 							if(archivo) {
-								resultado = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
+								descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
 							} else {
-								resultado = '''scanf("%s", «operacion.generate(null)»);'''
+								descripcionLeer = '''scanf("%s", «operacion.generate(null)»);'''
 							}
 						} else {
-							resultado = resultado + "\n";
+							descripcionLeer = descripcionLeer + "\n";
 							if(archivo) {
-								resultado = '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«operacion.generate(null)»);'''
 							} else {
-								resultado = '''scanf("%s", «operacion.generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''scanf("%s", «operacion.generate(null)»);'''
 							}
 						}
 					} else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
-						if(resultado == "") {
+						if(descripcionLeer.isEmpty) {
 							if(archivo) {
-								resultado = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
+								descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
 							} else {
-								resultado = '''scanf("%f", &«operacion.generate(null)»);'''
+								descripcionLeer = '''scanf("%f", &«operacion.generate(null)»);'''
 							}
 						} else {
-							resultado = resultado + "\n";
+							descripcionLeer = descripcionLeer + "\n";
 							if(archivo) {
-								resultado = '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«operacion.generate(null)»);'''
 							} else {
-								resultado = '''scanf("%f", &«operacion.generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''scanf("%f", &«operacion.generate(null)»);'''
 							}
 						}
 					}
 				}
 			}
-			return resultado;
+			return descripcionLeer;
 		}
 	}
 }

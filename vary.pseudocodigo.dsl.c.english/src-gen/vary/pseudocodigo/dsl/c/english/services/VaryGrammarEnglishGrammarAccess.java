@@ -1052,7 +1052,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cEKeyword_3_0_1 = (Keyword)cAlternatives_3_0.eContents().get(1);
 		private final RuleCall cINTTerminalRuleCall_3_1 = (RuleCall)cGroup_3.eContents().get(1);
 		
-		////terminal EXPONENT: ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 		//EFloat ecore::EFloat:
 		//	INT '.' INT (('E' | 'e') INT)?
 		@Override public ParserRule getRule() { return rule; }
@@ -1091,14 +1090,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cTipoDefinidoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cTipoBasicoParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		////('0'..'9')+ '.' ('0'..'9')* EXPONENT?
-		////|   '.' ('0'..'9')+ EXPONENT?
-		////|   ('0'..'9')+ EXPONENT
-		////;
-		////ValorRegistro returns ValorRegistro:
-		////	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
-		////ValorVector returns ValorVector:
-		////	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
 		//Tipo:
 		//	TipoDefinido | TipoBasico;
 		@Override public ParserRule getRule() { return rule; }
@@ -1753,13 +1744,11 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		
 		//AsignacionNormal:
 		//	valor_asignacion=EString
-		//	//	 Mat+=MAT*
 		//	'<-'
 		//	operador=OperacionCompleta;
 		@Override public ParserRule getRule() { return rule; }
 
-		//valor_asignacion=EString //	 Mat+=MAT*
-		//'<-' operador=OperacionCompleta
+		//valor_asignacion=EString '<-' operador=OperacionCompleta
 		public Group getGroup() { return cGroup; }
 
 		//valor_asignacion=EString
@@ -1768,7 +1757,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		//EString
 		public RuleCall getValor_asignacionEStringParserRuleCall_0_0() { return cValor_asignacionEStringParserRuleCall_0_0; }
 
-		////	 Mat+=MAT*
 		//'<-'
 		public Keyword getLessThanSignHyphenMinusKeyword_1() { return cLessThanSignHyphenMinusKeyword_1; }
 
@@ -1825,11 +1813,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final RuleCall cOperadorOperacionCompletaParserRuleCall_2_1_0 = (RuleCall)cOperadorAssignment_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		////AsignacionCompleja returns AsignacionCompleja:
-		////	operadores+=Primaria
-		////	Mat+=MAT*
-		////	 '='
-		////	operadores+=Primaria;
 		//Escribir:
 		//	'write('
 		//	operador+=Primaria ("," operador+=OperacionCompleta)*
@@ -2308,12 +2291,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		private final Keyword cBooleanKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cStringKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		
-		////negacion returns negacion:
-		////	nombre=EString
-		////	ssigno=neg;
-		////unaria returns unaria:
-		////	ssigno=neg
-		////	variable=Primaria;
 		//TipoVariable:
 		//	'integer' | 'character' | 'real' | 'boolean' | 'string';
 		@Override public ParserRule getRule() { return rule; }
@@ -4789,7 +4766,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		return getEIntAccess().getRule();
 	}
 
-	////terminal EXPONENT: ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 	//EFloat ecore::EFloat:
 	//	INT '.' INT (('E' | 'e') INT)?
 	public EFloatElements getEFloatAccess() {
@@ -4800,14 +4776,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		return getEFloatAccess().getRule();
 	}
 
-	////('0'..'9')+ '.' ('0'..'9')* EXPONENT?
-	////|   '.' ('0'..'9')+ EXPONENT?
-	////|   ('0'..'9')+ EXPONENT
-	////;
-	////ValorRegistro returns ValorRegistro:
-	////	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
-	////ValorVector returns ValorVector:
-	////	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
 	//Tipo:
 	//	TipoDefinido | TipoBasico;
 	public TipoElements getTipoAccess() {
@@ -4989,7 +4957,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 
 	//AsignacionNormal:
 	//	valor_asignacion=EString
-	//	//	 Mat+=MAT*
 	//	'<-'
 	//	operador=OperacionCompleta;
 	public AsignacionNormalElements getAsignacionNormalAccess() {
@@ -5012,11 +4979,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		return getAsignacionComplejaAccess().getRule();
 	}
 
-	////AsignacionCompleja returns AsignacionCompleja:
-	////	operadores+=Primaria
-	////	Mat+=MAT*
-	////	 '='
-	////	operadores+=Primaria;
 	//Escribir:
 	//	'write('
 	//	operador+=Primaria ("," operador+=OperacionCompleta)*
@@ -5121,12 +5083,6 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 		return getSegunAccess().getRule();
 	}
 
-	////negacion returns negacion:
-	////	nombre=EString
-	////	ssigno=neg;
-	////unaria returns unaria:
-	////	ssigno=neg
-	////	variable=Primaria;
 	//TipoVariable:
 	//	'integer' | 'character' | 'real' | 'boolean' | 'string';
 	public TipoVariableElements getTipoVariableAccess() {
@@ -5149,13 +5105,18 @@ public class VaryGrammarEnglishGrammarAccess extends AbstractGrammarElementFinde
 
 	//terminal CAD:
 	//	'"' ('a'..'z' | 'A'..'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\' | '0'..'9' |
-	//	':' | ',' | '.' | 'á' | 'é' | 'í' | 'ó' | 'ú' | 'ñ' | 'Á' | 'É' | 'Í' | 'Ó' | 'Ú' | 'Ñ')* '"';
+	//	':' | ',' | '.' | 'á' | 'é' | 'í' | 'ó' | 'ú' | 'ñ' | 'Á' | 'É' | 'Í' | 'Ó' | 'Ú' | 'Ñ'
+	//	| '/' | '+' | '*' | '¿' | '¡' | '[' | ']' | ';' | '^' | '{' | '}' | 'ç' | 'Ç' | '$' | '€' | '<' | '>' | '¬' | '¨')*
+	//	'"';
 	public TerminalRule getCADRule() {
 		return tCAD;
 	} 
 
 	//terminal CAR:
-	//	"'" ('a'..'z' | 'A'..'Z' | '_' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\' | '0'..'9') "'";
+	//	"'" ('a'..'z' | 'A'..'Z' | '_' | '-' | ' ' | '!' | '#' | '@' | '%' | '&' | '(' | ')' | '=' | '?' | '\\' | '0'..'9' |
+	//	':' | ',' | '.' | 'á' | 'é' | 'í' | 'ó' | 'ú' | 'ñ' | 'Á' | 'É' | 'Í' | 'Ó' | 'Ú' | 'Ñ'
+	//	| '/' | '+' | '*' | '¿' | '¡' | '[' | ']' | ';' | '^' | '{' | '}' | 'ç' | 'Ç' | '$' | '€' | '<' | '>' | '¬' | '¨')
+	//	"'";
 	public TerminalRule getCARRule() {
 		return tCAR;
 	} 

@@ -703,7 +703,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 						descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
-						descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
+						descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
@@ -711,7 +711,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 						descripcionLeer = '''fscanf(«variableArchivo»,"%c", &«leer.variable.get(1).generate(null)»);'''
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
-						descripcionLeer = '''fscanf(«variableArchivo»,"%c", &«leer.variable.get(1).generate(null)»);'''
+						descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%c", &«leer.variable.get(1).generate(null)»);'''
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
@@ -719,7 +719,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 						descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
-						descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
+						descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 					}
 				}
 				else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -727,7 +727,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 						descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
 					} else {
 						descripcionLeer = descripcionLeer + "\n";
-						descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
+						descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
 					}
 		 		}
 		 		else if(vectoresMatrices.containsKey(tipo)) {
@@ -737,7 +737,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 						}
 					}
 					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
@@ -745,7 +745,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 						}
 					}
 					else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -754,7 +754,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 						}
 						else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
 						}
 					}
 				}
@@ -776,7 +776,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 						}
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
@@ -784,7 +784,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							descripcionLeer = '''fscanf(«variableArchivo»,"%c", &«leer.variable.get(1).generate(null)»);'''
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%c", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%c", &«leer.variable.get(1).generate(null)»);'''
 						}
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_CADENA"))) {
@@ -792,7 +792,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 						}
 					}
 					else if(tipo.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -800,7 +800,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
 						} else {
 							descripcionLeer = descripcionLeer + "\n";
-							descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
+							descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
 						}
 			 		}
 			 		else if(vectoresMatrices.containsKey(tipo)) {
@@ -810,7 +810,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 								descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 							} else {
 								descripcionLeer = descripcionLeer + "\n";
-								descripcionLeer = '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%i", &«leer.variable.get(1).generate(null)»);'''
 							}
 						}
 						else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(readerMessages.getBundle().getString("TIPO_CARACTER"))) {
@@ -818,7 +818,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 								descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 							} else {
 								descripcionLeer = descripcionLeer + "\n";
-								descripcionLeer = '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%s", &«leer.variable.get(1).generate(null)»);'''
 							}
 						}
 						else if(tipoAux.equals(readerMessages.getBundle().getString("TIPO_REAL"))) {
@@ -827,7 +827,7 @@ class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP implement
 							}
 							else {
 								descripcionLeer = descripcionLeer + "\n";
-								descripcionLeer = '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
+								descripcionLeer = descripcionLeer + '''fscanf(«variableArchivo»,"%f", &«leer.variable.get(1).generate(null)»);'''
 							}
 						}
 					}

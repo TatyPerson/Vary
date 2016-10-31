@@ -5053,14 +5053,6 @@ protected class FuncionFicheroCerrar_RightParenthesisKeyword_2 extends KeywordTo
 
 /************ begin Rule Tipo ****************
  *
- * //('0'..'9')+ '.' ('0'..'9')* EXPONENT?
- * //|   '.' ('0'..'9')+ EXPONENT?
- * //|   ('0'..'9')+ EXPONENT
- * //;
- * //ValorRegistro returns ValorRegistro:
- * //	nombre_registro=EString '.' (campo+=CampoRegistro ('.' campo+=CampoRegistro)* );
- * //ValorVector returns ValorVector:
- * //	((nombre_vector=EString)'['(indice=NumeroEntero | indice=VariableID)']') ('.' (campo+=CampoRegistro) )?;
  * Tipo:
  * 	TipoDefinido | TipoBasico;
  *
@@ -8038,14 +8030,12 @@ protected class Asignacion_AsignacionComplejaParserRuleCall_1 extends RuleCallTo
  *
  * AsignacionNormal:
  * 	valor_asignacion=EString
- * 	//	 Mat+=MAT*
  * 	'<-'
  * 	operador=OperacionCompleta;
  *
  **/
 
-// valor_asignacion=EString //	 Mat+=MAT*
-// '<-' operador=OperacionCompleta
+// valor_asignacion=EString '<-' operador=OperacionCompleta
 protected class AsignacionNormal_Group extends GroupToken {
 	
 	public AsignacionNormal_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -8107,7 +8097,6 @@ protected class AsignacionNormal_Valor_asignacionAssignment_0 extends Assignment
 
 }
 
-// //	 Mat+=MAT*
 // '<-'
 protected class AsignacionNormal_LessThanSignHyphenMinusKeyword_1 extends KeywordToken  {
 	
@@ -8337,11 +8326,6 @@ protected class AsignacionCompleja_OperadorAssignment_2 extends AssignmentToken 
 
 /************ begin Rule Escribir ****************
  *
- * //AsignacionCompleja returns AsignacionCompleja:
- * //	operadores+=Primaria
- * //	Mat+=MAT*
- * //	 '='
- * //	operadores+=Primaria;
  * Escribir:
  * 	'escribir('
  * 	operador+=Primaria ("," operador+=OperacionCompleta)*

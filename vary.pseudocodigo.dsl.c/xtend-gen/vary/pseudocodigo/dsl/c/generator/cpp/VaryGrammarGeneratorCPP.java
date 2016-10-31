@@ -1692,7 +1692,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
               CharSequence _generate_2 = this.generate(_get_4, null);
               _builder_1.append(_generate_2, "");
               _builder_1.append(");");
-              descripcionLeer = _builder_1.toString();
+              String _plus = (descripcionLeer + _builder_1);
+              descripcionLeer = _plus;
             }
           } else {
             ResourceBundle _bundle_1 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -1722,7 +1723,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                 CharSequence _generate_4 = this.generate(_get_6, null);
                 _builder_3.append(_generate_4, "");
                 _builder_3.append(");");
-                descripcionLeer = _builder_3.toString();
+                String _plus_1 = (descripcionLeer + _builder_3);
+                descripcionLeer = _plus_1;
               }
             } else {
               ResourceBundle _bundle_2 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -1752,7 +1754,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   CharSequence _generate_6 = this.generate(_get_8, null);
                   _builder_5.append(_generate_6, "");
                   _builder_5.append(");");
-                  descripcionLeer = _builder_5.toString();
+                  String _plus_2 = (descripcionLeer + _builder_5);
+                  descripcionLeer = _plus_2;
                 }
               } else {
                 ResourceBundle _bundle_3 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -1782,7 +1785,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     CharSequence _generate_8 = this.generate(_get_10, null);
                     _builder_7.append(_generate_8, "");
                     _builder_7.append(");");
-                    descripcionLeer = _builder_7.toString();
+                    String _plus_3 = (descripcionLeer + _builder_7);
+                    descripcionLeer = _plus_3;
                   }
                 } else {
                   boolean _containsKey = VaryGrammarAbstractGeneratorCCPP.vectoresMatrices.containsKey(tipo);
@@ -1815,7 +1819,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         CharSequence _generate_10 = this.generate(_get_12, null);
                         _builder_9.append(_generate_10, "");
                         _builder_9.append(");");
-                        descripcionLeer = _builder_9.toString();
+                        String _plus_4 = (descripcionLeer + _builder_9);
+                        descripcionLeer = _plus_4;
                       }
                     } else {
                       if ((tipoAux.equals(VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux.equals(VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle().getString("TIPO_CARACTER")))) {
@@ -1842,7 +1847,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                           CharSequence _generate_12 = this.generate(_get_14, null);
                           _builder_11.append(_generate_12, "");
                           _builder_11.append(");");
-                          descripcionLeer = _builder_11.toString();
+                          String _plus_5 = (descripcionLeer + _builder_11);
+                          descripcionLeer = _plus_5;
                         }
                       } else {
                         ResourceBundle _bundle_5 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -1872,7 +1878,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                             CharSequence _generate_14 = this.generate(_get_16, null);
                             _builder_13.append(_generate_14, "");
                             _builder_13.append(");");
-                            descripcionLeer = _builder_13.toString();
+                            String _plus_6 = (descripcionLeer + _builder_13);
+                            descripcionLeer = _plus_6;
                           }
                         }
                       }
@@ -1887,10 +1894,10 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
           EList<Operacion> _variable_17 = leer.getVariable();
           for (final Operacion operador : _variable_17) {
             CharSequence _generate_15 = this.generate(operador, null);
-            String _plus = ((descripcionLeer + "cin >> ") + _generate_15);
-            String _plus_1 = (_plus + ";");
-            String _plus_2 = (_plus_1 + "\n");
-            descripcionLeer = _plus_2;
+            String _plus_7 = ((descripcionLeer + "cin >> ") + _generate_15);
+            String _plus_8 = (_plus_7 + ";");
+            String _plus_9 = (_plus_8 + "\n");
+            descripcionLeer = _plus_9;
           }
           return descripcionLeer;
         }
@@ -1940,7 +1947,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                   CharSequence _generate_18 = this.generate(_get_21, null);
                   _builder_15.append(_generate_18, "");
                   _builder_15.append(");");
-                  descripcionLeer = _builder_15.toString();
+                  String _plus_10 = (descripcionLeer + _builder_15);
+                  descripcionLeer = _plus_10;
                 }
               } else {
                 ResourceBundle _bundle_7 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -1970,7 +1978,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                     CharSequence _generate_20 = this.generate(_get_23, null);
                     _builder_17.append(_generate_20, "");
                     _builder_17.append(");");
-                    descripcionLeer = _builder_17.toString();
+                    String _plus_11 = (descripcionLeer + _builder_17);
+                    descripcionLeer = _plus_11;
                   }
                 } else {
                   ResourceBundle _bundle_8 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -2000,7 +2009,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                       CharSequence _generate_22 = this.generate(_get_25, null);
                       _builder_19.append(_generate_22, "");
                       _builder_19.append(");");
-                      descripcionLeer = _builder_19.toString();
+                      String _plus_12 = (descripcionLeer + _builder_19);
+                      descripcionLeer = _plus_12;
                     }
                   } else {
                     ResourceBundle _bundle_9 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -2030,7 +2040,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                         CharSequence _generate_24 = this.generate(_get_27, null);
                         _builder_21.append(_generate_24, "");
                         _builder_21.append(");");
-                        descripcionLeer = _builder_21.toString();
+                        String _plus_13 = (descripcionLeer + _builder_21);
+                        descripcionLeer = _plus_13;
                       }
                     } else {
                       boolean _containsKey_1 = VaryGrammarAbstractGeneratorCCPP.vectoresMatrices.containsKey(tipo);
@@ -2063,7 +2074,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                             CharSequence _generate_26 = this.generate(_get_29, null);
                             _builder_23.append(_generate_26, "");
                             _builder_23.append(");");
-                            descripcionLeer = _builder_23.toString();
+                            String _plus_14 = (descripcionLeer + _builder_23);
+                            descripcionLeer = _plus_14;
                           }
                         } else {
                           if ((tipoAux_1.equals(VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle().getString("TIPO_CADENA")) || tipoAux_1.equals(VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle().getString("TIPO_CARACTER")))) {
@@ -2090,7 +2102,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                               CharSequence _generate_28 = this.generate(_get_31, null);
                               _builder_25.append(_generate_28, "");
                               _builder_25.append(");");
-                              descripcionLeer = _builder_25.toString();
+                              String _plus_15 = (descripcionLeer + _builder_25);
+                              descripcionLeer = _plus_15;
                             }
                           } else {
                             ResourceBundle _bundle_11 = VaryGrammarAbstractGeneratorCCPP.readerMessages.getBundle();
@@ -2120,7 +2133,8 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
                                 CharSequence _generate_30 = this.generate(_get_33, null);
                                 _builder_27.append(_generate_30, "");
                                 _builder_27.append(");");
-                                descripcionLeer = _builder_27.toString();
+                                String _plus_16 = (descripcionLeer + _builder_27);
+                                descripcionLeer = _plus_16;
                               }
                             }
                           }
@@ -2135,10 +2149,10 @@ public class VaryGrammarGeneratorCPP extends VaryGrammarAbstractGeneratorCCPP im
               EList<Operacion> _variable_35 = leer.getVariable();
               for (final Operacion operador_1 : _variable_35) {
                 CharSequence _generate_31 = this.generate(operador_1, null);
-                String _plus_3 = ((descripcionLeer + "cin >> ") + _generate_31);
-                String _plus_4 = (_plus_3 + ";");
-                String _plus_5 = (_plus_4 + "\n");
-                descripcionLeer = _plus_5;
+                String _plus_17 = ((descripcionLeer + "cin >> ") + _generate_31);
+                String _plus_18 = (_plus_17 + ";");
+                String _plus_19 = (_plus_18 + "\n");
+                descripcionLeer = _plus_19;
               }
               return descripcionLeer;
             }
